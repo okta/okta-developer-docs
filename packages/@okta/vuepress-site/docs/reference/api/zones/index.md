@@ -115,6 +115,8 @@ Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
+> **Note**: Continent codes are not intended to be used as `country` or `region` definitions. To include all of the countries in a continent, each country needs to be specified individually in a Location definition.  If a continent code is used, then traffic from a designated country region within the continent might not be considered. For example, if `EU` or `AP` is used instead of a country code, then the Location definition treats Europe or Asia/Pacific as generic codes for undesignated regions rather than inclusive of the countries they contain.
+
 #### Location object example (with region)
 
 ```json
@@ -456,7 +458,7 @@ A subset of Zones can be returned that match a supported filter expression or qu
 
 | Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/api-overview/#filter) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/core-okta-api/#filter) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
 ##### Response parameters
@@ -595,9 +597,9 @@ curl -X GET \
 
 Lists all Zones that match the filter criteria
 
-This operation requires [URL encoding](/docs/reference/api-overview/#filter). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
+This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
 
-We support filtering on the `id` and `usage` properties. See [Filtering](/docs/reference/api-overview/#filter) for more information about the expressions used in filtering.
+We support filtering on the `id` and `usage` properties. See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
 ##### Request example
 

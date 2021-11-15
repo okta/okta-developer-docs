@@ -14,7 +14,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-mobile-app/ios/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-mobile-app/ios/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -60,7 +60,7 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
         </li>
 	<li>
 		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-react-native/ios">
+		<a href="https://github.com/okta/okta-react-native/tree/master/ios">
 			<span>React Native app with Okta's OpenID Connect API</span>
 		</a>
 	</li>
@@ -77,7 +77,7 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
 
 
 - [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social Login](/docs/concepts/social-login/)
+- [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 

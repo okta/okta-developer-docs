@@ -10,7 +10,7 @@ layout: Guides
 
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
-The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs.
+The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
@@ -18,7 +18,7 @@ If you need help or have an issue, post a question on the [Okta Developer Forum]
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Have the Device Authorization feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Device Authorization Grant slider, and slide to enable.
 
 ## Configure an application to use the Device Authorization Grant
@@ -34,11 +34,11 @@ To create a Native OpenID Connect application and then configure it to support D
 
 ## Configure the Authorization Server policy rule for Device Authorization
 
-Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level if you're planning to use a Custom Authorization Server. Note that if you're planning to use the Org Authorization Server, you can skip this step.
+Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level if you're planning to use a Custom Authorization Server. If you're planning to use the Org Authorization Server, you can skip this step. Examples in this guide use the "default" Custom Authorization Server.
 
 To check that Device Authorization is enabled:
 
-1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server. Note that the examples in this guide use the "default" Custom Authorization Server.
+1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
 1. Click the pencil icon for the Default Policy Rule.
 1. In the Edit Rule dialog box, select **Device Authorization** for the grant type and click **Update Rule**.
@@ -63,17 +63,18 @@ curl --request POST \
 The device authorization request passes the following parameters:
 
 * `client_id` &mdash; matches the Client ID of the OAuth 2.0 application that you created
-* `scope` &mdash; specifies which access privileges are being requested for access tokens. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
+* `scope` &mdash; specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
 **Example response**
 
 ```json
 {
-   "device_code": "f5ec0430-c2fe-4a93-912d-08631f1effed",
-   "user_code": "HMBSRJRC",
-   "verification_uri": "https://${yourOktaDomain}/activate",
-   "expires_in": 600,
-   "interval": 5
+    "device_code": "4ebdb4de-1f8b-4497-be01-ddfaf83c4e9c",
+    "user_code": "MHXTFRPK",
+    "verification_uri": "https://${yourOktaDomain}/activate",
+    "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=MHXTFRPK",
+    "expires_in": 600,
+    "interval": 5
 }
 ```
 
@@ -81,17 +82,16 @@ The properties in the response are:
 
 * `device_code`: The long string that the device uses to exchange for an access token.
 * `user_code`: The text that you enter at the URL that is listed as the value for `verification_uri`.
-* `verification_uri`: The URL that the user needs to enter into their phone to start signing in.
+* `verification_uri`: The URL that the user needs to access from their device to start the sign-in process.
+* `verification_uri_complete`: The URL that the client uses to generate the QR Code for the user to scan.
 * `expires_in`: The number of seconds that this set of values is valid. After the device code and user code expire, the user has to start the device verification process over.
 * `interval`: The number of seconds that the device should wait between polling to see if the user has finished signing in.
 
-The `user_code` and `verification_uri` must appear on the smart device for the user.
+The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR code, the client generates the code using the `verification_uri_complete` value returned in the response and displays it on the device for the user to scan.
 
-> **Note:** A QR code compliant verification URI is coming soon.
+#### Example of the display on a smart device
 
-#### Example of the display on the smart device
-
-![Verification on the smart device:](/img/DeviceAuthGrant2.png)
+![Verification on the smart device](/img/QRActivate.png)
 
 ### Request access, ID, and refresh tokens
 
@@ -106,10 +106,10 @@ curl --request POST \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code=${deviceCode)'
+  --data-urlencode 'device_code=${deviceCode}'
 ```
 
-Note the paramters that are being passed:
+Note the parameters that are being passed:
 
 * `grant_type`: Identifies the mechanism that Okta uses to retrieve the tokens. Value: `urn:ietf:params:oauth:grant-type:device_code`
 * `device_code`: The string that the device uses to exchange for an access token. Use the `device_code` value from the device verification response.

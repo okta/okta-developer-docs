@@ -14,7 +14,7 @@ When a request is sent to the Okta Org Authorization Server's `/authorize` endpo
 Alternatively, you can add grants using the `/grants` API. The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/client_id/grants' \
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/${appInstanceId}/grants' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: SSWS ${api_token}' \

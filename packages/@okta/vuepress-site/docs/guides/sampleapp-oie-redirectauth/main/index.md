@@ -1,13 +1,40 @@
 ---
 title: Use redirect auth with the sample apps
-excerpt: Learn how to test some of the features of Identity Engine with our sample apps
+excerpt: Learn how to test some of the features of Okta Identity Engine with our sample apps
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+<StackSelector />
+
+This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
+
+---
+
+**Learning outcomes**
+
+* Create, set up, and install an Okta OAuth 2.0 app.
+* Enroll and authenticate a user.
+* Enable self-service enrollment and enable a second factor for authentication.
+* Use email and Okta Verify as recovery options.
+* Add a profile attribute to the Profile Enrollment Policy.
+* Route users to an external IdP.
+
+**What you need**
+
+[Sample app](/docs/guides/oie-embedded-common-download-setup-app)
+
+**Sample code**
+
+n/a
+
+---
+
+## Use case scenarios
+
+The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
@@ -15,10 +42,6 @@ This document walks you through setting up an Okta sample app to demonstrate som
 * [Authenticator recovery](#authenticator-recovery)
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
-
-Select your sample app language.
-
-<StackSelector />
 
 ## Initial set up
 
@@ -61,7 +84,7 @@ This section walks you through enrolling a user and authenticating that user.
 <StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) is configured.
 5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment
@@ -79,7 +102,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
 
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+> **Note:** See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Try enrollment
 
@@ -233,7 +256,7 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
-    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).
+    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings).
 
 4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.

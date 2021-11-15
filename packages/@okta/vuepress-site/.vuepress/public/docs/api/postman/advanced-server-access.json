@@ -5551,7 +5551,7 @@
 								}
 							]
 						},
-						"description": "Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form `Bearer ${AUTH_TOKEN}`.\nTo retrieve an auth token, you'll need to [create a service user and API key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users), then pass the API key information to this endpoint.\nAuth tokens may expire at any time, so code using them should be prepared to handle a 401 response code by creating a new one."
+						"description": "Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form `Bearer ${AUTH_TOKEN}`.\nTo retrieve an auth token, you'll need to [create a service user and API key](https://help.okta.com/okta_help.htm?id=ext_asa_service_users), then pass the API key information to this endpoint.\nAuth tokens may expire at any time, so code using them should be prepared to handle a 401 response code by creating a new one."
 					},
 					"response": [
 						{

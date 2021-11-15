@@ -4,7 +4,7 @@ title: Test the authorization server
 
 After you have followed the instructions to set up and customize your authorization server, you can test it by sending any one of the API calls that returns OAuth 2.0 and/or OpenID Connect tokens.
 
-> **Note:** The `{authServerId}` for the default server is `default`.
+> **Note:** The `${authorizationServerId}` for the default server is `default`.
 
 You can find a full description of Okta's relevant APIs on the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) page.
 
@@ -14,7 +14,7 @@ The following are a few things that you can try to ensure that your authorizatio
 
 ### OpenID Connect configuration
 
-To verify that your server was created and has the expected configuration values, you can send an API request to the server's OpenID Connect Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This returns information about the OpenID configuration of your authorization server.
+To verify that your server was created and has the expected configuration values, you can send an API request to the server's OpenID Connect Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This returns information about the OpenID configuration of your authorization server.
 
 For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
 
@@ -22,13 +22,13 @@ For more information on this endpoint, see how to [retrieve authorization server
 
 You can retrieve a list of all scopes for your authorization server, including custom ones, using this endpoint:
 
-`/api/v1/authorizationServers/${authServerId}/scopes`
+`/api/v1/authorizationServers/${authorizationServerId}/scopes`
 
 For more information on this endpoint, see [Get all scopes](/docs/reference/api/authorization-servers/#get-all-scopes).
 
 If you created any custom claims, the easiest way to confirm that they have been successfully added is to use this endpoint:
 
-`/api/v1/authorizationServers/${authServerId}/claims`
+`/api/v1/authorizationServers/${authorizationServerId}/claims`
 
 For more information on this endpoint, see [Get all claims](/docs/reference/api/authorization-servers/#get-all-claims).
 
@@ -38,8 +38,8 @@ To test your authorization server more thoroughly, you can try a full authentica
 
 For more information you can read about:
 
-- [The OpenID Connect Application Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc)
-- [How to assign a user to an application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps)
+- [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [Assign applications to users](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 
 You need the following values from your Okta OpenID Connect application, both of which can be found on your application's **General** tab:
 
@@ -48,10 +48,10 @@ You need the following values from your Okta OpenID Connect application, both of
 
 Once you have an OpenID Connect application set up, and a user assigned to it, you can try the authentication flow.
 
-First, you need the authorization server's authorization endpoint, which you can retrieve using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`.
+First, you need the authorization server's authorization endpoint, which you can retrieve using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
 
 It looks like this:
-`https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
+`https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
 Add the following URL query parameters to the URL:
 
@@ -66,7 +66,7 @@ All of the values are fully documented here: [Obtain an Authorization Grant from
 
 The resulting URL looks like this:
 
-`https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA&response_type=id_token&response_mode=fragment&scope=openid%20profile&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com&state=WM6D&nonce=YsG76jo`
+`https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA&response_type=id_token&response_mode=fragment&scope=openid%20profile&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com&state=WM6D&nonce=YsG76jo`
 
 If you paste this into your browser, you are redirected to the sign-in page for your Okta org with a URL that looks like this:
 
@@ -84,7 +84,7 @@ To check the returned ID Token, you can copy the value and paste it into any JWT
  "name": "John Smith",
  "locale": "en-US",
  "ver": 1,
- "iss": "https://${yourOktaDomain}/oauth2/${authServerId}",
+ "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
  "aud": "fa39J40exampleXdcCwWA",
  "iat": 1498328175,
  "exp": 1498331912,

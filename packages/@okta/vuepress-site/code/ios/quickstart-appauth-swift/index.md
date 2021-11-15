@@ -37,11 +37,11 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 <plist version="1.0">
 <dict>
 	<key>issuer</key>
-	<string>https://${yourOktaDomain}/oauth2/{authServerId}</string>
+	<string>https://${yourOktaDomain}/oauth2/${authorizationServerId}</string>
 	<key>clientId</key>
-	<string>{clientIdValue}</string>
+	<string>${clientIdValue}</string>
 	<key>redirectUri</key>
-	<string>{redirectUrlValue}</string>
+	<string>${redirectUrlValue}</string>
         <key>scopes</key>
 	<array>
 		<string>offline_access</string>

@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard.
+The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
@@ -60,6 +60,7 @@ Content-Type: application/json
   {
     "id": "bndul904tTZ6kWVhP0g3",
     "customPrivacyPolicyUrl": null,
+    "removePoweredByOkta": false,
     "_links": {
       "themes": {
         "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -85,7 +86,7 @@ Content-Type: application/json
 
 ### Get Brand
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}" />
 
 Fetches a brand by `brandId`
 
@@ -126,6 +127,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -150,7 +152,7 @@ Content-Type: application/json
 
 ### Update Brand
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
 
 Updates a Brand by `brandId`
 
@@ -171,6 +173,8 @@ Returns an updated [Brand Response](#brand-response-object)
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with error code `E0000001`.
+
+`removePoweredByOkta` is optional. Default value is `false`.
 
 #### Use examples
 
@@ -200,6 +204,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy",
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -222,7 +227,7 @@ Content-Type: application/json
 }
 ```
 
-The following example resets a privacy policy URL to use the Okta default privacy policy URL.
+The following example resets a privacy policy URL to use the Okta default privacy policy URL and removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.
 
 ##### Request
 
@@ -232,7 +237,8 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "customPrivacyPolicyUrl": null
+  "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": true
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
 ```
 
@@ -247,6 +253,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": true,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -355,7 +362,7 @@ The Themes API has the following CRUD operations:
 
 ### Get Themes
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
 List all the themes in your brand
 
@@ -453,7 +460,7 @@ Content-Type: application/json
 
 ### Get Theme
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 Fetches a Theme for a Brand
 
@@ -549,11 +556,9 @@ Content-Type: application/json
 
 ### Update Theme
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 Updates a Theme for a Brand
-
-> **Note:** Clear the browser cache to see the new changes after updating the Theme.
 
 #### Request path parameters
 
@@ -707,7 +712,7 @@ Content-Type: application/json
             "errorSummary": "emailTemplateTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, FULL_THEME]."
         },
         {
-            "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME]."
+            "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME, LOGO_ON_FULL_WHITE_BACKGROUND]."
         }
     ]
 }
@@ -715,7 +720,7 @@ Content-Type: application/json
 
 ### Upload Theme Logo
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
 
 Updates the logo for your Theme
 
@@ -812,7 +817,7 @@ Content-Type: application/json
 
 ### Delete Theme logo
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
 
 Deletes a Theme logo. The org then uses the Okta default logo.
 
@@ -852,7 +857,7 @@ HTTP/1.1 204 No Content
 
 ### Upload Theme Favicon
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 
 Updates the favicon for your theme
 
@@ -933,7 +938,7 @@ Content-Type: application/json
 
 ### Delete Theme favicon
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 
 Deletes a Theme favicon. The org then uses the Okta default favicon.
 
@@ -973,7 +978,7 @@ HTTP/1.1 204 No Content
 
 ### Upload Theme background image
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 Updates the background image for your Theme
 
@@ -1054,7 +1059,7 @@ Content-Type: application/json
 
 ### Delete Theme background image
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 Deletes a Theme background image
 
@@ -1102,6 +1107,7 @@ The Brand request object defines the following properties:
 | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | `agreeToCustomPrivacyPolicy`  | boolean                 | (Optional) Consent for updating the custom privacy policy URL. Not required when resetting the URL. |
 | `customPrivacyPolicyUrl`      | String                  | Custom privacy policy URL. Default value: `null`.                                                   |
+| `removePoweredByOkta`         | boolean                 | (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. Default value: `false`.       |
 | `_links`                      | [Links](#links-object)  | Link relations for this object                                                                      |
 
 #### Brand example
@@ -1121,15 +1127,25 @@ Resets a privacy policy URL
 }
 ```
 
+Updates the setting to remove the "Powered by Okta" wording
+```json
+{
+  "agreeToCustomPrivacyPolicy": true,
+  "removePoweredByOkta": true,
+  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
+}
+```
+
 ### Brand Response object
 
 The Brand Response object defines the following properties:
 
-| Property                  | Type                    | Description                     |
-| ------------------------- | ----------------------- | ------------------------------- |
-| `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL       |
-| `id`                      | String                  | Brand ID                        |
-| `_links`                  | [Links](#links-object)  | Link relations for this object  |
+| Property                  | Type                    | Description                                             |
+| ------------------------- | ----------------------- | ------------------------------------------------------- |
+| `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL                               |
+| `removePoweredByOkta`     | boolean                 | Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard. |
+| `id`                      | String                  | Brand ID                                                |
+| `_links`                  | [Links](#links-object)  | Link relations for this object                          |
 
 #### Brand response example
 
@@ -1137,6 +1153,7 @@ The Brand Response object defines the following properties:
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -1168,13 +1185,15 @@ The Theme object defines the following properties:
 | Property                              | Type     | Description                                                                                                                | Default Value     |
 | ------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | `primaryColorHex`                     | String   | Primary color hex code                                                                                                   | `#1662dd`         |
-| `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#000000`         |
+| `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#ffffff`         |
 | `secondaryColorHex`                   | String   | Secondary color hex code                                                                                                 | `#ebebed`         |
 | `secondaryColorContrastHex`           | String   | (Optional) Secondary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                       | `#000000`         |
 | `signInPageTouchPointVariant`         | Enum     | Variant for sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
-| `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.                    | `OKTA_DEFAULT`    |
+| `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+
+> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
@@ -1190,17 +1209,18 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo with no background image and the Okta default colors on the Okta Sign-In Page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
-| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon with no background image, and the Okta colors on the Okta Sign-In Page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for the Okta End-User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo with a white background color for the logo and the side navigation bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo and use `primaryColorHex` for the side navigation bar background color.   |
-| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side navigatioin bar background color                                    |
+| `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
+| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
+| `FULL_THEME`                    | Use the logo from Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use favicon from Theme                                    |
+| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from Theme, white background color for the logo and the side navigation bar background color, and use favicon from Theme                                    |
 
 #### Variants for Error Page:
 
@@ -1208,15 +1228,15 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo and the Okta default background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page.                 |
-| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon, and the Okta background color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page and use favicon from Theme.                 |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo and the Okta default colors in the email templates.    |
+| `OKTA_DEFAULT`                  | Use the Okta logo and the Okta colors in the email templates.    |
 | `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
 
 

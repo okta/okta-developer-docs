@@ -141,6 +141,11 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../assets/css/abstracts/_colors.scss';
+
+  $border_color: map-get(map-get($colors, 'form'), 'input-border');
+  $link_color: map-get(map-get($colors, 'link'), 'base');
+
   .error-codes {
     .PageContent-main {
       padding-right: 0;
@@ -164,13 +169,13 @@
 
     select {
       height: 45px;
-      border: 2px solid #d2d2d6;
+      border: 2px solid $border_color;
     }
 
     #error-code-search {
       flex: 1;
       margin-right: 10px;
-      border: 2px solid #d2d2d6;
+      border: 2px solid $border_color;
       font-size: 18px;
       padding-top:10px;
       padding-bottom: 10px;
@@ -178,7 +183,7 @@
     }
 
     #error-code-search::placeholder {
-      color: #d2d2d6;
+      color: $border_color;
     }
 
     #error-code-release {
@@ -198,8 +203,8 @@
         padding: 6px 10px;
         clear: left;
         overflow: hidden;
-        border-left: 3px solid #007dc1;
-        color: #007dc1;
+        border-left: 3px solid $link_color;
+        color: $link_color;
         text-overflow: ellipsis;
         white-space: nowrap;
 
@@ -227,7 +232,7 @@
       }
 
       .toggleErrorExample {
-        color: #007dc1;
+        color: $link_color;
         cursor: pointer;
 
         .underline:hover {

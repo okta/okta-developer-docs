@@ -2,23 +2,29 @@
 <div class="breadcrumb" v-if="showBreadcrumb">
   <div class="breadcrumb--container">
     <ol>
-      <li v-for="(crumb, index) in crumbs" :key="index">
+      <li v-for="(crumb, index) in crumbItems" :key="index">
         <router-link v-if="crumb.link" :to="crumb.link">{{crumb.title}}</router-link>
         <span v-else>{{crumb.title}}</span>
-        <svg viewBox="0 0 256 512">
-          <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9L5 5L1 1" stroke="#1D1D21"/>
         </svg>
       </li>
-      <li class="crumb-show-contents" @click="toggleTreeNav" >{{showHideContents}}</li>
     </ol>
   </div>
 </div>
 </template>
 
 <script>
+
   export default {
     name: "Breadcrumb",
     inject: ['appContext'],
+    data() {
+      return {
+        crumbs: [],
+        crumbParents: []
+      };
+    },
     computed: {
       showHideContents() {
         if(this.appContext.isTreeNavMobileOpen) {
@@ -33,42 +39,74 @@
 
         return true;
       },
-      crumbs() {
-        let crumbs = [];
-
-        crumbs.push({'title': 'Docs'});
-
-        if(this.$page.path.startsWith('/code/')) {
-          crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
-        }
-
-        if(this.$page.path.startsWith('/quickstart/')) {
-          crumbs.push({'link': '/quickstart/', 'title': 'Quickstart'});
-        }
-
-        if(this.$page.path.startsWith('/docs/reference/')) {
-          crumbs.push({'link': '/docs/reference/', 'title': 'Reference'});
-        }
-
-        if(this.$page.path.startsWith('/docs/concepts/')) {
-          crumbs.push({'link': '/docs/concepts/', 'title': 'Concepts'});
-        }
-
-        if(this.$page.path.startsWith('/docs/guides/')) {
-          crumbs.push({'link': '/docs/guides/', 'title': 'Guides'});
-        }
-
-        if(this.$page.path.startsWith('/docs/release-notes/')) {
-          crumbs.push({'link': '/docs/release-notes/', 'title': 'Release Notes'});
-        }
-
-
+      crumbItems() {
+        this.crumbs = [];
+        this.crumbParents = [];
+        let crumbs = this.getCrumbs(this.appContext.treeNavDocs);
         return crumbs;
       }
     },
     methods: {
       toggleTreeNav: function(value) {
-        this.$parent.$emit('toggle-tree-nav', {treeNavOpen: !this.appContext.isTreeNavMobileOpen});
+        document.querySelector('.mobile--toggle').click();
+      },
+
+      getCrumbs: function(menu, parent = null) {
+        for (const menuItem of menu) {
+          if (Array.isArray(menuItem)) {
+            this.getCrumbs(menuItem);
+          }
+
+          if (parent) {
+            menuItem.parents = _.union([parent], parent.parents)
+          }
+
+          if(menuItem.path != undefined && this.$page.path === menuItem.path) {
+
+            //add parent crumbs           
+            menuItem.parents.reverse().map((parentCrumb) => {
+              this.crumbs.push({'link': parentCrumb.path, 'title': parentCrumb.title});
+            });
+
+            this.crumbs.push({'link': menuItem.path, 'title': menuItem.title});
+          }
+
+          if (menuItem.subLinks != undefined) {
+            // menuItem = this.addMainLinks(menuItem);
+            this.getCrumbs(menuItem.subLinks, menuItem);
+          }
+        }
+
+        return this.crumbs;
+      },
+
+      addMainLinks: function(menuItem) {   
+        if(menuItem.title === 'Guides' && this.$page.path.startsWith('/docs/guides/')) {
+          menuItem.path = '/docs/guides/';
+        }       
+        if(menuItem.title === 'Concepts' && this.$page.path.startsWith('/docs/concepts/')) {
+          menuItem.path = '/docs/concepts/';
+        }     
+        if(menuItem.title === 'Reference' && this.$page.path.startsWith('/docs/reference/')) {
+          menuItem.path = '/docs/reference/';
+        }
+        if(menuItem.title === 'Languages & SDKs' && this.$page.path.startsWith('/code/')) {
+          menuItem.path = '/code/';
+        }
+        if(menuItem.title === 'Release Notes' && this.$page.path.startsWith('/docs/release-notes/')) {
+          menuItem.path = '/docs/release-notes/';
+        }
+
+        return menuItem;
+      },
+
+      crumbItemExists: function (checkCrumb) {
+        for (const crumb of this.crumbs) {
+          if (crumb.title === checkCrumb.title) {
+            return true;
+          }
+        }
+        return false;
       }
     }
   }

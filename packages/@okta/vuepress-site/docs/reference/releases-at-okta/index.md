@@ -11,7 +11,7 @@ Okta features travel through a regular life cycle:
 - [General Availability (GA)](#general-availability-ga)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/api-overview/) to ensure that your application doesn't break
+These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break.
 when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 
@@ -46,7 +46,7 @@ Beta releases are managed in two ways:
 
 You can track the availability of Beta features on the [Product Roadmap](https://support.okta.com/help/s/productroadmap) page.
 
-See [Manage Early Access and Beta features](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
 
 ## Early Access (EA)
 
@@ -66,7 +66,7 @@ EA releases are managed in two ways:
 
 You can track the availability of EA features on the [Product Roadmap](https://support.okta.com/help/s/productroadmap) page.
 
-See [Manage Early Access and Beta features](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
 
 ## General Availability (GA)
 

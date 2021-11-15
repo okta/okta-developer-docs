@@ -542,7 +542,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 * In some cases, an OAuth 2.0 [`/authorize`](/docs/reference/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
-* The [`_links`](/docs/reference/api-overview/#links) attribute for `groups` sent by Okta in the request body for a SAML Inline Hook was incorrect. (OKTA-269553)
+* The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML Inline Hook was incorrect. (OKTA-269553)
 
 * Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
 
@@ -582,7 +582,7 @@ The email factor configuration also supports optional enrollment, which is now G
 
 #### The Third-Party admin role is Generally Available in Preview
 
-The [Third-Party admin role](https://help.okta.com/en/prod/okta_help_CSH.htm#csh_admin-third) is now Generally Available in Preview. <!-- OKTA-280640 -->
+The [Third-Party admin role](https://help.okta.com/okta_help.htm?id=csh_admin-third) is now Generally Available in Preview. <!-- OKTA-280640 -->
 
 #### OAuth for Okta is Generally Available in Preview
 

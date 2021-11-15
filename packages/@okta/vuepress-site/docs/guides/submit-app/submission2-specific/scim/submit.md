@@ -3,7 +3,7 @@
 
 * **Link to configuration guide** &mdash; your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
-* **Select provisioning features to be supported in the integration** &mdash; these provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure application provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
+* **Select provisioning features to be supported in the integration** &mdash; these provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
 
 * **Does your Base URL vary per tenant?** &mdash; if **Yes**, a new field appears to assist you in setting up a per tenant configuration.
   * **What variables do your admins need to specify to install your app?** &mdash; when you click **Add Variable**, the interface displays a dialog box to collect the following information:
@@ -33,7 +33,10 @@
 
 * **Did you delete all unused attributes?** &mdash; as outlined in the [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/attribute-mapping/) guide, you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
 
-* **How large would you like your Custom Patch Batch Size to be?** &mdash; this value tells Okta how many Group membership changes to submit inside a single PATCH operation. When you organize these changes into smaller chunks, you can improve the efficiency of updates. Enter a numerical value between 100 and 1000.
+* **How many Group membership changes are allowed in a custom PATCH operation?** &mdash; this value tells Okta the maximum number of Group membership changes to submit inside a single PATCH operation. When you organize these changes into smaller chunks, you can improve the efficiency of updates. Enter a numerical value between 100 and 1000.
+
+  * The default value is 100.
+  * Group membership PATCH operations timeout after 60 seconds.
 
 * **Optional: link to demo video** &mdash; if you have a video that explains how to configure access to your SCIM application, enter the URL for it here.
 

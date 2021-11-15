@@ -192,9 +192,12 @@ module.exports = ctx => ({
       { text: 'Concepts', link: '/docs/concepts/' },
       { text: 'Reference', link: '/docs/reference/' },
       { text: 'Languages & SDKs', link: '/code/' },
-      { text: 'Release Notes', link: '/docs/release-notes/' }
+      { text: 'Release Notes', link: '/docs/release-notes/' },
     ],
     footer_nav: {
+      need_support: {
+        heading: 'Need Support?'
+      },
       social: {
         heading: 'Social',
         items: [
@@ -234,11 +237,11 @@ module.exports = ctx => ({
     },
 
     company_logos: [
-      { name: 'Major League Baseball', icon: '/img/logos/baseball.png' },
-      { name: 'Splunk', icon: '/img/logos/splunk.png' },
-      { name: 'Adobe', icon: '/img/logos/adobe.png' },
-      { name: 'JetBlue', icon: '/img/logos/jetblue.png' },
-      { name: 'Experian', icon: '/img/logos/experian.png' },
+      { name: 'Major League Baseball', icon: '/img/logos/baseball.svg' },
+      { name: 'Splunk', icon: '/img/logos/splunk.svg' },
+      { name: 'Adobe', icon: '/img/logos/adobe.svg' },
+      { name: 'JetBlue', icon: '/img/logos/jetblue.svg' },
+      { name: 'Experian', icon: '/img/logos/experian.svg' },
     ],
 
     forum_url: 'https://devforum.okta.com/',
@@ -314,9 +317,18 @@ module.exports = ctx => ({
               //'/docs/guides/third-party-risk-integration/test-integration/',
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
-              '/docs/reference/api/iam-roles/',
-              '/docs/concepts/role-assignment/',
               '/docs/guides/migrate-to-oie/',
+              '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
+              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
+              '/docs/guides/oie-upgrade-overview/',
+              '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
+              '/docs/guides/oie-upgrade-sessions-api/',
+              '/docs/guides/oie-upgrade-sign-in-widget/',
+              '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
+              '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
+              '/docs/guides/oie-upgrade-sign-in-widget-styling/'
           ]
         }
       ]

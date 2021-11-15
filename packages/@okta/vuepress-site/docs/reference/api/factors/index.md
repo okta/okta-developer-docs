@@ -492,7 +492,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "http://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkwcx13nrDq8g4oy0g3",
+                "href": "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkwcx13nrDq8g4oy0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -1854,7 +1854,7 @@ curl -v -X POST \
 
 Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
 
-A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
+A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
 > **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
@@ -1888,7 +1888,7 @@ curl -v -X POST \
     "lastUpdated": "2019-07-22T23:22:36.000Z",
     "_links": {
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -1897,7 +1897,7 @@ curl -v -X POST \
             }
         },
         "verify": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -1905,7 +1905,7 @@ curl -v -X POST \
             }
         },
         "user": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3",
             "hints": {
                 "allow": [
                     "GET"
@@ -3008,7 +3008,7 @@ Creates a new transaction and sends an asynchronous push notification to the dev
 | factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Response parameters
 

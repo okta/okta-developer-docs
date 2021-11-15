@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cb0940c81c4d8a9afd73)
 
 ## Application operations
 
@@ -322,35 +322,35 @@ curl -v -X POST \
   },
   "_links":{
     "help":{
-      "href":"http://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "href":"https://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
       "type":"text/html"
     },
     "metadata":{
-      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
       "type":"application/xml"
     },
     "appLinks":[
       {
         "name":"login",
-        "href":"http://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "href":"https://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
         "type":"text/html"
       }
     ],
     "groups":{
-      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
     },
     "logo":[
       {
         "name":"medium",
-        "href":"http://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "href":"https://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
         "type":"image/png"
       }
     ],
     "users":{
-      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
     },
     "deactivate":{
-      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
+      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
@@ -400,7 +400,7 @@ curl -X POST \
                 ]
     }
   }
-}' "http://${yourOktaDomain}/api/v1/apps"
+}' "https://${yourOktaDomain}/api/v1/apps"
 ```
 
 ##### Response example
@@ -472,35 +472,35 @@ curl -X POST \
   },
   "_links": {
     "help": {
-      "href": "http://${yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
+      "href": "https://${yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
       "type": "text/html"
     },
     "metadata": {
-      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
       "type": "application/xml"
     },
     "appLinks": [
       {
         "name": "login",
-        "href": "http://${yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
+        "href": "https://${yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
         "type": "text/html"
       }
     ],
     "groups": {
-      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
     },
     "logo": [
       {
         "name": "medium",
-        "href": "http://${yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+        "href": "https://${yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
     },
     "deactivate": {
-      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
     }
   }
 }
@@ -986,6 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
 | honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1009,6 +1010,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
+* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
 
 ##### Supported values for custom SAML app
 
@@ -1117,6 +1119,11 @@ curl -v -X POST \
             "Value"
           ]
         }
+      ],
+      "inlineHooks": [
+        {
+          "id": "${inlineHookId}"
+        }
       ]
     }
   }
@@ -1215,6 +1222,23 @@ curl -v -X POST \
           "values": [
             "Value"
           ]
+        }
+      ],
+      "inlineHooks": [
+        {
+          "id": "${inlineHookId}",
+          "_links": {
+            "self": {
+              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+              "hints": {
+                "allow": [
+                  "GET",
+                  "PUT",
+                  "DELETE"
+                ]
+              }
+            }
+          }
         }
       ]
     }
@@ -1315,7 +1339,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />   | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
+| issuer_mode                                 | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of the ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL` or `DYNAMIC` <ApiLifecycle access="ea" />                                                            | TRUE       | FALSE    | TRUE       |
 | idp_initiated_login                         | The type of Idp-Initiated login that the client supports, if any                                                                                                                 |  [Idp-Initiated Login](#idp-initiated-login-object)                                                                     | TRUE       | FALSE    | TRUE       |
 | logo_uri                                    | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
@@ -1328,7 +1352,10 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 ###### Details
 
-* `issuer_mode` <ApiLifecycle access="ea" /> is visible if the Custom URL Domain feature is enabled. If the feature is enabled, you can set a custom domain URL in the settings for an OpenID Connect token in an app, and this property is returned in the appropriate responses. After the feature is enabled, the default value for new apps is `CUSTOM_URL`. For existing apps, the default remains `ORG_URL`. You can change the value using the API or administrator user interface. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
+* `issuer_mode` is visible if the Custom URL Domain is configured or the Dynamic Issuer Mode feature is enabled. <br>
+If you have [configured a custom URL domain](/docs/guides/custom-url-domain/overview/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
+<ApiLifecycle access="ea" />If the Dynamic Issuer Mode feature is enabled, you can set `issuer_mode` to `DYNAMIC`. When you use `DYNAMIC`, the request for the ID token made from the custom domain has the custom URL as the issuer. The request for the ID token made from an Okta org has the Org URL as the issuer. When this feature is enabled, the default value for new apps is `DYNAMIC`.<br>
+You can change the `issuer_mode` value using the API or the Admin Console. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
@@ -1482,7 +1509,24 @@ curl -v -X GET \
       "requestCompressed": false,
       "allowMultipleAcsEndpoints": false,
       "acsEndpoints": [],
-      "attributeStatements": []
+      "attributeStatements": [],
+      "inlineHooks": [
+        {
+          "id": "cal3ughy17pylLxQB357",
+          "_links": {
+            "self": {
+              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
+              "hints": {
+                "allow": [
+                  "GET",
+                  "PUT",
+                  "DELETE"
+                ]
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "_links": {
@@ -1543,7 +1587,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
-The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
@@ -1664,7 +1708,24 @@ curl -v -X GET \
 	"requestCompressed": false,
         "allowMultipleAcsEndpoints": false,
         "acsEndpoints": [],
-        "attributeStatements": []
+        "attributeStatements": [],
+        "inlineHooks": [
+          {
+            "id": "${inlineHookId}",
+            "_links": {
+              "self": {
+                "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "_links": {
@@ -3170,7 +3231,7 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -3381,7 +3442,190 @@ curl -v -X PUT \
     }
 }
 ```
+#### Update application level profile attributes
 
+Updates the Application profile attributes
+
+##### Request Parameters
+
+| Parameter     | Description                                                             | Param Type | DataType                                      | Required | Default |
+| ------------- | ----------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| app           | app with new profile attributes                                         | Body       | [Application](#application-object)             | TRUE    |         |
+| applicationId | `id` of an [app](#application-object)                                    | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+[Application](#application-object) with updated `profile attributes`
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "oidc_client",
+  "label": "oauth2 client app 1",
+  "signOnMode": "OPENID_CONNECT",
+  "credentials": {
+    "oauthClient": {
+      "client_id": ${clientId},
+      "autoKeyRotation": true,
+      "token_endpoint_auth_method": "client_secret_post"
+    }
+  },
+  "profile": {
+    "label": "oauth2 client app 1"
+  },
+  "settings": {
+    "oauthClient": {
+      "client_uri": "http://localhost:8080",
+      "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+      "redirect_uris": [
+        "https://example.com/oauth2/callback",
+        "myapp://callback"
+      ],
+      "post_logout_redirect_uris": [],
+      "response_types": [
+        "token",
+        "id_token",
+        "code"
+      ],
+      "grant_types": [
+        "implicit",
+        "authorization_code"
+      ],
+      "consent_method": "TRUSTED",
+      "issuer_mode": "ORG_URL",
+      "application_type": "native",
+      "tos_uri": "",
+      "policy_uri": ""
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+```
+
+##### Response example
+
+```json
+{
+  "id": "0oa1ivcatpQDkMraA1d7",
+  "name": "oidc_client",
+  "label": "oauth2 client app 1",
+  "status": "ACTIVE",
+  "lastUpdated": "2021-10-04T22:48:42.000Z",
+  "created": "2021-10-04T22:42:38.000Z",
+  "accessibility": {
+    "selfService": false,
+    "errorRedirectUrl": null,
+    "loginRedirectUrl": null
+  },
+  "visibility": {
+    "autoLaunch": false,
+    "autoSubmitToolbar": false,
+    "hide": {
+      "iOS": true,
+      "web": true
+    },
+    "appLinks": {
+      "oidc_client_link": true
+    }
+  },
+  "features": [],
+  "signOnMode": "OPENID_CONNECT",
+  "credentials": {
+    "userNameTemplate": {
+      "template": "${source.login}",
+      "type": "BUILT_IN"
+    },
+    "signing": {
+      "kid": "Hn7zyyJ1XhKhAHa6MaNC2GjWmw3F5Pa_TxGAx9ojch0"
+    },
+    "oauthClient": {
+      "autoKeyRotation": true,
+      "client_id": "0oa1ivcatpQDkMraA1d7",
+      "client_secret": "LD1G1-qeKo_KfM3VQx3Ass8aaGlYxuCq_cqCGlKF",
+      "token_endpoint_auth_method": "client_secret_post"
+    }
+  },
+  "settings": {
+    "app": {},
+    "notifications": {
+      "vpn": {
+        "network": {
+          "connection": "DISABLED"
+        },
+        "message": null,
+        "helpUrl": null
+      }
+    },
+    "notes": {
+      "admin": null,
+      "enduser": null
+    },
+    "oauthClient": {
+      "client_uri": "http://localhost:8080",
+      "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+      "redirect_uris": [
+        "https://example.com/oauth2/callback",
+        "myapp://callback"
+      ],
+      "response_types": [
+        "token",
+        "id_token",
+        "code"
+      ],
+      "grant_types": [
+        "implicit",
+        "authorization_code"
+      ],
+      "application_type": "native",
+      "issuer_mode": "ORG_URL",
+      "idp_initiated_login": {
+        "mode": "DISABLED",
+        "default_scope": []
+      }
+    }
+  },
+  "profile": {
+    "label": "oauth2 client app 1"
+  },
+  "_links": {
+    "uploadLogo": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/logo",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "appLinks": [
+      {
+        "name": "oidc_client_link",
+        "href": "https://example.okta.com/home/oidc_client/0oa1ivcatpQDkMraA1d7/aln177a159h7Zf52X0g8",
+        "type": "text/html"
+      }
+    ],
+    "groups": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/groups"
+    },
+    "logo": [
+      {
+        "name": "medium",
+        "href": "https://example.okta.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+        "type": "image/png"
+      }
+    ],
+    "users": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/users"
+    },
+    "deactivate": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/lifecycle/deactivate"
+    }
+  }
+}
+```
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
@@ -3753,7 +3997,7 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
 
-The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -4147,7 +4391,7 @@ Enumerates group assignments for an application
 | applicationId | `id` of an [app](#application-object)                             | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 200)           | Query      | Number   | FALSE    | 20      |
 
-The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -5007,11 +5251,11 @@ curl -v -X GET \
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
+            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -5020,7 +5264,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
             "title":"Application Name"
          }
       }
@@ -5040,11 +5284,11 @@ curl -v -X GET \
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -5053,7 +5297,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
             "title":"Application Name"
          }
       }
@@ -5178,7 +5422,7 @@ Lists all tokens for the application
 | expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 | limit           | Specifies the number of results per page (maximum 200)                                         | Query        | Number     | FALSE      | 20      |
 
-The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 #### Request example
@@ -5670,7 +5914,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+                "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
                 "hints": {
                     "allow": [
                         "GET",
@@ -5738,7 +5982,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -5842,7 +6086,7 @@ curl -v -X PUT \
     },
     "_links": {
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -6004,7 +6248,7 @@ curl -v -X POST \
             "policy_uri": "https://example.com/client/policy",
             "idp_initiated_login": {
               "mode": "DISABLED"
-            },"
+            },
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL"
         }
@@ -7262,7 +7506,7 @@ The Feature object is used to configure settings of the application. For example
     },
     "_links": {
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",

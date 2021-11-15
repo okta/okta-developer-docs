@@ -22,11 +22,11 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 
 ## Before you begin
 
-You need to make sure that you have an [Okta organization](/docs/guides/quickstart/cli/create-org/) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
+You need to make sure that you have an [Okta organization](/docs/guides/quickstart/cli/main/#create-your-okta-organization) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
 
 It is up to you how you make requests to the API to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
 
-1. [Create an API token](/docs/guides/create-an-api-token/overview/) to use when accessing the API.
+1. [Create an API token](/docs/guides/create-an-api-token/) to use when accessing the API.
 1. [Download](https://www.postman.com/downloads/) and install Postman.
 1. After you install Postman, import the Okta environment and add your Okta domain and API token to Postman, as explained in [Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment).
 1. Click **Run in Postman** to add the Brands collection to Postman, which allows you to test the API calls that are described below.
@@ -57,7 +57,7 @@ You can also return a specific brand by running the **Get brand** request. Befor
 
   > **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}" />
 
 This returns a single brand response object.
 
@@ -65,7 +65,7 @@ This returns a single brand response object.
 
 You can also update brand information with the following request (**Update brand** in Postman):
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
 
 This request needs to contain a [brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
 
@@ -80,13 +80,13 @@ This request needs to contain a [brand object](/docs/reference/api/brands/#brand
 
 You can return the themes contained in a brand with the following request (**Get themes** in postman):
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
 This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object).
 
 Once you've set the `themeId` variable to a specific theme ID, you can return a specific theme response object using the following request (**Get theme** in Postman):
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
 
@@ -98,7 +98,7 @@ In this section we look at how we can update all of the different facets of your
 
 You can update your theme colors and the settings that dictate where your assets will be used with the following request (**Update theme** in Postman):
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 The request body needs to contain a JSON object:
 
@@ -123,9 +123,9 @@ A successful request results in an updated [Theme response object](/docs/referen
 
 You can upload a logo, favicon, and background image for use in your theme (on your email templates, your Okta End-User Dashboard, and so on) with the following requests (**Upload logo**, **Upload favicon**, and **Upload background image** in Postman):
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 The request body needs to be form data with a file property that contains a file to upload. Guidelines are as follows:
 
@@ -143,13 +143,13 @@ A successful response results in a JSON object that contains the `url` of the up
 
 You can also delete these assets using the following requests (**Delete logo**, **Delete favicon**, and **Delete background image** in Postman):
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 ## See also
 
 * [Brands API reference](/docs/reference/api/brands/)
-* [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/overview/)
+* [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/)

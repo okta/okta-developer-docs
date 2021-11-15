@@ -411,7 +411,7 @@ We've changed the behavior of OpenID Connect scopes:
 #### Help Desk Administrator Role Generally Available
 
 The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
-For information about this role, see the [in-app help](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
+For information about this role, see the [in-app help](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
 
 #### Policy API
 
@@ -1102,7 +1102,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Manage Authorization Server policies, policy rules, claims, and scopes with the API.
 * Activate or deactivate Authorization Servers, or delete them.
 * Scopes were actions previously, but are now conditions in a policy rule.
-* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_API_Access).
+* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
 For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->
@@ -1172,7 +1172,7 @@ Before release 2017.19, a user object returned in a collection contained some or
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1272,7 +1272,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1371,7 +1371,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1492,7 +1492,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1598,7 +1598,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1706,7 +1706,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1823,7 +1823,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1929,7 +1929,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 

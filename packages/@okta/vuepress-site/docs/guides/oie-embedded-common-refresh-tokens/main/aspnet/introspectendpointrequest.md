@@ -1,6 +1,6 @@
 ### Web applications
 
-Web applications introspect tokens by calling the `/introspect` endpoint and passing
+Web applications refresh introspect tokens by calling the `/introspect` endpoint and passing
 in a required `Authorization` header. This header is computed from the client ID and
 client secret.
 

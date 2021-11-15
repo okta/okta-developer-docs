@@ -19,15 +19,15 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-profile-enrollment). <ApiLifecycle access="ie" /><br>
+For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For steps to enable this Inline Hook in Okta classic, see below, [Enabling a Registration Inline Hook in Okta Classic](#enabling-a-registration-inline-hook-for-self-service-registration-in-okta-classic).
+For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-the-classic-engine).
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
@@ -237,7 +237,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
@@ -257,15 +257,15 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
-## Enable a Registration Inline Hook for Self-Service Registration in Okta Classic
+## Enable a Registration Inline Hook for Self-Service Registration in the Classic Engine
 
 <ApiLifecycle access="ea" />
 
-> **Note:** Self-Service Registration only exists in Okta Classic. For Okta Identity Engine, please see instructions for Profile Enrollment above.
+> **Note:** Self-Service Registration only exists in the Classic Engine. For the Identity Engine, please see instructions for Profile Enrollment above.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_self_service_registration_policy).)
+You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/okta_help.htm?id=ext_self_service_registration_policy).)
 
 1. Go to **Directory > Self-Service Registration**.
 

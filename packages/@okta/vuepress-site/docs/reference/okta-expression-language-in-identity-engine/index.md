@@ -1,18 +1,18 @@
 ---
-title: Expression Language in Identity Engine
+title: Okta Expression Language in Okta Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of the Okta Expression Language in Identity Engine.
+  content: Learn more about the features and syntax of the Okta Expression Language in Okta Identity Engine.
 ---
 
-# Okta Expression Language in Identity Engine
+# Okta Expression Language in Okta Identity Engine
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
 ## Overview
 
-This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of Okta Expression Language used in the Identity Engine. Expressions used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported features
 
@@ -51,7 +51,7 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 | `device.profile.$profile_property`  | `profile_property` - references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
 | `device.provider.<vendor>.<signal>`| `vendor` - references a vendor, such as `wtc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
 See [Integrate with Endpoint Detection and Response solutions
-](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm) for details about `vendor` and `signal`.
+](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
 ### Security Context
 
@@ -246,7 +246,7 @@ The following functions are supported in conditions:
 * The `&&` operator to designate AND
 * The `||` operator to designate OR
 * The `!` operator to designate NOT
-* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`
+* Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 

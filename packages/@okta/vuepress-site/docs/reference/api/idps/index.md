@@ -15,12 +15,12 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Each IdP requires some setup. Use the Okta setup guide for your IdP:
 
-* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
-* [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
-* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/)
+* [Apple](/docs/guides/add-an-external-idp/apple/main/)
+* [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
+* [Google](/docs/guides/add-an-external-idp/google/main/)
+* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
+* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
+* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/main/)
 
 ## Identity Provider operations
 
@@ -221,7 +221,7 @@ curl -v -X POST \
     },
     "_links": {
         "authorize": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+            "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
             "templated": true,
             "hints": {
                 "allow": [
@@ -447,14 +447,14 @@ curl -v -X POST \
 Use SAML deep links to automatically redirect the user to an app after successfully authenticating with a third-party IdP. To use deep links, assemble these three parts into a URL:
 
 * SP ACS URL<br>
-For example: `https://{myOktaDomain}.com/sso/saml2/:idpId`
+For example: `https://${yourOktaDomain}/sso/saml2/:idpId`
 * The app to which the user is automatically redirected after successfully authenticating with the IdP <br>
 For example: `/app/:app-location/:appId/sso/saml`
 * Optionally, if the app is an outbound SAML app, you can specify the `relayState` passed to it.<br>
 For example: `?RelayState=:anyUrlEncodedValue`
 
 The deep link for the above three parts is:<br>
-`https://{myOktaDomain}.com/sso/saml2/:idpId/app/:app-location/:appId/sso/saml?RelayState=:anyUrlEncodedValue`
+`https://${yourOktaDomain}/sso/saml2/:idpId/app/:app-location/:appId/sso/saml?RelayState=:anyUrlEncodedValue`
 
 #### Add Apple Identity Provider
 
@@ -588,7 +588,7 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "http://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
       "templated": true,
       "hints": {
         "allow": [
@@ -597,7 +597,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "http://{yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -734,8 +734,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -882,8 +882,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1028,8 +1028,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1173,8 +1173,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1407,8 +1407,8 @@ curl -v -X GET \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1449,7 +1449,7 @@ type      | Filters IdPs by `type`                                              
 
 **Parameter details**
 
-* Treat the `after` cursor as an opaque value and obtain it through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
+* Treat the `after` cursor as an opaque value. You can obtain it through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but it should be considered an implementation detail and may change without notice in the future.
 
 ##### Response parameters
@@ -1536,8 +1536,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1729,8 +1729,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1810,8 +1810,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1893,8 +1893,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1984,7 +1984,7 @@ curl -v -X GET \
       },
       "_links": {
           "authorize": {
-              "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+              "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
               "templated": true,
               "hints": {
                   "allow": [
@@ -2614,8 +2614,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -2728,8 +2728,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-      client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-      scope={scopes}&redirect_uri={redirectUri}&state={state}",
+      client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+      scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -2774,7 +2774,7 @@ Before you can use Transaction operations, set up the following:
 After your IdP and app are set up, you can issue an authentication request and capture the Transaction ID to verify your setup. The following example shows a request for an ID token, which is typically a simple request:
 
 ```bash
-  https://{myOktaDomain}.com/oauth2/v1/authorize?
+  https://${yourOktaDomain}/oauth2/v1/authorize?
   idp=0oae5emt1lCVpXD2b0h7&
   client_id=B6YnDUIpt6Oq354YYaNR&
   response_type=id_token&
@@ -4269,8 +4269,8 @@ curl -v -X GET \
   "_links": {
     "authorize": {
       "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
+          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -4530,6 +4530,12 @@ curl -v -X GET \
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
+ },
+ {
+    "id": "dsasdsasdfe",
+    "token": "JBTWGV22G4ZJBRXJ",
+    "tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+    "tokenAuthScheme": null
 }]
 ```
 
@@ -6323,14 +6329,20 @@ The Social Authentication Token object provides the tokens and associated metada
 ### Example
 
 ```json
-{
+[{
   "id": "<unique token identifier>",
   "token": "JBTWGV22G4ZGKV3N",
   "tokenType" : "urn:ietf:params:oauth:token-type:access_token",
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
-}
+},
+{
+"id": "<unique token identifier>",
+"token": "JBTWGV22G4ZJBRXJ",
+"tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+"tokenAuthScheme": null
+}]
 ```
 
 ### Identity Provider Social Authentication Token properties

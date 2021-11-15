@@ -63,7 +63,8 @@ curl -v -X POST \
   ],
   "grant_types": [
      "authorization_code",
-     "refresh_token"
+     "refresh_token",
+     "implicit"
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
@@ -206,7 +207,7 @@ Lists all the client Applications in your organization (with optional pagination
 
 **Notes:**
 
-* The `after` cursor should be treated as an opaque value and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+* The `after` cursor should be treated as an opaque value and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but this is an implementation detail and may change without notice.
 
 ##### Response parameters
@@ -344,7 +345,7 @@ Lists all clients that match a search filter on `client_name`
 
 **Notes:**
 
-* The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+* The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but this is an implementation detail and may change without notice.
 
 ##### Request example

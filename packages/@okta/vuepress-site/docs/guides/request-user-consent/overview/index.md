@@ -7,7 +7,7 @@ If you want users to acknowledge and accept that they are giving an app access t
 This guide assumes that you:
 
 * Have an Okta Developer Edition org. [Create an org for free](https://developer.okta.com/signup).
-* Have an [OpenID Connect client application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps).
+* Have an [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
 
 ## User consent and tokens
 
@@ -19,7 +19,7 @@ When an application needs to get a new access token from an authorization server
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authServerId}/v1/authorize` (custom authorization server)
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
 * `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
 * `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
 

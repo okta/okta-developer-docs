@@ -52,11 +52,11 @@ The full URL to the `/authorize` endpoint looks like this:
 
 This is for use cases where Okta is the authorization server for your resource server (for example, you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your base URL looks like this:
 
-`https://${yourOktaDomain}/oauth2/${authServerId}`
+`https://${yourOktaDomain}/oauth2/${authorizationServerId}`
 
 The full URL to the `/authorize` endpoint looks like this:
 
-`https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
+`https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
 If you have a developer account, you can use the `default` authorization server that was created along with your account, in which case the base URL looks like this:
 
@@ -86,11 +86,11 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | code_challenge                   | A challenge for [PKCE](/docs/guides/implement-grant-type/authcodepkce/main/). The challenge is verified in the access token request.                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
 | code_challenge_method            | Method used to derive the code challenge for [PKCE](/docs/guides/implement-grant-type/authcodepkce/main/). Valid value: `S256`                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
 | display                          | The `display` parameter to be passed to the Social Identity Provider when performing Social Login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
-| idp_scope                        | A space delimited list of scopes to be provided to the Social Identity Provider when performing [Social Login](/docs/concepts/social-login/). These scopes are used in addition to the scopes already configured on the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
+| idp_scope                        | A space delimited list of scopes to be provided to the external Identity Provider when performing [Social login](/docs/concepts/identity-providers/). These scopes are used in addition to the scopes already configured on the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
 | [idp](/docs/reference/api/idps/) | Identity provider to use if there's no Okta Session.                                                                                                                                                                                                                                                                                                                  | Query       | String    | FALSE      |
 | login_hint                       | A username to prepopulate if prompting for authentication.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
 | max_age                          | Allowable elapsed time, in seconds, since the last time the end user was actively authenticated by Okta.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
-| nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks.                                                                                                                                                                                                                                                                                                                                                              | Query       | String    | TRUE       |
+| nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks. The value is required for Implicit and Hybrid flows, but optional for Auth Code flows. See [OIDC Specs](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).                                                                                                                                                                                                                                                                                                                                                             | Query       | String    | FALSE       |
 | prompt                           | Valid values: `none`, `consent`, `login`, or `consent` and `login` in either order. See [Parameter details](#parameter-details) for more information.                                                                                                                                                                                                                                                                                              | Query       | String    | FALSE      |
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
 | response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
@@ -301,7 +301,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
--d "client_id={client_id}&client_secret={client_secret}&scope={scope}"
+-d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}"
 ```
 
 #### Response example (success)
@@ -389,7 +389,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id={client_id}&client_secret={client_secret}&grant_type=authorization_code&redirect_uri={redirect_uri}&code={code}"
+-d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&redirect_uri=${redirectUri}&code=${code}"
 ```
 
 #### Response example (success)
@@ -612,13 +612,13 @@ The following parameters can be included in the query string of the request:
 This request initiates a logout and redirects to the Okta login page.
 
 ```bash
-GET https://{baseUrl}/logout?id_token_hint=${id_token}
+GET https://${baseUrl}/logout?id_token_hint=${id_token}
 ```
 
 This request initiates a logout and redirects to the `post_logout_redirect_uri`.
 
 ```bash
-GET https://{baseUrl}/logout?
+GET https://${baseUrl}/logout?
   id_token_hint=${id_token}&
   post_logout_redirect_uri=${post_logout_redirect_uri}&
   state=${state}
@@ -756,7 +756,7 @@ You must include an access token (returned from the [authorization endpoint](#au
 ```bash
 curl -X GET \
 -H "Authorization: Bearer ${access_token}" \
-"https://{baseUrl}/userinfo"
+"https://${baseUrl}/userinfo"
 ```
 
 #### Response properties
@@ -803,7 +803,7 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 ### /.well-known/oauth-authorization-server
 
-<ApiOperation method="get" url="/oauth2/${authServerId}/.well-known/oauth-authorization-server" />
+<ApiOperation method="get" url="/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server" />
 
 > **Note:** This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
@@ -817,7 +817,7 @@ This API doesn't require any authentication.
 
 ```bash
 curl -X GET \
-"https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/oauth-authorization-server?client_id=0oabzljih3rnr6aGt0h7"
+"https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server?client_id=0oabzljih3rnr6aGt0h7"
 ```
 
 #### Response properties
@@ -850,11 +850,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://${yourOktaDomain}/oauth2/${authServerId}",
-    "authorization_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize",
-    "token_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/token",
+    "issuer": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
+    "authorization_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize",
+    "token_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/token",
     "registration_endpoint": "https://${yourOktaDomain}/oauth2/v1/clients",
-    "jwks_uri": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/keys",
+    "jwks_uri": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys",
     "response_types_supported": [
         "code",
         "token",
@@ -910,7 +910,7 @@ curl -X GET \
     "code_challenge_methods_supported": [
         "S256"
     ],
-    "introspection_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/introspect",
+    "introspection_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -918,7 +918,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/revoke",
+    "revocation_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -926,7 +926,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/logout",
+    "end_session_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -948,7 +948,7 @@ curl -X GET \
 HTTP 404 Not Found
 {
     "errorCode": "E0000007",
-    "errorSummary": "Not found: Resource not found: ${authServerId} (AuthorizationServer)",
+    "errorSummary": "Not found: Resource not found: ${authorizationServerId} (AuthorizationServer)",
     "errorLink": "E0000007",
     "errorId": "oaeQdc5IvrlSGGnewf-cqqDqA",
     "errorCauses": []
@@ -959,9 +959,9 @@ HTTP 404 Not Found
 
 <ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" />
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration" />
+<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" />
 
-> **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. The Custom Authorization Server URL specifies an `authServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authServerId` value of `default`.
+> **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. The Custom Authorization Server URL specifies an `authorizationServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authorizationServerId` value of `default`.
 
 Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/create-scopes/). Custom claims are never returned.
 
@@ -973,7 +973,7 @@ This API doesn't require any authentication.
 
 ```bash
 curl -X GET \
-"https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration?client_id=0oabzljih3rnr6aGt0h7"
+"https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration?client_id=0oabzljih3rnr6aGt0h7"
 ```
 
 #### Response properties
@@ -1009,11 +1009,11 @@ curl -X GET \
 ```json
 {
     "issuer": "https://${yourOktaDomain}",
-    "authorization_endpoint": "https://{baseUrl}/authorize",
-    "token_endpoint": "https://{baseUrl}/token",
-    "userinfo_endpoint": "https://{baseUrl}/userinfo",
-    "registration_endpoint": "https://{baseUrl}/clients",
-    "jwks_uri": "https://{baseUrl}/keys",
+    "authorization_endpoint": "https://${baseUrl}/authorize",
+    "token_endpoint": "https://${baseUrl}/token",
+    "userinfo_endpoint": "https://${baseUrl}/userinfo",
+    "registration_endpoint": "https://${baseUrl}/clients",
+    "jwks_uri": "https://${baseUrl}/keys",
     "response_types_supported": [
         "code",
         "code id_token",
@@ -1089,21 +1089,21 @@ curl -X GET \
         "at_hash",
         "c_hash"
     ],
-    "introspection_endpoint": "https://{baseUrl}/introspect",
+    "introspection_endpoint": "https://${baseUrl}/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
         "client_secret_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://{baseUrl}/revoke",
+    "revocation_endpoint": "https://${baseUrl}/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
         "client_secret_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://{baseUrl}/logout",
+    "end_session_endpoint": "https://${baseUrl}/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1119,7 +1119,7 @@ curl -X GET \
 HTTP 404 Not Found
 {
     "errorCode": "E0000007",
-    "errorSummary": "Not found: Resource not found: ${authServerId} (AuthorizationServer)",
+    "errorSummary": "Not found: Resource not found: ${authorizationServerId} (AuthorizationServer)",
     "errorLink": "E0000007",
     "errorId": "oaeQdc5IvrlSGGnewf-cqqDqA",
     "errorCauses": []
@@ -1146,9 +1146,11 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 ### Scope values
 
+> **Note:** The maximum length for the scope parameter value is 1024 characters.
+
 * `openid` is required for any OpenID request connect flow. If the `openid` scope value isn't present, the request may be a valid OAuth 2.0 request, but it's not an OpenID Connect request.
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
-* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
+* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. 
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
 * For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
@@ -1181,7 +1183,7 @@ A consent dialog appears depending on the values of three elements:
 | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
+<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
 
@@ -1208,8 +1210,8 @@ When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/#
 
 When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), you can configure the lifetime of the JWT tokens:
 
-* **Access tokens:** The minimum is five minutes, and the maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
-* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **Access tokens:** The minimum is five minutes, and the maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/okta_help.htm?id=ext-create-access-policies)).
+* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/okta_help.htm?id=ext-create-access-policies)).
 * **ID tokens:** Not configurable. Token lifetime is 60 minutes.
 
 ### Claims
@@ -1368,7 +1370,7 @@ The ID token consists of three period-separated, Base64 URL-encoded JSON segment
 {
   "ver": 1,
   "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://{yourOktaDomain.com}",
+  "iss": "https://${yourOktaDomain}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
   "exp": 1449627626,
@@ -1461,7 +1463,7 @@ Be aware of the following before you work with scope-dependent claims:
 
 * To protect against arbitrarily large numbers of groups matching the group filter, the groups claim has a limit of 100.
 If more than 100 groups match the filter, then the request fails. Expect that this limit may change in the future.
-For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/).
+For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/add-an-external-idp/openidconnect/main/).
 
 > **Important:** Scope-dependent claims are returned differently depending on the values in `response_type` and the scopes requested:
 
@@ -1607,7 +1609,7 @@ The system log contains detailed information about why a request was denied and 
     * Revocation happens when a configuration is changed or deleted:
         * User deactivation or deletion.
         * Configuration in the authorization server is changed or deleted.
-        * The [client app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
+        * The [client app](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
 
 ### Subtle behavior
 

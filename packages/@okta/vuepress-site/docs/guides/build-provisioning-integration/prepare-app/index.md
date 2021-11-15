@@ -12,7 +12,7 @@ Begin by signing up for an [Okta developer account](https://developer.okta.com/s
 1. Search for "SCIM 2.0" or "SCIM 1.1" (your choice depends on which version your SCIM server supports). You'll see three different SCIM template applications, one for each of the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
 1. Click **Add** on the template that you want to use and complete the add steps.
 1. On the **General Settings** page, give your integration a descriptive name and specify whether you want it to be hidden from general and mobile users. Additionally, you can decide if you want to have your users automatically be logged in when they reach the landing page in their web browser. Click **Next**.
-1. On the **Sign-On Options** page, you specify how your users sign in to your integration. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the integration.
+1. On the **Sign-On Options** page, you specify how your users sign in to your integration. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the integration.
 1. After the integration is created, click the **Provisioning** tab, and in the main panel, click **Configure API Integration**. Select the **Enable API Integration** check box.
   Enter the base URL for your SCIM server.
   The credential options vary depending on your choice of authentication method:
@@ -23,13 +23,13 @@ Begin by signing up for an [Okta developer account](https://developer.okta.com/s
     Fill in this information and click **Test API Credentials** to test whether the Okta integration can connect to your SCIM API.
 
     Click **Save** to complete the API integration.
-1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the app integration. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
+1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the app integration. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 
 <!-- Saving these instructions for when we switch over to the Okta App Integration Wizard
 1. Click **Create App Integration** to start the Application Integration Wizard.
-Select the type of integration you want to create, choosing either **SWA** or **SAML 2.0**. To decide which option is right for you, see the [Overview of Managing Apps and SSO](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Overview_of_Managing_Apps_and_SSO) topic in the Okta product documentation. Adding SCIM provisioning to an SSO integration that uses the OpenID Connect (OIDC) sign-on mode isn't supported.
+Select the type of integration you want to create, choosing either **SWA** or **SAML 2.0**. To decide which option is right for you, see the [Overview of Managing Apps and SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Overview_of_Managing_Apps_and_SSO) topic in the Okta product documentation. Adding SCIM provisioning to an SSO integration that uses the OpenID Connect (OIDC) sign-on mode isn't supported.
 
-    >**Note:** A detailed description of creating SWA and SAML applications is available in the [Using the App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) topic in the Okta product documentation.
+    >**Note:** A detailed description of creating SWA and SAML applications is available in the [Using the App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) topic in the Okta product documentation.
 
 1. After your integration is created, open it from the **Applications** dashboard, and click the **General** tab.
 1. Click **Edit**, then scroll down to the **Provisioning** section.
@@ -63,6 +63,6 @@ If you experience any difficulties when creating your SCIM integration in Okta, 
 1. Select your Okta integration to open the integration settings page.
 1. Click **View Logs** to open the System Log.
 
-The system log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog) in the Okta product documentation.
+The system log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) in the Okta product documentation.
 
 <NextSectionLink/>

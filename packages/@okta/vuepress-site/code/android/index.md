@@ -15,7 +15,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-mobile-app/android/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-mobile-app/android/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -56,13 +56,14 @@ The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requiremen
 ## Recommended Guides
 
 - [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social Login](/docs/concepts/social-login/)
+- [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 ## Related Blog Posts
 
 
+- [Build an Android Application (Kotlin) with Authentication](/blog/2020/04/20/android-authentication)
 - [Create a Basic Android App without an IDE](/blog/2018/08/10/basic-android-without-an-ide)
 - [Tutorial: Develop a Mobile App With Ionic and Spring Boot](/blog/2017/05/17/develop-a-mobile-app-with-ionic-and-spring-boot)
 - [Build an Ionic App with User Authentication](/blog/2017/08/22/build-an-ionic-app-with-user-authentication)

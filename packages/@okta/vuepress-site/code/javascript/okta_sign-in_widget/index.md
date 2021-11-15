@@ -53,8 +53,6 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
-> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you need to specify a `redirectURI`, and the Okta Admin Console automatically adds it as a CORS URL.
-
 ## Usage
 
 Once you have installed the Widget and enabled CORS, you can start using it.
@@ -81,6 +79,8 @@ The code that initializes the Widget looks like this:
   });
 </script>
 ```
+
+> **Note:** If you are working with an [Okta Identity Engine](/docs/guides/oie-intro)-enabled org and want to use Identity Engine features in your app, you'll need to set the `useInteractionCodeFlow` option to `true` in the configuration options passed in to the `new OktaSignIn()` call. See [Set up the Sign-In Widget and SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app) for more details. 
 
 <DomainAdminWarning />
 
@@ -139,7 +139,7 @@ In this case, you would like to use the Widget to sign in to a simple web page a
     <script type="text/javascript">
       const oktaSignIn = new OktaSignIn({
         baseUrl: "https://${yourOktaDomain}",
-        redirectUri: '{{https://{yourAppRedirectUri} configured in your OIDC app}}',
+        redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
         clientId: "${yourClientId}",
         authParams: {
           issuer: "https://${yourOktaDomain}/oauth2/default"
@@ -196,7 +196,7 @@ function success(res) {
 
 ##### Sign In to Okta and SSO Directly to an App
 
-If you'd like to sign the user directly in to an application within Okta, you just redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-apps-page-show-application-embed-links).
+If you'd like to sign the user directly in to an application within Okta, you just redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://help.okta.com/okta_help.htm?id=ext-apps-page-show-application-embed-links).
 
 #### Sign In to Okta with a Custom Dashboard
 

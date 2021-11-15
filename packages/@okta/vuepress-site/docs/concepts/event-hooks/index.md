@@ -95,7 +95,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate Limits
 
-Event Hooks are limited to sending 100,000 events per 24-hour period.
+Event Hooks are limited to sending 200,000 events per 24-hour period.
 
 ### Debugging
 
@@ -122,7 +122,7 @@ You need to implement a web service with an Internet-accessible endpoint to rece
 
 ### Register your endpoint
 
-After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console from the **Workflow > Event Hooks** page. For details on this procedure, see [Add Event Hooks](https://help.okta.com/en/prod/Content/Topics/automation-hooks/add-event-hooks.htm).
+After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console from the **Workflow > Event Hooks** page. For details on this procedure, see [Add Event Hooks](https://help.okta.com/okta_help.htm?id=ext-add-event-hooks).
 
 ### Verify your endpoint
 
@@ -130,7 +130,7 @@ After registering the Event Hook, you need to trigger a one-time verification pr
 
 ### Preview your hook
 
-You can preview the the JSON payload for the Event Hook request from the Admin Console's **Preview** tab, which provides a review of the Event Hook request syntax for the specific Event Type. The request can be delivered to your external service to make sure it is successfully received. See [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm) for more information.
+You can preview the the JSON payload for the Event Hook request from the Admin Console's **Preview** tab, which provides a review of the Event Hook request syntax for the specific Event Type. The request can be delivered to your external service to make sure it is successfully received. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) for more information.
 
 ## Sample Event Delivery Payload
 

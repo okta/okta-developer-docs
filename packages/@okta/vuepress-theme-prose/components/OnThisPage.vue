@@ -60,14 +60,14 @@ export default {
       this.$nextTick(() => {
         this.anchors = this.getOnThisPageAnchors();
         this.setActiveAnchor();
-        this.setAlwaysOnViewPosition();
+        //this.setAlwaysOnViewPosition();
       });
     });
-    window.addEventListener("scroll", this.setAlwaysOnViewPosition);
+    // window.addEventListener("scroll", this.setAlwaysOnViewPosition);
     window.addEventListener("scroll", this.setActiveAnchor);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
+    // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
   },
   watch: {
@@ -98,7 +98,7 @@ export default {
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
-    }, 200),
+    }, 50),
 
     getOnThisPageAnchors() {
       const onThisPageLinks = [].slice.call(

@@ -4,16 +4,10 @@ $gray-000: #fafafa;
 $small-spacing: 0.75rem;
 
 .stack-selector {
-  border: 1px solid $border-color;
   border-radius: 3px;
   .selector-control {
     display: flex;
-    padding: $small-spacing;
-    background: $gray-000;
-    border-bottom: 1px solid $border-color;
-    @include media('<tablet') {
-      flex-direction: column;
-    }
+    flex-direction: column;
     .framework {
       padding-left: 10px;
       overflow: hidden;
@@ -26,7 +20,7 @@ $small-spacing: 0.75rem;
     .instructions-label {
       flex: 0;
       padding: 0.65rem 0.5rem 0.5rem 0;
-      font-weight: bold;
+      font-weight: 500;
       white-space: nowrap;
     }
     .icon {
@@ -73,6 +67,8 @@ $small-spacing: 0.75rem;
       align-items: center;
       justify-content: space-between;
       flex-wrap: nowrap;
+      border-color: cv('text','darker');
+      font-size: 14px;
       .vs__selected-options{
         flex-basis: auto;
         padding: 0;
@@ -83,6 +79,9 @@ $small-spacing: 0.75rem;
           padding: 0;
           border: 0;
         }
+      }
+      .vs__open-indicator {
+        fill: cv('text','darker');
       }
     }
 
@@ -119,8 +118,7 @@ $small-spacing: 0.75rem;
   }
 
   .stack-content {
-    overflow-x: auto;
-    padding: $base-spacing;
+    padding-top: $base-spacing;
     pre {
       margin: 0;
     }

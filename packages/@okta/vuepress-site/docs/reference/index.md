@@ -12,7 +12,7 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 
 [Explore core Okta API](/docs/reference/core-okta-api/)
 
-<Cards><Card href="/docs/reference/postman-collections/" :showHeaderIcon=false cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/reference/api/asa/introduction/" :showHeaderIcon=false cardTitle="Advanced Service Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
+<Cards><Card href="/docs/reference/postman-collections/" cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/reference/api/asa/introduction/" cardTitle="Advanced Server Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
 
 ## Okta Hooks
 

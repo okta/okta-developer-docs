@@ -1,7 +1,223 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+
+## November
+
+### Monthly release 2021.11.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
+| [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
+| [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
+| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Device Authorization grant type is now GA in Preview](#device-authorization-grant-type-is-now-ga-in-preview)                          | November 3, 2021          |
+| [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Production](#authentication-api-returns-ud-user-profile-locale-is-ga-in-production) | October 6, 2021 |
+| [Native SSO support is now GA in Production](#native-sso-support-is-now-ga-in-production)                          | October 6, 2021          |
+| [AES-GCM encryption support for SAML assertions is now GA in Production](#aes-gcm-encryption-support-for-saml-assertions-is-now-ga-in-production) | October 6, 2021 |
+| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production) | October 6, 2021          |
+| [The Okta Org API is now GA in Production](#the-okta-org-api-is-now-ga-in-production)                          | March 3, 2021          |
+| [Bugs fixed in 2021.11.0](#bugs-fixed-in-2021-11-0)                          | November 3, 2021          |
+
+#### Identity Providers API response includes ID token for generic OIDC provider
+
+The new response for the Identity Providers API [social authentication token operation](/docs/reference/api/idps/#social-authentication-token-operation) includes the addition of an ID token, if available, in addition to the access tokens.<!--OKTA-425470-->
+
+#### Brands API support for auto-detecting contrast colors
+
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+
+#### New error page macros for themed templates
+
+Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+
+#### Event Hooks daily limit
+
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+
+#### Device Authorization grant type is now GA in Preview
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-428052-->
+
+#### Key pair additions to JWKS limited to 50 per client
+
+The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
+
+#### Authentication API returns UD User Profile locale is now GA in Production
+
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
+
+#### Native SSO support is GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achive SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
+#### AES-GCM encryption support for SAML assertions is now GA in Production
+
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryption modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-435717-->
+
+#### Token-based SSO between native apps is now GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
+#### The Okta Org API is now GA in Production
+
+The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+
+#### Bugs fixed in 2021.11.0
+
+- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
+
+- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
+
+- When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
+
+- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for." (OKTA-439102)
+
+## October
+
+### Weekly Release 2021.10.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.10.2](#bugs-fixed-in-2021-10-2) | October 27, 2021 |
+
+#### Bugs fixed in 2021.10.2
+
+* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+
+* When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/reference/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
+
+* When a [List Group Rules](/docs/reference/api/groups/#list-group-rules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
+
+* When a [List Groups](/docs/reference/api/groups/#list-groups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
+
+### Weekly Release 2021.10.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.10.1](#bug-fixed-in-2021-10-1) | October 13, 2021 |
+
+#### Bug fixed in 2021.10.1
+
+When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
+
+### Monthly Release 2021.10.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [AES-GCM encryption support for SAML assertions](#aes-gcm-encryption-support-for-saml-assertions) | October 6, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Preview](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | October 6, 2021 |
+| [Native SSO support is GA in Preview](#native-sso-support-is-ga-in-preview) | October 6, 2021 |
+| [New Brands API option to remove sign-in page footer message](#new-brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
+| [Bug fixed in 2021.10.0](#bug-fixed-in-2021-10-0)                          | October 6, 2021          |
+
+#### AES-GCM encryption support for SAML assertions
+
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryptions modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-428056-->
+
+#### Authentication API returns UD User Profile locale is GA in Preview
+
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). <!--OKTA-430697-->
+
+#### Native SSO support is GA in Preview
+
+You can now configure your org to use the Native SSO flow. The [Native SSO](/docs/guides/configure-native-sso/) feature allows you to protect native OpenID Connect applications and achieve SSO and Single Logout between native applications. <!--OKTA-428053-->
+
+#### New Brands API option to remove sign-in page footer message
+
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+
+#### Bug fixed in 2021.10.0
+
+Read-only admins were unable to [list key credentials for an application](/docs/reference/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
+
+## September
+
+### Weekly Release 2021.09.2
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Audience parameter deprecated for the Authentication API](#audience-parameter-deprecated-for-the-authentication-api)       | September 15, 2021             |
+
+#### Audience parameter deprecated for the Authentication API
+
+The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#primary-authentication) has been deprecated. <!--OKTA-385098-->
+
+### Monthly Release 2021.09.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [SAML assertion preview populates with real data](#saml-assertion-preview-populates-with-real-data)              | September 1, 2021 |
+| [Dynamic Issuer Mode is EA in Preview](#dynamic-issuer-mode-is-ea-in-preview) | September 1, 2021 |
+| [The Subscriptions API is GA in Production](#the-subscriptions-api-is-ga-in-production)| September 1, 2021 |
+| [Rate limit updates](#rate-limit-updates)| September 1, 2021 |
+
+#### SAML assertion preview populates with real data
+
+After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/create-your-app/). <!--OKTA-398842-->
+
+#### Dynamic Issuer Mode is EA in Preview
+
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+
+When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. For example, if the authorize request is `https://sso.company.com/api/v1/authorize`, the issuer value is `https://sso.company.com`. See [Client application settings](/docs/reference/api/apps/#settings-10).
+
+Dynamic Issuer Mode helps with:
+* Split deployment use cases
+* Migration use cases when customers migrate from the Okta domain to a custom domain
+* Support with multiple custom domains <!--OKTA-411419-->
+
+#### The Subscriptions API is GA in Production
+
+The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+
+* Super Admins can manage the default admin notifications that each admin receives based on their role.
+* Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->
+
+#### Rate limit updates
+
+The default rate limit has increased for the [`/login/login.htm`](/docs/reference/rl-global-enduser/) endpoint. Also, the `/login/step-up/redirect` endpoint is added to [Dynamic Scale](/docs/reference/rl-dynamic-scale/) and the [Workforce Multiplier](/docs/reference/rl-additional-limits/#workforce-license-rate-limit-multiplier) list. <!--OKTA-417680-->
+
 ## August
+
+### Weekly Release 2021.08.3
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.08.3](#bugs-fixed-in-2021-08-3)                          | August 25, 2021          |
+
+#### Bugs fixed in 2021.08.3
+
+* Requests for Native SSO [token exchange](/docs/guides/configure-native-sso/main/#exchange-the-code-for-tokens) failed intermittently with an `invalid actor token` error. (OKTA-421225)
+
+* Admins sometimes encountered an HTTP 500 `Internal Server` error after modifying an OIDC app in a Preview org. (OKTA-423145)
+
+### Weekly Release 2021.08.2
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Custom Administrator Roles is Self-Service EA](#custom-administrator-roles-is-self-service-ea) | August 18, 2021 |
+| [Bugs fixed in 2021.08.2](#bugs-fixed-in-2021-08-2)                          | August 18, 2021          |
+
+#### Custom Administrator Roles is Self-Service EA
+
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+
+#### Bugs fixed in 2021.08.2
+
+- The QR code functionality was missing from the [Device Authorization feature](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
+
+- When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
 
 ### Weekly Release 2021.08.1
 
@@ -123,7 +339,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event Hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/oie/en-us/Content/Topics/automation-hooks/event-hooks-preview.htm).
+Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -155,7 +371,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 #### Bugs fixed in 2021.06.3
 
-* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim/) were not allowed. (OKTA-403289)
 
 * If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 
@@ -397,7 +613,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 * A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
 
-* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
+* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
 ### Monthly Release 2021.04.0
 
@@ -444,7 +660,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### Bugs fixed in 2021.03.2
 
-* After updating a Group `name` using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+* After updating a Group `name` using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
 
 * When creating a User with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
 
@@ -458,7 +674,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 * When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/build-provisioning-integration/-/attribute-mapping/), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
 
-* When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the sign-in request for an Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
+* When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the sign-in request for an Okta Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
 
 ### Monthly Release 2021.03.0
 
@@ -515,11 +731,11 @@ When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` fo
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event Hooks configured in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
 Previewing the JSON body of the Event Hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
-See [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm).<!--OKTA-364119-->
+See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).<!--OKTA-364119-->
 
 #### Wildcards for OAuth redirect subdomains
 

@@ -8,7 +8,7 @@ category: management
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
 [Profile properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language).
 More information on Okta User and App User Profiles can be found in
-Okta's [Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_About_Universal_Directory).
+Okta's [User profiles](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory).
 
 ## Get started
 
@@ -20,7 +20,7 @@ Explore the Mappings API: [![Run in Postman](https://run.pstmn.io/button.svg)](h
 
 <ApiOperation method="get" url="/api/v1/mappings" />
 
-Enumerates [Profile Mappings](#profile-mapping-object) in your organization with [pagination](/docs/reference/api-overview/#pagination). You can return a subset of [Profile Mapping(s)](#profile-mapping-object) that match a supported `sourceId` and/or `targetId`.
+Enumerates [Profile Mappings](#profile-mapping-object) in your organization with [pagination](/docs/reference/core-okta-api/#pagination). You can return a subset of [Profile Mapping(s)](#profile-mapping-object) that match a supported `sourceId` and/or `targetId`.
 
 ##### Request parameters
 
@@ -31,7 +31,7 @@ Enumerates [Profile Mappings](#profile-mapping-object) in your organization with
 | sourceId      | UserType or App Instance `id` that acts as the source of expressions in a mapping. If included, all mappings returned have this as their `source:id`.    | Query      | String   | FALSE    | N/A     |
 | targetId      | UserType or App Instance `id` that acts as the target of expressions in a mapping. If included, all mappings returned have this as their `target:id`.    | Query      | String   | FALSE    | N/A     |
 
-The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters

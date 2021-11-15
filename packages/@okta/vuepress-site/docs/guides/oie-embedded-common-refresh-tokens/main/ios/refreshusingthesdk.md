@@ -1,4 +1,4 @@
-## Option 1: Refresh using the Swift SDK
+## Option 1: Refresh tokens using the Swift SDK
 
 The Swift SDK has built-in support for refreshing tokens through
 the use of the `Token` class's `refresh` method.
@@ -21,6 +21,6 @@ revoking tokens, refer to the sample app and
 [readme](https://github.com/okta/okta-idx-swift#readme).
 
 The direct approach using the
-[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported for
+[OAuth token endpoint](#refresh-the-token-using-the-oauth-token-endpoint) is also supported for
 refresh tokens. It's up to the developer whether they want to use this endpoint or
 the SDK's convenience method.

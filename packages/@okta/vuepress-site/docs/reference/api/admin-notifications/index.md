@@ -267,11 +267,31 @@ curl -v -X GET \
 ]
 ```
 
-## Get subscription of a Role with a specific type
+## List subscriptions of a Custom Role
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions" />
+
+List all subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object)
+
+### Request parameters
+
+
+| Parameter        | Description            | Param Type  | DataType                  | Required  |
+| :--------------- | :--------------------- | :---------- | :------------------------ | :-------- |
+| roleId           | `id` of a Custom Role  | URL         | string                    | TRUE      |
+
+### Response parameters
+
+Array of [Subscription](#subscription-object)
+
+
+## Get subscription of a Role with a specific notification type
 
 <ApiOperation method="get" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}" />
 
-Get subscriptions of a Role with a specific type
+Get subscriptions of a Role with a specific notification type
 
 ### Request parameters
 
@@ -323,11 +343,32 @@ curl -v -X GET \
 }
 ```
 
-## Subscribe to a specific type
+## Get subscription of a Custom Role with a specific notification type
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}" />
+
+Get subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object) with a specific notification type
+
+### Request parameters
+
+
+| Parameter        | Description                                            | Param Type  | DataType                                    | Required  |
+| :--------------- | :----------------------------------------------------- | :---------- | :------------------------------------------ | :-------- |
+| roleId           | `id` of a Custom Role                                  | URL         | string                                      | TRUE      |
+| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)     | TRUE      |
+
+### Response parameters
+
+
+[Subscription](#subscription-object)
+
+## Subscribe a Role to a specific notification type
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/subscribe" />
 
-Subscribes a Role to a specific type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role.
+Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role.
 
 ### Request parameters
 
@@ -362,11 +403,34 @@ curl -v -X POST \
 HTTP/1.1 200 OK
 ```
 
-## Unsubscribe to a specific type
+## Subscribe a Custom Role to a specific notification type
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/subscribe" />
+
+Subscribes a [Custom Role](/docs/reference/api/roles/#custom-role-object) to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
+
+### Request parameters
+
+
+| Parameter        | Description                                            | Param Type  | DataType                                 | Required  |
+| :--------------- | :----------------------------------------------------- | :---------- | :--------------------------------------- | :-------- |
+| roleId           | `id` of a Custom Role                                  | URL         | string                                   | TRUE      |
+| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)  | TRUE      |
+
+### Response parameters
+
+
+``` http
+HTTP/1.1 200 OK
+```
+
+## Unsubscribe a Role from a specific notification type
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/unsubscribe" />
 
-Unsubscribes a Role to a specific type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role.
+Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role.
 
 ### Request parameters
 
@@ -396,6 +460,30 @@ curl -v -X POST \
 ```
 
 ### Response example
+
+
+``` http
+HTTP/1.1 200 OK
+```
+
+## Unsubscribe a Custom Role from a specific notification type
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/unsubscribe" />
+
+Unsubscribes a [Custom Role](/docs/reference/api/roles/#custom-role-object) from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
+
+### Request parameters
+
+
+| Parameter        | Description                                            | Param Type  | DataType                                 | Required  |
+| :--------------- | :----------------------------------------------------- | :---------- | :--------------------------------------- | :-------- |
+| roleId           | `id` of a Custom Role                                  | URL         | string                                   | TRUE      |
+| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)  | TRUE      |
+
+
+### Response parameters
 
 
 ``` http
@@ -659,11 +747,11 @@ curl -v -X GET \
 ]
 ```
 
-## Get the subscription of a User with a specific type
+## Get the subscription of a User with a specific notification type
 
 <ApiOperation method="get" url="/api/v1/roles/${userId}/subscriptions/${notificationType}" />
 
-Get the subscriptions of a User with a specific type. Only gets subscriptions for current user. An `AccessDeniedException` message is sent if requests are made from other users.
+Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
@@ -715,11 +803,11 @@ curl -v -X GET \
 }
 ```
 
-## Subscribe to a specific type
+## Subscribe to a specific notification type
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/subscribe" />
 
-Subscribes a User to a specific type. Only the current User can subscribe to a specific type. An `AccessDeniedException` message is sent if requests are made from other users.
+Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
@@ -754,11 +842,11 @@ curl -v -X POST \
 HTTP/1.1 200 OK
 ```
 
-## Unsubscribe to a specific type
+## Unsubscribe from a specific notification type
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/unsubscribe" />
 
-Unsubscribes a User from a specific type. Only the current User can unsubscribe from a specific type. An `AccessDeniedException` message is sent if requests are made from other users.
+Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
@@ -830,7 +918,7 @@ The Subscription object defines several properties:
 | Property         | Description                                                  | DataType                                                        | Nullable   | Unique   | Read Only |
 | :--------------- | :----------------------------------------------------------- | :-------------------------------------------------------------- | :--------- | :------- | :-------- |
 | notificationType | Type of subscriptions                                        | [Notification Type](#notification-type)                         | FALSE      | TRUE     | TRUE      |
-| channels         | Array of sources that the user gets notification from    | array of [Channel](#subscription-channel)                       | FALSE      | FALSE    | TRUE      |
+| channels         | Array of sources that the user gets notification from        | array of [Channel](#subscription-channel)                       | FALSE      | FALSE    | TRUE      |
 | status           | Status of subscriptions                                      | `subscribed`, `unsubscribed`                                    | FALSE      | FALSE    | FALSE     |
 | _links           | Discoverable resources related to the subscription           | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | FALSE      | FALSE    | TRUE      |
 
@@ -860,7 +948,7 @@ Since we currently only support `email`, the notification types are the same as 
 
 Some Roles support optional targets that constrain the Role to a specific set of Groups or Apps. If an optional target isn't specified, then the Role assignment is unbounded (for example, applies to all Groups or Apps).
 
-Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators) for a complete definition of permissions granted to each Role.
+Refer to the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for a complete definition of permissions granted to each Role.
 
 | Role type                     | Label                               |
 | :---------------------------- | :---------------------------------- |

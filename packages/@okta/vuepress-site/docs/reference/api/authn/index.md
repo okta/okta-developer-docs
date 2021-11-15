@@ -18,7 +18,7 @@ The API is targeted for developers who want to build their own end-to-end login 
 
 The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the **Okta Sign-On Policy**, **MFA Enrollment Policy**, or **Password Policy**.
 
-> **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/api-overview/#client-request-context) such as IP address.
+> **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
 ### Public application
 
@@ -28,7 +28,7 @@ A public application is an application that anonymously starts an authentication
 
 Trusted applications are backend applications that act as authentication broker or login portal for your Okta organization and may start an authentication or recovery transaction with an administrator API token.  Trusted apps may implement their own recovery flows and primary authentication process and may receive additional metadata about the user before primary authentication has successfully completed.
 
-> **Note:** Trusted web applications may need to override the [client request context](/docs/reference/api-overview/#client-request-context) to forward the originating client context for the user.
+> **Note:** Trusted web applications may need to override the [client request context](/docs/reference/core-okta-api/#client-request-context) to forward the originating client context for the user.
 
 
 ## Get started with authentication
@@ -63,14 +63,14 @@ The requests and responses vary depending on the application type, and whether a
 
 As part of the authentication call either the username and password or the token parameter must be provided.
 
-| Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
-|------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
-| audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
-| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
-| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
-| password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
-| token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
-| username   | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
+| Parameter                                      | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
+|------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
+| audience <ApiLifecycle access="deprecated" />  | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
+| context                                        | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
+| password                                       | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
+| token                                          | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
+| username                                       | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
 
 ##### Options object
 
@@ -91,16 +91,16 @@ The context object allows [trusted web applications](#trusted-application) such 
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
 | deviceToken | A globally unique ID identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    |           | 32        |
 
-> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
-##### Device Token Best Practices
+##### Device Token best practices
 
 Use the following recommendations as guidelines for generating and storing a `deviceToken` for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends that you generate a UUID or GUID for each client and persist the `deviceToken` using a secure, HTTP-only cookie or HTML5 localStorage scoped to the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 #### Response parameters
@@ -555,12 +555,12 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
 
 #### Primary authentication with trusted application
 
-Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides [client request context](/docs/reference/api-overview/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
 
@@ -611,13 +611,13 @@ curl -v -X POST \
 
 #### Primary authentication with activation token
 
-Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/api-overview/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted. 
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
 
@@ -880,23 +880,23 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
-* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/okta_help.htm?id=ext_Security_General).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
-> **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=ext-improved-ndbd) for all the existing tenants. After the improvements are rolled out, new device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
+> **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=csh-improved-ndbd) for all the existing tenants. After the improvements are rolled out, new device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
-> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. To read more about the device token, see [Context Object](#context-object). Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).
+> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/core-okta-api/#client-request-context).
 
-##### Device Fingerprint Best Practices
+##### Device fingerprint best practices
 
 Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 ##### Request example for device fingerprinting
@@ -912,7 +912,7 @@ curl -v -X POST \
 -H 'X-Device-Fingerprint: ${device_fingerprint}' \
 -d '{
   "username": "${username}",
-  "password" : "${password}",
+  "password" : "${password}"
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
@@ -1042,9 +1042,11 @@ curl -v -X POST \
 * This endpoint is currently supported only for SAML-based apps.
 * You must first enable the custom sign-in page for the application before using this API.
 
+> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Limitations](/docs/guides/ie-limitations/).
+
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
-For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
+For example, if the custom sign-in page is set as `https://login.example.com`, then Okta will redirect to `https://login.example.com?stateToken=<token>`. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
 * [Step-up authentication without Okta session](#step-up-authentication-without-okta-session)
 * [Step-up authentication with Okta session](#step-up-authentication-with-okta-session)
@@ -1464,6 +1466,8 @@ Authenticates a user for signing in to the specified application
 * Only WS-Federation, SAML based apps are supported.
 * Pass the application instance ID of the app as ["audience"](#request-parameters-for-primary-authentication) along with the user credentials.
 
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
+
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
 ##### Request example for IDP-initiated step-up authentication
@@ -1483,6 +1487,8 @@ curl -v -X POST \
   }
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
+
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
 
 ##### Response example when MFA isn't required
 
@@ -2219,7 +2225,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
@@ -2310,7 +2316,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend"
 ```
 
@@ -3088,7 +3094,7 @@ curl -v -X POST \
             "name":"Rain-Cloud59"
           },
           "u2fParams": {
-            "appid": "https://${yourOktaDomain}.com"
+            "appid": "https://${yourOktaDomain}"
           },
           "user": {
             "displayName": "First Last",
@@ -4745,7 +4751,7 @@ curl -v -X POST \
 
 ##### Response example (waiting for 3-number verification challenge response)
 
-> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-ov-signin) for more details about this challenge flow.
+> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/okta_help.htm?id=csh-ov-signin) for more details about this challenge flow.
 
 ```json
 {
@@ -5725,7 +5731,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5758,7 +5764,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5821,7 +5827,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "call",
+  "factorType": "call"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5872,7 +5878,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for forgot password with trusted application
 
@@ -5885,7 +5891,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -6001,7 +6007,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6037,7 +6043,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6090,7 +6096,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for unlock account with SMS Factor (trusted application)
 
@@ -6103,7 +6109,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 

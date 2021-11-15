@@ -93,7 +93,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -152,7 +152,7 @@ Content-Type: application/json
 
 ### Get CAPTCHA
 
-<ApiOperation method="get" url="/api/v1/captchas/{id}" />
+<ApiOperation method="get" url="/api/v1/captchas/${id}" />
 
 Fetches a CAPTCHA by `id`
 
@@ -203,7 +203,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -271,7 +271,7 @@ Content-Type: application/json
     "type": "RECAPTCHA_V2",
     "_links": {
       "self": {
-        "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+        "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
         "hints": {
           "allow": [
             "GET",
@@ -288,8 +288,8 @@ Content-Type: application/json
 
 ### Update CAPTCHA
 
-<ApiOperation method="put" url="/api/v1/captchas/{id}" />
-<ApiOperation method="post" url="/api/v1/captchas/{id}" />
+<ApiOperation method="put" url="/api/v1/captchas/${id}" />
+<ApiOperation method="post" url="/api/v1/captchas/${id}" />
 
 Updates a CAPTCHA by `id`
 
@@ -345,7 +345,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -387,7 +387,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -403,7 +403,7 @@ Content-Type: application/json
 
 ### Delete CAPTCHA
 
-<ApiOperation method="delete" url="/api/v1/captchas/{id}" />
+<ApiOperation method="delete" url="/api/v1/captchas/${id}" />
 
 Permanently deletes a CAPTCHA
 
@@ -532,7 +532,7 @@ The CAPTCHA object defines the following properties:
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -615,7 +615,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -626,7 +626,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -663,7 +663,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -732,7 +732,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -743,7 +743,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -783,7 +783,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -802,7 +802,7 @@ The following request returns an error when the updated `captchaId` is null but 
 ##### Request
 
 ```bash
-curl -v -X POST \
+curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -922,7 +922,7 @@ Property           | Type                             | Description             
     "captchaId": "cap18c2Ey3iR9BLDb0g4",
     "_links": {
         "captcha": {
-            "href": "http://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+            "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -933,7 +933,7 @@ Property           | Type                             | Description             
             }
         },
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/org/captcha",
+            "href": "https://${yourOktaDomain}/api/v1/org/captcha",
             "hints": {
                 "allow": [
                     "GET",

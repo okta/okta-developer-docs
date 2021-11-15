@@ -1,6 +1,6 @@
 {
-  "release" : "2021.08.1",
-  "build" : "2021.08.1-begin-97-ge2560149c65f",
+  "release" : "2021.11.1",
+  "build" : "2021.11.1-begin-85-ge28985e6ebd8",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -653,6 +653,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The credentials provided were invalid."
   }, {
+    "title" : "Expired password credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "expired_password_credentials",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Password has expired."
+  }, {
     "title" : "Missing password enrollment",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -757,6 +764,13 @@
     "internalErrorCode" : "duplicate_oauth_params",
     "errorCode" : "invalid_request",
     "errorDescription" : "The request contained multiple parameters with the same name."
+  }, {
+    "title" : "Sensitive query parameters not allowed in token request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "sensitive_query_parameters_not_allowed_in_token_requests",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "You shouldn't include any sensitive query parameters ({0}) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
@@ -1045,6 +1059,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'request_uri' parameter must not be present in the request."
   }, {
+    "title" : "Invalid activation token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_activation_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The activation token is invalid"
+  }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1317,6 +1338,13 @@
     "internalErrorCode" : "id_token_invalid",
     "errorCode" : "invalid_token",
     "errorDescription" : "The id token is invalid."
+  }, {
+    "title" : "Invalid user code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_user_code",
+    "errorCode" : "invalid_user_code",
+    "errorDescription" : "The user code is invalid or has expired."
   }, {
     "title" : "JIT failure",
     "statusCode" : 400,

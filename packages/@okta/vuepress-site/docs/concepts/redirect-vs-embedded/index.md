@@ -10,16 +10,27 @@ meta:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-When you develop applications that require the customer to sign-in and then to authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
+When you develop applications that require the customer to sign-in and then to authenticate, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 
 - **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML.
-- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Identity Engine SDKs, or directly with Okta's proprietary Identity Engine authentication APIs.
+- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Okta Identity Engine SDKs, or directly with Okta proprietary Identity Engine authentication APIs.
 
-Identity Engine supports both these deployment and authentication models, and uses authentication protocols to communicate with the Identity Server, the entity that acts as the logical location for all identity-related services and resources.
+Identity Engine supports both of these deployment and authentication models, and uses authentication protocols to communicate with Identity Server, which is the entity that acts as the logical location for all identity-related services and resources.
+
+## Deployment models and the Authentication API
+
+The following table details the configurations that define which Authentication API (either Okta Classic Engine or Identity Engine) your application is using based on your deployment model.
+
+| Deployment Model | Classic Engine Authentication API | Identity Engine Authentication API |
+| ---------------- | --------------------------------- | ---------------------------------- |
+| **Redirect:<br>Okta Hosted Sign-In Widget**<br>To verify that the redirect deployment is used in your application code,<br>check to see if you are using one of these SDKs:<br>[Android](https://github.com/okta/okta-oidc-android), [Angular](https://github.com/okta/okta-angular), [ASP.NET](https://github.com/okta/okta-aspnet), [iOS](https://github.com/okta/okta-oidc-ios), [React](https://github.com/okta/okta-react), [React Native](https://github.com/okta/okta-react-native), [Vue](https://github.com/okta/okta-vue)| The API type depends on your [org configuration.](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) | The API type depends on your [org configuration.](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) |
+| **Embedded:<br>Customer Hosted Sign-In Widget** | Your Sign-In Widget configuration is using:<br>`useInteractionCodeFlow: false`<br>**Or** the `useInteractionCodeFlow` property isn't present | Your Sign-In Widget configuration is using:<br>`useInteractionCodeFlow: true` |
+| **Embedded: SDKs** | To verify that the embedded deployment is used in<br>your application code, check to see if you are using one of these Classic Engine SDKs:<br>[Java](https://github.com/okta/okta-auth-java), [JavaScript](https://github.com/okta/okta-auth-js), [.NET](https://github.com/okta/okta-auth-dotnet), [Swift](https://github.com/okta/okta-auth-swift) | To verify that the embedded deployment is used in<br>your application code, check to see if you are using one of these Identity Engine SDKs:<br>[Android](https://github.com/okta/okta-idx-android), [ASP.NET](https://github.com/okta/okta-idx-dotnet), [Go](https://github.com/okta/okta-idx-golang), [iOS](https://github.com/okta/okta-idx-swift), [Java](https://github.com/okta/okta-idx-java), [Node.js](https://github.com/okta/okta-auth-js) |
+| **Embedded: APIs** | Your app is using: [Authn API](/docs/reference/api/authn/) | N/A  |
 
 ## Redirect authentication
 
-Redirect authentication is the process of delegating authentication to your Okta org and externalizes this process from the client application. The user or system is redirected to Okta for credential verification by the Okta Identity Engine and is then provided authenticated access to the client application and other Service Providers.
+Redirect authentication is the process of delegating authentication to your Okta org and externalizes this process from the client application. The user or system is redirected to Okta for credential verification by the Identity Engine and is then provided authenticated access to the client application and other Service Providers.
 
 When a user signs in to the client application, they are redirected to Okta using a protocol like SAML or OpenId Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. The hosted Okta Sign-in Widget can also be customized, including the domain, to match your application's brand.
 
@@ -63,7 +74,7 @@ Deploy the redirect authentication model in the following use-cases:
 
 ## Embedded authentication
 
-Embedded authentication is the process of authenticating user credentials directly at the client application site using proprietary Okta authentication SDKs and APIs. No redirection to Okta is required. The client application's code determines the methods and processes necessary to authenticate, and uses Okta’s Identity Engine SDK to validate the credentials. Client applications create their own application sessions and require explicit support for SSO to other external Service Providers.
+Embedded authentication is the process of authenticating user credentials directly at the client application site by using proprietary Okta authentication SDKs and APIs. No redirection to Okta is required. The client application's code determines the methods and processes necessary to authenticate, and uses the Identity Engine SDK to validate the credentials. Client applications create their own application sessions and require explicit support for SSO to other external Service Providers.
 
 With embedded authentication, the client application obtains and validates the user's credentials by API calls to Okta, generally through the customer-hosted Sign-In Widget. Based on the organization’s requirements, the client application then creates a session for user access. The client application may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render native user experiences and use native platform APIs.
 

@@ -7,7 +7,7 @@ category: management
 
 The Okta System Log records system events that are related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog).
+The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
@@ -400,7 +400,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs through credentials provided by a credential provider, the credential provider is recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that creates and issues the credential                                                                                                                                                                | [Issuer object](#issuer-object) | TRUE     |           |           |
-| externalSessionId      | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)                                                                                                                                | String                          | TRUE     | 1         | 255       |
+| externalSessionId      | A proxy for the actor's [session ID](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)                                                                                                                                | String                          | TRUE     | 1         | 255       |
 | interface              | The third-party user interface that the actor authenticates through, if any.                                                                                                                                                        | String                          | TRUE     | 1         | 255       |
 
 ###### Possible values
@@ -579,7 +579,7 @@ The following table summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Retrieves the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter | Opaque token                                                                                                                                                                              |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/core-okta-api/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
 | `sortOrder` | The order of the returned events that are sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                                                                               | `ASCENDING`             |
 | `limit`     | Sets the number of results that are returned in the response                                                                                     | Integer between 0 and 1000                                                                                                                                                                | 100                     |
@@ -642,7 +642,7 @@ The following example expressions are supported for events with the `filter` que
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
-See [Filtering](/docs/reference/api-overview/#filter) for more information on expressions.
+See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
 The following are examples of common filter expressions:
 
@@ -867,6 +867,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-Then retrieve the next page of events through the [link response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 >**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.

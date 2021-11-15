@@ -1,4 +1,4 @@
-## Order of configuration options
+## Order of the configuration options
 
 When multiple configuration options are used simultaneously, the SDK library selects the configuration to use based on the following order:
 
@@ -10,4 +10,4 @@ When multiple configuration options are used simultaneously, the SDK library sel
 
 Each increasing configuration option supersedes the previous configuration. For example, if you configure the `~/.okta/okta.yaml` file and set the environment variables with different configuration values, the environment variable values will override the `~/.okta/okta.yaml` configuration values when the app starts.
 
-> **Note:** We recommend that you only use one configuration option to avoid confusion.
+> **Note:** Use only one configuration option in your solution to avoid confusion with setting overrides.

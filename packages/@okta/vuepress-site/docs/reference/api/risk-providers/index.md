@@ -11,6 +11,8 @@ The Okta Risk Providers API provides the ability to manage the Risk Providers wi
 ## Get Started
 Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
+See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/overview/) for guidance on integrating third-party risk providers with Okta.
+
 ## Risk Providers Operations
 The Risk Providers API has the following CRUD operations:
 
@@ -69,7 +71,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 21:23:10",
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -136,7 +138,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 23:18:30",
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -189,7 +191,7 @@ curl -X GET \
       "lastUpdated": "2021-01-04 23:18:30",
       "_links": {
           "self": {
-              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -322,7 +324,6 @@ The Risk Provider object has the following properties:
 
 
 #### Risk Provider example
-```
 ```json
 {
     "id": "00rpdfgkljdlkklhktlrh",

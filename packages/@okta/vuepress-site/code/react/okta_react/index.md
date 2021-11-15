@@ -379,8 +379,8 @@ const AppWithRouterAccess = () => {
   };
 
   const oktaAuth = new OktaAuth({
-    issuer: 'https://{yourOktaDomain}/oauth2/default',
-    clientId: '{clientId}',
+    issuer: 'https://${yourOktaDomain}/oauth2/default',
+    clientId: '${clientId}',
     redirectUri: window.location.origin + '/login/callback',
     onAuthRequired: onAuthRequired,
     pkce: true
@@ -436,8 +436,8 @@ export default withRouter(class AppWithRouterAccess extends Component {
     this.onAuthRequired = this.onAuthRequired.bind(this);
 
     this.oktaAuth = new OktaAuth({
-      issuer: 'https://{yourOktaDomain}/oauth2/default',
-      clientId: '{clientId}',
+      issuer: 'https://${yourOktaDomain}/oauth2/default',
+      clientId: '${clientId}',
       redirectUri: window.location.origin + '/login/callback',
       onAuthRequired: this.onAuthRequired,
       pkce: true
@@ -475,7 +475,7 @@ npm start
 ## Conclusion
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/main' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
 Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

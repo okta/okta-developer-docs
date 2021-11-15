@@ -83,8 +83,8 @@ Create a `src/auth.js` file:
 ```js
 const OktaAuth = require('@okta/okta-auth-js').OktaAuth
 const authClient = new OktaAuth({
-  issuer: 'https://{yourOktaDomain}',
-  clientId: '{clientId}',
+  issuer: 'https://${yourOktaDomain}',
+  clientId: '${clientId}',
   scopes: ['openid', 'email', 'profile'],
   redirectUri: window.location.origin + '/login/callback'
 })
@@ -140,7 +140,7 @@ export default {
 }
 ```
 
-You’ll need to replace `{yourOktaDomain}` with your Okta domain in the code above. Replace `{clientId}` with the client ID from the app you created in the beginning.
+You'll need to replace `${yourOktaDomain}` with your Okta domain in the code above. Replace `${clientId}` with the client ID from the app you created in the beginning.
 
 Change `src/App.vue` to have the following code:
 
@@ -342,7 +342,7 @@ The source code for this guide can be found in [in the Vue Samples](https://gith
 ## Conclusion
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/vue/before-you-begin/' data-proofer-ignore>Vue How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/vue/main' data-proofer-ignore>Vue How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
 Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).
