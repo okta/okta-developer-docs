@@ -2,9 +2,7 @@
 title: Create a custom domain with Cloudflare
 ---
 
-This page covers the steps to quickly set up a custom domain using CloudFlare. To use a custom domain with Okta, you need to have access to its DNS settings, and you need to create a TLS certificate. Cloudflare makes this easy.
-
-Already set everything up using the manual steps on the previous pages? Move on to the <GuideLink link="../next-steps">Next steps</GuideLink> page.
+Use Cloudflare to quickly set up a custom domain.
 
 ## Transfer your domain and create a certificate
 
