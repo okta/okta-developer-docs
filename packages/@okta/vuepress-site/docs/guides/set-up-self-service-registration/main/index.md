@@ -22,10 +22,6 @@ This article shows you how to set up Okta's self-service registration (SSR) func
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
 * Widget version 2.9 or later if you are hosting your own [customized Widget](/code/javascript/okta_sign-in_widget/)
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview

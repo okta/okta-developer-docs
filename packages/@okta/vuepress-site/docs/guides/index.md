@@ -98,7 +98,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
     * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration)
+    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 

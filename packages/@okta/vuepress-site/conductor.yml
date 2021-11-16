@@ -2503,26 +2503,26 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/main/
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
     to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/set-up-self-service-registration/before-you-begin/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/disable-security-image/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/next-steps/
-    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin
+    to: /docs/guides/set-up-self-service-registration/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+  - from: /docs/guides/set-up-self-service-registration/next-steps
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
   - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
     to: /docs/guides/sign-into-mobile-app/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback
