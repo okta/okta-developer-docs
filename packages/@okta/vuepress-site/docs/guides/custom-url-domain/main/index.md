@@ -243,6 +243,6 @@ The following customization options require a custom URL domain:
 
 The following customization options don't require a custom URL domain:
 
-* [Customize SMS messages](/docs/guides/sms-customization/)
+* [Customize SMS messages](/docs/guides/custom-sms-messaging/)
 * [Customize email notifications and email domains](/docs/guides/email-customization/)
 * [Customize themes](/docs/guides/customize-themes)
