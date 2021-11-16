@@ -21,7 +21,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Sample code**
 
-* [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
+[Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
 
 ---
 
@@ -31,7 +31,7 @@ At a high-level, the following workflow occurs:
 
 1. A user attempts to self-register for your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-1. The external service evaluates the Okta call to make sure the user is from domain "example.com".
+1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
 ## Add request code
@@ -42,7 +42,7 @@ This step includes the code that parses the body of the request received from Ok
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the user self-registration, or not, by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
+The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
 
 <StackSelector snippet="send-response" noSelector/>
 
@@ -56,7 +56,7 @@ To set up and activate the Registration Inline Hook:
 2. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
 3. Add a name for the hook (in this example, "Guide Registration Hook Code").
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
-5. Include authentication field and secret. In this example:
+5. Include the authentication field and secret. In this example:
 
     * **Authentication Field** = `authorization`
     * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
@@ -64,11 +64,11 @@ To set up and activate the Registration Inline Hook:
 
 The Registration Inline Hook is now set up with a status of active.
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook) for further information.
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Enable the Registration Inline Hook
 
-The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic Engine. Follow the procedure for your specific org.
+The procedure to enable the Registration Inline Hook is dependent on the type of org that you are using: Okta Identity Engine or Okta Classic Engine. Follow the procedure for your specific org.
 
 #### Enable a Registration Inline Hook in the Identity Engine
 
@@ -85,13 +85,13 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. Select **Allowed** for **Sign-up** in the **For new users** section.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users** that you've set up an activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks you have created.
+1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
 
 1. Click **Save**.
 
 Your Registration Inline Hook is now configured for Profile Enrollment. You are now ready to preview and test the example.
 
-> **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
+> **Note:** You can associate only one Inline Hook with your Profile Enrollment policy at a time.
 
 #### Enable the Registration Inline Hook in the Classic Engine
 
@@ -106,7 +106,7 @@ To enable the Registration Inline Hook on the self-service registration page:
 
 1. Click **Edit**.
 
-1. From the **Extension** field drop-down menu, select the hook you've set up and activated previously ("Guide Registration Hook Code").
+1. From the **Extension** field drop-down menu, select the hook that you set up and activated previously ("Guide Registration Hook Code").
 
 1. Click **Save**.
 
@@ -125,18 +125,18 @@ To preview the Registration Inline Hook:
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
 3. Click the **Preview** tab.
-4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the  `data.userProfile` value.
+4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the `data.userProfile` object.
 5. From the "Preview example Inline Hook request" block, click **Generate Request**.
     You should see the user's request information in JSON format that is sent to the external service.
 6. From the "View service's response" block, click **View Response**.
-    You will see the response from your external service in JSON format, which either allows or denies the self-registration.
+    You should see the response from your external service in JSON format, which either allows or denies the self-registration.
 
 ### Test
 
-To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the "Sign Up" link, and attempt to self-register.
+To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
 * If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
-* If you use an incorrect email domain, the user registration is denied; review the error message, which displays the error summary from the external service code and is passed back to Okta.
+* If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for information if encountering any setup or configuration difficulties.
 
@@ -150,6 +150,4 @@ Review the following guides to implement other Inline or Event Hook examples:
 
 ## See also
 
-For further background on the Registration Inline Hook, see:
-
-* [Registration Inline Hook](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
+For a complete description of this Inline Hook type, see[Registration Inline Hook](/docs/reference/registration-hook/).
