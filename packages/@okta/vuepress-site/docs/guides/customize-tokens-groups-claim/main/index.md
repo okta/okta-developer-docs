@@ -7,9 +7,11 @@ layout: Guides
 You can add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
 
 ---
+
 **Learning outcomes**
 
-Add a Groups claim to ID tokens and access tokens to perform authentication and authorization.
+* Add a Groups claim to ID tokens and access tokens to perform authentication and authorization.
+* Build a request URL to test the full authentication flow.
 
 **What you need**
 
