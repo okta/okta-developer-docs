@@ -280,16 +280,16 @@ export const guides = [
         title: "Brand and Customize",
         subLinks: [
           {
-            title: "Customize the Okta-hosted error pages",
-            guideName: "custom-error-pages"
-          },
-          {
             title: "Customize the Okta URL domain",
             guideName: "custom-url-domain"
           },
           {
             title: "Style the Widget",
             guideName: "style-the-widget"
+          },
+          {
+            title: "Customize the Okta-hosted error pages",
+            guideName: "custom-error-pages"
           },
           {
             title: "Customize SMS messages",
