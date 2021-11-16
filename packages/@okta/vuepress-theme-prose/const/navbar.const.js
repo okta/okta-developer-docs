@@ -280,15 +280,21 @@ export const guides = [
         title: "Brand and Customize",
         subLinks: [
           {
+            title: "Customize the Okta URL domain",
+            guideName: "custom-url-domain"
+          },
+          {
+            title: "Style the Widget",
+            guideName: "style-the-widget"
+          },
+          {
             title: "Customize the Okta-hosted error pages",
             guideName: "custom-error-pages"
           },
           {
-            title: "Customize the Okta URL domain",
-            guideName: "custom-url-domain"
+            title: "Customize SMS messages",
+            guideName: "sms-customization"
           },
-          { title: "Style the Widget", guideName: "style-the-widget" },
-          { title: "Customize SMS messages", guideName: "sms-customization" },
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
