@@ -10,12 +10,12 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [An existing Profile Enrollment Policy can't be modified to deny access](#an-existing-profile-enrollment-policy-can-t-be-modified-to-deny-access) | November 17, 2021 |
+| [Profile Enrollment Policy can't be modified to deny access](#profile-enrollment-policy-can-t-be-modified-to-deny-access) | November 17, 2021 |
 | [Bug fixed in 2021.11.2](#bugs-fixed-in-2021-11-2) | November 17, 2021 |
 
-#### An existing Profile Enrollment Policy can't be modified to deny access
+#### Profile enrollment policies can't be modified to deny access
 
-Admin users can't update a [Profile Enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) by setting the `access` property to `DENY` in the [Profile Enrollment Action object](/docs/reference/api/policy/#profile-enrollment-action-object). <!--OKTA-442998-->
+Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) by setting the `access` property to `DENY` in the [Profile Enrollment Action object](/docs/reference/api/policy/#profile-enrollment-action-object). <!--OKTA-442998-->
 
 #### Bug fixed in 2021.11.2
 
