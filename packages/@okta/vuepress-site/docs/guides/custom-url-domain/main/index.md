@@ -23,7 +23,7 @@ Customize the Okta URL domain.
 
 ## Overview
 
-You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless branded experience for your users so that all URLs look like your application.
+You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
@@ -37,7 +37,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated applications, review the set-up instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/overview/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your org has configured any SAML or WS-Fed integrated apps, review the set-up instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/overview/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
@@ -175,16 +175,16 @@ You need to update existing Custom Authorization Servers to return the custom do
 1. Click **Edit** on the Custom Authorization Server that you selected.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
 
-Additionally, you might want to change the issuer for your OpenID Connect applications that are using the Org authorization server.
+Additionally, you might want to change the issuer for your OpenID Connect apps that are using the Org authorization server.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click the OpenID Connect application that you want to update.
+1. Click the OpenID Connect app that you want to update.
 1. Select the **Sign On** tab, scroll to the **OpenID Connect ID Token** section, and then click **Edit**.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
 
-### Update application endpoints
+### Update app endpoints
 
-If you have applications that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
+If you have apps that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
 
 ## Optional: Create a custom domain within Cloudflare
 
