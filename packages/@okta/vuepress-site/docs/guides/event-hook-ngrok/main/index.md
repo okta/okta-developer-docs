@@ -167,5 +167,4 @@ Each call to your local application appears in the interface and includes the re
 
 ## See also
 
-For background conceptual information on Event Hooks, see[Event Hooks](/docs/concepts/event-hooks/).
-
+For background conceptual information on Event Hooks, see [Event Hooks](/docs/concepts/event-hooks/).

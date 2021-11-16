@@ -11,10 +11,10 @@ The Event Hook use-case is a simple response to the deactivation of an Okta user
     >sample-app
     ```
 
-1. Initialize a default package to create a `package.json` file.
+1. Initialize a default `package.json` file. Accept the default values for all questions after running the command.
 
     ```bash
-    >node init --yes
+    >npm init --yes
     ```
 
 1. Install the package dependencies, `express`, `express-basic-auth`, and `body-parser`.
