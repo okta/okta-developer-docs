@@ -31,7 +31,7 @@ guides:
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
- - sms-customization
+ - custom-sms-messaging
  - submit-app
  - production-deployment
  - deploy-your-app
