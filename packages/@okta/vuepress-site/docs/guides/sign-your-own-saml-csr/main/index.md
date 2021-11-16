@@ -15,15 +15,6 @@ This guide teaches you how to upload your own SAML certificates to sign the asse
 * Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
-
-**What you need**
-
-n/a
-
-**Sample code**
-
-n/a
-
 ---
 
 ## Outbound and Inbound SAML Applications
