@@ -16,7 +16,8 @@ const oidc = new ExpressOIDC({
   client_id: '${clientId}',
   client_secret: '${clientSecret}',
   redirect_uri: 'http://localhost:3000/authorization-code/callback',
-  scope: 'openid profile'
+  scope: 'openid profile',
+  appBaseUrl: 'http://localhost:3000'
 });
 
 // ExpressOIDC attaches handlers for the /login and /authorization-code/callback routes
