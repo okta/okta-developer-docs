@@ -4,7 +4,7 @@ excerpt: Learn how to add a custom domain name to your Okta organization.
 layout: Guides
 ---
 
-This guide teaches you how to customize the Okta URL domain, meaning that Okta-hosted login pages will be served with your own branded URL&mdash;an important step towards creating a seamless experience for your users.
+This guide teaches you how to customize the Okta URL domain, meaning that Okta-hosted pages are served with your own branded URL&mdash;an important step towards creating a seamless experience for your users.
 
 ---
 
