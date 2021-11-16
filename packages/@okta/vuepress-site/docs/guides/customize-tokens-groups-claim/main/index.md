@@ -112,7 +112,7 @@ Use these steps to create a Groups claim for an OpenID Connect client applicatio
 
 ### Request an ID token that contains the Groups claim
 
-To test the full authentication flow that returns an ID token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](/#request-a-token-that-contains-the-custom-claim).
+To test the full authentication flow that returns an ID token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example we request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
@@ -179,7 +179,7 @@ Use these steps to add a Groups claim to ID tokens and access tokens to perform 
 
 ### Request an access token that contains the Groups claim
 
-To test the full authentication flow that returns an access token, build your request URL. Make sure that you include the `openid` scope in the request. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](/#request-a-token-that-contains-the-custom-claim).
+To test the full authentication flow that returns an access token, build your request URL. Make sure that you include the `openid` scope in the request. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 The resulting URL looks something like this:
 
@@ -223,6 +223,6 @@ The decoded JWT looks something like this:
 Take a look at other ways that you can customize claims and tokens:
 
 * [Add a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token)
-* [Include App-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim)
+* [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim)
 * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
 * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
