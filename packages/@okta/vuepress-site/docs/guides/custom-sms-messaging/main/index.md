@@ -54,7 +54,7 @@ For example: `${org.name}: your verification code is ${code}`
 
 4. Click **Save**.
 
-* If you don't support any other languages in your org, you're done.
+* If you don't support any other languages in your org, you're finished.
 * If you support other languages in your org, you need to create a translation for each language to match your new custom SMS message. You also need to provide the translated text for each message. Go to step 3 in [Add a translation](#add-a-translation).
 
 ## Add a translation
