@@ -2771,3 +2771,19 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/sms-customization/before-you-begin
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/before-you-begin/index.html
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/customize-default-sms
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/customize-default-sms/index.html
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/add-translation
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/add-translation/index.html
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/next-steps
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
+  - from: /docs/guides/sms-customization/next-steps/index.html
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
