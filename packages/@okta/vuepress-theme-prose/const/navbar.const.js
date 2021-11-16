@@ -287,8 +287,14 @@ export const guides = [
             title: "Customize the Okta URL domain",
             guideName: "custom-url-domain"
           },
-          { title: "Style the Widget", guideName: "style-the-widget" },
-          { title: "Customize SMS messages", guideName: "sms-customization" },
+          {
+            title: "Style the Widget",
+            guideName: "style-the-widget"
+          },
+          {
+            title: "Customize SMS messages",
+            guideName: "custom-sms-messaging"
+          },
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
