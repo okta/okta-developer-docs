@@ -10,8 +10,8 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Profile Enrollment Policy can't be modified to deny access](#profile-enrollment-policy-can-t-be-modified-to-deny-access) | November 17, 2021 |
-| [Bug fixed in 2021.11.2](#bugs-fixed-in-2021-11-2) | November 17, 2021 |
+| [Profile enrollment policies can't be modified to deny access](#profile-enrollment-policies-can-t-be-modified-to-deny-access) | November 17, 2021 |
+| [Bug fixed in 2021.11.2](#bug-fixed-in-2021-11-2) | November 17, 2021 |
 
 #### Profile enrollment policies can't be modified to deny access
 
