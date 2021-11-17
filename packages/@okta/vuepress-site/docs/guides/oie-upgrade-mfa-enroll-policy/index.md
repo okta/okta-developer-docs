@@ -1,5 +1,5 @@
 ---
-title: Understand MFA Enrollment Policies after the upgrade to Okta Identity Engine
+title: Understand MFA Enrollment Policy API changes after the upgrade to Okta Identity Engine
 meta:
   - name: description
     content: Learn how to use and manage the MFA Enrollment Policy with the API in Okta Identity Engine.
