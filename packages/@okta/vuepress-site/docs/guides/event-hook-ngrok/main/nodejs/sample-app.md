@@ -1,7 +1,7 @@
 
 With ngrok installed, a local application can now function as an external service, and demonstrate the Okta Event Hook (or any Okta Inline Hook). To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application simply serves up a web page and responds to an Okta Event Hook.
 
-The Event Hook use-case is a simple response to the deactivation of an Okta user, which is also presented in [Event Hook Guide](/docs/guides/event-hook-implementation/overview).
+The Event Hook use-case is a simple local application response to the addition of a new Okta user.
 
 ### Create a folder and initialize the project
 
@@ -39,7 +39,7 @@ The Event Hook use-case is a simple response to the deactivation of an Okta user
     <p>See the following links for more information:
     <ul>
         <li><a href="https://developer.okta.com/docs/concepts/event-hooks">Event Hook Concepts</a></li>
-        <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/nodejs/overview/">Event Hook Guides</a></li>
+        <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/">Event Hook Guides</a></li>
     </ul>
     </p>
     </body>
@@ -71,18 +71,18 @@ The Event Hook use-case is a simple response to the deactivation of an Okta user
     // Event Hook Initial Verification
     // Extract header 'x-okta-verification-challenge' from Okta request
     // Return value as JSON object verification
-    app.get("/userDeactivated", (request, response) => {
+    app.get("/userCreated", (request, response) => {
         var returnValue = {
         "verification": request.headers['x-okta-verification-challenge'],
         };
         response.json(returnValue);
     });
 
-    //userDeactivated Event request, POST from Okta
+    //userCreated Event request, POST from Okta
 
-    app.post("/userDeactivated", (request, response) => {
+    app.post("/userCreated", (request, response) => {
         console.log(" ");
-        console.log('The user ' + request.body.data.events[0].target[0]["displayName"] + " has been deactivated on the Okta org!");
+        console.log('The user ' + request.body.data.events[0].target[0]["alternateId"] + " has been deactivated on the Okta org!");
         response.sendStatus(200);
         }
     );

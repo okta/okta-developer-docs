@@ -63,6 +63,14 @@ If you see the following content in your terminal, ngrok is running successfully
 
 See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) for further information.
 
+### Review ngrok inspection interface
+
+The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhost:4040`.
+
+Each call to your local application appears in the interface and includes the response body, header, and other details:
+
+![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
+
 ## Create a local application
 
 <StackSelector snippet="sample-app"/>
@@ -82,6 +90,8 @@ Create the Okta Event Hook to work with your local application, which can now be
 4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
 
 5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://28333dd3ddf3.ngrok.io/userCreated`.
+
+![A screen shot highlighting the forwarding ngrok URL in the terminal](/img/ngrok-and-event-hooks-url.png)
 
 6. Include authentication field and secret. In this example, our `server.js` code uses Basic Authentication:
 
@@ -161,14 +171,6 @@ To run a test of your Event Hook:
 1. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
 
     ![A screen shot of the ngrok terminal that includes a simple line item of a call.](/img/ngrok-and-event-hooks-terminal-calls.png)
-
-### Review ngrok dashboard
-
-The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhost:4040`.
-
-Each call to your local application appears in the interface and includes the response body, header, and other details:
-
-![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
 
 ## See also
 
