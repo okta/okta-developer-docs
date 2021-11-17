@@ -13,13 +13,9 @@ How to create your own custom claims for tokens.
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create an org for free](/signup).
+* An Okta developer org. [Create an org for free](/signup).
 * An [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
 * A [group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it.
-
-**Sample code**
-
-n/a
 
 ---
 
