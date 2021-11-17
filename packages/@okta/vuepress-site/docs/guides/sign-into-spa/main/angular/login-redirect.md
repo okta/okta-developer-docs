@@ -1,4 +1,4 @@
-The [OktaAuthService](https://github.com/okta/okta-angular#oktaauthservice) is injected in your component's constructor by Angular's dependency injection system. You can use the [oktaAuth.isAuthenticated()](https://github.com/okta/okta-angular#oktaauthisauthenticated) method to show/hide the correct button.
+The [OktaAuthStateService](https://github.com/okta/okta-angular#oktaauthstateservice) and [OktaAuth](https://github.com/okta/okta-auth-js#okta-auth-javascript-sdk) service are injected in your component's constructor by Angular's dependency injection system. You can subscribe to the [authStateService.authState$](https://github.com/okta/okta-auth-js#authstatemanager) to show/hide the correct button.
 
 ```javascript
 import { Component } from '@angular/core';
@@ -7,27 +7,17 @@ import { OktaAuthService } from '@okta/okta-angular';
 @Component({
   selector: 'app-root',
   template: `
-    <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+    <button *ngIf="!(authStateService.authState$ | async)?.isAuthenticated" (click)="login()"> Login </button>
     <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {
-  isAuthenticated: boolean;
 
-  constructor(public oktaAuth: OktaAuthService) {
-    // Subscribe to authentication state changes
-    this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
-    );
-  }
+  constructor(public authStateService: OktaAuthStateService, public oktaAuth: OktaAuth) { }
 
-  async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-  }
-
-  login() {
-    this.oktaAuth.signInWithRedirect({
-      originalUri: '/profile'
+  async login() {
+    await this.oktaAuth.signInWithRedirect({
+      originalUri: '/configured-redirect-path'
     });    
   }
 }

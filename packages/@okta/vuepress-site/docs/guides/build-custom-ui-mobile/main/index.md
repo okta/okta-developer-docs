@@ -12,7 +12,7 @@ You can connect your mobile app to Okta and sign users in by [opening a browser]
 
 **Learning outcomes**
 
-Build a custom mobile sign-in UI.
+Build a custom mobile sign-in UI
 
 **What you need**
 
@@ -21,9 +21,7 @@ Build a custom mobile sign-in UI.
 
 **Sample code**
 
-* [Android example](https://github.com/okta/samples-android/tree/master/sign-in-kotlin)
-* [iOS example](https://github.com/okta/samples-ios/tree/master/custom-sign-in/)
-* [React Native example](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in)
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -56,7 +54,7 @@ For example, multiple screens could handle:
 * factor selection
 * multifactor verification
 
-<StackSelector snippet="primaryauth" noSelector />
+<StackSelector snippet="primaryauth" />
 
 ## Handle authentication responses
 
@@ -64,10 +62,14 @@ Every authentication transaction starts with primary authentication, which valid
 
 > **Note:** Custom sign-in only works with [Org MFA](/docs/guides/mfa/sms/main/#set-up-your-org-for-mfa). This means that before you exchange the session token for an access token, you must ensure that [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level) is disabled for the application.
 
-<StackSelector snippet="handle-responses" noSelector />
+<StackSelector snippet="handle-responses" />
 
 ## Next steps
 
 You should now understand how to build a custom UI in your mobile application.
 
 When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See [Get info about the user](/docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user) for details.
+
+## Sample code
+
+<StackSelector snippet="samplecode" />

@@ -1,1 +1,1 @@
-with [<StackSelector snippet="idp" noSelector inline />](https://developer.linkedin.com/).
+with [<StackSelector snippet="idp" noSelector inline />](https://developer.linkedin.com/)

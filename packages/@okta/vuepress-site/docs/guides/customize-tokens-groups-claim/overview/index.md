@@ -8,7 +8,7 @@ This guide walks you through creating a Groups claim for an OpenID Connect clien
 
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static) allow list when you need to set group allow lists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
 
-See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/overview/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 This guide assumes that you:
 
