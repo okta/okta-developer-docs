@@ -93,7 +93,7 @@ To create an MFA Enrollment Policy through the [Policy API](/docs/reference/api/
 
 For a new MFA Enrollment Policy in Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
 
-> **Note:** You need to configure the other policy parameters according to the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Specifically, you need to include the `type=MFA_ENROLL` parameter for an MFA Enrollment Policy. This section outlines the `settings` parameter required for the MFA Enrollment Policy object.
+> **Note:** You need to configure the other policy parameters according to the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Specifically, you need to include the `type=MFA_ENROLL` parameter for an MFA Enrollment Policy. This section focuses on the `settings` parameter required for the MFA Enrollment Policy object.
 
 You can create a new MFA Enrollment Policy from an existing factor MFA Enrollment Policy by converting the list of [Policy Factor Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) into the list of authenticator keys in your `settings` schema. See the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) for the conversion list.
 
@@ -101,7 +101,7 @@ You can create a new MFA Enrollment Policy from an existing factor MFA Enrollmen
 
 To update an MFA Enrollment Policy through the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation, you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `PUT /api/v1/policies/${policyId}` request parameters body.
 
-> **Note:** You need to configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section outlines the `settings` parameter required specifically for the MFA Enrollment Policy.
+> **Note:** You need to configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section focuses on the `settings` parameter required specifically for the MFA Enrollment Policy.
 
 If you need to revert to the Classic Engine MFA enrollment model, you can edit an existing authenticator MFA Enrollment Policy to a factored one. See all the available [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) and the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) to convert the Authenticator keys to Policy Factor Configuration objects.
 
