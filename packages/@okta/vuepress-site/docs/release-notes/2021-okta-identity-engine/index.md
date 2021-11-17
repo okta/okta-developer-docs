@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 ## November
 
+### Weekly Release 2021.11.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.11.1](#bugs-fixed-in-2021-11-1) | November 10, 2021 |
+
+#### Bug fixed in 2021.11.1
+
+When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [Change Recovery Question endpoint](/docs/reference/api/users/#change-recovery-question) was used to update the user's security question, Okta Identity Engine still returned the old security question. (OKTA-442243)
+
 ### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -26,7 +36,7 @@ Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-us
 
 #### New error page macros for themed templates
 
-Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
 #### Event Hooks daily limit
 
