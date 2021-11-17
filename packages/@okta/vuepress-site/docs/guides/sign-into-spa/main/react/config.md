@@ -56,9 +56,13 @@ const config = {
 const oktaAuth = new OktaAuth(config);
 
 const App = () => {
+  const restoreOriginalUri = () => {
+    // Callback function to restore URI during login
+  };
+  
   return (
     <Router>
-      <Security oktaAuth={oktaAuth}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
         { /* App routes go here */ }
       </Security>
     </Router>

@@ -14,9 +14,13 @@ const oktaAuth = new OktaAuth(config);
 const CALLBACK_PATH = '/login/callback';
 
 const App = () => {
+  const restoreOriginalUri = () => {
+    // Callback function to restore URI during login
+  };
+
   return (
     <Router>
-      <Security oktaAuth={oktaAuth}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
           <Route path={CALLBACK_PATH} component={LoginCallback} />
       </Security>
     </Router>
