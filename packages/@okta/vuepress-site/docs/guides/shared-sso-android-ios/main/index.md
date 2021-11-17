@@ -12,8 +12,8 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 **Learning outcomes**
 
-* Persist a session between multiple OIDC mobile apps.
-* Clear the session when appropriate.
+* Persist a session between multiple OIDC mobile apps
+* Clear the session when appropriate
 
 **What you need**
 
@@ -23,10 +23,7 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 **Sample code**
 
-* [Android Samples](https://github.com/okta/samples-android)
-  * You configure the [Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/master/sign-in-kotlin) in the [Set up the first mobile app](#set-up-the-first-mobile-app) section.
-* [iOS Samples](https://github.com/okta/samples-ios)
-  * You configure the [iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/master/browser-sign-in) in the [Set up the first mobile app](#set-up-the-first-mobile-app) section. You'll need to install [CocoaPods](https://cocoapods.org/) to install the dependencies for the iOS Browser Sign-In sample app, using `sudo gem install cocoapods`.
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -119,3 +116,7 @@ To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 * [Okta OIDC for Android](https://github.com/okta/okta-oidc-android)
 * [Okta iOS Browser Sign-in Sample App](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
 * [Kotlin Sign-In Sample App for Android](https://github.com/okta/samples-android/tree/master/sign-in-kotlin)
+
+## Sample code
+
+<StackSelector snippet="samplecode" />
