@@ -10,5 +10,5 @@ Next, take a look at how to import users into Okta and manage their user profile
 Read more on customizating and styling various Okta assets to match your company's visual identity and branding:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [SMS customization](/docs/guides/sms-customization/)
+* [SMS customization](/docs/guides/custom-sms-messaging/)
 * [Style the Widget](/docs/guides/style-the-widget/)

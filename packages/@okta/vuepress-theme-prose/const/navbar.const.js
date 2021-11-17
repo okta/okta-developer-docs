@@ -293,7 +293,7 @@ export const guides = [
           },
           {
             title: "Customize SMS messages",
-            guideName: "sms-customization"
+            guideName: "custom-sms-messaging"
           },
           {
             title: "Customize email notifications and email domains",

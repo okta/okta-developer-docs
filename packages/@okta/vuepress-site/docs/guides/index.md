@@ -31,7 +31,7 @@ guides:
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
- - sms-customization
+ - custom-sms-messaging
  - submit-app
  - production-deployment
  - deploy-your-app
@@ -124,8 +124,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 4. Brand and customize
 
     * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
+    * [Customize SMS messages](/guides/custom-sms-messaging/)
     * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-    * [Customize SMS messages](/docs/guides/sms-customization/before-you-begin/)
     * [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
 
 5. Deploy to production
