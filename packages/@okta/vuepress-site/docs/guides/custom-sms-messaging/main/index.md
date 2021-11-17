@@ -10,7 +10,7 @@ This guide teaches you how to customize the text of the SMS messages that Okta s
 
 **Learning outcomes**
 
-Customize SMS messages.
+Customize SMS messages
 
 **What you need**
 
@@ -20,7 +20,7 @@ An [Okta Developer Edition organization](/signup)
 
 ## Overview
 
-You can customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification. SMS messages are sent to a user's mobile device along with a verification code when the user is signing in to their org. The user enters that code to authenticate, and finish the sign-in process.
+You can customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification. SMS messages are sent to a user's mobile device along with a verification code when the user is signing in to their org. The user enters that code to authenticate and finish the sign-in process.
 
 Okta provides one default SMS message template that is automatically sent to your users. You can't change this default message, but you can add translations for it, and you can use it to create a custom SMS message template.
 
