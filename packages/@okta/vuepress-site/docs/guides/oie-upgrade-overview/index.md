@@ -90,3 +90,5 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 * [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
 * [Understand how sessions work after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+
+* [Understand MFA Enrollment Policy API changes after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-mfa-enroll-policy): Learn how changes to the MFA Enrollment Policy impact applications that use the Policy API directly.
