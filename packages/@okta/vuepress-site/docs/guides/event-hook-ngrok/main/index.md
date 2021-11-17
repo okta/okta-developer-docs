@@ -79,9 +79,9 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 3. Click **Create Event Hook**. The **Add Event Hook Endpoint** dialog box opens.
 
-4. In the **Name** field, add a unique name for the Hook (in this example, "Deactivated User Event Hook").
+4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
 
-5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userDeactivated` from `server.js` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://28333dd3ddf3.ngrok.io/userDeactivated`.
+5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://28333dd3ddf3.ngrok.io/userCreated`.
 
 6. Include authentication field and secret. In this example, our `server.js` code uses Basic Authentication:
 
@@ -89,7 +89,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
     * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`.
+7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user created in the Okta org: `User created`.
 
 8. Click **Save & Continue**.
 
@@ -97,7 +97,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 ### Verify the Event Hook
 
-You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
+You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 To complete the one-time verification of the Event Hook:
 
@@ -119,23 +119,28 @@ With your local application now exposed externally through an ngrok session, you
 
 To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
 
+1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
+    * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user John Doe with the following fields:
+        * **First Name:** John
+        * **Last Name:** Doe
+        * **User Name:** john.doe@example.com
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
-2. Locate the Event Hook you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the Event Hook.
-3. Click the **Actions** menu for this hook, and select **Preview**.
-4. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User deactivated (user.lifecycle.deactivate)`.
-5. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** drop-down menu. The **Preview & Deliver Event Hook** section populates the JSON body of the Event Hook. If no event is available, the JSON body populates with sample data.
+1. Locate the Event Hook you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
+1. Click the **Actions** menu for this hook, and select **Preview**.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
+1. The most recent event (in this case, a user created above) populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook. You can also select an older event from the **System Log Event** drop-down menu. If no event is available, the JSON body populates with sample data.
 
-    > **Note:** If you are using the preview sample data, you must edit the preview to add a `target` value, including a display name, for example, `"target": [{ "displayName": "John Doe"}]`. Otherwise, the sample code throws an error if the value in the call is `null`.
+    > **Note:** If you are using the preview sample data, you must edit the preview to add a `target` value, including an email. For example, `"target": [{ "email": "john.doe@example.com"}]`. Otherwise, the sample application code throws an error if the value in `target` property is `null`.
 
-6. Ensure that both your ngrok session and local sample application are running.
+1. Ensure that both your ngrok session and local sample application are running.
 
     >**Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
 
-7. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message displays if successful:
+1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message displays if successful:
 
-     `The user John Doe has been deactivated on the Okta org!`
+     `The user john.doe@example.com has been added to the Okta org!`
 
-8. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
+1. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
 
     ![A screen shot of the ngrok terminal that includes a simple line item of a call.](/img/ngrok-and-event-hooks-terminal-calls.png)
 
@@ -144,16 +149,16 @@ To run a preview call of your Event Hook, sign in to your Okta org as the super 
 To run a test of your Event Hook:
 
 1. Ensure that both your ngrok session and local sample application are running.
-2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
-    * Go to **Directory** > **People**, and click **Add Person**.
-    * As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
-3. For this user, select the User's profile by clicking John Doe's name.
-4. Click the **More Actions** drop-down menu, and select **Deactivate**.
-5. Confirm the deactivation.
-6. Navigate back to your local application's console. You should see the following output to the console:
+1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
+    * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user Jane Doe with the following fields:
+        * **First Name:** Jane
+        * **Last Name:** Doe
+        * **User Name:** jane.doe@example.com
 
-    `The user John Doe has been deactivated on the Okta org!`
-7. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
+1. Navigate back to your local application's console. You should see the following output to the console:
+
+    `The user jane.doe@example.com has been added to the Okta org!`
+1. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
 
     ![A screen shot of the ngrok terminal that includes a simple line item of a call.](/img/ngrok-and-event-hooks-terminal-calls.png)
 
