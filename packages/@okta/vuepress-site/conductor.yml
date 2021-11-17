@@ -1997,18 +1997,34 @@ redirects:
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
     to: /docs/guides/customize-tokens-groups-claim/overview/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-groups-claim/overview
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/overview/index.html
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
