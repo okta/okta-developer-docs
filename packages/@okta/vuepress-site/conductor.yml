@@ -1737,24 +1737,22 @@ redirects:
     to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
-  - from: /docs/guides/byo-saml/index.html
-    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/overview/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/byo-saml/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/byo-saml/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/byo-saml/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/byo-saml/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/byo-saml/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/byo-saml/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
@@ -2471,38 +2469,38 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
-  - from: /docs/guides/sign-your-own-saml-csr/overview/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview
+    to: /docs/guides/sign-your-own-saml-csr/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/guides/sign-your-own-saml-csr/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/guides/set-up-self-service-registration/before-you-begin
     to: /docs/guides/set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
