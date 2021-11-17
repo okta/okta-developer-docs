@@ -44,8 +44,6 @@ There are three similar methods in the Sign-In Widget. `showSignIn()` applies to
 
 ### Sample for a token flow
 
-The following code sample shows how to use `showSignIn()` to handle a token flow:
-
 ```javascript
 var signIn = new OktaSignIn({
     // Assumes there is an empty element on the page with an id of 'osw-container'  el: `#osw-container`,
@@ -73,8 +71,6 @@ oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 
 ### Sample for a basic redirect callback
 
-The following shows a basic redirect callback:
-
 ```javascript
 if (authClient.isLoginRedirect()) {
   const res = await authClient.token.parseFromUrl();
@@ -83,8 +79,6 @@ if (authClient.isLoginRedirect()) {
 ```
 
 ### Sample for social authentication
-
-The following shows how to handle social authentication with the embedded Widget:
 
 ```javascript
 if (authClient.isLoginRedirect()) {
