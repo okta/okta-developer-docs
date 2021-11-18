@@ -397,7 +397,7 @@ The Org Logo API has the following CRUD operations:
 
 Updates the logo for your org
 
->**Note:** This endpoint is deprecated. Use the [Upload Theme Logo](/docs/references/api/brands/index.md#upload-theme-logo) API instead.
+>**Note:** This endpoint is deprecated. Use the [Upload Theme logo](/docs/references/api/brands/index.md#upload-theme-logo) endpoint instead.
 
 #### Request path parameters
 
