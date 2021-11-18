@@ -2112,9 +2112,9 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/guides/session-cookie/overview/
     to: /docs/guides/session-cookie/
   - from: /docs/guides/session-cookie/overview/index.html
