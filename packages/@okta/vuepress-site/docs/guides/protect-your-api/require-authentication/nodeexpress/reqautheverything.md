@@ -23,7 +23,7 @@ function authenticationRequired(req, res, next) {
     .catch((err) => {
       res.status(401).send(err.message);
     });
-}}
+}
 ```
 
 Once you have your app instance, you will apply the middleware to `*`:
