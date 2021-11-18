@@ -8,6 +8,8 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
@@ -24,10 +26,7 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **Sample code**
 
-* See the [Angular example](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a finished Angular sample, or see the [Angular quickstart](https://angular.io/guide/quickstart) if you want to create your own Angular application to run through this guide with.
-* See the [Blazor example](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) for a finished Blazor sample, or see the Microsoft [Blazor docs](https://blazor.net) if you want to create your own Blazor application to run through this guide with.
-* See the [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a finished React sample, or see the [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to run through this guide with.
-* See the [Vue example](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a finished Vue sample, or see the [Vue Get Started Guide](https://vuejs.org/v2/guide/) if you want to create your own Vue application to run through this guide with.
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -49,7 +48,7 @@ The first thing that you need to define is how Okta calls your app after a user 
 
 The callback route isn't seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
-<StackSelector snippet="define-route"/>
+<StackSelector snippet="define-route" noSelector/>
 
 > **Note:** It's important that the full URL of your callback route represents a real URL (in other words, it should serve your single-page app even after a "hard" browser reload). Most router components do this by default.
 

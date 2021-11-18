@@ -19,7 +19,7 @@ This guide covers submissions that use one or more of these protocols:
 
 * [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0)
 
-    >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/main/).
+    >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 ## Prerequisites
 

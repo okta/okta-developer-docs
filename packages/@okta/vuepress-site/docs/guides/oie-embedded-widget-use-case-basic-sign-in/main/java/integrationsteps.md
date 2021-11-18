@@ -38,7 +38,7 @@ session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
 
 The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the Interaction code that is obtained from Okta for an access token, populate the user profile attributes, and construct [`OAuth2AuthenticationToken.java`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
 
-In the following example, the helper function [`exchangeCodeForToken()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L80) is used to obtain the access and refresh tokens.
+In the following example, the helper function `exchangeCodeForToken()` is used to obtain the access and refresh tokens.
 
 ```java
 final JsonNode jsonNode = helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
@@ -48,7 +48,7 @@ final OAuth2RefreshToken oAuth2RefreshToken = helperUtil.buildOAuth2RefreshToken
 
 ### 4 (Optional): Get the user profile information
 
-Retrieve the user profile attributes with the access token object, and populate the [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) object reference for Spring to continue with the rest of the authentication flow. See the helper class method [`getUserAttributes()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L67) for details.
+Retrieve the user profile attributes with the access token object, and populate the [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) object reference for Spring to continue with the rest of the authentication flow. See the helper class method [`getUserAttributes()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java) for details.
 
 ```java
 final Map<String, Object> userAttributes =
