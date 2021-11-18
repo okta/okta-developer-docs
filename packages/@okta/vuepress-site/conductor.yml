@@ -944,15 +944,15 @@ redirects:
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
     to: /docs/guides/style-the-widget/-/style-okta-hosted/
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/-/enable-the-custom-domain/
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
-    to: /docs/guides/custom-url-domain/-/gather-information/
+    to: /docs/guides/custom-url-domain/
   - from: /guides/custom-url-domain/-/next-steps/index.html
-    to: /docs/guides/custom-url-domain/-/next-steps/
+    to: /docs/guides/custom-url-domain/main/#next-steps
   - from: /guides/custom-url-domain/-/overview/index.html
-    to: /docs/guides/custom-url-domain/-/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/-/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/-/update-other-okta-settings/
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
   - from: /guides/customize-authz-server/-/create-access-policies/index.html
     to: /docs/guides/customize-authz-server/-/create-access-policies/
   - from: /guides/customize-authz-server/-/create-authz-server/index.html
@@ -968,7 +968,7 @@ redirects:
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/-/test-authz-server/
   - from: /guides/enable-cors/-/overview/index.html
-    to: /docs/guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
@@ -984,9 +984,9 @@ redirects:
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
-    to: /docs/guides/find-your-app-credentials/-/overview/
+    to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
-    to: /docs/guides/find-your-domain/-/overview/
+    to: /docs/guides/find-your-domain/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
     to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code-pkce/-/next-steps/index.html
@@ -1089,18 +1089,16 @@ redirects:
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /guides/session-cookie/-/overview/index.html
-    to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
-    to: /docs/guides/sharing-cert/-/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
-    to: /docs/guides/sharing-cert/-/overview/
+    to: /docs/guides/sharing-cert/
   - from: /guides/sharing-cert/-/share-kid-with-target-app/index.html
-    to: /docs/guides/sharing-cert/-/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
   - from: /guides/sharing-cert/-/update-source-app-with-cert/index.html
-    to: /docs/guides/sharing-cert/-/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
   - from: /guides/sharing-cert/-/update-target-app-with-kid/index.html
-    to: /docs/guides/sharing-cert/-/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
   - from: /guides/sign-in-with-facebook/-/add-redirect-uri/index.html
     to: /docs/guides/sign-in-with-facebook/-/add-redirect-uri/
   - from: /guides/sign-in-with-facebook/-/complete-authz-url/index.html
@@ -1212,23 +1210,23 @@ redirects:
   - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
   - from: /guides/updating-saml-cert/-/generate-new-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
   - from: /guides/updating-saml-cert/-/get-app-info/index.html
-    to: /docs/guides/updating-saml-cert/-/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
   - from: /guides/updating-saml-cert/-/overview/index.html
-    to: /docs/guides/updating-saml-cert/-/overview/
+    to: /docs/guides/updating-saml-cert/
   - from: /guides/updating-saml-cert/-/revert-to-sha1/index.html
-    to: /docs/guides/updating-saml-cert/-/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /guides/updating-saml-cert/-/update-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
-    to: /docs/guides/updating-saml-cert/-/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/index.html
     to: /docs/guides/validate-id-tokens/-/overview/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /use_cases/promote-oan-integration/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /docs/api/resources/index.html
@@ -1254,15 +1252,15 @@ redirects:
   - from: /use_cases/api_security/index.html
     to: /docs/concepts/api-access-management/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/enable-the-custom-domain/
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/gather-information/index.html
-    to: /docs/guides/custom-url-domain/gather-information/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/next-steps/index.html
-    to: /docs/guides/custom-url-domain/next-steps/
+    to: /docs/guides/custom-url-domain/main/#next-steps
   - from: /guides/custom-url-domain/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/update-other-okta-settings/
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
   - from: /guides/custom-error-pages/customization-examples/index.html
     to: /docs/guides/custom-error-pages/customization-examples/
   - from: /guides/custom-error-pages/edit-the-error-page/index.html
@@ -1350,7 +1348,7 @@ redirects:
   - from: /guides/custom-hosted-signin/index.html
     to: /docs/guides/custom-hosted-signin/
   - from: /guides/custom-url-domain/index.html
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/customize-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /guides/enable-cors/index.html
@@ -1737,24 +1735,22 @@ redirects:
     to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
-  - from: /docs/guides/byo-saml/index.html
-    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/overview/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/byo-saml/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/byo-saml/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/byo-saml/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/byo-saml/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/byo-saml/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/byo-saml/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
@@ -1999,18 +1995,34 @@ redirects:
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
     to: /docs/guides/customize-tokens-groups-claim/overview/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-groups-claim/overview
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/overview/index.html
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
@@ -2100,9 +2112,13 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/index.html
+    to: /docs/guides/session-cookie/
   - from: /docs/rest
     to: /code/rest/
   - from: /docs/rest/index.html
@@ -2385,32 +2401,56 @@ redirects:
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
     to: /docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning
-  - from: /docs/guides/sharing-cert/overview/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/generate-new-credential/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-source-app-with-cert/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/share-kid-with-target-app/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-target-app-with-kid/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/next-steps/
-    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/overview
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps
+    to: /docs/guides/sharing-cert/main/#see-also
+  - from: /docs/guides/sharing-cert/overview/index.html
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential/index.html
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app/index.html
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps/index.html
+    to: /docs/guides/sharing-cert/main/#see-also
   - from: /docs/guides/saml-tracer/overview/
     to: /docs/guides/saml-tracer/main/
-  - from: /docs/guides/updating-saml-cert/overview/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/get-app-info/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/update-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
-    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/overview
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
+  - from: /docs/guides/updating-saml-cert/overview/index.html
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info/index.html
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/index.html
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/index.html
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /docs/guides/create-an-api-token/overview/
     to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/overview/index.html
@@ -2459,60 +2499,60 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
-  - from: /docs/guides/sign-your-own-saml-csr/overview/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview
+    to: /docs/guides/sign-your-own-saml-csr/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/guides/sign-your-own-saml-csr/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/set-up-self-service-registration/before-you-begin/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/disable-security-image/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/next-steps/
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin
+    to: /docs/guides/set-up-self-service-registration/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+  - from: /docs/guides/set-up-self-service-registration/next-steps
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
   - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/
+    to: /docs/guides/sign-into-mobile-app/-/main/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback
     to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/-/create-okta-application
@@ -2551,6 +2591,126 @@ redirects:
     to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/-/next-steps/index.html
     to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/android/main/
+  - from: /docs/guides/sign-into-mobile-app/android/define-callback
+    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/android/configure-packages
+    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/android/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/get-user-info
+    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/use-access-token
+    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/next-steps
+    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/
+  - from: /docs/guides/sign-into-mobile-app/android/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/android/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/android/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/define-callback
+    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/ios/configure-packages
+    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/get-user-info
+    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/use-access-token
+    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/next-steps
+    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/ios/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/react-native/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/next-steps
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
@@ -2559,43 +2719,51 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
     to: /docs/guides/common-hook-set-up-steps/
@@ -2613,8 +2781,6 @@ redirects:
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/sign-into-spa/-/before-you-begin
     to: /docs/guides/sign-into-spa/
   - from: /docs/guides/sign-into-spa/-/define-callback
@@ -2659,6 +2825,182 @@ redirects:
     to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/-/next-steps/index.html
     to: /docs/guides/sign-into-spa/-/main/#next-steps
+  - from: /docs/guides/sign-into-spa/angular/before-you-begin
+    to: /docs/guides/sign-into-spa/angular/main/
+  - from: /docs/guides/sign-into-spa/angular/define-callback
+    to: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/angular/create-okta-application
+    to: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/angular/install-sdk
+    to: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/angular/configure-the-sdk
+    to: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/angular/add-signin-button
+    to: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/angular/handle-callback
+    to: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/require-authentication
+    to: /docs/guides/sign-into-spa/angular/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/angular/user-info
+    to: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/use-the-access-token
+    to: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/next-steps
+    to: /docs/guides/sign-into-spa/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/angular/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/angular/main/
+  - from: /docs/guides/sign-into-spa/angular/define-callback/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/angular/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/angular/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/angular/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/angular/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/angular/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/angular/user-info/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/next-steps/index.html
+    to: /docs/guides/sign-into-spa/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/
+  - from: /docs/guides/sign-into-spa/blazorwebasm/define-callback
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/blazorwebasm/create-okta-application
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/blazorwebasm/install-sdk
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/blazorwebasm/configure-the-sdk
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/blazorwebasm/add-signin-button
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/blazorwebasm/handle-callback
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/require-authentication
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/blazorwebasm/user-info
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/blazorwebasm/use-the-access-token
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/blazorwebasm/next-steps
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#next-steps
+  - from: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/
+  - from: /docs/guides/sign-into-spa/blazorwebasm/define-callback/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/blazorwebasm/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/blazorwebasm/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/blazorwebasm/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/blazorwebasm/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/blazorwebasm/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/blazorwebasm/user-info/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/blazorwebasm/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/blazorwebasm/next-steps/index.html
+    to: /docs/guides/sign-into-spa/blazorwebasm/main/#next-steps
+  - from: /docs/guides/sign-into-spa/react/before-you-begin
+    to: /docs/guides/sign-into-spa/react/main/
+  - from: /docs/guides/sign-into-spa/react/define-callback
+    to: /docs/guides/sign-into-spa/react/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/react/create-okta-application
+    to: /docs/guides/sign-into-spa/react/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/react/install-sdk
+    to: /docs/guides/sign-into-spa/react/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/react/configure-the-sdk
+    to: /docs/guides/sign-into-spa/react/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/react/add-signin-button
+    to: /docs/guides/sign-into-spa/react/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/react/handle-callback
+    to: /docs/guides/sign-into-spa/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/require-authentication
+    to: /docs/guides/sign-into-spa/react/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/react/user-info
+    to: /docs/guides/sign-into-spa/react/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/react/use-the-access-token
+    to: /docs/guides/sign-into-spa/react/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/react/next-steps
+    to: /docs/guides/sign-into-spa/react/main/#next-steps
+  - from: /docs/guides/sign-into-spa/react/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/react/main/
+  - from: /docs/guides/sign-into-spa/react/define-callback/index.html
+    to: /docs/guides/sign-into-spa/react/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/react/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/react/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/react/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/react/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/react/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/react/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/react/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/react/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/react/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/react/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/react/user-info/index.html
+    to: /docs/guides/sign-into-spa/react/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/react/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/react/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/react/next-steps/index.html
+    to: /docs/guides/sign-into-spa/react/main/#next-steps
+  - from: /docs/guides/sign-into-spa/vue/before-you-begin
+    to: /docs/guides/sign-into-spa/vue/main/
+  - from: /docs/guides/sign-into-spa/vue/define-callback
+    to: /docs/guides/sign-into-spa/vue/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/vue/create-okta-application
+    to: /docs/guides/sign-into-spa/vue/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/vue/install-sdk
+    to: /docs/guides/sign-into-spa/vue/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/vue/configure-the-sdk
+    to: /docs/guides/sign-into-spa/vue/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/vue/add-signin-button
+    to: /docs/guides/sign-into-spa/vue/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/vue/handle-callback
+    to: /docs/guides/sign-into-spa/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/require-authentication
+    to: /docs/guides/sign-into-spa/vue/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/vue/user-info
+    to: /docs/guides/sign-into-spa/vue/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/vue/use-the-access-token
+    to: /docs/guides/sign-into-spa/vue/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/vue/next-steps
+    to: /docs/guides/sign-into-spa/vue/main/#next-steps
+  - from: /docs/guides/sign-into-spa/vue/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/vue/main/
+  - from: /docs/guides/sign-into-spa/vue/define-callback/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/vue/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/vue/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/vue/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/vue/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/vue/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/vue/user-info/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/vue/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/vue/next-steps/index.html
+    to: /docs/guides/sign-into-spa/vue/main/#next-steps
   - from: /docs/guides/configure-signon-policy/before-you-begin
     to: /docs/guides/configure-signon-policy/
   - from: /docs/guides/configure-signon-policy/prompt-factor-group
@@ -2731,6 +3073,38 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-domain/overview
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/find-your-domain/overview/index.html
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg/index.html
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/enable-cors/overview
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/enable-cors/overview/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors/index.html
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing/index.html
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps/index.html
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/find-your-app-credentials/overview
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
+  - from: /docs/guides/find-your-app-credentials/overview/index.html
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds/index.html
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
   - from: /docs/guides/custom-error-pages/overview/index.html
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/overview
@@ -2771,3 +3145,84 @@ redirects:
     to: /docs/guides/refresh-tokens/main/#use-a-refresh-token
   - from: /docs/guides/refresh-tokens/next-steps/index.html
     to: /docs/guides/refresh-tokens/main/#see-also
+=======
+  - from: /docs/guides/sms-customization/before-you-begin
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/before-you-begin/index.html
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/customize-default-sms
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/customize-default-sms/index.html
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/add-translation
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/add-translation/index.html
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/next-steps
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
+  - from: /docs/guides/sms-customization/next-steps/index.html
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
+  - from: /docs/guides/registration-inline-hook/-/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/send-response-code
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+  - from: /docs/guides/custom-url-domain/overview
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/overview/index.html
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/gather-information
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/gather-information/index.html
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/enable-the-custom-domain
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+  - from: /docs/guides/custom-url-domain/enable-the-custom-domain/index.html
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+  - from: /docs/guides/custom-url-domain/update-other-okta-settings
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+  - from: /docs/guides/custom-url-domain/update-other-okta-settings/index.html
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+  - from: /docs/guides/custom-url-domain/cloudflare
+    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+  - from: /docs/guides/custom-url-domain/cloudflare/index.html
+    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+  - from: /docs/guides/custom-url-domain/next-steps
+    to: /docs/guides/custom-url-domain/main/#next-steps
+  - from: /docs/guides/custom-url-domain/next-steps/index.html
+    to: /docs/guides/custom-url-domain/main/#next-steps
