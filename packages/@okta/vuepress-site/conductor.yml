@@ -2524,7 +2524,7 @@ redirects:
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/build-custom-ui-mobile/-/before-you-begin
-    to: /docs/guides/build-custom-ui-mobile/-/main
+    to: /docs/guides/build-custom-ui-mobile/
   - from: /docs/guides/build-custom-ui-mobile/-/create-an-okta-application
     to: /docs/guides/build-custom-ui-mobile/-/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/-/configure-packages
