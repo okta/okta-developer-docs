@@ -22,10 +22,6 @@ This article shows you how to set up Okta's self-service registration (SSR) func
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
 * Widget version 2.9 or later if you are hosting your own [customized Widget](/code/javascript/okta_sign-in_widget/)
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview
@@ -133,7 +129,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) check box clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
-> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/overview/) configured.
+> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/) configured.
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.
