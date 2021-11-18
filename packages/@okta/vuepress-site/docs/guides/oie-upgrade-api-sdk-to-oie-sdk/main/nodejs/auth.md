@@ -2,7 +2,7 @@
 
 If your application uses the Classic Engine Authentication SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password. This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
 
->**Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK.
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK.
 
 See the following code snippet for this example:
 
@@ -28,7 +28,7 @@ To migrate your code to the Identity Engine SDK, the authentication flow is very
 
 #### Okta Identity Engine SDK authentication flow
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Okta Identity Engine code options](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Okta Identity Engine code options](#okta-identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
 
 See the following code snippet for this example:
 
