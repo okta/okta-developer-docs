@@ -24,10 +24,7 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **Sample code**
 
-* See the [Angular example](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a finished Angular sample, or see the [Angular quickstart](https://angular.io/guide/quickstart) if you want to create your own Angular application to run through this guide with.
-* See the [Blazor example](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) for a finished Blazor sample, or see the Microsoft [Blazor docs](https://blazor.net) if you want to create your own Blazor application to run through this guide with.
-* See the [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a finished React sample, or see the [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to run through this guide with.
-* See the [Vue example](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a finished Vue sample, or see the [Vue Get Started Guide](https://vuejs.org/v2/guide/) if you want to create your own Vue application to run through this guide with.
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -183,3 +180,7 @@ From here, go on to check out these guides:
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
+
+## Sample code
+
+<StackSelector snippet="samplecode"/>
