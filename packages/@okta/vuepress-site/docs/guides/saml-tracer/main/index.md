@@ -17,10 +17,6 @@ This article explains how to test a SAML app implementation with the SAML Tracer
 
 * A SAML app to test (see [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/before-you-begin/) for more information on creating one).
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview
