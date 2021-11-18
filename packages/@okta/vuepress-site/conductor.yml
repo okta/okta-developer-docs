@@ -3145,7 +3145,6 @@ redirects:
     to: /docs/guides/refresh-tokens/main/#use-a-refresh-token
   - from: /docs/guides/refresh-tokens/next-steps/index.html
     to: /docs/guides/refresh-tokens/main/#see-also
-=======
   - from: /docs/guides/sms-customization/before-you-begin
     to: /docs/guides/custom-sms-messaging/
   - from: /docs/guides/sms-customization/before-you-begin/index.html
