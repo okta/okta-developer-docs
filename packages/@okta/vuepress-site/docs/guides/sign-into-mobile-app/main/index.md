@@ -14,7 +14,7 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 * Create an Okta app integration to represent your app in the system
 * Implement an Okta-hosted sign-in page
-* Handle a user sign-in
+* Handle a user sign-in flow
 * Handle access tokens appropriately
 
 **What you need**
