@@ -2596,7 +2596,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/ios/next-steps/index.html
     to: /docs/guides/build-custom-ui-mobile/ios/main/#next-steps
   - from: /docs/guides/build-custom-ui-mobile/react-native/before-you-begin
-    to: /docs/guides/build-custom-ui-mobile/react-native/main
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
   - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application
     to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/react-native/configure-packages
