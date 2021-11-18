@@ -944,15 +944,15 @@ redirects:
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
     to: /docs/guides/style-the-widget/-/style-okta-hosted/
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/-/enable-the-custom-domain/
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
-    to: /docs/guides/custom-url-domain/-/gather-information/
+    to: /docs/guides/custom-url-domain/
   - from: /guides/custom-url-domain/-/next-steps/index.html
-    to: /docs/guides/custom-url-domain/-/next-steps/
+    to: /docs/guides/custom-url-domain/main/#next-steps
   - from: /guides/custom-url-domain/-/overview/index.html
-    to: /docs/guides/custom-url-domain/-/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/-/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/-/update-other-okta-settings/
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
   - from: /guides/customize-authz-server/-/create-access-policies/index.html
     to: /docs/guides/customize-authz-server/-/create-access-policies/
   - from: /guides/customize-authz-server/-/create-authz-server/index.html
@@ -984,7 +984,7 @@ redirects:
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
-    to: /docs/guides/find-your-app-credentials/-/overview/
+    to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
     to: /docs/guides/find-your-domain/-/overview/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
@@ -1092,15 +1092,15 @@ redirects:
   - from: /guides/session-cookie/-/overview/index.html
     to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
-    to: /docs/guides/sharing-cert/-/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
-    to: /docs/guides/sharing-cert/-/overview/
+    to: /docs/guides/sharing-cert/
   - from: /guides/sharing-cert/-/share-kid-with-target-app/index.html
-    to: /docs/guides/sharing-cert/-/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
   - from: /guides/sharing-cert/-/update-source-app-with-cert/index.html
-    to: /docs/guides/sharing-cert/-/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
   - from: /guides/sharing-cert/-/update-target-app-with-kid/index.html
-    to: /docs/guides/sharing-cert/-/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
   - from: /guides/sign-in-with-facebook/-/add-redirect-uri/index.html
     to: /docs/guides/sign-in-with-facebook/-/add-redirect-uri/
   - from: /guides/sign-in-with-facebook/-/complete-authz-url/index.html
@@ -1212,23 +1212,23 @@ redirects:
   - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
   - from: /guides/updating-saml-cert/-/generate-new-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
   - from: /guides/updating-saml-cert/-/get-app-info/index.html
-    to: /docs/guides/updating-saml-cert/-/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
   - from: /guides/updating-saml-cert/-/overview/index.html
-    to: /docs/guides/updating-saml-cert/-/overview/
+    to: /docs/guides/updating-saml-cert/
   - from: /guides/updating-saml-cert/-/revert-to-sha1/index.html
-    to: /docs/guides/updating-saml-cert/-/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /guides/updating-saml-cert/-/update-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
-    to: /docs/guides/updating-saml-cert/-/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/index.html
     to: /docs/guides/validate-id-tokens/-/overview/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /use_cases/promote-oan-integration/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /docs/api/resources/index.html
@@ -1254,15 +1254,15 @@ redirects:
   - from: /use_cases/api_security/index.html
     to: /docs/concepts/api-access-management/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/overview/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/enable-the-custom-domain/
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/gather-information/index.html
-    to: /docs/guides/custom-url-domain/gather-information/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/custom-url-domain/next-steps/index.html
-    to: /docs/guides/custom-url-domain/next-steps/
+    to: /docs/guides/custom-url-domain/main/#next-steps
   - from: /guides/custom-url-domain/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/update-other-okta-settings/
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
   - from: /guides/custom-error-pages/customization-examples/index.html
     to: /docs/guides/custom-error-pages/customization-examples/
   - from: /guides/custom-error-pages/edit-the-error-page/index.html
@@ -1350,7 +1350,7 @@ redirects:
   - from: /guides/custom-hosted-signin/index.html
     to: /docs/guides/custom-hosted-signin/
   - from: /guides/custom-url-domain/index.html
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-domain/main/
   - from: /guides/customize-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /guides/enable-cors/index.html
@@ -1737,24 +1737,22 @@ redirects:
     to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
-  - from: /docs/guides/byo-saml/index.html
-    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/overview/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/byo-saml/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/byo-saml/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/byo-saml/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/byo-saml/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/byo-saml/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/byo-saml/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
@@ -1999,18 +1997,34 @@ redirects:
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
     to: /docs/guides/customize-tokens-groups-claim/overview/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-groups-claim/overview
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/overview/index.html
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
@@ -2385,32 +2399,56 @@ redirects:
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
     to: /docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning
-  - from: /docs/guides/sharing-cert/overview/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/generate-new-credential/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-source-app-with-cert/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/share-kid-with-target-app/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-target-app-with-kid/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/next-steps/
-    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/overview
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps
+    to: /docs/guides/sharing-cert/main/#see-also
+  - from: /docs/guides/sharing-cert/overview/index.html
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential/index.html
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app/index.html
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps/index.html
+    to: /docs/guides/sharing-cert/main/#see-also
   - from: /docs/guides/saml-tracer/overview/
     to: /docs/guides/saml-tracer/main/
-  - from: /docs/guides/updating-saml-cert/overview/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/get-app-info/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/update-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
-    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/overview
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
+  - from: /docs/guides/updating-saml-cert/overview/index.html
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info/index.html
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/index.html
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/index.html
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /docs/guides/create-an-api-token/overview/
     to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/overview/index.html
@@ -2459,58 +2497,58 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
-  - from: /docs/guides/sign-your-own-saml-csr/overview/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
-    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview
+    to: /docs/guides/sign-your-own-saml-csr/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/guides/sign-your-own-saml-csr/overview/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#list-your-apps
   - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#generate-a-csr
   - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#sign-the-csr
   - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#publish-a-csr-with-a-certificate
   - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#update-the-key-credential
   - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
-    to: /docs/guides/sign-your-own-saml-csr/main/
-  - from: /docs/guides/set-up-self-service-registration/before-you-begin/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/disable-security-image/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
-    to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/set-up-self-service-registration/next-steps/
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin
+    to: /docs/guides/set-up-self-service-registration/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+  - from: /docs/guides/set-up-self-service-registration/next-steps
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
   - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
-    to: /docs/guides/set-up-self-service-registration/main/
+    to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
     to: /docs/guides/sign-into-mobile-app/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback
@@ -2747,6 +2785,14 @@ redirects:
     to: /docs/guides/enable-cors/main/#test-your-configuration
   - from: /docs/guides/enable-cors/next-steps/index.html
     to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/find-your-app-credentials/overview
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
+  - from: /docs/guides/find-your-app-credentials/overview/index.html
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds/index.html
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
   - from: /docs/guides/custom-error-pages/overview/index.html
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/overview
@@ -2767,3 +2813,83 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/sms-customization/before-you-begin
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/before-you-begin/index.html
+    to: /docs/guides/custom-sms-messaging/
+  - from: /docs/guides/sms-customization/customize-default-sms
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/customize-default-sms/index.html
+    to: /docs/guides/custom-sms-messaging/main/#customize-the-okta-default-sms-message
+  - from: /docs/guides/sms-customization/add-translation
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/add-translation/index.html
+    to: /docs/guides/custom-sms-messaging/main/#add-a-translation
+  - from: /docs/guides/sms-customization/next-steps
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
+  - from: /docs/guides/sms-customization/next-steps/index.html
+    to: /docs/guides/custom-sms-messaging/main/#next-steps
+  - from: /docs/guides/registration-inline-hook/-/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/send-response-code
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+  - from: /docs/guides/custom-url-domain/overview
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/overview/index.html
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/gather-information
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/gather-information/index.html
+    to: /docs/guides/custom-url-domain/
+  - from: /docs/guides/custom-url-domain/enable-the-custom-domain
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+  - from: /docs/guides/custom-url-domain/enable-the-custom-domain/index.html
+    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+  - from: /docs/guides/custom-url-domain/update-other-okta-settings
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+  - from: /docs/guides/custom-url-domain/update-other-okta-settings/index.html
+    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+  - from: /docs/guides/custom-url-domain/cloudflare
+    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+  - from: /docs/guides/custom-url-domain/cloudflare/index.html
+    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+  - from: /docs/guides/custom-url-domain/next-steps
+    to: /docs/guides/custom-url-domain/main/#next-steps
+  - from: /docs/guides/custom-url-domain/next-steps/index.html
+    to: /docs/guides/custom-url-domain/main/#next-steps
