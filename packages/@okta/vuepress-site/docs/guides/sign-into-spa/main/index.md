@@ -8,6 +8,8 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
@@ -24,7 +26,7 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **Sample code**
 
-See the [Sample code](#sample-code) section.
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -46,7 +48,7 @@ The first thing that you need to define is how Okta calls your app after a user 
 
 The callback route isn't seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
-<StackSelector snippet="define-route"/>
+<StackSelector snippet="define-route" noSelector/>
 
 > **Note:** It's important that the full URL of your callback route represents a real URL (in other words, it should serve your single-page app even after a "hard" browser reload). Most router components do this by default.
 
@@ -180,7 +182,3 @@ From here, go on to check out these guides:
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
-
-## Sample code
-
-<StackSelector snippet="samplecode"/>
