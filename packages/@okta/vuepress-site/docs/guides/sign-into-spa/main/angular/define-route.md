@@ -20,4 +20,4 @@ const appRoutes: Routes = [
 
 These examples use `login/callback` as a default route path. The route path is used in the next step.
 
-Your application is responsible for parsing the information Okta sends to this callback route. The SDKs do this for you (covered later in [Handle the callback from Okta](#handle-the-callback-from-okta)). For now, just define the route itself.
+Your application is responsible for parsing the information Okta sends to this callback route. Our SDKs do this for you (covered later in [Handle the callback from Okta](#handle-the-callback-from-okta)). For now, just define the route itself.

@@ -1,16 +1,16 @@
-Your code can get the user's profile using the [getUser](https://github.com/okta/okta-auth-js#getuser) method on the [OktaAuth](https://github.com/okta/okta-auth-js#okta-auth-javascript-sdk) class.
+Your code can get the user's profile using the [getUser](https://github.com/okta/okta-angular#oktaauthgetuser) method on the [OktaAuthService](https://github.com/okta/okta-angular#oktaauthservice).
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
-import { OktaAuth } from '@okta/okta-angular';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   template: 'Welcome back, {{ userName }}'
 })
 export class ProfileComponent implements OnInit {
-  userName: string | undefined;
+  userName: string;
 
-  constructor(public oktaAuth: OktaAuth) {
+  constructor(public oktaAuth: OktaAuthService) {
 
   }
 

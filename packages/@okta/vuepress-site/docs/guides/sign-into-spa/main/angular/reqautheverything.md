@@ -15,9 +15,9 @@ const appRoutes: Routes = [
 ];
 
 // Require authentication on every route except login callback route
-const protectedRoutes = appRoutes.filter(route => r.path !== undefined && !pathExceptions.includes(route.path));
+const protectedRoutes = appRoutes.filter(route => !pathExceptions.includes(route.path));
 protectedRoutes.forEach(route => {
-  route.canActivate = route.canActivate || [];
+  router.canActivate = router.canActivate || [];
   route.canActivate.push(OktaAuthGuard);
 });
 

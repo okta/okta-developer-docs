@@ -24,10 +24,7 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **Sample code**
 
-* See the [Angular example](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a finished Angular sample, or see the [Angular quickstart](https://angular.io/guide/quickstart) if you want to create your own Angular application to run through this guide with.
-* See the [Blazor example](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) for a finished Blazor sample, or see the Microsoft [Blazor docs](https://blazor.net) if you want to create your own Blazor application to run through this guide with.
-* See the [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a finished React sample, or see the [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to run through this guide with.
-* See the [Vue example](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a finished Vue sample, or see the [Vue Get Started Guide](https://vuejs.org/v2/guide/) if you want to create your own Vue application to run through this guide with.
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -94,11 +91,11 @@ To reduce possible attack vectors, you need to explicitly define the Trusted Ori
 
 ## Install the SDK
 
-All Okta JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). These instructions show you how to install the SDK with npm.
+All of our JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). These instructions show you how to install the SDK with npm.
 
 Install the SDK and add it as a dependency to your project:
 
-<StackSelector snippet="installsdk" noSelector />
+<StackSelector snippet="installsdk" />
 
 ## Configure the SDK
 
@@ -107,7 +104,7 @@ You need two values from the Okta application and the Admin Console that you wor
 * **Client ID** &mdash; find it in the applications list or on the application's **General** tab.
 * **Okta domain** &mdash; find the Okta Domain in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name. A drop-down box appears and displays general org information including the full Okta domain (for example, `subdomain.okta.com`).
 
-<StackSelector snippet="config" noSelector />
+<StackSelector snippet="config" />
 
 ## Add a button to sign in
 
@@ -115,15 +112,15 @@ In your application, you want to provide a button to sign the user in. When the 
 
 > **Note:** To customize this sign-in page, see the [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 
-<StackSelector snippet="login-redirect" noSelector />
+<StackSelector snippet="login-redirect" />
 
 ## Handle the callback from Okta
 
 After Okta authenticates a user, they're redirected back to your application via the callback route that you [define](#define-a-callback-route). When Okta redirects back, the URL fragment (the portion after `#`) contains either tokens for the user or an error if something went wrong.
 
-Your application must parse this information, and if tokens are present, store the user's tokens. The SDK does this for you.
+Your application must parse this information, and if tokens are present, store the user's tokens. Our SDK does this for you.
 
-<StackSelector snippet="handle-callback" noSelector />
+<StackSelector snippet="handle-callback" />
 
 ## Require authentication
 
@@ -135,13 +132,13 @@ It's important to note that protecting routes in your SPA doesn't truly prevent 
 
 If you want the user to only have access to a route if they are signed in, require authentication for just those routes.
 
-<StackSelector snippet="reqauthspecific" noSelector />
+<StackSelector snippet="reqauthspecific" />
 
 ### Require authentication for everything
 
 For some applications, you may want to require the user to be authenticated for all routes.
 
-<StackSelector snippet="reqautheverything" noSelector />
+<StackSelector snippet="reqautheverything" />
 
 ## Get info about the user
 
@@ -149,9 +146,9 @@ When a user signs in, their profile information (stored in Okta) is made availab
 
 By default, the profile items (called "claims") that Okta returns include the user's email address, first name, and last name. 
 
-<StackSelector snippet="getuserinfo" noSelector />
+<StackSelector snippet="getuserinfo" />
 
-You can also customize the items (called claims) that are returned from Okta. See [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/).
+You can also customize the items (called claims) that are returned from Okta. See [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/).
 
 ## Use the access token
 
@@ -167,7 +164,7 @@ Authorization: Bearer ${token}
 
 On your back-end (the API), make sure that you check for valid tokens in incoming requests. See [Protect your API endpoints](/docs/guides/protect-your-api/).
 
-<StackSelector snippet="getaccesstoken" noSelector />
+<StackSelector snippet="getaccesstoken" />
 
 To enable access token renewal you must obtain a refresh token. See [Get a refresh token with the code flow](/docs/guides/refresh-tokens/get-refresh-token/#get-a-refresh-token-with-the-code-flow).
 > **Note:** Using a refresh token with a SPA is an Early Access feature. To enable it, contact [Support](https://support.okta.com/help/open_case).
@@ -183,3 +180,7 @@ From here, go on to check out these guides:
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
+
+## Sample code
+
+<StackSelector snippet="samplecode"/>
