@@ -15,11 +15,7 @@ Understand the `showSignIn` methods that are used in the Sign-In Widget so that 
 
 **What you need**
 
-* [Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
-
-**Sample code**
-
-n/a
+[Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
 ---
 

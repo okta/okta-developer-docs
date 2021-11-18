@@ -17,11 +17,7 @@ This guide covers how to upgrade the Okta Sign-In Widget, which depends on wheth
 
 **What you need**
 
-* [Latest available Sign-In Widget release](https://github.com/okta/okta-signin-widget/releases)
-
-**Sample code**
-
-n/a
+[Latest available Sign-In Widget release](https://github.com/okta/okta-signin-widget/releases)
 
 ---
 
@@ -89,96 +85,80 @@ When you upgrade an embedded Sign-In Widget:
 
 > **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the Sign-In Widget.
 
-## Updates in Sign-In Widget configuration for Identity Engine
+## Changes to Sign-In Widget configuration for Identity Engine
 
-For Identity Engine, some features that were in the Sign-In Widget configuration can be removed or updated in the initialization code.
+For Identity Engine, Sign-In Widget is configured differently. Some specific objects that were previously in the Sign-In Widget configuration can be removed from the JavaScript, as described in the following sections.
 
 ### Registration
 
-To add registration into your application, you need to configure your Okta admin settings for profile enrollment to allow users to sign up or self register into your app.
+You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm). This process allows users to self register into your application.
 
-The following [registration](https://github.com/okta/okta-signin-widget#registration) process omits these objects in the Sign-In Widget.
+You can remove the registration objects as follows.
 
-```javascript
-var signIn = new OktaSignIn({
-      baseUrl: 'https://${yourOktaDomain}',
-      // If you are using version 2.8 or higher of the widget, clientId is not required while configuring
-      // registration. Instead the widget relies on policy setup with Self Service Registration. For help
-      // with setting up Self Service Registration contact support@okta.com. Registration should continue
-      // to work with a clientId set and version 2.7 or lower of the widget.
-      clientId: '${myClientId}', // REQUIRED (with version 2.7.0 or lower)
-      registration: {
-        parseSchema: function(schema, onSuccess, onFailure) {
-           // handle parseSchema callback
-           onSuccess(schema);
-        },
-        preSubmit: function (postData, onSuccess, onFailure) {
-           // handle preSubmit callback
-           onSuccess(postData);
-        },
-        postSubmit: function (response, onSuccess, onFailure) {
-            // handle postsubmit callback
-           onSuccess(response);
-        }
-      },
-      features: {
-        // Used to enable registration feature on the widget.
-        // https://github.com/okta/okta-signin-widget#feature-flags
-         registration: true // REQUIRED
-      }
-    });
-```
+![Displays the registration objects in JavaScript to remove](/img/SIW_Upgrade_Config_Change1.png)
 
 ### IdP Discovery
 
-IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route and can be replaced by configuring a Routing Rule with the application context.
+IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a Routing Rule with the application context.
 
-See [IdP](https://github.com/okta/okta-signin-widget#idp-discovery).
+You can remove the [IdP Discovery](https://github.com/okta/okta-signin-widget#idp-discovery) JavaScript object in the Widget as follows.
+
+![Displays the iDP Discovery object in JavaScript to remove](/img/SIW_Upgrade_Config_Change2.png)
 
 ### OpenID Connect/social authentication
 
-When External Identity Providers (IdPs) are used in OIDC authentication (known as Social Login), the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type and get distinct styling and default i18n text, while any other entry receives a general styling and requires text to be provided. Each IdP can have additional CSS classes added through an optional `className` property.
+When [External Identity Providers (IdPs)](https://github.com/okta/okta-signin-widget#openid-connect) are used in Social Login, the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type, get distinct styling and get default i18n text, while other entries receive general styling and require text to be provided. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. This method can be replaced by configuring a Routing Rule with the application context.
 
-While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route. This can be replaced by configuring a Routing Rule with the application context.
+You no longer need the [IdPs](https://github.com/okta/okta-signin-widget#openid-connect) JavaScript object and `className` property in the Sign-In Widget, and you can remove them as follows.
 
-See [idps](https://github.com/okta/okta-signin-widget#openid-connect) for ...
-
-Some common features that were in the Sign-In Widget configuration that no longer function should now be removed from the code in initialization.
+![Displays the IdPs object and className property in JavaScript to remove](/img/SIW_Upgrade_Config_Change3.png)
 
 ### Smart card IdP
 
-No longer supported… until PIV/CAC support.
-https://github.com/okta/okta-signin-widget#smart-card-idp
+You no longer need to configure the authentication settings for the smart card IdP, as it's no longer supported. You can remove the following authentication settings for the [smart card IdP](https://github.com/okta/okta-signin-widget#smart-card-idp) as follows.
 
-Bootstrapping from a recovery token
-https://github.com/okta/okta-signin-widget#bootstrapping-from-a-recovery-token
+![Displays the smart card IdP settings in JavaScript to remove](/img/SIW_Upgrade_Config_Change4.png)
+
+### Bootstrapping from a recovery token
+
+If you're initializing the Widget with a [recovery token](https://github.com/okta/okta-signin-widget#bootstrapping-from-a-recovery-token), the `recoveryToken` setting appears, for example:
+
+![Displays the recovery token setting](/img/SIW_Upgrade_Config_Change5.png)
+
+The recovery token is dynamic and is automatically passed into the initialization of the Widget. A value in the `recoveryToken` setting currently doesn't have any effect on Widget function, though, the setting will take effect in the future.
+
+### Okta dashboard or custom dashboard sign-in
+
+For [sign-in with the Okta dashboard](https://developer.okta.com/code/javascript/okta_sign-in_widget/#sign-in-to-okta-with-the-default-dashboard), you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the Widget. You can remove the redirect configuration as follows.
+
+![Displays the Okta dashboard sign-in](/img/SIW_Upgrade_Config_Change6.png)
 
 ### Feature flags
 
-The following features are no longer supported. They are now configured in Okta Sign-On Policies.
+Specific features are no longer supported and are now configured in the Okta Sign-On Policies. The only feature that is supported when you upgrade the Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for MFA challenge.
 
-features.rememberMe - Display a checkbox to enable "Remember me" functionality at login. Defaults to true.
+You must remove these features that are located in `features` in the JSON code:
 
-features.autoPush - Display a checkbox to enable "Send push automatically" functionality in the MFA challenge flow. Defaults to false.
+* `features.rememberMe`, which enabled the "Remember me" function at sign-in. This function is now configured in the [global org security settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General).
 
-features.smsRecovery - Allow users with a configured mobile phone number to recover their password using an SMS message. Defaults to false.
+* `features.autoPush`, which enabled the "Send push automatically" function in the MFA challenge flow. This function is currently not available.
 
-features.callRecovery - Allow users with a configured mobile phone number to recover their password using a voice call. Defaults to false.
+* `features.smsRecovery`, which allowed users with a configured mobile phone number to recover their password using an SMS message. This function is now configured in the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm).
 
-features.webauthn - Display and use factors supported by the FIDO 2.0 (Web Authentication) security standard. Enabling this feature will prevent the widget from invoking the legacy Windows Hello factor. Defaults to false.
+* `features.callRecovery`, which allowed users with a configured mobile phone number to recover their password using a voice call. This function is now configured in the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm).
 
-features.selfServiceUnlock - Display the "Unlock Account" link to allow users to unlock their accounts. Defaults to false.
+* `features.webauthn`, which prevented the widget from invoking the legacy Windows Hello factor. This function is now configured in the [sign-on policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-okta-sign-on-policies.htm).
 
-features.multiOptionalFactorEnroll - Allow users to enroll in multiple optional factors before finishing the authentication flow. Default behavior is to force enrollment of all required factors and skip optional factors. Defaults to false.
+* `features.selfServiceUnlock`, which displayed the "Unlock Account" link to allow users to unlock their accounts. This function is now configured in [self-service account recovery](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-sspr.htm).
 
-features.hideSignOutLinkInMFA - Hides the sign out link for MFA challenge. Defaults to false.
+* `features.multiOptionalFactorEnroll`, which allowed users to enroll in multiple optional factors before finishing the authentication flow. This function is now configured in the [profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
 
-features.registration - Display the registration section in the primary auth page. Defaults to false.
+* `features.registration`, which displayed the registration section in the primary auth page. See [Registration](#registration) for the change in configuration.
 
-features.idpDiscovery - Enable IdP Discovery. Defaults to false.
+* `features.idpDiscovery`, which enabled IdP Discovery. See [OpenID Connect/social authentication](#openid-connect-social-authentication) for the change in configuration.
 
-features.showPasswordToggleOnSignInPage - End users can now toggle visibility of their password on the Okta Sign-In page, allowing end users to check their password before they click Sign In. This helps prevent account lock outs caused by end users exceeding your org's permitted number of failed sign-in attempts. Note that passwords are visible for 30 seconds and then hidden automatically. Defaults to false.
+* `features.showPasswordToggleOnSignInPage`, which enabled end users to toggle visibility of their password on the Okta Sign-In page so that they can check their password entry before they click **Sign In**.
 
-features.scrollOnError - By default, errors will be scrolled into view. Set to false to disable this behavior.
+* `features.scrollOnError`, which enabled errors to be scrolled into view.
 
-features.skipIdpFactorVerificationBtn - Automatically redirects to the selected Identity Provider when selected from the list of factors. Defaults to false.
+* `features.skipIdpFactorVerificationBtn`, which automatically redirects to the selected Identity Provider when selected from the list of factors.
