@@ -1089,8 +1089,6 @@ redirects:
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /guides/session-cookie/-/overview/index.html
-    to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -2114,9 +2112,13 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/index.html
+    to: /docs/guides/session-cookie/
   - from: /docs/rest
     to: /code/rest/
   - from: /docs/rest/index.html
