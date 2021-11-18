@@ -49,7 +49,9 @@ The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early A
 
 ## Customize email templates
 
-Use these steps to edit a template or to add a template in one of the Okta-supported languages.
+### Add or edit email templates
+
+Use these steps to add or edit a template in one of the Okta-supported languages.
 
 > **Note:** Free trial editions of Okta can't create or send customized email templates.
 
@@ -61,7 +63,7 @@ Use these steps to edit a template or to add a template in one of the Okta-suppo
 6. Make your edits, and then click **Add Translation**.
 7. Repeat steps 5 and 6 for additional languages.
 
-### Localization notes
+#### Localization notes
 
 * When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
@@ -69,29 +71,29 @@ Use these steps to edit a template or to add a template in one of the Okta-suppo
 
 * If you want to delete all custom translations and revert to the original Okta-provided template, click **Reset to Default**.
 
-### Expression Language variables
+#### Expression Language variables
 
 Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/okta_help.htm?id=ext-expression-language). EL variables enable advanced customization and, when used in place of hard-coded URLs, can prevent potential broken links.
 
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-### Enhanced Email Macros
+#### Enhanced Email Macros
 
 <ApiLifecycle access="ea" />
 
 > **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
 
-#### Overview of the Enhanced Email Macros feature
-
-The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below. All of Okta's default email templates are available for customization.
-
-#### What this EA feature doesn't enable
-
-Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults.
-
-However, when you disable the Enhanced Email Macros feature, your old customized templates return. If you choose to disable the feature, you lose access to the customizations done while the EA feature was enabled.
-
 > **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
+
+The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
+
+- enhanced conditional logic
+- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- some of the org attributes in these macros
+
+All of Okta's default email templates are available for customization.
+
+> **Note:** Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults. However, when you disable the Enhanced Email Macros feature, your old customized templates return. If you choose to disable the feature, you lose access to the customizations done while the EA feature was enabled.
 
 #### Velocity Templating syntax
 
@@ -99,22 +101,24 @@ The templating syntax that is used in enhanced email macros is the Velocity Temp
 
 The new templating syntax is different from the EL expression-based Okta email templating syntax that was previously used. You no longer need to use curly braces around the variable name.
 
-##### Variable syntax change example
-
 Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
 
 The previously available template variables are listed in [Customization Variables](https://help.okta.com/okta_help.htm?id=ext_ref_email_variables).
 
-
-#### Access to all User Profile attributes
+### Use all User Profile attributes
 
 You can reference any Okta User Profile attribute in your email templates. The reference notation is `$user.profile.attributeName`, where `attributeName` is an attribute from the Okta User Profile. For example, use `$user.profile.displayName` to reference the User Profile `displayName` attribute.
 
+Other examples include:
+
+- Trigger an email in your end-users' preferred language by using the conditional logic and calling the `preferredLanguage` attribute.
+- If a customer wants to specify a department such as Engineering in an Activation Email, they are able to call the user attribute `department`.
+
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
 
-#### Functions for email templates
+#### Use functions for email templates
 
-In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email's recipient user. 
+In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email recipient.
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
 
@@ -143,15 +147,7 @@ VTL syntax:
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
-##### Examples of user attributes
-
-###### Registration: Email verification with customer's preferred language
-Trigger an email in your end-users' preferred language by using the conditional logic and calling the `preferredLanguage` attribute.
-
-###### Activation department specific email
-If a customer wants to specify a department such as Engineering in an Activation Email, they are able to call the user attribute `department`.
-
-#### Access to org attributes
+### Use org attributes
 
 You can also reference these org-level attributes, such as:
 
@@ -165,7 +161,7 @@ All conditional logic that is supported by the Velocity Templating Engine, such 
 
 <ApiLifecycle access="ie" /><br>
 
-#### Access to app context
+### Use app context
 
 Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
