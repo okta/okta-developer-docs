@@ -968,7 +968,7 @@ redirects:
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/-/test-authz-server/
   - from: /guides/enable-cors/-/overview/index.html
-    to: /docs/guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
@@ -1089,8 +1089,6 @@ redirects:
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /guides/session-cookie/-/overview/index.html
-    to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -2114,9 +2112,13 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/index.html
+    to: /docs/guides/session-cookie/
   - from: /docs/rest
     to: /code/rest/
   - from: /docs/rest/index.html
@@ -2777,6 +2779,22 @@ redirects:
     to: /docs/guides/find-your-domain/
   - from: /docs/guides/find-your-domain/findorg/index.html
     to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/enable-cors/overview
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/enable-cors/overview/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors/index.html
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing/index.html
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps/index.html
+    to: /docs/guides/enable-cors/main/#see-also
   - from: /docs/guides/find-your-app-credentials/overview
     to: /docs/guides/find-your-app-credentials/
   - from: /docs/guides/find-your-app-credentials/findcreds
