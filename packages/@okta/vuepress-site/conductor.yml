@@ -3073,6 +3073,30 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/request-user-consent/overview
+    to: /docs/guides/request-user-consent/
+  - from: /docs/guides/request-user-consent/require-consent
+    to: /docs/guides/request-user-consent/main/#enable-consent-for-scopes
+  - from: /docs/guides/request-user-consent/build-the-request
+    to: /docs/guides/request-user-consent/main/#build-the-request
+  - from: /docs/guides/request-user-consent/verification
+    to: /docs/guides/request-user-consent/main/#verification
+  - from: /docs/guides/request-user-consent/revoke-consent
+    to: /docs/guides/request-user-consent/main/#revoke-consent-for-a-user
+  - from: /docs/guides/request-user-consent/troubleshooting
+    to: /docs/guides/request-user-consent/main/#troubleshooting
+  - from: /docs/guides/request-user-consent/overview/index.html
+    to: /docs/guides/request-user-consent/
+  - from: /docs/guides/request-user-consent/require-consent/index.html
+    to: /docs/guides/request-user-consent/main/#enable-consent-for-scopes
+  - from: /docs/guides/request-user-consent/build-the-request/index.html
+    to: /docs/guides/request-user-consent/main/#build-the-request
+  - from: /docs/guides/request-user-consent/verification/index.html
+    to: /docs/guides/request-user-consent/main/#verification
+  - from: /docs/guides/request-user-consent/revoke-consent/index.html
+    to: /docs/guides/request-user-consent/main/#revoke-consent-for-a-user
+  - from: /docs/guides/request-user-consent/troubleshooting/index.html
+    to: /docs/guides/request-user-consent/main/#troubleshooting
   - from: /docs/guides/find-your-domain/overview
     to: /docs/guides/find-your-domain/
   - from: /docs/guides/find-your-domain/findorg
