@@ -968,7 +968,7 @@ redirects:
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/-/test-authz-server/
   - from: /guides/enable-cors/-/overview/index.html
-    to: /docs/guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
@@ -2771,6 +2771,22 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/enable-cors/overview
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/enable-cors/overview/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors/index.html
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing/index.html
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps/index.html
+    to: /docs/guides/enable-cors/main/#see-also
   - from: /docs/guides/find-your-app-credentials/overview
     to: /docs/guides/find-your-app-credentials/
   - from: /docs/guides/find-your-app-credentials/findcreds
