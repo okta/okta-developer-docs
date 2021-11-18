@@ -1212,17 +1212,17 @@ redirects:
   - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
   - from: /guides/updating-saml-cert/-/generate-new-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
   - from: /guides/updating-saml-cert/-/get-app-info/index.html
-    to: /docs/guides/updating-saml-cert/-/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
   - from: /guides/updating-saml-cert/-/overview/index.html
-    to: /docs/guides/updating-saml-cert/-/overview/
+    to: /docs/guides/updating-saml-cert/
   - from: /guides/updating-saml-cert/-/revert-to-sha1/index.html
-    to: /docs/guides/updating-saml-cert/-/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /guides/updating-saml-cert/-/update-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
-    to: /docs/guides/updating-saml-cert/-/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/index.html
@@ -2425,18 +2425,30 @@ redirects:
     to: /docs/guides/sharing-cert/main/#see-also
   - from: /docs/guides/saml-tracer/overview/
     to: /docs/guides/saml-tracer/main/
-  - from: /docs/guides/updating-saml-cert/overview/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/get-app-info/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/update-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
-    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/overview
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
+  - from: /docs/guides/updating-saml-cert/overview/index.html
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info/index.html
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/index.html
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/index.html
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /docs/guides/create-an-api-token/overview/
     to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/overview/index.html
