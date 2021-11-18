@@ -13,14 +13,6 @@ This article explains what Cross-Origin Resource Sharing (CORS) is and why it is
 * Grant cross-origin access to the Okta API from your web apps.
 * Test your Okta CORS configuration.
 
-**What you need**
-
-n/a
-
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview

@@ -16,7 +16,7 @@ You need to create a form to capture the user's new account details, such as the
 
 </div>
 
-Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method.
+Begin the authentication process by calling the Java SDK's `IDXAuthenticationWrapper.begin()` method.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -33,7 +33,7 @@ AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fe
 
 ### 2: The user enters their profile data
 
-Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
+Enroll the user with basic profile information captured from the create account form by calling the `IDXAuthenticationWrapper.register()` method.
 
 ```java
 UserProfile userProfile = new UserProfile();
@@ -197,7 +197,7 @@ if ("skip".equals(action)) {
 
 > **Note:** Ensure that `isSkipAuthenticatorPresent()=TRUE` for the authenticator before calling `skipAuthenticatorEnrollment()`.
 
-If the request to skip the optional authenticator is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the request to skip the optional authenticator is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
 #### Option 2: The user selects the phone authenticator
 
@@ -229,7 +229,7 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
+When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to the `IDXAuthenticationWrapper.submitPhoneAuthenticator()` method.
 
 For example:
 
@@ -257,4 +257,4 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
