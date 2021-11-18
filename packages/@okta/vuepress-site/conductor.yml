@@ -968,7 +968,7 @@ redirects:
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/-/test-authz-server/
   - from: /guides/enable-cors/-/overview/index.html
-    to: /docs/guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
@@ -986,7 +986,7 @@ redirects:
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
-    to: /docs/guides/find-your-domain/-/overview/
+    to: /docs/guides/find-your-domain/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
     to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code-pkce/-/next-steps/index.html
@@ -1089,8 +1089,6 @@ redirects:
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /guides/session-cookie/-/overview/index.html
-    to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -1212,17 +1210,17 @@ redirects:
   - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
   - from: /guides/updating-saml-cert/-/generate-new-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
   - from: /guides/updating-saml-cert/-/get-app-info/index.html
-    to: /docs/guides/updating-saml-cert/-/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
   - from: /guides/updating-saml-cert/-/overview/index.html
-    to: /docs/guides/updating-saml-cert/-/overview/
+    to: /docs/guides/updating-saml-cert/
   - from: /guides/updating-saml-cert/-/revert-to-sha1/index.html
-    to: /docs/guides/updating-saml-cert/-/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /guides/updating-saml-cert/-/update-key-credential/index.html
-    to: /docs/guides/updating-saml-cert/-/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
-    to: /docs/guides/updating-saml-cert/-/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/index.html
@@ -1997,18 +1995,34 @@ redirects:
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
     to: /docs/guides/customize-tokens-groups-claim/overview/
-  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
-    to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-groups-claim/overview
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/overview/index.html
+    to: /docs/guides/customize-tokens-groups-claim/
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
+  - from: /docs/guides/customize-tokens-groups-claim/next-steps/index.html
+    to: /docs/guides/customize-tokens-groups-claim/main/#see-also
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
@@ -2098,9 +2112,13 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/index.html
+    to: /docs/guides/session-cookie/
   - from: /docs/rest
     to: /code/rest/
   - from: /docs/rest/index.html
@@ -2409,18 +2427,30 @@ redirects:
     to: /docs/guides/sharing-cert/main/#see-also
   - from: /docs/guides/saml-tracer/overview/
     to: /docs/guides/saml-tracer/main/
-  - from: /docs/guides/updating-saml-cert/overview/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/get-app-info/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/update-key-credential/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
-    to: /docs/guides/updating-saml-cert/main/
-  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
-    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/overview
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
+  - from: /docs/guides/updating-saml-cert/overview/index.html
+    to: /docs/guides/updating-saml-cert/
+  - from: /docs/guides/updating-saml-cert/get-app-info/index.html
+    to: /docs/guides/updating-saml-cert/main/#get-the-app-info
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#generate-a-new-application-key-credential
+  - from: /docs/guides/updating-saml-cert/update-key-credential/index.html
+    to: /docs/guides/updating-saml-cert/main/#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/index.html
+    to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/index.html
+    to: /docs/guides/updating-saml-cert/main/#reverting-to-a-sha1-certificate
   - from: /docs/guides/create-an-api-token/overview/
     to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/overview/index.html
@@ -2689,43 +2719,51 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
     to: /docs/guides/common-hook-set-up-steps/
@@ -2743,8 +2781,6 @@ redirects:
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/sign-into-spa/-/before-you-begin
     to: /docs/guides/sign-into-spa/
   - from: /docs/guides/sign-into-spa/-/define-callback
@@ -2861,6 +2897,30 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-domain/overview
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/find-your-domain/overview/index.html
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg/index.html
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/enable-cors/overview
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/enable-cors/overview/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors/index.html
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing/index.html
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps/index.html
+    to: /docs/guides/enable-cors/main/#see-also
   - from: /docs/guides/find-your-app-credentials/overview
     to: /docs/guides/find-your-app-credentials/
   - from: /docs/guides/find-your-app-credentials/findcreds
