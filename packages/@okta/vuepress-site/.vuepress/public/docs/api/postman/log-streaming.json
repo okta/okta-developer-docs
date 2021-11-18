@@ -1,0 +1,369 @@
+{
+    "item": [
+        {
+            "id": "76e9bac2-d5cc-4d2e-8522-21a0948ffd8d",
+            "name": "Lifecycle Operations",
+            "description": {
+                "content": "",
+                "type": "text/plain"
+            },
+            "item": [
+                {
+                    "id": "29f7b33f-5498-49f2-9f8a-f648d21a5a5f",
+                    "name": "Activate log stream",
+                    "request": {
+                        "name": "Activate log stream",
+                        "description": {
+                            "content": "Activate a Log Stream instance",
+                            "type": "text/plain"
+                        },
+                        "header": [
+                          {
+                            "key": "Authorization",
+                            "value": "SSWS {{apikey}}"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "logStreams",
+                                "{{logStreamId}}",
+                                "lifecycle",
+                                "activate"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": []
+                        },
+                        "method": "POST",
+                        "auth": null
+                    },
+                    "response": [],
+                    "event": []
+                },
+                {
+                    "id": "aac8f3e3-5798-4b34-bb0f-c58a2142c29d",
+                    "name": "Deactivate log stream",
+                    "request": {
+                        "name": "Deactivate log stream",
+                        "description": {
+                            "content": "Deactivate a Log Stream instance",
+                            "type": "text/plain"
+                        },
+                        "header": [
+                          {
+                            "key": "Authorization",
+                            "value": "SSWS {{apikey}}"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                            "path": [
+                                "api",
+                                "v1",
+                                "logStreams",
+                                "{{logStreamId}}",
+                                "lifecycle",
+                                "deactivate"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": []
+                        },
+                        "method": "POST",
+                        "auth": null
+                    },
+                    "response": [],
+                    "event": []
+                }
+            ],
+            "event": []
+        },
+        {
+            "id": "8e467041-101e-4e3a-971a-de962626c85b",
+            "name": "List all log streams",
+            "request": {
+                "name": "List all log streams",
+                "description": {
+                    "content": "Get a list of all configured Log Stream instances",
+                    "type": "text/plain"
+                },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                    "path": [
+                        "api",
+                        "v1",
+                        "logStreams"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [
+                        {
+                            "disabled": false,
+                            "key": "after",
+                            "value": "<string>",
+                            "description": "Specifies the pagination cursor for the next page of instances\t"
+                        },
+                        {
+                            "disabled": false,
+                            "key": "filter",
+                            "value": "<string>",
+                            "description": "Filters log stream instances by status or type expression"
+                        },
+                        {
+                            "disabled": false,
+                            "key": "limit",
+                            "value": "20",
+                            "description": "Specifies the number of results per page (maximum 200)\t"
+                        }
+                    ],
+                    "variable": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [],
+            "event": []
+        },
+        {
+            "id": "eaad87fa-0a85-4cb6-bf84-bf52d9998244",
+            "name": "Add log stream",
+            "request": {
+                "name": "Add log stream",
+                "description": {
+                    "content": "Adds a new Log Stream application to your Okta organization",
+                    "type": "text/plain"
+                },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                    "path": [
+                        "api",
+                        "v1",
+                        "logStreams"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": [],
+                    "variable": []
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [],
+            "event": []
+        },
+        {
+            "id": "0913457f-5f1f-456b-9fb2-fc8185541432",
+            "name": "Get log stream",
+            "request": {
+                "name": "Get log stream",
+                "description": {
+                    "content": "Retrieve the information of the Log Stream instance with the matching ID.",
+                    "type": "text/plain"
+                },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                    "path": [
+                        "api",
+                        "v1",
+                        "logStreams",
+                        "{{logStreamId}}"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": []
+                },
+                "method": "GET",
+                "auth": null
+            },
+            "response": [],
+            "event": []
+        },
+        {
+            "id": "dab790fd-398c-4610-9313-275de90cfa3d",
+            "name": "Update log stream",
+            "request": {
+                "name": "Update log stream",
+                "description": {
+                    "content": "Update the information of an existing Log Stream instance.",
+                    "type": "text/plain"
+                },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                    "path": [
+                        "api",
+                        "v1",
+                        "logStreams",
+                        "{{logStreamId}}"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": []
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "method": "PUT",
+                "auth": null,
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"<string>\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            },
+            "response": [],
+            "event": []
+        },
+        {
+            "id": "c3949db4-28d9-43b4-b9a1-e1339880d40d",
+            "name": "Delete log stream",
+            "request": {
+                "name": "Delete log stream",
+                "description": {},
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                    "path": [
+                        "api",
+                        "v1",
+                        "logStreams",
+                        "{{logStreamId}}"
+                    ],
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "query": []
+                },
+                "method": "DELETE",
+                "auth": null
+            },
+            "response": [],
+            "event": []
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "type": "string",
+            "value": "https://virtserver.swaggerhub.com/logStreams/1.0",
+            "key": "baseUrl"
+        }
+    ],
+    "info": {
+        "_postman_id": "f23d94ec-60ca-488f-aea0-7491cf9ce9a8",
+        "name": "Log Streams (Okta API)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "Management CRUD API for Log Streaming\n\nContact Support:\n Name: Okta Developer Team\n Email: devex-public@okta.com",
+            "type": "text/plain"
+        }
+    }
+}
