@@ -244,7 +244,7 @@ To configure a custom email domain:
     example.com TXT    v=spf1 include:oktamail.example.com include:spf.protection.outlook.com -all
     ```
 
-## Known Issues
+### Known Issues
 
 - You can't configure Okta to send emails through a domain that uses SendGrid. Instead, configure a subdomain on your DNS provider for custom Okta emails.
 
