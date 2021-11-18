@@ -12,7 +12,7 @@ You can connect your mobile app to Okta and sign users in by [opening a browser]
 
 **Learning outcomes**
 
-Build a custom mobile sign-in UI
+Build a custom mobile sign-in UI.
 
 **What you need**
 
