@@ -8,6 +8,8 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
@@ -24,7 +26,7 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 **Sample code**
 
-See the [Sample code](#sample-code) section.
+<StackSelector snippet="samplecode" noSelector />
 
 ---
 
@@ -42,7 +44,7 @@ Your web application must host a route that Okta sends information to when a use
 
 The callback route is not seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
-<StackSelector snippet="define-route"/>
+<StackSelector snippet="define-route" noSelector/>
 
 Our examples use `/authorization-code/callback` as a default route path, but you can change this. The route path is used in the next step.
 
@@ -104,7 +106,7 @@ To reduce possible attack vectors, you need to explicitly define the Trusted Ori
 
 Next you need to add an Okta SDK to your application.
 
-<StackSelector snippet="addconfigpkg" />
+<StackSelector snippet="addconfigpkg" noSelector />
 
 ### Configure the package
 
@@ -122,13 +124,13 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
-<StackSelector snippet="configmid" />
+<StackSelector snippet="configmid" noSelector />
 
 ## Redirect to the sign-in page
 
 To sign a user in, your application must redirect the browser to the Okta-hosted sign-in page. You can do this when a user visits a protected route or when the user clicks a button to sign in.
 
-<StackSelector snippet="login-redirect" />
+<StackSelector snippet="login-redirect" noSelector />
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
@@ -144,13 +146,13 @@ In many applications, you want to prevent the user from accessing certain routes
 
 If you want the user to only have access to a route if they are signed in, require authentication for just those routes.
 
-<StackSelector snippet="reqauthspecific" />
+<StackSelector snippet="reqauthspecific" noSelector />
 
 ### Require authentication for everything
 
 For some applications, you may want to require the user to be authenticated for all routes.
 
-<StackSelector snippet="reqautheverything" />
+<StackSelector snippet="reqautheverything" noSelector />
 
 ## Get info about the user
 
@@ -158,7 +160,7 @@ When a user signs in, their profile information (stored in Okta) is made availab
 
 By default, the profile items (called "claims") that Okta returns include the user's email address, name, and preferred username.
 
-<StackSelector snippet="getuserinfo" />
+<StackSelector snippet="getuserinfo" noSelector />
 
 <!-- You can also customize the items (called claims) that are returned from Okta. See [Token customization guide]. -->
 
@@ -171,7 +173,3 @@ Read more:
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
-
-## Sample code
-
-<StackSelector snippet="samplecode" />
