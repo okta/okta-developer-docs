@@ -10,12 +10,19 @@ This guide teaches you how to customize and style default Okta email notificatio
 
 **Learning outcomes**
 
+- Customize email notifications.
+- Configure a custom email domain.
 
 **What you need**
 
+For configuring a custom email domain:
+
+- Access to the DNS records of your public custom domain.
+- An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implement SPF in your custom domain, be aware that you must update the SPF record.
 
 **Sample code**
 
+[Using app context to brand an email](#using-app-context-to-brand-an-email)
 
 ---
 
@@ -197,12 +204,6 @@ You can send yourself a test email to see how a custom email template looks and 
 A custom email domain allows you to present a branded experience to your end users. Email that Okta sends to your end users appears to come from your custom email domain instead of noreply@okta.com. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
 
 Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain noreply@okta.com until the problem is resolved.
-
-### Prerequisites
-
-* Only qualified administrators with access to the DNS records of your public custom domain should attempt these procedures.
-
-* Okta strongly recommends that your organization implement the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implement SPF in your custom domain, be aware that you must update the SPF record.
 
 To configure a custom email domain:
 
