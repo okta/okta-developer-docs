@@ -2560,7 +2560,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/android/next-steps
     to: /docs/guides/build-custom-ui-mobile/android/main/#next-steps
   - from: /docs/guides/build-custom-ui-mobile/android/before-you-begin/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main
+    to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/index.html
     to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/android/configure-packages/index.html
