@@ -1,5 +1,5 @@
 
-With ngrok installed, a local application can now function as an external service, and demonstrate the Okta Event Hook (or any Okta Inline Hook). To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application simply serves up a web page and responds to an Okta Event Hook.
+With ngrok installed, a local application can now function as an external service and demonstrate the Okta Event Hook (or any Okta Inline Hook). To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application simply serves up a web page and responds to an Okta Event Hook.
 
 The Event Hook use-case is a simple local application response to the addition of a new Okta user.
 
@@ -27,7 +27,7 @@ The Event Hook use-case is a simple local application response to the addition o
 
 ### Create the index and web server code
 
-1. In the same `sample-app` directory, create an index page, `index.html`, as follows, which will be served when running the application:
+1. In the same `sample-app` directory, create an index page, `index.html`, as follows, which launches when running the application:
 
     ```HTML
     <head>
@@ -38,15 +38,18 @@ The Event Hook use-case is a simple local application response to the addition o
     <h1>Congratulations, your simple test application is working.</h1>
     <p>See the following links for more information:
     <ul>
-        <li><a href="https://developer.okta.com/docs/concepts/event-hooks">Event Hook Concepts</a></li>
-        <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/">Event Hook Guides</a></li>
+        <li><a href="https://developer.okta.com/docs/concepts/event-hooks">
+        Event Hook Concepts</a></li>
+        <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/">
+        Event Hook Guides</a></li>
     </ul>
     </p>
     </body>
     </html>
     ```
 
-2. Add the server page, `server.js`, that contains the simple application code and an endpoint for the Okta Event Hook:
+2. Add the server page, `server.js`, that contains the simple application code and an
+   endpoint for the Okta Event Hook:
 
     ```JavaScript
     var express = require('express');
@@ -82,7 +85,8 @@ The Event Hook use-case is a simple local application response to the addition o
 
     app.post("/userCreated", (request, response) => {
         console.log(" ");
-        console.log('The user ' + request.body.data.events[0].target[0]["alternateId"] + " has been deactivated on the Okta org!");
+        console.log('The user ' + request.body.data.events[0].target[0]["alternateId"] +
+        " has been added to the Okta org!");
         response.sendStatus(200);
         }
     );
@@ -100,7 +104,7 @@ The Event Hook use-case is a simple local application response to the addition o
     >node server.js
     ```
 
-1. From your browser, navigate to your local port to see the `index.html` page. In this example, `8082`:
+1. From your browser, navigate to your local port, in this example `8082`, to see the `index.html` page:
 
     `http://localhost:8082`
 

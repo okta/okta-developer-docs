@@ -18,7 +18,7 @@ This guide provides a working example of an Okta Event Hook. It uses the ngrok u
 
 **What you need**
 
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * A local application. Or see [Create a local application](#create-a-local-application) in this guide for a simple example.
 * The ngrok utility. See [Install ngrok](#install-ngrok).
 
@@ -91,7 +91,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
 
-5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
+5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
 6. Include authentication field and secret. In this example, our `server.js` code uses Basic Authentication:
 
@@ -123,11 +123,11 @@ The Event Hook is now set up with a status of **VERIFIED** and is ready to send 
 
 ## Preview, test, and review the Event Hook
 
-With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is deactivated in the Okta org.
+With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok inspection interface. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
 
 ### Preview
 
-To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
+To run a preview call of your Event Hook:
 
 1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user John Doe with the following fields:
@@ -146,7 +146,7 @@ To run a preview call of your Event Hook, sign in to your Okta org as the super 
 
     >**Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
 
-1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message displays if successful:
+1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message appears if successful:
 
      `The user john.doe@example.com has been added to the Okta org!`
 
@@ -165,7 +165,7 @@ To run a test of your Event Hook:
         * **Last Name:** Doe
         * **User Name:** jane.doe@example.com
 
-1. Navigate back to your local application's console. You should see the following output to the console:
+1. Navigate back to your local application's console. The following message appears if successful:
 
     `The user jane.doe@example.com has been added to the Okta org!`
 
