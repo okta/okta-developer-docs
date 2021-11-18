@@ -4,6 +4,18 @@ title: Okta API Products Release Notes 2021
 
 ## November
 
+### Weekly Release 2021.11.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.11.2](#bugs-fixed-in-2021-11-2) | November 17, 2021 |
+
+#### Bugs fixed in 2021.11.2
+
+* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+
+* Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
+
 ### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
