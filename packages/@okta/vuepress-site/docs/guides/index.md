@@ -9,6 +9,7 @@ guides:
  - configure-native-sso
  - configure-signon-policy
  - create-an-api-token
+ - custom-email
  - custom-error-pages
  - custom-url-domain
  - customize-authz-server
@@ -17,7 +18,6 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
- - email-customization
  - enable-cors
  - event-hook-implementation
  - find-your-app-credentials
