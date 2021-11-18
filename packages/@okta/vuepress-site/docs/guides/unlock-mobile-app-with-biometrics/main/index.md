@@ -10,24 +10,22 @@ In this guide you will learn how to integrate biometric authentication like Face
 
 **Learning outcomes**
 
-* Add the required packages to your application.
-* Handle biometric challenges for your users, storing and retrieving tokens as required.
-* Delete access tokens when no longer required. 
+* Handle biometric challenges for your users, storing and retrieving tokens as required
+* Delete access tokens when no longer required
 
 **What you need**
 
-* Biometric unlock with Touch ID, Face ID, and Smart Lock — added by following the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/android/before-you-begin/) guide.
+Biometric unlock with Touch ID, Face ID, and Smart Lock — added by following the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/) guide.
 
 **Sample code**
 
-* Android — we have a sample available in our [Android samples repo](https://github.com/okta/samples-android/tree/master/browser-sign-in).
-* iOS — We have a sample available in our [iOS samples repo](https://github.com/okta/samples-ios/tree/master/browser-sign-in-and-biometric-storage).
+See the [Sample code](#sample-code) section.
 
 ---
 
 ## Overview
 
-When you [configure the Okta SDK](/docs/guides/sign-into-mobile-app/configure-packages/) with the `offline_access` scope, your mobile app gets a refresh token from Okta. The refresh token is long-lived and is used to keep the user signed in to your app.
+When you [configure the Okta SDK](/docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages) with the `offline_access` scope, your mobile app gets a refresh token from Okta. The refresh token is long-lived and is used to keep the user signed in to your app.
 
 The refresh token is used to get new access tokens. Access tokens allow your mobile app to make authenticated requests to your API, but are short-lived. As access tokens expire, the refresh token is used to obtain new access tokens.
 
@@ -60,3 +58,7 @@ To get a new refresh token, present a biometric challenge to the user.
 Then, use the refresh token to get a new access token.
 
 <StackSelector snippet="getnewaccesstoken" />
+
+## Sample code
+
+<StackSelector snippet="samplecode" />

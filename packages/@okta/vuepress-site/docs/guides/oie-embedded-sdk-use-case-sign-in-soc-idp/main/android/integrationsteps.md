@@ -1,13 +1,13 @@
 ### 1: The user navigates to the sign-in page
 
-Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) method and getting a new `ProceedContext` object.
+Begin the authentication process by calling the Java SDK's `IDXAuthenticationWrapper.begin()` method and getting a new `ProceedContext` object.
 
 ```kotlin
     val beginResponse = idxAuthenticationWrapper.begin()
     val beginProceedContext = beginResponse.proceedContext
 ```
 
-Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
+Use the `AuthenticationResponse.getIdps()` function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
 
 ```kotlin
     val idps = authenticationResponse.getIdps()

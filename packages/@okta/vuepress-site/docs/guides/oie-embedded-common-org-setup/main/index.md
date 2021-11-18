@@ -7,7 +7,27 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-## Overview
+<StackSelector class="cleaner-selector"/>
+
+This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
+
+---
+
+**Learning outcomes**
+
+Get a new org set up and ready for various use cases.
+
+**What you need**
+
+n/a
+
+**Sample code**
+
+n/a
+
+---
+
+## Overview of the embedded identity solutions
 
 Okta provides two embedded identity solutions:
 
