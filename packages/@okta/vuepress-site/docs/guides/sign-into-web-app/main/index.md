@@ -24,13 +24,7 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 **Sample code**
 
-* ASP.NET &mdash; see our [ASP.NET MVC example](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for a working sample app, or check out [ASP.NET MVC quickstart](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started) if you want to build your own to work through this guide with.
-* ASP.NET Core &mdash; see our [ASP.NET Core example](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a working sample app, or check out [ASP.NET Core quickstart](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-aspnet-core) if you want to build your own to work through this guide with.
-* Golang &mdash; see our [Go Samples on GitHub](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for a working sample app, or check out [Golang getting started guide](https://golang.org/doc/install) if you want to build your own to work through this guide with.
-* Node.js Express &mdash; see our [Node Express example](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for a working sample app, or check out [Express getting started guide](https://expressjs.com/en/starter/installing.html) if you want to build your own to work through this guide with.
-* PHP &mdash; see our [PHP Samples on GitHub](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a working sample app.
-* Python Flask &mdash; see our [Flask Python Samples on GitHub](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a working sample app.
-* Java Spring Boot &mdash; see our [Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for a working sample app, or check out [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) if you want to build your own to work through this guide with. You can directly create a new Spring Boot project with Okta by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web** and **Okta**, then clicking **Generate Project** to download a zip file.
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -110,7 +104,7 @@ To reduce possible attack vectors, you need to explicitly define the Trusted Ori
 
 Next you need to add an Okta SDK to your application.
 
-<StackSelector snippet="addconfigpkg" noSelector />
+<StackSelector snippet="addconfigpkg" />
 
 ### Configure the package
 
@@ -128,13 +122,13 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
-<StackSelector snippet="configmid" noSelector />
+<StackSelector snippet="configmid" />
 
 ## Redirect to the sign-in page
 
 To sign a user in, your application must redirect the browser to the Okta-hosted sign-in page. You can do this when a user visits a protected route or when the user clicks a button to sign in.
 
-<StackSelector snippet="login-redirect" noSelector />
+<StackSelector snippet="login-redirect" />
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
@@ -150,13 +144,13 @@ In many applications, you want to prevent the user from accessing certain routes
 
 If you want the user to only have access to a route if they are signed in, require authentication for just those routes.
 
-<StackSelector snippet="reqauthspecific" noSelector />
+<StackSelector snippet="reqauthspecific" />
 
 ### Require authentication for everything
 
 For some applications, you may want to require the user to be authenticated for all routes.
 
-<StackSelector snippet="reqautheverything" noSelector />
+<StackSelector snippet="reqautheverything" />
 
 ## Get info about the user
 
@@ -164,7 +158,7 @@ When a user signs in, their profile information (stored in Okta) is made availab
 
 By default, the profile items (called "claims") that Okta returns include the user's email address, name, and preferred username.
 
-<StackSelector snippet="getuserinfo" noSelector />
+<StackSelector snippet="getuserinfo" />
 
 <!-- You can also customize the items (called claims) that are returned from Okta. See [Token customization guide]. -->
 
@@ -177,3 +171,7 @@ Read more:
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
+
+## Sample code
+
+<StackSelector snippet="samplecode" />

@@ -2745,6 +2745,230 @@ redirects:
     to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/-/next-steps/index.html
     to: /docs/guides/sign-into-web-app/-/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/aspnet/before-you-begin
+    to: /docs/guides/sign-into-web-app/aspnet/main/
+  - from: /docs/guides/sign-into-web-app/aspnet/define-callback
+    to: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnet/create-okta-application
+    to: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/aspnet/configure-packages
+    to: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnet/require-authentication
+    to: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/aspnet/get-user-info
+    to: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnet/next-steps
+    to: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/aspnet/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/
+  - from: /docs/guides/sign-into-web-app/aspnet/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnet/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/aspnet/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnet/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/aspnet/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnet/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/before-you-begin
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/define-callback
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/create-okta-application
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/configure-packages
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/require-authentication
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/get-user-info
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/next-steps
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/go/before-you-begin
+    to: /docs/guides/sign-into-web-app/go/main/
+  - from: /docs/guides/sign-into-web-app/go/define-callback
+    to: /docs/guides/sign-into-web-app/go/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/go/create-okta-application
+    to: /docs/guides/sign-into-web-app/go/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/go/configure-packages
+    to: /docs/guides/sign-into-web-app/go/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/go/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/go/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/go/require-authentication
+    to: /docs/guides/sign-into-web-app/go/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/go/get-user-info
+    to: /docs/guides/sign-into-web-app/go/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/go/next-steps
+    to: /docs/guides/sign-into-web-app/go/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/go/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/go/main/
+  - from: /docs/guides/sign-into-web-app/go/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/go/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/go/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/go/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/go/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/go/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/go/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/go/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/
+  - from: /docs/guides/sign-into-web-app/nodeexpress/define-callback
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/nodeexpress/create-okta-application
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/nodeexpress/configure-packages
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/nodeexpress/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/nodeexpress/require-authentication
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/nodeexpress/get-user-info
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/nodeexpress/next-steps
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/
+  - from: /docs/guides/sign-into-web-app/nodeexpress/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/nodeexpress/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/nodeexpress/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/nodeexpress/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/nodeexpress/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/nodeexpress/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/nodeexpress/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/nodeexpress/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/php/before-you-begin
+    to: /docs/guides/sign-into-web-app/php/main/
+  - from: /docs/guides/sign-into-web-app/php/define-callback
+    to: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/php/create-okta-application
+    to: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/php/configure-packages
+    to: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/php/require-authentication
+    to: /docs/guides/sign-into-web-app/php/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/php/get-user-info
+    to: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/php/next-steps
+    to: /docs/guides/sign-into-web-app/php/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/php/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/php/main/
+  - from: /docs/guides/sign-into-web-app/php/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/php/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/php/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/php/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/php/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/php/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/php/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/python/before-you-begin
+    to: /docs/guides/sign-into-web-app/python/main/
+  - from: /docs/guides/sign-into-web-app/python/define-callback
+    to: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/python/create-okta-application
+    to: /docs/guides/sign-into-web-app/python/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/python/configure-packages
+    to: /docs/guides/sign-into-web-app/python/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/python/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/python/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/python/require-authentication
+    to: /docs/guides/sign-into-web-app/python/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/python/get-user-info
+    to: /docs/guides/sign-into-web-app/python/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/python/next-steps
+    to: /docs/guides/sign-into-web-app/python/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/python/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/python/main/
+  - from: /docs/guides/sign-into-web-app/python/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/python/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/python/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/python/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/python/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/python/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/python/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/python/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/springboot/before-you-begin
+    to: /docs/guides/sign-into-web-app/springboot/main/
+  - from: /docs/guides/sign-into-web-app/springboot/define-callback
+    to: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/springboot/create-okta-application
+    to: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/springboot/configure-packages
+    to: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in
+    to: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/springboot/require-authentication
+    to: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/springboot/get-user-info
+    to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/springboot/next-steps
+    to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/springboot/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/
+  - from: /docs/guides/sign-into-web-app/springboot/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/springboot/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/springboot/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/springboot/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/springboot/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/springboot/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
   - from: /docs/guides/quickstart/create-org
     to: /docs/guides/quickstart/-/main/#create-your-okta-organization
   - from: /docs/guides/quickstart/using-console
