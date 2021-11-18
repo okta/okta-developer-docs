@@ -22,7 +22,7 @@ For configuring a custom email domain:
 
 **Sample code**
 
-[Using app context to brand an email](#using-app-context-to-brand-an-email)
+[Using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
 
 ---
 
@@ -201,9 +201,9 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Configure a custom email domain
 
-A custom email domain allows you to present a branded experience to your end users. Email that Okta sends to your end users appears to come from your custom email domain instead of noreply@okta.com. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
+A custom email domain allows you to present a branded experience to your end users. Email that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
 
-Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain noreply@okta.com until the problem is resolved.
+Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain `noreply@okta.com` until the problem is resolved.
 
 To configure a custom email domain:
 
@@ -231,7 +231,7 @@ To configure a custom email domain:
 
     For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement like this:
 
-    ```
+    ```plain
     example.com TXT    v=spf1 include:spf.protection.outlook.com -all
     ```
 
@@ -241,7 +241,7 @@ To configure a custom email domain:
 
     Add the host to the existing record to configure a combined SPF record similar to this:
 
-    ```
+    ```plain
     example.com TXT    v=spf1 include:oktamail.example.com include:spf.protection.outlook.com -all
     ```
 
