@@ -38,7 +38,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_typ
 
 > **Note:** The `sessionToken` parameter serves as the primary credentials. It represents the authentication that was already performed through the [Authentication API](/docs/reference/api/authn/).
 
-### Response Example
+### Response example
 
 ```
 HTTP/1.1 302 Moved Temporarily
