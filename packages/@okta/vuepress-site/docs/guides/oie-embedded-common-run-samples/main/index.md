@@ -7,7 +7,24 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-After you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app), you can run both the sample Widget app and the sample SDK app.
+This guide covers how you can run both the sample Widget app and the sample SDK app, after you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
+
+---
+
+**Learning outcomes**
+
+Run your sample app and build your integration.
+
+**What you need**
+
+* [Okta org](https://developer.okta.com/signup/oie.html)
+* [SDK, Sign-In Widget and sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up
+
+**Sample code**
+
+n/a
+
+---
 
 ## The embedded Widget flow
 

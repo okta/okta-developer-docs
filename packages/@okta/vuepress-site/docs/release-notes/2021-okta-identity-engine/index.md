@@ -4,6 +4,50 @@ title: Okta Identity Engine API Products Release Notes 2021
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+## November
+
+### Weekly Release 2021.11.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.11.1](#bugs-fixed-in-2021-11-1) | November 10, 2021 |
+
+#### Bug fixed in 2021.11.1
+
+When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [Change Recovery Question endpoint](/docs/reference/api/users/#change-recovery-question) was used to update the user's security question, Okta Identity Engine still returned the old security question. (OKTA-442243)
+
+### Monthly release 2021.11.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
+| [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
+| [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
+| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production)                          | October 6, 2021          |
+
+#### Brands API support for auto-detecting contrast colors
+
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+
+#### New Devices API response property available
+
+Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-user) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
+
+#### New error page macros for themed templates
+
+Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+
+#### Event Hooks daily limit
+
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+
+#### Token-based SSO between native apps is now GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achive SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
 ## October
 
 ### Weekly Release 2021.10.2

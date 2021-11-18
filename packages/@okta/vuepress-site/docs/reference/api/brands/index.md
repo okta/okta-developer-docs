@@ -560,8 +560,6 @@ Content-Type: application/json
 
 Updates a Theme for a Brand
 
-> **Note:** Clear the browser cache to see the new changes after updating the Theme.
-
 #### Request path parameters
 
 | Parameter | Type        | Description   |
@@ -1187,13 +1185,15 @@ The Theme object defines the following properties:
 | Property                              | Type     | Description                                                                                                                | Default Value     |
 | ------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | `primaryColorHex`                     | String   | Primary color hex code                                                                                                   | `#1662dd`         |
-| `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#000000`         |
+| `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#ffffff`         |
 | `secondaryColorHex`                   | String   | Secondary color hex code                                                                                                 | `#ebebed`         |
 | `secondaryColorContrastHex`           | String   | (Optional) Secondary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                       | `#000000`         |
 | `signInPageTouchPointVariant`         | Enum     | Variant for sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
 | `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+
+> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 

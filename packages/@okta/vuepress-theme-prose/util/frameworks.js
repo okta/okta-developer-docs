@@ -61,6 +61,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   clientcreds: 'Client Credentials',
   ropassword: 'Resource Owner Password',
   saml2assert: 'SAML 2.0 Assertion',
+  interactioncode: 'Interaction Code',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

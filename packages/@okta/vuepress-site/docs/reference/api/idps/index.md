@@ -4530,6 +4530,12 @@ curl -v -X GET \
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
+ },
+ {
+    "id": "dsasdsasdfe",
+    "token": "JBTWGV22G4ZJBRXJ",
+    "tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+    "tokenAuthScheme": null
 }]
 ```
 
@@ -6323,14 +6329,20 @@ The Social Authentication Token object provides the tokens and associated metada
 ### Example
 
 ```json
-{
+[{
   "id": "<unique token identifier>",
   "token": "JBTWGV22G4ZGKV3N",
   "tokenType" : "urn:ietf:params:oauth:token-type:access_token",
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
-}
+},
+{
+"id": "<unique token identifier>",
+"token": "JBTWGV22G4ZJBRXJ",
+"tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+"tokenAuthScheme": null
+}]
 ```
 
 ### Identity Provider Social Authentication Token properties

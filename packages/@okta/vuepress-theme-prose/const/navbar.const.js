@@ -174,6 +174,10 @@ export const guides = [
       {
         title: "Sign Users In",
         subLinks: [
+          {
+            title: "Add an external Identity Provider",
+            path: "/docs/guides/identity-providers/",
+          },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Mobile App",
@@ -276,15 +280,21 @@ export const guides = [
         title: "Brand and Customize",
         subLinks: [
           {
+            title: "Customize the Okta URL domain",
+            guideName: "custom-url-domain"
+          },
+          {
+            title: "Style the Widget",
+            guideName: "style-the-widget"
+          },
+          {
             title: "Customize the Okta-hosted error pages",
             guideName: "custom-error-pages"
           },
           {
-            title: "Customize the Okta URL domain",
-            guideName: "custom-url-domain"
+            title: "Customize SMS messages",
+            guideName: "custom-sms-messaging"
           },
-          { title: "Style the Widget", guideName: "style-the-widget" },
-          { title: "Customize SMS messages", guideName: "sms-customization" },
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
@@ -649,6 +659,7 @@ export const reference = [
           { title: "Features", path: "/docs/reference/api/features/" },
           { title: "Groups", path: "/docs/reference/api/groups/" },
           { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
+          { title: "Log Streaming", path: "/docs/reference/api/log-streaming/"},
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },

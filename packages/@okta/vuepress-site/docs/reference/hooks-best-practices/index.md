@@ -59,14 +59,14 @@ Your external service processing Hook requests must take into consideration that
 
 | Hook Type | Limit Type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
-| Event Hook | Number of daily Event Hooks | 100K | A maximum of 100,000 Event Hooks can be fired, per org, per day. Event Hooks are not recorded or replayed after this point. If a request times out after three seconds, Event Hooks are retried once. Retries do not count toward the org limit.
+| Event Hook | Number of daily Event Hooks | 200,000 | A maximum of 200,000 Event Hooks can be fired, per org, per day. Event Hooks are not recorded or replayed after this point. If a request times out after three seconds, Event Hooks are retried once. Retries do not count toward the org limit.
 |            | Maximum number of Event Hooks per org | 10 | A maximum of 10 active Event Hooks can be configured per org. Each Event Hook can be configured to deliver multiple event types. |
 | Inline Hook | Timeout | 3 seconds | Inline Hooks have a completion timeout of three seconds with a single retry. However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
 |             | Maximum number of Inline Hooks per org | 50 | The maximum number of Inline Hooks that can be configured per org is 50, which is a combined total for any combination of Inline Hook types. |
 
 ## Troubleshoot your Hook implementations
 
-Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview)) and for SAML and Registration Inline Hooks ([Preview an Inline Hook](hhttps://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)).
+Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview)) and for SAML and Registration Inline Hooks ([Preview an Inline Hook](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)).
 
 Review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See the following sections to assist in troubleshooting your implementations:
 
@@ -77,7 +77,7 @@ Inline Hooks also provide an `error` object that can be returned as part of the 
 
 See also the following guides for sample Okta Hook implementations:
 
-* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
+* [Event Hook](/docs/guides/event-hook-implementation/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/)
