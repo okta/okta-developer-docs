@@ -15,6 +15,8 @@ This guide teaches you how to customize and style default Okta email notificatio
 
 **What you need**
 
+An [Okta Developer Edition organization](/signup)
+
 For configuring a custom email domain:
 
 - Access to the DNS records of your public custom domain.
