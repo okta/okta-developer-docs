@@ -12,10 +12,10 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 **Learning outcomes**
 
-* Create an Okta app integration to represent your app in the system.
-* Implement an Okta-hosted sign-in page.
-* Handle a user sign-in.
-* Handle access tokens appropriately.
+* Create an Okta app integration to represent your app in the system
+* Implement an Okta-hosted sign-in page
+* Handle a user sign-in flow
+* Handle access tokens appropriately
 
 **What you need**
 
@@ -24,9 +24,7 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 **Sample code**
 
-* [Android browser sign-in example](https://github.com/okta/samples-android/tree/master/browser-sign-in)
-* [iOS browser sign-in example](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
-* [React-Native browser sign-in example](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in)
+See the [Sample code](#sample-code) section.
 
 ---
 
@@ -134,3 +132,7 @@ You should now understand how to sign users in to your mobile applications using
 
 * In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 * To learn how to protect the API endpoints that your mobile app calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
+
+## Sample code
+
+<StackSelector snippet="samplecode"/>
