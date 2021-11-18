@@ -63,7 +63,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 6. Make your edits, and then click **Add Translation**.
 7. Repeat steps 5 and 6 for additional languages.
 
-#### Localization notes
+### Localization notes
 
 * When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
@@ -71,13 +71,13 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 * If you want to delete all custom translations and revert to the original Okta-provided template, click **Reset to Default**.
 
-#### Expression Language variables
+### Expression Language variables
 
 Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/okta_help.htm?id=ext-expression-language). EL variables enable advanced customization and, when used in place of hard-coded URLs, can prevent potential broken links.
 
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-#### Enhanced Email Macros
+### Enhanced Email Macros
 
 <ApiLifecycle access="ea" />
 
@@ -95,7 +95,7 @@ All of Okta's default email templates are available for customization.
 
 > **Note:** Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults. However, when you disable the Enhanced Email Macros feature, your old customized templates return. If you choose to disable the feature, you lose access to the customizations done while the EA feature was enabled.
 
-#### Velocity Templating syntax
+### Velocity Templating syntax
 
 The templating syntax that is used in enhanced email macros is the Velocity Templating Language (VTL). Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
 
@@ -116,7 +116,7 @@ Other examples include:
 
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
 
-#### Use functions for email templates
+### Use functions for email templates
 
 In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email recipient.
 
@@ -155,7 +155,7 @@ You can also reference these org-level attributes, such as:
 * `$org.locale`
 * `$org.subDomain`
 
-#### Support for conditional logic
+### Support for conditional logic
 
 All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
@@ -171,7 +171,7 @@ Okta Identity Engine orgs have access to app context within emails using the Vel
 
 When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
 
-#### Example of using app context to brand an email
+### Example of using app context to brand an email
 
 ```html
 #if(${app.name} == "Toys R' Fun")
