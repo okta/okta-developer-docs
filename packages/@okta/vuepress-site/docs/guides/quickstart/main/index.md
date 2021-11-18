@@ -5,6 +5,8 @@ excerpt: Get started with Okta authentication
 
 In this article we get you up and running with basic Okta authentication, quickly and effectively. This includes creating and managing Okta organizations, registering a new app and authenticating it using Okta, and next steps from there.
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
@@ -29,7 +31,7 @@ You can [sign up](/signup) for an Okta developer edition org for free, which all
 
 ### Create your org
 
-<StackSelector snippet="create-org" />
+<StackSelector snippet="create-org" noSelector />
 
 ### After creating your org
 
@@ -135,7 +137,7 @@ Build the example app as-is, or use it as a template for modifying your own app.
 
 ### Tell Okta about the app
 
-<StackSelector snippet="register-app" />
+<StackSelector snippet="register-app" noSelector />
 
 <!---
 #### Get values from Okta to set in the app
