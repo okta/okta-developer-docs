@@ -968,7 +968,7 @@ redirects:
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/-/test-authz-server/
   - from: /guides/enable-cors/-/overview/index.html
-    to: /docs/guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
@@ -986,7 +986,7 @@ redirects:
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
-    to: /docs/guides/find-your-domain/-/overview/
+    to: /docs/guides/find-your-domain/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
     to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code-pkce/-/next-steps/index.html
@@ -1089,8 +1089,6 @@ redirects:
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /guides/session-cookie/-/overview/index.html
-    to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -2114,9 +2112,13 @@ redirects:
   - from: /product/user-management/index.html
     to: /
   - from: /docs/examples/session_cookie
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
   - from: /docs/examples/session_cookie/index.html
-    to: /docs/guides/session-cookie/overview
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/
+    to: /docs/guides/session-cookie/
+  - from: /docs/guides/session-cookie/overview/index.html
+    to: /docs/guides/session-cookie/
   - from: /docs/rest
     to: /code/rest/
   - from: /docs/rest/index.html
@@ -2550,7 +2552,7 @@ redirects:
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/
+    to: /docs/guides/sign-into-mobile-app/-/main/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback
     to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/-/create-okta-application
@@ -2589,6 +2591,126 @@ redirects:
     to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/-/next-steps/index.html
     to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/android/main/
+  - from: /docs/guides/sign-into-mobile-app/android/define-callback
+    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/android/configure-packages
+    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/android/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/get-user-info
+    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/use-access-token
+    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/next-steps
+    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/
+  - from: /docs/guides/sign-into-mobile-app/android/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/android/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/android/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/define-callback
+    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/ios/configure-packages
+    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/get-user-info
+    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/use-access-token
+    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/next-steps
+    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/ios/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/react-native/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/next-steps
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
@@ -2597,43 +2719,51 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/#retrieve-refresh-token
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#add-and-configure-packages
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#store-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#discard-access-tokens
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/#retrieve-refresh-token
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
     to: /docs/guides/common-hook-set-up-steps/
@@ -2651,8 +2781,6 @@ redirects:
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
-  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/sign-into-spa/-/before-you-begin
     to: /docs/guides/sign-into-spa/
   - from: /docs/guides/sign-into-spa/-/define-callback
@@ -2993,6 +3121,30 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-domain/overview
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/find-your-domain/overview/index.html
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg/index.html
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/enable-cors/overview
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps
+    to: /docs/guides/enable-cors/main/#see-also
+  - from: /docs/guides/enable-cors/overview/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/guides/enable-cors/granting-cors/index.html
+    to: /docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites
+  - from: /docs/guides/enable-cors/testing/index.html
+    to: /docs/guides/enable-cors/main/#test-your-configuration
+  - from: /docs/guides/enable-cors/next-steps/index.html
+    to: /docs/guides/enable-cors/main/#see-also
   - from: /docs/guides/find-your-app-credentials/overview
     to: /docs/guides/find-your-app-credentials/
   - from: /docs/guides/find-your-app-credentials/findcreds
