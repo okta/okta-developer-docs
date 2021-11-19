@@ -2036,21 +2036,21 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
     to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist
-    to: /docs/guides/customize-tokens-static/static-allowlist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist
-    to: /docs/guides/customize-tokens-static/-/static-allowlist
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/index.html
-    to: /docs/guides/customize-tokens-static/static-allowlist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/index.html
-    to: /docs/guides/customize-tokens-static/-/static-allowlist
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as
-    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as
-    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/overview/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/customize-tokens-returned-from-okta/overview
@@ -3579,6 +3579,30 @@ redirects:
     to: /docs/guides/customize-authz-server/main/#create-claims
   - from: /docs/guides/customize-authz-server/test-authz-server/index.html
     to: /docs/guides/customize-authz-server/main/#test-the-authorization-server
+  - from: /docs/guides/customize-tokens-static/overview
+    to: /docs/guides/customize-tokens-static/
+  - from: /docs/guides/customize-tokens-static/request-token-claim
+    to: /docs/guides/customize-tokens-static/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-static/static-allowlist
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
+  - from: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-static/use-static-group-allowlist-custom-as
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-static/next-steps
+    to: /docs/guides/customize-tokens-static/main/#see-also
+  - from: /docs/guides/customize-tokens-static/overview/index.html
+    to: /docs/guides/customize-tokens-static/
+  - from: /docs/guides/customize-tokens-static/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-static/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-static/static-allowlist/index.html
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
+  - from: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as/index.html
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-static/use-static-group-allowlist-custom-as/index.html
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-static/next-steps/index.html
+    to: /docs/guides/customize-tokens-static/main/#see-also
   - from: /docs/guides/sms-customization/before-you-begin
     to: /docs/guides/custom-sms-messaging/
   - from: /docs/guides/sms-customization/before-you-begin/index.html

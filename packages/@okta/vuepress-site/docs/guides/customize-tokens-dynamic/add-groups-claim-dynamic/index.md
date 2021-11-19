@@ -16,7 +16,7 @@ You can use this function anywhere to get a list of Groups of which the current 
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the **Parameter Examples** section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the **Parameter Examples** section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 You can use a dynamic group allow list with both the Okta Org Authorization Server and a Custom Authorization Server:
 
