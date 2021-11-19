@@ -40,7 +40,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
     * An Okta Org Authorization Server authorization endpoint looks like this:
 
@@ -103,7 +103,7 @@ https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR
 
 ## Add a Groups claim for the Org Authorization Server
 
-Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
@@ -163,7 +163,7 @@ The decoded JWT looks something like this:
 
 ## Add a Groups claim for a Custom Authorization Server
 
-Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
 2. Go to the **Claims** tab and click **Add Claim**.
