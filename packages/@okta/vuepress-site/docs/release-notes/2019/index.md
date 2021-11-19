@@ -45,7 +45,7 @@ In Scope objects created using the [Authorization Server API](/docs/reference/ap
 
 #### Okta-Hosted User Consent Dialog Change
 
-In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/overview/), Okta-hosted user consent dialogs were updated to display neutral colors for some UI elements. <!-- OKTA-262803 -->
+In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/), Okta-hosted user consent dialogs were updated to display neutral colors for some UI elements. <!-- OKTA-262803 -->
 
 #### OAuth for Okta Enabled for Clear User Sessions Endpoint
 
