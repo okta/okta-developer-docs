@@ -135,9 +135,9 @@ For [sign-in with the Okta dashboard](https://developer.okta.com/code/javascript
 
 ### Feature flags
 
-Specific features are no longer supported and are now configured in the Okta Sign-On Policies. The only feature that is supported when you upgrade the Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for MFA challenge.
+The only feature that is supported when you upgrade the Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for MFA challenge.
 
-You must remove these features that are located in `features` in the JSON code:
+The following specific features are no longer supported, and you must remove them from `features` in the JSON code:
 
 * `features.rememberMe` &mdash; Displayed the "Remember me" function at sign-in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
 
