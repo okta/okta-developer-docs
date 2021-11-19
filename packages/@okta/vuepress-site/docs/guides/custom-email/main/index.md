@@ -24,7 +24,7 @@ For configuring a custom email domain:
 
 **Sample code**
 
-[Using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
+See the [Using app context to brand an email](#example-of-using-app-context-to-brand-an-email) section.
 
 ---
 
@@ -166,9 +166,9 @@ You can also reference these org-level attributes, such as:
 
 ### Support for conditional logic
 
-All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
+<ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ie" /><br>
+All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
 ### Use app context
 
@@ -254,10 +254,6 @@ To configure a custom email domain:
 - You can't have more than 10 DNS lookups in your SPF record.
 
 ## See also
-
-Take a look at how to import users into Okta and manage their user profiles.
-
-<!--- Need to add the link to user migration after it gets created -->
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
 
