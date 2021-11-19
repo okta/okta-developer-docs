@@ -6,7 +6,7 @@ Access policies help you secure your APIs by defining different access and refre
 
 For example, an access token for a banking API may include a `transactions:read` scope with a multi-hour token lifetime. By contrast, the lifetime of an access token for transferring funds should be only a matter of minutes.
 
-You can also [include custom claims](/docs/guides/customize-authz-server/create-claims/) in ID and access tokens to disclose the information that you want to share, depending on the client and the scope of the tokens. Scopes specify what access privileges are being requested as part of the authorization. Claims are statements about the user (or `subject`), such as name, role, or email address.
+You can also [include custom claims](/docs/guides/customize-authz-server/main/#create-claims) in ID and access tokens to disclose the information that you want to share, depending on the client and the scope of the tokens. Scopes specify what access privileges are being requested as part of the authorization. Claims are statements about the user (or `subject`), such as name, role, or email address.
 
 For example, a shopping site might have one set of claims for customers while they browse, but another claim for administrator functions like changing a customer's personal information. Custom claims also help you by reducing the number of lookup calls required to retrieve user information from the Identity Provider (IdP). This benefit depends on the level of security that your apps require.
 
