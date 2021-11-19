@@ -23,7 +23,7 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 **Sample code**
 
-See the [Sample code](#sample-code) section.
+<StackSelector snippet="samplecode" noSelector />
 
 ---
 
@@ -116,7 +116,3 @@ To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 * [Okta OIDC for Android](https://github.com/okta/okta-oidc-android)
 * [Okta iOS Browser Sign-in Sample App](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
 * [Kotlin Sign-In Sample App for Android](https://github.com/okta/samples-android/tree/master/sign-in-kotlin)
-
-## Sample code
-
-<StackSelector snippet="samplecode" />
