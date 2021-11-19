@@ -98,7 +98,7 @@ You can also check if the browser has a valid session by using the `prompt=none`
 
 If your application requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app to check whether the user is already signed in to the first app. 
 
-<StackSelector snippet="checkvalidsession" />
+<StackSelector snippet="checkvalidsession" noSelector />
 
 ### Clear the session
 
