@@ -12,9 +12,9 @@ This guide provides a working example of an Okta Event Hook. It uses the ngrok u
 
 **Learning outcomes**
 
-* Understand the Okta Event Hook calls and responses
-* Implement Okta Event Hooks using a local application and the ngrok utility
-* Preview and test an Okta Event Hook and review the call details with ngrok
+* Understand the Okta Event Hook calls and responses.
+* Implement Okta Event Hooks using a local application and the ngrok utility.
+* Preview and test an Okta Event Hook and review the call details with ngrok.
 
 **What you need**
 
@@ -93,7 +93,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
-6. Include authentication field and secret. In this example, our `server.js` code uses Basic Authentication:
+6. Include **Authentication field** and **Authentication secret**. In this example, our `server.js` code uses Basic Authentication:
 
     * **Authentication field** = `authorization`
 
