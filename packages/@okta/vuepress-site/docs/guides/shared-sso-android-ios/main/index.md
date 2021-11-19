@@ -104,7 +104,7 @@ If your application requires that the user signs in to the first app first, then
 
 To clear a session, add the following code to both of your apps:
 
-<StackSelector snippet="clearsession" />
+<StackSelector snippet="clearsession" noSelector />
 
 ## Next steps
 
