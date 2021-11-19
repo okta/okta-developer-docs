@@ -81,7 +81,7 @@ To redirect back to your application from a web browser, specify a unique URI to
 
 You need a second mobile app to test with.
 
-<StackSelector snippet="createsecondapp" />
+<StackSelector snippet="createsecondapp" noSelector />
 
 ## Optional settings
 
