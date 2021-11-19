@@ -41,7 +41,7 @@ So for example, if you make changes to the sign-in page code using the editor re
 
 ## Top-level overview: Brands and themes
 
-At the top level, Your Okta organization contains a brand, which contains a default theme. The default brand is applied to your organization's subdomain/[custom domain](https://developer.okta.com/docs/guides/custom-url-domain/overview/) if you have specified one.
+At the top level, Your Okta organization contains a brand, which contains a default theme. The default brand is applied to your organization's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
   > **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
 
@@ -151,5 +151,5 @@ You can also delete these assets using the following requests (**Delete logo**, 
 
 * [Brands API reference](/docs/reference/api/brands/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
-* [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
+* [Customize email notifications and email domains](/docs/guides/custom-email/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/)

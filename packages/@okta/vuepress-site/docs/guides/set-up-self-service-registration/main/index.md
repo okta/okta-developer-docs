@@ -22,10 +22,6 @@ This article shows you how to set up Okta's self-service registration (SSR) func
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
 * Widget version 2.9 or later if you are hosting your own [customized Widget](/code/javascript/okta_sign-in_widget/)
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview
@@ -93,7 +89,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
         * **User dashboard:** Select to redirect users to their Okta homepage.
         * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
 
-    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/main/) for redirects.
+    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/) for redirects.
 
 6. Click **Save**.
 
@@ -133,7 +129,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) check box clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
-> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/overview/) configured.
+> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/) configured.
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.
