@@ -2826,7 +2826,7 @@ redirects:
   - from: /docs/guides/shared-sso-android-ios/android/next-steps
     to: /docs/guides/shared-sso-android-ios/android/main/#next-steps
   - from: /docs/guides/shared-sso-android-ios/android/overview/index.html
-    to: /docs/guides/shared-sso-android-ios/android/main
+    to: /docs/guides/shared-sso-android-ios/android/main/
   - from: /docs/guides/shared-sso-android-ios/android/session-and-persistent-sso/index.html
     to: /docs/guides/shared-sso-android-ios/android/main/#session-and-persistent-single-sign-on
   - from: /docs/guides/shared-sso-android-ios/android/configure-oidc-native-apps/index.html
