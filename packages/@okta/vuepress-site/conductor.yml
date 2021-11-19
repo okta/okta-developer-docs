@@ -3631,6 +3631,10 @@ redirects:
     to: /docs/guides/custom-url-domain/main/#next-steps
   - from: /docs/guides/custom-url-domain/next-steps/index.html
     to: /docs/guides/custom-url-domain/main/#next-steps
+  - from: /docs/guides/saml-tracer/overview
+    to: /docs/guides/saml-tracer/
+  - from: /docs/guides/saml-tracer/overview/index.html
+    to: /docs/guides/saml-tracer/
   - from: /docs/guides/email-customization/before-you-begin
     to: /docs/guides/custom-email/
   - from: /docs/guides/email-customization/before-you-begin/index.html
