@@ -1,7 +1,7 @@
 
 To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application serves up a web page and responds to Okta Event Hook calls.
 
-The Event Hook use-case is a simple local application response to the addition of a new Okta user.
+The Event Hook use case is a simple local application response to the addition of a new Okta user.
 
 ### Create a folder and initialize the project
 
