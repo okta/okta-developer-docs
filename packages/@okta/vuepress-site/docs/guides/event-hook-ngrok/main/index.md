@@ -34,7 +34,7 @@ This guide provides a working example of an Okta Event Hook. It uses the ngrok u
 
 ## Install ngrok
 
-If you already have ngrok installed, move on to [Run ngrok](#run-ngrok)] If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample application folder (or the location of your choice).
+If you already have ngrok installed, move on to [Run ngrok](#run-ngrok). If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample application folder (or the location of your choice).
 
 Some installation notes:
 
