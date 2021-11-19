@@ -2781,6 +2781,92 @@ redirects:
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/shared-sso-android-ios/-/overview
+    to: /docs/guides/shared-sso-android-ios/
+  - from: /docs/guides/shared-sso-android-ios/-/session-and-persistent-sso
+    to: /docs/guides/shared-sso-android-ios/-/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/-/configure-oidc-native-apps
+    to: /docs/guides/shared-sso-android-ios/-/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/-/setup-first-mobile-app
+    to: /docs/guides/shared-sso-android-ios/-/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/-/create-second-mobile-app
+    to: /docs/guides/shared-sso-android-ios/-/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/-/optional-settings
+    to: /docs/guides/shared-sso-android-ios/-/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/-/next-steps
+    to: /docs/guides/shared-sso-android-ios/-/main/#next-steps
+  - from: /docs/guides/shared-sso-android-ios/-/overview/index.html
+    to: /docs/guides/shared-sso-android-ios/
+  - from: /docs/guides/shared-sso-android-ios/-/session-and-persistent-sso/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/-/configure-oidc-native-apps/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/-/setup-first-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/-/create-second-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/-/optional-settings/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/-/next-steps/index.html
+    to: /docs/guides/shared-sso-android-ios/-/main/#next-steps
+  - from: /docs/guides/shared-sso-android-ios/android/overview
+    to: /docs/guides/shared-sso-android-ios/android/main/
+  - from: /docs/guides/shared-sso-android-ios/android/session-and-persistent-sso
+    to: /docs/guides/shared-sso-android-ios/android/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/android/configure-oidc-native-apps
+    to: /docs/guides/shared-sso-android-ios/android/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/android/setup-first-mobile-app
+    to: /docs/guides/shared-sso-android-ios/android/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/android/create-second-mobile-app
+    to: /docs/guides/shared-sso-android-ios/android/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/android/optional-settings
+    to: /docs/guides/shared-sso-android-ios/android/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/android/next-steps
+    to: /docs/guides/shared-sso-android-ios/android/main/#next-steps
+  - from: /docs/guides/shared-sso-android-ios/android/overview/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/
+  - from: /docs/guides/shared-sso-android-ios/android/session-and-persistent-sso/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/android/configure-oidc-native-apps/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/android/setup-first-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/android/create-second-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/android/optional-settings/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/android/next-steps/index.html
+    to: /docs/guides/shared-sso-android-ios/android/main/#next-steps
+  - from: /docs/guides/shared-sso-android-ios/ios/overview
+    to: /docs/guides/shared-sso-android-ios/ios/main/
+  - from: /docs/guides/shared-sso-android-ios/ios/session-and-persistent-sso
+    to: /docs/guides/shared-sso-android-ios/ios/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/ios/configure-oidc-native-apps
+    to: /docs/guides/shared-sso-android-ios/ios/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/ios/setup-first-mobile-app
+    to: /docs/guides/shared-sso-android-ios/ios/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/ios/create-second-mobile-app
+    to: /docs/guides/shared-sso-android-ios/ios/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/ios/optional-settings
+    to: /docs/guides/shared-sso-android-ios/ios/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/ios/next-steps
+    to: /docs/guides/shared-sso-android-ios/ios/main/#next-steps
+  - from: /docs/guides/shared-sso-android-ios/ios/overview/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/
+  - from: /docs/guides/shared-sso-android-ios/ios/session-and-persistent-sso/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#session-and-persistent-single-sign-on
+  - from: /docs/guides/shared-sso-android-ios/ios/configure-oidc-native-apps/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#configure-two-openid-connect-native-apps
+  - from: /docs/guides/shared-sso-android-ios/ios/setup-first-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#set-up-the-first-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/ios/create-second-mobile-app/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#create-a-second-mobile-app
+  - from: /docs/guides/shared-sso-android-ios/ios/optional-settings/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#optional-settings
+  - from: /docs/guides/shared-sso-android-ios/ios/next-steps/index.html
+    to: /docs/guides/shared-sso-android-ios/ios/main/#next-steps
   - from: /docs/guides/sign-into-spa/-/before-you-begin
     to: /docs/guides/sign-into-spa/
   - from: /docs/guides/sign-into-spa/-/define-callback
