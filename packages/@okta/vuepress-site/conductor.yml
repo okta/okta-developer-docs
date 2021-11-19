@@ -954,19 +954,19 @@ redirects:
   - from: /guides/custom-url-domain/-/update-other-okta-settings/index.html
     to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
   - from: /guides/customize-authz-server/-/create-access-policies/index.html
-    to: /docs/guides/customize-authz-server/-/create-access-policies/
+    to: /docs/guides/customize-authz-server/main/#create-access-policies
   - from: /guides/customize-authz-server/-/create-authz-server/index.html
-    to: /docs/guides/customize-authz-server/-/create-authz-server/
+    to: /docs/guides/customize-authz-server/main/#create-an-authorization-server
   - from: /guides/customize-authz-server/-/create-claims/index.html
-    to: /docs/guides/customize-authz-server/-/create-claims/
+    to: /docs/guides/customize-authz-server/main/#create-claims
   - from: /guides/customize-authz-server/-/create-rules-for-policy/index.html
-    to: /docs/guides/customize-authz-server/-/create-rules-for-policy/
+    to: /docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy
   - from: /guides/customize-authz-server/-/create-scopes/index.html
-    to: /docs/guides/customize-authz-server/-/create-scopes/
+    to: /docs/guides/customize-authz-server/main/#create-scopes
   - from: /guides/customize-authz-server/-/overview/index.html
-    to: /docs/guides/customize-authz-server/-/overview/
+    to: /docs/guides/customize-authz-server/
   - from: /guides/customize-authz-server/-/test-authz-server/index.html
-    to: /docs/guides/customize-authz-server/-/test-authz-server/
+    to: /docs/guides/customize-authz-server/main/#test-the-authorization-server
   - from: /guides/enable-cors/-/overview/index.html
     to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
@@ -3551,6 +3551,34 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/customize-authz-server/overview
+    to: /docs/guides/customize-authz-server/
+  - from: /docs/guides/customize-authz-server/create-authz-server
+    to: /docs/guides/customize-authz-server/main/#create-an-authorization-server
+  - from: /docs/guides/customize-authz-server/create-access-policies
+    to: /docs/guides/customize-authz-server/main/#create-access-policies
+  - from: /docs/guides/customize-authz-server/create-rules-for-policy
+    to: /docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy
+  - from: /docs/guides/customize-authz-server/create-scopes
+    to: /docs/guides/customize-authz-server/main/#create-scopes
+  - from: /docs/guides/customize-authz-server/create-claims
+    to: /docs/guides/customize-authz-server/main/#create-claims
+  - from: /docs/guides/customize-authz-server/test-authz-server
+    to: /docs/guides/customize-authz-server/main/#test-the-authorization-server
+  - from: /docs/guides/customize-authz-server/overview/index.html
+    to: /docs/guides/customize-authz-server/
+  - from: /docs/guides/customize-authz-server/create-authz-server/index.html
+    to: /docs/guides/customize-authz-server/main/#create-an-authorization-server
+  - from: /docs/guides/customize-authz-server/create-access-policies/index.html
+    to: /docs/guides/customize-authz-server/main/#create-access-policies
+  - from: /docs/guides/customize-authz-server/create-rules-for-policy/index.html
+    to: /docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy
+  - from: /docs/guides/customize-authz-server/create-scopes/index.html
+    to: /docs/guides/customize-authz-server/main/#create-scopes
+  - from: /docs/guides/customize-authz-server/create-claims/index.html
+    to: /docs/guides/customize-authz-server/main/#create-claims
+  - from: /docs/guides/customize-authz-server/test-authz-server/index.html
+    to: /docs/guides/customize-authz-server/main/#test-the-authorization-server
   - from: /docs/guides/customize-tokens-static/overview
     to: /docs/guides/customize-tokens-static/
   - from: /docs/guides/customize-tokens-static/request-token-claim

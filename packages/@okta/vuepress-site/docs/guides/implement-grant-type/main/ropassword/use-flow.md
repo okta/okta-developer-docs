@@ -20,7 +20,7 @@ Note the parameters that are being passed:
 - `grant_type` is `password`, indicating that we are using the Resource Owner Password grant type.
 - `username` is the username of a user registered with Okta.
 - `password` is the password of a user registered with Okta.
-- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 
