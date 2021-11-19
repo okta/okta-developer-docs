@@ -2784,7 +2784,7 @@ redirects:
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/shared-sso-android-ios/-/overview
-    to: /docs/guides/shared-sso-android-ios/-/main
+    to: /docs/guides/shared-sso-android-ios/
   - from: /docs/guides/shared-sso-android-ios/-/session-and-persistent-sso
     to: /docs/guides/shared-sso-android-ios/-/main/#session-and-persistent-single-sign-on
   - from: /docs/guides/shared-sso-android-ios/-/configure-oidc-native-apps
