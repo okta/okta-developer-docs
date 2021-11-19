@@ -217,10 +217,6 @@ export const guides = [
                     path: "/docs/guides/add-an-external-idp/microsoft/main/"
                   },
                   {
-                    title: "OpenID Connect",
-                    path: "/docs/guides/add-an-external-idp/openidconnect/main/"
-                  },
-                  {
                     title: "Paypal",
                     path: "/docs/guides/social-login/paypal/main/"
                   },
