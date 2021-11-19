@@ -2766,7 +2766,7 @@ redirects:
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/sign-users-out/-/before-you-begin
-    to: /docs/guides/sign-users-out/-/main/
+    to: /docs/guides/sign-users-out/
   - from: /docs/guides/sign-users-out/-/define-signout-callback
     to: /docs/guides/sign-users-out/-/main/#define-the-sign-out-callback
   - from: /docs/guides/sign-users-out/-/sign-out-of-okta
