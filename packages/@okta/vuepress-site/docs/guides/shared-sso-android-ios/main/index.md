@@ -69,7 +69,7 @@ In this section, you configure settings for the first mobile app.
 
 > Note: This section assumes that you have already downloaded the appropriate sample apps — see the sample links at the top of the article.
 
-<StackSelector snippet="configfile" />
+<StackSelector snippet="configfile" noSelector />
 
 ### Add the redirect scheme
 
