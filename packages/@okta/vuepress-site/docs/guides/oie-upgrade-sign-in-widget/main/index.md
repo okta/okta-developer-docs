@@ -139,26 +139,26 @@ Specific features are no longer supported and are now configured in the Okta Sig
 
 You must remove these features that are located in `features` in the JSON code:
 
-* `features.rememberMe`, which enabled the "Remember me" function at sign-in. This function is now configured in the [global org security settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General).
+* `features.rememberMe` &mdash; Displayed the "Remember me" function at sign-in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
 
-* `features.autoPush`, which enabled the "Send push automatically" function in the MFA challenge flow. This function is currently not available.
+* `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
-* `features.smsRecovery`, which allowed users with a configured mobile phone number to recover their password using an SMS message. This function is now configured in the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm).
+* `features.smsRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using an SMS message. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.callRecovery`, which allowed users with a configured mobile phone number to recover their password using a voice call. This function is now configured in the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm).
+* `features.callRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using a voice call. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.webauthn`, which prevented the widget from invoking the legacy Windows Hello factor. This function is now configured in the [sign-on policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-okta-sign-on-policies.htm).
+* `features.webauthn` &mdash; Prevented the Widget from invoking the legacy Windows Hello factor. This feature is no longer configurable in the Widget. See the [sign-on policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-okta-sign-on-policies.htm) in the Okta product documentation to enable and configure a possession authenticator.
 
-* `features.selfServiceUnlock`, which displayed the "Unlock Account" link to allow users to unlock their accounts. This function is now configured in [self-service account recovery](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-sspr.htm).
+* `features.selfServiceUnlock` &mdash; Displayed the "Unlock Account" link so that users could unlock their accounts. This feature is no longer configurable in the Widget. See [self-service account recovery](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-sspr.htm) to enable this feature.
 
-* `features.multiOptionalFactorEnroll`, which allowed users to enroll in multiple optional factors before finishing the authentication flow. This function is now configured in the [profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+* `features.multiOptionalFactorEnroll` &mdash; Allowed users to enroll in multiple optional factors before they finished the authentication flow. This feature is no longer configurable in the Widget. The [MFA enrollment and rules](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm) will be evaluated by default when applicable.
 
-* `features.registration`, which displayed the registration section in the primary auth page. See [Registration](#registration) for the change in configuration.
+* `features.registration` &mdash; Displayed the registration section in the primary auth page. This feature is no longer configurable in the Widget. The [profile enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) will be evaluated by default when applicable.
 
-* `features.idpDiscovery`, which enabled IdP Discovery. See [OpenID Connect/social authentication](#openid-connect-social-authentication) for the change in configuration.
+* `features.idpDiscovery` &mdash; Enabled IdP Discovery when the user signed in. This feature is no longer configurable in the Widget. The [Identity Provider routing rules](https://help.okta.com/oie/en-us/Content/Topics/Security/Identity_Provider_Discovery.htm) will be evaluated by default when applicable.
 
-* `features.showPasswordToggleOnSignInPage`, which enabled end users to toggle visibility of their password on the Okta Sign-In page so that they can check their password entry before they click **Sign In**.
+* `features.showPasswordToggleOnSignInPage` &mdash; Provided end users with the ability to toggle visibility of their password on the Okta Sign-In page so that they could check their password entry before clicking **Sign In**, and prevented an account lock-out due to exceeding their org's permitted number of failed sign-in attempts. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
-* `features.scrollOnError`, which enabled errors to be scrolled into view.
+* `features.scrollOnError` &mdash; Scrolled errors into view. This feature is no longer configurable in the Widget. Errors are going to be displayed inside the Widget.
 
-* `features.skipIdpFactorVerificationBtn`, which automatically redirects to the selected Identity Provider when selected from the list of factors.
+* `features.skipIdpFactorVerificationBtn` &mdash; Automatically redirected to the selected Identity Provider when selected from the list of factors. This feature is no longer configurable in the Widget. It is no longer needed since the optional authenticators have the ability to skip by default.
