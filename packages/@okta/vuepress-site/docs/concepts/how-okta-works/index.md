@@ -19,7 +19,7 @@ You can use Okta to allow your users to sign in with a username/password or with
 
 ##### You built an API, and you want to add authentication and authorization to it
 
-You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and application backends so that only authorized users and applications can call them. Define [scopes](/docs/guides/customize-authz-server/create-scopes/), [claims](/docs/guides/customize-authz-server/create-claims/), and [configure policies](/docs/guides/configure-access-policy/) to determine who can have access to your API resources.
+You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and application backends so that only authorized users and applications can call them. Define [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [configure policies](/docs/guides/configure-access-policy/) to determine who can have access to your API resources.
 
 ##### You have more than one app, and you want to implement Single Sign-On (SSO)
 

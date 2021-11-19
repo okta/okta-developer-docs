@@ -15,15 +15,6 @@ This guide teaches you how to upload your own SAML certificates to sign the asse
 * Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
-
-**What you need**
-
-n/a
-
-**Sample code**
-
-n/a
-
 ---
 
 ## Outbound and Inbound SAML Applications
@@ -348,9 +339,9 @@ Content-Type: application/json
 To share the certificate that you created across multiple apps, clone it with the
 [Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
 
-To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) by using the key `id` that you generated.
+To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](/docs/reference/api/idps/) by using the key `id` that you generated.
 
-Be sure to clone the certificate to every app or IdP that you want to share it with. After it is cloned, you need to [update the key credential](/docs/guides/sign-your-own-saml-csr/update-the-key-credential/) for the target app.
+Ensure that you clone the certificate to every app or IdP that you want to share it with. After the certificate is cloned, you need to [update the key credential](#update-the-key-credential) for the target app.
 
 If the certificate that you cloned from changes, you must repeat the cloning operation for each app or IdP.
 
@@ -358,7 +349,7 @@ If the certificate that you cloned from changes, you must repeat the cloning ope
 
 ## Upload the new certificate to the ISV
 
-> **Caution:** After you complete the [Publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, users can't access the SAML app or the Identity Provider until you complete these next steps.
+> **Caution:** After you complete the [publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, users can't access the SAML app or the Identity Provider until you complete these next steps.
 
 For Outbound SAML, complete the following steps (note that these steps can't be automated):
 

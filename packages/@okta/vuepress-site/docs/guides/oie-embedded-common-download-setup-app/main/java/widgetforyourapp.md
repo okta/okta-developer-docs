@@ -15,7 +15,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 <link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-Use the [latest version (`${siwVersion`})](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
+Use the [latest version (`${siwVersion}`)](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
 
 #### Initialize the Sign-In Widget
 

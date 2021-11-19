@@ -9,6 +9,7 @@ guides:
  - configure-native-sso
  - configure-signon-policy
  - create-an-api-token
+ - custom-email
  - custom-error-pages
  - custom-url-domain
  - customize-authz-server
@@ -17,7 +18,6 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
- - email-customization
  - enable-cors
  - event-hook-implementation
  - find-your-app-credentials
@@ -31,7 +31,7 @@ guides:
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
- - sms-customization
+ - custom-sms-messaging
  - submit-app
  - production-deployment
  - deploy-your-app
@@ -98,7 +98,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
     * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration)
+    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 
@@ -119,14 +119,14 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
     * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/overview/)
+    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 
     * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
-    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/overview/)
-    * [Customize SMS messages](/docs/guides/sms-customization/before-you-begin/)
-    * [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
+    * [Customize SMS messages](/guides/custom-sms-messaging/)
+    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+    * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
 5. Deploy to production
 

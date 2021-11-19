@@ -20,10 +20,6 @@ This guide teaches you how to add and configure Okta Sign-On Policies and App Si
 * An application that you want to add a Sign-On Policy to
 * A [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) configured
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview
