@@ -93,7 +93,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
-6. Include **Authentication field** and **Authentication secret**. In this example, our `server.js` code uses Basic Authentication:
+6. Include the **Authentication field** and **Authentication secret** values. In this example, our `server.js` code uses Basic Authentication:
 
     * **Authentication field** = `authorization`
 
