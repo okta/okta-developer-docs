@@ -3,7 +3,7 @@ title: Sign users out
 excerpt: Learn how to sign users out of your applications that use Okta's APIs.
 layout: Guides
 ---
-
+<StackSelector />
 An important part of security is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. The most common strategies to prevent unauthorized use of a session include [setting short token lifetimes](/docs/guides/configure-access-policy/configure-token-lifetime-per-client/) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
 > **Note:** If you are building a web app that is served by a server framework, see [Sign users in to your web application](/docs/guides/sign-into-web-app/). If you are building a mobile app, see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/). If you are building a single-page app, see [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/).
@@ -25,15 +25,7 @@ An important part of security is to minimize the chances that a malicious actor 
 
 **Sample code**
 
-* Android &mdash; see our [Android sample repo](https://github.com/okta/samples-android)
-* ASP.NET &mdash; see our [ASP.NET MVC Sample repo](https://github.com/okta/samples-aspnet)
-* ASP.NET Core 3.0 &mdash; see our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore)
-* iOS &mdash; see our [iOS sample repo](https://github.com/okta/samples-ios)
-* Node.js Express &mdash; see our [Node Express Samples repo](https://github.com/okta/samples-nodejs-express-4/)
-* React &mdash; see our [React sample repo](https://github.com/okta/samples-js-react)
-* React Native &mdash; see our [React Native samples repo](https://github.com/okta/samples-js-react-native)
-* Java Spring Boot &mdash; see our [Spring Boot Samples repo](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)
-* Vue &mdash; see our [Vue sample repo](https://github.com/okta/samples-js-vue)
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -58,7 +50,7 @@ Signing out of Okta requires the app to open a browser and navigate to the [end 
 1. On the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Sign-out redirect URIs** section, add the base URI of your application.
 
-    <StackSelector snippet="addbaseuri"/>
+    <StackSelector snippet="addbaseuri" noSelector/>
 1. Click **Save** to confirm your changes.
 
 ## Sign users out of Okta

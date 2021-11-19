@@ -2785,6 +2785,206 @@ redirects:
     to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app
   - from: /docs/guides/sign-users-out/-/next-steps/index.html
     to: /docs/guides/sign-users-out/-/main/#see-also
+  - from: /docs/guides/sign-users-out/android/before-you-begin
+    to: /docs/guides/sign-users-out/android/main/
+  - from: /docs/guides/sign-users-out/android/define-signout-callback
+    to: /docs/guides/sign-users-out/android/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/android/sign-out-of-okta
+    to: /docs/guides/sign-users-out/android/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/android/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/android/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/android/next-steps
+    to: /docs/guides/sign-users-out/android/main/#see-also
+  - from: /docs/guides/sign-users-out/android/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/android/main/
+  - from: /docs/guides/sign-users-out/android/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/android/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/android/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/android/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/android/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/android/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/android/next-steps/index.html
+    to: /docs/guides/sign-users-out/android/main/#see-also
+  - from: /docs/guides/sign-users-out/angular/before-you-begin
+    to: /docs/guides/sign-users-out/angular/main/
+  - from: /docs/guides/sign-users-out/angular/define-signout-callback
+    to: /docs/guides/sign-users-out/angular/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/angular/sign-out-of-okta
+    to: /docs/guides/sign-users-out/angular/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/angular/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/angular/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/angular/next-steps
+    to: /docs/guides/sign-users-out/angular/main/#see-also
+  - from: /docs/guides/sign-users-out/angular/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/angular/main/
+  - from: /docs/guides/sign-users-out/angular/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/angular/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/angular/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/angular/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/angular/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/angular/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/angular/next-steps/index.html
+    to: /docs/guides/sign-users-out/angular/main/#see-also
+  - from: /docs/guides/sign-users-out/aspnet/before-you-begin
+    to: /docs/guides/sign-users-out/aspnet/main/
+  - from: /docs/guides/sign-users-out/aspnet/define-signout-callback
+    to: /docs/guides/sign-users-out/aspnet/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/aspnet/sign-out-of-okta
+    to: /docs/guides/sign-users-out/aspnet/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/aspnet/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/aspnet/next-steps
+    to: /docs/guides/sign-users-out/aspnet/main/#see-also
+  - from: /docs/guides/sign-users-out/aspnet/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/aspnet/main/
+  - from: /docs/guides/sign-users-out/aspnet/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/aspnet/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/aspnet/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/aspnet/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/aspnet/next-steps/index.html
+    to: /docs/guides/sign-users-out/aspnet/main/#see-also
+  - from: /docs/guides/sign-users-out/aspnetcore3/before-you-begin
+    to: /docs/guides/sign-users-out/aspnetcore3/main/
+  - from: /docs/guides/sign-users-out/aspnetcore3/define-signout-callback
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/aspnetcore3/sign-out-of-okta
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/aspnetcore3/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/aspnetcore3/next-steps
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#see-also
+  - from: /docs/guides/sign-users-out/aspnetcore3/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/aspnetcore3/main/
+  - from: /docs/guides/sign-users-out/aspnetcore3/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/aspnetcore3/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/aspnetcore3/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/aspnetcore3/next-steps/index.html
+    to: /docs/guides/sign-users-out/aspnetcore3/main/#see-also
+  - from: /docs/guides/sign-users-out/ios/before-you-begin
+    to: /docs/guides/sign-users-out/ios/main/
+  - from: /docs/guides/sign-users-out/ios/define-signout-callback
+    to: /docs/guides/sign-users-out/ios/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/ios/sign-out-of-okta
+    to: /docs/guides/sign-users-out/ios/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/ios/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/ios/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/ios/next-steps
+    to: /docs/guides/sign-users-out/ios/main/#see-also
+  - from: /docs/guides/sign-users-out/ios/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/ios/main/
+  - from: /docs/guides/sign-users-out/ios/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/ios/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/ios/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/ios/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/ios/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/ios/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/ios/next-steps/index.html
+    to: /docs/guides/sign-users-out/ios/main/#see-also
+  - from: /docs/guides/sign-users-out/nodeexpress/before-you-begin
+    to: /docs/guides/sign-users-out/nodeexpress/main/
+  - from: /docs/guides/sign-users-out/nodeexpress/define-signout-callback
+    to: /docs/guides/sign-users-out/nodeexpress/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/nodeexpress/sign-out-of-okta
+    to: /docs/guides/sign-users-out/nodeexpress/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/nodeexpress/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/nodeexpress/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/nodeexpress/next-steps
+    to: /docs/guides/sign-users-out/nodeexpress/main/#see-also
+  - from: /docs/guides/sign-users-out/nodeexpress/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/nodeexpress/main/
+  - from: /docs/guides/sign-users-out/nodeexpress/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/nodeexpress/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/nodeexpress/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/nodeexpress/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/nodeexpress/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/nodeexpress/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/nodeexpress/next-steps/index.html
+    to: /docs/guides/sign-users-out/nodeexpress/main/#see-also
+  - from: /docs/guides/sign-users-out/react/before-you-begin
+    to: /docs/guides/sign-users-out/react/main/
+  - from: /docs/guides/sign-users-out/react/define-signout-callback
+    to: /docs/guides/sign-users-out/react/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/react/sign-out-of-okta
+    to: /docs/guides/sign-users-out/react/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/react/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/react/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/react/next-steps
+    to: /docs/guides/sign-users-out/react/main/#see-also
+  - from: /docs/guides/sign-users-out/react/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/react/main/
+  - from: /docs/guides/sign-users-out/react/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/react/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/react/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/react/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/react/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/react/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/react/next-steps/index.html
+    to: /docs/guides/sign-users-out/react/main/#see-also
+  - from: /docs/guides/sign-users-out/react-native/before-you-begin
+    to: /docs/guides/sign-users-out/react-native/main/
+  - from: /docs/guides/sign-users-out/react-native/define-signout-callback
+    to: /docs/guides/sign-users-out/react-native/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/react-native/sign-out-of-okta
+    to: /docs/guides/sign-users-out/react-native/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/react-native/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/react-native/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/react-native/next-steps
+    to: /docs/guides/sign-users-out/react-native/main/#see-also
+  - from: /docs/guides/sign-users-out/react-native/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/react-native/main/
+  - from: /docs/guides/sign-users-out/react-native/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/react-native/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/react-native/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/react-native/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/react-native/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/react-native/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/react-native/next-steps/index.html
+    to: /docs/guides/sign-users-out/react-native/main/#see-also
+  - from: /docs/guides/sign-users-out/springboot/before-you-begin
+    to: /docs/guides/sign-users-out/springboot/main/
+  - from: /docs/guides/sign-users-out/springboot/define-signout-callback
+    to: /docs/guides/sign-users-out/springboot/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/springboot/sign-out-of-okta
+    to: /docs/guides/sign-users-out/springboot/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/springboot/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/springboot/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/springboot/next-steps
+    to: /docs/guides/sign-users-out/springboot/main/#see-also
+  - from: /docs/guides/sign-users-out/springboot/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/springboot/main/
+  - from: /docs/guides/sign-users-out/springboot/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/springboot/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/springboot/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/springboot/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/springboot/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/springboot/next-steps/index.html
+    to: /docs/guides/sign-users-out/springboot/main/#see-also
+  - from: /docs/guides/sign-users-out/vue/before-you-begin
+    to: /docs/guides/sign-users-out/vue/main/
+  - from: /docs/guides/sign-users-out/vue/define-signout-callback
+    to: /docs/guides/sign-users-out/vue/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/vue/sign-out-of-okta
+    to: /docs/guides/sign-users-out/vue/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/vue/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/vue/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/vue/next-steps
+    to: /docs/guides/sign-users-out/vue/main/#see-also
+  - from: /docs/guides/sign-users-out/vue/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/vue/main/
+  - from: /docs/guides/sign-users-out/vue/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/vue/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/vue/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/vue/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/vue/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/vue/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/vue/next-steps/index.html
+    to: /docs/guides/sign-users-out/vue/main/#see-also
   - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
     to: /docs/guides/common-hook-set-up-steps/
   - from: /docs/guides/common-hook-set-up-steps/-/overview
