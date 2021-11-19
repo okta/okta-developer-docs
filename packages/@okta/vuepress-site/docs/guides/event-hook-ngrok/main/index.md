@@ -28,33 +28,37 @@ This guide provides a working example of an Okta Event Hook. It uses the ngrok u
 
 ---
 
+## Create a local application
+
+<StackSelector snippet="sample-app" noSelector/>
+
 ## Install ngrok
 
-If you already have ngrok installed, move on to the next step! If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download).
+If you already have ngrok installed, move on to [Run ngrok](#run-ngrok)] If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample application folder (or the location of your choice).
 
 Some installation notes:
 
 * You don't need to have an account to install and run ngrok, but creating a free account provides more features as well as basic authentication.
-* You can install ngrok directly in your project folder, as documented from the ngrok download page. Or you can install on your system's path directory to be able to run ngrok from any folder. Alternatively, you can install the executable in your favorite local folder, but you'll need the folder path when referencing the tool.
+* You can install ngrok directly in your project folder, sample-app, as documented from the ngrok download page. Or you can install on your system's path directory to be able to run ngrok from any folder. Alternatively, you can install the executable in your favorite local folder, but you'll need the folder path when referencing the tool.
 
 ### Run ngrok
 
-After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, run the following command in your terminal:
+After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, sample-app, run the following command in your terminal:
 
 ```terminal
-> ./ngrok http 8082
+sample-app > ./ngrok http 8082
 ```
 
 or if you installed in your system path:
 
 ```terminal
-> ngrok http 8082
+sample-app > ngrok http 8082
 ```
 
 or if you used your favorite folder:
 
 ```terminal
-> ~/applications/ngrok http 8082
+sample-app > ~/applications/ngrok http 8082
 ```
 
 If you see the following content in your terminal, ngrok is running successfully:
@@ -72,10 +76,6 @@ The ngrok inspection interface provides an opportunity to review all calls to yo
 Each call to your local application appears in the interface and includes the response body, header, and other details:
 
 ![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
-
-## Create a local application
-
-<StackSelector snippet="sample-app" noSelector/>
 
 ## Create an Okta Event Hook
 
