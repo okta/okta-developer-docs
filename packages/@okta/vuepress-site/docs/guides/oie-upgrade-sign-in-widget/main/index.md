@@ -161,4 +161,4 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.scrollOnError` &mdash; Scrolled errors into view. This feature is no longer configurable in the Widget. Errors are going to be displayed inside the Widget.
 
-* `features.skipIdpFactorVerificationBtn` &mdash; Automatically redirected to the selected Identity Provider when selected from the list of factors. This feature is no longer configurable in the Widget. It is no longer needed since the optional authenticators have the ability to skip by default.
+* `features.skipIdpFactorVerificationBtn` &mdash; Provided an automatic redirect to the selected Identity Provider when selected from the list of factors. This feature is no longer configurable in the Widget. It is no longer needed since the optional authenticators have the ability to skip by default.
