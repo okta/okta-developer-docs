@@ -2776,7 +2776,7 @@ redirects:
   - from: /docs/guides/sign-users-out/-/next-steps
     to: /docs/guides/sign-users-out/-/main/#see-also
   - from: /docs/guides/sign-users-out/-/before-you-begin/index.html
-    to: /docs/guides/sign-users-out/-/main/
+    to: /docs/guides/sign-users-out/
   - from: /docs/guides/sign-users-out/-/define-signout-callback/index.html
     to: /docs/guides/sign-users-out/-/main/#define-the-sign-out-callback
   - from: /docs/guides/sign-users-out/-/sign-out-of-okta/index.html
