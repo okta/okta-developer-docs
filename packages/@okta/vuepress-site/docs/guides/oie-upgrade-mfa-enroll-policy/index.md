@@ -27,9 +27,11 @@ The following are the main behavior changes to the [MFA Enrollment Policy](/docs
 
 ### Recovery authenticators
 
-In Identity Engine, the [Password Policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-password) governs the recovery operation for a password recovery flow. The recovery authenticators in a Password Policy use the same authenticator configurations in the MFA Enrollment Policy. For example, if the Email authenticator is enabled and set to `Required` in the MFA Enrollment Policy, then it is also a `Required` recovery authenticator in the Password Policy. Therefore, if you want to manage your recovery authenticators, your MFA Enrollment Policy needs to be configured with authenticators, and not factors.
+In Identity Engine, the new MFA Enrollment Policy format with authenticators can be used to govern recovery authenticator enrollment for the password recovery flow. The enrollment for recovery authenticators (Email, Phone, Okta Verify, and Security question) are governed by both the password policy and the enrollment policy. For example, if the Email authenticator is enabled and set to `Required` in the MFA Enrollment Policy, then email enrollment is required for recovery even if it isn't required in the Password Policy. Therefore, if you want to manage your recovery authenticators in the enrollment policy, your MFA Enrollment Policy needs to be configured with [authenticators](/docs/reference/api/policy/#policy-authenticator-object), and not [factors](/docs/reference/api/policy/#policy-factors-configuration-object).
 
-> **Note:** Password Policy recovery authenticator configuration supersedes the authenticator configuration in an MFA Enrollment Policy. For example, if the Phone authenticator is `Optional` for the MFA Enrollment Policy, but `Required` for the Password Policy, then the Phone authenticator is required for the password recovery flow.
+> **Note:** Password Policy recovery authenticator settings supersedes the authenticator settings in an MFA Enrollment Policy. For example, if the Phone authenticator is `Optional` or `Disabled` for the MFA Enrollment Policy, but `Required` for the Password Policy, then phone enrollment is required for the password recovery flow.
+
+See the [Password Policy](/docs/reference/api/policy/#password-policy) API and [Configure password policies](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-password) for details on how to configure the Password Policy in the Admin Console.
 
 ## Get MFA Enrollment Policies
 
