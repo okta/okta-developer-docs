@@ -17,6 +17,10 @@ Understand how to override text strings with Identity Engine i18n strings so tha
 
 [Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
+**Sample code**
+
+[Sample i18n code for the Identity Engine](#sample-i18n-code-for-the-identity-engine)
+
 ---
 
 ## Specify i18n translation strings

@@ -19,7 +19,7 @@ Understand the `showSignIn` methods that are used in the Sign-In Widget so that 
 
 **Sample code**
 
-[Code samples using showSignIn()](#code-samples-using-showsignin)
+[Code samples using showSignIn](#code-samples-using-showsignin)
 
 ---
 
