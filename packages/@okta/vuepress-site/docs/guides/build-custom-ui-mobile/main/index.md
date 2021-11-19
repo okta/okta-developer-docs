@@ -3,7 +3,7 @@ title: Build a custom sign-in UI in your mobile app
 excerpt: Learn how to build a custom sign-in UI in your mobile app.
 layout: Guides
 ---
-
+<StackSelector/>
 You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
 > **Note:** If the browser sign-in method works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
@@ -21,7 +21,7 @@ Build a custom mobile sign-in UI.
 
 **Sample code**
 
-See the [Sample code](#sample-code) section.
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -39,7 +39,7 @@ You should already have added and configured packages when you walked through th
 
 In addition, you need to install the native Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you already installed to make authentication requests to Okta.
 
-<StackSelector snippet="installoktaauthsdk" />
+<StackSelector snippet="installoktaauthsdk" noSelector/>
 
 ## Build the primary authentication form
 
@@ -54,7 +54,7 @@ For example, multiple screens could handle:
 * factor selection
 * multifactor verification
 
-<StackSelector snippet="primaryauth" />
+<StackSelector snippet="primaryauth" noSelector/>
 
 ## Handle authentication responses
 
@@ -62,14 +62,10 @@ Every authentication transaction starts with primary authentication, which valid
 
 > **Note:** Custom sign-in only works with [Org MFA](/docs/guides/mfa/sms/main/#set-up-your-org-for-mfa). This means that before you exchange the session token for an access token, you must ensure that [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level) is disabled for the application.
 
-<StackSelector snippet="handle-responses" />
+<StackSelector snippet="handle-responses" noSelector/>
 
 ## Next steps
 
 You should now understand how to build a custom UI in your mobile application.
 
 When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See [Get info about the user](/docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user) for details.
-
-## Sample code
-
-<StackSelector snippet="samplecode" />
