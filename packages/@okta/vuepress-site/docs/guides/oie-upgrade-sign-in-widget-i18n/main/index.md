@@ -1,5 +1,5 @@
 ---
-title: Updates to the Sign-In Widget I18n properties
+title: Updates to the Sign-In Widget i18n properties
 ---
 
 <ApiLifecycle access="ie" /><br>
@@ -11,7 +11,7 @@ This guide covers how to overide existing text strings in the interface with i18
 
 **Learning outcomes**
 
-Understand how to override text strings with Identity Engine i18n strings so that you can create localized sign-in widgets.
+Understand how to override text strings with Identity Engine i18n strings so that you can create localized Sign-In Widgets.
 
 **What you need**
 

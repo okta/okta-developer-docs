@@ -162,3 +162,7 @@ The following specific features are no longer supported, and you must remove the
 * `features.scrollOnError` &mdash; Scrolled errors into view. This feature is no longer configurable in the Widget. Errors are going to be displayed inside the Widget.
 
 * `features.skipIdpFactorVerificationBtn` &mdash; Provided an automatic redirect to the selected Identity Provider when selected from the list of factors. This feature is no longer configurable in the Widget. It is no longer needed since the optional authenticators have the ability to skip by default.
+
+### I18n properties
+
+After you upgrade your org to Okta Identity Engine, you can override existing text strings in the interface with Identity Engine i18n strings so that you can create localized Widgets. See [Updates to the Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
