@@ -83,4 +83,4 @@ For example: `it": "${org.name}: il codice di verifica è ${code}`
 
 ## Next steps
 
-Next, take a look at [customizing and styling the default email notifications](/docs/guides/email-customization/) that Okta sends to end users.
+Next, take a look at [customizing and styling the default email notifications](/docs/guides/custom-email/) that Okta sends to end users.
