@@ -18,7 +18,7 @@ const App = () => {
 export default App;
 ```
 
-Note that if you will be doing a sign-in redirect flow, the [callback](/docs/guides/sign-users-out/angular/define-signout-callback/) **must not be secured** by a `<SecureRoute>`.
+Note that if you are doing a sign-in redirect flow, the [callback](/docs/guides/sign-users-out/-/main/#define-the-sign-out-callback) **must not be secured** by a `<SecureRoute>`.
 
 ```javascript
 import React from 'react';

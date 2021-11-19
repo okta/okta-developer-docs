@@ -297,7 +297,7 @@ export const guides = [
           },
           {
             title: "Customize email notifications and email domains",
-            guideName: "email-customization"
+            guideName: "custom-email"
           },
           {
             title: "Customize themes",

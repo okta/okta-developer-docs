@@ -23,7 +23,7 @@ function authenticationRequired(req, res, next) {
     .catch((err) => {
       res.status(401).send(err.message);
     });
-}}
+}
 ```
 
 If you have a route you want to protect, use the above middleware:
