@@ -75,7 +75,7 @@ In this section, you configure settings for the first mobile app.
 
 To redirect back to your application from a web browser, specify a unique URI to your app.
 
-<StackSelector snippet="addredirectscheme" />
+<StackSelector snippet="addredirectscheme" noSelector />
 
 ## Create a second mobile app
 
