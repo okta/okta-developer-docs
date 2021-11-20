@@ -13,14 +13,6 @@ This guide teaches you how to refresh access tokens with Okta.
 * Understand and set up Refresh token rotation
 * Refresh access tokens
 
-**What you need**
-
-n/a
-
-**Sample code**
-
-n/a
-
 ---
 
 ## Overview
