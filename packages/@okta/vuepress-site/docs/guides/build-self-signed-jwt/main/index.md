@@ -17,7 +17,6 @@ This article explains how to build a self-signed JSON Web Token (JWT) that is us
 * Sign the JWT with a shared secret or a private key.
 
 
-n/a
 
 
 n/a
