@@ -14,7 +14,7 @@ This article explains how to build a self-signed JSON Web Token (JWT) that is us
 
 * Build a signed JWT for use when making requests to the OpenID Connect endpoints
 * Understand which claims are required in your JWT payload.
-* Sign the JWT with a shared secret or a private key
+* Sign the JWT with a shared secret or a private key.
 
 **What you need**
 
