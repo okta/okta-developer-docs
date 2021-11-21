@@ -4,6 +4,8 @@ excerpt: Learn how to build a self-signed JWT.
 layout: Guides
 ---
 
+<StackSelector />
+
 This article explains how to build a self-signed JSON Web Token (JWT) that is used throughout Okta. For example, when you make requests to Okta API endpoints that require [client authentication](/docs/reference/api/oidc/#client-authentication-methods), you can optionally use a JWT for additional security.
 
 > **Note**: JWTs allow claims, such as user data, to be represented in a secure manner, helping to ensure trust and security in your app. JWTs are an open standard, and there are various libraries available that allow you to create, verify, and inspect them.
@@ -15,10 +17,6 @@ This article explains how to build a self-signed JSON Web Token (JWT) that is us
 * Build a signed JWT for request authentication to OpenID Connect endpoints.
 * Understand which claims are required in your JWT payload.
 * Sign the JWT with a shared secret or a private key.
-
-
-
-
 
 ---
 
@@ -54,7 +52,7 @@ When you create a JWT assertion claim for client authentication (`client_secret_
 
 If you configured your application to use the `client_secret_jwt` client authentication method, then you want to build a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512).
 
-<StackSelector snippet="createclientsecretjwt"/>
+<StackSelector snippet="createclientsecretjwt" noSelector />
 
 ## Build a JWT with a private key
 
