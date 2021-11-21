@@ -20,7 +20,6 @@ This article explains how to build a self-signed JSON Web Token (JWT) that is us
 
 n/a
 
-**Sample code**
 
 n/a
 
