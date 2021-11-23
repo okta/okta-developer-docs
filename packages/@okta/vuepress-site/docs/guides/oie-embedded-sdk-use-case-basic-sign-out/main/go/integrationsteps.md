@@ -26,7 +26,7 @@ if err != nil {
 ### 3: Remove the tokens from the server
 
 The next step is to revoke the tokens on the server. Use the
-[token revocation endpoint](/docs/guides/revoke-tokens/revokeatrt/)
+[token revocation endpoint](/docs/guides/revoke-tokens/main/#revoke-an-access-token-or-a-refresh-token)
 to remove the tokens from the server and clear it from use in any location.
 
 <!-- The goland SDK and sample app do not have code to revoke a token. It's a bug and a JIRA ticket
