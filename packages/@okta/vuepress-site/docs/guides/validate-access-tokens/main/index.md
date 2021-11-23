@@ -1,6 +1,23 @@
 ---
-title: Overview
+title: Validate Access Tokens
+excerpt: How to validate access tokens with Okta.
+layout: Guides
+meta:
+  - name: description
+    content: This guide on tokens shows you how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
 ---
+<StackSelector />
+This guide shows you how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
+
+---
+
+**Learning outcomes**
+
+* Validate access tokens.
+
+---
+
+## Overview
 
 If you are building a modern app or API, you likely want to know if your end user is authenticated. This is important to give context or to protect APIs from unauthenticated users. You can use Okta to authenticate your end users and issue them signed access and ID tokens, which your application can then use. It is important that your application only uses the access token to grant access, and not the ID token. For more information about this, see the [Access Tokens vs ID Tokens](#access-tokens-vs-id-tokens) section below.
 
@@ -12,11 +29,7 @@ After the signed tokens are issued to the end users, they can be passed to your 
 - If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
 - If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
 
-A high-level overview of OAuth 2.0 can be found [here](/docs/concepts/oauth-openid/#oauth-2-0).
-
 The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
-
-More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/reference/api/oidc/#access-token).
 
 ## Access Tokens vs ID Tokens
 
@@ -45,8 +58,7 @@ You will have to decode the access token, which is in JWT format.  This involves
 - Verify the Token Signature
 - Verify the Claims
 
-Okta provides libraries to perform these steps for you:
-<StackSelector snippet="accesstoken"/>
+<StackSelector snippet="accesstoken" noSelector/>
 
 ## Validating A Token Remotely With Okta
 
@@ -54,6 +66,7 @@ Alternatively, you can also validate an access or refresh Token using the Token 
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 
-## Support
+## See also
 
-Don't see the language you're working in? Need help or have an issue? Post a question on the [Okta Developer Forum](https://devforum.okta.com).
+* [High-level overview of OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0).
+* More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/reference/api/oidc/#access-token).
