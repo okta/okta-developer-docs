@@ -1222,7 +1222,7 @@ redirects:
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
     to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
-    to: /docs/guides/validate-access-tokens/-/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /guides/validate-id-tokens/-/overview/index.html
     to: /docs/guides/validate-id-tokens/-/overview/
   - from: /guides/custom-url-domain/overview/index.html
@@ -1244,9 +1244,9 @@ redirects:
   - from: /docs/api/resources/social_authentication.html
     to: /docs/concepts/social-login/
   - from: /docs/api/resources/tokens
-    to: /docs/guides/validate-access-tokens/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/tokens/index.html
-    to: /docs/guides/validate-access-tokens/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/getting_started/error_codes.html
     to: /docs/reference/error-codes/
   - from: /use_cases/api_security/index.html
@@ -3787,7 +3787,6 @@ redirects:
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
-
   - from: /docs/guides/validate-access-tokens/-/overview
     to: /docs/guides/validate-access-tokens/
   - from: /docs/guides/validate-access-tokens/-/overview/index.html
