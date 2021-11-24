@@ -23,13 +23,9 @@ If you are building a modern app or API, you likely want to know if your end use
 
 After the signed tokens are issued to the end users, they can be passed to your application for validation. There are two ways to verify a token: locally or remotely with Okta. The token is signed with a JSON Web Key (JWK) using the RS256 algorithm. To validate the signature, Okta provides your application with a public key that can be used.
 
- The following covers the terms used in this document, and provides an explanation of why you should use access tokens instead of ID tokens for this use case.
-
 - If you'd like to jump straight to the local validation steps: [What to Check When Validating an Access Token](#what-to-check-when-validating-an-access-token)
 - If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
 - If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
-
-The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
 ## Access Tokens vs ID Tokens
 
@@ -66,7 +62,8 @@ Alternatively, you can also validate an access or refresh Token using the Token 
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 
-## See also
+## See also 
 
-* [High-level overview of OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0).
-* More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/reference/api/oidc/#access-token).
+- A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
+- The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+- More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
