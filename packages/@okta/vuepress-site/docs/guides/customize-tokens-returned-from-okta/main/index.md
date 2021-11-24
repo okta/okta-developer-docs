@@ -3,7 +3,7 @@ title: Customize tokens returned from Okta with custom claims
 excerpt: Define custom claims and Groups claims for tokens returned from Okta.
 ---
 
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/overview/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 ---
 

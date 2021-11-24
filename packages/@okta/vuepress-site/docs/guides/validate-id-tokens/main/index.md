@@ -1,18 +1,24 @@
 ---
-title: Overview
+title: Validate ID Tokens
+excerpt: How to validate ID tokens with Okta
+layout: Guides
 ---
+
+This guide explains how to validate ID tokens with Okta.
+
+---
+
+**Learning outcomes**
+
+* Validate ID tokens.
+
+---
+
+## Overview
 
 If your client application requires authentication and would like to obtain information about the authenticated person, then it should use the OpenID Connect protocol to get an ID token.
 
 OpenID Connect (OIDC) is an authentication protocol built on top of OAuth 2.0. With OAuth 2.0, a user can authenticate with an authorization server and get you an access token that authorizes access to some server resources. With OIDC, they can also give you a token called an ID token. The ID token contains information about a user and their authentication status. It can be used by your client both for authentication and as a store of information about that user. One OIDC flow can return both access and ID tokens.
-
-We will now cover the terms used in this document, and an explanation of why you should use ID tokens.
-
-A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
-
-The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
-
-More information about Okta's ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token)
 
 ## ID Tokens vs Access Tokens
 
@@ -72,6 +78,8 @@ The Okta JWT Verifier is available for the following languages:
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)
 - [Python](https://github.com/okta/okta-jwt-verifier-python)
 
-## Support
+## See also 
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
+- A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
+- The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
+- More information about Okta's ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
