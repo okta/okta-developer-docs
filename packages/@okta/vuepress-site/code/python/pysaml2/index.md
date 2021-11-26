@@ -35,8 +35,8 @@ Before you can configure your application and PySAML2 set up an
 Okta chiclet (application icon) that enables an Okta user to sign in to your to your application with SAML and PySAML2.
 
 To set up Okta to connect to your application, follow the
-[Build a Single Sign-On Integration](/docs/guides/build-sso-integration/saml/main/)
-guide. As noted in the [Create your integration](/docs/guides/build-sso-integration/saml/main/#create-your-integration) instructions, there are two steps to change:
+[Build a Single Sign-On Integration](/docs/guides/build-sso-integration/saml2/main/)
+guide. As noted in the [Create your integration](/docs/guides/build-sso-integration/saml2/main/#create-your-integration) instructions, there are two steps to change:
 
 * *In step \#9*: Use ***PySAML2 Example*** instead of ***Example SAML application*** .
 * *In step \#10*: When entering the URL
