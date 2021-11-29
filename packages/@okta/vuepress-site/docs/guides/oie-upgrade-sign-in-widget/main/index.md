@@ -151,7 +151,7 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.selfServiceUnlock` &mdash; Displayed the "Unlock Account" link so that users could unlock their accounts. This feature is no longer configurable in the Widget. See [self-service account recovery](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-sspr.htm) to enable this feature.
 
-* `features.multiOptionalFactorEnroll` &mdash; Allowed users to enroll in multiple optional factors before they finished the authentication flow. This feature is no longer configurable in the Widget. The [MFA enrollment and rules](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm) will be evaluated by default when applicable.
+* `features.multiOptionalFactorEnroll` &mdash; Allowed users to enroll in multiple optional factors before they finished the authentication flow. This feature is no longer configurable in the Widget. The [MFA enrollment and rules](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm) are evaluated by default when applicable.
 
 * `features.registration` &mdash; Displayed the registration section in the primary auth page. This feature is no longer configurable in the Widget. The [profile enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) will be evaluated by default when applicable.
 
