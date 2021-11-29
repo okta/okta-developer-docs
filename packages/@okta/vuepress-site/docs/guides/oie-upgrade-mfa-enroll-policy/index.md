@@ -96,7 +96,7 @@ To create an MFA enrollment policy through the [Policy API](/docs/reference/api/
 
 For a new MFA Enrollment Policy in Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
 
-You can also create a new MFA Enrollment Policy with factors instead of authenticators to support legacy systems or workflows. Set the policy `settings` to the factors schema with [Policy Factor Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object).
+You can also create a new MFA enrollment policy with factors instead of authenticators to support legacy systems or workflows. Set the policy `settings` to the factors schema with [Policy Factor Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object).
 
 > **Note:** You need to configure the other policy parameters according to the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Specifically, you need to include the `type=MFA_ENROLL` parameter for an MFA Enrollment Policy. This section focuses on the `settings` parameter required for the MFA Enrollment Policy object.
 
