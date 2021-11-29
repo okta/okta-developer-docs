@@ -19,7 +19,7 @@ This guide covers the refresh tokens that are used when access tokens expire and
 
 **What you need**
 
-* [Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope
+* [Refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token) from the SDK with `offline_access` as a scope
 * [`/token`](/docs/reference/api/oidc/#token) endpoint
 
 **Sample code**
@@ -54,7 +54,7 @@ endpoint with the `grant_type` set to `refresh_token`. Before calling this endpo
 obtain the refresh token from the SDK and ensure that you have included
 `offline_access` as a scope in the SDK configurations. For further details on
 access token refresh with this endpoint, see
-[Use a refresh token](/docs/guides/refresh-tokens/use-refresh-token/).
+[Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
 
 <StackSelector snippet="refreshendpointrequest" noSelector />
 
