@@ -18,7 +18,7 @@ For existing apps that manage and use MFA enrollment policies programmatically t
 
 ## MFA enrollment policy API changes in the Identity Engine
 
-The following are the main behavior changes to the [MFA Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) API in Identity Engine:
+The following are the main behavior changes to the [MFA enrollment policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) type in the Identity Engine:
 
 - The Policy API supports both factors and authenticators schemas in the MFA Enrollment Policy [settings](/docs/reference/api/policy/#policy-settings-data-2).
 - MFA Enrollment Policies contain either factors or authenticators in their settings (they are mutually exclusive).
