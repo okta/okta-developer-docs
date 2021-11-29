@@ -80,7 +80,7 @@ Separate from access and refresh tokens, there is also the Okta session cookie t
 * Close a specific session using the Sessions API
 * Revoke all sessions for a given user using the Users API
 
-> **Note:** Removing all User sessions can optionally also remove all related access and refresh tokens by including the `oauthTokens` parameter in the request.
+> **Note:** Removing all user sessions can optionally also remove all related access and refresh tokens by including the `oauthTokens` parameter in the request.
 
 See [Close Session](/docs/reference/api/sessions/#close-session) in the Sessions API reference for more information on removing a specific session.
 
