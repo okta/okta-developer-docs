@@ -87,7 +87,7 @@ When you upgrade an embedded Sign-In Widget:
 
 ## Changes to Sign-In Widget configuration for the Identity Engine
 
-For Identity Engine, Sign-In Widget is configured differently. Some specific objects that were previously in the Sign-In Widget configuration can be removed from the JavaScript, as described in the following sections.
+For Identity Engine, the Sign-In Widget is configured differently. You can remove some specific objects that were previously in the Sign-In Widget configuration from the JavaScript, as described in the following sections.
 
 ### Registration
 
