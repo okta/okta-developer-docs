@@ -139,7 +139,7 @@ The only feature that is supported when you upgrade the Widget is `features.hide
 
 The following specific features are no longer supported, and you must remove them from `features` in the JSON code:
 
-* `features.rememberMe` &mdash; Displayed the "Remember me" function at sign-in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
+* `features.rememberMe` &mdash; Displayed the "Remember me" function when a user signs in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
 
 * `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
