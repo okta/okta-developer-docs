@@ -16,7 +16,7 @@ After upgrading your org to the Identity Engine, new MFA enrollment policies cre
 
 For existing apps that manage and use MFA enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org is upgraded to the Identity Engine. This guide provides you with key API considerations to upgrade your app for MFA enrollment flows in the Identity Engine.
 
-## MFA Enrollment Policy API changes in Identity Engine
+## MFA enrollment policy API changes in the Identity Engine
 
 The following are the main behavior changes to the [MFA Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) API in Identity Engine:
 
