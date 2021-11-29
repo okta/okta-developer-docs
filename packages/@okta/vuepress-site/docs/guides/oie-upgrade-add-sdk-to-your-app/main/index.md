@@ -66,6 +66,4 @@ To preview the Identity Engine SDK features and authentication flows, review the
 
 ## Next Steps
 
-After you’ve completed adding the SDK to your app, the next step is to upgrade your authentication use cases to the Identity Engine SDK. See <StackSnippet snippet="langspecificmapguide" inline /> to learn how to map your existing implementations to the Identity Engine SDK. Also, check out the [sample apps](/docs/guides/oie-embedded-common-run-samples) to see working examples of all the supported use cases using the Identity Engine SDK.
-
-<!-- TODO: The above link will be updated with the correct mapping guide URL-->
+<StackSnippet snippet="langspecificmapguide" inline />
