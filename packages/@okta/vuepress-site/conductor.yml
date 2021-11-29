@@ -1224,7 +1224,7 @@ redirects:
   - from: /guides/validate-access-tokens/-/overview/index.html
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/index.html
-    to: /docs/guides/validate-id-tokens/-/overview/
+    to: /docs/guides/validate-id-tokens/
   - from: /guides/custom-url-domain/overview/index.html
     to: /docs/guides/custom-url-domain/main/
   - from: /use_cases/promote-oan-integration/index.html
@@ -4031,3 +4031,7 @@ redirects:
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
+  - from: /docs/guides/validate-id-tokens/overview
+    to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/validate-id-tokens/overview/index.html
+    to: /docs/guides/validate-id-tokens/
