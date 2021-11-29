@@ -107,7 +107,7 @@ You can remove the [IdP Discovery](https://github.com/okta/okta-signin-widget#id
 
 ### OpenID Connect/social authentication
 
-When [External Identity Providers (IdPs)](https://github.com/okta/okta-signin-widget#openid-connect) are used in Social Login, the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type, get distinct styling and get default i18n text, while other entries receive general styling and require text to be provided. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. This method can be replaced by configuring a Routing Rule with the application context.
+When [external Identity Providers (IdPs)](https://github.com/okta/okta-signin-widget#openid-connect) are used with Social Login, the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type, get distinct styling and get default i18n text, while other entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context.
 
 You no longer need the [IdPs](https://github.com/okta/okta-signin-widget#openid-connect) JavaScript object and `className` property in the Sign-In Widget, and you can remove them as follows.
 
