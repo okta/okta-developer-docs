@@ -115,7 +115,7 @@ You no longer need the [IdPs](https://github.com/okta/okta-signin-widget#openid-
 
 ### Smart card IdP
 
-You no longer need to configure the authentication settings for the smart card IdP, as it's no longer supported. You can remove the following authentication settings for the [smart card IdP](https://github.com/okta/okta-signin-widget#smart-card-idp) as follows.
+You no longer need to configure the authentication settings for the smart card IdP, as it's no longer supported. You can remove the authentication settings for the [smart card IdP](https://github.com/okta/okta-signin-widget#smart-card-idp) as follows.
 
 ![Displays the smart card IdP settings in JavaScript to remove](/img/SIW_Upgrade_Config_Change4.png)
 
