@@ -1080,11 +1080,11 @@ redirects:
   - from: /guides/protect-your-api/springboot/require-authentication/index.html
     to: /docs/guides/protect-your-api/springboot/require-authentication/
   - from: /guides/refresh-tokens/-/get-refresh-token/index.html
-    to: /docs/guides/refresh-tokens/-/get-refresh-token/
+    to: /docs/guides/refresh-tokens/main/#get-a-refresh-token
   - from: /guides/refresh-tokens/-/overview/index.html
-    to: /docs/guides/refresh-tokens/-/overview/
+    to: /docs/guides/refresh-tokens/
   - from: /guides/refresh-tokens/-/use-refresh-token/index.html
-    to: /docs/guides/refresh-tokens/-/use-refresh-token/
+    to: /docs/guides/refresh-tokens/main/#use-a-refresh-token
   - from: /guides/revoke-tokens/-/overview/index.html
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
@@ -3835,6 +3835,26 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/refresh-tokens/overview
+    to: /docs/guides/refresh-tokens/
+  - from: /docs/guides/refresh-tokens/refresh-token-rotation
+    to: /docs/guides/refresh-tokens/main/#refresh-token-rotation
+  - from: /docs/guides/refresh-tokens/get-refresh-token
+    to: /docs/guides/refresh-tokens/main/#get-a-refresh-token
+  - from: /docs/guides/refresh-tokens/use-refresh-token
+    to: /docs/guides/refresh-tokens/main/#use-a-refresh-token
+  - from: /docs/guides/refresh-tokens/next-steps
+    to: /docs/guides/refresh-tokens/main/#see-also
+  - from: /docs/guides/refresh-tokens/overview/index.html
+    to: /docs/guides/refresh-tokens/
+  - from: /docs/guides/refresh-tokens/refresh-token-rotation/index.html
+    to: /docs/guides/refresh-tokens/main/#refresh-token-rotation
+  - from: /docs/guides/refresh-tokens/get-refresh-token/index.html
+    to: /docs/guides/refresh-tokens/main/#get-a-refresh-token
+  - from: /docs/guides/refresh-tokens/use-refresh-token/index.html
+    to: /docs/guides/refresh-tokens/main/#use-a-refresh-token
+  - from: /docs/guides/refresh-tokens/next-steps/index.html
+    to: /docs/guides/refresh-tokens/main/#see-also
   - from: /docs/guides/customize-tokens-dynamic/overview
     to: /docs/guides/customize-tokens-dynamic/
   - from: /docs/guides/customize-tokens-dynamic/request-token-claim
