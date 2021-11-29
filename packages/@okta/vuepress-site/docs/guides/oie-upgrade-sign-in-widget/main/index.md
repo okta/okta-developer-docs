@@ -143,9 +143,9 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to the policy configuration in a future release.
 
-* `features.smsRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using an SMS message. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
+* `features.smsRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using an SMS message. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.callRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using a voice call. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
+* `features.callRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using a voice call. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
 * `features.webauthn` &mdash; Prevented the Widget from invoking the legacy Windows Hello factor. This feature is no longer configurable in the Widget. See the [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) in the Okta product documentation to enable and configure a possession authenticator.
 
