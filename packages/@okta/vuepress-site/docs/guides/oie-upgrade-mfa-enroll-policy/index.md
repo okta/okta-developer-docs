@@ -126,7 +126,7 @@ If you need to revert to the Classic Engine MFA enrollment model, you can edit a
 | sympantec_vip           | n/a  |
 | yubikey_token           | n/a  |
 
-### MFA Enrollment Policy setting conversion example
+### MFA enrollment policy setting conversion example
 
 The following example shows the `settings` schema conversion from a factor to an authenticator MFA Enrollment Policy.
 
