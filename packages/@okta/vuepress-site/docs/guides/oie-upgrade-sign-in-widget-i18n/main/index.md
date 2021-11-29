@@ -11,7 +11,7 @@ This guide covers how to override existing text strings in the interface with i1
 
 **Learning outcomes**
 
-Understand how to override text strings with Identity Engine i18n strings so that you can create localized sign-in widgets.
+Understand how to override text strings with Identity Engine i18n strings so that you can create localized Sign-In Widgets.
 
 **What you need**
 
