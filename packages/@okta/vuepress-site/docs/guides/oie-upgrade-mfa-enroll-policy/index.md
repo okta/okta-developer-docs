@@ -92,7 +92,7 @@ Example of an MFA enrollment policy response `settings` snippet with factors:
 
 ## Create an MFA enrollment policy
 
-To create an MFA Enrollment Policy through the [Policy API](/docs/reference/api/policy/), you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `POST /api/v1/policies` request parameters body.
+To create an MFA enrollment policy through the [Policy API](/docs/reference/api/policy/), you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `POST /api/v1/policies` request parameters body.
 
 For a new MFA Enrollment Policy in Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
 
