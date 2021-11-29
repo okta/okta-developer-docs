@@ -65,7 +65,7 @@ Example of an MFA enrollment policy response `settings` snippet with authenticat
 }
 ```
 
-Example of an MFA Enrollment Policy response `settings` snippet with factors:
+Example of an MFA enrollment policy response `settings` snippet with factors:
 
 ```json
 "settings": {
