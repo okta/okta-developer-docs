@@ -155,7 +155,7 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.registration` &mdash; Displayed the registration section in the primary auth page. This feature is no longer configurable in the Widget. The [profile enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) will be evaluated by default when applicable.
 
-* `features.idpDiscovery` &mdash; Enabled IdP Discovery when the user signed in. This feature is no longer configurable in the Widget. The [Identity Provider routing rules](https://help.okta.com/oie/en-us/Content/Topics/Security/Identity_Provider_Discovery.htm) will be evaluated by default when applicable.
+* `features.idpDiscovery` &mdash; Enabled IdP Discovery when the user signed in. This feature is no longer configurable in the Widget. The [Identity Provider routing rules](https://help.okta.com/oie/en-us/Content/Topics/Security/Identity_Provider_Discovery.htm) are evaluated by default when applicable.
 
 * `features.showPasswordToggleOnSignInPage` &mdash; Provided end users with the ability to toggle visibility of their password on the Okta Sign-In page so that they could check their password entry before clicking **Sign In**, and prevented an account lock-out due to exceeding their org's permitted number of failed sign-in attempts. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
