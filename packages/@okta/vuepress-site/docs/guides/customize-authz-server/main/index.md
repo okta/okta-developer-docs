@@ -20,10 +20,6 @@ See [Which Authorization Server should you use](/docs/concepts/auth-servers/#whi
 
 An [Okta Developer Edition](https://developer.okta.com/signup/) account.
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Create an authorization server
