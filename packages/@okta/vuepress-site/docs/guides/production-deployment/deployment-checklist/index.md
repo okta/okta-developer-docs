@@ -17,7 +17,7 @@ Ensure your application fits your brand:
 * [Customize and add branding to your error pages](/docs/guides/custom-error-pages/): If an error occurs during sign in, Okta may need to display an error page to the user. Customize the error page to match the rest of your app.
 * [Email domain setup](/docs/guides/custom-email/main/#configure-a-custom-email-domain): Update the "From" address and domain of the emails sent to your users.
 * [Customize email templates](/docs/guides/custom-email/main/#customize-email-templates): Change the look and feel of the emails sent to users by Okta.
-* [Manage access to protected resources](/docs/guides/validate-access-tokens/go/overview/): If your app has to validate the signed tokens that are issued to end-users. Learn about this process and best practices for validating your user's tokens.
+* [Manage access to protected resources](/docs/guides/validate-access-tokens/): If your app has to validate the signed tokens that are issued to end-users. Learn about this process and best practices for validating your user's tokens.
 
 ### Application settings
 
