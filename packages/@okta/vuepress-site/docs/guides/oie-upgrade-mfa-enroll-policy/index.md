@@ -22,7 +22,7 @@ The following are the main behavior changes to the [MFA enrollment policy](/docs
 
 - The Policy API supports both factors and authenticators schemas in the MFA enrollment policy [settings](/docs/reference/api/policy/#policy-settings-data-2).
 - MFA enrollment policies contain either factors or authenticators in their settings (they are mutually exclusive).
-- Existing MFA Enrollment Policies (that is, MFA Enrollment Policies created before the Identity Engine upgrade) still contain factors in their settings.
+- Existing MFA enrollment policies (that is, MFA enrollment policies created before the Identity Engine upgrade) still contain factors in their settings.
 - For existing MFA Enrollment Policies modified from the Admin Console of an Identity Engine org, existing factors are converted to authenticators in their settings.
 
 ### Recovery authenticators
