@@ -141,7 +141,7 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.rememberMe` &mdash; Displayed the "Remember me" function when a user signs in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
 
-* `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
+* `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to the policy configuration in a future release.
 
 * `features.smsRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using an SMS message. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
