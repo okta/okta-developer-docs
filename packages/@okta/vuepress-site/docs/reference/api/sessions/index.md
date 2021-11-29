@@ -21,9 +21,9 @@ A [session token](/docs/reference/api/authn/#session-token) is a one-time bearer
 
 Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to validate a [user's primary credentials](/docs/reference/api/authn/#primary-authentication) and secondary [MFA factor](/docs/reference/api/authn/#verify-factor). A session token is returned after successful authentication, which can be later exchanged for a session cookie that uses one of the following flows:
 
-- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
-- [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
-- [Retrieving a session cookie by visiting an application embed link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
+- [Retrieve a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-through-the-openid-connect-authorization-endpoint)
+- [Retrieve a session cookie by visiting a session redirect link](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-by-visiting-a-session-redirect-link)
+- [Retrieve a session cookie by visiting an application embed link](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-by-visiting-an-application-embed-link)
 
 >**Note:** **Session tokens** are secrets and should be protected at rest and during transit. A session token for a user is equivalent to having the user's actual credentials.
 

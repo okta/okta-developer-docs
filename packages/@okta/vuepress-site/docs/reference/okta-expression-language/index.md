@@ -186,7 +186,7 @@ For an example using group functions and for more information on using group fun
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 ### Linked object function
 
@@ -368,7 +368,7 @@ Sample user data:
 ## Expressions for OAuth 2.0/OIDC custom claims
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
-* See [Create claims](/docs/guides/customize-authz-server/create-claims).
+* See [Create claims](/docs/guides/customize-authz-server/main/#create-claims).
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
 | Syntax           | Definitions                                                             | Examples     |

@@ -87,7 +87,7 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this example, we are using the "default" Custom Authorization Server. The Org Authorization Server isn't supported.
 
-> **Note:** You must have an authorization server policy and a rule set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/create-access-policies/) and [Create rules for each access policy](/docs/guides/customize-authz-server/create-rules-for-policy/).
+> **Note:** You must have an authorization server policy and a rule set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/main/#create-access-policies) and [Create rules for each access policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
 
 To update the authorization server policy rule:
 

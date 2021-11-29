@@ -293,11 +293,11 @@ export const guides = [
           },
           {
             title: "Customize SMS messages",
-            guideName: "sms-customization"
+            guideName: "custom-sms-messaging"
           },
           {
             title: "Customize email notifications and email domains",
-            guideName: "email-customization"
+            guideName: "custom-email"
           },
           {
             title: "Customize themes",
@@ -363,18 +363,25 @@ export const guides = [
             title: "Common Hook Set-up Steps",
             guideName: "common-hook-set-up-steps"
           },
-          { title: "Event Hook", guideName: "event-hook-implementation" },
+          {
+            title: "Event Hook",
+          guideName: "event-hook-implementation"
+          },
+          {
+            title: "Event Hooks with ngrok",
+          guideName: "event-hook-ngrok"
+          },
           {
             title: "Password Import Inline Hook",
-            guideName: "password-import-inline-hook"
+          guideName: "password-import-inline-hook"
           },
           {
             title: "Registration Inline Hook",
-            guideName: "registration-inline-hook"
+          guideName: "registration-inline-hook"
           },
           {
             title: "Token Inline Hook",
-            guideName: "token-inline-hook"
+          guideName: "token-inline-hook"
           },
         ]
       },

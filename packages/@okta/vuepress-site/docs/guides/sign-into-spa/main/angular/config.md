@@ -4,7 +4,7 @@ In your application code, build a config object. This is used to initialize the 
 ```javascript
 const config = {
   clientId: '${clientId}',
-  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  issuer: `https://${yourOktaDomain}/oauth2/default`,
   redirectUri: 'http://localhost:8080/login/callback',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
@@ -43,7 +43,7 @@ With the configuration ready, initialize the SDK:
 
 Add `OktaAuthModule` to the imports section of your application module's `@NgModule` declaration.
 
-Your application module should provide a configuration object using the `OKTA_CONFIG` injection token. This value is required to initialize the `OktaAuthService` when it's created by the Angular dependency injection system. 
+Your application module should provide an `OktaAuth` object using your Okta service config as the provided value for the `OKTA_CONFIG` injection token. This value is required to initialize the `OktaAuthStateService` when it's created by the Angular dependency injection system. 
 
 
 ```javascript
@@ -52,16 +52,18 @@ import {
   OktaAuthModule,
 } from '@okta/okta-angular';
 
-const config = {
+import { OktaAuth } from '@okta/okta-auth-js';
+
+const oktaAuth = new OktaAuth({
   // Configuration here
-};
+});
 
 @NgModule({
   imports: [
     OktaAuthModule,
   ],
   providers: [
-    { provide: OKTA_CONFIG, useValue: config },
+    { provide: OKTA_CONFIG, useValue: { oktaAuth } },
   ],
 })
 

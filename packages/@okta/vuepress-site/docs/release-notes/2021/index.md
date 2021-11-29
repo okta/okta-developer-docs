@@ -4,6 +4,18 @@ title: Okta API Products Release Notes 2021
 
 ## November
 
+### Weekly Release 2021.11.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.11.2](#bugs-fixed-in-2021-11-2) | November 17, 2021 |
+
+#### Bugs fixed in 2021.11.2
+
+* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+
+* Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
+
 ### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -373,7 +385,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 * When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim/) were not allowed. (OKTA-403289)
 
-* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
+* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/main/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 
 ### Weekly Release 2021.06.2
 
@@ -434,7 +446,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 #### Refresh Token Rotation is GA in Production
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
 
 #### Retrieving applications by catalog name is now available
 
@@ -559,7 +571,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Refresh Token Rotation is GA in Preview
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 <!--OKTA-390933-->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview

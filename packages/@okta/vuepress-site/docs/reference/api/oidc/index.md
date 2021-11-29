@@ -121,7 +121,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
   * You must sign the JWT using either the app's client secret or a private key whose public key is registered on the app's JWKSet.
   * The JWT can't be encrypted.
-  >  **Note:** See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/java/overview/) for information on how to build a JWT.
+  >  **Note:** See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/) for information on how to build a JWT.
   * Okta supports the [HMAC](https://tools.ietf.org/html/rfc7518#section-3.2), [RSA](https://tools.ietf.org/html/rfc7518#section-3.3) and [ECDSA](https://tools.ietf.org/html/rfc7518#section-3.4) signature algorithms. HMAC signatures require that the client has a `token_endpoint_auth_method` that uses a `client_secret`. RSA and ECDSA signatures requires that the client registers a public key.
   * We recommend that you don't duplicate any request parameters in both the JWT and the query URI itself. However, you can do so with `state`, `nonce`, `code_challenge`, and `code_challenge_method`. In those cases, the values in the JWT overrides the query URI values.
   * Okta validates the `request` parameter in the following ways:
@@ -807,7 +807,7 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 > **Note:** This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
-Returns OAuth 2.0 metadata related to your Custom Authorization Server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/create-scopes/). Custom claims are never returned.
+Returns OAuth 2.0 metadata related to your Custom Authorization Server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned.
 
 This API doesn't require any authentication.
 
@@ -963,7 +963,7 @@ HTTP 404 Not Found
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. The Custom Authorization Server URL specifies an `authorizationServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authorizationServerId` value of `default`.
 
-Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/create-scopes/). Custom claims are never returned.
+Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned.
 
 This API doesn't require any authentication.
 

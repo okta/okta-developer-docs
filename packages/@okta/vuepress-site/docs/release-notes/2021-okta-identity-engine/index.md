@@ -6,6 +6,21 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 ## November
 
+### Weekly Release 2021.11.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Profile enrollment policies can't be modified to deny access](#profile-enrollment-policies-can-t-be-modified-to-deny-access) | November 17, 2021 |
+| [Bug fixed in 2021.11.2](#bug-fixed-in-2021-11-2) | November 17, 2021 |
+
+#### Profile enrollment policies can't be modified to deny access
+
+Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) by setting the `access` property to `DENY` in the [Profile Enrollment Action object](/docs/reference/api/policy/#profile-enrollment-action-object). <!--OKTA-442998-->
+
+#### Bug fixed in 2021.11.2
+
+Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+
 ### Weekly Release 2021.11.1
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -122,7 +137,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) provides opera
 
 - In the [Device Authorization grant flow](/docs/guides/device-authorization-grant/main/), the URI link that was used in a QR Code was missing if the org was on Okta Identity Engine. (OKTA-413425)
 
-- When admins used the `/token` endpoint, OAuth 2.0 refreshed the [access and ID tokens](/docs/guides/refresh-tokens/overview/) for all application users, which included both active and deactivated users instead of only including active users. (OKTA-417991)
+- When admins used the `/token` endpoint, OAuth 2.0 refreshed the [access and ID tokens](/docs/guides/refresh-tokens/) for all application users, which included both active and deactivated users instead of only including active users. (OKTA-417991)
 
 ### Weekly Release 2021.08.1
 

@@ -53,9 +53,9 @@ Okta is focused on the adoption of inclusive language and communication. Some lo
 
 In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allow list":
 
-- [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/)
+- [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
 
-- [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as)
+- [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
 
 Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 
@@ -73,7 +73,7 @@ Admins can now enable or disable automatic account linking between SAML Identity
 
 #### One Time Use Refresh Token is now in Early Access (EA)
 
-One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/).<!--OKTA-345754-->
+One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation).<!--OKTA-345754-->
 
 #### Enhancements to Apps API for Idp Initiated Logins
 
