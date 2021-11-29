@@ -165,4 +165,4 @@ The following specific features are no longer supported, and you must remove the
 
 ### I18n properties
 
-After you upgrade your org to Okta Identity Engine, you can override existing text strings in the interface with Identity Engine i18n strings so that you can create localized Widgets. See [Updates to the Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
+After you upgrade your org to the Identity Engine, you can override existing text strings in the interface with Identity Engine i18n strings so that you can create localized Widgets. See [Updates to the Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
