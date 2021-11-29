@@ -135,7 +135,7 @@ For [sign-in with the Okta dashboard](https://developer.okta.com/code/javascript
 
 ### Feature flags
 
-The only feature that is supported when you upgrade the Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for MFA challenge.
+The only feature that is supported when you upgrade the Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for a MFA challenge.
 
 The following specific features are no longer supported, and you must remove them from `features` in the JSON code:
 
