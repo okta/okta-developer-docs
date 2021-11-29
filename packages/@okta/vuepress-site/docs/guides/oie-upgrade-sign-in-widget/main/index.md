@@ -125,7 +125,7 @@ If you're initializing the Widget with a [recovery token](https://github.com/okt
 
 ![Displays the recovery token setting](/img/SIW_Upgrade_Config_Change5.png)
 
-The recovery token is dynamic and is automatically passed into the initialization of the Widget. A value in the `recoveryToken` setting currently doesn't have any effect on Widget function, though, the setting will take effect in the future.
+The recovery token is dynamic and is automatically passed into the initialization of the Widget. A value in the `recoveryToken` setting currently doesn't have any effect on Widget function, though, the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in
 
