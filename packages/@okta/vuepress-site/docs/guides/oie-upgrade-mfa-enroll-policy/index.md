@@ -35,7 +35,7 @@ See [password policy](/docs/reference/api/policy/#password-policy) and [Configur
 
 ## Get MFA Enrollment Policies
 
-To parse a response from the `GET /api/v1/policies?type=MFA_ENROLL` request, you must determine if the returned MFA Enrollment Policy contains either `authenticators` or `factors` in the [settings schema](/docs/reference/api/policy/#policy-settings-data-2).
+To parse a response from the `GET /api/v1/policies?type=MFA_ENROLL` request, you must determine if the returned MFA enrollment policy contains either `authenticators` or `factors` in the [settings schema](/docs/reference/api/policy/#policy-settings-data-2).
 
 > **Note:** Another indicator for an authenticator MFA Enrollment Policy is that the [settings schema](/docs/reference/api/policy/#policy-settings-data-2) contains a `type` property that is set to the `AUTHENTICATORS` value.
 
