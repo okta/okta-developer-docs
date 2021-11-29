@@ -43,7 +43,7 @@ If the returned policy uses `authenticators`, you need to loop through the list 
 
 If the returned policy uses `factors`, you need to loop through every type of [Policy Factor Configuration object](/docs/reference/api/policy/#policy-factors-configuration-object), as you've done previously for your app.
 
-Example of an MFA Enrollment Policy response `settings` snippet with authenticators:
+Example of an MFA enrollment policy response `settings` snippet with authenticators:
 
 ```json
 "settings": {
