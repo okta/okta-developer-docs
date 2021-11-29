@@ -104,7 +104,7 @@ You can also create a new MFA enrollment policy with factors instead of authenti
 
 To update an MFA enrollment policy through the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation, you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `PUT /api/v1/policies/${policyId}` request parameters body.
 
-> **Note:** You need to configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section focuses on the `settings` parameter required specifically for the MFA Enrollment Policy.
+> **Note:** You need to configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section focuses on the `settings` parameter required specifically for the MFA enrollment policy.
 
 If you need to convert an existing factor MFA Enrollment Policy to use authenticators, then update the policy with authenticators in the `settings` parameter.  Use the [Policy Factors Configuration object to authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) to authenticator keys. See [MFA Enrollment Policy setting conversion example](#mfa-enrollment-policy-setting-conversion-example).
 
