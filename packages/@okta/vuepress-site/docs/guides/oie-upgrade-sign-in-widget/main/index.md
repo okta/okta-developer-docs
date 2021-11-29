@@ -49,7 +49,7 @@ The specific steps to upgrade your Sign-In Widget depend on your [user authentic
 
 In Classic Engine, the Okta Sign-In Widget had the default option to initialize without application context. In Identity Engine, you should use one of these OIDC flows so that you can optimize the user's sign-in experience and apply specific application policies:
 
-* [Server-side Web Application using "authorization_code" flow](https://developer.okta.com/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
+* [Server-side web application using "authorization_code" flow](https://developer.okta.com/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
 * [SPA or Native Application using PKCE](https://developer.okta.com/code/javascript/okta_sign-in_widget/#spa-or-native-application-using-pkce)
 
 ## Upgrade process for a redirect sign-in
