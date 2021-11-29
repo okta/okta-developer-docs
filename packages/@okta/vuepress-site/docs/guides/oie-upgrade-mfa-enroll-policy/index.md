@@ -155,7 +155,7 @@ Original MFA enrollment policy with factor settings:
 }
 ```
 
-Converted MFA Enrollment Policy with authenticator settings:
+Converted MFA enrollment policy with authenticator settings:
 
 ```json
 "settings": {
