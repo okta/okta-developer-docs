@@ -73,7 +73,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/revoke' \
 
 See [Rule policies](/docs/reference/api/authorization-servers/#rule-properties) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
 
-## Remove a User session
+## Remove a user session
 
 Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta User sessions, see the [Sessions API reference](/docs/reference/api/sessions/). You can revoke Okta sessions in one of two ways:
 
