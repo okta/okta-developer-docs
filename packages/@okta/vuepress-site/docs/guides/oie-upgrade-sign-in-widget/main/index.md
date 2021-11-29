@@ -139,7 +139,7 @@ The only feature that is supported when you upgrade the Widget is `features.hide
 
 The following specific features are no longer supported, and you must remove them from `features` in the JSON code:
 
-* `features.rememberMe` &mdash; Displayed the "Remember me" function when a user signs in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/oie/en-us/Content/Topics/Security/Security_General.htm?cshid=Security_General) section in the Okta product documentation to enable this feature.
+* `features.rememberMe` &mdash; Displayed the "Remember me" function when a user signs in. This feature is no longer configurable. See the [Organization Settings](https://help.okta.com/okta_help.htm?id=ext_Security_General) section in the Okta product documentation to enable this feature.
 
 * `features.autoPush` &mdash; Displayed a check box to enable the "Send push automatically" function in the MFA challenge flow. This feature is no longer configurable in the Widget. It may be added to the policy configuration in a future release.
 
@@ -147,15 +147,15 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.callRecovery` &mdash; Recovered the password for users with a configured mobile phone number by using a voice call. This feature is no longer configurable in the Widget. See the [password recovery policy](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-self-service-password-reset.htm) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.webauthn` &mdash; Prevented the Widget from invoking the legacy Windows Hello factor. This feature is no longer configurable in the Widget. See the [sign-on policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-okta-sign-on-policies.htm) in the Okta product documentation to enable and configure a possession authenticator.
+* `features.webauthn` &mdash; Prevented the Widget from invoking the legacy Windows Hello factor. This feature is no longer configurable in the Widget. See the [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) in the Okta product documentation to enable and configure a possession authenticator.
 
-* `features.selfServiceUnlock` &mdash; Displayed the "Unlock Account" link so that users could unlock their accounts. This feature is no longer configurable in the Widget. See [self-service account recovery](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-sspr.htm) to enable this feature.
+* `features.selfServiceUnlock` &mdash; Displayed the "Unlock Account" link so that users could unlock their accounts. This feature is no longer configurable in the Widget. See [self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr) to enable this feature.
 
-* `features.multiOptionalFactorEnroll` &mdash; Allowed users to enroll in multiple optional factors before they finished the authentication flow. This feature is no longer configurable in the Widget. The [MFA enrollment and rules](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm) are evaluated by default when applicable.
+* `features.multiOptionalFactorEnroll` &mdash; Allowed users to enroll in multiple optional factors before they finished the authentication flow. This feature is no longer configurable in the Widget. The [MFA enrollment and rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) are evaluated by default when applicable.
 
-* `features.registration` &mdash; Displayed the registration section in the primary auth page. This feature is no longer configurable in the Widget. The [profile enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) are evaluated by default when applicable.
+* `features.registration` &mdash; Displayed the registration section in the primary auth page. This feature is no longer configurable in the Widget. The [profile enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) are evaluated by default when applicable.
 
-* `features.idpDiscovery` &mdash; Enabled IdP Discovery when the user signed in. This feature is no longer configurable in the Widget. The [Identity Provider routing rules](https://help.okta.com/oie/en-us/Content/Topics/Security/Identity_Provider_Discovery.htm) are evaluated by default when applicable.
+* `features.idpDiscovery` &mdash; Enabled IdP Discovery when the user signed in. This feature is no longer configurable in the Widget. The [Identity Provider routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) are evaluated by default when applicable.
 
 * `features.showPasswordToggleOnSignInPage` &mdash; Provided end users with the ability to toggle visibility of their password on the Okta sign-In page so that they could check their password entry before clicking **Sign In**. This feature also prevented an account lock-out due to exceeding their org's permitted number of failed sign-in attempts. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
