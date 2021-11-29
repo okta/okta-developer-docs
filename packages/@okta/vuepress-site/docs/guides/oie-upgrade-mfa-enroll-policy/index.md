@@ -110,7 +110,7 @@ If you need to convert an existing factor MFA enrollment policy to use authentic
 
 If you need to revert to the Classic Engine MFA enrollment model, you can edit an existing authenticator MFA enrollment policy to a factored one. See all the available [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) and the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) to convert the authenticator keys to Policy Factor Configuration objects.
 
-> **Note:** If your app is integrated with systems, such as Terraform, that can’t be updated to parse the new authenticators MFA Enrollment Policy, you need to revert your policy to use factors instead of authenticators.
+> **Note:** If your app is integrated with systems, such as Terraform, that can’t be updated to parse the new authenticators MFA enrollment policy, you need to revert your policy to use factors instead of authenticators.
 
 ## Policy Factors Configuration object and Authenticator keys mapping
 
