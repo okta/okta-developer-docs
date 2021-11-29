@@ -75,7 +75,7 @@ See [Rule policies](/docs/reference/api/authorization-servers/#rule-properties) 
 
 ## Remove a user session
 
-Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta User sessions, see the [Sessions API reference](/docs/reference/api/sessions/). You can revoke Okta sessions in one of two ways:
+Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta user sessions, see the [Sessions API reference](/docs/reference/api/sessions/). You can revoke Okta sessions in one of two ways:
 
 * Close a specific session using the Sessions API
 * Revoke all sessions for a given user using the Users API
