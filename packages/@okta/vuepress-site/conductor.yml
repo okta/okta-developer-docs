@@ -1222,7 +1222,7 @@ redirects:
   - from: /guides/updating-saml-cert/-/upload-cert-to-isv/index.html
     to: /docs/guides/updating-saml-cert/main/#upload-the-new-certificate-to-the-isv
   - from: /guides/validate-access-tokens/-/overview/index.html
-    to: /docs/guides/validate-access-tokens/-/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /guides/validate-id-tokens/-/overview/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /guides/custom-url-domain/overview/index.html
@@ -1244,9 +1244,9 @@ redirects:
   - from: /docs/api/resources/social_authentication.html
     to: /docs/concepts/social-login/
   - from: /docs/api/resources/tokens
-    to: /docs/guides/validate-access-tokens/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/tokens/index.html
-    to: /docs/guides/validate-access-tokens/overview/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/getting_started/error_codes.html
     to: /docs/reference/error-codes/
   - from: /use_cases/api_security/index.html
@@ -4103,6 +4103,34 @@ redirects:
     to: /docs/guides/build-sso-integration/openidconnect/main/#test-your-integration
   - from: /docs/guides/build-sso-integration/openidconnect/next-steps/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
+  - from: /docs/guides/validate-access-tokens/-/overview
+    to: /docs/guides/validate-access-tokens/
+  - from: /docs/guides/validate-access-tokens/-/overview/index.html
+    to: /docs/guides/validate-access-tokens/
+  - from: /docs/guides/validate-access-tokens/dotnet/overview
+    to: /docs/guides/validate-access-tokens/dotnet/main/
+  - from: /docs/guides/validate-access-tokens/dotnet/overview/index.html
+    to: /docs/guides/validate-access-tokens/dotnet/main/
+  - from: /docs/guides/validate-access-tokens/go/overview
+    to: /docs/guides/validate-access-tokens/go/main/
+  - from: /docs/guides/validate-access-tokens/go/overview/index.html
+    to: /docs/guides/validate-access-tokens/go/main/
+  - from: /docs/guides/validate-access-tokens/java/overview
+    to: /docs/guides/validate-access-tokens/java/main/
+  - from: /docs/guides/validate-access-tokens/java/overview/index.html
+    to: /docs/guides/validate-access-tokens/java/main/
+  - from: /docs/guides/validate-access-tokens/nodejs/overview
+    to: /docs/guides/validate-access-tokens/nodejs/main/
+  - from: /docs/guides/validate-access-tokens/nodejs/overview/index.html
+    to: /docs/guides/validate-access-tokens/nodejs/main/
+  - from: /docs/guides/validate-access-tokens/php/overview
+    to: /docs/guides/validate-access-tokens/php/main/
+  - from: /docs/guides/validate-access-tokens/php/overview/index.html
+    to: /docs/guides/validate-access-tokens/php/main/
+  - from: /docs/guides/validate-access-tokens/python/overview
+    to: /docs/guides/validate-access-tokens/python/main/
+  - from: /docs/guides/validate-access-tokens/python/overview/index.html
+    to: /docs/guides/validate-access-tokens/python/main/
   - from: /docs/guides/revoke-tokens/overview
     to: /docs/guides/revoke-tokens/
   - from: /docs/guides/revoke-tokens/revokeatrt
