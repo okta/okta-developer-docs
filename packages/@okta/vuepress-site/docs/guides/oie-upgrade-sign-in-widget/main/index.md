@@ -103,7 +103,7 @@ IdP Discovery enables you to route users to different third-party IdPs that are 
 
 You can remove the [IdP Discovery](https://github.com/okta/okta-signin-widget#idp-discovery) JavaScript object in the Widget as follows.
 
-![Displays the iDP Discovery object in JavaScript to remove](/img/SIW_Upgrade_Config_Change2.png)
+![Displays the IDP Discovery object in JavaScript to remove](/img/SIW_Upgrade_Config_Change2.png)
 
 ### OpenID Connect/social authentication
 
