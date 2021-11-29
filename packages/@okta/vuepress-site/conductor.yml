@@ -4031,6 +4031,18 @@ redirects:
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
+  - from: /docs/guides/revoke-tokens/overview
+    to: /docs/guides/revoke-tokens/
+  - from: /docs/guides/revoke-tokens/revokeatrt
+    to: /docs/guides/revoke-tokens/main/#revoke-an-access-token-or-a-refresh-token
+  - from: /docs/guides/revoke-tokens/removeusersess
+    to: /docs/guides/revoke-tokens/main/#remove-a-user-session
+  - from: /docs/guides/revoke-tokens/overview/index.html
+    to: /docs/guides/revoke-tokens/
+  - from: /docs/guides/revoke-tokens/revokeatrt/index.html
+    to: /docs/guides/revoke-tokens/main/#revoke-an-access-token-or-a-refresh-token
+  - from: /docs/guides/revoke-tokens/removeusersess/index.html
+    to: /docs/guides/revoke-tokens/main/#remove-a-user-session
   - from: /docs/guides/validate-id-tokens/overview
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
