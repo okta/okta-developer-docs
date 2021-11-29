@@ -128,7 +128,7 @@ If you need to revert to the Classic Engine MFA enrollment model, you can edit a
 
 ### MFA enrollment policy setting conversion example
 
-The following example shows the `settings` schema conversion from a factor to an authenticator MFA Enrollment Policy.
+The following example shows the `settings` schema conversion from a factor to an authenticator MFA enrollment policy.
 
 Original MFA Enrollment Policy with factor settings:
 
