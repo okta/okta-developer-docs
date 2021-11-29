@@ -85,7 +85,7 @@ When you upgrade an embedded Sign-In Widget:
 
 > **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the Sign-In Widget.
 
-## Changes to Sign-In Widget configuration for Identity Engine
+## Changes to Sign-In Widget configuration for the Identity Engine
 
 For Identity Engine, Sign-In Widget is configured differently. Some specific objects that were previously in the Sign-In Widget configuration can be removed from the JavaScript, as described in the following sections.
 
