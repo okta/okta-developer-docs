@@ -123,3 +123,7 @@ First you must assign your integration to one or more test users in your org:
 ## See also 
 
 * [Okta SAML FAQs](/docs/concepts/saml/faqs/)
+* [Okta Developer Forum &mdash; OIDC](https://devforum.okta.com/search?q=oidc)
+* [Stack Overflow &mdash; Okta OIDC](https://stackoverflow.com/search?q=oidc+okta)
+* [Okta Developer Forum &mdash; SAML](https://devforum.okta.com/search?q=saml)
+* [Stack Overflow &mdash; Okta SAML](https://stackoverflow.com/search?q=saml+okta)
