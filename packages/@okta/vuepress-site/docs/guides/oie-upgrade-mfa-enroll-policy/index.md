@@ -1,8 +1,8 @@
 ---
-title: Understand MFA Enrollment Policy API changes after the upgrade to Okta Identity Engine
+title: Understand MFA enrollment policy API changes after the upgrade to Okta Identity Engine
 meta:
   - name: description
-    content: Learn how to use and manage the MFA Enrollment Policy with the API in Okta Identity Engine.
+    content: Learn how to use and manage the MFA enrollment policy with the API in Okta Identity Engine.
 ---
 
 <ApiLifecycle access="ie" /><br>
@@ -10,7 +10,7 @@ meta:
 
 ## Overview
 
-With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. Identity Engine uses authenticators in its MFA enrollment policy settings, whereas the Okta Classic Engine uses factors in its MFA enrollment policy settings. See [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
+With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. The Identity Engine uses authenticators in its MFA enrollment policy settings, whereas Okta Classic Engine uses factors in its MFA enrollment policy settings. See [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
 
 After upgrading your org to the Identity Engine, new MFA enrollment policies created in the Okta Admin Console are configured using authenticators. Existing MFA enrollment policies, created before upgrading to the Identity Engine, are still configured with factors. However, if an existing MFA policy was modified and saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
 
