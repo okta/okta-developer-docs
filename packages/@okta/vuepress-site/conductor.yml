@@ -3523,6 +3523,66 @@ redirects:
     to: /docs/guides/quickstart/website/main/#try-signing-in
   - from: /docs/guides/quickstart/website/try-api/index.html
     to: /docs/guides/quickstart/website/main/#next-steps
+  - from: /docs/guides/build-self-signed-jwt/-/overview
+    to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/build-self-signed-jwt/-/gather-information
+    to: /docs/guides/build-self-signed-jwt/-/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-shared-key
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-private-key
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/-/next-steps
+    to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/build-self-signed-jwt/-/overview/index.html
+    to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/build-self-signed-jwt/-/gather-information/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-shared-key/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-private-key/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/-/next-steps/index.html
+    to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/build-self-signed-jwt/js/overview
+    to: /docs/guides/build-self-signed-jwt/js/main/
+  - from: /docs/guides/build-self-signed-jwt/js/gather-information
+    to: /docs/guides/build-self-signed-jwt/js/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/js/jwt-with-shared-key
+    to: /docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/js/jwt-with-private-key
+    to: /docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/js/next-steps
+    to: /docs/guides/build-self-signed-jwt/js/main/
+  - from: /docs/guides/build-self-signed-jwt/js/overview/index.html
+    to: /docs/guides/build-self-signed-jwt/js/main/
+  - from: /docs/guides/build-self-signed-jwt/js/gather-information/index.html
+    to: /docs/guides/build-self-signed-jwt/js/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/js/jwt-with-shared-key/index.html
+    to: /docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/js/jwt-with-private-key/index.html
+    to: /docs/guides/build-self-signed-jwt/js/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/js/next-steps/index.html
+    to: /docs/guides/build-self-signed-jwt/js/main/
+  - from: /docs/guides/build-self-signed-jwt/java/overview
+    to: /docs/guides/build-self-signed-jwt/java/main/
+  - from: /docs/guides/build-self-signed-jwt/java/gather-information
+    to: /docs/guides/build-self-signed-jwt/java/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/java/jwt-with-shared-key
+    to: /docs/guides/build-self-signed-jwt/java/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/java/jwt-with-private-key
+    to: /docs/guides/build-self-signed-jwt/java/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/java/next-steps
+    to: /docs/guides/build-self-signed-jwt/java/main/
+  - from: /docs/guides/build-self-signed-jwt/java/overview/index.html
+    to: /docs/guides/build-self-signed-jwt/java/main/
+  - from: /docs/guides/build-self-signed-jwt/java/gather-information/index.html
+    to: /docs/guides/build-self-signed-jwt/java/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/java/jwt-with-shared-key/index.html
+    to: /docs/guides/build-self-signed-jwt/java/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/java/jwt-with-private-key/index.html
+    to: /docs/guides/build-self-signed-jwt/java/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/java/next-steps/index.html
+    to: /docs/guides/build-self-signed-jwt/java/main/
   - from: /docs/guides/request-user-consent/overview
     to: /docs/guides/request-user-consent/
   - from: /docs/guides/request-user-consent/require-consent

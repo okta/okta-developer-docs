@@ -3,7 +3,7 @@ title: Unlock a mobile app with biometrics
 excerpt: Learn how to integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta.
 layout: Guides
 ---
-
+<StackSelector />
 In this guide you will learn how to integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta.
 
 ---
@@ -19,7 +19,7 @@ Biometric unlock with Touch ID, Face ID, and Smart Lock — added by following t
 
 **Sample code**
 
-See the [Sample code](#sample-code) section.
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -35,30 +35,26 @@ By storing the refresh token on the device and encrypting it with a biometric ch
 
 You need to add the Okta SDK to your application.
 
-<StackSelector snippet="installsdk"/>
+<StackSelector snippet="installsdk" noSelector/>
 
 ## Store tokens
 
 When the user finishes signing in and you receive tokens from Okta, store the refresh token with a biometric requirement.
 
-<StackSelector snippet="storerefreshtoken" />
+<StackSelector snippet="storerefreshtoken" noSelector/>
 
 ## Discard access tokens
 
 When you need to delete the access token from secure storage (for example, when an access token expires or a user wants to delete their account), do the following:  
 
-<StackSelector snippet="discardaccesstoken" />
+<StackSelector snippet="discardaccesstoken" noSelector/>
 
 ## Retrieve refresh token
 
 To get a new refresh token, present a biometric challenge to the user.
 
-<StackSelector snippet="challenge" />
+<StackSelector snippet="challenge" noSelector/>
 
 Then, use the refresh token to get a new access token.
 
-<StackSelector snippet="getnewaccesstoken" />
-
-## Sample code
-
-<StackSelector snippet="samplecode" />
+<StackSelector snippet="getnewaccesstoken" noSelector/>
