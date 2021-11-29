@@ -159,7 +159,7 @@ The following specific features are no longer supported, and you must remove the
 
 * `features.showPasswordToggleOnSignInPage` &mdash; Provided end users with the ability to toggle visibility of their password on the Okta sign-In page so that they could check their password entry before clicking **Sign In**. This feature also prevented an account lock-out due to exceeding their org's permitted number of failed sign-in attempts. This feature is no longer configurable in the Widget. It may be added to policy configuration in a future release.
 
-* `features.scrollOnError` &mdash; Scrolled errors into view. This feature is no longer configurable in the Widget. Errors are going to be displayed inside the Widget.
+* `features.scrollOnError` &mdash; Scrolled errors into view. This feature is no longer configurable in the Widget. Errors appear inside the Widget.
 
 * `features.skipIdpFactorVerificationBtn` &mdash; Provided an automatic redirect to the selected Identity Provider when selected from the list of factors. This feature is no longer configurable in the Widget. It is no longer needed since the optional authenticators have the ability to skip by default.
 
