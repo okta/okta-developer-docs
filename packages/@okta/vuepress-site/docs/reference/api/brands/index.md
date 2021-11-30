@@ -1368,6 +1368,8 @@ Initial Theme variant values are different for existing orgs with customizations
 | `errorPageTouchPointVariant`          | no                    | no                         | `OKTA_DEFAULT`                  |
 | `errorPageTouchPointVariant`          | yes                   | no                         | `BACKGROUND_SECONDARY_COLOR`    |
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
+| `endUserDashboardTouchPointVariant`   | no                    | n/a                        | `OKTA_DEFAULT`                  |
+| `endUserDashboardTouchPointVariant`   | yes                   | n/a                        | `LOGO_ON_FULL_WHITE_BACKGROUND` |
 
 ### Logo scenarios
 
