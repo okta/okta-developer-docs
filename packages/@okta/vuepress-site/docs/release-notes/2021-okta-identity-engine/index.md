@@ -15,7 +15,7 @@ title: Okta Identity Engine API Products release notes 2021
 
 #### Support for multiple device management statuses on a single device is now GA in Preview
 
-Multiple users signed in to a single device now retain their own device management status. Users with a `managed` device status don't share that status with users who have an `unmanaged` device status. See [List devices (expand=user)](/docs/reference/api/devices/#usage-example-expand-user).<!--OKTA-447458-->
+Multiple users signed in to a single device now retain their own device management status. Users with a `managed` device status don't share that status with users who have an `unmanaged` device status.<!--OKTA-447458-->
 
 #### Bug fixed in 2021.11.3
 
