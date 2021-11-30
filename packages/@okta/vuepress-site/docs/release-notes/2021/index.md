@@ -1,5 +1,5 @@
 ---
-title: Okta API Products release Notes 2021
+title: Okta API Products release notes 2021
 ---
 
 ## November
