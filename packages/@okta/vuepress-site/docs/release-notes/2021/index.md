@@ -267,7 +267,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Okta Sign-In Widget, version 5.9.1
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
 
 #### Brands API is Self-Service EA
 
@@ -341,7 +341,7 @@ Developers can use the `pushStatus` parameter to handle a username update to an 
 
 Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
 
-Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
+Additionally, you can set or update the Logo or notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
 
 #### New Domains API response properties available
 
@@ -436,7 +436,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Okta Sign-In Widget, version 5.7.0
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
 
 #### Domains API is GA in Production
 
@@ -485,7 +485,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) is now General
 
 #### Okta Sign-In Widget, version 5.6.4
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
 
 #### Bugs fixed in 2021.05.3
 
@@ -516,7 +516,7 @@ For details about this release, see the Okta [Sign-In Widget release Notes](http
 
 #### Okta Sign-In Widget, version 5.6.1
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
 
 #### Bugs fixed in 2021.05.1
 
@@ -577,7 +577,7 @@ The [Domains API](/docs/reference/api/domains/) has been updated to support OAut
 
 #### Okta Sign-In Widget, version 5.6.0
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
 
 #### Refresh Token Rotation is GA in Preview
 
@@ -607,7 +607,7 @@ The [System Log API](/docs/reference/api/system-log/) has been updated to return
 
 #### Okta Sign-In Widget, version 5.5.4
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
 
 #### Bugs fixed in 2021.04.2
 
@@ -625,7 +625,7 @@ For details about this release, see the Okta [Sign-In Widget release Notes](http
 
 #### Okta Sign-In Widget, version 5.5.2
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-385739-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-385739-->
 
 #### Increased authorization code lifetime
 
@@ -648,7 +648,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 #### Okta Sign-In Widget, version 5.5.0
 
-For details about this release, see the Okta [Sign-In Widget release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
 
 #### Domains API is now in EA in Preview
 
