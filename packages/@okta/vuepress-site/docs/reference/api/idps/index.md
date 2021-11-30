@@ -4967,7 +4967,7 @@ XML digital Signature Algorithm settings for signing `<AuthnRequest>` messages s
 | algorithm   | The XML digital Signature Algorithm used when signing an `<AuthnRequest>` message  | `SHA-1` or `SHA-256` | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign `<AuthnRequest>` messages to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
-> **Note:** The `algorithm` property is ignored when disabling request signatures (`scope` set as `NONE`).
+> **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
 
 ###### SAML 2.0 response Algorithm object
 
@@ -5186,7 +5186,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 ```
 ##### OIDC Algorithms object
 
-The `OIDC` protocol supports `request` algorithm and verification settings.
+The `OIDC` protocol supports the `request` algorithm and verification settings.
 
 | Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ------------------------------------------------------------------------ | -------- | ------   |
@@ -5239,9 +5239,9 @@ HMAC Signature Algorithm settings for signing authorization requests sent to the
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
 | algorithm   | The HMAC Signature Algorithm used when signing an authorization request  | `HS256`, `HS384` or `HS512` | FALSE    | FALSE    |
-| scope       | Specifies whether to digitally sign authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
+| scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
-> **Note:** The `algorithm` property is ignored when disabling request signatures (`scope` set as `NONE`).
+> **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
 
 ##### OAuth 2.0 and OpenID Connect endpoints object
 
