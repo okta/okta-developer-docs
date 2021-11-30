@@ -12,7 +12,7 @@ title: Okta API Products release notes 2021
 
 #### Bug fixed in 2021.11.3
 
-When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` keys. (OKTA-445365)
+When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
 
 ### Weekly release 2021.11.2
 
