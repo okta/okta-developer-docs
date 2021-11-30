@@ -18,7 +18,7 @@ For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schem
 
 ## Getting started
 
-Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cddf71b90ac2618861e2)
+Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae)
 
 ## User Schema operations
 
