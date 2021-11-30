@@ -5091,8 +5091,8 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code flo
 
 | Property    | Description                                                                                                                     | DataType                                                                     | Nullable | Readonly | MinLength |
 | ----------- | ---------------------                                                                                                           | ---------------------------------------------------------                    | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
+| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
@@ -5134,7 +5134,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
 |algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) | TRUE    | FALSE    |
 |credentials  | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
