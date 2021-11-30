@@ -108,7 +108,7 @@ curl -v -X POST \
 <ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
 Verifies the Domain and validity of DNS records.
-Furthermore, if the certificateSourceType in the [Domain](#domain-object) was `OKTA_MANAGED`, then an attempt will be made to obtain and install a certificate.  If a certificate was obtained and installed by Okta, Okta will now handle management including renewal of the certificate.
+Furthermore, if the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  If a certificate is obtained and installed by Okta, Okta handles certificate management including renewal.
 
 #### Request path parameters
 
