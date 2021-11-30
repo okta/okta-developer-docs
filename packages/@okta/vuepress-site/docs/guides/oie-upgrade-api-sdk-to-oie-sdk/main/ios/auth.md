@@ -45,7 +45,7 @@ func handleStatus(status: OktaAuthStatus) {
 The Identity Engine methods that support the basic sign-in flow are as follows:
 
 * Sample code methods
-  * `BasicLogin.select`
+  * `BasicLogin.login`
 * SDK methods
   * `IDXClient.start`
   * `Remediation.resume`
