@@ -71,8 +71,7 @@ curl -v -X POST \
           "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
-            ],
-          "expiration": "2021-11-23T02:04:28.000Z"
+            ]
         },
         {
             "fqdn": "login.sigmanetcorp.us",
@@ -155,8 +154,7 @@ curl -v -X POST \
           "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
-            ],
-          "expiration": "2021-11-23T02:04:28.000Z"
+            ]
         },
         {
             "fqdn": "login.example.com",
@@ -302,7 +300,7 @@ curl -v -X GET \
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
     "domain": "login.example.com",
-    "certificateSourceType": "MANUAL",
+    "certificateSourceType": "OKTA_MANAGED",
     "validationStatus": "COMPLETED",
     "dnsRecords": [
         {
@@ -490,7 +488,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the Certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `MANUAL`. **Warning:** Use of `OKTA_MANAGED` Requires feature flag CUSTOM_URL_DOMAIN_ACME to be enabled.|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the Certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` Requires feature flag CUSTOM_URL_DOMAIN_ACME to be enabled.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
@@ -509,6 +507,7 @@ The DomainResponse object defines the following properties:
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `certificateSourceType`   | String                                                       | Certificate source type that indicates whether the Certificate is provided by the user or Okta.                                     |
+| `dnsRecords`              | Array of [DNSRecord](#dnsrecord-object)                        | TXT and CNAME records to be registered for the Domain
 | `domain`                  | String                                                         | Domain name                                                                               |
 | `id`                      | String                                                         | Domain ID                                                                                 |
 | `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
@@ -529,8 +528,7 @@ The DomainResponse object defines the following properties:
           "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
-            ],
-          "expiration": "2021-11-23T02:04:28.000Z"
+            ]
         },
         {
           "recordType": "CNAME",
