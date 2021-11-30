@@ -108,7 +108,7 @@ curl -v -X POST \
 <ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
 Verifies the Domain and validity of DNS records.
-Furthermore, if the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  If a certificate is obtained and installed by Okta, Okta handles management including renewal of the certificate.
+Furthermore, if the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  Once a certificate is obtained and installed by Okta, Okta handles management including renewal of the certificate.
 
 #### Request path parameters
 
@@ -186,27 +186,27 @@ curl -v -X POST \
 }
 ```
 
-### Create Certificate
+### Create certificate
 
 <ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
-Creates the Certificate for the Domain.
-If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it will now become `MANUAL` and Okta will no longer be managing certificates for this domain since a user-managed certificate has been provided.
+Creates the certificate for the Domain.
+If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it will now become `MANUAL` and Okta will no longer manage and renew certificates for this domain since a user-managed certificate has been provided.
 
 #### Request path parameters
 
-Creates the Certificate for the Domain by ID
+Creates the certificate for the Domain by ID
 
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
-| `id `       | String        | Required. ID of the Certificate. |
+| `id `       | String        | Required. ID of the certificate. |
 
 
 #### Request query parameters
 N/A
 
 #### Request body
-The [Certificate](#certificate-object)
+The [certificate](#certificate-object)
 
 #### Response parameters
 
@@ -215,7 +215,7 @@ HTTP/1.1 204 No Content
 ```
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`
-* Passing a non-verified Domain returns a `403 Forbidden` status code with error code `E0000165`. You must verify the Domain before creating the Certificate.
+* Passing a non-verified Domain returns a `403 Forbidden` status code with error code `E0000165`. You must verify the Domain before creating the certificate.
 
 #### Use examples
 
@@ -488,7 +488,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the Certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` Requires a feature flag to be enabled.|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` Requires a feature flag to be enabled.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
@@ -506,7 +506,7 @@ The DomainResponse object defines the following properties:
 
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `certificateSourceType`   | String                                                       | Certificate source type that indicates whether the Certificate is provided by the user or Okta.                                     |
+| `certificateSourceType`   | String                                                       | Certificate source type that indicates whether the certificate is provided by the user or Okta.                                     |
 | `dnsRecords`              | Array of [DNSRecord](#dnsrecord-object)                        | TXT and CNAME records to be registered for the Domain
 | `domain`                  | String                                                         | Domain name                                                                               |
 | `id`                      | String                                                         | Domain ID                                                                                 |
@@ -612,7 +612,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 
 | Type | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
-| certificate        | [Creates a Certificate](#create-certificate)                           |
+| certificate        | [Creates a certificate](#create-certificate)                           |
 | self               | The actual Domain                                                                               |
 | verify             | [Verifies the Domain](#verify-domain) and transitions the Domain status to `VERIFIED`    |
 
@@ -639,7 +639,7 @@ The CertificateMetadata object defines the following properties:
 
 ### Certificate object
 
-The Certificate object defines the following properties:
+The certificate object defines the following properties:
 
 | Property                | Type                                                           | Description                                 |
 | ----------------------- | -------------------------------------------------------------- | ------------------------------------------ |
