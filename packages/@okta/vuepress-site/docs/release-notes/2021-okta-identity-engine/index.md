@@ -1,12 +1,27 @@
 ---
-title: Okta Identity Engine API Products Release Notes 2021
+title: Okta Identity Engine API Products release notes 2021
 ---
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
 ## November
 
-### Weekly Release 2021.11.2
+### Weekly release 2021.11.3
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Support for multiple device management statuses on a single device is now GA in Preview](#support-for-multiple-device-management-status-on-a-single-device-is-now-ga-in-preview) | December 02, 2021 |
+| [Bug fixed in 2021.11.3](#bug-fixed-in-2021-11-3) | December 02, 2021 |
+
+#### Support for multiple device management statuses on a single device is now GA in Preview
+
+Multiple users signed in to a single device now retain their own device management status. Users with a `managed` device status don't share that status with users who have an `unmanaged` device status. See [List devices (expand=user)](/docs/reference/api/devices/#usage-example-expand-user).<!--OKTA-447458-->
+
+#### Bug fixed in 2021.11.3
+
+SAML app requests that don’t support the SAML protocol resulted in an `HTTP 500 Internal Server` error. (OKTA-435382)
+
+### Weekly release 2021.11.2
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -21,7 +36,7 @@ Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#pr
 
 Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
-### Weekly Release 2021.11.1
+### Weekly release 2021.11.1
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -65,7 +80,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 ## October
 
-### Weekly Release 2021.10.2
+### Weekly release 2021.10.2
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -75,7 +90,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
-### Monthly Release 2021.10.0
+### Monthly release 2021.10.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -87,7 +102,7 @@ You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in 
 
 ## September
 
-### Weekly Release 2021.09.4
+### Weekly release 2021.09.4
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -102,7 +117,7 @@ The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single 
 
 [Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) settings. You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
 
-### Weekly Release 2021.09.3
+### Weekly release 2021.09.3
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -112,7 +127,7 @@ The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single 
 
 You can now configure your org to use the [Native SSO](/docs/guides/configure-native-sso) flow on Identity Engine. The Native SSO feature allows you to protect native OpenID Connect applications and achieve Single Sign-On (SSO) and Single Logout (SLO) between native applications.
 
-### Monthly Release 2021.09.0
+### Monthly release 2021.09.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -127,7 +142,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) provides opera
 
 ## August
 
-### Weekly Release 2021.08.2
+### Weekly release 2021.08.2
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
@@ -139,7 +154,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) provides opera
 
 - When admins used the `/token` endpoint, OAuth 2.0 refreshed the [access and ID tokens](/docs/guides/refresh-tokens/) for all application users, which included both active and deactivated users instead of only including active users. (OKTA-417991)
 
-### Weekly Release 2021.08.1
+### Weekly release 2021.08.1
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
