@@ -13,7 +13,7 @@ This guide provides a working example of an Okta Token Inline Hook. It uses the 
 **Learning outcomes**
 
 * Understand the Okta Token Inline Hook calls and responses.
-* Implement a simple working example of a Token Inline Hook with a Glitch.com project, which acts as an external source.
+* Implement a simple working example of a Token Inline Hook with a Glitch.com project, which acts as an external service.
 * Test the Token Inline hook.
 
 **What you need**
@@ -143,7 +143,7 @@ The Token Inline Hook is now ready for testing. You now have the following appli
 - The external service (Glitch.com project) is ready with code to receive and respond to an Okta Token Inline Hook call.
 - The Okta org is setup to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
->**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/check-against-store/) in your Glitch application.
+>**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-data-store/) in your Glitch application.
 
 ### Test your hook
 
