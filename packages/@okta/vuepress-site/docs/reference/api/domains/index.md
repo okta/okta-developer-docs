@@ -67,11 +67,12 @@ curl -v -X POST \
     "validationStatus": "NOT_STARTED",
     "dnsRecords": [
         {
-            "fqdn": "_oktaverification.login.example.com",
+          "recordType": "TXT",
+          "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
             ],
-            "recordType": "TXT"
+          "expiration": "2021-11-23T02:04:28.000Z"
         },
         {
             "fqdn": "login.sigmanetcorp.us",
@@ -107,7 +108,8 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
-Verifies the Domain.
+Verifies the Domain and validity of DNS records.
+Furthermore, if the certificateSourceType in the [Domain](#domain-object) was `OKTA_MANAGED`, then an attempt will be made to obtain and install a certificate.  If a certificate was obtained and installed by Okta, Okta will now handle management including renewal of the certificate.
 
 #### Request path parameters
 
@@ -115,7 +117,7 @@ Verifies the Domain by the given `id`
 
 |Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
-| `id `       | URL        | Required. ID of the Domain. String. |
+| `id `       | String        | Required. ID of the Domain. |
 
 #### Request query parameters
 N/A
@@ -149,11 +151,12 @@ curl -v -X POST \
     "validationStatus": "VERIFIED",
     "dnsRecords": [
         {
-            "fqdn": "_oktaverification.login.example.com",
+          "recordType": "TXT",
+          "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
             ],
-            "recordType": "TXT"
+          "expiration": "2021-11-23T02:04:28.000Z"
         },
         {
             "fqdn": "login.example.com",
@@ -189,7 +192,8 @@ curl -v -X POST \
 
 <ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
-Creates the Certificate for the Domain
+Creates the Certificate for the Domain.
+If the certificateSourceType in the [Domain](#domain-object) was `OKTA_MANAGED`, it will now become `MANUAL` and Okta will no longer be managing certificates for this domain since a user-managed certificate has been provided.
 
 #### Request path parameters
 
@@ -197,7 +201,7 @@ Creates the Certificate for the Domain by ID
 
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
-| `id `       | URL        | Required. ID of the Certificate. String. |
+| `id `       | String        | Required. ID of the Certificate. |
 
 
 #### Request query parameters
@@ -268,7 +272,7 @@ Fetches the Domain by ID
 
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
-| `id`        | URL        | Required. ID of the Domain. String.  |
+| `id`        | String        | Required. ID of the Domain.  |
 
 #### Request query parameters
 N/A
@@ -302,18 +306,19 @@ curl -v -X GET \
     "validationStatus": "COMPLETED",
     "dnsRecords": [
         {
-            "fqdn": "_oktaverification.login.example.com",
+          "recordType": "TXT",
+          "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
             ],
-            "recordType": "TXT"
+          "expiration": "2021-11-23T02:04:28.000Z"
         },
         {
-            "fqdn": "login.example.com",
+          "recordType": "CNAME",
+          "fqdn": "login.example.com",
             "values": [
                 "${yourOktaDomain}.customdomains.okta1.com"
-            ],
-            "recordType": "CNAME"
+            ]
         }
     ],
     "publicCertificate": {
@@ -436,7 +441,7 @@ Deletes a Domain by ID
 
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
-| `id`        | URL        | Required. ID of the Domain. String.   |
+| `id`        | String        | Required. ID of the Domain.   |
 
 #### Request query parameters
 N/A
@@ -485,7 +490,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | `MANUAL`             | Required. Certificate source type that indicates whether the Certificate is provided by the user. Accepted value: `MANUAL`|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the Certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `MANUAL`. **Warning:** Use of `OKTA_MANAGED` Requires feature flag CUSTOM_URL_DOMAIN_ACME to be enabled.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
@@ -503,8 +508,7 @@ The DomainResponse object defines the following properties:
 
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `certificateSourceType`   | `MANUAL`                                                       | Certificate source type that indicates whether the Certificate is provided by the user. Accepted value: `MANUAL`|
-| `dnsRecords`              | Array of [DNSRecord](#dnsrecord-object)                        | TXT and CNAME records to be registered for the Domain                                     |
+| `certificateSourceType`   | String                                                       | Certificate source type that indicates whether the Certificate is provided by the user or Okta.                                     |
 | `domain`                  | String                                                         | Domain name                                                                               |
 | `id`                      | String                                                         | Domain ID                                                                                 |
 | `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
@@ -521,18 +525,19 @@ The DomainResponse object defines the following properties:
     "validationStatus": "COMPLETED",
     "dnsRecords": [
         {
-            "fqdn": "_oktaverification.login.example.com",
+          "recordType": "TXT",
+          "fqdn": "_oktaverification.login.example.com",
             "values": [
                 "79496f234c814638b1cc44f51a782781"
             ],
-            "recordType": "TXT"
+          "expiration": "2021-11-23T02:04:28.000Z"
         },
         {
-            "fqdn": "login.example.com",
+          "recordType": "CNAME",
+          "fqdn": "login.example.com",
             "values": [
                 "${yourOktaDomain}.customdomains.okta1.com"
             ],
-            "recordType": "CNAME"
         }
     ],
     "publicCertificate": {
@@ -621,7 +626,7 @@ The DNSRecord object defines the following properties:
 |-------------------------|----------------------------------------|---------------------------------------|
 | `expiration`            | String                                 | (Optional) TXT record expiration               |
 | `fqdn`                  | String                                 | DNS record name                       |
-| `recordType`            | `TXT`, `CNAME`                         | Record type can be `TXT` or `CNAME`   |
+| `recordType`            | String                         | Record type can be `TXT` or `CNAME`   |
 | `values`                | Array                             | DNS verification value                |
 
 ### CertificateMetadata object
@@ -643,7 +648,7 @@ The Certificate object defines the following properties:
 | `certificate`           | String                                                     | Required. Certificate content                  |
 | `certificateChain`      | String                                                     | Required. Certificate chain                   |
 | `privateKey`           | String                                                         | Required. Certificate private key           |
-| `type`                | `PEM`                                                         | Required. Certificate type. Accepted value: `PEM` |
+| `type`                | String                                                         | Required. Certificate type. Accepted value: `PEM` |
 
 #### Certificate example
 ```json
