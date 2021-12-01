@@ -5149,7 +5149,7 @@ Grants consent for the application to request an OAuth 2.0 Okta scope
 | :-------------- | :------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
 | applicationId   | ID of the application                                                                                    | URL          | String     | TRUE       |         |
 | issuer          | The issuer of your Org Authorization Server, your Org URL                                                | Body         | String     | TRUE       |         |
-| scopeId         | The [name of the Okta scope](/docs/guides/implement-oauth-for-okta/scopes/) for which consent is granted | Body         | String     | TRUE       |         |
+| scopeId         | The [name of the Okta scope](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for which consent is granted | Body         | String     | TRUE       |         |
 
 
 #### Request example

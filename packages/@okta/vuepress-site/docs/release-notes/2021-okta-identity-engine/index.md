@@ -96,7 +96,7 @@ You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in 
 
 #### New Devices API
 
-The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-424362-->
+The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-424362-->
 
 #### New Policy Authenticator settings are available in the Policy API
 

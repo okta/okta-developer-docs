@@ -563,7 +563,7 @@ The [Domains API](/docs/reference/api/domains/) is now Generally Available in Pr
 
 #### Domains API supports OAuth 2.0
 
-The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-381286-->
+The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
 
 #### Okta Sign-In Widget, version 5.6.0
 
