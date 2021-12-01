@@ -1670,7 +1670,7 @@ For brevity, the following response doesn't include all available properties.
     },
     "name": {
       "title": "Name",
-      "description": "A name for this integration log stream in Okta",
+      "description": "A name for this log stream in Okta",
       "type": "string",
       "writeOnce": false,
       "pattern": "^.{1,100}$"
@@ -1815,7 +1815,7 @@ For brevity, the following response doesn't include all available properties.
       },
       "name": {
         "title": "Name",
-        "description": "A name for this integration log stream in Okta",
+        "description": "A name for this log stream in Okta",
         "type": "string",
         "writeOnce": false,
         "pattern": "^.{1,100}$"
