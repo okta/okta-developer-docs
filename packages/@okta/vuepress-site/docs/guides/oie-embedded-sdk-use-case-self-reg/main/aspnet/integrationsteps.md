@@ -389,47 +389,48 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 #### Option 2: Skip phone enrollment
 
-If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
+1. If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
 
-```csharp
-try
-{
-      var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync
-      ((IIdxContext)Session["IdxContext"]);
+   ```csharp
+   try
+   {
+         var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync
+         ((IIdxContext)Session["IdxContext"]);
 
-      switch (skipSelectionResponse.AuthenticationStatus)
-      {
-         case AuthenticationStatus.Success:
-            ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
-            (_idxClient.Configuration, skipSelectionResponse.TokenInfo);
-            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-            return RedirectToAction("Index", "Home");
-      }
-      return RedirectToAction("Index", "Home");
-}
-catch (TerminalStateException exception)
-{
-      TempData["TerminalStateMessage"] = exception.Message;
-      return RedirectToAction("Login", "Account");
-}
-catch (OktaException exception)
-{
-      ModelState.AddModelError(string.Empty, exception.Message);
-      return RedirectToAction("SelectAuthenticator");
-}
-```
+         switch (skipSelectionResponse.AuthenticationStatus)
+         {
+            case AuthenticationStatus.Success:
+               ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
+               (_idxClient.Configuration, skipSelectionResponse.TokenInfo);
+               _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+               return RedirectToAction("Index", "Home");
+         }
+         return RedirectToAction("Index", "Home");
+   }
+   catch (TerminalStateException exception)
+   {
+         TempData["TerminalStateMessage"] = exception.Message;
+         return RedirectToAction("Login", "Account");
+   }
+   catch (OktaException exception)
+   {
+         ModelState.AddModelError(string.Empty, exception.Message);
+         return RedirectToAction("SelectAuthenticator");
+   }
+   ```
 
-If `SkipAuthenticatorSelectionAsync` returns an `AuthenticationStatus` of `Success`, the registration is completed successfully.
-The method can also throw exceptions for unsuccessful registrations such as the following:
+2. Complete authentication
 
-* **`TerminalStateException`:** exception inherited from `OktaException` that's raised when an unexpected message
-   is returned from the Okta API and no further remediation is possible.
-* **`OktaException`:** general base exception that's raised when any Okta client and API exceptions are thrown.
+   If `SkipAuthenticatorSelectionAsync` returns an `AuthenticationStatus` of `Success`, the registration is completed successfully.
+   The method can also throw exceptions for unsuccessful registrations such as the following:
 
-After a successful registration, store the returned tokens in a session and send the user to the default signed-in page.
-In the sample app, this page is the user profile page. See
-[Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
+   * `TerminalStateException` &mdash; An exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
+   * `OktaException` &mdash; A general base exception that's raised when any Okta client and API exceptions are thrown.
+
+   After a successful registration, store the returned tokens in a session and send the user to the default signed-in page.
+   In the sample app, this page is the user profile page. See
+   [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details on how to fetch user information.
 
 ### Troubleshooting Tips
 
-When you test this use case, ensure that you use a new email for each time. If you have a gmail account, you can reuse the same email by adding a plus (+) and additional text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements. For example, passwords such as `test123` fail.
+When you test this use case, ensure that you use a new email for each time. If you have a gmail account, you can reuse the same email by adding a plus (+) and additional text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements.

@@ -21,6 +21,10 @@ Understand how to implement a sign-out flow for a user.
 
 An app that you are building with Okta sign-in.
 
+**Sample code**
+
+<StackSelector snippet="samplecode" noSelector />
+
 ---
 
 ## Configuration updates
