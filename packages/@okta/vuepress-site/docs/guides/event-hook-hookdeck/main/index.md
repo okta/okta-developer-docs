@@ -71,7 +71,7 @@ With this data, Hookdeck creates a session and URL to use for sending requests. 
 
 ![A screen shot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hookdeck-and-event-hooks-session.png)
 
-> **Note:** Copy the forwarding URL that is available from the Hookdeck terminal session. For example, `https://2d20-142-126-163-77.ngrok.io`. You'll use this URL when setting up your Okta Event Hook.
+> **Note:** Copy the forwarding **Webhook URL** that is available from the Hookdeck terminal session. For example, `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`. You'll use this URL when setting up your Okta Event Hook.
 
 See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.com/docs/introduction) for further information.
 
