@@ -37,7 +37,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/overview/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
@@ -61,7 +61,49 @@ No. You can only set up one custom domain per Okta org.
 
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
-## Validate your TLS certificate
+<ApiLifecycle access="ea" />
+
+## Configure a custom domain via Okta-managed certificates
+
+This method of configuring a custom domain is recommended because Okta will manage your cerificate renewals in imperpetuity, via an integration with Let's Encrypt, a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
+
+1. In the Admin Console, select **Customizations**, and then **Domain**.
+2. In the **Custom URL Domain** box, click **Edit**.
+3. Click **Get Started** to start the configuration wizard.
+
+### Add your subdomain information
+
+On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
+
+### Create a DNS TXT  and CNAME record
+
+You need to add a DNS TXT and CNAME record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Value** columns of the table on the **Update your DNS page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
+
+1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
+
+2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
+
+3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
+
+> **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+>
+> You can perform a DNS lookup of your `_oktaverification` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_oktaverification.login.example.com` DNS record.
+
+4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
+
+5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
+
+> **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
+
+6. If **Certificate issued** appears, click **Finish**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values. 
+
+
+> **Note:** If you configure your DNS records and click **Next** to verify the records very quickly, Okta will detect the DNS records but Let's Encrypt will not detect them yet, which causes a failed authorization. You will see a warning notification `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta will generate a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
+
+    
+## Configure a custom domain via your own certificate
+
+### Validate your TLS certificate
 
 Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded).
 
@@ -71,9 +113,7 @@ Okta performs validation checks on the certificate that you upload. If your TLS 
 
 If you receive the previous error, consult with the person in your organization responsible for generating certificates to determine whether your TLS certificate is a wildcard certificate.
 
-## Enable the custom domain
-
-Use the configuration wizard to walk through the steps to customize your Okta URL domain.
+### Use the configuration wizard to walk through the steps to customize your Okta URL domain.
 
 1. In the Admin Console, select **Settings**, and then **Customization**.
 2. In the **Custom URL Domain** box, click **Edit**.
