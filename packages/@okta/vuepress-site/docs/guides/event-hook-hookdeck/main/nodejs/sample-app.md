@@ -1,4 +1,4 @@
-Download the sample application from the Hookdeck Github repository, which provides a very basic Express Node.js application that responds to Okta Event Hook calls.
+Download the sample application, [nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example) from the Hookdeck Github repository, which provides a very basic Express Node.js application that responds to Okta Event Hook calls.
 
 The Event Hook use case is a simple local application response to the addition of a new Okta user.
 
