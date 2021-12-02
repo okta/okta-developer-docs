@@ -587,7 +587,7 @@ All Log Streams have the following properties:
 | name          | Unique name for the Log Stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | status        | Status of the Log Stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
 | type          | Type of Log Stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
+| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object) or [Splunk Cloud Settings](#splunk-cloud-settings-object) (<ApiLifecycle access="beta" /> )           | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
@@ -610,6 +610,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
+| `splunk_cloud_logstreaming`      | [Splunk Cloud](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
 
 
 ### AWS EventBridge Settings object
@@ -652,4 +653,28 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | eu-west-3 | Europe (Paris) |
 | eu-south-1 | Europe (Milan) |
 | eu-north-1 | Europe (Stockholm) |
+
+
+### Splunk Cloud Settings object
+
+<ApiLifecycle access="beta" />
+
+The Splunk Cloud Settings object specifies the configuration for the `splunk_cloud_logstreaming` Log Stream type.
+
+#### Splunk Cloud Settings example
+
+```json
+{
+  "host": "acme.splunkcloud.com"
+  "token": "1e652bb8-3ef8-427b-9f00-222e1bbe3832"
+}
+```
+
+#### Splunk Cloud Settings properties
+
+| Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
+| ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| host            | The domain for your Splunk Cloud instance without http or https. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector.              | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+
 
