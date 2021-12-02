@@ -22,10 +22,6 @@ Set up your app to support the sign-in flow with Facebook IdP use cases by using
 * [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
 * [SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Configuration updates

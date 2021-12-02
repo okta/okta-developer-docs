@@ -19,11 +19,7 @@ Understand how to implement a sign-out flow for a user.
 
 **What you need**
 
-n/a
-
-**Sample code**
-
-n/a
+An app that you are building with Okta sign-in.
 
 ---
 

@@ -25,7 +25,7 @@ This guide covers self-service registration, which allows users to sign up for t
 
 **Sample code**
 
-n/a
+<StackSelector snippet="samplecode" noSelector />
 
 ---
 

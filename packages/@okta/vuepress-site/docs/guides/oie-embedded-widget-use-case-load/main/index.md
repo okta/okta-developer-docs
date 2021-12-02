@@ -21,10 +21,6 @@ Understand the sequence of steps to load the Widget.
 
 [SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Configuration updates

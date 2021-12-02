@@ -24,7 +24,7 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 **Sample code**
 
-n/a
+<StackSelector snippet="samplecode" noSelector />
 
 ---
 

@@ -48,7 +48,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.registe
 
 ### 3: Display the enrollment authenticators
 
-After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, which can be verified during authentication.
+After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with Password authentication, and additional Email or Phone factors. Authenticators are the factor credentials, owned or controlled by the user, which can be verified during authentication.
 
 This step contains the request to enroll a password authenticator for the user.
 

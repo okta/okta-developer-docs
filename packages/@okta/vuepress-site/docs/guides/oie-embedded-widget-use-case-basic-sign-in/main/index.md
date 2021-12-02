@@ -21,10 +21,6 @@ Understand the sequence of steps in the basic sign-in flow when you use the Sign
 
 [SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Configuration updates

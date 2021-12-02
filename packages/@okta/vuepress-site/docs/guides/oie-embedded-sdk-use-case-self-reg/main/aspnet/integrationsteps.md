@@ -1,18 +1,16 @@
 ### 1: Click the sign-up link
 
-The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page you create in the next step.
+The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page.
 
 <div class="common-image-format">
 
-![Displays an example 'Sign up' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
+![Displays an example 'Sign up' link at the bottom of the sign-in page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
 
 </div>
 
-> **Note:** The **Sign up** link appears in the following example under the **Continue** button.
-
 ### 2: Enter the profile data
 
-The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following shows an example of a create account page.
+The next step for the user after they click the **Sign up** link is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following shows an example of a create account page.
 
 <div class="common-image-format">
 
@@ -22,7 +20,7 @@ The next step is to enter basic information (for example, email, first, and last
 
 ### 3: Select Register
 
-When the user clicks **Register**, create a `UserProfile` object and set its properties with the user profile information captured from the Create account page. Pass this object into the `IdxClient RegisterAsync` method.
+When the user clicks **Register**, create a `UserProfile` object and set its properties with the user profile information captured from the create account page. Pass this object into the `IdxClient RegisterAsync` method.
 
 ```csharp
 var idxAuthClient = new IdxClient();
@@ -37,7 +35,7 @@ var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
 
 ### 4: Handle the register response
 
-If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is the **password** factor that is stored in the `Authenticators` list property.
+If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is the password factor that is stored in the `Authenticators` list property.
 
 ```csharp
 if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorEnrollment)
@@ -81,7 +79,7 @@ return View(viewModel);
 
 The next step is to call the `EnrollAuthenticatorAsync` method when the user
 selects the authenticator. In this use case, the `AuthenticatorId` for the
-**password** factor is passed.
+password factor is passed.
 
 ```csharp
 var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
@@ -94,7 +92,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 
 ### 7: Handle the submit response
 
-The `EnrollAuthenticatorAsync` call returns an `AuthenticationStatus`. If the enrollment is successful, this property should return `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, the next step is to verify the authenticator. In this use case, the user needs to verify with the **password** authenticator.
+The `EnrollAuthenticatorAsync` call returns an `AuthenticationStatus`. If the enrollment is successful, this property should return `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, the next step is to verify the authenticator. In this use case, the user needs to verify with the password authenticator.
 
 ```csharp
 switch (enrollResponse?.AuthenticationStatus)
@@ -142,9 +140,9 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 
 ### 10: Handle the submit response
 
-If you completed the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), which sets up multifactors for your application, `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`.
+If you completed the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`.
 
-The `AwaitingAuthenticatorEnrollment` status is returned because the required **email** and optional **phone** factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
+The `AwaitingAuthenticatorEnrollment` status is returned because the required email and optional phone factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
 
 <div class="common-image-format">
 
@@ -152,10 +150,9 @@ The `AwaitingAuthenticatorEnrollment` status is returned because the required **
 
 </div>
 
-> **Note:** In the previous screenshot, the **Skip** button is used to skip the authenticators. You can implement a **Skip** button on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is **optional**, the **Skip** button in this step is visible yet disabled. The **Skip** button is described in later steps.
+> **Note:** In the previous screenshot, the **Skip** button is used to skip the authenticators. You can implement the skip option on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is optional, the **Skip** button in this step is visible yet disabled. The **Skip** button is described in later steps.
 
-The code snippet below shows how the response is handled. `AwaitingAuthenticatorEnrollment` identifies that there are additional factors (in this use case, email and optionally phone). The Authenticator list page is loaded again (the first time was for password) with the two additional
-factors.
+The code snippet below shows how the response is handled. `AwaitingAuthenticatorEnrollment` identifies that there are additional factors (in this use case, email and optionally phone). The authenticator list page is loaded again (the first time was for password) with the two additional factors.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -173,7 +170,7 @@ switch (authnResponse.AuthenticationStatus)
 
 ### 11: Submit the email authenticator
 
-If the user selects the **email** authenticator, a call to `EnrollAuthenticatorAsync` is made and passes in the **email** `AuthenticatorId`. If successful, this call should send a code to the user's email.
+If the user selects the email authenticator, call the `EnrollAuthenticatorAsync` method and pass in the email `AuthenticatorId`. If the call is successful, a code is sent to the user's email.
 
 ```csharp
 var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
@@ -189,13 +186,13 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email link to verify email address not working](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working).
+[The email link to verify the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-the-email-address-isn-t-working).
 
 ### 13: Handle the submit response
 
 If the call to `EnrollAuthenticatorAsync` was successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the user's email, and the user needs to verify this code.
 
-The following sample app code snippet shows that the user is redirected to the **Verify Authenticator** page to verify that the code was sent in the email.
+The following sample app code snippet shows that the user is redirected to the verify authenticator page to verify that the code was sent in the email.
 
 ```csharp
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
@@ -234,7 +231,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 
 ### 16: Handle the submit response
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should be sent back to the Authenticator list page that shows only the **phone** authenticator.
+The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should be sent back to the authenticator list page that shows only the phone authenticator.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
