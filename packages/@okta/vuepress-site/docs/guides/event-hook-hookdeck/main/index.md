@@ -76,11 +76,11 @@ See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.c
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhost:4040`.
+The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the dashboard URL to access details on your hook calls: `https://dashboard.hookdeck.com/cli/events`.
 
-Each call to your local application appears in the interface and includes the response body, header, and other details:
+Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
-![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
+![A screen shot of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
 
 ## Create an Okta Event Hook
 
@@ -96,9 +96,11 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
 
-5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
+5. In the **URL** field, add your external service URL from Hookdeck. For this example, use the **Webhook URL** highlighted after running Hookdeck, see [Run Hookdeck](#run-hookdeck). For example, your URL should appear similar to: `https://events.hookdeck.com/e/src_cdtj1gv7ltGbB8y83AdcTKgW`.
 
-6. Include the **Authentication field** and **Authentication secret** values. In this example, our `server.js` code uses Basic Authentication:
+    >**Note:** The Hookdeck URL generates when creating the session and incorporates the local application's hook endpoint. That is, the endpoint is not explicitly defined as part of the URL.
+
+6. Leave the **Authentication field** and **Authentication secret** values blank in this example. However, to add Basic Authentication, review the application code required at [Add Basic Authorization and Body Parsing](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-basic-authorization-and-body-parsing) and then enter the following values for those fields:
 
     * **Authentication field** = `authorization`
 
@@ -108,7 +110,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 8. Click **Save & Continue**.
 
-9. With your ngrok session and local application running, complete the one-time verification Okta call at this time or verify the Event Hook later.
+9. With your Hookdeck session and local application running, complete the one-time verification Okta call at this time or verify the Event Hook later.
 
 ### Verify the Event Hook
 
@@ -116,67 +118,61 @@ You must verify the Event Hook to prove that your external service controls the 
 
 To complete the one-time verification of the Event Hook:
 
-* After creating the Event Hook, and if your ngrok session and local application are ready to handle the request, click **Verify** to complete the one-time verification step.
+* After creating the Event Hook, and if your Hookdeck session and local application are ready to handle the request, click **Verify** to complete the one-time verification step.
 
 or
 
-* After making sure that your  ngrok session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of your **UNVERIFIED** Event Hook, and select **Verify**.
+* After making sure that your Hookdeck session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of your **UNVERIFIED** Event Hook, and select **Verify**.
 
 The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
->**Note:** A successful Event Hook verification also indicates your local application is working with the ngrok session! Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
+>**Note:** A successful Event Hook verification also indicates your local application is working with the Hookdeck session! Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
 
 ## Preview, test, and review the Event Hook
 
-With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok inspection interface. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
+With your local application now exposed externally through a Hookdeck session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the Hookdeck dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
 
 ### Preview
 
 To run a preview call of your Event Hook:
 
-1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
-    * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user John Doe with the following fields:
-        * **First Name:** John
-        * **Last Name:** Doe
-        * **User Name:** john.doe@example.com
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 1. Locate the Event Hook you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
 1. Click the **Actions** menu for this hook, and select **Preview**.
 1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
-1. The most recent event (in this case, user John Doe created above) populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook. You can also select an older event from the **System Log Event** drop-down menu. If no event is available, the JSON body populates with sample data.
+1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook if there is one. You can also select an older event from the **System Log Event** drop-down menu. If no event is available, the JSON body populates with sample data.
+1. Ensure that both your Hookdeck session and local sample application are running.
 
-    > **Note:** If you are using the preview sample data, you must edit the preview to add a `target` value, including an email using the `alternateId` property. For example, `"target": [{ "alternateId": "john.doe@example.com"}]`. Otherwise, the sample application code throws an error if the value in `target` property is `null`.
+    >**Note:** If you start a new Hookdeck session at any time, make sure to update the Event Hook URL.
 
-1. Ensure that both your ngrok session and local sample application are running.
+1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the Event Hook body. For example:
 
-    >**Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
+     `Add image or code here`
 
-1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message appears if successful:
+1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-     `The user john.doe@example.com has been added to the Okta org!`
+1. Review your Hookdeck dashboard (`https://dashboard.hookdeck.com/cli/events`). Each call recorded by Hookdeck appears in the interface from which you can review the complete call response body, header, and other details.
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details.
-
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+    ![A screen shot of the Hookdeck dashboard that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
 
 ### Test
 
 To run a test of your Event Hook:
 
-1. Ensure that both your ngrok session and local sample application are running.
+1. Ensure that both your Hookdeck session and local sample application are running.
 1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user Jane Doe with the following fields:
         * **First Name:** Jane
         * **Last Name:** Doe
         * **User Name:** jane.doe@example.com
 
-1. Navigate back to your local application's console. The following message appears if successful:
+1. Navigate back to your local application's console. The request body for this call appears.
 
-    `The user jane.doe@example.com has been added to the Okta org!`
+1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details.
+1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and open the **"Root"** > **"Data"** sections. Your new user's name and username appear under the **"target"** property:
 
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+    ![A screen shot of the Hookdeck dashboard that includes details of the new user.](/img/ngrok-and-event-hooks-web-interface-small.png)
 
 ## See also
 
