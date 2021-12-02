@@ -19,12 +19,12 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
-* A local application. Or see [Create a local application](#create-a-local-application) in this guide for a simple example.
+* A local application. Or see [Create a local application](#create-a-local-application) in this guide to install the sample code application.
 * The Hookdeck utility. See [Install Hookdeck](#install-hookdeck).
 
 **Sample code**
 
-* See [Create a local application](#create-a-local-application) for this project's sample code.
+* See [A Simple Nodejs API](https://github.com/hookdeck/nodejs-webhook-server-example) for this project's sample code. Installation instructions are available in the next section, [Create a local application](#create-a-local-application).
 
 ---
 
@@ -39,6 +39,7 @@ If you already have Hookdeck installed, move on to [Run Hookdeck](#run-ngrok). I
 Some installation notes:
 
 * You don't need to have an account to install and run ngrok, but creating a free account provides more features as well as API authentication.
+* The installation uses the [Homebrew](https://brew.sh/) package manager.
 
 ### Run Hookdeck
 
