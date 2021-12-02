@@ -21,6 +21,8 @@ How to create your own custom claims for tokens.
 
 You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
+> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allow list when you need to set Group allow lists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allow list of Groups that can then easily be referenced.
 
 ## Request a token that contains the custom claim

@@ -7,6 +7,8 @@ The Token Inline Hook must be activated and enabled within your Okta Admin Conso
 - Activating the Token Inline Hook registers the hook with the Okta org and associates it with your external service.
 - Enabling the Token Inline Hook associates the hook with your Okta custom authorization server, which authenticates the Okta-Hosted Login sample application.
 
+> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+
 ### Activate the Token Inline Hook
 
 1. Navigate to the **Workflow** > **Inline Hooks** page.
