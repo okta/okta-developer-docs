@@ -37,7 +37,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/overview/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
@@ -63,9 +63,9 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 <ApiLifecycle access="ea" />
 
-## Configure a custom domain via Okta-managed certificates
+## Configure a custom domain through Okta-managed certificates
 
-This method of configuring a custom domain is recommended because Okta will manage your cerificate renewals in imperpetuity, via an integration with Let's Encrypt, a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
+This method of configuring a custom domain is recommended because Okta manages your certificate renewals in in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
 
 1. In the Admin Console, select **Customizations**, and then **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
@@ -98,10 +98,10 @@ You need to add a DNS TXT and CNAME record to your domain to verify ownership of
 6. If **Certificate issued** appears, click **Finish**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values. 
 
 
-> **Note:** If you configure your DNS records and click **Next** to verify the records very quickly, Okta will detect the DNS records but Let's Encrypt will not detect them yet, which causes a failed authorization. You will see a warning notification `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta will generate a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
+> **Note:** If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
 
     
-## Configure a custom domain via your own certificate
+## Configure a custom domain through your own certificate
 
 ### Validate your TLS certificate
 
