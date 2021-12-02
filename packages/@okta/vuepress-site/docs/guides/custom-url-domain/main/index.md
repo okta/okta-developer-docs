@@ -85,11 +85,11 @@ You need to add a DNS TXT and CNAME record to your domain to verify ownership of
 
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 
-> **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+> **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
 >
 > You can perform a DNS lookup of your `_oktaverification` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_oktaverification.login.example.com` DNS record.
 
-4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
+4. Paste the value that you copied from the **Value** column into the appropriate field, for example, the **Record** or **Value** field.
 
 5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
 
