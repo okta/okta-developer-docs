@@ -21,7 +21,7 @@ This article explains what Cross-Origin Resource Sharing (CORS) is and why it is
 
 In Okta, CORS allows JavaScript hosted on your websites to make a request using `XMLHttpRequest` to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted as a Trusted Origin.
 
-If you are using [OAuth 2.0](/docs/guides/implement-oauth-for-okta/overview/) tokens to make calls to Okta APIs, you don't need to add a Trusted Origin because OAuth for Okta APIs don't rely on cookies. These APIs use bearer tokens instead. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
+If you are using [OAuth 2.0](/docs/guides/implement-oauth-for-okta/) tokens to make calls to Okta APIs, you don't need to add a Trusted Origin because OAuth for Okta APIs don't rely on cookies. These APIs use bearer tokens instead. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
 > **Caution:** You should only grant access to specific origins (websites) that you control and trust to access the Okta API.
 

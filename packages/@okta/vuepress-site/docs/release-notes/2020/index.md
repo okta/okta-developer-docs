@@ -299,7 +299,7 @@ To better align with [security best practices](https://tools.ietf.org/html/rfc68
 
 #### Bugs fixed in 2020.08.0
 
-* The GET `/api/v1/users/{userid}/idps` and POST `/api/v1/idps/{idpId}/users/{userId}` endpoints weren't [OAuth](/docs/guides/implement-oauth-for-okta/scopes/) enabled. (OKTA-303902)
+* The GET `/api/v1/users/{userid}/idps` and POST `/api/v1/idps/{idpId}/users/{userId}` endpoints weren't [OAuth](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) enabled. (OKTA-303902)
 
 * Non-CORS requests to the OAuth 2.0 `/token` endpoint failed when the Okta session cookie was present. (OKTA-312816)
 
@@ -466,7 +466,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](/docs/reference/api/sessions/), and the [Custom Templates API](/docs/reference/api/templates/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](/docs/reference/api/sessions/), and the [Custom Templates API](/docs/reference/api/templates/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
@@ -513,7 +513,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### OAuth for Okta GA in Production
 
-[OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) is now Generally Available in Production. <!-- OKTA-276784 -->
+[OAuth for Okta](/docs/guides/implement-oauth-for-okta/) is now Generally Available in Production. <!-- OKTA-276784 -->
 
 #### User Types API GA in Production
 
@@ -521,7 +521,7 @@ The [User Types API](/docs/reference/api/user-types/) is Generally Available in 
 
 #### CORS headers in more API responses
 
-Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer tokens](/docs/guides/implement-oauth-for-okta/overview/), even if an endpoint isn't CORS-enabled and even if the originating URL isn't configured as a Trusted Origin. <!-- OKTA-266028 -->
+Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer tokens](/docs/guides/implement-oauth-for-okta/), even if an endpoint isn't CORS-enabled and even if the originating URL isn't configured as a Trusted Origin. <!-- OKTA-266028 -->
 
 #### Bugs fixed in 2020.04.0
 
@@ -586,7 +586,7 @@ The [Third-Party admin role](https://help.okta.com/okta_help.htm?id=csh_admin-th
 
 #### OAuth for Okta is Generally Available in Preview
 
-[OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) is now Generally Available in Preview. At this time, OAuth for Okta works only with the APIs listed in the [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/) section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.<!-- OKTA-276783 -->
+[OAuth for Okta](/docs/guides/implement-oauth-for-okta/) is now Generally Available in Preview. At this time, OAuth for Okta works only with the APIs listed in the [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.<!-- OKTA-276783 -->
 
 #### Pagination is available for the List Authorization Servers operation
 
@@ -598,7 +598,7 @@ Sign-in attempt behavior evaluation is logged in the `debugContext` object of th
 
 #### OAuth for Okta enabled for Schemas and Linked Objects APIs
 
-The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-278008 OKTA-277204-->
+The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-278008 OKTA-277204-->
 
 #### Bugs fixed in 2020.03.0
 
@@ -653,11 +653,11 @@ The [Password Import Inline Hook](/docs/reference/password-hook/) lets you inter
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
-[User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) now have [OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) enabled. <!--OKTA-254864-->
+[User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) now have [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-254864-->
 
 #### OAuth for Okta Enabled for Policy API
 
-The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) enabled. <!--OKTA-272595-->
+The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-272595-->
 
 #### User Types API in General Availability in Preview
 
