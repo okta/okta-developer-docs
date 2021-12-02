@@ -268,7 +268,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 1. Start phone verification
 
-   If the user selects the **phone** authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the **phone** `AuthenticatorId`. If successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
+   If the user selects the phone authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the phone `AuthenticatorId`. If the call was successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
 
    In the use case to verify the phone authenticator, the phone number is required, and the user should be redirected to a page where they can enter in a phone number. See the following code snippet from the sample app.
 
@@ -286,21 +286,21 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
          }
    ```
 
-1. Show phone entry page
+2. Show phone entry page
 
    Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
-<div class="common-image-format">
+   <div class="common-image-format">
 
-![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
+   ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
-</div>
+   </div>
 
-   > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number).
+   > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign.
 
-1. Submit phone number
+3. Submit phone number
 
-   When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
+   When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made with the following values:
 
    * Authenticator ID
    * Phone number
@@ -308,7 +308,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    > **Note:** Only SMS is currently supported for the phone authenticator type.
 
-   The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for more details.
+   The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for details.
 
    ```csharp
    var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
@@ -323,9 +323,9 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
          Session["IdxContext"] = enrollResponse.IdxContext;
    ```
 
-1. Handle the submit response
+4. Handle the submit response
 
-   If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
+   If the call to `EnrollAuthenticatorAsync` is successful, the `AuthenticationStatus` of `AwaitingAuthenticatorVerification` is returned. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
 
    In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
 
@@ -340,17 +340,19 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
       }
    ```
 
-1. Display phone verification code page
+5. Display phone verification code page
 
-   Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
+   Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
 
-![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
+   <div class="common-image-format">
 
-</div>
+   ![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
 
-1. Submit phone code
+   </div>
 
-   After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
+6. Submit phone code
+
+   After the user enters the phone code and clicks **Verify**, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
 
    ```csharp
    var idxAuthClient = new IdxClient(null);
@@ -362,7 +364,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
    var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
    ```
 
-1. Complete authentication
+7. Complete authentication
 
    The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
