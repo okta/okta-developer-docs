@@ -29,7 +29,7 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 ## Configuration updates
 
-This use case requires the **password** and **email** factors.
+This use case requires the password and email factors.
 
 ![Displays a diagram of the required password and email factors](/img/oie-embedded-sdk/factor-password-email.png)
 
