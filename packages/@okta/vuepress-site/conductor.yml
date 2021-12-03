@@ -934,15 +934,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
+    to: /docs/guides/custom-widget/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
@@ -4155,3 +4155,23 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/style-the-widget/before-you-begin/
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/before-you-begin/index.html
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/style-self-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-self-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/customization-examples/index.html
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/style-the-widget/next-steps/index.html
+    to: /docs/guides/custom-widget/main/#see-also
