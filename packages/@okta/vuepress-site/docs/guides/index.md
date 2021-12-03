@@ -12,6 +12,7 @@ guides:
  - custom-email
  - custom-error-pages
  - custom-url-domain
+ - custom-widget
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
@@ -54,7 +55,6 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
- - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
