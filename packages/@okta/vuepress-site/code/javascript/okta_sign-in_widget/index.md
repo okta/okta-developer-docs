@@ -341,7 +341,7 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
-For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted sign-in widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided, however, for building your own UI in mobile apps.
+For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
 See the following examples:
 
