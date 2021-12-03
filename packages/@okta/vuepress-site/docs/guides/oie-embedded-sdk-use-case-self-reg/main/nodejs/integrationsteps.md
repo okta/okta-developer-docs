@@ -8,8 +8,6 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 </div>
 
-> **Note:** The **Sign Up** link appears under the **Forgot your password?** link.
-
 ### 2: Enter information in the create account page
 
 The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
@@ -35,7 +33,7 @@ router.post('/register', async (req, res, next) => {
 });
 ```
 
-If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is **password**. The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
+If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is password. The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
 
 ```JavaScript
 // registration
@@ -86,7 +84,7 @@ See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#
 
 ### 5: The user selects the email authenticator
 
-In this use case, the user selects the **Email** as the authenticator to verify. Pass this user-selected authenticator to `idx.register`.
+In this use case, the user selects **Email** as the authenticator to verify. Pass this user-selected authenticator to `idx.register`.
 
  If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/enroll-authenticator`.
 
@@ -108,7 +106,7 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 </div>
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
+If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: The user selects phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
 ### 7: Handle the phone options
 

@@ -22,6 +22,10 @@ Set up your Okta org and app to support sign-in with Facebook IdP use cases.
 * [App already set up for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
 
+**Sample code**
+
+<StackSelector snippet="samplecode" noSelector />
+
 ---
 
 ## Configuration updates

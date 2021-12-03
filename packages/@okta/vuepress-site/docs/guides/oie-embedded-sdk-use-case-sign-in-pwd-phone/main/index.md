@@ -22,6 +22,10 @@ Understand how to implement a user sign-in flow with password and phone factors.
 
 [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 
+**Sample code**
+
+<StackSelector snippet="samplecode" noSelector />
+
 ---
 
 ## Configuration updates
