@@ -50,15 +50,23 @@ import { Security } from '@okta/okta-react';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 const config = {
-  // Configuration here
+  clientId: '${clientId}',
+  issuer: `https://${yourOktaDomain}/oauth2/default`,
+  redirectUri: 'http://localhost:8080/login/callback',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
 };
 
 const oktaAuth = new OktaAuth(config);
 
 const App = () => {
+  const restoreOriginalUri = () => {
+    // Callback function to restore URI during login
+  };
+  
   return (
     <Router>
-      <Security oktaAuth={oktaAuth}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
         { /* App routes go here */ }
       </Security>
     </Router>

@@ -1,4 +1,4 @@
-Define a route that handles a path like `/login/callback`. Here's how to do it in [react-router](https://github.com/ReactTraining/react-router):
+Define a route that handles a path like `/login/callback`. Here's how to do it in [react-router@5](https://github.com/ReactTraining/react-router):
 
 
 ```jsx
