@@ -171,5 +171,5 @@ You should now understand how to sign users in to your web applications using Ok
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
