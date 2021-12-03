@@ -1,6 +1,6 @@
 ### 1: The user signs in
 
-The user signs in with the Sign-In Widget that was set up in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) use case. After the user enters their credentials and clicks Sign in, the widget sends an identify request to Okta.
+The user signs in with the Sign-In Widget that was set up in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
 
 <div class="common-image-format">
 

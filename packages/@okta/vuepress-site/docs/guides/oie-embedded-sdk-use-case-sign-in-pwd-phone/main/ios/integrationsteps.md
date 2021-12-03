@@ -21,8 +21,7 @@ The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
 into its initializer a `configuration` object and `stephandler` closure.
 The `stephandler` closure is called whenever application interaction is requested
-during the password recovery flow. In this case it's called for the following
-user interactions:
+during the password recovery flow. In this case, the `stephandler` closure is called for the following user interactions:
 
 1. Choose the phone factor for authentication
 2. Choose the phone factor type (in this case SMS)
@@ -57,7 +56,7 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 For more information on how to set the `configuration` parameter, see
 [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
 in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
+[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
 #### 2: The user initiates the sign-in flow
 

@@ -19,7 +19,9 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 **What you need**
 
-[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* An app that uses the embedded Okta Identity Engine SDK.
+* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Set up the Identity Engine SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 

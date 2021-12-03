@@ -19,7 +19,9 @@ Understand how to implement a sign-out flow for a user.
 
 **What you need**
 
-An app that you are building with Okta sign-in.
+* An app that uses the embedded Okta Identity Engine SDK.
+* [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
+* [Set up the Identity Engine SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 

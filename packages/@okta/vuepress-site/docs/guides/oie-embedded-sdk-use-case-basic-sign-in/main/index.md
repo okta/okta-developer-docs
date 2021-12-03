@@ -19,8 +19,9 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 **What you need**
 
-* [Okta org](https://developer.okta.com/signup/oie.html)
-* [Sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up
+* An app that uses the embedded Okta Identity Engine SDK.
+* [Okta org already configured for a password-only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* [Set up the Identity Engine SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
