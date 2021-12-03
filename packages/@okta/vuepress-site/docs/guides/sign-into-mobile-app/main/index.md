@@ -132,5 +132,5 @@ Your API must check for valid tokens in incoming requests. To learn how to prote
 
 You should now understand how to sign users in to your mobile applications using Okta.
 
-* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 * To learn how to protect the API endpoints that your mobile app calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
