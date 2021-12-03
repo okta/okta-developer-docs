@@ -77,7 +77,7 @@ After you have decided which protocol is right for your needs, you need to gathe
 
 After you have your background information, you can use the Okta Admin Console and the Application Integration Wizard (AIW) to create your SSO integration inside the Okta org associated with your developer account.
 
->**Note:** Creating your SSO app integration doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you have created and tested it, you need to [submit your app integration](/docs/guides/submit-app/openidconnect/overview/) to the OIN.
+>**Note:** Creating your SSO app integration doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you have created and tested it, you need to [submit your app integration](/docs/guides/submit-app/) to the OIN.
 
 1. Sign in to your Okta developer account as a user with administrative privileges.
 1. In the Admin Console, go to  **Applications** > **Applications**.
