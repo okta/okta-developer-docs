@@ -488,7 +488,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` Requires a feature flag to be enabled.|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` requires a feature flag to be enabled.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
