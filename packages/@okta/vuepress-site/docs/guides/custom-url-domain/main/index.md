@@ -238,7 +238,7 @@ You need to update your Authorization Server to use your custom domain to fix th
 
 The following customization options require a custom URL domain:
 
-* [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 
 The following customization options don't require a custom URL domain:
