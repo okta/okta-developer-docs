@@ -61,7 +61,7 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 ## Configure a custom domain through Okta-managed certificates
 
-This method of configuring a custom domain is recommended because Okta manages your certificate renewals in in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
+This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
 
 1. In the Admin Console, select **Customizations**, and then **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
@@ -75,7 +75,7 @@ On the Add Domain page of the configuration wizard, enter your subdomain name, f
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
-1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
+1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
 
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
 
