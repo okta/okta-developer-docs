@@ -124,8 +124,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 4. Brand and customize
 
-    * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
-    * [Customize SMS messages](/guides/custom-sms-messaging/)
+    * [Style the Widget](/docs/guides/custom-widget/)
+    * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
     * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 

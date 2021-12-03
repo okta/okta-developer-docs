@@ -88,7 +88,7 @@ You'll also need the full redirect URI that you defined in the [Define a callbac
 
 To sign in users, open a browser and navigate to the Okta-hosted sign-in page.
 
-To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 <StackSelector snippet="signin" noSelector/>
 
@@ -132,5 +132,5 @@ Your API must check for valid tokens in incoming requests. To learn how to prote
 
 You should now understand how to sign users in to your mobile applications using Okta.
 
-* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 * To learn how to protect the API endpoints that your mobile app calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).

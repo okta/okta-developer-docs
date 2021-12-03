@@ -134,7 +134,7 @@ To sign a user in, your application must redirect the browser to the Okta-hosted
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
-> **Note:** To customize the hosted sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+> **Note:** To customize the hosted sign-in page, see [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 You can also define protected routes or areas of your application that will always require authentication.
 
@@ -171,5 +171,5 @@ You should now understand how to sign users in to your web applications using Ok
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)

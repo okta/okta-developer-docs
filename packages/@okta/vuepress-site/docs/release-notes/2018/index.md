@@ -808,11 +808,11 @@ You can customize your Okta org by replacing the Okta domain name with a custom 
 
 #### Custom Okta-hosted Sign-In Page is in Early Access
 
-You can customize the text and the look and feel of the Okta-hosted sign-in page by using form controls and an embedded HTML editor. When this feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/), it offers a fully customized end-user sign-in experience that is hosted by Okta. See [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/) for more information.
+You can customize the text and the look and feel of the Okta-hosted sign-in page by using form controls and an embedded HTML editor. When this feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/), it offers a fully customized end-user sign-in experience that is hosted by Okta. See [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) for more information.
 
 #### Custom Error Page is in Early Access
 
-You can customize the text and the look and feel of error pages by using an embedded HTML editor. When the feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/), it offers a fully customized error page. See [Configure a custom error page](/docs/guides/custom-error-pages/) for more information.
+You can customize the text and the look and feel of error pages by using an embedded HTML editor. When the feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), it offers a fully customized error page. See [Configure a custom error page](/docs/guides/custom-error-pages/) for more information.
 
 #### Bugs Fixed in 2018.19
 
