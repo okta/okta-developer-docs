@@ -3683,30 +3683,78 @@ redirects:
     to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/springboot/next-steps/index.html
     to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
-  - from: /docs/guides/quickstart/create-org
+  - from: /docs/guides/quickstart/-/create-org/
     to: /docs/guides/quickstart/-/main/#create-your-okta-organization
-  - from: /docs/guides/quickstart/using-console
+  - from: /docs/guides/quickstart/-/using-console
     to: /docs/guides/quickstart/-/main/#using-the-admin-console
-  - from: /docs/guides/quickstart/add-user
+  - from: /docs/guides/quickstart/-/add-user
     to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
-  - from: /docs/guides/quickstart/register-app
+  - from: /docs/guides/quickstart/-/register-app
     to: /docs/guides/quickstart/-/main/#register-your-app
-  - from: /docs/guides/quickstart/sign-in
+  - from: /docs/guides/quickstart/-/sign-in
     to: /docs/guides/quickstart/-/main/#try-signing-in
-  - from: /docs/guides/quickstart/try-api
+  - from: /docs/guides/quickstart/-/try-api
     to: /docs/guides/quickstart/-/main/#next-steps
-  - from: /docs/guides/quickstart/create-org/index.html
+  - from: /docs/guides/quickstart/-/create-org/index.html
     to: /docs/guides/quickstart/-/main/#create-your-okta-organization
-  - from: /docs/guides/quickstart/using-console/index.html
+  - from: /docs/guides/quickstart/-/using-console/index.html
     to: /docs/guides/quickstart/-/main/#using-the-admin-console
-  - from: /docs/guides/quickstart/add-user/index.html
+  - from: /docs/guides/quickstart/-/add-user/index.html
     to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
-  - from: /docs/guides/quickstart/register-app/index.html
+  - from: /docs/guides/quickstart/-/register-app/index.html
     to: /docs/guides/quickstart/-/main/#register-your-app
-  - from: /docs/guides/quickstart/sign-in/index.html
+  - from: /docs/guides/quickstart/-/sign-in/index.html
     to: /docs/guides/quickstart/-/main/#try-signing-in
-  - from: /docs/guides/quickstart/try-api/index.html
+  - from: /docs/guides/quickstart/-/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/quickstart/cli/create-org/
+    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/cli/using-console
+    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/cli/add-user
+    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/cli/register-app
+    to: /docs/guides/quickstart/cli/main/#register-your-app
+  - from: /docs/guides/quickstart/cli/sign-in
+    to: /docs/guides/quickstart/cli/main/#try-signing-in
+  - from: /docs/guides/quickstart/cli/try-api
+    to: /docs/guides/quickstart/cli/main/#next-steps
+  - from: /docs/guides/quickstart/cli/create-org/index.html
+    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/cli/using-console/index.html
+    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/cli/add-user/index.html
+    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/cli/register-app/index.html
+    to: /docs/guides/quickstart/cli/main/#register-your-app
+  - from: /docs/guides/quickstart/cli/sign-in/index.html
+    to: /docs/guides/quickstart/cli/main/#try-signing-in
+  - from: /docs/guides/quickstart/cli/try-api/index.html
+    to: /docs/guides/quickstart/cli/main/#next-steps
+  - from: /docs/guides/quickstart/website/create-org/
+    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/website/using-console
+    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/website/add-user
+    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/website/register-app
+    to: /docs/guides/quickstart/website/main/#register-your-app
+  - from: /docs/guides/quickstart/website/sign-in
+    to: /docs/guides/quickstart/website/main/#try-signing-in
+  - from: /docs/guides/quickstart/website/try-api
+    to: /docs/guides/quickstart/website/main/#next-steps
+  - from: /docs/guides/quickstart/website/create-org/index.html
+    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/website/using-console/index.html
+    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/website/add-user/index.html
+    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/website/register-app/index.html
+    to: /docs/guides/quickstart/website/main/#register-your-app
+  - from: /docs/guides/quickstart/website/sign-in/index.html
+    to: /docs/guides/quickstart/website/main/#try-signing-in
+  - from: /docs/guides/quickstart/website/try-api/index.html
+    to: /docs/guides/quickstart/website/main/#next-steps
   - from: /docs/guides/build-self-signed-jwt/-/overview
     to: /docs/guides/build-self-signed-jwt/
   - from: /docs/guides/build-self-signed-jwt/-/gather-information

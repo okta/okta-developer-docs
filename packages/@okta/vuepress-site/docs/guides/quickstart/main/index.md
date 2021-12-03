@@ -5,6 +5,8 @@ excerpt: Get started with Okta authentication
 
 In this article we get you up and running with basic Okta authentication, quickly and effectively. This includes creating and managing Okta organizations, registering a new app and authenticating it using Okta, and next steps from there.
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
@@ -13,24 +15,9 @@ In this article we get you up and running with basic Okta authentication, quickl
 * Register a sample app with your organization.
 * Authenticate the app using Okta.
 
-**What you need**
-
-n/a
-
 **Sample code**
 
-* ASP.Net &mdash; <https://github.com/okta/samples-aspnet>
-* ASP.NET Core &mdash; <https://github.com/okta/samples-aspnetcore>
-* ASP.Net Web Forms &mdash; <https://github.com/okta/samples-aspnet-webforms>
-* Java Servlet &mdash; <https://github.com/okta/samples-java-servlet>
-* Java Spring &mdash; <https://github.com/okta/samples-java-spring>
-* Angular &mdash; <https://github.com/okta/samples-js-angular>
-* React &mdash; <https://github.com/okta/samples-js-react>
-* Vue &mdash; <https://github.com/okta/samples-js-vue>
-* Golang &mdash; <https://github.com/okta/samples-golang>
-* Node.js Express &mdash; <https://github.com/okta/samples-nodejs-express-4>
-* Python Flask &mdash; <https://github.com/okta/samples-python-flask>
-* PHP &mdash; <https://github.com/okta/samples-php>
+See the [Start from a sample app](#start-from-a-sample-app) section.
 
 ---
 
@@ -44,7 +31,7 @@ You can [sign up](/signup) for an Okta developer edition org for free, which all
 
 ### Create your org
 
-<StackSelector snippet="create-org" />
+<StackSelector snippet="create-org" noSelector />
 
 ### After creating your org
 
@@ -150,7 +137,7 @@ Build the example app as-is, or use it as a template for modifying your own app.
 
 ### Tell Okta about the app
 
-<StackSelector snippet="register-app" />
+<StackSelector snippet="register-app" noSelector />
 
 <!---
 #### Get values from Okta to set in the app
