@@ -160,7 +160,9 @@ The following table shows the scopes that are currently available:
 | `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
-| `okta.roles.manage`      | Allows the app to create and manage Administrator Roles in your Okta organization     | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
+| `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
+| `okta.profileMappings.read`| Allows the app to read information about profile mappings| [Mappings API](//docs/reference/api/mappings/)|
+| `okta.profileMappings.manage`      | Allows the app to create and manage profile mappings in your Okta organization     | [Mappings API](/docs/reference/api/mappings/)|
 | `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
@@ -174,6 +176,8 @@ The following table shows the scopes that are currently available:
 | `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations)|
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile. Currently only supports user profile attribute updates. |   |
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information| [Users API](/docs/reference/api/users/#get-current-user) |
+| `okta.userTypes.manage`    | Allows the app to manage user types in your Okta organization   | [User Types API](/docs/reference/api/user-types/)|
+| `okta.userTypes.read`    | Allows the app to read user types in your Okta organization   | [User Types API](/docs/reference/api/user-types/)|
 | `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization   | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization| [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 
