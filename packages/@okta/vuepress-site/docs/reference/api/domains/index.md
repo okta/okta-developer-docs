@@ -107,8 +107,8 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
-Verifies the Domain and validity of DNS records.
-Furthermore, if the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  Once a certificate is obtained and installed by Okta, Okta handles management including renewal of the certificate.
+Verifies the Domain and validity of DNS records
+Furthermore, if the 'certificateSourceType' in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  After a certificate is obtained and installed by Okta, Okta handles the management including renewal of the certificate.
 
 #### Request path parameters
 
@@ -190,8 +190,8 @@ curl -v -X POST \
 
 <ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
-Creates the certificate for the Domain.
-If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it will now become `MANUAL` and Okta will no longer manage and renew certificates for this domain since a user-managed certificate has been provided.
+Creates the certificate for the Domain
+If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided.
 
 #### Request path parameters
 
@@ -488,7 +488,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` Requires a feature flag to be enabled.|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` requires a feature flag to be enabled.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
