@@ -88,7 +88,7 @@ You'll also need the full redirect URI that you defined in the [Define a callbac
 
 To sign in users, open a browser and navigate to the Okta-hosted sign-in page.
 
-To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+To learn how to customize the sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 <StackSelector snippet="signin" noSelector/>
 
