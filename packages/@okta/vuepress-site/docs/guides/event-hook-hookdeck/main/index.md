@@ -6,7 +6,7 @@ layout: Guides
 
 <StackSelector class="cleaner-selector"/>
 
-This guide provides a working example of an Okta Event Hook. It uses the Hookdeck utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The Hookdeck utility enables the testing of Okta Event Hooks locally, rather than implementing an internet-based production or test external service.
+This guide provides a working example of an Okta Event Hook. It uses the Hookdeck utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The Hookdeck utility enables the testing of Event Hooks locally, rather than implementing an internet-based production or test external service.
 
 ---
 
@@ -24,7 +24,7 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 
 **Sample code**
 
-* See [A Simple Nodejs API](https://github.com/hookdeck/nodejs-webhook-server-example) for this project's sample code. Installation instructions are available in the next section, [Create a local application](#create-a-local-application).
+* See [nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example) for this project's sample code. Installation instructions are available in the next section, [Create a local application](#create-a-local-application).
 
 ---
 
@@ -34,11 +34,11 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 
 ## Install Hookdeck
 
-If you already have Hookdeck installed, move on to [Run Hookdeck](#run-ngrok). If not, follow the installation instructions at [Using The Hookdeck CLI](https://hookdeck.com/docs/using-the-cli) to install in your sample application folder (or the location of your choice).
+If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck). If not, follow the installation instructions at [Using The Hookdeck CLI](https://hookdeck.com/docs/using-the-cli) to install in your sample application folder (or the location of your choice).
 
 Some installation notes:
 
-* You don't need to have an account to install and run ngrok, but creating a free account provides more features as well as API authentication.
+* You don't need to have an account to install and run Hookdeck, but creating a free account provides more features as well as API authentication.
 * The installation uses the [Homebrew](https://brew.sh/) package manager.
 
 ### Run Hookdeck
@@ -127,8 +127,6 @@ or
 
 The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
->**Note:** A successful Event Hook verification also indicates your local application is working with the Hookdeck session! Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
-
 ## Preview, test, and review the Event Hook
 
 With your local application now exposed externally through a Hookdeck session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the Hookdeck dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
@@ -167,7 +165,7 @@ To run a test of your Event Hook:
     * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user Jane Doe with the following fields:
         * **First Name:** Jane
         * **Last Name:** Doe
-        * **User Name:** jane.doe@example.com
+        * **User Name:** jane.doe@hookdeckexample.com
 
 1. Navigate back to your local application's console. The request body for this call appears.
 

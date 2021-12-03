@@ -19,7 +19,7 @@ You can also modify an existing local application. Make sure to note the server 
     >npm install
     ```
 
-1. Review the `routes.js` file. This file contains the endpoint that receives Okta's response, `/okta-webhooks-endpoint`, and prints the response body to the console:
+1. Review the `routes.js` file. This file contains the endpoint that receives Okta's response, `/okta-webhooks-endpoint`, and prints the response body to the application console:
 
 ```JavaScript
 router.post("/okta-webhooks-endpoint", function(req, res) {
