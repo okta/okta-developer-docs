@@ -4,7 +4,7 @@ excerpt: Define Groups claims for tokens returned from Okta.
 layout: Guides
 ---
 
-> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+<ApiAmProdWarning />
 
 This article shows you how to define custom Groups claims for tokens returned from Okta, using a static allow list to define user limits, with a default or custom Authorization Server.
 

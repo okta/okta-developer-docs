@@ -7,7 +7,7 @@ meta:
 
 # Authorization Servers
 
-> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+<ApiAmProdWarning />
 
 Authentication and authorization are essential to application development. Whether you are developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, you need the right authentication and authorization support for your projects. With Okta, you can control access to your application using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
 

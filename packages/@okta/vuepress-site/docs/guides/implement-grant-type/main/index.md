@@ -4,7 +4,7 @@ excerpt: How to implement authorization flows by grant type with Okta
 layout: Guides
 ---
 
-> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+<ApiAmProdWarning />
 
 ## Overview
 

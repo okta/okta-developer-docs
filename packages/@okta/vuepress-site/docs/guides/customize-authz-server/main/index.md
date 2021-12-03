@@ -4,7 +4,7 @@ excerpt: How to set up a custom authorization server in Okta
 layout: Guides
 ---
 
-> **Note**: [Okta’s Developer Edition](/signup/) makes most key developer features available by default for testing purposes. Please note that [API Access Management](/docs/concepts/api-access-management/) — a requirement for Custom Authorization Servers — is an optional add-on in production.
+<ApiAmProdWarning />
 
 This article shows you how to set up a Custom OAuth 2.0 Authorization Server in Okta. Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each Authorization Server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
