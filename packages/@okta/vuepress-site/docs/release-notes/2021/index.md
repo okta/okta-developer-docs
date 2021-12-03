@@ -174,7 +174,7 @@ The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#p
 
 #### SAML assertion preview populates with real data
 
-After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/create-your-app/). <!--OKTA-398842-->
+After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/main/#create-a-saml-integration). <!--OKTA-398842-->
 
 #### Dynamic Issuer Mode is EA in Preview
 
@@ -446,7 +446,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 #### Refresh Token Rotation is GA in Production
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
 
 #### Retrieving applications by catalog name is now available
 
@@ -563,7 +563,7 @@ The [Domains API](/docs/reference/api/domains/) is now Generally Available in Pr
 
 #### Domains API supports OAuth 2.0
 
-The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-381286-->
+The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
 
 #### Okta Sign-In Widget, version 5.6.0
 
@@ -571,7 +571,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Refresh Token Rotation is GA in Preview
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 <!--OKTA-390933-->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview

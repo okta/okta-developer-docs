@@ -44,7 +44,7 @@ You could connect your application directly to an Identity Provider (for example
 
 -   **Group sync:** Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to.
 
--   **OAuth 2.0 Scope Configuration:** Specify [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/scopes/) to fully control which social profile attributes are linked to Okta.
+-   **OAuth 2.0 Scope Configuration:** Specify [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) to fully control which social profile attributes are linked to Okta.
 
 ## How Okta connects to external Identity Providers
 
