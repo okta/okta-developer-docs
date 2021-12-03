@@ -10,22 +10,20 @@ This guide teaches you how to customize the Okta Sign-In Widget, whether Okta-ho
 
 **Learning outcomes**
 
-* Add stylesheets to extend the look of the Sign-In Widget.
-* Add custom JavaScript code to the Sign-In Widget.
-* (Self-hosted) Modify strings in the Sign-In Widget.
-* (Self-hosted) Customize localization content in the Sign-In Widget.
+* Add stylesheets and custom JavaScript.
+* (Self-hosted) Modify strings and customize localization content.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* (Okta-hosted) A custom URL domain.
-* (Self-hosted) The Okta Sign-In Widget installed into your project with configured authentication scenarios. See [Okta Sign-In Widget on GitHub](https://github.com/okta/okta-signin-widget#embedded-self-hosted).
+* (Okta-hosted) A [custom URL domain](/docs/guides/custom-url-domain/main/)
+* (Self-hosted) The Okta Sign-In Widget installed into your project with configured authentication scenarios. See [Okta Sign-In Widget on GitHub](https://github.com/okta/okta-signin-widget#embedded-self-hosted)
 
 **Sample code**
 
-* (Okta-hosted) See the Use macros and request context section.
-* (Self-hosted) See the Style the self-hosted Sign-In Widget section.
-* See the Customization examples section.
+* (Okta-hosted) See the [Use macros and request context](#use-macros-and-request-context) section.
+* (Self-hosted) See the [Style the self-hosted Sign-In Widget](#style-the-self-hosted-sign-in-widget) section.
+* See the [Customization examples](#customization-examples) section.
 
 ---
 
@@ -39,7 +37,7 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 ## Style the Okta-hosted Sign-In Widget
 
-You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page <GuideLink link="../customization-examples/#per-application-customization">per application</GuideLink> and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
+You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
 
 > **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes) as mentioned below.
 
@@ -74,7 +72,7 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 3. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
 4. Click **Save and Publish** when you finish.
 
-> **Note:** See the <GuideLink link="../customization-examples">Customization examples</GuideLink> section for examples that you can alter and use on your hosted sign-in page.
+> **Note:** See the [Customization examples](#customization-examples) section for examples that you can alter and use on your hosted sign-in page.
 
 ### Use the Brands API
 
