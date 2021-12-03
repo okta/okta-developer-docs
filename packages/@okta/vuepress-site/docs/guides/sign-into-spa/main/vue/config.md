@@ -1,4 +1,4 @@
-First, create an [OktaAuth](https://github.com/okta/okta-auth-js) object with your configuration and pass it to the `okta-vue` plugin. You need to use `okta-vue` plugin after adding the router to the app.
+First, create an [OktaAuth](https://github.com/okta/okta-auth-js) object with your configuration and pass it to the `okta-vue` plugin. You need to use the `okta-vue` plugin after adding the router to the app.
 
 ```javascript
 // main.js

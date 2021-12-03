@@ -1,4 +1,4 @@
-Set the `requiresAuth` property to `true` in the optional `meta` object as part of the route definition. Add `navigationGuard` function from `okta-vue` as a global guard to the router.
+Set the `requiresAuth` property to `true` in the optional `meta` object as part of the route definition. Add the `navigationGuard` function from `okta-vue` to the router as a global guard.
 
 ```javascript
 import { LoginCallback, navigationGuard } from '@okta/okta-vue'
