@@ -87,13 +87,13 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 4. Paste the value that you copied from the **Value** column into the appropriate field, for example, the **Record** or **Value** field.
 
-6. Repeat Steps 3 and 4 for the CNAME record.
+5. Repeat Steps 3 and 4 for the CNAME record.
 
-5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
+6. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
 
 > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
-6. If **Certificate issued** appears, click **Finish**. If an error occurs, possible issues may be that the TXT or CNAME record may not have propagated yet or there may be a copy and paste issue with the values. There may also be an operational issue with Let's Encrypt which can be checked with https://letsencrypt.status.io/
+7. If **Certificate issued** appears, click **Finish**. If an error occurs, possible issues may be that the TXT or CNAME record may not have propagated yet or there may be a copy and paste issue with the values. There may also be an operational issue with Let's Encrypt which can be checked with https://letsencrypt.status.io/
 
 
 > **Note:** If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
