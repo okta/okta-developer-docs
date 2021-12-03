@@ -365,4 +365,4 @@ You can also develop your mobile app with frameworks like Ionic and Flutter. We 
 
 ## Customizations
 
-The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the Widget](/docs/gui/docs/guides/custom-widget/) for more information and multiple examples of customization options.
+The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the Widget](/docs/guides/custom-widget/) for more information and multiple examples of customization options.
