@@ -117,7 +117,7 @@ First you must assign your integration to one or more test users in your org:
 
 ## Next steps
 
-* After you have completed your testing and your integration is working as expected, you can start the submission process to have your integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/).
+* After you have completed your testing and your integration is working as expected, you can start the submission process to have your integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) catalog.
 * Our [Submit an app integration](/docs/guides/submit-app) guide takes you through the steps required to submit your SSO integration through the OIN Manager.
 
 ## See also 
