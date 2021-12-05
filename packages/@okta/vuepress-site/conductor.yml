@@ -4203,3 +4203,163 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/protect-your-api/-/before-you-begin
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/-/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages/index.html
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication/index.html
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors/index.html
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps/index.html
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages/index.html
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication/index.html
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors/index.html
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps/index.html
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages/index.html
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication/index.html
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors/index.html
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps/index.html
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages/index.html
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication/index.html
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors/index.html
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps/index.html
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
