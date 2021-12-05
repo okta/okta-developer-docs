@@ -1,10 +1,10 @@
----
-title: JavaScript
----
+## Deploying a JavaScript app
 
 JavaScript applications, when built for production, are just a bunch of static files. You can deploy them to any web server, configure that web server to be SPA-aware, and you should be good to go!
 
-### Heroku
+You need to make sure you configure all paths to redirect to `index.html`. This is because your framework handles the routing. You also need to force HTTPS.
+
+## Heroku
 
 One easy way to deploy your JavaScript app to production with Okta is with Heroku.
 
@@ -75,7 +75,7 @@ You won't be able to sign in to your application until you add your Heroku app's
 
 For more information, see [Angular Deployment with a Side of Spring Boot](https://developer.okta.com/blog/2020/05/29/angular-deployment). This blog post includes instructions for deploying to Heroku, Firebase, Netlify, and AWS S3.
 
-### Docker
+## Docker
 
 You can package your JavaScript application with Docker, too. See [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) for a blog post that details how. Specifically, see the [Create a Docker Container for Your Angular App](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#create-a-docker-container-for-your-angular-app) section.
 

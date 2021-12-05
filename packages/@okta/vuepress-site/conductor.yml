@@ -4203,3 +4203,19 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/deploy-your-app/overview
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile
+    to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/deploy-your-app/overview/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript/index.html
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile/index.html
+    to: /docs/guides/deploy-your-app/reactnative/main/
