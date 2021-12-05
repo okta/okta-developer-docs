@@ -61,22 +61,22 @@ tiles:
     link: /docs/guides/protect-your-api/
     items:
       - name: Go
-        link: /docs/guides/protect-your-api/go/before-you-begin/
+        link: /docs/guides/protect-your-api/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/protect-your-api/springboot/before-you-begin/
+        link: /docs/guides/protect-your-api/springboot/main/
         image: /img/homepage/stackselectors/java.png
       - name: .NET
-        link: /docs/guides/protect-your-api/aspnet/before-you-begin/
+        link: /docs/guides/protect-your-api/aspnet/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/protect-your-api/nodeexpress/before-you-begin/
+        link: /docs/guides/protect-your-api/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/protect-your-api/php/before-you-begin/
+        link: /docs/guides/protect-your-api/php/main/
         image: /img/homepage/stackselectors/php.png
       - name: Python
-        link: /docs/guides/protect-your-api/python/before-you-begin/
+        link: /docs/guides/protect-your-api/python/main/
         image: /img/homepage/stackselectors/python.png
 
 assurances:
