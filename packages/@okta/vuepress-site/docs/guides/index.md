@@ -30,7 +30,7 @@ guides:
  - mfa
  - migrate-to-okta
  - oin-oidc-guide
- - build-provisioning-integration
+ - scim-provisioning-integration-overview
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
@@ -152,5 +152,5 @@ If you're creating an Okta integration for the first time, we recommend the foll
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-guide/overview/)
 1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/overview/)
-1. [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 1. [Submit an app integration](/docs/guides/submit-app/openidconnect/overview/)

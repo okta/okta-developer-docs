@@ -840,6 +840,6 @@ Date: Fri, 18 Oct 2019 07:16:10 GMT
 
 * [What is SCIM?](https://www.okta.com/blog/2017/01/what-is-scim/)
 * [SCIM Provisioning using Okta Lifecycle Management](/docs/concepts/scim/)
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [SCIM 1.1 RFC: Core Schema](http://www.simplecloud.info/specs/draft-scim-core-schema-01.html)
 * [SCIM 1.1 RFC: Protocol](http://www.simplecloud.info/specs/draft-scim-api-01.html)

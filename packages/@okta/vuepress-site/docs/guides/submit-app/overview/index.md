@@ -25,7 +25,7 @@ This guide covers submissions that use one or more of these protocols:
 
 As a prerequisite to submission, you must have a functional integration created and tested in accordance with one of our OIN guides:
 
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Build a Single-Sign On integration](/docs/guides/build-sso-integration/before-you-begin/).
 
 ## Submission process

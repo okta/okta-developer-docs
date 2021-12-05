@@ -3787,3 +3787,39 @@ redirects:
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
+  - from: /docs/guides/build-provisioning-integration/overview
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
+  - from: /docs/guides/build-provisioning-integration/overview/index.html
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app/index.html
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps

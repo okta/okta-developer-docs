@@ -310,7 +310,23 @@ export const guides = [
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
-            guideName: "build-provisioning-integration"
+            subLinks: [
+              {
+                title: "Overview",
+                path: "/docs/guides/scim-provisioning-integration-overview/main/"
+              },
+              {
+                title: "Prepare your SCIM API service",
+                path: "/docs/guides/scim-provisioning-integration-prepare/main/"
+              },
+              {
+                title: "Connect your SCIM API service to Okta",
+                path: "/docs/guides/scim-provisioning-integration-connect/main/"
+              },
+              { title: "Test your SCIM Okta integration",
+                path: "/docs/guides/scim-provisioning-integration-test/main/"
+              }
+            ]
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
