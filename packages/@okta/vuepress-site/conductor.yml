@@ -322,7 +322,7 @@ redirects:
   - from: /use_cases/integrate_with_okta/promotion/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /use_cases/integrate_with_okta/provisioning/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
     to: /docs/guides/build-sso-integration/overview/
   - from: /use_cases/isv/embedded-occ/index.html
@@ -1766,23 +1766,23 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
   - from: /docs/guides/oin-build-provisioning-integration/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
-    to: /docs/guides/build-provisioning-integration/faqs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/build-provisioning-integration/okta-verification/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/overview/index.html
-    to: /docs/guides/build-provisioning-integration/overview/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/publish/index.html
-    to: /docs/guides/build-provisioning-integration/publish/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/review-scim-docs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/index.html
-    to: /docs/guides/build-provisioning-integration/SCIMFiles/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/index.html
-    to: /docs/guides/build-provisioning-integration/submit-for-review/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-server/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-sso-integration/index.html
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/oin-build-sso-integration/get-help/index.html
@@ -1876,17 +1876,17 @@ redirects:
   - from: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xls
     to: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx
   - from: /docs/guides/build-provisioning-integration/faqs/index.html
-    to: /docs/guides/submit-app/faqs/
+    to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/submit-app/submit/
+    to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/publish/index.html
-    to: /docs/guides/submit-app/submit/
+    to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/prepare-api/
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
   - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
     to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-api/
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
   - from: /docs/guides/build-sso-integration/integrate/index.html
     to: /docs/guides/build-sso-integration/create-your-app/
   - from: /docs/guides/build-sso-integration/get-help/index.html
@@ -1922,7 +1922,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/next-steps/
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
-    to: /docs/guides/build-provisioning-integration/next-steps/
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
