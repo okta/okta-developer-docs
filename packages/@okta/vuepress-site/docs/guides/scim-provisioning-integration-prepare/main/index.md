@@ -93,7 +93,7 @@ Okta requires that your SCIM implementation be able to store the following four 
 
 Note that Okta supports more than those four user attributes. However, these are the base attributes that you must support.  The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See the [Check the attributes and corresponding mappings](../attribute-mapping/) step in this guide, or the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
+If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
 
 ### Unique ID
 
@@ -225,7 +225,7 @@ After you have customized your SCIM test in Runscope with the details of your SC
 1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server, and the HTTP status received in response determines the success or failure of each test.
 1. After the test is complete, the main panel displays the results of your test.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or the previous step on how to [Prepare your SCIM service](../prepare-api/).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 ## Sharing test results from Runscope
 

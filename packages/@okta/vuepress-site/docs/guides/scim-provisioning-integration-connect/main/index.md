@@ -104,7 +104,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Sync Password** &mdash; ensures that a user's application password is always the same as their Okta password or, alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main) .
 
-* **Profile Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Profile Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### To Okta
 
@@ -142,7 +142,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Inline Hooks** &mdash; configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
-* **Okta Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Okta Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### API Integration
 
