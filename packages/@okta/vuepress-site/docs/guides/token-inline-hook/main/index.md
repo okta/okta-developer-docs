@@ -121,7 +121,7 @@ The Token Inline Hook is now ready for triggering when the default policy rule i
 
 ## Extend the sample Express application
 
-The following code extends the local sample Node.js Express application to display the results of the Token Inline Hook claim addition. This step is optional. The Token Inline Hook is functional and the results of the implementation are available in the external service logs, as well as the System Log on your Okta org. But this extension is nice to have!
+The following code extends the local sample Node.js Express application to display the results of the Token Inline Hook claim addition. This step is optional. The Token Inline Hook is functional and the results of the implementation are shown in the external service logs, as well as in the system logs on your Okta org. But this extension is nice to have!
 
 To extend the local sample Node.js Express application, you need to update the `sample-web-server.js` file.
 
