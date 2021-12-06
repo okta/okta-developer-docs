@@ -143,7 +143,7 @@ The Token Inline Hook is now ready for testing. You now have the following appli
 - The external service (Glitch.com project) is ready with code to receive and respond to an Okta Token Inline Hook call.
 - The Okta org is set up to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
->**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-data-store/) in your Glitch application.
+>**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store/) in your Glitch application.
 
 ### Test your hook
 
