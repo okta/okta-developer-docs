@@ -27,7 +27,7 @@ You can customize your Okta organization by replacing the Okta domain name with 
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
-> **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/style-the-widget/style-okta-hosted/) or [error pages](/docs/guides/custom-error-pages/).
+> **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
@@ -37,7 +37,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/overview/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
@@ -238,7 +238,7 @@ You need to update your Authorization Server to use your custom domain to fix th
 
 The following customization options require a custom URL domain:
 
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 
 The following customization options don't require a custom URL domain:

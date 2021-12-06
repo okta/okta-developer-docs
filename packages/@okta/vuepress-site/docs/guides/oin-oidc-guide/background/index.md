@@ -8,7 +8,7 @@ Application developers and ISVs can create app integrations using a free Okta [d
 
 Single Sign-On (SSO) is an authentication method that enables end users to sign in to any cloud application or software system that is managed by an identity provider like Okta. After the end user has signed in to their Okta dashboard, clicking on any of the configured app integrations automatically signs the end user in to that application without requiring them to remember separate usernames and passwords.
 
-There are two standard protocols that you can use to implement SSO in your OIN app integrations: Security Assertion Markup Language (SAML), and OpenID Connect (OIDC). Although there are plenty of materials available for [understanding](/docs/concepts/saml/) and [implementing](/docs/guides/build-sso-integration/saml2/overview/) SAML with Okta, the purpose of this document is to help you understand how to implement the more modern standard of OIDC.
+There are two standard protocols that you can use to implement SSO in your OIN app integrations: Security Assertion Markup Language (SAML), and OpenID Connect (OIDC). Although there are plenty of materials available for [understanding](/docs/concepts/saml/) and [implementing](/docs/guides/build-sso-integration/saml2/main/) SAML with Okta, the purpose of this document is to help you understand how to implement the more modern standard of OIDC.
 
 If you’ve previously developed applications using OAuth 2.0 or OIDC, you can skip ahead to the next section.
 

@@ -12,6 +12,7 @@ guides:
  - custom-email
  - custom-error-pages
  - custom-url-domain
+ - custom-widget
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
@@ -54,7 +55,6 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
- - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -113,9 +113,9 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Implement authorization by grant type](/docs/guides/implement-grant-type/-/main/)
     * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
-    * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
-    * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
-    * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)
+    * [Refresh access tokens](/docs/guides/refresh-tokens/)
+    * [Validate access tokens](/docs/guides/validate-access-tokens/)
+    * [Validate ID tokens](/docs/guides/validate-id-tokens/)
     * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
@@ -124,8 +124,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 4. Brand and customize
 
-    * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
-    * [Customize SMS messages](/guides/custom-sms-messaging/)
+    * [Style the Sign-In Widget](/docs/guides/custom-widget/)
+    * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
     * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
@@ -151,6 +151,6 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-guide/overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/overview/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
+1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
 1. [Submit an app integration](/docs/guides/submit-app/openidconnect/overview/)

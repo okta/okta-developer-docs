@@ -10,7 +10,7 @@ For more information on the SDKs, see their corresponding repositories:
 
 While planning your upgrade strategy, it’s critical to understand how your authentication call flows map to the Identity Engine SDK. The following table maps the endpoints and methods of the Authentication API and Classic Engine Authentication SDK to the Identity Engine SDK.
 
-|Use case | Authentication API     | Classic Engine Authentication SDK     |   Identity Engine SDK      |
+|Use case | Classic Engine Authentication API | Classic Engine Authentication SDK     |   Identity Engine SDK      |
 | ----------------------- | ------------------------------ | -----------------------------------| ------------- |
 |[Basic sign-in](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk)| [/api/v1/authn](/docs/reference/api/authn/)<br>[/api/v1/sessions](/docs/reference/api/sessions/#create-session-with-a-session-token)| `AuthenticationClient.AuthenticateAsync()` | `IdxClient.AuthenticateAsync()` |
 |[Multifactor sign-in](#map-mfa-code-to-the-okta-identity-engine-sdk)| [/api/v1/auth](/docs/reference/api/authn/)<br>[/api/v1/factors](/docs/reference/api/factors/#get-started-with-the-factors-api)| `AuthenticationClient.AuthenticateAsync()`<br>`AuthenticationClient.VerifyFactorAsync()` | `IdxClient.AuthenticateAsync()`<br>`IdxClient.SelectChallengeAuthenticatorAsync()`<br>`IdxClient.VerifyAuthenticatorAsync()`|
