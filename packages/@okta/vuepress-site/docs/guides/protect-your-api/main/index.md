@@ -10,6 +10,8 @@ This guide shows you how to add Okta authentication to your API endpoints. When 
 
 > **Note**: These steps apply to back-end APIs that are serving [single-page apps](/docs/guides/sign-into-spa/) or [mobile apps](/docs/guides/sign-into-mobile-app/) that use Okta to sign users in. If you are building a web app that is served by a server framework, see [Sign users in to your web app](/docs/guides/sign-into-web-app/).
 
+---
+
 **Learning outcomes**
 
 * Add Okta authentication to your API endpoints.
@@ -22,6 +24,8 @@ This guide shows you how to add Okta authentication to your API endpoints. When 
 **Sample code**
 
 <StackSelector snippet="samplecode" noSelector/>
+
+---
 
 ## Add and configure packages
 
