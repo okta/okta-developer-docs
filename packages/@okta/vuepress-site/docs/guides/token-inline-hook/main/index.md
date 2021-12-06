@@ -86,6 +86,8 @@ The Token Inline Hook must be activated and enabled within your Okta Admin Conso
 * Activating the Token Inline Hook registers the hook with the Okta org and associates it with your external service.
 * Enabling the Token Inline Hook associates the hook with your Okta custom authorization server, which authenticates the Okta-Hosted Login sample application.
 
+<ApiAmProdWarning />
+
 ### Activate the Token Inline Hook
 
 1. Navigate to the **Workflow** > **Inline Hooks** page.
@@ -139,9 +141,9 @@ This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and i
 
 The Token Inline Hook is now ready for testing. You now have the following applications configured:
 
-- The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
-- The external service (Glitch.com project) is ready with code to receive and respond to an Okta Token Inline Hook call.
-- The Okta org is set up to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
+* The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
+*  The external service (Glitch.com project) is ready with code to receive and respond to an Okta Token Inline Hook call.
+*  The Okta org is set up to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
 >**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store/) in your Glitch application.
 
