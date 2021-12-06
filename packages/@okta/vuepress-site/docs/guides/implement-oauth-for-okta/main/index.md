@@ -160,7 +160,6 @@ The following table shows the scopes that are currently available:
 | `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization | [System Log API](/docs/reference/api/system-log/)|
-| `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization | [System Log API](/docs/reference/api/system-log/)|
 | `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](//docs/reference/api/mappings/)|
