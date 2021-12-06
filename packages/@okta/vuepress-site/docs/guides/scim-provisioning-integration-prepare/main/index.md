@@ -7,7 +7,7 @@ meta:
 layout: Guides
 ---
 
-This guide — part of the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series — teaches you how to prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+This guide teaches you how to prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
 
 ## Preparation
 

@@ -1,9 +1,9 @@
 ---
 title: Connect your SCIM API service to Okta
-excerpt: Create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+excerpt: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 meta:
   - name: description
-    content: Create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+    content: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 layout: Guides
 sections:
  - main

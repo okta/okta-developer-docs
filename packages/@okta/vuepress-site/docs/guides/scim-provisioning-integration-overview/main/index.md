@@ -1,6 +1,6 @@
 ---
 title: Build a SCIM provisioning integration overview
-excerpt: Learn about the steps required to create a provisioning integration using SCIM.
+excerpt: Create a provisioning integration with SCIM in Okta.
 meta:
   - name: description
     content: Use this guide to learn about the steps required to build an Okta integration that uses SCIM to handle user provisioning.
@@ -38,7 +38,7 @@ Your Okta integration should use Single Sign-On (SSO) to initiate end-user authe
 This guide series contains the following parts:
 
 * [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
-* [Connect your SCIM API service to Okta](/docs/guides/scim-provisioning-integration-connect/): Create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+* [Connect your SCIM API service to Okta](/docs/guides/scim-provisioning-integration-connect/): Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 * [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## See also

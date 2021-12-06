@@ -1,35 +1,36 @@
 ---
 title: Connect your SCIM API service to Okta
-excerpt: Create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+excerpt: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 meta:
   - name: description
-    content: Create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+    content: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 layout: Guides
 ---
 
-This guide — part of the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series — teaches you how to create a SCIM integration directly within Okta, configure the SCIM options for that integration, and check the attributes and corresponding mappings.
+This guide teaches you how to create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
 
 ## Getting connected
 
-After you have a SCIM implementation that passes all of the Runscope tests, as discussed in the [previous part of the series](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api), you need to create your SCIM integration directly within Okta.
+Make sure your SCIM implementation passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM implementation, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
 Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
-1. After you request the developer account and have received the initial email, click the link to go to your Admin Console.
-1. In the Admin Console, go to **Applications** > **Applications**.
+1. Sign up for an [Okta developer account](https://developer.okta.com/signup/).
+1. Click on the link in the signup email to open your Admin Console.
+1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
-1. Search for "SCIM 2.0" or "SCIM 1.1" (your choice depends on which version your SCIM server supports). You'll see three different SCIM template applications, one for each of the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
-1. Click **Add** on the template that you want to use and complete the add steps.
-1. On the **General Settings** page, give your integration a descriptive name and specify whether you want it to be hidden from general and mobile users. Additionally, you can decide if you want to have your users automatically be logged in when they reach the landing page in their web browser. Click **Next**.
-1. On the **Sign-On Options** page, you specify how your users sign in to your integration. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the integration.
-1. After the integration is created, click the **Provisioning** tab, and in the main panel, click **Configure API Integration**. Select the **Enable API Integration** check box.
+1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you'll see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
+1. Click **Add** on the desired template application for your integration and finish adding the template application.
+1. On the **General Settings** page: set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically logged in from the landing page. Click **Next**.
+1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
+1. Click the **Provisioning*** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** check box.
   Enter the base URL for your SCIM server.
-  The credential options vary depending on your choice of authentication method:
-    - Basic Auth: To authenticate using Basic Auth mode, you need to provide the username and password for the account that handles the create, update, and deprovisioning actions on your SCIM implementation.
-    - HTTP Header: To authenticate using HTTP Header, you need to provide a bearer token to access your SCIM implementation.
-    - OAuth: To authenticate using OAuth, you need to provide the OAuth access token to access your SCIM implementation.
+  Configure the credential options based on the previously chosen authentication method:
+    - Basic Auth: Enter the the username and password for the account that handles the create, update, and deprovisioning actions of your SCIM implementation.
+    - HTTP Header: Enter a bearer token for accessing your SCIM implementation.
+    - OAuth: Enter the OAuth token for accessing your SCIM implementation.
 
-    Fill in this information and click **Test API Credentials** to test whether the Okta integration can connect to your SCIM API.
+    Test the credentials by clicking **Test API Credentials**, which attempts to connect to Okta. If there's an error, check the credentials entered above.
 
     Click **Save** to complete the API integration.
 1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the app integration. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.

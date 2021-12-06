@@ -7,7 +7,7 @@ meta:
 layout: Guides
 ---
 
-This guide — part of the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series — teaches you to how test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+This guide teaches you to how test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## Scope of tests
 
