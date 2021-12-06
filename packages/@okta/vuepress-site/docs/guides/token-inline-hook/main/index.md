@@ -177,4 +177,4 @@ Review the following guides to implement other Inline or Event Hook examples:
 
 ## See also
 
-For further reference data on the Token Inline Hook, see: [Token Inline Hook](/docs/reference/token-hook/).
+For further reference data on the Token Inline Hook, see [Token Inline Hook](/docs/reference/token-hook/).
