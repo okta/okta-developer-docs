@@ -934,15 +934,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
+    to: /docs/guides/custom-widget/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
@@ -2080,13 +2080,13 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
     to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/customization-examples
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
   - from: /contact-sales-enterprise/index.html
@@ -4219,3 +4219,23 @@ redirects:
     to: /docs/guides/deploy-your-app/javascript/main/
   - from: /docs/guides/deploy-your-app/mobile/index.html
     to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/style-the-widget/before-you-begin
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/before-you-begin/index.html
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/style-self-hosted
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-self-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/customization-examples
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/customization-examples/index.html
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/next-steps
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/style-the-widget/next-steps/index.html
+    to: /docs/guides/custom-widget/main/#see-also

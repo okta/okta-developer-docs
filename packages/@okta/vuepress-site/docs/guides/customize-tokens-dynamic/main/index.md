@@ -4,6 +4,8 @@ excerpt: Define Groups claims for tokens returned from Okta.
 layout: Guides
 ---
 
+<ApiAmProdWarning />
+
 This article shows you how to define custom Groups claims for tokens returned from Okta, using a dynamic allow list to define user limits, with a default or custom Authorization Server.
 
 ---

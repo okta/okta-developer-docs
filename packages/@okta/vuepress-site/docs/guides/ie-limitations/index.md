@@ -18,7 +18,7 @@ Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.c
 
 **What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
 
-**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery)
+**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-widget/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery)
 
 ***
 
