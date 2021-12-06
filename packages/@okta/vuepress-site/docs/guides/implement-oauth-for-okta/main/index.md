@@ -162,7 +162,7 @@ The following table shows the scopes that are currently available:
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
 | `okta.profileMappings.read`| Allows the app to read information about profile mappings| [Mappings API](//docs/reference/api/mappings/)|
-| `okta.profileMappings.manage`      | Allows the app to create and manage profile mappings in your Okta organization     | [Mappings API](/docs/reference/api/mappings/)|
+| `okta.profileMappings.manage`| Allows the app to create and manage profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
 | `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
