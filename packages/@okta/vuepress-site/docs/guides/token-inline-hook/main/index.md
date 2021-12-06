@@ -141,7 +141,7 @@ The Token Inline Hook is now ready for testing. You now have the following appli
 
 - The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
 - The external service (Glitch.com project) is ready with code to receive and respond to an Okta Token Inline Hook call.
-- The Okta org is setup to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
+- The Okta org is set up to call the external service when a Token Inline Hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
 >**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-data-store/) in your Glitch application.
 
