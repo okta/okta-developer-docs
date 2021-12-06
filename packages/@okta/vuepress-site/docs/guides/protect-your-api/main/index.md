@@ -71,6 +71,6 @@ Configuring Cross-Origin Resource Sharing (CORS) is only required if the API is 
 
 Learn about customization options:
 
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Widget](/docs/guides/custom-widget/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
