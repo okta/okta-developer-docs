@@ -29,7 +29,7 @@ This guide provides a working example of an Okta Token Inline Hook. It uses the 
 
 ---
 
-The Token Inline Hook can be used to customize the authorization code flow that occurs between an application and the Okta org used for authentication.
+The Token Inline Hook can be used to customize the Authorization Code flow that occurs between an application and the Okta org used for authentication.
 
 This guide provides example code for an external service to respond to calls from a Token Inline Hook, and provides an end-to-end scenario using a local application, an Okta org, and the external service.
 
