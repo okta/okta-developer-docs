@@ -39,6 +39,8 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 > **Note:** Currently OAuth Consent works only with custom authorization servers. See [Authorization Servers](/docs/concepts/auth-servers/) for more information on the types of authorization servers available to you and what you can use them for.
 
+<ApiAmProdWarning />
+
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, in the **General Settings** section, click **Edit**.

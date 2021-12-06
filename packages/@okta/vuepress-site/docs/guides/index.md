@@ -12,6 +12,7 @@ guides:
  - custom-email
  - custom-error-pages
  - custom-url-domain
+ - custom-widget
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
@@ -54,7 +55,6 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
- - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -124,8 +124,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 4. Brand and customize
 
-    * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
-    * [Customize SMS messages](/guides/custom-sms-messaging/)
+    * [Style the Sign-In Widget](/docs/guides/custom-widget/)
+    * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
     * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 

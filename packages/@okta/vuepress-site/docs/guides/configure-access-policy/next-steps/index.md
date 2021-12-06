@@ -9,4 +9,4 @@ Next customize and style various Okta assets to match your company's visual iden
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 * [SMS customization](/docs/guides/custom-sms-messaging/)
 * [Email customization](/docs/guides/custom-email/)
-* [Style the Widget](/docs/guides/style-the-widget/)
+* [Style the Sign-In Widget](/docs/guides/custom-widget/)

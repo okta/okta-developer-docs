@@ -31,13 +31,13 @@ const config = {
 };
 ```
 
-> **Note:**
->
-> `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
+> **Note**: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to a user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
 >
 > The `issuer` in the configuration above points to the default [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server),
 which is created by default with the [Okta Developer Edition](https://developer.okta.com/signup/) account.
 See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
+
+<ApiAmProdWarning />
 
 With the configuration ready, initialize the SDK:
 
