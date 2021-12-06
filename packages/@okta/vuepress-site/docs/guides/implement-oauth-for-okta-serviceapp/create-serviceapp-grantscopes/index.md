@@ -50,7 +50,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \
 
 When a request is sent to the Okta Org Authorization Server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
 
-> **Note:** You can find a list of available values for `scopeId` on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/) page.
+> **Note:** You can find a list of available values for `scopeId` on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page.
 
 Now that you've created the service app and registered the public key with that service app, you need to define the allowed scopes.
 

@@ -934,15 +934,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
+    to: /docs/guides/custom-widget/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
@@ -1795,52 +1795,60 @@ redirects:
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/oauth-for-okta/index.html
     to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/oauth-for-okta/overview
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
-    to: /docs/guides/implement-oauth-for-okta/overview/
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
-    to: /docs/guides/implement-oauth-for-okta/create-oauth-app/
-  - from: /docs/guides/oauth-for-okta/use-client-credentials-grant-flow/index.html
-    to: /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/
-  - from: /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/overview/
+    to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
+  - from: /docs/guides/implement-oauth-for-okta/create-oauth-app
+    to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
+  - from: /docs/guides/implement-oauth-for-okta/create-oauth-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/use-client-credentials-grant-flow/index.html
     to: /docs/guides/implement-oauth-for-okta-serviceapp/overview/
   - from: /docs/guides/oauth-for-okta/define-allowed-scopes/index.html
-    to: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/
+    to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
+  - from: /docs/guides/implement-oauth-for-okta/define-allowed-scopes
+    to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
+  - from: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/oauth-for-okta/request-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
+  - from: /docs/guides/implement-oauth-for-okta/request-access-token
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
+  - from: /docs/guides/implement-oauth-for-okta/request-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
-  - from: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/index.html
     to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
-  - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app/index.html
+  - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app
     to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
   - from: /docs/guides/oauth-for-okta/save-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/save-access-token/
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/implement-oauth-for-okta/save-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/request-access-token/
-  - from: /docs/guides/oauth-for-okta/save-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/scopes/index.html
-    to: /docs/guides/implement-oauth-for-okta/scopes/
+    to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
+  - from: /docs/guides/implement-oauth-for-okta/scopes
+    to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
+  - from: /docs/guides/implement-oauth-for-okta/scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
   - from: /docs/guides/oauth-for-okta/-/overview/index.html
-    to: /docs/guides/implement-oauth-for-okta/overview/
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/-/create-oauth-app/index.html
-    to: /docs/guides/implement-oauth-for-okta/create-oauth-app/
+    to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/-/use-client-credentials-grant-flow/index.html
-    to:  /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/
+    to:  /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/define-allowed-scopes/index.html
-    to: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/
+    to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
   - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/save-access-token/
-  - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
-    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/scopes/index.html
-    to: /docs/guides/implement-oauth-for-okta/scopes/
+    to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
@@ -2072,13 +2080,13 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
     to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/customization-examples
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
   - from: /contact-sales-enterprise/index.html
@@ -3675,30 +3683,78 @@ redirects:
     to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/springboot/next-steps/index.html
     to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
-  - from: /docs/guides/quickstart/create-org
+  - from: /docs/guides/quickstart/-/create-org/
     to: /docs/guides/quickstart/-/main/#create-your-okta-organization
-  - from: /docs/guides/quickstart/using-console
+  - from: /docs/guides/quickstart/-/using-console
     to: /docs/guides/quickstart/-/main/#using-the-admin-console
-  - from: /docs/guides/quickstart/add-user
+  - from: /docs/guides/quickstart/-/add-user
     to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
-  - from: /docs/guides/quickstart/register-app
+  - from: /docs/guides/quickstart/-/register-app
     to: /docs/guides/quickstart/-/main/#register-your-app
-  - from: /docs/guides/quickstart/sign-in
+  - from: /docs/guides/quickstart/-/sign-in
     to: /docs/guides/quickstart/-/main/#try-signing-in
-  - from: /docs/guides/quickstart/try-api
+  - from: /docs/guides/quickstart/-/try-api
     to: /docs/guides/quickstart/-/main/#next-steps
-  - from: /docs/guides/quickstart/create-org/index.html
+  - from: /docs/guides/quickstart/-/create-org/index.html
     to: /docs/guides/quickstart/-/main/#create-your-okta-organization
-  - from: /docs/guides/quickstart/using-console/index.html
+  - from: /docs/guides/quickstart/-/using-console/index.html
     to: /docs/guides/quickstart/-/main/#using-the-admin-console
-  - from: /docs/guides/quickstart/add-user/index.html
+  - from: /docs/guides/quickstart/-/add-user/index.html
     to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
-  - from: /docs/guides/quickstart/register-app/index.html
+  - from: /docs/guides/quickstart/-/register-app/index.html
     to: /docs/guides/quickstart/-/main/#register-your-app
-  - from: /docs/guides/quickstart/sign-in/index.html
+  - from: /docs/guides/quickstart/-/sign-in/index.html
     to: /docs/guides/quickstart/-/main/#try-signing-in
-  - from: /docs/guides/quickstart/try-api/index.html
+  - from: /docs/guides/quickstart/-/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/quickstart/cli/create-org/
+    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/cli/using-console
+    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/cli/add-user
+    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/cli/register-app
+    to: /docs/guides/quickstart/cli/main/#register-your-app
+  - from: /docs/guides/quickstart/cli/sign-in
+    to: /docs/guides/quickstart/cli/main/#try-signing-in
+  - from: /docs/guides/quickstart/cli/try-api
+    to: /docs/guides/quickstart/cli/main/#next-steps
+  - from: /docs/guides/quickstart/cli/create-org/index.html
+    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/cli/using-console/index.html
+    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/cli/add-user/index.html
+    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/cli/register-app/index.html
+    to: /docs/guides/quickstart/cli/main/#register-your-app
+  - from: /docs/guides/quickstart/cli/sign-in/index.html
+    to: /docs/guides/quickstart/cli/main/#try-signing-in
+  - from: /docs/guides/quickstart/cli/try-api/index.html
+    to: /docs/guides/quickstart/cli/main/#next-steps
+  - from: /docs/guides/quickstart/website/create-org/
+    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/website/using-console
+    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/website/add-user
+    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/website/register-app
+    to: /docs/guides/quickstart/website/main/#register-your-app
+  - from: /docs/guides/quickstart/website/sign-in
+    to: /docs/guides/quickstart/website/main/#try-signing-in
+  - from: /docs/guides/quickstart/website/try-api
+    to: /docs/guides/quickstart/website/main/#next-steps
+  - from: /docs/guides/quickstart/website/create-org/index.html
+    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/website/using-console/index.html
+    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/website/add-user/index.html
+    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/website/register-app/index.html
+    to: /docs/guides/quickstart/website/main/#register-your-app
+  - from: /docs/guides/quickstart/website/sign-in/index.html
+    to: /docs/guides/quickstart/website/main/#try-signing-in
+  - from: /docs/guides/quickstart/website/try-api/index.html
+    to: /docs/guides/quickstart/website/main/#next-steps
   - from: /docs/guides/build-self-signed-jwt/-/overview
     to: /docs/guides/build-self-signed-jwt/
   - from: /docs/guides/build-self-signed-jwt/-/gather-information
@@ -4211,3 +4267,24 @@ redirects:
     to: /docs/guides/token-inline-hook/
   - from: /docs/guides/token-inline-hook/nodejs/overview/index.html
     to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/style-the-widget/before-you-begin
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/before-you-begin/index.html
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/style-self-hosted
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-self-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/customization-examples
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/customization-examples/index.html
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/next-steps
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/style-the-widget/next-steps/index.html
+    to: /docs/guides/custom-widget/main/#see-also
+
