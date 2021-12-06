@@ -14,7 +14,7 @@ This guide provides a working example of an Okta Token Inline Hook. It uses the 
 
 * Understand the Okta Token Inline Hook calls and responses.
 * Implement a simple working example of a Token Inline Hook with a Glitch.com external service.
-* Test the Token Inline hook.
+* Test the Token Inline Hook.
 
 **What you need**
 
