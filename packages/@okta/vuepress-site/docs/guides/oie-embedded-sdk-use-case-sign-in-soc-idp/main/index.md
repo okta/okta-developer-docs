@@ -9,7 +9,7 @@ title: Sign in with Facebook
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider.
+This guide covers a sequence of steps to follow to build an app allowing users to sign in with the Facebook social Identity Provider.
 
 ---
 
@@ -19,9 +19,9 @@ Set up your Okta org and app to support sign-in with Facebook IdP use cases.
 
 **What you need**
 
-* An app that uses the embedded Okta Identity Engine SDK.
+* An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
-* [Set up the Identity Engine SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 

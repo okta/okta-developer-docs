@@ -1,6 +1,6 @@
 ### 1: Navigate to the sign-in page
 
-The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded Widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from constructor) to establish a connection to the Okta org and application.
+The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded Widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from the constructor) to establish a connection to the Okta org and application.
 
 The following sample code shows the instantiation of the `IdxClient` and the `StartWidgetSignInAsync` call.
 
@@ -26,7 +26,7 @@ public async Task<ActionResult> Index()
 
 > **Note:** In the preceding MVC setup, the response's `SignInWidgetConfiguration` property is passed to the view as a model.
 
-The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that needs to be passed to the Sign-In Widget to initialized the page. The following example shows the object structure in JSON format.
+The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that needs to be passed to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format.
 
 ```json
 {
@@ -104,7 +104,7 @@ The `div id` that you passed into the Widget needs to match a `div` on the page 
 
 #### 2d: Add div tag
 
-The final step is to add a `div` tag with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the Widget object in the previous step.
+The final step is to add a `div` element with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the Widget object in the previous step.
 
 ```html
 <div id="okta-signin-widget-container"></div>

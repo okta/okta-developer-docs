@@ -19,7 +19,7 @@ Understand the sequence of steps in the basic sign-in flow when you use the Sign
 
 **What you need**
 
-* An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK.
+* An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
 * [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
 * [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
 

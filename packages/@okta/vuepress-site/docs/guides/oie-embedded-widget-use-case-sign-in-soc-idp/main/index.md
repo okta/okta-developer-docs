@@ -9,7 +9,7 @@ title: Sign in with Facebook using the Widget
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
+This guide provides a sequence of steps to follow to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
 ---
 

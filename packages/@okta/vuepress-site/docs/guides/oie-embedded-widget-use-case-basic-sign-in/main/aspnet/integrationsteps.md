@@ -1,6 +1,6 @@
 ### 1: The user signs in
 
-After you completed the steps in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) use case and the Widget loads successfully, then the next step is for the user to sign in.  There is no additional code that needs to be added to your app for this step. The user enters their credentials, and clicks the **Next** or **Sign In** button.
+After you completed the steps in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) use case and the Widget loads successfully, the next step is for the user to sign in.  There is no additional code that needs to be added to your app for this step. The user enters their credentials, and clicks the **Next** or **Sign In** button.
 
 <div class="common-image-format">
 

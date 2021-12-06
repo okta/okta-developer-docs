@@ -40,7 +40,7 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 
 ### 5: Get the tokens
 
-The next step is to call `RedeemInteractionCodeAsync` inside the callback function for the `IdxClient`. The Interaction Code is used get the ID and access tokens, which you can subsequently use to pull user information.
+The next step is to call `RedeemInteractionCodeAsync` inside the callback function for the `IdxClient`. The Interaction Code is used to get the ID and access tokens that you can subsequently use to pull user information.
 
 ```csharp
 Okta.Idx.Sdk.TokenResponse tokens = await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);

@@ -72,9 +72,9 @@ After the user enters the password authenticator value, and `idx.register` is ca
 
 ### 4: The user submits their password
 
-After the user submits a password, call `idx.register` passing in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
+After the user submits a password, call `idx.register`, passing in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
 
-See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
+See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
 
 <div class="common-image-format">
 
@@ -96,7 +96,7 @@ In this use case, the user selects **Email** as the authenticator to verify. Pas
 
 ### 6: The user submits the email verification code
 
-The next step is to call `idx.register` again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
+The next step is to call `idx.register`, again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
 
 Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone authenticator.
 

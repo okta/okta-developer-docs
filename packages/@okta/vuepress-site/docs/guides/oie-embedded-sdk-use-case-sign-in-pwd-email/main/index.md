@@ -19,9 +19,9 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 **What you need**
 
-* An app that uses the embedded Okta Identity Engine SDK.
+* An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
-* [Set up the Identity Engine SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
@@ -39,7 +39,7 @@ Before you build a sign-in flow with password and email factors, you need to con
 
 ### Set email as optional for authentication enrollment
 
- The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) enables both email and phone factors as optional for enrollment. For this use case, you need to enable the email factor as optional and disable the phone factor.
+ The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) enable both email and phone factors as optional for enrollment. For this use case, you need to enable the email factor as optional and disable the phone factor.
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, select the **Enrollment** tab.

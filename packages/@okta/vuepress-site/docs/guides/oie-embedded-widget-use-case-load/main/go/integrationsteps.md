@@ -77,13 +77,13 @@ Add the the following Okta JavaScript and CSS files to the page with the embedde
 <link href="https://global.oktacdn.com/okta-signin-widget/5.8.1/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-Next, add a container `div` tag for the Widget.
+Next, add a container `div` element for the Widget.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-Finally, add the JavaScript that loads the Widget into the `div` tag. The parameters set in
+Finally, add the JavaScript that loads the Widget into the `div` element. The parameters set in
 [step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
