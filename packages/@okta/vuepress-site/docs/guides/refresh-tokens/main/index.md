@@ -97,7 +97,7 @@ See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/overview/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server access policy](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server access policy](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 ## Get a refresh token
 
