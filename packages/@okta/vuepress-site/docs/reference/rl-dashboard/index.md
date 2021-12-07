@@ -52,7 +52,7 @@ You can sort on all the columns. The Trendline is sorted by the current usage.
 
 Each endpoint is a link that navigates you to the [dashboard view of endpoint rate limits and violations](#endpoint-rate-limits-and-violations) where you can obtain more details on the endpoint.
 
-You can perform a search or filter your table list by making an entry in the Search textbox. You can also perform a "lookup" with the Search textbox, for example, in cases when you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
+You can perform a search or filter your table list by making an entry in the Search textbox. You can also perform a "lookup" with the Search textbox. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
 
 ### Change rate limit settings
 
@@ -60,9 +60,9 @@ You can perform a search or filter your table list by making an entry in the Sea
 
 You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to Okta's `/login/login.htm` and OAuth 2.0 `/authorize` endpoints. For each of these endpoints, select from these options:
 
-* **Enforce and log per client (recommended)** - Enables client-based rate limiting for all clients
-* **Log per client** - Enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
-* **Do nothing (not recommended)** - Disables client-based rate limiting
+* **Enforce and log per client (recommended)** &mdash; Enables client-based rate limiting for all clients
+* **Log per client** &mdash; Enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
+* **Do nothing (not recommended)** &mdash; Disables client-based rate limiting
 
 #### Warning notification
 
