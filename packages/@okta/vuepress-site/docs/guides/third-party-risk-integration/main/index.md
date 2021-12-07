@@ -10,15 +10,14 @@ This guide shows you how to configure an Okta org to receive risk events from a 
 <!-- Nutrition facts bullets -->
 **Learning outcomes**
 
-* XXX
+* Learn how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * A configured Okta org for third-party risk providers &mdash; contact your Okta customer support representative for this configuration.
-* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration. See [Get Started with the Okta APIs](/code/rest/) to set up Postman.
-* Download the Risk API Collection:
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
+* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration &mdash; see [Get Started with the Okta APIs](/code/rest/) to set up Postman.
+* The Risk API collection &mdash; download from: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
 
 ---
 
@@ -33,23 +32,24 @@ This guide provides an example third-party risk provider implementation with you
 >**Note:** Third-party risk events are shared with and received from Non-Okta Applications.  Non-Okta Applications include web-based, offline, mobile, or other software application functionality that are provided by you or a third party and interoperate with the Okta Service. You are not required to receive or utilize third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to utilize third-party risk events, then you agree on behalf of your organization that Okta may receive and share data with the Non-Okta Application as necessary to provide this functionality. You may only utilize these third-party risk events if you are a customer of both Okta and the Non-Okta Application. Okta cannot guarantee continued partnerships or functionality with any Non-Okta Applications.
 
 ### High-level configurations
+
 Creating a third-party risk provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default risk provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-party risk provider integration.
 
-1. [Create self-service application for the risk provider](/docs/guides/third-party-risk-integration/create-service-app)
-2. [Update the default risk provider](/docs/guides/third-party-risk-integration/update-default-provider)
-3. [Test the integration](/docs/guides/third-party-risk-integration/test-integration)
+1. [Create self-service application for the risk provider](#create-a-service-app-for-a-third-party-risk-provider)
+2. [Update the default risk provider](#update-the-default-third-party-risk-provider)
+3. [Test the integration](#test-the-integration)
 
-## Create a service app for third-party risk provider
+## Create a service app for a third-party risk provider
 
 Your Okta org requires the set up of an OAuth service application to integrate and consume risk events from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
-1. [Create a public-private key pair](/docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
-2. [Create and verify the service application](/docs/guides/third-party-risk-integration/create-service-app/#create-a-service-application)
-3. [Add a scope grant to the service application](/docs/guides/third-party-risk-integration/create-service-app/#add-scope-grant-to-application)
+1. [Create a public-private key pair](#create-a-public-private-key-pair)
+2. [Create and verify the service application](#create-a-service-application)
+3. [Add a scope grant to the service application](#add-a-scope-grant-to-the-application)
 
-For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
+For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/).
 
 ### Create a public-private key pair
 
@@ -132,7 +132,7 @@ This call retrieves all service applications from your Okta org, including the n
 
 For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/).
 
-### Add scope grant to application
+### Add a scope grant to the application
 
 You must now define the allowed Risk scope for use with the third-party risk provider service application.
 
@@ -154,7 +154,7 @@ For background information on granting scopes, see [Grant allowed scopes](/docs/
 
 >**Note:** If you get a "Resource Not Found" exception in this step, it's possible that your `clientId` or the URL are not valid.
 
-## Update default third-party risk provider
+## Update the default third-party risk provider
 
 The Okta org contains a default risk provider profile, which must be configured for the third-party risk provider by your Okta administrator using the risk provider API. On your Okta org, you can have as many as three third-party risk providers available to send risk events to the Okta Risk Engine.
 
@@ -163,10 +163,11 @@ Each third-party risk provider can also be configured to send three action types
 For further detail on the Risk Provider API see the following reference documentation: [Risk Provider API](/docs/reference/api/risk-providers).
 
 In this example, use the following two procedures to set up your third-party risk provider:
-- [Retrieve the default risk provider](/docs/guides/third-party-risk-integration/update-default-provider/#retrieve-the-default-risk-provider)
-- [Update the risk provider ](/docs/guides/third-party-risk-integration/update-default-provider/#update-the-risk-provider)
+- [Retrieve the default risk provider](#retrieve-the-default-risk-provider)
+- [Update the risk provider ](#update-the-risk-provider)
 
 ### Retrieve the default risk provider
+
 This procedure retrieves the default risk provider profile and Provider ID.
 
 1. Call the following GET API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
@@ -198,6 +199,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
 3. From the response, copy the `id` value, in this example `rkpa9y5jpfe8l4ktr1d6`, to your Postman environment's `providerId` variable.
 
 ### Update the risk provider
+
 This procedure updates the default risk provider profile with the service application ID, risk provider name, and the risk provider action.
 
 1. Call the following PUT API from the Risk Integration Postman collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/${providerId}`), which updates the default risk provider's data. This data is included in the request body:
@@ -237,7 +239,7 @@ This procedure updates the default risk provider profile with the service applic
 
 With the creation of a service application for the third-party risk provider, and the update of the third-party risk provider profile, you can now test the integration using the Risk Events API.
 
-In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public-private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](/docs/guides/third-party-risk-integration/create-service-app/) section.
+In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public-private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
 
 In this test, the API sends a sample payload risk event to the Okta org, which can be consumed by Okta and used to calculate the risk of the authentication.
 
@@ -245,10 +247,10 @@ In this test, the API sends a sample payload risk event to the Okta org, which c
 
 Use the following high-level steps to test the risk provider integration:
 
-1. [Create a client assertion for the access token](/docs/guides/third-party-risk-integration/test-integration/#create-a-client-assertion)
-2. [Create an access token](/docs/guides/third-party-risk-integration/test-integration/#create-an-access-token)
-3. [Send a risk event to the Okta org](/docs/guides/third-party-risk-integration/test-integration/#send-a-risk-event-to-okta)
-4. [Confirm the response and system log](/docs/guides/third-party-risk-integration/test-integration/#confirm-the-response)
+1. [Create a client assertion for the access token](#create-a-client-assertion)
+2. [Create an access token](#create-an-access-token)
+3. [Send a risk event to the Okta org](#send-a-risk-event-to-okta)
+4. [Confirm the response and system log](#confirm-the-response)
 
 ### Create a client assertion
 
