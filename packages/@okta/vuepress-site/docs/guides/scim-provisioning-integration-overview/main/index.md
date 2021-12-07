@@ -20,6 +20,8 @@ This guide series teaches you the steps required to build an Okta integration th
 **What you need**
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* A SCIM Version 2.0 API design that supports the [minimum feature set](/docs/guides/scim-provisioning-integration-prepare/main/#features).
+* Profile Sourcing activated in your org, if you intend to test this feature in your SCIM app integration (see [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation) to find out how to activate).
 
 ---
 
@@ -39,7 +41,7 @@ This guide series contains the following parts:
 
 * [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
 * [Connect your SCIM API service to Okta](/docs/guides/scim-provisioning-integration-connect/): Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
-* [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+* [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## See also
 

@@ -1,21 +1,21 @@
 ---
 title: Test your Okta SCIM integration
-excerpt: Test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+excerpt: Test that your SCIM application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 meta:
   - name: description
-    content: Test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+    content: Test that your SCIM application can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 layout: Guides
 ---
 
-This guide teaches you to how test that your SCIM application can handle actual requests to Create, Read, Update and Delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+This guide teaches you to how test that your SCIM application can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## Scope of tests
 
-This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **C**reate, **R**ead, **U**pdate and **D**elete (CRUD) user profile information.
+This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **c**reate, **r**ead, **u**pdate, and **d**elete (CRUD) user profile information.
 
 >**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
-## Prerequisites
+## Profile Sourcing activation
 
 The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact <developers@okta.com> with the name of your app integration and your org ID to have Profile Sourcing temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, inform Developer Support of your time requirements in your email.
 
