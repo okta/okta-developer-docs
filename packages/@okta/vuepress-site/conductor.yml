@@ -4287,3 +4287,19 @@ redirects:
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/configure-access-policy/overview
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/overview/index.html
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access/index.html
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client/index.html
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/next-steps
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/configure-access-policy/next-steps/index.html
+    to: /docs/guides/configure-access-policy/main/#next-steps

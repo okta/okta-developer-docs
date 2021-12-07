@@ -72,11 +72,11 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 4. Click the **x** to remove all of the scopes except for **openid** and **email**. This limits the scopes that the applications associated with this policy can request to just the `openid` and `email` scopes.
 
-> **Note:** Access policies rules are allow lists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
+     > **Note:** Access policies rules are allow lists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
 
 5. Leave the other defaults and click **Create Rule**.
 
-> **Note:** Policies are evaluated in priority order, as are the rules in a policy. The first policy and rule that match the client request are applied and no further rule or policy processing occurs. If a client matches no policies, the authentication attempt fails and an error is returned.
+     > **Note:** Policies are evaluated in priority order, as are the rules in a policy. The first policy and rule that match the client request are applied and no further rule or policy processing occurs. If a client matches no policies, the authentication attempt fails and an error is returned.
 
 ### Test the setup
 
@@ -87,7 +87,7 @@ Let's test your access policy and get back an access token.
      * Client ID
      * Valid Redirect URI
 
-> **Note:** Make sure that you have a user assigned to the client application.
+     > **Note:** Make sure that you have a user assigned to the client application.
 
 2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
 
@@ -205,6 +205,17 @@ Let's test your access policy and get back an access token.
      `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQw[...]vkAcHgJ1GFmR-7sO0Q&token_type=Bearer&expires_in=900&scope=openid+email&state=WM6D`
 
      In the response, you can see that the value for the `expires_in` parameter is `900`.
+
+## Next steps
+
+You should now understand how to configure an access policy.
+
+You can customize and style various Okta assets to match your company's visual identity and branding:
+
+* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [SMS customization](/docs/guides/custom-sms-messaging/)
+* [Email customization](/docs/guides/custom-email/)
+* [Style the Sign-In Widget](/docs/guides/custom-widget/)
 
 ## Support
 
