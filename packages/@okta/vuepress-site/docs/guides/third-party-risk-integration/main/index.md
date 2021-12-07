@@ -35,7 +35,7 @@ This guide provides an example third-party risk provider implementation with you
 
 Creating a third-party risk provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default risk provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-party risk provider integration.
 
-1. [Create self-service application for the risk provider](#create-a-service-app-for-a-third-party-risk-provider)
+1. [Create a self-service application for the risk provider](#create-a-service-app-for-a-third-party-risk-provider)
 2. [Update the default risk provider](#update-the-default-third-party-risk-provider)
 3. [Test the integration](#test-the-integration)
 
@@ -196,6 +196,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
     }
     ]
     ```
+
 3. From the response, copy the `id` value, in this example `rkpa9y5jpfe8l4ktr1d6`, to your Postman environment's `providerId` variable.
 
 ### Update the risk provider
