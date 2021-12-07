@@ -78,7 +78,7 @@ The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/r
 
 #### Bugs fixed in 2021.12.0
 
-* Changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the 'id' of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
+* Sometimes, changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the 'id' of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
 
 * The [Org Admin role](/docs/reference/api/roles/#role-types) didn't have permission to manage identity providers. (OKTA-372730)
 
