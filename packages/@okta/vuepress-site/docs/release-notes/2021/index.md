@@ -61,7 +61,7 @@ The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorizatio
 
 #### List Schemas operation for the Log Streaming API now available
 
-API users can now [discover available log stream schemas](/docs/reference/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects that the org has access to. <!--OKTA-439999-->
+API users can now [discover available log stream schemas](/docs/reference/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects. <!--OKTA-439999-->
 
 #### The word "source" is now allowed with custom application username formats
 
