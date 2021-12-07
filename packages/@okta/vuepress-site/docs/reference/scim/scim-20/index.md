@@ -41,7 +41,7 @@ After you complete this step, whenever a user is assigned to the integration in 
 
 * Determine if the User object already exists. Okta uses the unique `externalId` value stored on the object's profile SCIM server for object comparison. 
 * If the User isn't found on the SCIM server, create the User
-* If the User is found on the SCIM server, but the Okta account is not active, activate the User in Okta
+* If the User is found on the SCIM server, but the Okta account is not active, activate the User in Okta.
 * If the User is found on the SCIM server and the Okta account is active, update the SCIM User object from the Okta profile using the unique `externalId` value returned from the SCIM database.
 
 #### Determine if the User already exists
