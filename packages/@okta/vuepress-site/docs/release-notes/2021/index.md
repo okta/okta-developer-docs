@@ -22,7 +22,7 @@ title: Okta API Products release notes 2021
 
 #### Okta Sign-In Widget, version 5.14.0
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-449551-->
+See the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0) for more information about this release. See the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-449551-->
 
 #### Browser-like devices can now use the Device Authorization Grant flow
 
