@@ -39,21 +39,15 @@ An authorization server's issuer URL can be used to validate whether tokens are 
 
 When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
-With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. For example, if the authorize request is `https://sso.company.com/api/v1/authorize`, the issuer value is `https://sso.company.com`. See [Client application settings](/docs/reference/api/apps/#settings-10).
-
-Dynamic Issuer Mode helps with:
-
-* Split deployment use cases
-* Migration use cases when customers migrate from the Okta domain to a custom domain
-* Support with multiple custom domains <!--OKTA-447358-->
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
 
 #### Error response updated for malicious IP address sign-in requests
 
-If you are blocking suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization and the user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified as the result of ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified as the result of ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
 
-#### IdP discovery supported for Device Authorization Grant flow
+#### IdP Discovery supported for Device Authorization Grant flow
 
-The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) now supports routing rules and IdP discovery. <!--OKTA-425256-->
+The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) now supports routing rules and IdP Discovery. <!--OKTA-425256-->
 
 #### Upload Logo for Org deprecated
 
