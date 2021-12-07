@@ -17,6 +17,7 @@ title: Okta API Products release notes 2021
 | [List Schemas operation for the Log Streaming API now available](#list-schemas-operation-for-the-log-streaming-api-now-available) | December 8, 2021 |
 | [The word "source" is now allowed with custom application username formats](#the-word-source-is-now-allowed-with-custom-application-username-formats) | December 8, 2021 |
 | [Upload Logo for Org deprecated](#upload-logo-for-org-deprecated) | December 8, 2021          |
+| [User Types API and Mappings API support OAuth 2.0](#user-types-api-and-mappings-api-support-oauth-2-0) | December 8, 2021 |
 | [Bugs fixed in 2021.12.0](#bugs-fixed-in-2021-12-0)               | December 8, 2021          |
 
 #### Okta Sign-In Widget, version 5.14.0
@@ -71,9 +72,13 @@ Custom application username formats set by the [Apps API](/docs/reference/api/ap
 
 The Upload Logo for Org endpoint (`api/v1/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/api/v1/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
+#### User Types API and Mappings API support OAuth 2.0
+
+The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+
 #### Bugs fixed in 2021.12.0
 
-* The 'id' in the response changed when additional calls were made to `/api/v1/groups/${groupId}/roles` to [add role assignments to a group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
+* Changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the 'id' of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
 
 * The [Org Admin role](/docs/reference/api/roles/#role-types) didn't have permission to manage identity providers. (OKTA-372730)
 
