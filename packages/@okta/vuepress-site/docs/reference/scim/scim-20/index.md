@@ -39,8 +39,10 @@ For more information on enabling the provisioning features of your SCIM integrat
 
 After you complete this step, whenever a user is assigned to the integration in Okta, the following requests are made against the SCIM server:
 
-* Determine if the User object already exists
-* Create the User object if it isn't found
+* Determine if the User object already exists. Okta uses the unique `externalId` value stored on the object's profile SCIM server for the object comparison. 
+* If the User isn't found on the SCIM server, create the User
+* If the User is found on the SCIM server, but the Okta account is not active, activate the User in Okta
+* If the User is found on the SCIM server and the Okta account is active, update the SCIM User object from the Okta profile using the unique `externalId` value returned from the SCIM database
 
 #### Determine if the User already exists
 
@@ -518,12 +520,12 @@ For a detailed explanation on deleting users, see [Delete (Deprovision)](/docs/c
 
 **POST** /Groups
 
-To create a Group object on the SCIM server, you need to push the Okta group using the Okta Admin Console:
+To create a Group object on the SCIM server, you first need to enable provisioning with the Group Push feature in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
-1. On the **Push Groups** tab, click **Push Groups**.
+2. On the **Push Groups** tab, click **Push Groups**.
 
-You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
+You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a new group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST method request to the Service Provider:
 
