@@ -7,7 +7,7 @@ title: Sign in with password and email factors
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers the use case for a user sign-in flow with password and email factors, and provides a flow diagram and a sequence of integration steps.
 
@@ -25,7 +25,7 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -51,10 +51,10 @@ Before you build a sign-in flow with password and email factors, you need to con
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

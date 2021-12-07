@@ -7,7 +7,7 @@ title: Basic sign-in flow using the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers a basic user sign-in flow that uses the Sign-In Widget. The flow diagram and steps describe the process to sign in to an app with the embedded Sign-In Widget.
 
@@ -25,7 +25,7 @@ Understand the sequence of steps in the basic sign-in flow when you use the Sign
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -35,10 +35,10 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

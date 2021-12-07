@@ -7,7 +7,7 @@ title: Sign in with Facebook
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers a sequence of steps to follow to build an app allowing users to sign in with the Facebook social Identity Provider.
 
@@ -25,7 +25,7 @@ Set up your Okta org and app to support sign-in with Facebook IdP use cases.
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -35,10 +35,10 @@ Before you build the Facebook IdP sign-in flow, ensure that you've [set up your 
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

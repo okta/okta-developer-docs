@@ -7,7 +7,7 @@ title: Basic sign-in flow using the password factor
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
@@ -25,7 +25,7 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -39,12 +39,12 @@ Before you build a basic sign-in flow, ensure that your org is configured for th
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
-<StackSelector snippet="getuserprofile" noSelector />
+<StackSnippet snippet="getuserprofile" />
 
 </div>

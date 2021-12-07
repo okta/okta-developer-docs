@@ -7,8 +7,7 @@ title: Sign in with password and phone factors
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
@@ -26,7 +25,7 @@ Understand how to implement a user sign-in flow with password and phone factors.
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -53,10 +52,10 @@ The instructions in [Set up your Okta org for a multifactor use case](/docs/guid
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

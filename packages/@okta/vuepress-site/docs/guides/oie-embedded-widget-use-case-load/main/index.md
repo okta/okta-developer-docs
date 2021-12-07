@@ -7,7 +7,7 @@ title: Load the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
@@ -25,7 +25,7 @@ Understand the sequence of steps to load the Sign-In Widget.
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -35,10 +35,10 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

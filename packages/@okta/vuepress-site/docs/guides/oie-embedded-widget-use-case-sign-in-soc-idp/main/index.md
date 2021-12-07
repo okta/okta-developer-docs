@@ -7,7 +7,7 @@ title: Sign in with Facebook using the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide provides a sequence of steps to follow to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
@@ -25,7 +25,7 @@ Set up your app to support the sign-in flow with Facebook IdP use cases by using
 
 **Sample code**
 
-<StackSelector snippet="samplecode" noSelector />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -37,10 +37,10 @@ After you've set up your Okta org for the social IdP use case, [download and con
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>
