@@ -1,1 +1,1 @@
-[<StackSelector snippet="idp" noSelector inline />](https://login.xero.com/identity/user/login)
+[<StackSelector snippet="idp" noSelector inline />](https://www.xero.com/us/signup/api/)
