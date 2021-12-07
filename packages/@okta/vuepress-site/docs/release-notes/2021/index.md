@@ -48,7 +48,7 @@ With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updat
 
 #### Error response updated for malicious IP address sign-in requests
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified as the result of ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
 
 #### IdP Discovery supported for Device Authorization Grant flow
 
@@ -60,7 +60,7 @@ API users can now [discover available log stream schemas](/docs/reference/api/sc
 
 #### The word "source" is now allowed with custom application username formats
 
-Custom application username formats set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443206-->
+Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443206-->
 
 #### Upload Logo for Org deprecated
 
@@ -68,7 +68,7 @@ The Upload Logo for Org endpoint (`api/v1/org/logo`) is deprecated. Use the [Upl
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
