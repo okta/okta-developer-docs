@@ -106,7 +106,7 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 </div>
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: The user selects phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
+If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: The user selects the phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
 ### 7: Handle the phone options
 
