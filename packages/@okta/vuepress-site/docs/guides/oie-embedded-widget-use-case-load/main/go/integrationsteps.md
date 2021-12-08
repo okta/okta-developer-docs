@@ -10,7 +10,7 @@ parameters using different methods. The main parameters include:
 
 * Client ID, issuer, scopes &mdash; sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
 * Interaction Handle &mdash; obtained from the `/interact` endpoint
-* PCKE parameters, state, and nonce &mdash; generated values
+* PKCE parameters, state, and nonce &mdash; generated values
 * Base URL &mdash; derived from the issuer URL
 
 These parameter are passed to the Widget during page load. The sample application sets most
