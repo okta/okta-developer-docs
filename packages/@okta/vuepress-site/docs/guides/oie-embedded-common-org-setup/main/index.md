@@ -68,7 +68,7 @@ You need to configure your default Custom Authorization Server to enable the Int
 
 ### Create a new application
 
-Create an app integration representing the application you want to add authentication to with Okta:
+Create an app integration that represents the application you want to add authentication to with Okta:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
