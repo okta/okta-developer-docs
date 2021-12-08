@@ -311,10 +311,6 @@ module.exports = ctx => ({
           crawlDelay: 10,
           disallow: [
               //'/docs/guides/third-party-risk-integration/', //EA release of Risk APIs and Guide 2021.08.0
-              //'/docs/guides/third-party-risk-integration/overview/',
-              //'/docs/guides/third-party-risk-integration/create-service-app/',
-              //'/docs/guides/third-party-risk-integration/update-default-provider/',
-              //'/docs/guides/third-party-risk-integration/test-integration/',
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
