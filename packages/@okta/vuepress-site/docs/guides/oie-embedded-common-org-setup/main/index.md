@@ -47,7 +47,7 @@ After you've created your app, you need to [set up your Okta org for your use ca
 
 ### Create your Okta account
 
-If you don't have an Okta Identity Engine org, you need sign up for an Okta account and an Identity Engine org.
+If you don't have an Okta Identity Engine org, you need to sign up for an Okta account and an Identity Engine org.
 
 1. [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account.
 
