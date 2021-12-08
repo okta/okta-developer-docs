@@ -72,7 +72,7 @@ After the user enters the password authenticator value, and `idx.register` is ca
 
 ### 4: The user submits their password
 
-After the user submits a password, call `idx.register`, passing in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
+After the user submits a password, call `idx.register` and pass in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
 
 See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
 
