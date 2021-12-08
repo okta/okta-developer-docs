@@ -8,7 +8,7 @@ directs the user to the sign-in page where the Widget is embedded. On the sample
 Obtain the parameters required to display the Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
 
-* Client ID, issuer, scopes &mdash; sourced from the [configuration](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
+* Client ID, issuer, scopes &mdash; sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
 * Interaction Handle &mdash; obtained from the `/interact` endpoint
 * PCKE parameters, state, and nonce &mdash; generated values
 * Base URL &mdash; derived from the issuer URL
