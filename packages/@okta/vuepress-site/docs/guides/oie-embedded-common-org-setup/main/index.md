@@ -51,7 +51,7 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account.
 
-   After you sign up, Okta sends a verification email to the email address that you provided.
+   After you sign up, Okta sends a verification email to the email address that you provide.
 
 1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console) of your new Identity Engine org.
 
