@@ -32,7 +32,7 @@ The next step is to show the email factor to the user in an authenticator list p
 
 </div>
 
-When the user selects the **Email** factor, call `idx.authenticate` and pass in the authentication email authentication type, `({ authenticator: 'email' })`. With this call, Okta sends a verification code to the user's email.
+When the user selects the **Email** factor, call `idx.authenticate` and pass in the authentication email authentication type `({ authenticator: 'email' })`. With this call, Okta sends a verification code to the user's email.
 
 If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK is ready for the verification code. The `nextStep` field identifies the input parameter of the next step, which is a verification code in this case:
 
