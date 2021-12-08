@@ -5,7 +5,7 @@ application. The sample code wraps the SDK's functionality using a more
 prescriptive and explicit interface. It converts the SDK's generic remediation
 interface into explicit authentication steps and automatically executes steps
 such as the code-to-token exchange. The following diagram illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
+from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code that you need to write to call the sample code's interface.
 
 <div class="common-image-format">
 
