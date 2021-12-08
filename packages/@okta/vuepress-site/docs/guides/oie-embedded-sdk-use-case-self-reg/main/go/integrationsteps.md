@@ -281,4 +281,4 @@ if enrollResponse.Token() != nil {
 
 ### 12 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful user sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.
+Optionally, you can obtain basic user information after a successful user sign-in flow by making a request to Okta's OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).
