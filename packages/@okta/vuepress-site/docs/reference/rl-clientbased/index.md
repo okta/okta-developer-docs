@@ -127,7 +127,7 @@ X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
 ```
 
-When a specific client/IP/device identifier combination or IP/device identifier combination exceeds either the 60 requests per minute request limit or the concurrent limit (five concurrent requests), then the respective OAuth 2.0 `/authorize` or `/login/login.htm`  request returns an HTTP 429 error.
+When a specific client/IP/device identifier combination or IP/device identifier combination exceeds either the 60 requests per minute limit or the concurrent limit (five concurrent requests), then the respective OAuth 2.0 `/authorize` or `/login/login.htm`  request returns an HTTP 429 error.
 
 ### How to enable this feature
 
