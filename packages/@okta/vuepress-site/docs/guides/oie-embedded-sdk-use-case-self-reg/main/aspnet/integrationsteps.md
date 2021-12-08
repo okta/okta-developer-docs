@@ -186,7 +186,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[The email link to verify the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-the-email-address-isn-t-working).
+[The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working).
 
 ### 13: Handle the submit response
 
