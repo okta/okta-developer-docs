@@ -34,7 +34,7 @@ In this use case, only the **Phone** factor appears in the list of authenticator
 
 >**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
 
-When the user selects the **Phone** factor, call `idx.authenticate` and pass in the authentication phone type, `{ authenticator: 'phone' }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method in order to send the verification code. The `nextStep` field includes the input for this method.
+When the user selects the **Phone** factor, call `idx.authenticate` and pass in the authentication phone type `{ authenticator: 'phone' }`. If the call is successful, the method returns a status of `Idx.Status:PENDING` that indicates that the SDK needs a phone verification method to send the verification code. The `nextStep` field includes the input for this method.
 
 ```JavaScript
 status, // IdxStatus.PENDING
