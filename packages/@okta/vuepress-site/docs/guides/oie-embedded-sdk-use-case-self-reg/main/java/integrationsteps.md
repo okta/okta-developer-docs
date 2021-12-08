@@ -138,7 +138,7 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 </div>
 
-> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-the-email-address-isn-t-working) for details.
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working) for details.
 
 ### 7: The user submits the email verification code
 
