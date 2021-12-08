@@ -12,7 +12,7 @@ This guide shows you how to interact with Okta APIs using scoped OAuth 2.0 acces
 
 * Create a public/private key pair.
 * Create a service app with grant scopes.
-* Create and sign the JWT.
+* Create and sign the JSON Web Token (JWT).
 * Get an access token to make an API request.
 
 **What you need**
