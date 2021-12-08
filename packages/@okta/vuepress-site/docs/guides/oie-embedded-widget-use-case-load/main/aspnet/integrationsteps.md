@@ -112,7 +112,7 @@ The final step is to add a `div` element with the `id` (for example, `okta-signi
 
 ### 3: Display the Widget
 
-The final step is to run your app. If the Widget and Okta org are property configured, the Sign-In Widget loads and appears, similar to the following image.
+The final step is to run your app. If the Widget and Okta org are properly configured, the Sign-In Widget loads and appears, similar to the following image.
 
 <div class="common-image-format">
 
