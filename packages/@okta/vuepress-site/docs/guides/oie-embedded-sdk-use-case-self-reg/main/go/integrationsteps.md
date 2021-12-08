@@ -258,7 +258,7 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
   ...
 ```
 
-For more details about enrolling the phone factor see the sample application. For details on how
+For more details about enrolling the phone factor, see the sample application. For details on how
 to verify a sign-in flow with the phone factor, see
 [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
