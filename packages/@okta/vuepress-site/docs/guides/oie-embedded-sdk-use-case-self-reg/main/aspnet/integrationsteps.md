@@ -268,7 +268,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 1. Start phone verification
 
-   If the user selects the phone authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the phone `AuthenticatorId`. If the call was successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
+   If the user selects the phone authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the phone `AuthenticatorId`. If the call was successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData` response indicates that the enrollment data is required before the flow continues to verification.
 
    In the use case to verify the phone authenticator, the phone number is required, and the user should be redirected to a page where they can enter in a phone number. See the following code snippet from the sample app.
 
