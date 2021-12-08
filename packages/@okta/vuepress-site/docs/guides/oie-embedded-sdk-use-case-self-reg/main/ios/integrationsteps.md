@@ -84,7 +84,7 @@ self.authHandler.register(username: "user@example.com",
 
 The final integration step is to send the user to the default home page
 after the user successfully signs in. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
+user successfully signs in by making a request to Okta's OpenID Connect authorization server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ### Sample code
