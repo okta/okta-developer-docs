@@ -1,7 +1,7 @@
 ### 1: The user clicks the sign-in page link
 
 The first step occurs when the user clicks the sign-in link. This link
-directs the user to the sign-in page where the Widget is embedded. On the sample application's landing page, this link is labelled **Login** and located on the top right corner of the page.
+directs the user to the sign-in page where the Widget is embedded. On the sample application's landing page, this link is labelled **Login** and located in the upper-right corner of the page.
 
 ### 2: Get the data to initialize the Widget
 
