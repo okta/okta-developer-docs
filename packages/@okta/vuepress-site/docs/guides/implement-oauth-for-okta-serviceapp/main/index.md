@@ -35,7 +35,7 @@ The following are the high-level steps required to perform the Client Credential
 1. Create a public/private JSON Web Key Set (JWKS) key pair and extract the public key to pass it along with the client creation API call.
 1. Create the app and register the public key with the app.
 1. Grant the required OAuth scopes to the app.
-1. Create a JSON Web Token (JWT) token and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
+1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
 > **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
 
