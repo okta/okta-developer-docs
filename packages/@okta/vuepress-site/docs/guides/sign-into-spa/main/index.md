@@ -8,8 +8,6 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
 
-<StackSelector />
-
 ---
 
 **Learning outcomes**

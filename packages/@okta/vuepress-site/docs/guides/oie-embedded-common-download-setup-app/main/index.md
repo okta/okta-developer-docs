@@ -6,8 +6,6 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 This guide covers the next step after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), which is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
 
 ---

@@ -219,6 +219,14 @@
     p > code {
       overflow-wrap: break-word;
     }
+
+    .stack-selector {
+      display: none;
+
+      @include media("<=1439px") {
+        display: block;
+      }
+    }
   }
 
   .on-this-page {

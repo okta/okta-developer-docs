@@ -22,6 +22,12 @@ $small-spacing: 0.75rem;
       padding: 0.65rem 0.5rem 0.5rem 0;
       font-weight: 500;
       white-space: nowrap;
+      font-size: 1rem;
+      color: #1D1D21;
+
+      @include media(">1439px") {
+        margin-left: 0.8rem;
+      }
     }
     .icon {
       width: 24px;
@@ -79,6 +85,9 @@ $small-spacing: 0.75rem;
           padding: 0;
           border: 0;
         }
+      }
+      .vs__actions {
+        padding: 0;
       }
       .vs__open-indicator {
         fill: cv('text','darker');

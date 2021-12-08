@@ -7,8 +7,6 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
 
 ---
@@ -52,8 +50,6 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 1. [Create a new application](#create-a-new-application)
 
 After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
-
-<StackSelector class="cleaner-selector"/>
 
 ### Create your Okta account
 

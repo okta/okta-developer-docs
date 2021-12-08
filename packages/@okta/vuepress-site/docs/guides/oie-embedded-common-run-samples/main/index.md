@@ -38,8 +38,6 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 ## Run the embedded Widget sample app
 
-<StackSelector class="cleaner-selector"/>
-
 <StackSelector snippet="runwidgetapp" noSelector />
 
 ### Start your work with the use cases
@@ -57,8 +55,6 @@ The SDK integrates into your app by using a native language interface and commun
 </div>
 
 ## Run the embedded SDK sample app
-
-<StackSelector class="cleaner-selector"/>
 
 <StackSelector snippet="runsdkapp" noSelector />
 

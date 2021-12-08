@@ -1,6 +1,7 @@
 <template>
   <aside class="on-this-page-navigation">
     <div v-show="showOnthisPage">
+      <StackSelector v-if="$page.hasStackContent" />
       <div class="title">On This Page</div>
       <div>
         <ul class="links" v-if="items">
@@ -33,7 +34,8 @@ export default {
   mixins: [AnchorHistory],
   inject: ["appContext"],
   components: {
-    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
+    OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
+    StackSelector: () => import("../global-components/StackSelector.vue")
   },
   props: ["items"],
   data() {

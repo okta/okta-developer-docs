@@ -6,8 +6,6 @@ title: Refresh the access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 This guide covers the refresh tokens that are used when access tokens expire and also describes the options to refresh the tokens.
 
 ---

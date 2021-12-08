@@ -3,7 +3,7 @@ title: Sign users out
 excerpt: Learn how to sign users out of your applications that use Okta's APIs.
 layout: Guides
 ---
-<StackSelector />
+
 An important part of security is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. The most common strategies to prevent unauthorized use of a session include [setting short token lifetimes](/docs/guides/configure-access-policy/configure-token-lifetime-per-client/) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
 > **Note:** If you are building a web app that is served by a server framework, see [Sign users in to your web application](/docs/guides/sign-into-web-app/). If you are building a mobile app, see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/). If you are building a single-page app, see [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/).
