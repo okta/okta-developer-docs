@@ -4,6 +4,61 @@ title: Okta Identity Engine API Products release notes 2021
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+## December
+
+### Monthly release 2021.12.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Browser-like devices can now use the Device Authorization Grant flow](#browser-like-devices-can-now-use-the-device-authorization-grant-flow) | December 8, 2021 |
+| [Custom domains with Okta-managed certificates](#custom-domains-with-okta-managed-certificates) | December 8, 2021 |
+| [Device Authorization grant type is now GA in Production](#device-authorization-grant-type-is-now-ga-in-production) | November 3, 2021 |
+| [Dynamic Issuer Mode is GA in Preview](#dynamic-issuer-mode-is-ga-in-preview) | December 8, 2021          |
+| [Error response updated for malicious IP address sign-in requests](#error-response-updated-for-malicious-ip-address-sign-in-requests) | December 8, 2021 |
+| [IdP discovery supported for Device Authorization Grant flow](#idp-discovery-supported-for-device-authorization-grant-flow) | December 8, 2021 |
+| [Upload Logo for Org deprecated](#upload-logo-for-org-deprecated) | December 8, 2021          |
+| [Bugs fixed in 2021.12.0](#bugs-fixed-in-2021-12-0)  | December 8, 2021          |
+
+#### Browser-like devices can now use the Device Authorization Grant flow
+
+Browser-like devices such as Smart TV applications that run on WebOS, Samsung, and Tesla can now use the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/). <!--OKTA-444993-->
+
+#### Custom domains with Okta-managed certificates
+
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-444104-->
+
+#### Device Authorization grant type is now GA in Production
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-450432-->
+
+#### Dynamic Issuer Mode is GA in Preview
+
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+
+When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
+
+#### Error response updated for malicious IP address sign-in requests
+
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+
+#### IdP Discovery supported for Device Authorization Grant flow
+
+The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) now supports routing rules and IdP Discovery. <!--OKTA-425256-->
+
+#### Upload Logo for Org deprecated
+
+The Upload Logo for Org endpoint (`api/v1/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/api/v1/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+
+#### Bugs fixed in 2021.12.0
+
+* When the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) was used, token inline hooks weren't called. (OKTA-445422)
+
+* When users signed in to Okta Identity Engine using the [Sign-In Widget](/code/javascript/okta_sign-in_widget/), the **Username** field wasn't set as a required field. (OKTA-391311)
+
 ## November
 
 ### Weekly release 2021.11.3
