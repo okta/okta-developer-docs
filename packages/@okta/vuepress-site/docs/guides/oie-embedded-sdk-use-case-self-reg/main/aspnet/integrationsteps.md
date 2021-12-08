@@ -300,7 +300,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 3. Submit phone number
 
-   When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made with the following values:
+   When the user enters their phone number and clicks the **Send code via SMS** button, a call to `EnrollAuthenticatorAsync` is made with the following values:
 
    * Authenticator ID
    * Phone number
