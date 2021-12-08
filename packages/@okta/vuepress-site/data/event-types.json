@@ -1,6 +1,6 @@
 {
-  "release" : "2021.11.1",
-  "build" : "2021.11.1-begin-85-ge28985e6ebd8",
+  "release" : "2021.12.1",
+  "build" : "2021.12.1-begin-135-g1df0f4ba0752",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -10,6 +10,9 @@
   }, {
     "id" : "adaptive",
     "name" : "Adaptive"
+  }, {
+    "id" : "asa",
+    "name" : "Advanced Server Access"
   }, {
     "id" : "agent-rotation",
     "name" : "Agent Rotation"
@@ -7673,6 +7676,23 @@
         "targets" : [ "PolicyResourceDetails" ]
       }
     }, {
+      "id" : "policy.mapping.create",
+      "category" : "idx",
+      "description" : "Create policy mapping. This event is used to audit when a policy is mapped to a resource. This event is fired when a policy is mapped to a resource.",
+      "info" : {
+        "created" : "2021-11-10",
+        "release" : "2021.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "policy" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PolicyDebugData",
+        "actor" : null,
+        "targets" : [ "PolicyResourceDetails" ]
+      }
+    }, {
       "id" : "policy.rule.action.execute",
       "category" : "extensibility",
       "description" : "Scheduled execution of policy rule action.",
@@ -7699,7 +7719,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "policy" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.rule.activated" ],
       "schema" : {
         "debugData" : "PolicyDebugData",
@@ -7750,7 +7770,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "policy" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.rule.deleted" ],
       "schema" : {
         "debugData" : "PolicyDebugData",
@@ -14985,6 +15005,14 @@
             "format" : "enum",
             "examples" : [ "TELESIGN", "TWILIO" ]
           },
+          "country_code_iso2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "CA", "US", "DE" ]
+          },
           "country_calling_code" : {
             "type" : "Integer",
             "sensitive" : false,
@@ -15157,6 +15185,14 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "TELESIGN", "TWILIO" ]
+          },
+          "country_code_iso2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "CA", "US", "DE" ]
           },
           "country_calling_code" : {
             "type" : "Integer",
@@ -18134,6 +18170,14 @@
             "format" : "id",
             "examples" : [ "icr1jznGQCtkT3aOS0g3" ]
           },
+          "campaign_item_reviewer_name" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "David Letterman" ]
+          },
           "campaign_template_name" : {
             "type" : "String",
             "sensitive" : false,
@@ -18205,6 +18249,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "oog145kWInfEOrVra0g4" ]
+          },
+          "campaign_item_remediation_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "NONE", "OPEN", "ERROR", "SUCCESS", "MANUAL" ]
           },
           "campaign_item_remediation" : {
             "type" : "String",
@@ -22633,6 +22685,14 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
+          "country_code_iso2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "CA", "US", "DE" ]
+          },
           "country_calling_code" : {
             "type" : "Integer",
             "sensitive" : false,
@@ -22813,6 +22873,14 @@
             "customer" : false,
             "format" : "boolean",
             "examples" : [ "true", "false" ]
+          },
+          "country_code_iso2" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "CA", "US", "DE" ]
           },
           "country_calling_code" : {
             "type" : "Integer",
@@ -26502,7 +26570,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "enum",
-            "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle" ]
+            "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle", "ACCESS_POLICY", "PROFILE_ENROLLMENT" ]
           },
           "action_type" : {
             "type" : "String",
