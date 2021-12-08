@@ -166,7 +166,7 @@ An example of the page from the sample application is shown below:
 
 ### 7: Submit the email factor for verification
 
-Assuming that the user selected the email factor and clicked continue, the next step is to
+Assuming that the user selected the email factor and clicked **Continue**, the next step is to
 call the `EnrollmentResponse` object's `VerifyEmail` method.
 
 ```go
