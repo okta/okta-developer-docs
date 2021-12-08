@@ -222,7 +222,7 @@ http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 
 ### 9: Again show the list that contains the available factors to enroll
 
-The next step is to show a list of available factors using the same page created in Step 6. Based on the Okta org configured for this use case, only the phone factor should be displayed. The `EnrollmentResponse` object's `HasStep` method that you called in [Step 6](#_6-build-a-list-of-available-factors-to-display-to-the-user) is used to toggle the visibility of the skip button and show the available factors. In this step, the skip button and phone factor option should be visible.
+The next step is to show a list of available factors using the same page created in Step 6. Based on the Okta org configured for this use case, only the phone factor should appear. The `EnrollmentResponse` object's `HasStep` method that you called in [Step 6](#_6-build-a-list-of-available-factors-to-display-to-the-user) is used to toggle the visibility of the **Skip** button and show the available factors. In this step, the **Skip** button and phone factor option should be visible.
 
 ```go
 if enrollResponse.HasStep(idx.EnrollmentStepSkip) {
