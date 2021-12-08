@@ -48,7 +48,7 @@ switch (authnResponse?.AuthenticationStatus)
 
 ### 4: Show the phone factor in the authenticator list
 
-The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor is displayed, as shown in the following sample screenshot.
+The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, as shown in the following sample screenshot.
 
 <div class="common-image-format">
 
