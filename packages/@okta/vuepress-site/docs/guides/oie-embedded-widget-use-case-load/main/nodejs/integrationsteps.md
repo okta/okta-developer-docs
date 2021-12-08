@@ -12,7 +12,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 
 ### 2: Add JavaScript to initialize and load the Widget
 
-Load the Widget in the sign-in page, similar to the following snippet:
+Load the Widget on the sign-in page, similar to the following snippet:
 
 ```JavaScript
 <div id="content" class="ui padded relaxed">
