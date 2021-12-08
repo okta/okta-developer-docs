@@ -77,4 +77,4 @@ The final step is to run your app. If the Widget and your Okta org are properly 
 </div>
 
 >**Note:** The **Forgot password?** and **Sign Up** links are configurable elements in your
-Okta org and may not show in the screen.
+Okta org and may not show on the page.
