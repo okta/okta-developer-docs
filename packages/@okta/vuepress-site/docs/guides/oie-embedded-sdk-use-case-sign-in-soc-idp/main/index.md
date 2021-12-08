@@ -9,7 +9,7 @@ title: Sign in with Facebook
 
 <StackSelector />
 
-This guide covers a sequence of steps to follow to build an app allowing users to sign in with the Facebook social Identity Provider.
+This guide covers a sequence of steps that you can follow to build an app that allows users to sign in with the Facebook social Identity Provider.
 
 ---
 
