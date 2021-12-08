@@ -60,7 +60,7 @@ The next step is to show the phone factor in an authenticator list page. Build a
 
 When the user selects the **Phone** factor, a call to `SelectChallengeAuthenticatorAsync` is made that sends a verification code to the user's phone through SMS. This method accepts the `SelectAuthenticatorOptions` parameter that is used to pass in the phone factor ID.
 
-If the call is successful, the method returns the `AwaitingAuthenticatorEnrollmentData` status that indicates that the SDK needs a phone number in order to send the verification code. The next step is to redirect the user to a page to enter in the phone number.
+If the call is successful, the method returns the `AwaitingAuthenticatorEnrollmentData` status that indicates that the SDK needs a phone number to send the verification code. The next step is to redirect the user to a page to enter the phone number.
 
 ```csharp
 var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
