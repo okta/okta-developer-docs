@@ -58,7 +58,7 @@ The next step is to show the phone factor in an authenticator list page. Build a
 
 ### 5: Select the phone factor by calling the SelectChallengeAuthenticatorAsync method
 
-When the user selects the **Phone** factor, a call to `SelectChallengeAuthenticatorAsync` is made, which sends a verification code to the user's phone through SMS. This method accepts the `SelectAuthenticatorOptions` parameter that is used to pass in the phone factor ID.
+When the user selects the **Phone** factor, a call to `SelectChallengeAuthenticatorAsync` is made that sends a verification code to the user's phone through SMS. This method accepts the `SelectAuthenticatorOptions` parameter that is used to pass in the phone factor ID.
 
 If the call is successful, the method returns the `AwaitingAuthenticatorEnrollmentData` status that indicates that the SDK needs a phone number in order to send the verification code. The next step is to redirect the user to a page to enter in the phone number.
 
