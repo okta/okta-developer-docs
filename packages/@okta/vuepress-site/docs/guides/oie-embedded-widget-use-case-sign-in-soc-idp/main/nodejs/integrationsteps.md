@@ -29,7 +29,7 @@ redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field.
 
 This step handles the callback from the Widget that
-returns an `interaction_code`. This code will be redeemed in the
+returns an `interaction_code`. This code is redeemed in the
 next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
