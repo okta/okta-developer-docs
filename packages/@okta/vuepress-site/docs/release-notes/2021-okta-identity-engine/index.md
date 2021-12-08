@@ -51,7 +51,7 @@ The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorizatio
 
 #### Upload Logo for Org deprecated
 
-The Upload Logo for Org endpoint (`api/v1/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/api/v1/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
 #### Bugs fixed in 2021.12.0
 

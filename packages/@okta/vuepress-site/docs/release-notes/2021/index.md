@@ -64,7 +64,7 @@ Custom application username formats that are set by the [Apps API](/docs/referen
 
 #### Upload Logo for Org deprecated
 
-The Upload Logo for Org endpoint (`api/v1/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/api/v1/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
 #### User Types API and Mappings API support OAuth 2.0
 
