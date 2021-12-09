@@ -1,4 +1,4 @@
-* **Name**: Enter the name that you would expect to see on a button, such as **Sign in with <StackSelector snippet="idp" noSelector inline /> 2.0**.
+* **Name**: Enter the name that you would expect to see on a button, such as **Sign in with <StackSnippet snippet="idp" inline /> 2.0**.
 
 In the **Authentication Settings** section:
 
