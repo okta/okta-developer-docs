@@ -52,7 +52,7 @@ To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider
 1. In the **General Settings** section, define the following:
 
     * **Name**: Enter a name for the Identity Provider in Okta.
-    * **Client ID**: Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Client ID**: Paste the generated client ID from your <StackSnippet snippet="idp" inline /> application.
     * **Client Secret**: Paste the generated client secret from your <StackSelector snippet="idp" noSelector inline /> application.
     * **Scopes**: Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSelector snippet="scopes" noSelector inline />.
 
