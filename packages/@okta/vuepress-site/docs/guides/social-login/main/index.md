@@ -90,7 +90,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_i
 
 <StackSnippet snippet="noemail" />
 
-## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
+## Add <StackSnippet snippet="idp" inline /> to the Okta Sign-In Widget
 
 The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
 
