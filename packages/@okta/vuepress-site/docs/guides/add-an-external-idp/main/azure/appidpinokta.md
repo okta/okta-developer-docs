@@ -1,7 +1,7 @@
 > **Note:** Be sure to select **Add OpenID Connect IdP** as the type of Identity Provider that you want to create for <StackSelector snippet="idp" noSelector inline /> in Okta.
 
 * **Name**: Enter a name for the Identity Provider configuration.
-* **Client Id**: Paste the client ID that you obtained from <StackSelector snippet="idp" noSelector inline /> when you configured the Identity Provider in the previous section.
+* **Client Id**: Paste the client ID that you obtained from <StackSnippet snippet="idp" inline /> when you configured the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to <StackSelector snippet="idp" noSelector inline />.
 
