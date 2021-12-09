@@ -68,7 +68,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `client_id`: Use the `client_id` value from your Okta app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
 
-* `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
+* `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
 * `response_mode`: Determines how the authorization response should be returned. This should be `fragment`.
 
