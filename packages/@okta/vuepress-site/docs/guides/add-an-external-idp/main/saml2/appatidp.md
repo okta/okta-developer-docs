@@ -6,4 +6,4 @@ Sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from 
 
 * **IdP Issuer URI**: The issuer URI of the Identity Provider. This value is usually the <StackSnippet snippet="idp" inline /> Metadata `entityID` of the Identity Provider `EntityDescriptor`.
 * **IdP Single Sign-On URL**: The binding specific Identity Provider Authentication Request Protocol endpoint that receives <StackSnippet snippet="idp" inline /> AuthN Request messages from Okta.
-* **IdP Signature Certificate**: The PEM or DER encoded public key certificate of the Identity Provider used to verify <StackSelector snippet="idp" noSelector inline /> message and assertion signatures.
+* **IdP Signature Certificate**: The PEM or DER encoded public key certificate of the Identity Provider used to verify <StackSnippet snippet="idp" inline /> message and assertion signatures.
