@@ -34,7 +34,7 @@ In this use case, only the **phone** factor is displayed in the list of authenti
 
 >**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
 
-When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone key, `{ authenticator: AuthenticatorKey.OKTA_PHONE }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method in order to send the verification code. The `nextStep` field includes the input for this method.
+When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone key, `{ authenticator: AuthenticatorKey.OKTA_PHONE_NUMBER }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method in order to send the verification code. The `nextStep` field includes the input for this method.
 
 ```JavaScript
 status, // IdxStatus.PENDING

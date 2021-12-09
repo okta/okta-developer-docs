@@ -131,7 +131,7 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 #### Option 2: The user selects the phone authenticator
 
-After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.OKTA_PHONE`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
+After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.OKTA_PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
 
 <div class="common-image-format">
 
