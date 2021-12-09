@@ -1,8 +1,12 @@
 ---
-title: Protocol-level requirements
+title: OIDC and the OIN - Protocol-level requirements
+excerpt: The protocol requirements for OIDC-based OIN applications
+layout: Guides
 ---
 
-### Authorization Code flow
+This guide provides background information on the protocol requirements for OIDC-based OIN applications.
+
+## Authorization Code flow
 
 For OIDC applications destined for the OIN, Okta recommends building a "web" application with a dedicated server-side back end that is capable of securely storing a Client Secret and exchanging information with an authorization server through trusted back-channel connections.
 
@@ -47,7 +51,7 @@ Another general outline of the Authorization Code flow is in our Okta developer 
 
 Also, if you have used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion to exchange between Okta and your SaaS back end, but uses a long-term token that you can use for callback into Okta at any point as long as the token is valid.
 
-### Authorization Code flow with PKCE
+## Authorization Code flow with PKCE
 
 If you are building a Single Page Application (SPA) for the OIN, then Okta recommends using the Authorization Code flow with a Proof Key for Code Exchange (PKCE) to control the access between your application and a resource server. See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#authorization-code-with-pkce) for more information on the Authorization Code flow with PKCE, including why to use it.
 
@@ -91,7 +95,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
 
 Another general outline of the Authorization Code flow with PKCE can be found in our Okta developer guide: [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
 
-### Scopes
+## Scopes
 
 Your OIDC client needs to use scope values to define the access privileges being requested with individual access tokens. The scopes associated with access tokens determine what resources are available when the tokens are used to access the protected endpoints. Scopes can be used to request that specific sets of values be available as claim information about the end user.
 
@@ -113,7 +117,7 @@ You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
-### Uniform Resource Identifier (URI)
+## Uniform Resource Identifier (URI)
 
 There are three URIs that you need to consider when creating an OIDC app for the OIN:
 
@@ -121,7 +125,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 2. Optional. **Initiate login URI** &mdash; this URI is used if the application is launched from the Okta dashboard (known as an IdP-initiated flow) and you want your Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click your app in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value pre-registered in the Okta app integration settings.
 3. Optional. **Sign-out redirect URIs** &mdash; a location to send the user after a sign off operation is performed and their session is terminated. Otherwise, the user is redirected back to the sign-in page.
 
-### Token validation
+## Token validation
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
@@ -129,7 +133,7 @@ As OIN app integrations can’t use custom auth servers, you must use remote tok
 
 This remote validation incurs a network cost, but you can use it when you want to guarantee that the access token hasn't been revoked.
 
-### Key rotation
+## Key rotation
 
 The standard behavior in identity and access management is to rotate the keys used to sign tokens. Okta changes these keys typically four times a year (every 90 days), but that rotation schedule can change without notice. Okta automatically rotates the keys for your authorization server on a regular basis.
 
@@ -137,4 +141,6 @@ Your OIDC client should periodically query the `/keys` endpoint and retrieve the
 
 For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
 
-<NextSectionLink/>
+## Next steps
+
+Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/) as it relates to OIDC and the OIN.

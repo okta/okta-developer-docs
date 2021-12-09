@@ -1,18 +1,22 @@
 ---
-title: OIN integration best practices
+title: OIDC and the OIN - OIN integration best practices
+excerpt: OIN integration best practices, including logos and rate limits.
+layout: Guides
 ---
 
-### Software development kits
+This guide covers some OIN integration best practices, including logos and rate limits.
+
+## Software development kits
 
 Due to the OIN restrictions of using an org authorization server and the authorization code flow, the SDKs provided by Okta should not be used for app integration development, since they cannot validate the access tokens.
 
-### Logos
+## Logos
 
 A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, be sure to upload a graphic that your customers will instantly recognize.
 
 The logo file must be smaller than 1 MB in size and be in either PNG, JPG, or GIF file format. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent any unsightly upscaling.
 
-### Rate restrictions
+## Rate restrictions
 
 When constructing your OIDC application, you want to be aware of the limits on calls to the Okta API. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/reference/rate-limits/). In order to monitor your calls to the API, Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
@@ -36,4 +40,10 @@ You can request a temporary rate limit increase if you anticipate a large number
 >* `/.well-known/openid-configuration`
 >* `/.well-known/oauth-authorization-server`
 
-<NextSectionLink/>
+## Next steps
+
+You should now understand how to tailor your OIDC application to the specific requirements of the Okta Integration Network.
+
+If you are ready to build an OIDC application, read through our guide to [Build an SSO integration](/docs/guides/build-sso-integration/).
+
+If you have already built your OIDC application and it meets all of the outlined requirements for the OIN, read through our [Submit an app integration](/docs/guides/submit-app/openidconnect/overview/) guide to learn how to publish your application to the OIN.
