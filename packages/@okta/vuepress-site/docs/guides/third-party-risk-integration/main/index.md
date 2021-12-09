@@ -15,13 +15,11 @@ This guide shows you how to configure an Okta org to receive risk events from a 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* A configured Okta org for third-party risk providers &mdash; contact your Okta customer support representative for this configuration.
-* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration &mdash; see [Get Started with the Okta APIs](/code/rest/) to set up Postman.
-* The Risk API collection &mdash; download from: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
+* A configured Okta org for third-party risk providers. Contact your Okta customer support representative for this configuration.
+* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration. See [Get Started with the Okta APIs](/code/rest/) to set up Postman.
+* The Risk API collection. Download from: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
 
 ---
-
-## Overview
 
 <ApiLifecycle access="ea" />
 
@@ -45,15 +43,15 @@ Your Okta org requires the set up of an OAuth service application to integrate a
 
 Use the following high-level steps to configure this service application:
 
-1. [Create a public-private key pair](#create-a-public-private-key-pair)
+1. [Create a public/private key pair](#create-a-public-private-key-pair)
 2. [Create and verify the service application](#create-a-service-application)
 3. [Add a scope grant to the service application](#add-a-scope-grant-to-the-application)
 
 For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/).
 
-### Create a public-private key pair
+### Create a public/private key pair
 
-Prior to creating the service application for the third-party risk provider, you need to create a public-private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate  a public-private key pair for an example setup.
+Prior to creating the service application for the third-party risk provider, you need to create a public/private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate a public/private key pair for an example setup.
 
 1. Navigate to [JSON Web Key Generator](https://mkjwk.org/).
 2. Use the following values when generating the pair:
@@ -76,10 +74,11 @@ Prior to creating the service application for the third-party risk provider, you
     "n": "pqEM9uy9rPs6M8E3zGqnSjdgHRYj9pZ2LCb0sRzpg2r1BItPXknLPmrcVI0K4a84FpDRRoOc5zV-YILYIPA8JdAnazQiiGHfzzrNsTfcT-iD45-4Fb7tyuU2KQdwwZpP0FfWNcILgbdJbYdjfPM7AuKg3zok7xzZnk-wTJkGzdcya-0X5jX4hKl48hm8506CBep6fKhwZbjMXTt3R2bm-zqxYqjC5dXawx0ICniRnZyzNscmO6e3SYd0WDB-etQTHehbj1r0v6NOVZBWwsQEMP7_WZoUUS02mOODYSh-TI-deJ3Aw61iG5rKsQDgOZzGy2ZazyXJGhhfngGgzL4xfw"
     }
     ```
+
 4. Copy the **Public Key** JSON value to your Postman environment's `publicKey` variable.
 5. Make sure to save the JSON value for the **Public and Private Keypair**, which is required during testing.
 
-For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair).
+For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair).
 
 ### Create a service application
 
@@ -130,7 +129,7 @@ Create the service application that integrates with the third-party risk provide
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 
-For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/).
+For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes/).
 
 ### Add a scope grant to the application
 
@@ -150,7 +149,7 @@ You must now define the allowed Risk scope for use with the third-party risk pro
     },
     ```
 
-For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
+For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/main/#grant-allowed-scopes).
 
 >**Note:** If you get a "Resource Not Found" exception in this step, it's possible that your `clientId` or the URL are not valid.
 
@@ -240,7 +239,7 @@ This procedure updates the default risk provider profile with the service applic
 
 With the creation of a service application for the third-party risk provider, and the update of the third-party risk provider profile, you can now test the integration using the Risk Events API.
 
-In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public-private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
+In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public/private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
 
 In this test, the API sends a sample payload risk event to the Okta org, which can be consumed by Okta and used to calculate the risk of the authentication.
 
@@ -258,7 +257,7 @@ Use the following high-level steps to test the risk provider integration:
 This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token.
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
-2. In the **JWK KEY** field, copy the **Public and Private Keypair** generated when you created the service application ([Create a public-private key pair](/docs/guides/third-party-risk-integration/main/#create-a-public-private-key-pair).)
+2. In the **JWK KEY** field, copy the **Public and Private Keypair** generated when you created the service application ([Create a public/private key pair](#create-a-public-private-key-pair)).
 3. In the **Payload** field, add the following JSON payload, substituting your service application ID (client ID) and your Okta org URL:
 
     ```JSON
@@ -272,7 +271,7 @@ This procedure creates a signed JSON Web Token (JWT), which is used as the clien
 4. Click **Generate JWT**.
 5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable. Save the environment.
 
-For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/).
+For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt/).
 
 ### Create an access token
 
@@ -291,7 +290,7 @@ This procedure creates an access token using the `clientAssertion` value require
     ```
     >**Note**: The access token expires in 60 minutes (or the value set in the property `expires_in`).
 
-For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/).
+For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token/).
 
 ### Send a risk event to Okta
 
@@ -341,7 +340,7 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 
 ## See also
 
-- [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/)
+- [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/)
 - [Risk Providers API](/docs/reference/api/risk-providers/)
 - [Risk Events API](/docs/reference/api/risk-events/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
