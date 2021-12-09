@@ -2,9 +2,9 @@
 
 There are three steps necessary to configure the Identity Provider at <StackSelector snippet="idp" noSelector inline />:
 
-* **Create an App ID** &mdash; an App ID enables your app to access available services and identifies your app in a provisioning profile with <StackSelector snippet="idp" noSelector inline />.
-* **Create a Services ID** &mdash; the Services ID identifies the particular instance of your app. The Services ID is used as the OAuth `client_id`.
-* **Create a private key for client authentication** &mdash; <StackSelector snippet="idp" noSelector inline /> uses a public/private key pair as the client secret. You must register a new private key with <StackSelector snippet="idp" noSelector inline /> and download the key file for use with Okta.
+* **Create an App ID**: An App ID enables your app to access available services and identifies your app in a provisioning profile with <StackSelector snippet="idp" noSelector inline />.
+* **Create a Services ID**: The Services ID identifies the particular instance of your app. The Services ID is used as the OAuth `client_id`.
+* **Create a private key for client authentication**: <StackSelector snippet="idp" noSelector inline /> uses a public/private key pair as the client secret. You must register a new private key with <StackSelector snippet="idp" noSelector inline /> and download the key file for use with Okta.
 
 ## Create an App ID
 

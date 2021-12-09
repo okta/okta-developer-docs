@@ -28,10 +28,6 @@ How to configure a social Identity Provider so that your users can quickly sign 
 * An account with <StackSelector snippet="idpaccount" noSelector inline />.
 * Enable **New social Identity Provider integrations**. See [Manage Early Access and Beta features](https://help.okta.com/en/prod/Content/Topics/Security/manage-EA-and-beta-features.htm?cshid=ext_Manage_Early_Access_features).
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Create an application at the Identity Provider
@@ -55,10 +51,10 @@ To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider
 1. Click **Next**.
 1. In the **General Settings** section, define the following:
 
-    * **Name** &mdash; Enter a name for the Identity Provider in Okta.
-    * **Client ID** &mdash; Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
-    * **Client Secret** &mdash; Paste the generated client secret from your <StackSelector snippet="idp" noSelector inline /> application.
-    * **Scopes** &mdash; Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSelector snippet="scopes" noSelector inline />.
+    * **Name**: Enter a name for the Identity Provider in Okta.
+    * **Client ID**: Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Client Secret**: Paste the generated client secret from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Scopes**: Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSelector snippet="scopes" noSelector inline />.
 
 1. Click **Finish**.
 
@@ -70,19 +66,19 @@ Alternatively, you can use the Authorize URL to simulate the authorization flow.
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id` &mdash; use the `client_id` value from your Okta app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
+* `client_id`: Use the `client_id` value from your Okta app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
 
-* `response_type` &mdash; determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
+* `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
 
-* `response_mode` &mdash; determines how the authorization response should be returned. This should be `fragment`.
+* `response_mode`: Determines how the authorization response should be returned. This should be `fragment`.
 
-* `scope` &mdash; determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each with a `%20` (space character). You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
+* `scope`: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each with a `%20` (space character). You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
 
-* `redirect_uri` &mdash; the location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with `https` and must match one of the redirect URIs that you configured in the previous section.
+* `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with `https` and must match one of the redirect URIs that you configured in the previous section.
 
-* `state` &mdash; protects against cross-site request forgery (CSRF). This can be set to any value.
+* `state`: Protects against cross-site request forgery (CSRF). This can be set to any value.
 
-* `nonce` &mdash; a string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. This can be set to any value.
+* `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. This can be set to any value.
 
 For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
@@ -96,8 +92,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_i
 
 ## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
 
-The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the 
-[Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
+The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
 
 To find your Identity Provider ID:
 
