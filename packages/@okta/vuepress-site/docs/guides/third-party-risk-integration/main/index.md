@@ -25,8 +25,6 @@ This guide shows you how to configure an Okta org to receive risk events from a 
 
 The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party risk providers can integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk provider can send risk events, which can be used when calculating the authentication risk based on the risk policy configured in the Okta org. The risk events are additionally logged as part of the System Log.
 
-This guide provides an example third-party risk provider implementation with your Okta org.
-
 >**Note:** Third-party risk events are shared with and received from Non-Okta Applications.  Non-Okta Applications include web-based, offline, mobile, or other software application functionality that are provided by you or a third party and interoperate with the Okta Service. You are not required to receive or utilize third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to utilize third-party risk events, then you agree on behalf of your organization that Okta may receive and share data with the Non-Okta Application as necessary to provide this functionality. You may only utilize these third-party risk events if you are a customer of both Okta and the Non-Okta Application. Okta cannot guarantee continued partnerships or functionality with any Non-Okta Applications.
 
 ### High-level configurations
@@ -290,7 +288,7 @@ This procedure creates an access token using the `clientAssertion` value require
     ```
     >**Note**: The access token expires in 60 minutes (or the value set in the property `expires_in`).
 
-For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token/).
+For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token).
 
 ### Send a risk event to Okta
 
