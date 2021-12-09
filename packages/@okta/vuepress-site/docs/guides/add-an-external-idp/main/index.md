@@ -93,6 +93,8 @@ An example of a complete URL looks like this:
 https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
 ```
 
+> **Note:** If you are using PKCE, manually generating a URL like this will skip the necessary steps to generate and store the PKCE as outlined [here](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). It is recommended to use the [Okta SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions)
+
 ## Use the Identity Provider to sign in
 
 To test your authorization URL, enter the complete authorization URL in a browser. Do this in your browser's privacy or incognito mode to avoid false positive or negative results.
