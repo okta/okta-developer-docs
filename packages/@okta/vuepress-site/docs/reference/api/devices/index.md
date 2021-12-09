@@ -1017,7 +1017,7 @@ The device model defines several read-only properties:
 
 ### Device Status
 
-> More details on [Device Lifecycle](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/devices-lifecycle.htm)
+> More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
 ![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
