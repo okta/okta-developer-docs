@@ -3,7 +3,7 @@
 * **Name**: Enter a name for the Identity Provider configuration.
 * **Client Id**: Paste the client ID that you obtained from <StackSnippet snippet="idp" inline /> when you configured the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.
-* **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to <StackSelector snippet="idp" noSelector inline />.
+* **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to <StackSnippet snippet="idp" inline />.
 
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
