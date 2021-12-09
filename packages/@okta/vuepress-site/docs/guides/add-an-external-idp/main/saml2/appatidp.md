@@ -5,5 +5,5 @@ Access the external <StackSelector snippet="idp" noSelector inline /> Identity P
 Sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the external IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured. If that is the case with your external IdP, continue to the next step.
 
 * **IdP Issuer URI**: The issuer URI of the Identity Provider. This value is usually the <StackSnippet snippet="idp" inline /> Metadata `entityID` of the Identity Provider `EntityDescriptor`.
-* **IdP Single Sign-On URL**: The binding specific Identity Provider Authentication Request Protocol endpoint that receives <StackSelector snippet="idp" noSelector inline /> AuthN Request messages from Okta.
+* **IdP Single Sign-On URL**: The binding specific Identity Provider Authentication Request Protocol endpoint that receives <StackSnippet snippet="idp" inline /> AuthN Request messages from Okta.
 * **IdP Signature Certificate**: The PEM or DER encoded public key certificate of the Identity Provider used to verify <StackSelector snippet="idp" noSelector inline /> message and assertion signatures.
