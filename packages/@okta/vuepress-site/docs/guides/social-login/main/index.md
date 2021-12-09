@@ -70,7 +70,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
-* `response_mode`: Determines how the authorization response should be returned. This should be `fragment`.
+* `response_mode`: Determines how the authorization response is returned. Use `fragment`.
 
 * `scope`: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each with a `%20` (space character). You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
 
