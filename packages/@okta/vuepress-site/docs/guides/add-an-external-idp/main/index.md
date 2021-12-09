@@ -63,7 +63,7 @@ Alternatively, you can use the Authorize URL to simulate the authorization flow.
 
 > **Note:** Use this step to test your authorization URL as an HTML link. For information on testing your authorization URL using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see the [next section](/docs/guides/add-an-external-idp/-/main/#use-the-identity-provider-to-sign-in).
 >
-> If you are using Authorization Code with PKCE as the grant type, you must generate and store the PKCE. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). When you use this grant type, we recommend that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions).
+> If you are using Authorization Code with PKCE as the grant type, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
