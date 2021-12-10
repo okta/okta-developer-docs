@@ -161,7 +161,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App name**: Provide a name for your integration. This is the main title used for your integration in the OIN.
 
-* **App website** &mdash; provide a link to your product or service homepage, or a specific location on your website where users can learn more about your integration.
+* **App website**:  Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
 
 * **App category** &mdash; specify one or more categories that Okta will use to categorize your integration in the OIN catalog. Click **Add Another** to choose up to three categories.
 
