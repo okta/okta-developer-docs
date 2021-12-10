@@ -157,7 +157,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **Does your app exist in the OIN?**: If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
 
-* **What changes are you making to the existing OIN integration?** &mdash; if your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
+* **What changes are you making to the existing OIN integration?**: If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
 
 * **App name** &mdash; provide a name for your integration. This is the main title used for your integration in the OIN.
 
