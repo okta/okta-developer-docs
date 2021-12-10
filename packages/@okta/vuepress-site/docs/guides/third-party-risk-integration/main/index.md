@@ -210,7 +210,7 @@ This procedure updates the default risk provider profile with the service applic
     }
     ```
 
-2. Review the response from the call to make sure the risk provider now contains the required data. A sample response follows:
+2. Review the response from the call to make sure that the risk provider now contains the required data. A sample response follows:
 
     ```JSON
     {
