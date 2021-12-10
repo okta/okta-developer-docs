@@ -365,7 +365,7 @@ export const guides = [
           },
           {
             title: "Style the Widget",
-            guideName: "style-the-widget"
+            guideName: "custom-widget"
           },
           {
             title: "Customize the Okta-hosted error pages",

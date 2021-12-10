@@ -120,7 +120,7 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 * **Authorization Server ID** &mdash; find it on the **Security** > **API** > your custom Authorization Server name > **Settings** tab. The Authorization Server ID is the last generated ID string from the **Issuer** property. For example, if the issuer is `https://dev-000000.okta.com/oauth2/auss5kkzkkzYune155e6`, then your Authorization Server ID is `auss5kkzkkzYune155e6`.
 
-> **Note:** The [API Access Management](https://help.okta.com/okta_help.htm?id=ext_API_Access) feature must be enabled in your Okta org for you to use a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server).
+<ApiAmProdWarning />
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
@@ -134,7 +134,7 @@ To sign a user in, your application must redirect the browser to the Okta-hosted
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
-> **Note:** To customize the hosted sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+> **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 You can also define protected routes or areas of your application that will always require authentication.
 
@@ -171,5 +171,5 @@ You should now understand how to sign users in to your web applications using Ok
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)

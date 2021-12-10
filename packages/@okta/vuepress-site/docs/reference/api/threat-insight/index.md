@@ -44,8 +44,8 @@ curl -X POST \
 {
     "action": "audit",
     "excludeZones": ["nzo1q7jEOsoCnoKcj0g4"],
-    "created": "2020-08-05 22:18:30",
-    "lastUpdated": "2020-10-13 21:23:10",
+    "created": "2020-08-05T22:18:30.629Z",
+    "lastUpdated": "2020-10-13T21:23:10.178Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/api/v1/threats/configuration",
@@ -81,8 +81,8 @@ curl -X GET \
 {
     "action": "audit",
     "excludeZones": [],
-    "created": "2020-08-05 22:18:30",
-    "lastUpdated": "2020-09-08 20:53:20",
+    "created": "2020-08-05T22:18:30.629Z",
+    "lastUpdated": "2020-09-08T20:53:20.882Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/api/v1/threats/configuration",

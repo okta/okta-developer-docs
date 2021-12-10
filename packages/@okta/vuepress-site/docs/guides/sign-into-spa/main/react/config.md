@@ -31,13 +31,13 @@ const config = {
 };
 ```
 
-> **Note:**
->
-> `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
+> **Note**: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to a user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
 >
 > The `issuer` in the configuration above points to the default [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server),
 which is created by default with the [Okta Developer Edition](https://developer.okta.com/signup/) account.
 See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
+
+<ApiAmProdWarning />
 
 With the configuration ready, initialize the SDK:
 
@@ -50,15 +50,23 @@ import { Security } from '@okta/okta-react';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 const config = {
-  // Configuration here
+  clientId: '${clientId}',
+  issuer: `https://${yourOktaDomain}/oauth2/default`,
+  redirectUri: 'http://localhost:8080/login/callback',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
 };
 
 const oktaAuth = new OktaAuth(config);
 
 const App = () => {
+  const restoreOriginalUri = () => {
+    // Callback function to restore URI during login
+  };
+  
   return (
     <Router>
-      <Security oktaAuth={oktaAuth}>
+      <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
         { /* App routes go here */ }
       </Security>
     </Router>

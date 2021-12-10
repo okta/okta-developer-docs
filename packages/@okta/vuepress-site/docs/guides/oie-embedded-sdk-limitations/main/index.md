@@ -13,9 +13,10 @@ layout: Guides
 
 ### Description
 
-The SDK currently doesn't support passwordless sign-in with magic links.
+The Okta Identity Engine SDKs currently don't support passwordless sign-in with magic links.
 
-In a passwordless sign-in with magic links, users submit only their email address through their app to initiate the sign-in. An email is then sent to the users to complete the sign-in by using a sign link. Uers open the email and click the link that sends them to your app already signed in. See the sequence of steps below for a details on the passwordless sign-in process.
+In a passwordless sign-in with magic links flow, a user submits only their email address through their app to initiate the sign-in flow. An email with a sign-in link is then sent to the user. The user opens the email and clicks 
+the link that redirects them to the app. See the following sequence of steps for details on the passwordless sign-in process.
 
 ### Sequence of steps
 
@@ -77,7 +78,7 @@ Use either of these two workarounds:
 * Create users through self registration.
 * Create users in the Okta org with the **Password** set to **Set by admin**.
 
-## The email link to verify the email address isn't working
+## The email link to verify that the email address isn't working
 
 ### Description
 

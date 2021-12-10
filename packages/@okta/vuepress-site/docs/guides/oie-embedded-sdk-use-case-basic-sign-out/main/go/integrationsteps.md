@@ -10,7 +10,7 @@ The first step is to create an element that allows the user to sign out of the a
 
 ### 2: Remove the tokens from the local session
 
-Remove the tokens, which were stored in session during sign-in, from session state.
+Remove the tokens stored in session during a sign-in flow from session state.
 
 ```go
 session, err := sessionStore.Get(r, "okta-custom-login-session-store")

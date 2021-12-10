@@ -4,13 +4,11 @@ excerpt: How to use the Brands API to rapidly customize the theme of your Okta o
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This article explains how to use the Brands API to rapidly customize the theme of your Okta org, including colors, icons, and background images in your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard.
 
 ## Overview
 
-Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade off is that your [customization options](/docs/guides/style-the-widget/before-you-begin/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
+Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade off is that your [customization options](/docs/guides/custom-widget/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
 
 The [Brands API](/docs/reference/api/brands/) allows you to set all of the following items across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once:
 
@@ -152,4 +150,4 @@ You can also delete these assets using the following requests (**Delete logo**, 
 * [Brands API reference](/docs/reference/api/brands/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize email notifications and email domains](/docs/guides/custom-email/)
-* [Style the Okta-hosted Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

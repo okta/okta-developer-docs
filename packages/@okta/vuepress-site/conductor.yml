@@ -934,15 +934,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
+    to: /docs/guides/custom-widget/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
@@ -1050,35 +1050,35 @@ redirects:
   - from: /docs/guides/mfa/add-factor/index.html
     to: /docs/guides/mfa/-/main/#enable-mfa-in-your-okta-org
   - from: /guides/protect-your-api/-/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/-/before-you-begin/
+    to: /docs/guides/protect-your-api/
   - from: /guides/protect-your-api/-/configure-cors/index.html
-    to: /docs/guides/protect-your-api/-/configure-cors/
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
   - from: /guides/protect-your-api/-/configure-packages/index.html
-    to: /docs/guides/protect-your-api/-/configure-packages/
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
   - from: /guides/protect-your-api/-/next-steps/index.html
-    to: /docs/guides/protect-your-api/-/next-steps/
+    to: /docs/guides/protect-your-api/-/main/#next-steps
   - from: /guides/protect-your-api/-/require-authentication/index.html
-    to: /docs/guides/protect-your-api/-/require-authentication/
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
   - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
+    to: /docs/guides/protect-your-api/aspnet/main/
   - from: /guides/protect-your-api/aspnet/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-cors/
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
   - from: /guides/protect-your-api/aspnet/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-packages/
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
   - from: /guides/protect-your-api/aspnet/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnet/next-steps/
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnet/require-authentication/
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/springboot/before-you-begin/
+    to: /docs/guides/protect-your-api/springboot/main/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-cors/
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
   - from: /guides/protect-your-api/springboot/configure-packages/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-packages/
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
   - from: /guides/protect-your-api/springboot/next-steps/index.html
-    to: /docs/guides/protect-your-api/springboot/next-steps/
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
   - from: /guides/protect-your-api/springboot/require-authentication/index.html
-    to: /docs/guides/protect-your-api/springboot/require-authentication/
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
   - from: /guides/refresh-tokens/-/get-refresh-token/index.html
     to: /docs/guides/refresh-tokens/main/#get-a-refresh-token
   - from: /guides/refresh-tokens/-/overview/index.html
@@ -1281,36 +1281,6 @@ redirects:
     to: /docs/guides/custom-hosted-signin/overview/
   - from: /guides/custom-hosted-signin/use-macros-and-request-context/index.html
     to: /docs/guides/custom-hosted-signin/use-macros-and-request-context/
-  - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
-  - from: /guides/protect-your-api/springboot/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/springboot/before-you-begin/
-  - from: /guides/protect-your-api/-/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/-/before-you-begin/
-  - from: /guides/protect-your-api/aspnet/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-cors/
-  - from: /guides/protect-your-api/springboot/configure-cors/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-cors/
-  - from: /guides/protect-your-api/-/configure-cors/index.html
-    to: /docs/guides/protect-your-api/-/configure-cors/
-  - from: /guides/protect-your-api/aspnet/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-packages/
-  - from: /guides/protect-your-api/springboot/configure-packages/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-packages/
-  - from: /guides/protect-your-api/-/configure-packages/index.html
-    to: /docs/guides/protect-your-api/-/configure-packages/
-  - from: /guides/protect-your-api/aspnet/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnet/next-steps/
-  - from: /guides/protect-your-api/springboot/next-steps/index.html
-    to: /docs/guides/protect-your-api/springboot/next-steps/
-  - from: /guides/protect-your-api/-/next-steps/index.html
-    to: /docs/guides/protect-your-api/-/next-steps/
-  - from: /guides/protect-your-api/aspnet/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/springboot/require-authentication/index.html
-    to: /docs/guides/protect-your-api/springboot/require-authentication/
-  - from: /guides/protect-your-api/-/require-authentication/index.html
-    to: /docs/guides/protect-your-api/-/require-authentication/
   - from: /guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/before-you-begin/
   - from: /guides/sign-users-out/-/next-steps/index.html
@@ -1806,7 +1776,7 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/use-client-credentials-grant-flow/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/overview/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
   - from: /docs/guides/oauth-for-okta/define-allowed-scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/implement-oauth-for-okta/define-allowed-scopes
@@ -1820,9 +1790,9 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta/request-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/implement-oauth-for-okta/save-access-token/index.html
@@ -1844,11 +1814,31 @@ redirects:
   - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/overview
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
@@ -2080,13 +2070,13 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
     to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/customization-examples
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
   - from: /contact-sales-enterprise/index.html
@@ -2507,6 +2497,70 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
+  - from: /docs/guides/mfa/ga/prerequisites/index.html
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/prerequisites
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/index.html
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-org
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-postman/index.html
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/set-up-postman
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/create-test-user/index.html
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/create-test-user
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/enroll-factor/index.html
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/enroll-factor
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/activate-factor/index.html
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/activate-factor
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor/index.html
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/next-steps/index.html
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/ga/next-steps
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/sms/prerequisites/index.html
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/prerequisites
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/index.html
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-org
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-postman/index.html
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/set-up-postman
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/create-test-user/index.html
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/create-test-user
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/enroll-factor/index.html
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/enroll-factor
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/activate-factor/index.html
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/activate-factor
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor/index.html
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/next-steps/index.html
+    to: /docs/guides/mfa/sms/main/#next-steps
+  - from: /docs/guides/mfa/sms/next-steps
+    to: /docs/guides/mfa/sms/main/#next-steps
   - from: /docs/guides/sign-your-own-saml-csr/overview
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
@@ -4303,3 +4357,247 @@ redirects:
     to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/protect-your-api/-/before-you-begin
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/-/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages/index.html
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication/index.html
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors/index.html
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps/index.html
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages/index.html
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication/index.html
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors/index.html
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps/index.html
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages/index.html
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication/index.html
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors/index.html
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps/index.html
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages/index.html
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication/index.html
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors/index.html
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps/index.html
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
+  - from: /docs/guides/token-inline-hook/-/test
+    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/test/index.html
+    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/test
+    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/test/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/extend-express
+    to: /docs/guides/token-inline-hook/-/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/extend-express/index.html
+    to: /docs/guides/token-inline-hook/-/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/extend-express
+    to: /docs/guides/token-inline-hook/nodejs/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/extend-express/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/activate-and-enable
+    to: /docs/guides/token-inline-hook/-/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/activate-and-enable/index.html
+    to: /docs/guides/token-inline-hook/-/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/activate-and-enable
+    to: /docs/guides/token-inline-hook/nodejs/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/activate-and-enable/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/send-response
+    to: /docs/guides/token-inline-hook/-/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/-/send-response/index.html
+    to: /docs/guides/token-inline-hook/-/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/nodejs/send-response
+    to: /docs/guides/token-inline-hook/nodejs/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/nodejs/send-response/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/-/check-against-store
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/-/check-against-store/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/nodejs/check-against-store
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/nodejs/check-against-store/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/-/parse-hook
+    to: /docs/guides/token-inline-hook/-/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/-/parse-hook/index.html
+    to: /docs/guides/token-inline-hook/-/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/nodejs/parse-hook
+    to: /docs/guides/token-inline-hook/nodejs/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/nodejs/parse-hook/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/-/setup-express
+    to: /docs/guides/token-inline-hook/-/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/setup-express/index.html
+    to: /docs/guides/token-inline-hook/-/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/setup-express
+    to: /docs/guides/token-inline-hook/nodejs/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/setup-express/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/overview
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/-/overview/index.html
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/nodejs/overview
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/nodejs/overview/index.html
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/style-the-widget/before-you-begin
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/before-you-begin/index.html
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/style-self-hosted
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-self-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/customization-examples
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/customization-examples/index.html
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/next-steps
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/style-the-widget/next-steps/index.html
+    to: /docs/guides/custom-widget/main/#see-also
