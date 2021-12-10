@@ -169,7 +169,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
 
 1. Make a GET request using the following API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
 
-2. Review the response, which includes the Provider ID, default name, and action properties. A sample response follows:
+2. Review the response that includes the Provider ID, default name, and action properties. A sample response follows:
 
     ```JSON
     [
