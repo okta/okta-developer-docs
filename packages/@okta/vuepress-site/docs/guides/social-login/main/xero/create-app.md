@@ -1,1 +1,1 @@
-Create <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.
+Create <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
