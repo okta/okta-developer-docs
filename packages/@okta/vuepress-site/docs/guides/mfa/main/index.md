@@ -71,7 +71,7 @@ You are now ready to enroll an additional factor for the user that you created.
 
 After enrolling a factor for the Okta user, the next step is for the user to activate their factor.
 
-<StackSelector snippet="activatefactor" noSelector />
+<StackSnippet snippet="activatefactor" />
 
 ## Verify the factor
 
