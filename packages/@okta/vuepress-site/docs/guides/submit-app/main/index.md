@@ -181,7 +181,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 * **Test account URL**: This is a static URL for Okta to sign in to your application. The account credentials that you provide below must work for this URL.
 
-* **Test account username or email** &mdash; the account name for Okta to use to sign on to your application. Our preferred account name is `isvtest@okta.com`
+* **Test account username or email**: The account name for Okta to use to sign in to your application. Our preferred account name is `isvtest@okta.com`.
 
 * **Test account password** &mdash; password for the test account.
 
