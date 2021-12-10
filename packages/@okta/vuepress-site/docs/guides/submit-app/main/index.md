@@ -107,7 +107,7 @@ For example:
 
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
 
-#### Supported Features
+#### Supported features
 
 In this section of your guide, you want to outline what features your application supports. For example:
 
