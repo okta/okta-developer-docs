@@ -183,7 +183,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 * **Test account username or email**: The account name for Okta to use to sign in to your application. Our preferred account name is `isvtest@okta.com`.
 
-* **Test account password** &mdash; password for the test account.
+* **Test account password**: Password for the test account.
 
 * **Additional instructions** &mdash; include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
