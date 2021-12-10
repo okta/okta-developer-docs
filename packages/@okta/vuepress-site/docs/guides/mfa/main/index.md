@@ -77,7 +77,7 @@ After enrolling a factor for the Okta user, the next step is for the user to act
 
 Now that the factor has been enrolled and activated, you can verify that the factor works as intended.
 
-<StackSelector snippet="verifyfactor" noSelector />
+<StackSnippet snippet="verifyfactor" />
 
 ## Next steps
 
