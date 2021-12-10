@@ -165,7 +165,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 * `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#create-a-service-app-and-grant-scopes). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to
 * `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
-* `jti`: (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
+* `jti`: (Optional) The token's unique identifier. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
 * `iat`: (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
 * `iss`: The issuer of the token. This value must be the same as the `client_id`.
 * `sub`: The subject of the token. This value must be the same as the `client_id`.
