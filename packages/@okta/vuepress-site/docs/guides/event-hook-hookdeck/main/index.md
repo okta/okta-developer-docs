@@ -39,7 +39,6 @@ If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck)
 Some installation notes:
 
 * You don't need to have an account to install and run Hookdeck, but creating a free account provides more features as well as API authentication.
-* The installation uses the [Homebrew](https://brew.sh/) package manager.
 
 ### Run Hookdeck
 
@@ -50,10 +49,6 @@ nodejs-webhook-server-example> hookdeck listen 1337
 ```
 
 Complete the interactive session that follows to define the information about the Hookdeck session:
-
-* **What source should you select?**
-
-    Enter: `Create new source`
 
 * **What should your new source label be?**
 
@@ -71,13 +66,13 @@ With this data, Hookdeck creates a session and URL to use for sending requests. 
 
 ![A screen shot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hookdeck-and-event-hooks-session.png)
 
-> **Note:** You'll use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your Event Hook. For example, `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`.
+> **Note:** You'll use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your Event Hook. For example, `https://events.hookdeck.com/e/src_jHlvbIjGsgY2xhYZeCGxohK4`.
 
 See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.com/docs/introduction) for further information.
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=2fzffo7va67vgs29cpqz6ce9z4eg29nemoxan6fwm0jgefct5u`.
+The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=5sszlk2ndmkp5puy07uixrqtatkzvhwc13gctx9o3gmgczcrfu`.
 
 Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
@@ -113,7 +108,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 8. Click **Save & Continue**.
 
-9. With your Hookdeck session and local application running, complete the one-time verification Okta call at this time by clicking **Verify**. You can also verify the Event Hook at later time. See [Event Hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
+9. Complete the one-time verification Okta call at this time by clicking **Verify**. You can also verify the Event Hook at later time. See [Event Hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
 
 ### Event Hook verification
 
@@ -123,13 +118,13 @@ You must verify the Event Hook to prove that your external service controls the 
 
 To complete the one-time verification of the Event Hook:
 
-* After creating the Event Hook, and if your Hookdeck session and local application are ready to handle the request, click **Verify** to complete the one-time verification step.
+* After creating the Event Hook, click **Verify** to complete the one-time verification step.
 
 or
 
-* After making sure that your Hookdeck session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of your **UNVERIFIED** Event Hook, and select **Verify**.
+* Go to the Event Hooks table, click the **Actions** drop-down menu of your **UNVERIFIED** Event Hook, and select **Verify**.
 
-The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
+The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your local application through Hookdeck.
 
 ## Preview, test, and review the Event Hook
 
@@ -145,9 +140,6 @@ To run a preview call of your Event Hook:
 1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
 1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook if there is one. If no event is available, the JSON body populates with sample data.
 1. Ensure that both your Hookdeck session and local sample application are running.
-
-    >**Note:** If you start a new Hookdeck session at any time, make sure to update the Event Hook URL.
-
 1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the Event Hook body. For example:
 
    ![A screen shot of the application terminal with response body output to the console.](/img/hookdeck-application-console-output.png)
