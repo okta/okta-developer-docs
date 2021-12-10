@@ -17,7 +17,7 @@ Deploy your app.
 
 **What you need**
 
-* An app to deploy.
+An app to deploy
 
 ---
 
