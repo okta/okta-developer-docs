@@ -135,7 +135,7 @@ You must now define the allowed Risk scope for use with the third-party risk pro
 
 1. Make a POST request using the following API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
 
-    This call adds the `scopeId` to  the value of: `okta.riskEvents.manage`.
+    This call adds the `scopeId` to the value of: `okta.riskEvents.manage`.
 
 2. Review the response for this addition. A sample portion of the response follows:
 
