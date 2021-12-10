@@ -320,7 +320,7 @@ This procedure sends a sample risk event payload to the Okta org.
 
 > **Note:** Rate limits of three calls per minute, per risk provider, apply to the `/api/v1/risk/events/ip` endpoint. Each call can contain multiple risk events.
 
-For reference information on this API, see [Risk Events](/docs/reference/api/risk-events).
+See [Risk Events](/docs/reference/api/risk-events).
 
 ### Confirm the response
 
