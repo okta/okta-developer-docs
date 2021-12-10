@@ -13,7 +13,7 @@ This guide helps you understand access policies and how to configure them for co
 **Learning outcomes**
 
 * Understand access policies.
-* Configure an access policy to limit which scopes some clients can access.
+* Configure an access policy to limit which scopes that some clients can access.
 * Configure a custom access token lifetime per client.
 
 **What you need**
