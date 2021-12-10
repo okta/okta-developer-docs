@@ -135,7 +135,7 @@ Also include any best practices for your procedure, such as guidance on setting 
 
 > **Note:** The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
 
-#### Troubleshooting and Tips
+#### Troubleshooting and tips
 
 You only need to include this section if there are known issues that apply to the entire configuration. In general, best practices should be included with the step-by-step procedure instructions.
 
