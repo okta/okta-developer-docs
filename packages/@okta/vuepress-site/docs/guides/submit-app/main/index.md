@@ -137,7 +137,7 @@ Also include any best practices for your procedure, such as guidance on setting 
 
 #### Troubleshooting and tips
 
-You only need to include this section if there are known issues that apply to the entire configuration. In general, best practices should be included with the step-by-step procedure instructions.
+You need to only include this section if there are known issues that apply to the entire configuration. In general, you should include best practices with the step-by-step procedure instructions.
 
 You may also want to include information on how to contact your organization if the customer has any support queries.
 
