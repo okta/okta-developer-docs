@@ -185,7 +185,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 * **Test account password**: Password for the test account.
 
-* **Additional instructions** &mdash; include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
+* **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
 ## Configure protocol-specific settings
 
