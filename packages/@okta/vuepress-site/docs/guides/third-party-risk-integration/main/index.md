@@ -333,7 +333,7 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 
 ### General troubleshooting tips
 * Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
-* Postman environment variables are case sensitive. Ensure there are no typos, no leading/trailing spaces, no leading or trailing double quotes in the environment variables.
+* Postman environment variables are case sensitive. Ensure that there are no typos, no leading/trailing spaces, no leading or trailing double quotes in the environment variables.
 * The org URL should not be the admin URL (for example, use `https://demo-org.oktapreview.com` instead of  `https://demo-org-admin.oktapreview.com`) and you don't need a trailing `/` at the end of the URL.
 
 ## See also
