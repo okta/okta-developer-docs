@@ -8,8 +8,6 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 </div>
 
-> **Note:** The **Sign Up** link appears under the **Forgot your password?** link.
-
 ### 2: Enter information in the create account page
 
 The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
@@ -34,7 +32,6 @@ router.post('/register', async (req, res, next) => {
   handleTransaction({ req, res, next, authClient, transaction });
 });
 ```
-
 If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator key that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is **password** (`Authenticator: AuthenticatorKey.OKTA_PASSWORD`). The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
 
 ```JavaScript
@@ -48,8 +45,7 @@ If the org's application is properly configured with multiple factors, `idx.regi
       return true;
     case 'enroll-authenticator':
       redirect({ req, res, path: `/enroll-authenticator/${type}` });
-      return true;
-    case 'authenticator-enrollment-data':
+      return true;bd-okta-452597-Update-oie-sdk-nodejs-guide-authenticator-key    case 'authenticator-enrollment-data':
       redirect({ req, res, path: `/enroll-authenticator/${type}/enrollment-data` });
       return true;
 ```
@@ -74,9 +70,9 @@ After the user enters the password authenticator value, and `idx.register` is ca
 
 ### 4: The user submits their password
 
-After the user submits a password, call `idx.register` passing in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
+After the user submits a password, call `idx.register` and pass in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
 
-See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
+See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
 
 <div class="common-image-format">
 
@@ -98,7 +94,7 @@ In this use case, the user selects the **Email** as the authenticator to verify.
 
 ### 6: The user submits the email verification code
 
-The next step is to call `idx.register` again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
+The next step is to call `idx.register`, again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
 
 Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone authenticator.
 

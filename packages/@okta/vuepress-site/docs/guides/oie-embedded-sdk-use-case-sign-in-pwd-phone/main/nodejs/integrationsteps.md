@@ -24,7 +24,7 @@ After this response, you need to redirect the user to an authenticator list page
 
 ### 2: The user selects the phone factor from the authenticator list
 
-In this use case, only the **phone** factor is displayed in the list of authenticators, as shown in the following example page:
+In this use case, only the **Phone** factor appears in the list of authenticators, as shown in the following example page:
 
 <div class="common-image-format">
 

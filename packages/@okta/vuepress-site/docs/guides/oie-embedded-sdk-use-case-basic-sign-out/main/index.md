@@ -19,11 +19,13 @@ Understand how to implement a sign-out flow for a user.
 
 **What you need**
 
-n/a
+* An app that uses the embedded Okta Identity Engine SDK
+* [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -33,10 +35,10 @@ There are no additional configuration changes needed to implement this use case.
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

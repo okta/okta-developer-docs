@@ -116,7 +116,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Refresh access tokens](/docs/guides/refresh-tokens/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/)
-    * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
+    * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
     * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
