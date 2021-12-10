@@ -45,7 +45,7 @@ Use the following high-level steps to configure this service application:
 2. [Create and verify the service application](#create-a-service-application)
 3. [Add a scope grant to the service application](#add-a-scope-grant-to-the-application)
 
-For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/).
+See [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/).
 
 ### Create a public/private key pair
 
