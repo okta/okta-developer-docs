@@ -2497,6 +2497,70 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
+  - from: /docs/guides/mfa/ga/prerequisites/index.html
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/prerequisites
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/index.html
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-org
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-postman/index.html
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/set-up-postman
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/create-test-user/index.html
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/create-test-user
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/enroll-factor/index.html
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/enroll-factor
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/activate-factor/index.html
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/activate-factor
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor/index.html
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/next-steps/index.html
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/ga/next-steps
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/sms/prerequisites/index.html
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/prerequisites
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/index.html
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-org
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-postman/index.html
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/set-up-postman
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/create-test-user/index.html
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/create-test-user
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/enroll-factor/index.html
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/enroll-factor
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/activate-factor/index.html
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/activate-factor
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor/index.html
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/next-steps/index.html
+    to: /docs/guides/mfa/sms/main/#next-steps
+  - from: /docs/guides/mfa/sms/next-steps
+    to: /docs/guides/mfa/sms/main/#next-steps
   - from: /docs/guides/sign-your-own-saml-csr/overview
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
