@@ -263,7 +263,7 @@ Similarly, when you enable a new capability in your application (for example, ad
 1. Update any of the parameters for your existing protocols or add a new protocol depending on your needs.
 
     If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign on again, the published version and your in-progress version appears. Click **Edit** on the in-progress version to pick up where you left off.
-1. When you have completed the updates, or have filled the new protocol information so that indicator shows 100% complete, you can click **Submit for Review**.
+1. When you complete the updates or fill in the new protocol information so that the indicator shows 100% complete, you can click **Submit for Review**.
 
     At this point, the Okta OIN team is notified and your submission undergoes the same process flow as the original submission.
 
