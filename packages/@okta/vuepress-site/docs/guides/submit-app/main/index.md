@@ -36,7 +36,7 @@ This guide covers submissions that use one or more of these protocols:
 * [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
-    >**Note:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+    >**Note:** To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
 
     >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
