@@ -41,7 +41,7 @@ The following are the high-level steps required to perform the Client Credential
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth 2.0 service apps that want to get access tokens with Okta scopes.
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth 2.0 service app. We recommend generating the public/private key pair first before creating the OAuth 2.0 service app.
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth 2.0 service app. We recommend that you generate the public/private key pair first before you create the OAuth 2.0 service app.
 
 1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
 
