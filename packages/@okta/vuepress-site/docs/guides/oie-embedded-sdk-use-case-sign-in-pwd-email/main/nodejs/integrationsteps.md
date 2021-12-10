@@ -10,7 +10,7 @@ Build a sign-in page that captures both the user’s name and password, as shown
 
 When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to the [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) method to start the authentication process. This call begins the multi-factor authentication flow.
 
-If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the sign in. In addition to the status, the `nextStep` field that is included in the response identifies the input parameters of the next step, which in this case is for the email authenticator key:
+If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the user signs in. In addition to the status, the `nextStep` field that is included in the response identifies the input parameters of the next step, which in this case is for the email authenticator key:
 
 ```JavaScript
  status, // IdxStatus.PENDING
