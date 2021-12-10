@@ -1,1 +1,1 @@
-[<StackSelector snippet="idp" noSelector inline />](https://github.com/join)
+[<StackSnippet snippet="idp" inline />](https://github.com/join)
