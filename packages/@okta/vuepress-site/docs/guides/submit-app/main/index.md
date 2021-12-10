@@ -237,7 +237,7 @@ The OIN Manager always shows the current status of your integration.
 
 ### Step 2: Code Review
 
-* **Pending review by Okta** &mdash; the Okta OIN team is now conducting internal QA tests and will notify you by email when the QA review is complete. If the QA test is successful, your submission is published automatically in the OIN.
+* **Pending review by Okta**: The Okta OIN team is now conducting internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is published automatically in the OIN.
 * **Action required** &mdash; Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
 * **Final review by Okta** &mdash; the Okta OIN team is conducting a final internal QA test based on previously requested changes and will notify you by email when the final QA review is complete. If the review is successful, your submission is published automatically in the OIN.
 
