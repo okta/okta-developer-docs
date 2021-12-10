@@ -113,7 +113,7 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
     * **Auth URL**: Enter the authorization endpoint for your Org Authorization Server, for example, `https://${yourOktaDomain}/oauth2/v1/authorize`.
-    * **Access Token URL**: Enter the token endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/token`
+    * **Access Token URL**: Enter the token endpoint for your Org Authorization Server, for example, `https://${yourOktaDomain}/oauth2/v1/token`.
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
     * **Code Verifier**: Leave it empty so that Postman generates its own
     * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
