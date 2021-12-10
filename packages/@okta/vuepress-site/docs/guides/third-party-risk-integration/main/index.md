@@ -256,7 +256,7 @@ This procedure creates a signed JSON Web Token (JWT) that is used as the client 
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
 2. In the **JWK KEY** field, copy the **Public and Private Keypair** that you generate when you create the service application ([Create a public/private key pair](#create-a-public-private-key-pair)).
-3. In the **Payload** field, add the following JSON payload, substituting your service application ID (client ID) and your Okta org URL:
+3. In the **Payload** field, add the following JSON payload and substitute your service application ID (client ID) and your Okta org URL:
 
     ```JSON
     {
