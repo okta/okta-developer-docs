@@ -262,7 +262,7 @@ Similarly, when you enable a new capability in your application (for example, ad
     This creates a new instance of your integration where you can safely change any of the parameters. Your existing integration remains in the OIN catalog and keeps the previous settings until this new version is published.
 1. Update any of the parameters for your existing protocols or add a new protocol depending on your needs.
 
-    If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign on again, you will see the published version and your in-progress version. Click **Edit** on the in-progress version to pick up where you left off.
+    If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign on again, the published version and your in-progress version appears. Click **Edit** on the in-progress version to pick up where you left off.
 1. When you have completed the updates, or have filled the new protocol information so that indicator shows 100% complete, you can click **Submit for Review**.
 
     At this point, the Okta OIN team is notified and your submission undergoes the same process flow as the original submission.
