@@ -64,7 +64,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 1. Select the name of the access policy that you just created, and then select **Add Rule**.
 
-2. Enter a **Name** for the rule, and then for this example leave the defaults for **IF Grant type is** and **AND User is**.
+2. Enter a **Name** for the rule, and then for this example, leave the defaults for **IF Grant type is** and **AND User is**.
 
 3. For the **AND Scopes requested** field, select **The following scopes:** and then click **OIDC default scopes**. All of the OpenID Connect reserved scopes appear in the box.
 
