@@ -123,7 +123,7 @@ Create the service application that integrates with the third-party risk provide
 
 4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable. Save the environment.
 
-5. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
+5. Verify that the application is available by making a GET request using the following API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 
