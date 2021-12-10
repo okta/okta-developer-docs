@@ -6,7 +6,7 @@
 * **Select provisioning features to be supported in the integration**: These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/main/#understand-the-submission-process).
 
 * **Does your Base URL vary per tenant?**: If **Yes**, a new field appears to assist you in setting up a per tenant configuration.
-  * **What variables do your admins need to specify to install your app?** &mdash; when you click **Add Variable**, the interface displays a dialog box to collect the following information:
+  * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, the interface displays a dialog box to collect the following information:
   * **Label Name** &mdash; a descriptive name for the dynamic variable that administrators see when installing your app integration.
   * **Variable Name** &mdash; an automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
   * **Help Text** &mdash; any descriptive text to be shown to administrators when installing your app integration.
