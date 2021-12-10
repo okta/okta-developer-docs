@@ -1,1 +1,1 @@
-Create an [OAuth](https://discord.com/developers/docs/topics/oauth2) app at <StackSelector snippet="idp" noSelector inline />.
+Create an [OAuth](https://discord.com/developers/docs/topics/oauth2) app at <StackSnippet snippet="idp" inline />.
