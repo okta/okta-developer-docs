@@ -16,14 +16,14 @@ Make sure your SCIM implementation passes all the Runscope tests before integrat
 Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
 1. Sign up for an [Okta developer account](https://developer.okta.com/signup/).
-1. Click on the link in the signup email to open your Admin Console.
+1. Click the link in the signup email to open your Admin Console.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
-1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you'll see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
+1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
 1. Click **Add** on the desired template application for your integration and finish adding the template application.
-1. On the **General Settings** page: set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically logged in from the landing page. Click **Next**.
+1. On the **General Settings** page: Set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
 1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
-1. Click the **Provisioning*** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** check box.
+1. Click the **Provisioning*** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
     - Basic Auth: Enter the the username and password for the account that handles the create, update, and deprovisioning actions of your SCIM implementation.
@@ -257,7 +257,7 @@ You only want to include the attributes that you support in your current user sc
 
         Your Profile Mapping template can always be updated in the future.
 
-        As mentioned in the adding and deleting attributes sections, you can set whether the attribute you are adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you are adding to be set strictly  per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this check box empty.
+        As mentioned in the adding and deleting attributes sections, you can set whether the attribute you are adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you are adding to be set strictly  per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this checkbox empty.
 
 ## Next steps
 
