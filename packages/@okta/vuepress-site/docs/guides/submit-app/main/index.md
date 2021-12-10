@@ -105,7 +105,7 @@ In this section, specify any prerequisites required before your customer configu
 
 For example:
 
-> When using SAML as the SSO mode with provisioning, a specific account plan needs to be enabled on the application side for silent activation.
+When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
 
 #### Supported Features
 
