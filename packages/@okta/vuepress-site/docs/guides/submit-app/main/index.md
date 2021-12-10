@@ -267,7 +267,7 @@ Similarly, when you enable a new capability in your application (for example, ad
 
     At this point, the Okta OIN team is notified and your submission undergoes the same process flow as the original submission.
 
-    After the new version of the integration has reached the **Publish** stage and been published by Okta, the new version replaces the old one in the OIN catalog.
+    After the new version of the integration reaches the **Publish** stage and is published by Okta, the new version replaces the old one in the OIN catalog.
 
 >**Note:** You can have a maximum of 10 submissions for any development org in the OIN Manager.
 
