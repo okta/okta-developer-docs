@@ -125,7 +125,7 @@ In this section of your guide, you want to outline what features your applicatio
 
 Also include any restrictions. For example:
 
-> Okta cannot update user attributes for Admin users. This is an API limitation.
+> **Note:** Okta can't update user attributes for Admin users. This is an API limitation.
 
 #### Procedure
 
