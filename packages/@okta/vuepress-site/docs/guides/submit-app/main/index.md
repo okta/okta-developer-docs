@@ -165,7 +165,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App category**: Specify one or more categories that Okta uses to categorize your integration in the OIN catalog. Click **Add Another** to choose up to three categories.
 
-* **App description** &mdash; give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
+* **App description**: Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
 
 * **App icon** &mdash; upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent upscaling.
 
