@@ -2,7 +2,7 @@
 
 JavaScript applications, when built for production, are just a bunch of static files. You can deploy them to any web server, configure that web server to be SPA-aware, and you should be good to go!
 
-You need to make sure you configure all paths to redirect to `index.html`. This is because your framework handles the routing. You also need to force HTTPS.
+Ensure that you configure all paths to redirect to `index.html` because your framework handles the routing. You also need to force HTTPS.
 
 ## Heroku
 

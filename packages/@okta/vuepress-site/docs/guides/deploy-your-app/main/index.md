@@ -13,11 +13,11 @@ This guide teaches you how to perform simple app deployments, for example to web
 
 **Learning outcomes**
 
-* Deploy your app.
+Deploy your app.
 
 **What you need**
 
-* An app to deploy.
+An app to deploy
 
 ---
 
