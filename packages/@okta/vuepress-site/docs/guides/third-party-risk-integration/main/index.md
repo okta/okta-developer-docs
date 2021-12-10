@@ -328,7 +328,7 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 
 1. Sign in to your Okta org as an administrator.
 2. In the Admin Console, go to **Reports** > **System Log**.
-3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a risk provider sends a risk event to Okta.
+3. Review the log file or search for the event `security.risk.signal.consume` that is logged when a risk provider sends a risk event to Okta.
 4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
 
 ### General troubleshooting tips
