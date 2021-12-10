@@ -58,7 +58,7 @@ The Okta OIN team reviews all submissions on a best-case basis.
 
 If the Okta OIN team identifies any issues in the initial review and QA testing phases, you are sent an email with the specific details. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
 
-  >**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog; however, existing SWA apps are still maintained by the OIN team.
+  >**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
 
 ### Submission support
 
