@@ -239,7 +239,7 @@ With the creation of a service application for the third-party risk provider, an
 
 In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public/private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
 
-In this test, the API sends a sample payload risk event to the Okta org, which can be consumed by Okta and used to calculate the risk of the authentication.
+In this test, the API sends a sample payload risk event to the Okta org that Okta can then consume and use to calculate the risk of the authentication.
 
 >**Note:** Only IP-related risk events are available for consumption by the Okta org.
 
