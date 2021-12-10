@@ -36,7 +36,7 @@ This procedure creates a signed JSON Web Token (JWT), which is used as the clien
 4. Click **Generate JWT**.
 5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable. Save the environment.
 
-For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/).
+For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt).
 
 ### Create an access token
 
@@ -55,7 +55,7 @@ This procedure creates an access token using the `clientAssertion` value require
     ```
     >**Note**: The access token expires in 60 minutes (or the value set in the property `expires_in`).
 
-For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/).
+For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token).
 
 ### Send a risk event to Okta
 

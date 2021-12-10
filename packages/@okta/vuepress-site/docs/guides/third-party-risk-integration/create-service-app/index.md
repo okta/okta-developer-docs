@@ -10,7 +10,7 @@ Use the following high-level steps to configure this service application:
 2. [Create and verify the service application](/docs/guides/third-party-risk-integration/create-service-app/#create-a-service-application)
 3. [Add a scope grant to the service application](/docs/guides/third-party-risk-integration/create-service-app/#add-scope-grant-to-application)
 
-For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
+For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/).
 
 ### Create a public-private key pair
 
@@ -40,7 +40,7 @@ Prior to creating the service application for the third-party risk provider, you
 4. Copy the **Public Key** JSON value to your Postman environment's `publicKey` variable.
 5. Make sure to save the JSON value for the **Public and Private Keypair**, which is required during testing.
 
-For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair).
+For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair).
 
 ### Create a service application
 
@@ -91,7 +91,7 @@ Create the service application that integrates with the third-party risk provide
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 
-For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/).
+For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes/).
 
 ### Add scope grant to application
 
@@ -111,7 +111,7 @@ You must now define the allowed Risk scope for use with the third-party risk pro
     },
     ```
 
-For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
+For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/main/#grant-allowed-scopes).
 
 >**Note:** If you get a "Resource Not Found" exception in this step, it's possible that your `clientId` or the URL are not valid.
 

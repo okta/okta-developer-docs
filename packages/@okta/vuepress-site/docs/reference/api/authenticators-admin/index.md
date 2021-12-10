@@ -628,7 +628,7 @@ The Authenticator object defines the following properties:
 | `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token and only applies to the `email` Authenticator type. Default value is `5` minutes. | `okta_email` |
 | `settings.compliance.fips` | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
 | `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
-| `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ALWAYS` | `okta_verify` |
+| `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
 | `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
 | `settings.appInstanceId` | String | The application instance ID | `okta_verify` |
 
