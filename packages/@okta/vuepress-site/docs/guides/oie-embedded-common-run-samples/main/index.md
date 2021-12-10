@@ -7,22 +7,25 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+<StackSelector />
+
 This guide covers how you can run both the sample Widget app and the sample SDK app, after you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
 
 ---
 
 **Learning outcomes**
 
-Run your sample app and build your integration.
+Run the Okta Identity Engine embedded SDK or embedded Sign-In Widget sample app.
 
 **What you need**
 
-* [Okta org](https://developer.okta.com/signup/oie.html)
-* [SDK, Sign-In Widget and sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up
+* [Okta org already configured for a password-only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* [Identity Engine SDK set up for the sample app](/docs/guides/oie-embedded-common-download-setup-app/)
+* Okta Identity Engine [sample app](#sample-code) (see the next section)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -38,9 +41,7 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 ## Run the embedded Widget sample app
 
-<StackSelector class="cleaner-selector"/>
-
-<StackSelector snippet="runwidgetapp" noSelector />
+<StackSnippet snippet="runwidgetapp" />
 
 ### Start your work with the use cases
 
@@ -58,9 +59,7 @@ The SDK integrates into your app by using a native language interface and commun
 
 ## Run the embedded SDK sample app
 
-<StackSelector class="cleaner-selector"/>
-
-<StackSelector snippet="runsdkapp" noSelector />
+<StackSnippet snippet="runsdkapp" />
 
 ### Work with the use cases
 
