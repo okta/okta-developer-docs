@@ -218,7 +218,7 @@ To get your Okta instance URL in your development org:
 
 Each of the supported protocols has different configuration settings for the remainder of the submission.
 
-<StackSelector snippet="submit" noSelector />
+<StackSnippet snippet="submit" />
 
 As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
 
