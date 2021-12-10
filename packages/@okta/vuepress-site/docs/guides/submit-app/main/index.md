@@ -191,7 +191,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 Your application needs to support at least one protocol for interacting with Okta: SAML or OIDC for authentication, or SCIM for provisioning.
 
-Protocol support details can be submitted all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
+You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
 For each protocol, click the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
 
