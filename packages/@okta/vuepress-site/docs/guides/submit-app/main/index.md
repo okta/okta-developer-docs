@@ -222,7 +222,7 @@ Each of the supported protocols has different configuration settings for the rem
 
 As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
 
-You must include all required information before you can click the **Submit for Review** button to move your integration into the submission phase.
+You must include all required information before you can click **Submit for Review** to move your integration into the submission phase.
 
 ## Understand the submission process
 
