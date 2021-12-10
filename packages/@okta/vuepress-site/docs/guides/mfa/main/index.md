@@ -65,7 +65,7 @@ Create a new user in Okta to test your MFA setup:
 
 You are now ready to enroll an additional factor for the user that you created.
 
-<StackSelector snippet="enrollfactor" noSelector />
+<StackSnippet snippet="enrollfactor" />
 
 ## Activate the factor
 
