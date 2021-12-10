@@ -1,10 +1,10 @@
 ---
 title: Implement OAuth for Okta with a service app
-excerpt: Learn how to interact with Okta APIs using scoped OAuth 2.0 access tokens for a service app.
+excerpt: Learn how to interact with Okta APIs by using scoped OAuth 2.0 access tokens for a service app.
 layout: Guides
 ---
 
-This guide shows you how to interact with Okta APIs using scoped OAuth 2.0 access tokens for a service app.
+This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 access tokens for a service app.
 
 ---
 <!-- Nutrition facts bullets -->
@@ -22,35 +22,33 @@ This guide shows you how to interact with Okta APIs using scoped OAuth 2.0 acces
 
 ---
 
-## Overview
-
 Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-### Use the Client Credentials grant flow
+## Use the Client Credentials grant flow
 
-For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth service app. The Client Credentials grant flow is the only grant flow supported with the OAuth service app when you want to mint access tokens that contain Okta scopes.
+For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth 2.0 service app. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
 The following are the high-level steps required to perform the Client Credentials grant flow with an OAuth service app:
 
 1. Create a public/private JSON Web Key Set (JWKS) key pair and extract the public key to pass it along with the client creation API call.
 1. Create the app and register the public key with the app.
-1. Grant the required OAuth scopes to the app.
+1. Grant the required OAuth 2.0 scopes to the app.
 1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
 > **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
 
 ## Create a public/private key pair
 
-The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
+The `private_key_jwt` client authentication method is the only supported method for OAuth 2.0 service apps that want to get access tokens with Okta scopes.
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. We recommend generating the public/private key pair first before creating the OAuth service app.
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth 2.0 service app. We recommend that you generate the public/private key pair first before you create the OAuth 2.0 service app.
 
 1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
 
-    * Key size &mdash; 2048
-    * Key use &mdash; signature
-    * Algorithm &mdash; RSA256
-    * Key ID &mdash; (Optional) This can be any random value.
+    * **Key Size**: 2048
+    * **Key Use**: Signature
+    * **Algorithm**: RSA256
+    * **Key ID**: (Optional) This can be any random value.
 
 > **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own [internal instance](https://github.com/mitreid-connect/mkjwk.org) of the key pair generator.
 
@@ -77,17 +75,17 @@ The JWKS should look something like this:
 
 ## Create a service app and grant scopes
 
-Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth2/v1/clients`). Then grant the scopes that you want to allow for the service app.
+Create an OAuth 2.0 service app and register the public key with the service app by using the dynamic client registration endpoint (`/oauth2/v1/clients`). Then grant the scopes that you want to allow for the service app.
 
 ### Create a service app
 
 1. Use the following POST example to create your service app using the `/oauth2/v1/clients` endpoint and provide values for these parameters:
 
-    * `client_name` &mdash; name of the service app
-    * `grant_types` &mdash; `client_credentials`
-    * `token_endpoint_auth_method` &mdash; `private_key_jwt`
-    * `application_type` &mdash; `service`
-    * `jwks` &mdash; add the JSON Web Key Set (JWKS) that you created in the [last step](#create-a-public-private-key-pair).
+    * `client_name`: Name of the service app
+    * `grant_types`: `client_credentials`
+    * `token_endpoint_auth_method`: `private_key_jwt`
+    * `application_type`: `service`
+    * `jwks`: Add the JSON Web Key Set (JWKS) that you created in the [last step](#create-a-public-private-key-pair).
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \
@@ -135,8 +133,8 @@ Now that you've created the service app and registered the public key with that 
 
 2. Provide values for these parameters in your request:
 
-    * `scopeID` &mdash; `okta.users.read`
-    * `issuer` &mdash; `https://${yourOktaDomain}`<br>
+    * `scopeID`: `okta.users.read`
+    * `issuer`: `https://${yourOktaDomain}`
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
@@ -164,20 +162,20 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
-* `alg` &mdash; one of the supported algorithm values: RS265, RS384, RS512, ES256, ES384, or ES512. This is required for Okta to successfully verify the token using the signing keys provided in the [previous step](#create-a-service-app-and-grant-scopes). The `alg` parameter goes in the header of the JWT rather than a claim in the payload of the body.
-* `aud` &mdash; the full URL of the resource that you're using the JWT to authenticate to
-* `exp` &mdash; the expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
-* `jti` &mdash; (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
-* `iat` &mdash; (Optional) the issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
-* `iss` &mdash; the issuer of the token. This value must be the same as the `client_id`.
-* `sub` &mdash; the subject of the token. This value must be the same as the `client_id`.
+* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#create-a-service-app-and-grant-scopes). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
+* `aud`: The full URL of the resource that you're using the JWT to authenticate to
+* `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
+* `jti`: (Optional) The token's unique identifier. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
+* `iat`: (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
+* `iss`: The issuer of the token. This value must be the same as the `client_id`.
+* `sub`: The subject of the token. This value must be the same as the `client_id`.
 
 1. For this example, include the following parameters in the payload of the JWT:
 
-    * `aud` &mdash; `https://${yourOktaDomain}/oauth2/v1/token`
-    * `iss` &mdash; `client_id`
-    * `sub` &mdash; `client_id`
-    * `exp` &mdash; `1614664267`
+    * `aud`: `https://${yourOktaDomain}/oauth2/v1/token`
+    * `iss`: `client_id`
+    * `sub`: `client_id`
+    * `exp`: `1614664267`
 
     **Payload example**
 
@@ -202,13 +200,13 @@ To request an access token using the Client Credentials grant flow, your app mak
 
 Include the following parameters:
 
-* `scope` &mdash; include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the [application's grants collection](#grant-allowed-scopes). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the [application's grants collection](#grant-allowed-scopes). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
     In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
-* `client_assertion_type` &mdash; specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
+* `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-* `client_assertion` &mdash; the signed JWT. Paste the JWT that you signed in the [Create and sign the JWT](#create-and-sign-the-jwt) section.
+* `client_assertion`: The signed JWT. Paste the JWT that you signed in the [Create and sign the JWT](#create-and-sign-the-jwt) section.
 
 The following is an example request for an access token (the JWT is truncated for brevity).
 

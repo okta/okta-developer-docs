@@ -1,10 +1,10 @@
 ---
 title: Implement OAuth for Okta
-excerpt: Learn how to interact with Okta APIs using scoped OAuth 2.0 access tokens.
+excerpt: Learn how to interact with Okta APIs by using scoped OAuth 2.0 access tokens.
 layout: Guides
 ---
 
-This guide shows you how to interact with Okta APIs using scoped OAuth 2.0 access tokens.
+This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 access tokens.
 
 ---
 
@@ -23,7 +23,7 @@ This guide shows you how to interact with Okta APIs using scoped OAuth 2.0 acces
 
 ---
 
-## Overview
+## OAuth 2.0 for Okta API endpoints
 
 Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
@@ -111,15 +111,15 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
 5. In the dialog box that appears, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the following for the token request:
 
-    * **Callback URL** &mdash; define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
-    * **Auth URL** &mdash; enter the authorization endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/authorize`
-    * **Access Token URL** &mdash; enter the token endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/token`
-    * **Code Challenge Method** &mdash; leave the default of `SHA-256` selected
-    * **Code Verifier** &mdash; leave it empty so that Postman generates its own
-    * **Client ID** &mdash; use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
-    * **Scope** &mdash; include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints) for more information.
-    * **State** &mdash; use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
-    * **Client Authentication** &mdash; set to **Send client credentials in body**.
+    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Auth URL**: Enter the authorization endpoint for your Org Authorization Server, for example, `https://${yourOktaDomain}/oauth2/v1/authorize`.
+    * **Access Token URL**: Enter the token endpoint for your Org Authorization Server, for example, `https://${yourOktaDomain}/oauth2/v1/token`.
+    * **Code Challenge Method**: Leave the default of `SHA-256` selected.
+    * **Code Verifier**: Leave it empty so that Postman generates its own.
+    * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
+    * **State**: Use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
+    * **Client Authentication**: Set to **Send client credentials in body**.
 
 7. Click **Request Token**. You are prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** drop-down list.
     > **Note:** The lifetime for this token is fixed at one hour.
