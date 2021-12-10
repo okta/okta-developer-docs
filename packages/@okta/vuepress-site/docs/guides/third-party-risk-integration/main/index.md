@@ -86,7 +86,7 @@ Create the service application that integrates with the third-party risk provide
 
 2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
-3. Review the response, which includes the `jwks` key pair. Note, the `client_name` value is the same value you gave as the `providerName` variable. A sample response follows:
+3. Review the response, which includes the `jwks` key pair. The `client_name` value is the same value that you gave as the `providerName` variable. A sample response follows:
 
     ```JSON
     {
