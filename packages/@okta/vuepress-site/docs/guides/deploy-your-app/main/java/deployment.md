@@ -1,6 +1,10 @@
----
-title: Java
----
+## Deploying a Java app
+
+If you're developing a server-side application, you likely only need to do three things after deploying your app:
+
+1. Configure your app (or server settings) to force HTTPS.
+2. Configure your app to read your Okta settings (for example, issuer, client ID, and client secret) from environment variables or a secrets provider (like HashiCorp Vault).
+2. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
 
 Java applications typically build into a WAR or a JAR for production.
 
@@ -12,7 +16,7 @@ If you deploy your application as a WAR, it's possible you have a context path. 
 
 JAR-based Java apps usually don't have a context, and if you start them locally, they are available at `http://localhost:8080`.
 
-### Heroku
+## Heroku
 
 The easiest way to deploy your Java app to production with Okta is to use Heroku. We provide an [Okta Heroku Add-on](https://devcenter.heroku.com/articles/okta) that auto-provisions an Okta org for you and adds the appropriate applications to it.
 
@@ -48,7 +52,7 @@ You won't be able to sign in to your application until you add your Heroku app's
 
 For more information, see [Deploy a Secure Spring Boot App to Heroku](https://developer.okta.com/blog/2020/08/31/spring-boot-heroku).
 
-### Forcing HTTPS
+## Forcing HTTPS
 
 You can enforce the use of HTTPS when your app is running on Heroku by adding the following configuration to your security configuration.
 
@@ -65,6 +69,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 }
 ```
 
-### Docker
+## Docker
 
 You can package your Java application with Docker, too. See [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) for a blog post that details how. Specifically, see the [Dockerize Angular + Spring Boot with Jib](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#dockerize-angular-spring-boot-with-jib) section.
