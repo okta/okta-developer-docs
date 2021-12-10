@@ -65,7 +65,7 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-To use the Widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returned `StartWidgetSignInAsync`, which is used in the path to the CDN.
+To use the Widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returns `StartWidgetSignInAsync`, which is used in the path to the CDN.
 
 ```csharp
 @section head
@@ -120,4 +120,4 @@ The final step is to run your app. If the Widget and Okta org are properly confi
 
 </div>
 
-> **Note:** The **Forgot password?** and **Sign up** links are configurable elements in your Okta org and may not appear on the page.
+> **Note:** The **Forgot password?** and **Sign Up** links are configurable elements in your Okta org and may not appear on the page.
