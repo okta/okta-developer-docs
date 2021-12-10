@@ -117,7 +117,7 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
     * **Code Verifier**: Leave it empty so that Postman generates its own.
     * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
-    * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints) for more information.
+    * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
     * **State**: Use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
     * **Client Authentication**: Set to **Send client credentials in body**.
 
