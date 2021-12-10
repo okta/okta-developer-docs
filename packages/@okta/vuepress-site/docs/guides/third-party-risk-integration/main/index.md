@@ -252,7 +252,7 @@ Use the following high-level steps to test the risk provider integration:
 
 ### Create a client assertion
 
-This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token.
+This procedure creates a signed JSON Web Token (JWT) that is used as the client assertion value required in the request for a scoped access token.
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
 2. In the **JWK KEY** field, copy the **Public and Private Keypair** generated when you created the service application ([Create a public/private key pair](#create-a-public-private-key-pair)).
