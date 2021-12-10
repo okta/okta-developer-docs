@@ -4,7 +4,7 @@ excerpt: How to demonstrate Event Hooks using Hookdeck to expose a local app to 
 layout: Guides
 ---
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide provides a working example of an Okta Event Hook. It uses the Hookdeck utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The Hookdeck utility enables the testing of Event Hooks locally, rather than implementing an internet-based production or test external service.
 
@@ -19,7 +19,7 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
-* A local application. Or see [Create a local application](#create-a-local-application) in this guide to install the sample code application.
+* A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
 * The Hookdeck utility. See [Install Hookdeck](#install-hookdeck).
 
 **Sample code**
@@ -30,7 +30,7 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 
 ## Create a local application
 
-<StackSelector snippet="sample-app" noSelector/>
+<StackSnippet snippet="sample-app" />
 
 ## Install Hookdeck
 
@@ -43,7 +43,7 @@ Some installation notes:
 
 ### Run Hookdeck
 
-After installing Hookdeck, ensure that it's running by creating a "tunnel" into a local port (1337 in this example). Run the following command in your terminal:
+After installing Hookdeck, start a session to forward your Event Hooks to a local port (1337 in this example). Run the following command in your terminal:
 
 ```terminal
 nodejs-webhook-server-example> hookdeck listen 1337
@@ -71,13 +71,13 @@ With this data, Hookdeck creates a session and URL to use for sending requests. 
 
 ![A screen shot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hookdeck-and-event-hooks-session.png)
 
-> **Note:** Copy the forwarding **Webhook URL** that is available from the Hookdeck terminal session. For example, `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`. You'll use this URL when setting up your Okta Event Hook.
+> **Note:** You'll use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your Event Hook. For example, `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`.
 
 See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.com/docs/introduction) for further information.
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the dashboard URL to access details on your hook calls: `https://dashboard.hookdeck.com/cli/events`.
+The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=2fzffo7va67vgs29cpqz6ce9z4eg29nemoxan6fwm0jgefct5u`.
 
 Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
@@ -101,7 +101,9 @@ Create the Okta Event Hook to work with your local application, which can now be
 
     >**Note:** Hookdeck generates the URL when creating the session and incorporates the local application's hook endpoint as part of the unique URL. That is, the endpoint is not explicitly defined as part of the URL.
 
-6. Leave the **Authentication field** and **Authentication secret** values blank in this example. However, to add Basic Authentication, add the application code required at [Add Basic Authorization and Body Parsing](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-basic-authorization-and-body-parsing) and then enter the following values for those fields:
+6. Leave the **Authentication field** and **Authentication secret** values blank in this example.
+
+    However, to add Basic Authentication, add the application code required at [Add Basic Authorization and Body Parsing](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-basic-authorization-and-body-parsing) and then enter the following values for those fields:
 
     * **Authentication field** = `authorization`
 
@@ -111,11 +113,13 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 8. Click **Save & Continue**.
 
-9. With your Hookdeck session and local application running, complete the one-time verification Okta call at this time or verify the Event Hook later.
+9. With your Hookdeck session and local application running, complete the one-time verification Okta call at this time by clicking **Verify**. You can also verify the Event Hook at later time. See [Event Hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
 
-### Verify the Event Hook
+### Event Hook verification
 
 You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
+
+>**Note:** Hookdeck includes the capability to verify your endpoint, and no code is necessary for your local application.
 
 To complete the one-time verification of the Event Hook:
 
@@ -139,7 +143,7 @@ To run a preview call of your Event Hook:
 1. Locate the Event Hook you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
 1. Click the **Actions** menu for this hook, and select **Preview**.
 1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
-1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook if there is one. You can also select an older event from the **System Log Event** drop-down menu. If no event is available, the JSON body populates with sample data.
+1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook if there is one. If no event is available, the JSON body populates with sample data.
 1. Ensure that both your Hookdeck session and local sample application are running.
 
     >**Note:** If you start a new Hookdeck session at any time, make sure to update the Event Hook URL.
@@ -167,7 +171,9 @@ To run a test of your Event Hook:
         * **Last Name:** Doe
         * **User Name:** jane.doe@hookdeckexample.com
 
-1. Navigate back to your local application's console. The request body for this call appears.
+1. Click **Save** to create a new user. The new user triggers an Event Hook call.
+
+1. Navigate back to your local application's console. The request body for this call appears in the console, as designed by the local application code.
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
