@@ -36,7 +36,7 @@ First of all, you'll enable support for MFA in the Admin Console of your Okta or
 
 You need to enable MFA from the Admin Console of your Okta org before you can use it with the Okta API.
 
-<StackSelector snippet="enablemfa" noSelector />
+<StackSnippet snippet="enablemfa" />
 
 See [MFA](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Sign-on Policies](https://help.okta.com/okta_help.htm?id=Security_Policies) for more information.
 
