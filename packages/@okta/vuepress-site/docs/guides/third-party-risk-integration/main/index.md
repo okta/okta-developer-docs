@@ -294,7 +294,7 @@ For further background information on this process, see [Get an access token](/d
 
 This procedure sends a sample risk event payload to the Okta org.
 
-1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
+1. Make a POST request using the following API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
 
     ```JSON
     [
