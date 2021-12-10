@@ -167,7 +167,7 @@ In this example, use the following two procedures to set up your third-party ris
 
 This procedure retrieves the default risk provider profile and Provider ID.
 
-1. Call the following GET API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
+1. Make a GET request using the following API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
 
 2. Review the response, which includes the Provider ID, default name, and action properties. A sample response follows:
 
