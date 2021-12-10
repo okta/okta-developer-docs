@@ -1,5 +1,5 @@
 
-* **What SCIM version should this integration use?** &mdash; choose either **SCIM 2.0** (Okta preferred version), or **SCIM 1.1**.
+* **What SCIM version should this integration use?**: Choose either **SCIM 2.0** (Okta preferred version) or **SCIM 1.1**.
 
 * **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide).
 
