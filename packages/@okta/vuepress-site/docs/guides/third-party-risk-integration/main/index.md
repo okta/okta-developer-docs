@@ -149,7 +149,7 @@ You must now define the allowed Risk scope for use with the third-party risk pro
 
 For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/main/#grant-allowed-scopes).
 
->**Note:** If you get a "Resource Not Found" exception in this step, it's possible that your `clientId` or the URL are not valid.
+>**Note:** If you get a "Resource Not Found" exception in this step, it's possible that your `clientId` or the URL aren't valid.
 
 ## Update the default third-party risk provider
 
