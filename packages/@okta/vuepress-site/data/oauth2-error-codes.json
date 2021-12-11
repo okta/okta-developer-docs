@@ -1,6 +1,6 @@
 {
-  "release" : "2021.11.1",
-  "build" : "2021.11.1-begin-85-ge28985e6ebd8",
+  "release" : "2021.12.1",
+  "build" : "2021.12.1-begin-135-g1df0f4ba0752",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -554,6 +554,27 @@
     "internalErrorCode" : "authorize_request_object_jwks_not_configured",
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
+  }, {
+    "title" : "Jwks URI no key",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_no_key",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client JWKSet from jwks_uri must contain at least one key."
+  }, {
+    "title" : "Jwks URI ambiguous keys",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_ambiguous_keys",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "All keys in the client JWKSet from jwks_uri must have a unique kid."
+  }, {
+    "title" : "Jwks URI algorithm required",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_algorithm_required",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client JWKSet from jwks_uri must contain at least one key with an algorithm matching the request_object_signature_algorithm."
   }, {
     "title" : "Authorize request URI mismatched client",
     "statusCode" : 401,

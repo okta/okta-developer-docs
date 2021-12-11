@@ -48,7 +48,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.registe
 
 ### 3: Display the enrollment authenticators
 
-After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, which can be verified during authentication.
+After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with Password authentication, and additional Email or Phone factors. Authenticators are the factor credentials, owned or controlled by the user, that can be verified during authentication.
 
 This step contains the request to enroll a password authenticator for the user.
 
@@ -138,11 +138,11 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 </div>
 
-> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-the-email-address-isnt-working) for details.
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working) for details.
 
 ### 7: The user submits the email verification code
 
-The user receives the verification code in their email and submits it in the verify code form. Use [VerifyAuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
+The user receives the verification code in their email and submits it in the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
@@ -201,7 +201,7 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 #### Option 2: The user selects the phone authenticator
 
-In this use case option, the user selects the optional **Phone** factor as the authenticator to verify. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
+In this use case option, the user selects the optional phone factor as the authenticator to verify. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
 ```java
 authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);

@@ -20,7 +20,7 @@ you need to make in your app to support to this step.
 ### 3: Facebook redirects the user to your Okta org
 
 If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-create-a-facebook-app-in-facebook).
-The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+The value takes on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 
 ### 4: The Okta org redirects the user to your app using the sign-in redirect URI
 
@@ -28,8 +28,8 @@ After Facebook sends the success login request to your Okta org, the org
 redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field.
 
-This step handles the callback from the widget that
-returns an `interaction_code`. This code will be redeemed in the
+This step handles the callback from the Widget that
+returns an `interaction_code`. This code is redeemed in the
 next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
@@ -37,11 +37,11 @@ and must be identical. These locations are:
    [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
 * A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
-   [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+   [Create a new application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application).
 
 For the sample application, the **RedirectURI** should be set to `http://localhost:8080/login/callback`
 
-Okta returns the interaction code to the **Sign-in redirect URI** that is specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
+Okta returns the Interaction Code to the **Sign-in redirect URI** that is specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
 
 ```JavaScript
 router.get('/login/callback', async (req, res, next) => {
@@ -66,7 +66,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ### 5: Request and store the tokens from Okta
 
-Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
+Use the Interaction Code component of the `login.js` page to request tokens and store them in the SDK.
 
 ```JavaScript
   try {
