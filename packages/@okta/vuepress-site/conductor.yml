@@ -4533,9 +4533,15 @@ redirects:
     to: /docs/guides/configure-access-policy/main/#next-steps
   - from: /docs/guides/configure-access-policy/next-steps/index.html
     to: /docs/guides/configure-access-policy/main/#next-steps
-  - from: /docs/guides/migrate-to-okta/prerequisites/
+  - from: /docs/guides/migrate-to-okta/prerequisites
     to: /docs/guides/migrate-to-okta-prerequisites/
-  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials
     to: /docs/guides/migrate-to-okta-bulk/
-  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks
+    to: /docs/guides/migrate-to-okta-password-hooks/
+  - from: /docs/guides/migrate-to-okta/prerequisites/index.html
+    to: /docs/guides/migrate-to-okta-prerequisites/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/index.html
+    to: /docs/guides/migrate-to-okta-bulk/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
     to: /docs/guides/migrate-to-okta-password-hooks/
