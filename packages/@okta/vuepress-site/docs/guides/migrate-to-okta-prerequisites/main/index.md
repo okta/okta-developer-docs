@@ -1,6 +1,21 @@
 ---
-title: Prerequisites
+title: Migrate to Okta — Prerequisites
+meta:
+  - name: description
+    content: Create a plan for migrating existing users to Okta.
+layout: Guides
 ---
+
+This guide provides you with information to create a plan for migrating existing users to Okta.
+
+---
+
+**Learning outcomes**
+
+Create a plan for migrating existing users to Okta.
+
+---
+
 ## How to plan your migration
 
 Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan.
@@ -13,20 +28,20 @@ A **one-time migration** moves your users with their credentials over to Okta al
 
 A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature.
 
-It’s important to note that this information is about a migration strategy and not integration. 
+It's important to note that this information is about a migration strategy and not integration.
 
-> Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems continues to be the source of truth for some or all of your user information.
+> **Note**: Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems continues to be the source of truth for some or all of your user information.
 
 ## Private data and other sensitive information
 
-> **Important:** Information security is a critical issue in today’s world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union’s [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
+> **Important**: Information security is a critical issue in today’s world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union’s [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
 
 For some helpful information on this, see:
 
 * [How to Keep PII Secure while Migrating Users to the Cloud](https://www.okta.com/gdpr/) (Okta security blog post)
 * [Prepare your organization for the GDPR](https://www.okta.com/gdpr/) (Okta data security page)
 
-## Get ready to create a plan - Gather information
+## Get ready to create a plan &mdash; Gather information
 
 Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the applications and other resources that they will need to access through Okta.
 
@@ -155,3 +170,8 @@ Note that data migration rollback is for users only. Other items (for example, a
 ### Next steps
 
 With a plan in place, you’re ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we’ve chosen to use the [Okta API](/docs/reference/) and we’ll cover those steps in the next section.
+
+Have a look at our migration guides:
+
+* [Bulk migration with credentials](/docs/guides/migrate-to-okta-bulk/)
+* [Import Users with Inline Password Hooks](/docs/guides/migrate-to-okta-password-hooks/)
