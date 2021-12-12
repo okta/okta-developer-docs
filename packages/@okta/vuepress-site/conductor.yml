@@ -4518,9 +4518,9 @@ redirects:
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/oin-oidc-guide/overview
-    to: /docs/guides/oin-oidc-guide-overview/main/
+    to: /docs/guides/oin-oidc-overview/main/
   - from: /docs/guides/oin-oidc-guide/background
-    to: /docs/guides/oin-oidc-guide/overview/main/#overview
+    to: /docs/guides/oin-oidc-overview/main/#overview
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
     to: /docs/guides/oin-oidc-protocols/main/
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
@@ -4530,9 +4530,9 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/next-steps
     to: /docs/guides/oin-oidc-best-practices/main/#next-steps
   - from: /docs/guides/oin-oidc-guide/overview/index.html
-    to: /docs/guides/oin-oidc-guide-overview/main/
+    to: /docs/guides/oin-oidc-overview/main/
   - from: /docs/guides/oin-oidc-guide/background/index.html
-    to: /docs/guides/oin-oidc-guide/overview/main/#overview
+    to: /docs/guides/oin-oidc-overview/main/#overview
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
     to: /docs/guides/oin-oidc-protocols/main/
   - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
