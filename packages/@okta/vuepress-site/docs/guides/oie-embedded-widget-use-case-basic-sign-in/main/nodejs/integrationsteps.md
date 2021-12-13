@@ -10,7 +10,7 @@ The user signs in with the Sign-In Widget that was set up in the [Load the Widge
 
 ### 2: Handle the callback from the Widget
 
-Okta returns the Interaction Code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
+Okta returns the Interaction Code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application). The Interaction Code is accessed in the sample app from `login.js`.
 
 ```JavaScript
 router.get('/login/callback', async (req, res, next) => {
