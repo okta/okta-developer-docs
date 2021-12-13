@@ -269,7 +269,7 @@ This procedure creates a signed JSON Web Token (JWT) that is used as the client 
 4. Click **Generate JWT**.
 5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable. Save the environment.
 
-For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt/).
+For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt).
 
 ### Create an access token
 
