@@ -16,7 +16,6 @@ Create a plan for migrating existing users to Okta.
 
 ---
 
-## How to plan your migration
 
 Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan.
 
