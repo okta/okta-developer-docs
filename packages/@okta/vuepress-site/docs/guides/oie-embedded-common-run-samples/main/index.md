@@ -9,7 +9,7 @@ layout: Guides
 
 <StackSelector />
 
-This guide covers how you can run both the sample Widget app and the sample SDK app, after you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
+This guide covers how you can run the embedded Okta Identity Engine SDK or Sign-In Widget sample app, after you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
 
 ---
 
@@ -43,10 +43,6 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 <StackSnippet snippet="runwidgetapp" />
 
-### Start your work with the use cases
-
-After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/) to start using the Widget and explore the available use cases.
-
 ## The embedded SDK flow
 
 The SDK integrates into your app by using a native language interface and communicates directly with Okta APIs by using a REST interface. The following diagram illustrates the SDK flow.
@@ -60,7 +56,3 @@ The SDK integrates into your app by using a native language interface and commun
 ## Run the embedded SDK sample app
 
 <StackSnippet snippet="runsdkapp" />
-
-### Work with the use cases
-
-After you've successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/) use case.

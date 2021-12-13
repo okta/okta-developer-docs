@@ -9,13 +9,17 @@ title: Get set up
 
 <StackSelector />
 
-This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
+This guide covers how to create and set up your Okta org before you can run the provided sample apps or integrate the SDK or Widget into your own app.
 
 ---
 
 **Learning outcomes**
 
 Get a new org set up and ready for various use cases.
+
+**What you need**
+
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
 
