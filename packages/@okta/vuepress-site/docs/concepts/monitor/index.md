@@ -79,7 +79,7 @@ See [Useful System Log Queries](https://support.okta.com/help/s/article/Useful-S
 
 ## Download system logs for analysis
 
-You can use the Admin Console to manually download CSV files of system log query results for analysis or to be sent to a data warehouse or lake. See [System Logs](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm).
+You can use the Admin Console to manually download CSV files of system log query results for analysis or to be sent to a data warehouse or lake. See [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 ## Enable and configure Okta ThreatInsight
 
