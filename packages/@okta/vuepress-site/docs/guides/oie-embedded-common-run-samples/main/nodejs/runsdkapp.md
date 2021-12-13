@@ -14,7 +14,7 @@
 
    ![Example user profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png)
 
-### Troubleshooting
+### Troubleshoot
 
 * If the Widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
 
