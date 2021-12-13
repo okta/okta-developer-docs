@@ -16,10 +16,14 @@ Migrate users into Okta as they authenticate using Password Import Inline Hooks.
 
 **What you need**
 
-* An Okta developer org. (Don’t have one? [Create an org for free.](https://developer.okta.com/signup))
+* An Okta developer org. (Don't have one? [Create an org for free.](https://developer.okta.com/signup))
 * Postman client to run API requests. See [Use Postman with the Okta REST APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 * Example or test source data to test user and group creation requests. (Do not use real user data when testing!)
-* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/).
+* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/main/).
+
+**Sample code**
+
+On this page you can find a curl request example for [creating users with password import inline hooks](#request-example).
 
 ---
 

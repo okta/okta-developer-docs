@@ -16,10 +16,14 @@ Perform a bulk migration of users into Okta using Okta APIs.
 
 **What you need**
 
-* An Okta developer org. (Don’t have one? [Create an org for free.](https://developer.okta.com/signup))
+* An Okta developer org. (Don't have one? [Create an org for free.](https://developer.okta.com/signup))
 * Postman client to run API requests. See [Use Postman with the Okta REST APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 * Example or test source data to test user and group creation requests. (Do not use real user data when testing!)
-* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/).
+* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/main/).
+
+**Sample code**
+
+On this page you can find curl request examples for [creating groups](#request-example), [creating users with groups](#request-example-with-groups), and [creating users without groups](#request-example-without-groups).
 
 ---
 
@@ -27,20 +31,20 @@ Perform a bulk migration of users into Okta using Okta APIs.
 
 ## Sample data
 
-The [Okta Users API](/docs/reference/api/users/) provides several operations to create users. To keep it simple, we’ll use [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) in this guide.
+The [Okta Users API](/docs/reference/api/users/) provides several operations to create users. To keep it simple, we'll use [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) in this guide.
 
-This is the sample data we’ll use for one user:
+This is the sample data we'll use for one user:
 
 * First Name: John
 * Last Name: Smith
 * Email Address: john.smith@example.com
 * Groups: All Employees, Sales, Northeast
 
-It’s a good idea to use sample data that’s as close as possible to your real user data to identify any potential issues before implementation.
+It's a good idea to use sample data that's as close as possible to your real user data to identify any potential issues before implementation.
 
 ## Create groups
 
-If your user data includes groups and you want to include those groups when you create your users in Okta, you’ll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we’re using (in this case, “All Employees”) using an [Add Group](/docs/reference/api/groups/#add-group) request:
+If your user data includes groups and you want to include those groups when you create your users in Okta, you'll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we're using (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
 
 ### Request example
 
@@ -104,8 +108,8 @@ You can also create Groups in your Okta Admin Console. For more information, see
 
 ## Create users
 
-Once you have created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, we’re using [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
-In our sample, the user’s email address is our unique login and the Group IDs are from the List Groups request in the previous step.
+Once you have created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, we're using [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
+In our sample, the user's email address is our unique login and the Group IDs are from the List Groups request in the previous step.
 
 ### Request example with groups
 
@@ -129,7 +133,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-If you don’t have any Groups or want to add your Users to Groups later, simply use the same request but without the `groupIds` array.
+If you don't have any Groups or want to add your Users to Groups later, simply use the same request but without the `groupIds` array.
 
 ### Request example without groups
 
@@ -213,7 +217,7 @@ The user status in the response when you create a User is set to `STAGED`, which
 
 ## Rate limits
 
-Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta’s Rate Limit Headers.
+Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta's Rate Limit Headers.
 
 ## Next steps
 
