@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide explains how to migrate users into Okta as they authenticate using Password Import Inline Hooks
+This guide explains how to migrate users into Okta as they authenticate using Password Import Inline Hooks.
 
 ---
 
