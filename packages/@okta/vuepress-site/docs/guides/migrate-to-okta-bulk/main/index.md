@@ -12,7 +12,7 @@ As part of your plan and preparation to migrate your users to Okta, you gathered
 
 **Learning outcomes**
 
-Perform a bulk migration of users into Okta using the Okta API.
+Perform a bulk migration of users into Okta using Okta APIs.
 
 **What you need**
 
