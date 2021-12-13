@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide shows you how to use that data to create users and groups in Okta using the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
+As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide shows you how to use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
 
 ---
 
