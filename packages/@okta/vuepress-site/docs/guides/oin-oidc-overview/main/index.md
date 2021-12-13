@@ -1,5 +1,5 @@
 ---
-title: OIDC and the OIN — A developer primer
+title: OIDC and the OIN - A developer primer
 excerpt: How to create OIDC app integrations to work with the Okta Integration Network
 layout: Guides
 ---
@@ -41,10 +41,10 @@ OIDC relies on a set of standardized API endpoints for verifying and sharing use
 
 This series contains the following parts:
 
-* [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/main/): Background information on the protocol requirements for OIDC-based OIN applications.
-* [OIDC and the OIN &mdash; Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/main/): multi-tenancy as it relates to Okta and OIN applications.
-* [OIDC and the OIN &mdash; OIN integration best practices](/docs/guides/oin-oidc-best-practices/main/): OIN integration best practices, including logos and rate limits.
+* [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/): Background information on the protocol requirements for OIDC-based OIN applications.
+* [OIDC and the OIN &mdash; Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/): multi-tenancy as it relates to Okta and OIN applications.
+* [OIDC and the OIN &mdash; OIN integration best practices](/docs/guides/oin-oidc-best-practices/): OIN integration best practices, including logos and rate limits.
 
 ## Next steps
 
-Begin your exploration by reading our [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/main/) guide.
+Begin your exploration by reading our [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/) guide.

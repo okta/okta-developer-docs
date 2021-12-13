@@ -31,6 +31,9 @@ guides:
  - mfa
  - migrate-to-okta
  - oin-oidc-overview
+ - oin-oidc-best-practices
+ - oin-oidc-multi-tenancy
+ - oin-oidc-protocols
  - build-provisioning-integration
  - build-sso-integration
  - custom-sms-messaging

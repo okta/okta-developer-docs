@@ -105,9 +105,9 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 * `profile` &mdash; the end user's default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`
 * `email` &mdash; requests access to the `email` and `email_verified` claims
-  
+
     >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
-    
+
 * `address` &mdash; requests access to the `address` claim
 * `phone` &mdash; requests access to the `phone_number` and `phone_number_verified` claims
 * `groups` &mdash; requests access to the `groups` claim. This is a custom scope for Okta
@@ -143,4 +143,4 @@ For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/
 
 ## Next steps
 
-Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/main/) as it relates to OIDC and the OIN.
+Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/) as it relates to OIDC and the OIN.
