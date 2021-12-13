@@ -1,6 +1,6 @@
 ### 1: Navigate to the sign-in page
 
-The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from constructor) to establish a connection to the Okta org and application.
+The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded Widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from the constructor) to establish a connection to the Okta org and application.
 
 The following sample code shows the instantiation of the `IdxClient` and the `StartWidgetSignInAsync` call.
 
@@ -26,7 +26,7 @@ public async Task<ActionResult> Index()
 
 > **Note:** In the preceding MVC setup, the response's `SignInWidgetConfiguration` property is passed to the view as a model.
 
-The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration`  property of this response object contains information that needs to be passed to the Sign-In Widget when the widget is initialized on the page. The following example shows the object structure in JSON format.
+The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that needs to be passed to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format.
 
 ```json
 {
@@ -65,7 +65,7 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-To use the widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returned `StartWidgetSignInAsync`, which is used in the path to the CDN.
+To use the Widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returns `StartWidgetSignInAsync`, which is used in the path to the CDN.
 
 ```csharp
 @section head
@@ -75,15 +75,15 @@ To use the widget, you need to make a reference to the Okta CDN. In the followin
 }
 ```
 
-#### 2c: Add Javascript to initialize and load the Widget
+#### 2c: Add JavaScript to initialize and load the Widget
 
 The next step includes the following activities:
 
-1. Creates a javascript object from the model
-1. Initializes the widget object, which passes in the `div id` (for example, `okta-signin-widget-container`) on the page, and javascript model object
-1. Calls the `showSignInAndRedirect` method on the widget object to display the sign-in page
+1. Create a JavaScript object from the model.
+1. Initialize the JavaScript model object and the Widget object that passes in the `div id` (for example, `okta-signin-widget-container`) on the page.
+1. Call the `showSignInAndRedirect` method on the Widget object to display the sign-in page.
 
-The `div id` that you passed into the widget needs to match a `div` on the page that you are going to create in the next step. The following shows the sample code.
+The `div id` that you passed into the Widget needs to match a `div` on the page that you are going to create in the next step. See the following sample code.
 
 ```csharp
 <script type="text/javascript">
@@ -104,7 +104,7 @@ The `div id` that you passed into the widget needs to match a `div` on the page 
 
 #### 2d: Add div tag
 
-The final step is to add a `div` tag with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the widget object in the previous step.
+The final step is to add a `div` element with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the Widget object in the previous step.
 
 ```html
 <div id="okta-signin-widget-container"></div>
@@ -112,7 +112,7 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 
 ### 3: Display the Widget
 
-The final step is to run your app. If the widget and Okta org are property configured, the widget loads and the Sign In page similar to the following image appears.
+The final step is to run your app. If the Widget and Okta org are properly configured, the Sign-In Widget loads and appears, similar to the following image.
 
 <div class="common-image-format">
 
@@ -120,4 +120,4 @@ The final step is to run your app. If the widget and Okta org are property confi
 
 </div>
 
-> **Note:** The Facebook, Signup, and Forgot password links are configurable elements in your Okta org and may not appear on the page.
+> **Note:** The **Forgot password?** and **Sign Up** links are configurable elements in your Okta org and may not appear on the page.

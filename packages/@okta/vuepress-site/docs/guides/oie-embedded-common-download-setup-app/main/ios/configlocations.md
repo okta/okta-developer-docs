@@ -6,7 +6,7 @@ or update the fields on the [configuration page](#configuration-page).
 
 #### Okta.plist
 
-`Okta.plist` is a property file that stores the name and value for each configuration setting. You can find this file in the following repository directory: `okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
+`Okta.plist` is a property file that stores the name and value for each configuration setting. You can find this file in the following location: `okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
 
 #### Configuration page
 

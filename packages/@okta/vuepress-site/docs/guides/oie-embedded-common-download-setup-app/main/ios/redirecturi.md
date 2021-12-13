@@ -1,1 +1,1 @@
-For the sample app, use either `com.embeddedauth://callback` as the redirect URI or a redirect URI that is appropriate for your app.
+Use a redirect URI that is appropriate for your app or `com.embeddedauth://callback` if you're using the sample app.

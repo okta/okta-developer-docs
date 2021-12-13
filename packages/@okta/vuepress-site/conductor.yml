@@ -2497,6 +2497,70 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
+  - from: /docs/guides/mfa/ga/prerequisites/index.html
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/prerequisites
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/index.html
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-org
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-postman/index.html
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/set-up-postman
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/create-test-user/index.html
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/create-test-user
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/enroll-factor/index.html
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/enroll-factor
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/activate-factor/index.html
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/activate-factor
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor/index.html
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/next-steps/index.html
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/ga/next-steps
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/sms/prerequisites/index.html
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/prerequisites
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/index.html
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-org
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-postman/index.html
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/set-up-postman
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/create-test-user/index.html
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/create-test-user
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/enroll-factor/index.html
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/enroll-factor
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/activate-factor/index.html
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/activate-factor
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor/index.html
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/next-steps/index.html
+    to: /docs/guides/mfa/sms/main/#next-steps
+  - from: /docs/guides/mfa/sms/next-steps
+    to: /docs/guides/mfa/sms/main/#next-steps
   - from: /docs/guides/sign-your-own-saml-csr/overview
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
@@ -4193,6 +4257,22 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/deploy-your-app/overview
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile
+    to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/deploy-your-app/overview/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript/index.html
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile/index.html
+    to: /docs/guides/deploy-your-app/reactnative/main/
   - from: /docs/guides/protect-your-api/-/before-you-begin
     to: /docs/guides/protect-your-api/
   - from: /docs/guides/protect-your-api/-/configure-packages
@@ -4453,3 +4533,31 @@ redirects:
     to: /docs/guides/third-party-risk-integration/main/#test-the-integration
   - from: /docs/guides/third-party-risk-integration/test-integration/index.html
     to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/configure-access-policy/overview
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/overview/index.html
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access/index.html
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client/index.html
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/next-steps
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/configure-access-policy/next-steps/index.html
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/migrate-to-okta/prerequisites
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/migrate-to-okta/prerequisites/index.html
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/index.html
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
+    to: /docs/guides/migrate-to-okta-password-hooks/main/

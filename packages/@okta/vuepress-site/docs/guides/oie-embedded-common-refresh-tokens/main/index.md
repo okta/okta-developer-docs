@@ -6,7 +6,7 @@ title: Refresh the access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide covers the refresh tokens that are used when access tokens expire and also describes the options to refresh the tokens.
 
@@ -38,13 +38,13 @@ them without user intervention through the use of a refresh token.
 
 All the SDKs expose functionality that allow you
 to obtain access, ID, and refresh tokens. Depending on the SDK (Swift,
-Javascript, and so on), you have varying degrees of convenience
+JavaScript, and so on), you have varying degrees of convenience
 methods and other functionality that provide you with built-in support
 for token refresh, auto-renewal, and storage.  Minimally,
 all the SDKs allow you to obtain the refresh token and call the authorization
 server's token endpoint to renew the access token.
 
-<StackSelector snippet="refreshusingthesdk" noSelector />
+<StackSnippet snippet="refreshusingthesdk" />
 
 ## Option 2: Refresh the token using the OAuth token endpoint
 
@@ -56,7 +56,7 @@ obtain the refresh token from the SDK and ensure that you have included
 access token refresh with this endpoint, see
 [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
 
-<StackSelector snippet="refreshendpointrequest" noSelector />
+<StackSnippet snippet="refreshendpointrequest" />
 
 ### Native and SPA applications
 
@@ -99,7 +99,7 @@ they have expired, use the
 [`/introspect`](https://developer.okta.com/docs/reference/api/oidc/#introspect)
 endpoint.
 
-<StackSelector snippet="introspectendpointrequest" noSelector />
+<StackSnippet snippet="introspectendpointrequest" />
 
 ### Native and SPA applications
 
