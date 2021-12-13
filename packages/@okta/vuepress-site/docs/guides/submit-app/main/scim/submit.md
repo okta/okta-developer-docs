@@ -9,7 +9,7 @@
   * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, the interface displays a dialog box to collect the following information:
   * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration.
   * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
-  * **Help Text** &mdash; any descriptive text to be shown to administrators when installing your app integration.
+  * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
   * **Type** &mdash; the property type for your parameter. Options are "String", "URL", or "HTTPS URL".
   * Click **Save** to add the variable to the list.
 
