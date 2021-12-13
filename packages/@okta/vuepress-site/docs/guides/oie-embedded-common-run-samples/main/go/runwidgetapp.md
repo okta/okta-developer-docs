@@ -15,7 +15,7 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 
 1. Click **Login**.
 1. On the sign-in page, enter the username (email) and password that you've used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/go/main/#create-your-okta-account).
-1. If you've successfully signed in, the following screen appears with the user name:
+1. If you successfully sign in, the following screen appears with the user name:
 
    <div class="common-image-format">
 
