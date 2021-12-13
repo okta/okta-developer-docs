@@ -21,7 +21,7 @@ It includes a simplified discussion of the OIDC layer, the OIDC protocol-level r
 
 The Okta Integration Network is a collection of over 6,500 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. The app integrations are intended for customers who want a guided experience that still supports the most secure configuration options.
 
-Application developers and ISVs can create app integrations using a free Okta [developer account](https://developer.okta.com/signup/) and any of the wide array of languages supported by Okta. If you haven’t already chosen a language for developing your app integration, check out our [docs](/docs/), [videos](https://www.youtube.com/c/OktaDev/), and [blogs](https://developer.okta.com/blog/) for ideas and guidance.
+Application developers and ISVs can create app integrations using a free Okta [developer account](https://developer.okta.com/signup/) and any of the wide array of languages supported by Okta. If you haven't already chosen a language for developing your app integration, check out our [docs](/docs/), [videos](https://www.youtube.com/c/OktaDev/), and [blogs](https://developer.okta.com/blog/) for ideas and guidance.
 
 Single Sign-On (SSO) is an authentication method that enables end users to sign in to any cloud application or software system that is managed by an identity provider like Okta. After the end user has signed in to their Okta dashboard, clicking on any of the configured app integrations automatically signs the end user in to that application without requiring them to remember separate usernames and passwords.
 
@@ -29,7 +29,7 @@ There are two standard protocols that you can use to implement SSO in your OIN a
 
 ### OAuth 2.0 and OIDC
 
-If you’ve previously developed applications using OAuth 2.0 or OIDC, you can skip ahead to the next section.
+If you've previously developed applications using OAuth 2.0 or OIDC, you can skip ahead to the next section.
 
 OAuth 2.0 and OIDC are modern protocols for handling identity and access management between systems. OAuth 2.0 provides capabilities for delegated authorization. OIDC authenticates users and securely exchanges user information. This guide focuses on understanding how OIDC works within the specific OIN context.
 
@@ -41,10 +41,10 @@ OIDC relies on a set of standardized API endpoints for verifying and sharing use
 
 This series contains the following parts:
 
-* [OIDC and the OIN — Protocol-level requirements](/docs/guides/oin-oidc-protocols/): Background information on the protocol requirements for OIDC-based OIN applications.
-* [OIDC and the OIN — Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/): multi-tenancy as it relates to Okta and OIN applications.
-* [OIDC and the OIN — OIN integration best practices](/docs/guides/oin-oidc-best-practices/): OIN integration best practices, including logos and rate limits.
+* [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/main/): Background information on the protocol requirements for OIDC-based OIN applications.
+* [OIDC and the OIN &mdash; Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/main/): multi-tenancy as it relates to Okta and OIN applications.
+* [OIDC and the OIN &mdash; OIN integration best practices](/docs/guides/oin-oidc-best-practices/main/): OIN integration best practices, including logos and rate limits.
 
 ## Next steps
 
-Begin your exploration by reading our [OIDC and the OIN — Protocol-level requirements](/docs/guides/oin-oidc-protocols/) guide.
+Begin your exploration by reading our [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/main/) guide.

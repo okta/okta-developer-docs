@@ -18,4 +18,4 @@ Okta orgs host their interfaces through individual subdomains and each org is as
 
 ## Next steps
 
-Round off your knowledge by looking at [OIN integration best practices](/docs/guides/oin-oidc-best-practices/).
+Round off your knowledge by looking at [OIN integration best practices](/docs/guides/oin-oidc-best-practices/main/).

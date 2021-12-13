@@ -49,7 +49,7 @@ To support the potentially large numbers of Okta orgs accessing it through the O
 
 Another general outline of the Authorization Code flow is in our Okta developer guide: [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 
-Also, if you have used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion to exchange between Okta and your SaaS back end, but uses a long-term token that you can use for callback into Okta at any point as long as the token is valid.
+Also, if you have used SAML for SSO in the past, it's important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion to exchange between Okta and your SaaS back end, but uses a long-term token that you can use for callback into Okta at any point as long as the token is valid.
 
 ## Authorization Code flow with PKCE
 
@@ -111,7 +111,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 * `address` &mdash; requests access to the `address` claim
 * `phone` &mdash; requests access to the `phone_number` and `phone_number_verified` claims
 * `groups` &mdash; requests access to the `groups` claim. This is a custom scope for Okta
-* `offline_access` &mdash; requests generation of a refresh token that can be exchanged for an access token. That token can then be used to access the end user’s `/userinfo` endpoint even if the end user is not signed on
+* `offline_access` &mdash; requests generation of a refresh token that can be exchanged for an access token. That token can then be used to access the end user's `/userinfo` endpoint even if the end user is not signed on
 
 You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes, like the `groups` scope, can't be configured.
 
@@ -129,7 +129,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
-As OIN app integrations can’t use custom auth servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
+As OIN app integrations can't use custom auth servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
 
 This remote validation incurs a network cost, but you can use it when you want to guarantee that the access token hasn't been revoked.
 
@@ -143,4 +143,4 @@ For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/
 
 ## Next steps
 
-Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/) as it relates to OIDC and the OIN.
+Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/main/) as it relates to OIDC and the OIN.
