@@ -29,7 +29,7 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - mfa
- - migrate-to-okta
+ - migrate-to-okta-prerequisites
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
@@ -133,7 +133,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
     * [Deploy your app](/docs/guides/deploy-your-app/overview/)
-    * [Migrate to Okta](/docs/guides/migrate-to-okta/prerequisites/)
+    * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Customize Okta process flows with Event or Inline Hooks
 
