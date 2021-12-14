@@ -30,6 +30,8 @@ guides:
  - implement-grant-type
  - mfa
  - migrate-to-okta-prerequisites
+ - migrate-to-okta-bulk
+ - migrate-to-okta-password-hooks
  - oin-oidc-overview
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
