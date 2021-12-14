@@ -48,7 +48,7 @@ The Violations line graph plots the number of violations over the selected time 
 
 You can hover over the line graph or bar graph to get more details. The details also include a link to the system log where you can view filtered events specific to that API and time period.
 
-![Displays details on the violations graph and bar graph](/img/rl_dashboard8.png)
+![Displays details on the violations graph.](/img/rl_dashboard8.png)
 
 #### APIs table
 
