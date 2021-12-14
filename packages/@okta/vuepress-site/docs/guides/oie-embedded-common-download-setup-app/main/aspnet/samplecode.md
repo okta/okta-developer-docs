@@ -1,1 +1,1 @@
-[ASP.NET Identity Engine SDK (okta-idx-dotnet)](https://github.com/okta/okta-idx-dotnet)
+[Identity Engine ASP.NET SDK (okta-idx-dotnet)](https://github.com/okta/okta-idx-dotnet)
