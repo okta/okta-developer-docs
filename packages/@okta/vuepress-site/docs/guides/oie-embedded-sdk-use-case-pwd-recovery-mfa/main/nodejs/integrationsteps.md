@@ -44,7 +44,7 @@ The `handleTransaction.js` page routes the user to a select authenticators page 
 
 ### 2: Create the reset password authenticators page
 
-The next step is to create a page that shows the authenticator returned from the `handleTransaction()` method. For this use case, the email authenticator is returned. The page includes the name of the returned authenticator and the ability to select the authenticator to initiate the authentication verification process.
+The next step is to create a page that shows the authenticator key returned from the `handleTransaction()` method. For this use case, the email authenticator is returned (`authenticator: AuthenticatorKey.OKTA_EMAIL`). The page includes the name of the returned authenticator and the ability to select the authenticator to initiate the authentication verification process.
 
 <div class="common-image-format">
 
