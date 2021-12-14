@@ -1,15 +1,15 @@
 
-* **What SCIM version should this integration use?** &mdash; choose either **SCIM 2.0** (Okta preferred version), or **SCIM 1.1**.
+* **What SCIM version should this integration use?**: Choose either **SCIM 2.0** (Okta preferred version) or **SCIM 1.1**.
 
-* **Link to configuration guide** &mdash; your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide).
 
-* **Select provisioning features to be supported in the integration** &mdash; these provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
+* **Select provisioning features to be supported in the integration**: These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/main/#understand-the-submission-process).
 
-* **Does your Base URL vary per tenant?** &mdash; if **Yes**, a new field appears to assist you in setting up a per tenant configuration.
-  * **What variables do your admins need to specify to install your app?** &mdash; when you click **Add Variable**, the interface displays a dialog box to collect the following information:
-  * **Label Name** &mdash; a descriptive name for the dynamic variable that administrators see when installing your app integration.
-  * **Variable Name** &mdash; an automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
-  * **Help Text** &mdash; any descriptive text to be shown to administrators when installing your app integration.
+* **Does your Base URL vary per tenant?**: If **Yes**, a new field appears to assist you in setting up a per tenant configuration.
+  * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, the interface displays a dialog box to collect the following information:
+  * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration.
+  * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
+  * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
   * **Type** &mdash; the property type for your parameter. Options are "String", "URL", or "HTTPS URL".
   * Click **Save** to add the variable to the list.
 
