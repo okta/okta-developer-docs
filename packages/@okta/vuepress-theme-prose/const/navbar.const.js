@@ -544,7 +544,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
-                    title: "Limitations",
+                    title: "SDK limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
                   }
                 ]

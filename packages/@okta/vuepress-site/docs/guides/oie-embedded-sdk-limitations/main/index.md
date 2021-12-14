@@ -1,5 +1,5 @@
 ---
-title: Limitations
+title: SDK limitations and workarounds
 excerpt: Current SDK Limitations
 layout: Guides
 ---
