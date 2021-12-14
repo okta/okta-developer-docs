@@ -448,7 +448,7 @@ export const guides = [
       {
         title: "Deploy to Production",
         subLinks: [
-          { title: "Deployment checklist", guideName: "production-deployment" },
+          { title: "Deployment checklists", path: "/docs/guides/deployment-checklist/main/" },
           { title: "Deploy your app", guideName: "deploy-your-app" },
           {
             title: "Migrate to Okta",

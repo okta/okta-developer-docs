@@ -38,7 +38,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
- - production-deployment
+ - deployment-checklist
  - deploy-your-app
  - protect-your-api
  - quickstart

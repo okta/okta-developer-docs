@@ -4685,3 +4685,5 @@ redirects:
     to: /docs/guides/migrate-to-okta-bulk/main/
   - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
     to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/production-deployment/deployment-checklist/
+    to: /docs/guides/deployment-checklist/main/

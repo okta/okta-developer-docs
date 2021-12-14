@@ -1,14 +1,12 @@
 ---
-title: Pre-launch checklist
+title: Deployment and pre-launch checklists
+excerpt: Learn about the items you might want to check when completing a deployment to production.
+layout: Guides
 ---
 
-Now that you've built an app, get it ready to launch!
+Now that you've built an app, there are a few final steps for you to take to customize your app and get it ready to launch. This guide provides multiple checklists to help you take your app over the finish line.
 
-By now, you might have built your first app with Okta, congrats! There are just a few final steps for you to take to customize your app and get it ready to launch. The guides below help you take your app to the finish line.
-
-Here's your pre-launch checklist:
-
-### Branding and customization
+## Branding and customization
 
 Ensure your application fits your brand:
 
@@ -19,21 +17,21 @@ Ensure your application fits your brand:
 * [Customize email templates](/docs/guides/custom-email/main/#customize-email-templates): Change the look and feel of the emails sent to users by Okta.
 * [Manage access to protected resources](/docs/guides/validate-access-tokens/): If your app has to validate the signed tokens that are issued to end-users. Learn about this process and best practices for validating your user's tokens.
 
-### Application settings
+## Application settings
 
 * [Update Redirect URI for your domain](/docs/guides/sign-into-web-app/): If you created an Okta application that uses `localhost` or a test domain, you need to update your Okta application (or create a new one) using publicly accessible URLs.
 * [Configure Cross-Origin Resource Sharing (CORS)](/docs/guides/enable-cors/): If you are building a SPA or you are embedding the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) into your own app, you must configure CORS for your domain.
 
 > **Note:** Configuring CORS isn't needed if you are using Okta's [custom domain feature](/docs/guides/custom-url-domain/main/#enable-the-custom-domain).
 
-### User authorization and registration
+## User authorization and registration
 
 * [Migrate your users in bulk](/docs/guides/migrate-to-okta-bulk/): Use the Okta API to bulk create your users with or without credentials. Make sure to sign into the Admin Console, and check out your settings for Security/General/Security Notification Emails, to configure whether or not you want your newly imported users to receive notification emails.
 * [Configure Multi-Factor Authentication (MFA)](/docs/guides/mfa/ga/set-up-org/): Set up which security factors are used when users sign in.
 * [Set up Self-Service Registration](/docs/guides/set-up-self-service-registration/): Allow users to sign up for an account with an email address.
 * [Enable Social Authentication](/docs/guides/add-an-external-idp/): Allow your users to sign in with their other services.
 
-### Rate limits
+## Rate limits
 
 * [Review how Okta's rate limits work](/docs/reference/rate-limits/): Requests made to the Okta API have rate limits to prevent abuse.
 
