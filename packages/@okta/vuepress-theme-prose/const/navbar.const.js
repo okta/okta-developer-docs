@@ -394,7 +394,24 @@ export const guides = [
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
-            guideName: "oin-oidc-guide"
+            subLinks: [
+              {
+                title: "Overview",
+                path: "/docs/guides/oin-oidc-overview/main/"
+              },
+              {
+                title: "Protocol-level requirements",
+                path: "/docs/guides/oin-oidc-protocols/main/"
+              },
+              {
+                title: "Multi-tenancy",
+                path: "/docs/guides/oin-oidc-multi-tenancy/main/"
+              },
+              {
+                title: "OIN integration best practices",
+                path: "/docs/guides/oin-oidc-best-practices/main/"
+              }
+            ]
           },
           {
             title: "Build a Single Sign-On (SSO) integration",
