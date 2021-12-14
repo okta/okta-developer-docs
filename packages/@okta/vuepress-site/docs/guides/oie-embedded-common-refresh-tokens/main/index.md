@@ -59,7 +59,7 @@ access token refresh with this endpoint, see
 
 ### Native and SPA applications
 
-OIDC & OAuth 2.0 requests for native and single-page applications (SPAs) doesn't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 #### Request example
 
