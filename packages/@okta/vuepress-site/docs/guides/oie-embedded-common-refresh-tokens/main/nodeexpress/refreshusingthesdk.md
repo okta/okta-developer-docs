@@ -21,7 +21,7 @@ authClient.tokenManager.on('expired', function (key, expiredToken) {
 ```
 
 See the following links to the SDK repository [readme](https://github.com/okta/okta-auth-js#readme) for more
-information about these methods and events:
+information on these methods and events:
 
 * [`tokenManager` `autoRenew` property](https://github.com//okta/okta-auth-js#autorenew)
 * [`tokenManager` `expired` event](https://github.com/okta/okta-auth-js#tokenmanageronevent-callback-context)
