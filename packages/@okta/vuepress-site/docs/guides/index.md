@@ -32,6 +32,9 @@ guides:
  - migrate-to-okta
  - oin-oidc-guide
  - scim-provisioning-integration-overview
+ - scim-provisioning-integration-prepare
+ - scim-provisioning-integration-connect
+ - scim-provisioning-integration-test
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
