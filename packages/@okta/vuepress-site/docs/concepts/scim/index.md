@@ -29,7 +29,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 ## How does Okta help?
 
-[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_prov_con_okta_prov) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
+[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their applications.

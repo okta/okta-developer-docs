@@ -4357,6 +4357,22 @@ redirects:
     to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/deploy-your-app/overview
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile
+    to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/deploy-your-app/overview/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript/index.html
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile/index.html
+    to: /docs/guides/deploy-your-app/reactnative/main/
   - from: /docs/guides/protect-your-api/-/before-you-begin
     to: /docs/guides/protect-your-api/
   - from: /docs/guides/protect-your-api/-/configure-packages
@@ -4601,3 +4617,47 @@ redirects:
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/third-party-risk-integration/overview
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/overview/index.html
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/create-service-app
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/create-service-app/index.html
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider/index.html
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/test-integration
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/third-party-risk-integration/test-integration/index.html
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/configure-access-policy/overview
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/overview/index.html
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access/index.html
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client/index.html
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/next-steps
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/configure-access-policy/next-steps/index.html
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/migrate-to-okta/prerequisites
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/migrate-to-okta/prerequisites/index.html
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/index.html
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
