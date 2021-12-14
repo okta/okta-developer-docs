@@ -172,5 +172,5 @@ With a plan in place, you're ready to move on to implementation, which differs a
 
 Have a look at our migration guides:
 
-* [Bulk migration with credentials](/docs/guides/migrate-to-okta-bulk/main/)
-* [Import Users with Inline Password Hooks](/docs/guides/migrate-to-okta-password-hooks/main/)
+* [Bulk migration with credentials](/docs/guides/migrate-to-okta-bulk/)
+* [Import Users with Inline Password Hooks](/docs/guides/migrate-to-okta-password-hooks/)

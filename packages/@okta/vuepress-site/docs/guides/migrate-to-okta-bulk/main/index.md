@@ -19,7 +19,7 @@ Perform a bulk migration of users into Okta using Okta APIs.
 * An Okta developer org. (Don't have one? [Create an org for free.](https://developer.okta.com/signup))
 * Postman client to run API requests. See [Use Postman with the Okta REST APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 * Example or test source data to test user and group creation requests. (Do not use real user data when testing!)
-* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/main/).
+* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/).
 
 **Sample code**
 
