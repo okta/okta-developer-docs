@@ -32,7 +32,7 @@ The following describes typical uses of the functions in the Rate limits report:
 
 In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits report opens in the **Overview** tab.
 
-![Displays the rate limits dashboard to monitor and browse rate limit usage](/img/rl_dashboard6.png)
+![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rl_dashboard6.png)
 
 The **Overview** tab provides you with graphs that plot the number of violations over a three-month period and is based on system log events. It also provides a table that lists your org's APIs and their corresponding current rate limits, violations and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
 
