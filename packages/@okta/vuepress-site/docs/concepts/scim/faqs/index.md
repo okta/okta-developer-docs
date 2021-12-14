@@ -102,6 +102,6 @@ SCIM integrations that are created using the Application Integration Wizard use 
 
 **Q: How do I integrate a SCIM application residing inside my corporate firewall with Okta?**
 
-Use the Okta agent-based provisioning solution. For more information, see the [On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) configuration guide.
+Use the Okta agent-based provisioning solution. See the [On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) configuration guide.
 
 The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based applications.
