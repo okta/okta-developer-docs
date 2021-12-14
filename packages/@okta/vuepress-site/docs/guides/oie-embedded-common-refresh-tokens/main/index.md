@@ -15,7 +15,7 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 **Learning outcomes**
 
 * Understand refresh tokens.
-* Know how to refresh tokens using the SDK or the OIDC & OAuth 2.0 API.
+* Know how to refresh tokens by using the SDK or the OIDC & OAuth 2.0 API.
 
 **What you need**
 
