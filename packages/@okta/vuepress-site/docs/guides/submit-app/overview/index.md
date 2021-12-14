@@ -33,7 +33,7 @@ As a prerequisite to submission, you must have a functional integration created 
 After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
 1. Create a customer-facing configuration guide.
-    >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide will be supplied with your published app.
+    >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
     >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact <developers@okta.com> to have this capability temporarily activated when submitting a SCIM app integration.
 
