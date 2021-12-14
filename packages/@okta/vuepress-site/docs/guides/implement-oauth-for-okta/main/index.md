@@ -163,7 +163,7 @@ The following table shows the scopes that are currently available:
 | `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.profileMappings.manage`| Allows the app to manage user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
-| `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](//docs/reference/api/mappings/)|
+| `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
 | `okta.roles.manage`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization | [Schemas API](/docs/reference/api/schemas/#getting-started)|
