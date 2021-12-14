@@ -54,7 +54,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 The APIs table shows each API and its corresponding rate limit for your org. The rate limits include all overrides, dynamic scale, or Workforce multipliers. The table also shows the number of violations and warnings for each API in the last hour, and includes a trendline of usage in the last hour.
 
-![Displays the APIs table for each API](/img/rl_dashboard9.png)
+![Displays the APIs table with corresponding rate limits for each API.](/img/rl_dashboard9.png)
 
 You can sort on all the columns. The Trendline is sorted by the current usage.
 
