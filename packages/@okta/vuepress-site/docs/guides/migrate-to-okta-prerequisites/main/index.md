@@ -1,7 +1,21 @@
 ---
-title: Prerequisites
+title: Migrate to Okta — Prerequisites
+meta:
+  - name: description
+    content: Create a plan for migrating existing users to Okta.
+layout: Guides
 ---
-## How to plan your migration
+
+This guide provides you with information to create a plan for migrating existing users to Okta.
+
+---
+
+**Learning outcomes**
+
+Create a plan for migrating existing users to Okta.
+
+---
+
 
 Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan.
 
@@ -13,20 +27,20 @@ A **one-time migration** moves your users with their credentials over to Okta al
 
 A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature.
 
-It’s important to note that this information is about a migration strategy and not integration. 
+It's important to note that this information is about a migration strategy and not integration.
 
-> Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems continues to be the source of truth for some or all of your user information.
+> **Note**: Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems continues to be the source of truth for some or all of your user information.
 
 ## Private data and other sensitive information
 
-> **Important:** Information security is a critical issue in today’s world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union’s [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
+> **Important**: Information security is a critical issue in today's world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union's [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
 
 For some helpful information on this, see:
 
 * [How to Keep PII Secure while Migrating Users to the Cloud](https://www.okta.com/gdpr/) (Okta security blog post)
 * [Prepare your organization for the GDPR](https://www.okta.com/gdpr/) (Okta data security page)
 
-## Get ready to create a plan - Gather information
+## Get ready to create a plan &mdash; Gather information
 
 Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the applications and other resources that they will need to access through Okta.
 
@@ -39,13 +53,13 @@ Start by identifying the types of users you have, based on the broad kinds of ac
 * Partners
 * Contractors
 
-How many of each type of user do you have? Understanding this will help estimate the amount of time you’ll need when implementing your migration.
+How many of each type of user do you have? Understanding this will help estimate the amount of time you'll need when implementing your migration.
 
 Also identify any sub-groups currently in use for all of your user types. For example, are your employees grouped into sales, marketing, and accounting groups? What about your customers?
 
 ### Locate your existing user profile data
 
-Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based applications, but most importantly you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You’ll also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
+Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based applications, but most importantly you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You'll also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
 
 Here are the key points to remember:
 
@@ -68,13 +82,13 @@ Identify the applications that each user type can access. Here are some question
 
 ### Create a migration plan
 
-After you’ve gathered the necessary information, it’s time to create a migration plan with clear goals in mind. These will provide direction for your plan, as well as offering a way to measure success. Ask yourself these questions:
+After you've gathered the necessary information, it's time to create a migration plan with clear goals in mind. These will provide direction for your plan, as well as offering a way to measure success. Ask yourself these questions:
 
 * How do you want your users to experience the migration?
 * How much and what kind of user impact is acceptable?
 * Will you archive your legacy data?
 * Are there any company policies or standards that you have to take into consideration?
-* Is it acceptable to perform a “one-shot” migration? Using this strategy means short-term downtime, but it could lessen the complexity of the plan.
+* Is it acceptable to perform a "one-shot" migration? Using this strategy means short-term downtime, but it could lessen the complexity of the plan.
 * Is it preferable to perform the migration in stages? Depending on the method you use, it could increase complexity of the plan, but service interruptions would be minimized.
 
 ### Define attribute mappings
@@ -95,13 +109,13 @@ Using the information you gathered earlier, create a matrix that maps your sourc
 
 ### Validate data quality
 
-Extract the user data from the source (or sources) into an intermediate staging area. Then you’ll need to clean up that data so that it’s consistent and contains only valid information. Careful review of the data in each field will also help avoid errors when migrating to Okta.
+Extract the user data from the source (or sources) into an intermediate staging area. Then you'll need to clean up that data so that it's consistent and contains only valid information. Careful review of the data in each field will also help avoid errors when migrating to Okta.
 
 For example, verify that the data meets any constraint requirements:
 
 * Data type and length
 * Required fields are present
-* Unique fields don’t have duplicates
+* Unique fields don't have duplicates
 
 If you discover any issues, use a consistent strategy to remedy for every issue that includes:
 
@@ -119,7 +133,7 @@ Once you have a clean set of data, you can create a realistic set of test data t
 
 When creating a test plan, it is important to prepare:
 
-* Data that was at the “tail end” of a process or calculation. This will allow you to see right away if problems occurred in upstream processes.
+* Data that was at the "tail end" of a process or calculation. This will allow you to see right away if problems occurred in upstream processes.
 * Any externally facing data.
 * Data that is under regulation/privacy standards.
 * Any data that kicks off significant revenue/productivity impacting processes downstream.
@@ -154,4 +168,9 @@ Note that data migration rollback is for users only. Other items (for example, a
 
 ### Next steps
 
-With a plan in place, you’re ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we’ve chosen to use the [Okta API](/docs/reference/) and we’ll cover those steps in the next section.
+With a plan in place, you're ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we've chosen to use the [Okta API](/docs/reference/) and we'll cover those steps in the next section.
+
+Have a look at our migration guides:
+
+* [Bulk migration with credentials](/docs/guides/migrate-to-okta-bulk/main/)
+* [Import Users with Inline Password Hooks](/docs/guides/migrate-to-okta-password-hooks/main/)

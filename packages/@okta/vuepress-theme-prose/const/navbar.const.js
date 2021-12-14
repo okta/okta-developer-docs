@@ -450,7 +450,23 @@ export const guides = [
         subLinks: [
           { title: "Deployment checklist", guideName: "production-deployment" },
           { title: "Deploy your app", guideName: "deploy-your-app" },
-          { title: "Migrate to Okta", guideName: "migrate-to-okta" }
+          {
+            title: "Migrate to Okta",
+            subLinks: [
+              {
+                title: "Prerequisites",
+                path: "/docs/guides/migrate-to-okta-prerequisites/main/"
+              },
+              {
+                title: "Bulk migration with credentials",
+                path: "/docs/guides/migrate-to-okta-bulk/main/"
+              },
+              {
+                title: "Import Users with Inline Password Hooks",
+                path: "/docs/guides/migrate-to-okta-password-hooks/main/"
+              }
+            ]
+          }
         ]
       },
       {

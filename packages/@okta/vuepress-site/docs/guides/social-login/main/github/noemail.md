@@ -4,7 +4,7 @@
 
 For example, you might generate email addresses using the `example.com` domain. This ensures that your <StackSelector snippet="idp" noSelector inline /> users have email addresses that Okta can use, but can be easily identified as invalid should you ever want to replace them with valid email addresses. They're guaranteed to be invalid as `example.com` is a reserved domain. See [Reserved Top Level DNS Names (RFC2606)](https://datatracker.ietf.org/doc/html/rfc2606) for more information on reserved domains.
 
-You can customize this mapping by using the [Okta Expression Language](/docs/reference/okta-expression-language/). See [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map) for more information on attribute mapping.
+You can customize this mapping by using the [Okta Expression Language](/docs/reference/okta-expression-language/). See [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map) for more information on attribute mapping.
 
 To generate user login values and email addresses for <StackSelector snippet="idp" noSelector inline /> users, do the following:
 
