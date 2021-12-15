@@ -7,10 +7,10 @@
 
 * **Does your Base URL vary per tenant?**: If **Yes**, a new field appears to assist you in setting up a per tenant configuration.
   * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, the interface displays a dialog box to collect the following information:
-  * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration.
-  * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
-  * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
-  * **Type** &mdash; the property type for your parameter. Options are "String", "URL", or "HTTPS URL".
+    * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration.
+    * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
+    * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
+    * **Type** &mdash; the property type for your parameter. Options are "String", "URL", or "HTTPS URL".
   * Click **Save** to add the variable to the list.
 
   After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
@@ -21,6 +21,7 @@
 
     * https://`${app.variableName}`.okta.com
     * https://okta-`${app.variableName}`.com
+    * `${app.variableName}`/route
 
 * **Does your SCIM server support HTTP PATCH operations for modifying resources?** &mdash; select **Yes** if your SCIM server supports updates made through a PATCH.
 
