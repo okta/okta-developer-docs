@@ -78,6 +78,10 @@ Each call to your local application appears in the dashboard and includes the re
 
 ![A screen shot of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/hookdeck-dashboard.png)
 
+### Hookdeck development workflow
+
+Hookdeck URLs are reusable and permanent (when you create a free account) and serve the entire development lifecycle&mdash;from development to staging to production. For further information on using Hookdeck, see [Development Workflow](https://hookdeck.com/docs/dev-workflow).
+
 ## Create an Okta Event Hook
 
 Create the Okta Event Hook to work with your local application, which can now be exposed externally. The Event Hook must be set up and verified within your Okta Admin Console.
