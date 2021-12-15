@@ -3,6 +3,17 @@ title: Okta API Products release notes 2021
 ---
 ## December
 
+### Weekly release 2021.12.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.1](#okta-sign-in-widget-version-5-14-1) | December 15, 2021 |
+
+#### Okta Sign-In Widget, version 5.14.1
+
+See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-452958-->
+
+
 ### Monthly release 2021.12.0
 
 | Change                                                                   | Expected in Preview Orgs |
