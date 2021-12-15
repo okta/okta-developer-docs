@@ -5,7 +5,7 @@ category: management
 
 # MyAccount API
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="deprecated" />
 
 The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
 
