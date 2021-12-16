@@ -780,7 +780,7 @@ Date: Tue, 10 Sep 2019 05:29:25 GMT
 
 * [What is SCIM?](https://www.okta.com/blog/2017/01/what-is-scim/)
 * [SCIM Provisioning using Okta Lifecycle Management](/docs/concepts/scim/)
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [SCIM 2.0 RFC: Core Schema](https://tools.ietf.org/html/rfc7643)
 * [SCIM 2.0 RFC: Protocol](https://tools.ietf.org/html/rfc7644)
 * [SCIM 2.0 RFC: Definitions and Use Cases](https://tools.ietf.org/html/rfc7642)

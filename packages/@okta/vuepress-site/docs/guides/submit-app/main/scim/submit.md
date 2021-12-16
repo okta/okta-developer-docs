@@ -31,7 +31,7 @@
 
 * **Does your SCIM `userName` attribute value follow an email address format?** &mdash; select **Yes** if your SCIM server uses a `name@company.TLD` format for the unique userName attribute.
 
-* **Did you delete all unused attributes?** &mdash; as outlined in the [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/attribute-mapping/) guide, you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
+* **Did you delete all unused attributes?** &mdash; as outlined in [Check the attributes and corresponding mappings ](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
 
 * **How many Group membership changes are allowed in a custom PATCH operation?** &mdash; this value tells Okta the maximum number of Group membership changes to submit inside a single PATCH operation. When you organize these changes into smaller chunks, you can improve the efficiency of updates. Enter a numerical value between 100 and 1000.
 
@@ -40,8 +40,8 @@
 
 * **Optional: link to demo video** &mdash; if you have a video that explains how to configure access to your SCIM application, enter the URL for it here.
 
-* **Link to Runscope test results** &mdash; this should be a link to the Runscope site test results showing that your application has successfully passed the SPEC test suite. See [Test your SCIM API](/docs/guides/build-provisioning-integration/test-scim-api/).
+* **Link to Runscope test results** &mdash; this should be a link to the Runscope site test results showing that your application has successfully passed the SPEC test suite. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
-* **Link to Runscope CRUD test results** &mdash; this should be a link to the Runscope site test results showing that your application has successfully passed the CRUD test suite. See [Test your Okta integration](/docs/guides/build-provisioning-integration/test-scim-app/).
+* **Link to Runscope CRUD test results** &mdash; this should be a link to the Runscope site test results showing that your application has successfully passed the CRUD test suite. See [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/).
 
 These Runscope test results must show that all tests are passing before the Okta OIN team approves a SCIM integration for the OIN.
