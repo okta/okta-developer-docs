@@ -77,4 +77,4 @@ Learn about customization options:
 
 * [Style the Widget](/docs/guides/custom-widget/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize the Okta URL domain](/docs/guides/custom-url-and-email-domain/)

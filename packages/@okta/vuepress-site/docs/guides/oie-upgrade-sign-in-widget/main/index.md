@@ -56,14 +56,14 @@ In Classic Engine, the Okta Sign-In Widget had the default option to initialize 
 
 The Sign-In Widget upgrade for a redirect sign-in depends on whether you've configured a custom URL domain:
 
-* If you haven't configured a [custom URL Domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your Sign-In Widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
-* If you've configured a [custom URL domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the Okta Sign-In Widget version in the Admin Console.
+* If you haven't configured a [custom URL Domain](/docs/guides/custom-url-and-email-domain/) and don't have customizations outside of simple branding styles, your Sign-In Widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
+* If you've configured a [custom URL domain](/docs/guides/custom-url-and-email-domain/) and have other customizations, admins must update the Okta Sign-In Widget version in the Admin Console.
 
 To update the Sign-In Widget:
 
 1. In the Admin Console, go to **Customization** > **Custom Sign In** tab.
 2. In the **Okta Sign-In Widget Version** section, check that the **Major Version** is **5** and **Minor Version** is **latest**. The Widget is always the latest version if you're not using a custom URL domain.
-If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the Widget's version by using the drop-down boxes that appear for the **Major Version** and **Minor Version** fields.
+If you're using the [custom URL domain feature](/docs/guides/custom-url-and-email-domain/) and the version isn't correct, you can change the Widget's version by using the drop-down boxes that appear for the **Major Version** and **Minor Version** fields.
 3. Test your authentication sign-up and recovery flows that you support in your applications to make sure that they work.
 4. Check that any CSS and localization changes that you make are reflected in the new version.
 

@@ -15,7 +15,7 @@ Customize error pages as part of the sign-in flow.
 **What you need**
 
 * An [Okta Developer Edition organization](/signup)
-* A [customized Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](#use-the-brands-api)
+* A [customized Okta URL domain](/docs/guides/custom-url-and-email-domain/), unless you are using the [Brands API](#use-the-brands-api)
 
 **Sample code**
 
@@ -25,7 +25,7 @@ Customize error pages as part of the sign-in flow.
 
 ## Overview
 
-When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
+When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-and-email-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the embedded HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page.
 
@@ -229,5 +229,5 @@ You should now understand how to customize the error page.
 
 Read more about other customization options:
 
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize the Okta URL domain](/docs/guides/custom-url-and-email-domain/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

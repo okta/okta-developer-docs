@@ -4,7 +4,7 @@ title: Okta-hosted flows
 
 # Okta-hosted flows
 
-Okta hosts authentication and identity flows for your applications. This means that your application can let Okta handle signing users in, registering new users, and performing account recovery. The pages hosted by Okta can be [customized](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), and you can [bring your own domain](/docs/guides/custom-url-domain/).
+Okta hosts authentication and identity flows for your applications. This means that your application can let Okta handle signing users in, registering new users, and performing account recovery. The pages hosted by Okta can be [customized](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), and you can [bring your own domain](/docs/guides/custom-url-and-email-domain/).
 
 You can build and self-host these flows in your application if you'd like, but using Okta-hosted flows has some advantages:
 

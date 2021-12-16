@@ -193,6 +193,6 @@ You can send yourself a test email to see how a custom email template looks and 
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
 
-- [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+- [Customize the Okta URL domain](/docs/guides/custom-url-and-email-domain/)
 - [SMS customization](/docs/guides/custom-sms-messaging/)
 - [Style the Widget](/docs/guides/style-the-widget/)

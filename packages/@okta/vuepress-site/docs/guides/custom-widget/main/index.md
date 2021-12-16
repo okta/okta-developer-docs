@@ -16,7 +16,7 @@ This guide teaches you how to customize the Okta Sign-In Widget, whether Okta-ho
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* (Okta-hosted) A [custom URL domain](/docs/guides/custom-url-domain/main/)
+* (Okta-hosted) A [custom URL domain](/docs/guides/custom-url-and-email-domain/main/)
 * (Self-hosted) The Okta Sign-In Widget installed into your project with configured authentication scenarios. See [Okta Sign-In Widget on GitHub](https://github.com/okta/okta-signin-widget#embedded-self-hosted)
 
 **Sample code**
@@ -39,7 +39,7 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
 
-> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-and-email-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
 ### Edit the sign-in page
 
@@ -523,7 +523,7 @@ Elsewhere in your file, using the method above, you can inspect the client ID an
 
 For information about other Okta customization options:
 
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize the Okta URL domain](/docs/guides/custom-url-and-email-domain/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize SMS messages](/docs/guides/custom-sms-messaging)
 * [Customize email notifications and email domains](/docs/guides/custom-email/)
