@@ -1,6 +1,93 @@
 ---
 title: Okta API Products release notes 2021
 ---
+## December
+
+### Weekly release 2021.12.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.1](#okta-sign-in-widget-version-5-14-1) | December 15, 2021 |
+
+#### Okta Sign-In Widget, version 5.14.1
+
+See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-452958-->
+
+
+### Monthly release 2021.12.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.0](#okta-sign-in-widget-version-5-14-0) | December 8, 2021 |
+| [Browser-like devices can now use the Device Authorization Grant flow](#browser-like-devices-can-now-use-the-device-authorization-grant-flow) | December 8, 2021 |
+| [Custom domains with Okta-managed certificates](#custom-domains-with-okta-managed-certificates) | December 8, 2021 |
+| [Device Authorization grant type is now GA in Production](#device-authorization-grant-type-is-now-ga-in-production) | November 3, 2021 |
+| [Dynamic Issuer Mode is GA in Preview](#dynamic-issuer-mode-is-ga-in-preview) | December 8, 2021 |
+| [Error response updated for malicious IP address sign-in requests](#error-response-updated-for-malicious-ip-address-sign-in-requests) | December 8, 2021 |
+| [IdP discovery supported for Device Authorization Grant flow](#idp-discovery-supported-for-device-authorization-grant-flow) | December 8, 2021 |
+| [List Schemas operation for the Log Streaming API now available](#list-schemas-operation-for-the-log-streaming-api-now-available) | December 8, 2021 |
+| [The word "source" is now allowed with custom application username formats](#the-word-source-is-now-allowed-with-custom-application-username-formats) | December 8, 2021 |
+| [Upload Logo for Org deprecated](#upload-logo-for-org-deprecated) | December 8, 2021          |
+| [User Types API and Mappings API support OAuth 2.0](#user-types-api-and-mappings-api-support-oauth-2-0) | December 8, 2021 |
+| [Bugs fixed in 2021.12.0](#bugs-fixed-in-2021-12-0)               | December 8, 2021          |
+
+#### Okta Sign-In Widget, version 5.14.0
+
+See the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0) for more information about this release. See the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-449551-->
+
+#### Browser-like devices can now use the Device Authorization Grant flow
+
+Browser-like devices such as Smart TV applications that run on WebOS, Samsung, and Tesla can now use the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/). <!--OKTA-444993-->
+
+#### Custom domains with Okta-managed certificates
+
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-444104-->
+
+#### Device Authorization grant type is now GA in Production
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-450432-->
+
+#### Dynamic Issuer Mode is GA in Preview
+
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+
+When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
+
+#### Error response updated for malicious IP address sign-in requests
+
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+
+#### IdP Discovery supported for Device Authorization Grant flow
+
+The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) now supports routing rules and IdP Discovery. <!--OKTA-425256-->
+
+#### List Schemas operation for the Log Streaming API now available
+
+API users can now [discover available log stream schemas](/docs/reference/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects. <!--OKTA-439999-->
+
+#### The word "source" is now allowed with custom application username formats
+
+Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443206-->
+
+#### Upload Logo for Org deprecated
+
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+
+#### User Types API and Mappings API support OAuth 2.0
+
+The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+
+#### Bugs fixed in 2021.12.0
+
+* Sometimes, changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the `id` of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
+
+* The [org admin role](/docs/reference/api/roles/#role-types) didn't have permission to manage Identity Providers. (OKTA-372730)
+
+* When the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) was used, token inline hooks weren't called. (OKTA-445422)
 
 ## November
 
@@ -67,7 +154,7 @@ The Device Authorization grant feature is an OAuth 2.0 grant type that allows us
 
 #### Key pair additions to JWKS limited to 50 per client
 
-The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
+The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair) can't exceed 50 per client.<!--OKTA-435434-->
 
 #### Authentication API returns UD User Profile locale is now GA in Production
 
@@ -275,7 +362,7 @@ The Okta [Brands API](/docs/reference/api/brands/) allows customization of the l
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/overview/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 

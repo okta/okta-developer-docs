@@ -26,3 +26,7 @@
 1. Click **Login**. After you've successfully signed in, the app redirects you to a page that displays your basic user profile and security token information.
 
 1. Click **Logout** in the upper-right corner of the page to sign out of the sample app.
+
+### Work with the use cases
+
+After you successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/) use case.

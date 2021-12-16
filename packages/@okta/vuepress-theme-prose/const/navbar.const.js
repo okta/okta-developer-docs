@@ -410,7 +410,24 @@ export const guides = [
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
-            guideName: "oin-oidc-guide"
+            subLinks: [
+              {
+                title: "Overview",
+                path: "/docs/guides/oin-oidc-overview/main/"
+              },
+              {
+                title: "Protocol-level requirements",
+                path: "/docs/guides/oin-oidc-protocols/main/"
+              },
+              {
+                title: "Multi-tenancy",
+                path: "/docs/guides/oin-oidc-multi-tenancy/main/"
+              },
+              {
+                title: "OIN integration best practices",
+                path: "/docs/guides/oin-oidc-best-practices/main/"
+              }
+            ]
           },
           {
             title: "Build a Single Sign-On (SSO) integration",
@@ -449,7 +466,23 @@ export const guides = [
         subLinks: [
           { title: "Deployment checklist", guideName: "production-deployment" },
           { title: "Deploy your app", guideName: "deploy-your-app" },
-          { title: "Migrate to Okta", guideName: "migrate-to-okta" }
+          {
+            title: "Migrate to Okta",
+            subLinks: [
+              {
+                title: "Prerequisites",
+                path: "/docs/guides/migrate-to-okta-prerequisites/main/"
+              },
+              {
+                title: "Bulk migration with credentials",
+                path: "/docs/guides/migrate-to-okta-bulk/main/"
+              },
+              {
+                title: "Import Users with Inline Password Hooks",
+                path: "/docs/guides/migrate-to-okta-password-hooks/main/"
+              }
+            ]
+          }
         ]
       },
       {
@@ -544,7 +577,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
-                    title: "Limitations",
+                    title: "SDK limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
                   }
                 ]

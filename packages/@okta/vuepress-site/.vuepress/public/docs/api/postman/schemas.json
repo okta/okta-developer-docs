@@ -210,6 +210,45 @@
             "auth": null
           },
           "event": []
+        },
+        {
+          "id": "4f80975d-474b-40a9-ad92-a64302ca5e82",
+          "name": "List Log Stream schemas",
+          "request": {
+            "name": "Get Log Stream schemas for all Log Stream types",
+            "description": {},
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "meta",
+                "schemas",
+                "logStream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "event": []
         }
       ],
       "event": []

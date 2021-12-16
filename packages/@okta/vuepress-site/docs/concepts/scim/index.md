@@ -29,7 +29,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 ## How does Okta help?
 
-[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_prov_con_okta_prov) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
+[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their applications.
@@ -110,7 +110,7 @@ Provisioning actions can be combined to solve for end-to-end use cases. Okta sup
 
 For your customers to use your SCIM provisioning integration with Okta, you need to publish it through the [Okta Integration Network](https://www.okta.com/integrations/).
 
-After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/overview/) guide.
+After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/) guide.
 
 ## Additional background
 

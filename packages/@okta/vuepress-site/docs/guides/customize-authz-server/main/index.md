@@ -38,7 +38,7 @@ When you finish, the Authorization Server's **Settings** tab displays the inform
 
 ## Create access policies
 
-Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/overview/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
+Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server.
