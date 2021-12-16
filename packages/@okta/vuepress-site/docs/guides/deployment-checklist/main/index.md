@@ -6,7 +6,7 @@ layout: Guides
 
 Now that you've built an app, there are a few final steps for you to take to customize your app and get it ready to launch. This guide provides multiple checklists to help you take your app over the finish line.
 
-## Branding and customization
+## Brand and customization
 
 Ensure your application fits your brand:
 
