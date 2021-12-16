@@ -4,7 +4,7 @@ excerpt: Learn how to customize and style the default email notifications that O
 layout: Guides
 ---
 
-This guide teaches you how to customize and style default Okta email notifications.
+This guide teaches you how to customize and style the default Okta email notifications.
 
 ---
 
@@ -22,6 +22,8 @@ See the [Using app context to brand an email](#example-of-using-app-context-to-b
 
 ---
 
+## About email customization
+
 You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons:
 
 - user activation
@@ -30,11 +32,11 @@ You can customize and style the default email notifications that Okta sends to e
 
 Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as is, or you can edit the email template text to send end users custom Okta-generated email messages.
 
-## Use the Brands API
+### Use the Brands API
 
 The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
 
-## Caveats
+### Caveats
 
 - Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so fewer characters are accepted.
 
