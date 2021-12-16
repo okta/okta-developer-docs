@@ -154,7 +154,9 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 2. Paste your PEM-encoded private key for your subdomain in the **Private Key** field. Be sure to include the `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` lines.
 3. We recommend that you enter a PEM-encoded certificate chain (if you have one) in the **Certificate Chain** field. Certificate chain files can contain keys that are up to 4096 bits. The order in which the root and intermediary certificates appear in the file matters. The intermediate CA certificate should be at the top and then the root CA certificate at the bottom.
 
-    > **Note:** Android devices require a certificate chain. You must provide a certificate chain if you want your custom domain to work with apps on Android. For a list of trusted root certificates on Android, see the [Official List of Trusted Root Certificates on Android](https://www.digicert.com/blog/official-list-trusted-root-certificates-android/).
+    > **Note**: If your app includes servers that make API calls to Okta, you need to ensure that your intermediate/cert chain is added to the **Certificate Chain** field — especially if you are doing local token validation. Failure to do so is a common cause of TLS handshake errors.
+
+    > **Note**: Android devices require a certificate chain. You must provide a certificate chain if you want your custom domain to work with apps on Android. For a list of trusted root certificates on Android, see the [Official List of Trusted Root Certificates on Android](https://www.digicert.com/blog/official-list-trusted-root-certificates-android/).
 
 4. Click **Next**. Making your custom domain an alias for your Okta domain is the next step in the configuration wizard.
 
