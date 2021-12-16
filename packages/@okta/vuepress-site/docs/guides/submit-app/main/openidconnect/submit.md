@@ -12,6 +12,8 @@
 
 * **Construct your dynamic Redirect URI by copying the variables above and pasting them where applicable** &mdash; provide one or more complete sign-in redirect URIs where Okta sends the OAuth responses for your app integration. You must add at least one valid redirect URI.
 
+    > **Note**: A variable can include a complete URL (for example, http://example.com)
+
   If you're using a per tenant design, include the variable names that you created. For example:
   * https://`${app.variableName}`.okta.com
   * https://okta-`${app.variableName}`.com
