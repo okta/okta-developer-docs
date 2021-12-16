@@ -11,7 +11,7 @@ guides:
  - create-an-api-token
  - custom-email
  - custom-error-pages
- - custom-url-domain
+ - custom-url-and-email-domain
  - custom-widget
  - customize-authz-server
  - customize-tokens-returned-from-okta
