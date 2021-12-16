@@ -158,11 +158,13 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline-hooks/#error) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns is displayed to the end user.
+In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns appears to the end user.
 
-If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
+If you don't return any value for that `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user: "Registration cannot be completed at this time".
+
+If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user: "Registration denied".
 
 > **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 

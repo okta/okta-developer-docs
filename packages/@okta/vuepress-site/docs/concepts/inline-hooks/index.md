@@ -119,12 +119,12 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 Lets you return error messages. How the error data is used varies by Inline Hook type.
 
-The `error` object should have the following structure:
+The `error` object has the following structure:
 
 | Property     | Description                             | Data Type            |
 |--------------|-----------------------------------------|----------------------|
-| errorSummary | Human-readable summary of the error(s). | String               |
-| errorCauses  | An array of ErrorCause objects.         | Array of ErrorCauses |
+| errorSummary | Human-readable summary of the error(s)  | String               |
+| errorCauses  | An array of ErrorCause objects          | Array of ErrorCauses |
 
 The `errorSummary` should be a general statement of any problem the external service encountered in handling the request from Okta. The `errorCauses` are intended to provide more detailed information and are particularly helpful if there were multiple problems.
 
@@ -133,7 +133,7 @@ An `ErrorCause` object must include the following fields:
 | Property     | Description                                                                                                                                                                                        | Data Type |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error.                                                                                                                                                               | String    |
-| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
+| reason       | A brief, enum-like string indicating the nature of the error. For example, `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
 | locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                                                    | String    |
 | location     | The valid JSON path to the location of the error. For example, if there was an error in the user's `login` field, the `location` might be `data.userProfile.login`.                                | String    |
 | domain       | Indicates the source of the error. If the error was in the user's profile, for example, you might use `end-user`. If the error occurred in the external service, you might use `external-service`. | String    |
