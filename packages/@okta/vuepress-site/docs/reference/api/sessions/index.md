@@ -683,20 +683,22 @@ The following values are defined for the status of a Session:
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods are used to establish the Session. The value is a JSON array with one or more of the following values:
 
-| Value    | Description                                            | Example                                                                                                |
-| -------- | ------------------------------------------------------ | -------------------------------------------------------------------------                              |
-| `pwd`    | Password authentication                                | Standard password-based login                                                                          |
-| `swk`    | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |
-| `hwk`    | Proof-of-possession (PoP) of a hardware key            | Yubikey factor                                                                                         |
-| `otp`    | One-time password                                      | Okta Verify, Google Authenticator                                                                      |
-| `sms`    | SMS text message to the user at a registered number    | SMS factor                                                                                             |
-| `tel`    | Telephone call to the user at a registered number      | Phone call factor                                                                                      |
-| `geo`    | Use of geo-location information                        | IP Trust and Network Zone policy conditions                                                            |
-| `fpt`    | Fingerprint biometric authentication                   | Okta Verify with Touch ID                                                                              |
-| `kba`    | Knowledge-based authentication                         | Security Question factor                                                                               |
-| `mfa`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
-| `mca`    | Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
-| `sc`    | Smart card authentication                                | User authenticated using a smart card, such as a Personal Identity Verification (PIV) card or Common Access Card (CAC)                                                                          |
+> **Note:** For inline hook requests, use the Inline Hook value for the `amr` object.
+
+| Value    | Inline Hook Value | Description                                           | Example                                                                                                |
+| -------- | ----------------- | ----------------------------------------------------- | -------------------------------------------------------------------------                              |
+| `pwd`    | `PASSWORD`         | Password authentication                                | Standard password-based login                                                                          |
+| `swk`    | `POP_SOFTWARE_KEY` | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |
+| `hwk`    | `POP_HARDWARE_KEY` | Proof-of-possession (PoP) of a hardware key            | Yubikey factor                                                                                         |
+| `otp`    | `ONE_TIME_PASSWORD`| One-time password                                      | Okta Verify, Google Authenticator                                                                      |
+| `sms`    | `SMS_MESSAGE`      | SMS text message to the user at a registered number    | SMS factor                                                                                             |
+| `tel`    | `TELEPHONE_CALL`   | Telephone call to the user at a registered number      | Phone call factor                                                                                      |
+| `geo`    | `GEOLOCATION`      | Use of geo-location information                        | IP Trust and Network Zone policy conditions                                                            |
+| `fpt`    | `BIO_FINGERPRINT`  | Fingerprint biometric authentication                   | Okta Verify with Touch ID                                                                              |
+| `kba`    | `KNOWLEDGE_BASED_AUTHENTICATION`| Knowledge-based authentication                         | Security Question factor                                                                               |
+| `mfa`    | `MULTIFACTOR_AUTHENTICATION`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
+| `mca`    | `MULTIPLE_CHANNEL_AUTHENTICATION`| Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
+| `sc`     |  `SMART_CARD`       | Smart card authentication                                | User authenticated using a smart card, such as a Personal Identity Verification (PIV) card or Common Access Card (CAC)                                                                          |
 
 ### IDP object
 
