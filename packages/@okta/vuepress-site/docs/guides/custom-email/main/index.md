@@ -92,7 +92,7 @@ All of Okta's default email templates are available for customization.
 
 > **Note:** Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults. However, when you disable the Enhanced Email Macros feature, your old customized templates return. If you choose to disable the feature, you lose access to the customizations done while the EA feature was enabled.
 
-## Velocity Templating syntax
+### Velocity Templating syntax
 
 The templating syntax that is used in enhanced email macros is the Velocity Templating Language (VTL). Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
 
