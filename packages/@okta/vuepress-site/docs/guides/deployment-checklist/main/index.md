@@ -35,9 +35,9 @@ Ensure that your application fits your brand:
 
 * [Review how Okta's rate limits work](/docs/reference/rate-limits/): Requests made to the Okta API have rate limits to prevent abuse.
 
-## Troubleshooting
+## Troubleshoot
 
 Okta provides a set of reports and logs to help you troubleshoot user problems. These reports are available under the **Reports** menu.
 
 * [View activity and security reports](https://help.okta.com/okta_help.htm?id=ext_Reports): Help diagnose sign-in problems for your users.
-* [View events in the System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog): To see a more general log of all events in your Okta organization.
+* [View events in the System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog): See all event logs in your Okta org.
