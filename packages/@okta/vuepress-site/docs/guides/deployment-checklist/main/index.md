@@ -8,7 +8,7 @@ Now that you've built an app, there are a few final steps for you to take to cus
 
 ## Brand and customization
 
-Ensure your application fits your brand:
+Ensure that your application fits your brand:
 
 * [Use a custom domain](/docs/guides/custom-url-domain/): Customize your Okta organization by replacing your Okta domain name (for example, dev-12345.okta.com) with your own domain name (for example, id.example.com) so that all URLs look like your application.
 * [Customize and add branding to your sign-in page](/docs/guides/custom-widget/): Tailor the sign-in page to fit your brand or your application's look and feel so that your user experience is consistent and seamless.
