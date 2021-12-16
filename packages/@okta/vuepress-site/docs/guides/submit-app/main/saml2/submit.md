@@ -10,9 +10,9 @@
 
 * **Is your app capable of requesting other SSO URLs?** &mdash; select this option to configure support for multiple ACS URLs where the SAML Response can be sent. If **Yes**, specify an index or URL to identify each ACS URL endpoint. If an **AuthnRequest** message does not specify an index or URL, the SAML Response is sent to the default ACS URL specified above. Enter the SSO URLs and an index value for any other nodes. You can specify variables in the SSO URL field to construct non-static URLs, for example, `https://${app.variableName}.okta.com`.
 
-* **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?**:  What identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
+* **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?** &mdash; what identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
 
-* **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide).
+* **Link to configuration guide** &mdash; your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide).
 
 #### Configure variables
 
