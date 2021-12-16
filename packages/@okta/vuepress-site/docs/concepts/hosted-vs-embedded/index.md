@@ -41,7 +41,7 @@ The look and feel is customized directly through HTML/CSS/SASS and JavaScript. F
 
 ## Custom domains
 
-You can [customize your Okta organization](/docs/guides/custom-url-domain/) by replacing the Okta domain name with your own domain name. This allows you to create a seamless branded experience for your users so that all URLs look like your application.
+You can [customize your Okta organization](/docs/guides/custom-url-and-email-domain/) by replacing the Okta domain name with your own domain name. This allows you to create a seamless branded experience for your users so that all URLs look like your application.
 
 Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, such as `login.example.com`.
 
