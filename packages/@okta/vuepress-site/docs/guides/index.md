@@ -43,7 +43,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
- - production-deployment
+ - deployment-checklist
  - deploy-your-app
  - protect-your-api
  - quickstart
@@ -139,8 +139,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 5. Deploy to production
 
-    * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
-    * [Deploy your app](/docs/guides/deploy-your-app/overview/)
+    * [Pre-launch checklist](/docs/guides/deployment-checklist/)
+    * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Customize Okta process flows with Event or Inline Hooks
