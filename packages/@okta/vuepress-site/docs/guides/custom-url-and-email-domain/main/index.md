@@ -29,6 +29,8 @@ For configuring a custom email domain:
 
 ---
 
+## About customizing the Okta URL domain
+
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
@@ -39,7 +41,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also configure a custom email domain to present a branded experience to your end users.
 
-## Caveats
+### Caveats
 
 * Most custom domains are configured using one of your [subdomains](https://en.wikipedia.org/wiki/Subdomain). However, there are no restrictions on using any other domain such as your root domain, if that fits your use case for your sign-in page taking over your main website.
 
@@ -279,13 +281,13 @@ You need to update your Authorization Server to use your custom domain to fix th
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
-## Configure a custom email domain
+## About configuring a custom email domain
 
 A custom email domain allows you to present a branded experience to your end users. Email that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
 
 Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain `noreply@okta.com` until the problem is resolved.
 
-To configure a custom email domain:
+## Configure a custom email domain
 
 1. In the Admin Console, go to **Settings** and then **Emails & SMS**.
 
@@ -341,5 +343,5 @@ The following customization options require a custom URL domain:
 The following customization options don't require a custom URL domain:
 
 * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-* [Customize email notifications and email domains](/docs/guides/custom-email/)
+* [Customize email notifications](/docs/guides/custom-email/)
 * [Customize themes](/docs/guides/customize-themes)

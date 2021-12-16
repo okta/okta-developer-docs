@@ -361,7 +361,7 @@ export const guides = [
         subLinks: [
           {
             title: "Customize the Okta URL domain and email domains",
-            guideName: "custom-url-domain"
+            guideName: "custom-url-and-email-domain"
           },
           {
             title: "Style the Widget",
