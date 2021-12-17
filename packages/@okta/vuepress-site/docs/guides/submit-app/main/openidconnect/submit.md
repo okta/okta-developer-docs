@@ -17,7 +17,7 @@
   If you're using a per tenant design, include the variable names that you created. For example:
   * https://`${app.variableName}`.okta.com
   * https://okta-`${app.variableName}`.com
-  * `${app.variableName}`
+  * `${app.variableName}/route`
 
 * **Optional: Do you require an Initiate Login URI** &mdash; include a login URI if you want the Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click a tile in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs an authorization request and redirects the end user back to Okta.
 
