@@ -311,7 +311,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
 10. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers that your organization has authorized to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
 
-    For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement like this:
+    For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement similar to:
 
     ```plain
     example.com TXT    v=spf1 include:spf.protection.outlook.com -all
