@@ -25,7 +25,7 @@ For customizing your Okta URL domain:
 For configuring a custom email notification domain:
 
 * Access to the DNS records of your public custom domain
-* An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implement SPF in your custom domain, be aware that you must update the SPF record.
+* An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
 ---
 
