@@ -39,7 +39,7 @@ For example, you use Okta as a user store for your apps, but you don't want your
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
-You can also configure a custom email domain to present a branded experience to your end users.
+You can also [configure a custom email notification domain](#about-custom-email-domain-configuration) to present a branded experience to your end users.
 
 ### Caveats
 
