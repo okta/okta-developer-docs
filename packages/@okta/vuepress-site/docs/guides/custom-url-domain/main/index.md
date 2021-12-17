@@ -329,7 +329,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
 ### Known Issues
 
-- You can't configure Okta to send emails through a domain that uses SendGrid. Instead, configure a subdomain on your DNS provider for custom Okta emails.
+- You can't configure Okta to send emails through a domain that uses SendGrid. Instead, configure a subdomain with your DNS provider for custom Okta emails.
 
 - You can't have more than 10 DNS lookups in your SPF record.
 
