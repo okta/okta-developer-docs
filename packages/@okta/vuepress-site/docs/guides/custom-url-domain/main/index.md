@@ -299,7 +299,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
 5. Enter the **Name of sender**. This name appears as the sender in the emails sent to your users.
 
-6. In the **Mail domain to send from** box, enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you add the unique mail domain to the SPF record to your DNS zone (the root domain) as an include-statement to show that you allow Okta to send mail from this unique mail domain.
+6. In the **Mail domain to send from** box, enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you add the unique mail domain to the SPF record in your DNS zone (the root domain) as an include-statement to show that you allow Okta to send mail from this unique mail domain.
 
 7. Click **Save & View Required DNS Records** to save your changes and view your org's DNS records that you need to update before your settings can take effect.
 
