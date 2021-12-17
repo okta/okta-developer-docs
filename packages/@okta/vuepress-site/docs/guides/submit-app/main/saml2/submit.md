@@ -28,7 +28,7 @@
 
   * **Construct your dynamic ACS URL by copying the variables above and pasting them where applicable** &mdash; provide your complete Assertion Consumer Service (ACS) URL endpoint where Okta posts SAML responses for your app integration.
 
-      > **Note**: A variable can include a complete URL (for example, http://example.com)
+    > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as org.baseURL.
   
     If you're using a per tenant design, include the variable names that you created. For example:
     * https://`${app.variableName}`.okta.com
