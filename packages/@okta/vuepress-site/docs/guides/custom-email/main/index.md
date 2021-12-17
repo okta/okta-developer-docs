@@ -18,7 +18,7 @@ An [Okta Developer Edition organization](https://developer.okta.com/signup)
 
 **Sample code**
 
-See the [Using app context to brand an email](#example-of-using-app-context-to-brand-an-email) section.
+See the [Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email) section.
 
 ---
 
