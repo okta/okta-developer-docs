@@ -944,15 +944,15 @@ redirects:
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
     to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+    to: /docs/guides/custom-url-and-email-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-and-email-domain/
   - from: /guides/custom-url-domain/-/next-steps/index.html
-    to: /docs/guides/custom-url-domain/main/#next-steps
+    to: /docs/guides/custom-url-and-email-domain/main/#next-steps
   - from: /guides/custom-url-domain/-/overview/index.html
-    to: /docs/guides/custom-url-domain/main/
+    to: /docs/guides/custom-url-and-email-domain/main/
   - from: /guides/custom-url-domain/-/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+    to: /docs/guides/custom-url-and-email-domain/main/#update-other-okta-settings
   - from: /guides/customize-authz-server/-/create-access-policies/index.html
     to: /docs/guides/customize-authz-server/main/#create-access-policies
   - from: /guides/customize-authz-server/-/create-authz-server/index.html
@@ -1226,7 +1226,7 @@ redirects:
   - from: /guides/validate-id-tokens/-/overview/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/main/
+    to: /docs/guides/custom-url-and-email-domain/main/
   - from: /use_cases/promote-oan-integration/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /docs/api/resources/index.html
@@ -1252,15 +1252,15 @@ redirects:
   - from: /use_cases/api_security/index.html
     to: /docs/concepts/api-access-management/
   - from: /guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/main/
+    to: /docs/guides/custom-url-and-email-domain/main/
   - from: /guides/custom-url-domain/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+    to: /docs/guides/custom-url-and-email-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/gather-information/index.html
-    to: /docs/guides/custom-url-domain/main/
+    to: /docs/guides/custom-url-and-email-domain/main/
   - from: /guides/custom-url-domain/next-steps/index.html
-    to: /docs/guides/custom-url-domain/main/#next-steps
+    to: /docs/guides/custom-url-and-email-domain/main/#next-steps
   - from: /guides/custom-url-domain/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+    to: /docs/guides/custom-url-and-email-domain/main/#update-other-okta-settings
   - from: /guides/custom-error-pages/customization-examples/index.html
     to: /docs/guides/custom-error-pages/customization-examples/
   - from: /guides/custom-error-pages/edit-the-error-page/index.html
@@ -1318,7 +1318,7 @@ redirects:
   - from: /guides/custom-hosted-signin/index.html
     to: /docs/guides/custom-hosted-signin/
   - from: /guides/custom-url-domain/index.html
-    to: /docs/guides/custom-url-domain/main/
+    to: /docs/guides/custom-url-and-email-domain/main/
   - from: /guides/customize-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /guides/enable-cors/index.html
@@ -4098,29 +4098,29 @@ redirects:
   - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook
     to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
   - from: /docs/guides/custom-url-domain/overview
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-and-email-domain/
   - from: /docs/guides/custom-url-domain/overview/index.html
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-and-email-domain/
   - from: /docs/guides/custom-url-domain/gather-information
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-and-email-domain/
   - from: /docs/guides/custom-url-domain/gather-information/index.html
-    to: /docs/guides/custom-url-domain/
+    to: /docs/guides/custom-url-and-email-domain/
   - from: /docs/guides/custom-url-domain/enable-the-custom-domain
-    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+    to: /docs/guides/custom-url-and-email-domain/main/#enable-the-custom-domain
   - from: /docs/guides/custom-url-domain/enable-the-custom-domain/index.html
-    to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
+    to: /docs/guides/custom-url-and-email-domain/main/#enable-the-custom-domain
   - from: /docs/guides/custom-url-domain/update-other-okta-settings
-    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+    to: /docs/guides/custom-url-and-email-domain/main/#update-other-okta-settings
   - from: /docs/guides/custom-url-domain/update-other-okta-settings/index.html
-    to: /docs/guides/custom-url-domain/main/#update-other-okta-settings
+    to: /docs/guides/custom-url-and-email-domain/main/#update-other-okta-settings
   - from: /docs/guides/custom-url-domain/cloudflare
-    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+    to: /docs/guides/custom-url-and-email-domain/main/#optional-create-a-custom-domain-within-cloudflare
   - from: /docs/guides/custom-url-domain/cloudflare/index.html
-    to: /docs/guides/custom-url-domain/main/#optional-create-a-custom-domain-within-cloudflare
+    to: /docs/guides/custom-url-and-email-domain/main/#optional-create-a-custom-domain-within-cloudflare
   - from: /docs/guides/custom-url-domain/next-steps
-    to: /docs/guides/custom-url-domain/main/#next-steps
+    to: /docs/guides/custom-url-and-email-domain/main/#next-steps
   - from: /docs/guides/custom-url-domain/next-steps/index.html
-    to: /docs/guides/custom-url-domain/main/#next-steps
+    to: /docs/guides/custom-url-and-email-domain/main/#next-steps
   - from: /docs/guides/saml-tracer/overview
     to: /docs/guides/saml-tracer/
   - from: /docs/guides/saml-tracer/overview/index.html
