@@ -14,7 +14,7 @@ Customize email notifications.
 
 **What you need**
 
-An [Okta Developer Edition organization](/signup)
+An [Okta Developer Edition organization](https://developer.okta.com/signup)
 
 **Sample code**
 
