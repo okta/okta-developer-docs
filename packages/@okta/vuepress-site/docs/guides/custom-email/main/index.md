@@ -30,7 +30,7 @@ You can customize and style the default email notifications that Okta sends to e
 - forgotten password
 - unknown device notification
 
-Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as is, or you can edit the email template text to send end users custom Okta-generated email messages.
+Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
 
 ### Use the Brands API
 
