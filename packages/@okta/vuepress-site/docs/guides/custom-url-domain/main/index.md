@@ -11,7 +11,7 @@ This guide teaches you how to customize the Okta URL domain and how to configure
 **Learning outcomes**
 
 * Customize the Okta URL domain.
-* Configure a custom email domain.
+* Configure a custom email notification domain.
 
 **What you need**
 
