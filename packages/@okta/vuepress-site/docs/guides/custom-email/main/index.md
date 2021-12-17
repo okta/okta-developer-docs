@@ -24,7 +24,7 @@ See the [Example of using app context to brand an email](#example-of-using-app-c
 
 ## About email customization
 
-You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons:
+You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons, such as:
 
 - user activation
 - forgotten password
