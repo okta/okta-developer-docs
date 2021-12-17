@@ -29,7 +29,7 @@ For configuring a custom email notification domain:
 
 ---
 
-## About customizing the Okta URL domain
+## About Okta URL domain customization
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
