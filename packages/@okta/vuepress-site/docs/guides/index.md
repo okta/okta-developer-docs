@@ -103,8 +103,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 1. Get the basics
 
-    * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
-    * [Authorization servers](/docs/concepts/auth-servers/)
+    * [OAuth 2.0 and OpenID Connect overview](/docs/guides/token-inline-hook/)
+    * [Authorization servers](/docs/guides/token-inline-hook/)
     * [Policies](/docs/concepts/policies/)
     * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
@@ -160,5 +160,5 @@ If you're creating an Okta integration for the first time, we recommend the foll
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
 1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/)
-1. [Submit an app integration](/docs/guides/submit-app/)
+1. [Build a SCIM provisioning integration](/docs/guides/token-inline-hook/)
+1. [Submit an app integration](/docs/guides/token-inline-hook/)
