@@ -281,7 +281,7 @@ You need to update your Authorization Server to use your custom domain to fix th
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
-## About configuring a custom email domain
+## About custom email domain configuration
 
 A custom email domain allows you to present a branded experience to your end users. Email that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
 
