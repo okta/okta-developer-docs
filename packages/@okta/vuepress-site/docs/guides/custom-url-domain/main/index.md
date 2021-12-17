@@ -1,10 +1,10 @@
 ---
-title: Customize the Okta URL and email domains
+title: Customize the Okta URL and email notification domains
 excerpt: Learn how to add a custom domain name to your Okta organization and configure a custom email notification domain.
 layout: Guides
 ---
 
-This guide teaches you how to customize the Okta URL domain and how to configure a custom email domain.
+This guide teaches you how to customize the Okta URL domain and how to configure a custom email notification domain.
 
 ---
 
