@@ -6,6 +6,8 @@ meta:
 layout: Guides
 ---
 
+<StackSelector />
+
 It is quickly becoming the standard for app developers and organizations to implement multifactor authentication (MFA) to add an extra layer of security to their apps. In this guide, we provide an example of how to use Okta's Factors API to add an additional factor for a user. Okta gives you the flexibility to deploy our built-in factors or integrate with existing tokens. Native factors include SMS and the Okta Verify app for iOS and Android. Integrations include Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
 
 > **Note:** How you actually make the HTTPS calls depends on the programming language and web framework that your app uses. [Okta has helper libraries](/code/) that make it easy to add support for Okta to your app in an idiomatic way.
@@ -24,10 +26,6 @@ It is quickly becoming the standard for app developers and organizations to impl
 * The Users API and Factors API [Postman collections](/docs/reference/postman-collections/)
 * [An API token](/docs/guides/create-an-api-token/) created in your Okta org
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Set up your Okta org for MFA
@@ -38,7 +36,7 @@ First of all, you'll enable support for MFA in the Admin Console of your Okta or
 
 You need to enable MFA from the Admin Console of your Okta org before you can use it with the Okta API.
 
-<StackSelector snippet="enablemfa" />
+<StackSnippet snippet="enablemfa" />
 
 See [MFA](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Sign-on Policies](https://help.okta.com/okta_help.htm?id=Security_Policies) for more information.
 
@@ -67,19 +65,19 @@ Create a new user in Okta to test your MFA setup:
 
 You are now ready to enroll an additional factor for the user that you created.
 
-<StackSelector snippet="enrollfactor" />
+<StackSnippet snippet="enrollfactor" />
 
 ## Activate the factor
 
 After enrolling a factor for the Okta user, the next step is for the user to activate their factor.
 
-<StackSelector snippet="activatefactor" />
+<StackSnippet snippet="activatefactor" />
 
 ## Verify the factor
 
 Now that the factor has been enrolled and activated, you can verify that the factor works as intended.
 
-<StackSelector snippet="verifyfactor" />
+<StackSnippet snippet="verifyfactor" />
 
 ## Next steps
 

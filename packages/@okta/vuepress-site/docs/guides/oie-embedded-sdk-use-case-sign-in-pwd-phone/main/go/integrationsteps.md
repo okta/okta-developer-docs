@@ -27,7 +27,7 @@ Build a sign-in page that captures both the user's name and password.
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
-also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
+also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main)
 use case.
 

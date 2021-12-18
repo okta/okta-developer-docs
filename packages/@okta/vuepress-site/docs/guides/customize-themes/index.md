@@ -4,8 +4,6 @@ excerpt: How to use the Brands API to rapidly customize the theme of your Okta o
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This article explains how to use the Brands API to rapidly customize the theme of your Okta org, including colors, icons, and background images in your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard.
 
 ## Overview

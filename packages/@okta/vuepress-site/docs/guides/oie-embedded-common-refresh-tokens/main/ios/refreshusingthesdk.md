@@ -1,5 +1,3 @@
-## Option 1: Refresh tokens using the Swift SDK
-
 The Swift SDK has built-in support for refreshing tokens through
 the use of the `Token` class's `refresh` method.
 
@@ -9,18 +7,9 @@ token.refresh { (newToken, error) in
 }
 ```
 
-The
+The Swift
 [EmbeddedAuth sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth)
 provides a refresh button on the
-user profile page that calls this `refresh` method. See the sample
-app [repo](https://github.com/okta/okta-idx-swift) for more details about how
-this button calls the `refresh` method.
+user profile page that calls this `refresh` method. See the [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift) for details on how this button calls the `refresh` method.
 
-For more information regarding token management, including accessing and
-revoking tokens, refer to the sample app and
-[readme](https://github.com/okta/okta-idx-swift#readme).
-
-The direct approach using the
-[OAuth token endpoint](#refresh-the-token-using-the-oauth-token-endpoint) is also supported for
-refresh tokens. It's up to the developer whether they want to use this endpoint or
-the SDK's convenience method.
+The direct API approach that uses the [OAuth token endpoint](#option-2-refresh-the-tokens-with-the-oauth-token-endpoint) is also supported for refresh tokens. It's up to the developer whether to use this endpoint or the SDK's convenience method.

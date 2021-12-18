@@ -1,0 +1,1 @@
+See the [Express getting started guide](https://expressjs.com/en/starter/installing.html) to create a sample Express app to follow the guide with, or download a finished sample app from our [Node Express example repo](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login).

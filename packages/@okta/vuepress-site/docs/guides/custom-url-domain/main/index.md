@@ -1,27 +1,35 @@
 ---
-title: Customize the Okta URL domain
-excerpt: Learn how to add a custom domain name to your Okta organization.
+title: Customize the Okta URL and email notification domains
+excerpt: Learn how to add a custom domain name to your Okta organization and configure a custom email notification domain.
 layout: Guides
 ---
 
-This guide teaches you how to customize the Okta URL domain, meaning that Okta-hosted pages are served with your own branded URL&mdash;an important step towards creating a seamless experience for your users.
+This guide teaches you how to customize the Okta URL domain and how to configure a custom email notification domain.
 
 ---
 
 **Learning outcomes**
 
-Customize the Okta URL domain.
+* Customize the Okta URL domain.
+* Configure a custom email notification domain.
 
 **What you need**
+
+For customizing your Okta URL domain:
 
 * A domain that you own, for example, `example.com`
 * A subdomain that you want to use, for example, `login.example.com`
 * A valid TLS certificate (PEM-encoded) for your subdomain
 * A 2048-bit private key (PEM-encoded)
 
+For configuring a custom email notification domain:
+
+* Access to the DNS records of your public custom domain
+* An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
+
 ---
 
-## Overview
+## About Okta URL domain customization
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
@@ -30,6 +38,8 @@ For example, you use Okta as a user store for your apps, but you don't want your
 > **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
+
+You can also [configure a custom email notification domain](#about-custom-email-domain-configuration) to present a branded experience to your end users.
 
 ### Caveats
 
@@ -47,10 +57,6 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
 
-### Optional configuration with Cloudflare
-
-Want to quickly set up a custom domain? See [Create a custom domain within Cloudflare](#optional-create-a-custom-domain-within-cloudflare).
-
 ### Common questions
 
 **Q: Can I add more than one domain?**
@@ -61,7 +67,50 @@ No. You can only set up one custom domain per Okta org.
 
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
-## Validate your TLS certificate
+## Configure a custom domain through Okta-managed certificates
+
+<ApiLifecycle access="ea" />
+
+This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
+
+1. In the Admin Console, select **Customizations**, and then **Domain**.
+2. In the **Custom URL Domain** box, click **Edit**.
+3. Click **Get Started** to start the configuration wizard.
+
+### Add your subdomain information
+
+On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
+
+### Create a DNS TXT  and CNAME record
+
+You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
+
+1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
+
+2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
+
+3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
+
+> **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+>
+> You can perform a DNS lookup of your `_acme-challenge` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_acme-challenge.login.example.com` DNS record.
+
+4. Paste the value that you copied from the **Value** column into the appropriate field, for example, the **Record** or **Value** field.
+
+5. Repeat Steps 3 and 4 for the CNAME record.
+
+6. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
+
+> **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
+
+7. If **Certificate issued** appears, click **Finish**. If an error occurs, possible issues may be that the TXT or CNAME record may not have propagated yet or there may be a copy and paste issue with the values. There may also be an operational issue with Let's Encrypt which can be checked with https://letsencrypt.status.io/
+
+
+> **Note:** If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
+
+## Configure a custom domain through your own certificate
+
+### Validate your TLS certificate
 
 Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded).
 
@@ -71,9 +120,7 @@ Okta performs validation checks on the certificate that you upload. If your TLS 
 
 If you receive the previous error, consult with the person in your organization responsible for generating certificates to determine whether your TLS certificate is a wildcard certificate.
 
-## Enable the custom domain
-
-Use the configuration wizard to walk through the steps to customize your Okta URL domain.
+### Use the configuration wizard to walk through the steps to customize your Okta URL domain.
 
 1. In the Admin Console, select **Settings**, and then **Customization**.
 2. In the **Custom URL Domain** box, click **Edit**.
@@ -234,6 +281,58 @@ You need to update your Authorization Server to use your custom domain to fix th
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
+## About custom email notification domain configuration
+
+A custom email domain allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
+
+Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain `noreply@okta.com` until the problem is resolved.
+
+## Configure a custom email notification domain
+
+1. In the Admin Console, go to **Settings** and then **Emails & SMS**.
+
+2. Click the **Sender:** link (**Okta <noreply@okta.com>**) near the top of the page.
+
+3. On the Configure Email Sender dialog box, select **Custom email domain** as the type of sender that you want to send system notification emails from.
+
+4. In the **Email address to send from**, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+
+5. Enter the **Name of sender**. This name appears as the sender in the emails sent to your users.
+
+6. In the **Mail domain to send from** box, enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you add the unique mail domain to the SPF record in your DNS zone (the root domain) as an include-statement to show that you allow Okta to send mail from this unique mail domain.
+
+7. Click **Save & View Required DNS Records** to save your changes and view your org's DNS records that you need to update before your settings can take effect.
+
+8. Update your DNS records using the provided values.
+
+9. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+
+    Alternatively, you can click **I will update the DNS records later**. Your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
+
+10. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers that your organization has authorized to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
+
+    For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement similar to:
+
+    ```plain
+    example.com TXT    v=spf1 include:spf.protection.outlook.com -all
+    ```
+
+    To finish configuring your custom email domain, you must add another include-statement that specifies the mail domain that you specified in the **Mail domain to send from** field from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
+
+    ![CNAME Example](/img/CNAMEExample.png "CNAME table with an arrow pointing at the first CNAME row in the table")
+
+    Add the host to the existing record to configure a combined SPF record similar to this:
+
+    ```plain
+    example.com TXT    v=spf1 include:oktamail.example.com include:spf.protection.outlook.com -all
+    ```
+
+### Known Issues
+
+- You can't configure Okta to send emails through a domain that uses SendGrid. Instead, configure a subdomain with your DNS provider for custom Okta emails.
+
+- You can't have more than 10 DNS lookups in your SPF record.
+
 ## Next steps
 
 The following customization options require a custom URL domain:
@@ -244,5 +343,5 @@ The following customization options require a custom URL domain:
 The following customization options don't require a custom URL domain:
 
 * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-* [Customize email notifications and email domains](/docs/guides/custom-email/)
+* [Customize email notifications](/docs/guides/custom-email/)
 * [Customize themes](/docs/guides/customize-themes)

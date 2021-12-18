@@ -91,7 +91,7 @@ For Identity Engine, the Sign-In Widget is configured differently. You can remov
 
 ### Registration
 
-You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm). This process allows users to self register into your application.
+You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self register into your application.
 
 You can remove the registration objects as follows.
 

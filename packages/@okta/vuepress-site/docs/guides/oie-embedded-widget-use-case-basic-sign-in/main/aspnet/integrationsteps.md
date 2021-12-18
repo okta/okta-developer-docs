@@ -1,6 +1,6 @@
 ### 1: The user signs in
 
-After you complete the steps in [Use Case 1: Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) and the Widget loads successfully, then the next step is for the user to sign in.  There is no additional code that needs to be added to your app for this step. The user enters their credentials, and clicks the **Next** or **Sign In** button.
+After you complete the steps in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) use case and the Widget loads successfully, the next step is for the user to sign in. There is no additional code that you need to add to your app for this step. The user enters their credentials and clicks the **Next** or **Sign In** button.
 
 <div class="common-image-format">
 
@@ -10,7 +10,7 @@ After you complete the steps in [Use Case 1: Load the Widget](/docs/guides/oie-e
 
 ### 2: Handle the callback from the Widget
 
-This step handles the callback from the widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in the following locations:
+This step handles the callback from the Widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in the following locations:
 
 * The `RedirectURI` parameter in the configuration setting that is defined in [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 * A URI that is defined in the **Sign-in redirect URIs** field in the Okta Application. The **Sign-in redirect URIs** field is described in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
