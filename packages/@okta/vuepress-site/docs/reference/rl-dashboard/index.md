@@ -32,6 +32,8 @@ The following describes typical uses of the functions in the Rate limits report:
 
 In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits report opens in the **Overview** tab.
 
+![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rl_dashboard6.png)
+
 The **Overview** tab provides you with graphs that plot the number of violations over a three-month period and is based on system log events. It also provides a table that lists your org's APIs and their corresponding current rate limits, violations and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
 
 The **Settings** tab allows you to change the per client rate limit settings and customize the threshold for warning notifications when the API's rate limit is exceeded. See [Change rate limit settings](#change-rate-limit-settings).
@@ -42,11 +44,17 @@ The **Settings** tab allows you to change the per client rate limit settings and
 
 The Violations line graph plots the number of violations over the selected time period, which can be the last 24 hours, last 7 days, last month, or last 3 months. The Violations per API bar graph shows the top ten number of violations by API over the same time period.
 
+![Displays the violations over a period of time graph and the top 10 endpoint violations bar graph.](/img/rl_dashboard7.png)
+
 You can hover over the line graph or bar graph to get more details. The details also include a link to the system log where you can view filtered events specific to that API and time period.
+
+![Displays details on the violations graph.](/img/rl_dashboard8.png)
 
 #### APIs table
 
 The APIs table shows each API and its corresponding rate limit for your org. The rate limits include all overrides, dynamic scale, or Workforce multipliers. The table also shows the number of violations and warnings for each API in the last hour, and includes a trendline of usage in the last hour.
+
+![Displays the APIs table with corresponding rate limits for each API.](/img/rl_dashboard9.png)
 
 You can sort on all the columns. The Trendline is sorted by the current usage.
 

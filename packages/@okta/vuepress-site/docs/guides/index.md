@@ -36,11 +36,14 @@ guides:
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
  - oin-oidc-protocols
- - build-provisioning-integration
+ - scim-provisioning-integration-overview
+ - scim-provisioning-integration-prepare
+ - scim-provisioning-integration-connect
+ - scim-provisioning-integration-test
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
- - production-deployment
+ - deployment-checklist
  - deploy-your-app
  - protect-your-api
  - quickstart
@@ -136,8 +139,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 5. Deploy to production
 
-    * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
-    * [Deploy your app](/docs/guides/deploy-your-app/overview/)
+    * [Pre-launch checklist](/docs/guides/deployment-checklist/)
+    * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Customize Okta process flows with Event or Inline Hooks
@@ -157,5 +160,5 @@ If you're creating an Okta integration for the first time, we recommend the foll
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
 1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
-1. [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/)
 1. [Submit an app integration](/docs/guides/submit-app/)

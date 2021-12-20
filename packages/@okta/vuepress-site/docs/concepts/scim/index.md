@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-If you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
+When you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
 
 ## What is SCIM for?
 
@@ -118,7 +118,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 
 * [Okta Lifecycle Management User Provisioning](https://help.okta.com/okta_help.htm?id=ext_prov_okta_lcm_user_provision)
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
 * [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)

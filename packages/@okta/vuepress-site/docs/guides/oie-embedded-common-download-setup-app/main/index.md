@@ -8,28 +8,20 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 
 <StackSelector />
 
-This guide covers the next step after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), which is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
 ---
 
 **Learning outcomes**
 
-* Configure the settings that you need to add to initialize the SDK and the Sign-In Widget.
-* Integrate the SDK and the Sign-In Widget into your own app after you run the sample app.
+* Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
+* Configure the settings that you require for the SDK and the Sign-In Widget.
 
 **What you need**
 
-[Software requirements](/docs/guides/oie-embedded-common-download-setup-app/android/main/#software-requirements).
-
-**Sample code**
-
-* Android &mdash; [okta-idx-android](https://github.com/okta/okta-idx-android)
-* ASP.NET &mdash; [okta-idx-dotnet](https://github.com/okta/okta-idx-dotnet)
-* Golang &mdash; [okta-idx-golang](https://github.com/okta/okta-idx-golang)
-* iOS &mdash; [okta-idx-swift](https://github.com/okta/okta-idx-swift)
-* Java &mdash; [okta-idx-java](https://github.com/okta/okta-idx-java)
-* Node.js &mdash; [okta-auth-js](https://github.com/okta/okta-auth-js)
-
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* <StackSnippet snippet="samplecode" inline />
+* [Software requirements](#software-requirements)
 ---
 
 ## Software requirements

@@ -1,18 +1,27 @@
 ---
-title: Test your Okta integration
+title: Test your Okta SCIM integration
+excerpt: Test that your SCIM application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+meta:
+  - name: description
+    content: Test that your SCIM application can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+layout: Guides
 ---
 
-This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **C**reate, **R**ead, **U**pdate and **D**elete (CRUD) user profile information.
+This guide teaches you to how test that your SCIM application can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+
+## Scope of tests
+
+This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **c**reate, **r**ead, **u**pdate, and **d**elete (CRUD) user profile information.
 
 >**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
-## Prerequisites
+## Profile Sourcing activation
 
 The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact <developers@okta.com> with the name of your app integration and your org ID to have Profile Sourcing temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, inform Developer Support of your time requirements in your email.
 
 ## Runscope tests for CRUD
 
-If you are not familiar with Runscope, follow the detailed instructions in the [Test your SCIM API](/docs/guides/build-provisioning-integration/test-scim-api/) topic to get started.
+If you are not familiar with Runscope, follow the detailed instructions in the [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) topic to get started.
 
 This suite runs the following tests:
 
@@ -64,7 +73,7 @@ To configure and run the SCIM CRUD tests:
 
 ## Review test results
 
-On the left side of your screen, the test appears in the **Recent Test Runs** section.
+On the left side of your screen, the test appears in the **Recent Test Runs** s##ection.
 
 1. Click **View Progress** inside the **Recent Test Runs** section.
 1. As the test suite runs, Runscope displays live updates of the test in progress. After the test is complete, the main panel displays the results of your test.
@@ -74,4 +83,16 @@ On the left side of your screen, the test appears in the **Recent Test Runs** se
 For comparison and reference, here is an example of [a successful Runscope test run](https://www.runscope.com/radar/rho3mr74kof3/05da739b-a2b2-49ce-91a0-656320deab17/history/b49431ec-662f-49b5-b382-7149eec85091) for the SCIM 2.0 CRUD test suite.
 -->
 
-<NextSectionLink/>
+## Run through OIN QA tests
+
+If your SCIM integration has passed all the Runscope tests, and you are planning to publish your SCIM integration in the OIN catalog, you can now run through the OIN quality assurance test cases in this spreadsheet.
+
+* [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx)
+
+## Next steps
+
+This brings you to the end of the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series. You should now have a SCIM integration that has been successfully built and tested.
+
+After you have completed your testing and your integration is working as expected, you can start the submission process to have your integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) (OIN).
+
+Our [Submit an app integration](/docs/guides/submit-app) guide takes you through the steps required to submit your SCIM integration through the OIN Manager site.
