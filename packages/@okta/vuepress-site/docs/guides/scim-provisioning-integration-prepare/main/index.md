@@ -97,7 +97,7 @@ If your integration supports user attributes beyond those four base attributes, 
 
 ### Unique ID
 
-In addition to the basic user schema attributes, your SCIM API must also specify a unique identifier for each user resource.
+In addition to the basic user schema attributes, your SCIM API must also specify a unique identifier for each SCIM resource, including users and groups. Okta uses this unique identifier to link the Okta profile with the SCIM resource. 
 
 [Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to identify resources. This unique identifier:
 
