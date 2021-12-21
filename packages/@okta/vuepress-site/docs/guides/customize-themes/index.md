@@ -10,7 +10,7 @@ This guide explains how to use the Brands API to rapidly customize the theme of 
 
 **Learning outcomes**
 
-* Use the Brands API to customize the theme of your Okta org.
+Use the Brands API to customize the theme of your Okta org.
 
 **What you need**
 
