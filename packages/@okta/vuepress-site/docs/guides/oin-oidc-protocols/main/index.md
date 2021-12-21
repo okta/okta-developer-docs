@@ -39,6 +39,7 @@ For an OIN app, the Authorization Code flow looks like the following:
   * `scope` &mdash; the scopes that are contained in the access token
   * `id_token` &mdash; contains specific info (in JWT format) about the authentication and the end user that is needed by the application
   * Optional. `refresh_token` &mdash; returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired
+    > **Note**: The `refresh_token` option should not be used if you intend to publish your app in the OIN.
 * The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
 
 The Authorization Code flow depends on Okta and your SaaS back end systems being able to securely communicate the Client Secret.
