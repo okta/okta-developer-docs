@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2021
 
 #### Bug fixed in 2021.12.2
 
-The [`login_hint` entry](/docs/reference/api/oidc/#request-parameters) didn't appear in the login box even though the user had already set up login with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
+The [`login_hint`](/docs/reference/api/oidc/#request-parameters) didn't appear in the login box even though the user had already set up login with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
 
 ### Monthly release 2021.12.0
 
