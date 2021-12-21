@@ -150,7 +150,7 @@ When Okta calls an external service, it enforces a default timeout of 3 seconds.
 
 ### Inline Hooks and concurrent rate limits
 
-The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
 
 ### Inline Hook timeout behavior
 
