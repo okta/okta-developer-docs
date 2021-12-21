@@ -162,7 +162,7 @@ See [error](/docs/concepts/inline-hooks/#error) for general information on the s
 
 For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns appears to the end user.
 
-If you don't return any value for that `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user: "Registration cannot be completed at this time".
+If you don't return any value for that `errorCauses` object and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user: "Registration cannot be completed at this time".
 
 If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user: "Registration denied".
 
