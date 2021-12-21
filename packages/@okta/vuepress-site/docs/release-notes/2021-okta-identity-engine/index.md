@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2021
 
 ## December
 
+### Weekly release 2021.12.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.12.2](#bug-fixed-in-2021-12-2) | December 22, 2021 |
+
+#### Bug fixed in 2021.12.2
+
+The [`login_hint`](/docs/reference/api/oidc/#request-parameters) didn't appear in the login box even though the user had already set up login with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
+
 ### Monthly release 2021.12.0
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -25,7 +35,7 @@ Browser-like devices such as Smart TV applications that run on WebOS, Samsung, a
 
 #### Custom domains with Okta-managed certificates
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-444104-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let's Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-444104-->
 
 #### Device Authorization grant type is now GA in Production
 
@@ -43,7 +53,7 @@ With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updat
 
 #### Error response updated for malicious IP address sign-in requests
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
 
 #### IdP Discovery supported for Device Authorization Grant flow
 
@@ -74,7 +84,7 @@ Multiple users signed in to a single device now retain their own device manageme
 
 #### Bug fixed in 2021.11.3
 
-SAML app requests that don’t support the SAML protocol resulted in an `HTTP 500 Internal Server` error. (OKTA-435382)
+SAML app requests that don't support the SAML protocol resulted in an `HTTP 500 Internal Server` error. (OKTA-435382)
 
 ### Weekly release 2021.11.2
 
@@ -143,7 +153,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### Bug fixed in 2021.10.2
 
-The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn't include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
 ### Monthly release 2021.10.0
 
