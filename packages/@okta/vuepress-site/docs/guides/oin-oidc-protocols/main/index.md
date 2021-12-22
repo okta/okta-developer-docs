@@ -22,7 +22,7 @@ For an OIN app, the Authorization Code flow looks like the following:
 
 * Your end user (also known as the Resource Owner) opens their web browser (the User Agent) to access and work with your application (the Client). The Client requires information from various back-end infrastructure elements (the Resource Server), usually an API or service. By clicking a sign-in link or an icon on their Okta dashboard, the end user grants authorization to your application and initiates the Authorization Code flow.
 * Your Client prepares an authentication request to authenticate the end user (or determine if the end user is authenticated already). This request is composed of specific required parameters and is sent to the Okta `/authorize` endpoint:
-  * `client_id`: This value is the Okta client ID created for you when you made your Okta app integration and is available in your Okta app integration settings
+  * `client_id`: The Okta client ID that is created for you when you made your Okta app integration and is available in your Okta app integration settings
   * `nonce`: A value returned in the ID token to mitigate against replay attacks
   * `redirect_uri`: The location where the response is sent. This value, which must start with `https://`, is set in your Okta app integrations settings.
   * `response_type=code`: This value informs Okta (as the authorization server) that you want to get back an access token and an ID token in exchange for the authorization code
