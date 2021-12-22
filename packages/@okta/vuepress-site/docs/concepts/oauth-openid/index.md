@@ -161,7 +161,7 @@ For web/native/mobile applications, the client secret can't be stored in the app
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
-> **Note:** The Authorization Code flow with PKCE doesn't support refresh tokens for SPAs and other browser-based apps.
+> **Note:** See [Refresh access tokens](/docs/guides/refresh-tokens/main/) for implementing refresh tokens with SPAs and other browser-based apps.
 
 The PKCE-enhanced Authorization Code flow requires your application to generate a cryptographically random key called a "code verifier". A "code challenge" is then created from the verifier, and this challenge is passed along with the request for the authorization code.
 
