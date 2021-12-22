@@ -39,7 +39,7 @@ For an OIN app, the Authorization Code flow looks like the following:
   * `scope`: The scopes that are contained in the access token
   * `id_token`: Contains specific info (in JWT format) about the authentication and the end user that is needed by the application
 
-  <!-- * Optional. `refresh_token` &mdash; returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired. **Remove due to OKTA-441197**: The `refresh_token` option should not be used if you intend to publish your app in the OIN. -->
+  <!-- * Optional. `refresh_token` &mdash; returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired. **Removed due to OKTA-441197**: The `refresh_token` option should not be used if you intend to publish your app in the OIN. -->
 * The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
 
 The Authorization Code flow depends on Okta and your SaaS back-end systems being able to securely communicate the client secret.
@@ -91,7 +91,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
   * `expires_in`: The expiration time for the access token (in seconds)
   * `scope`: The scopes that are contained in the access token
   * `id_token`: Contains specific info (in JWT format) about the authentication and the end user that is needed by the application
-  * Optional. `refresh_token`: Returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired.
+  <!-- * Optional. `refresh_token`: Returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired. **Removed due to OKTA-441197** -->
 * The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
 
 Another general outline of the Authorization Code flow with PKCE can be found in our Okta developer guide: [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
