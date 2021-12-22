@@ -32,7 +32,7 @@ For an OIN app, the Authorization Code flow looks like the following:
 * Okta then sends the browser to a sign-in page that either asks the end user to provide authentication and consent to the requested scopes or confirms that Okta has authenticated the user.
 * The end user provides proof of identity (using any of the supported authentication methods) and gives consent for any requested claims defined in your `scopes` parameter. These claims are specific pieces of information that are included in the token provided by Okta.
 * The browser receives an authorization code response from the Okta Authorization Server. If there is an error or the authentication fails for any reason, the browser returns the error to the end user. If the authentication is successful, the Okta Authorization Server issues an authorization code value and includes it in a redirect that sends the browser over to the Client at one of the **Sign-in redirect URIs** callback locations.
-* The Client (your application) then submits a request to the Okta `/token` endpoint using the authorization code value and the client secret. If both are valid, then Okta returns:
+* The Client (your application) then submits a request to the Okta `/token` endpoint by using the authorization code value and the client secret. If both are valid, then Okta returns:
   * `access_token`: Restricted to give access only to what the end user authorized for your application
   * `token_type=Bearer`: This identifies the authentication method used
   * `expires_in`: The expiration time for the access token (in seconds)
