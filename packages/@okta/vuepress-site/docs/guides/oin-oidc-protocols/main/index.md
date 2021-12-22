@@ -87,7 +87,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
   * The `client_id` and the `redirect_uri` for your app
 * If both the code and the verifier are valid, then Okta returns:
   * `access_token`: Restricted to give access only to what the end user authorized for your application
-  * `token_type=Bearer`: Identifies the authentication method used
+  * `token_type=Bearer`: Identifies the authentication method that is used
   * `expires_in`: The expiration time for the access token (in seconds)
   * `scope`: The scopes that are contained in the access token
   * `id_token`: Contains specific info (in JWT format) about the authentication and the end user that is needed by the application
