@@ -3114,7 +3114,7 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.read`                        | Allows the admin to only read information about Apps and their members in your Okta organization.                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization.                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org.                                                                     | All Apps, All apps of specific type, a specific App |
-| `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Profile Source Apps, All profile source apps of specific type, a specific Profile Source App |
+| `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
 #### Example
 
 ```json
