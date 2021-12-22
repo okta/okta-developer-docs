@@ -75,7 +75,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
   * `state`: An arbitrary value returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call
   * `scope`: Must contain `openid` to indicate that you want to get back an ID token from the `/token` endpoint
   * `code_challenge`: The PKCE code challenge that you previously generated
-  * `code_challenge_method`: The hash method used to generate the challenge value. This value is always `S256`.
+  * `code_challenge_method`: The hash method that is used to generate the challenge value. This value is always `S256`.
 * Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta Authorization Server over secure HTTPS.
 * Okta then sends the browser to a sign-in page that either asks the end user to provide authentication and consent to the requested scopes or confirms that Okta has authenticated the user.
 * The end user provides proof of identity (using any of the supported authentication methods) and gives consent for any requested claims defined in your `scopes` parameter. These claims are specific pieces of information that are included in the token provided by Okta.
