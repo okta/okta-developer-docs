@@ -69,7 +69,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
 
 * Your end user (also known as the Resource Owner) opens the SPA app in their browser to access and work with your application (the Client). The Client requires information from various back-end infrastructure elements (the Resource Server), usually an API or service. By clicking a sign-in link, the end user grants authorization to your application and initiates the Authorization Code flow with PKCE.
 * Your client application prepares an authentication request to authenticate the end user. This request is composed of specific required parameters and is sent to the Okta `/authorize` endpoint with a code challenge:
-  * `client_id`: The Okta client ID created for you when you made your Okta app integration and is available in your Okta app integration settings
+  * `client_id`: The Okta client ID that is created for you when you made your Okta app integration and is available in your Okta app integration settings
   * `redirect_uri`: The location where the response is sent. This value, which must start with `https://`, is set in your Okta app integrations settings.
   * `response_type=code`: Informs Okta (as the authorization server) that you want to get back an access token and an ID token in exchange for the authorization code
   * `state`: An arbitrary value returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call
