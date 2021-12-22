@@ -10,7 +10,7 @@ This guide provides background information on the protocol requirements for OIDC
 
 For OIDC applications destined for the OIN, Okta recommends building a web application with a dedicated server-side back end that is capable of securely storing a client secret and exchanging information with an authorization server through trusted back-channel connections.
 
-If you are planning to build a single page application (SPA), see the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) section.
+If you're planning to build a single page application (SPA), see the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) section.
 
 The exchange of the short-lived authorization code for a token requires a client secret. This secret is a value that only your client application and the authorization server know, and you must protect it from malicious parties.
 
