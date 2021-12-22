@@ -26,7 +26,7 @@ For an OIN app, the Authorization Code flow looks like the following:
   * `nonce`: A value returned in the ID token to mitigate against replay attacks
   * `redirect_uri`: The location where the response is sent. This value, which must start with `https://`, is set in your Okta app integrations settings.
   * `response_type=code`: A value that informs Okta (as the authorization server) that you want to get back an access token and an ID token in exchange for the authorization code
-  * `scope`: This parameter must contain `openid` to indicate that this is an OIDC request and that you want to get back an ID token. You can add optional scopes to your request to limit the user information returned.
+  * `scope`: A parameter that must contain `openid` to indicate that this is an OIDC request and that you want to get back an ID token. You can add optional scopes to your request to limit the user information returned.
   * `state`: A value returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call.
 * Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta Authorization Server over secure HTTPS.
 * Okta then sends the browser to a sign-in page that either asks the end user to provide authentication and consent to the requested scopes or confirms that Okta has authenticated the user.
