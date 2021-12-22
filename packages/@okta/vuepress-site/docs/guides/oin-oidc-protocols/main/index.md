@@ -42,7 +42,7 @@ For an OIN app, the Authorization Code flow looks like the following:
   <!-- * Optional. `refresh_token` &mdash; returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired. **Remove due to OKTA-441197**: The `refresh_token` option should not be used if you intend to publish your app in the OIN. -->
 * The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
 
-The Authorization Code flow depends on Okta and your SaaS back end systems being able to securely communicate the client secret.
+The Authorization Code flow depends on Okta and your SaaS back-end systems being able to securely communicate the client secret.
 
 > **Note:** Your application needs to verify user identity through a user store. Otherwise, your app could be spoofed by fake applications in the Android or Apple app stores, or an end user could view and possibly modify your code. For this reason, native and mobile app integrations aren't acceptable for OIDC app integrations in the OIN. You must set up your application to use an authentication flow so that your client application talks to your SaaS back end, which then communicates with Okta.
 
