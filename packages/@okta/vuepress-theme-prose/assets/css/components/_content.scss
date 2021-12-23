@@ -223,7 +223,7 @@
     .stack-selector {
       display: none;
 
-      @include media("<=1439px") {
+      @include media("<=desktop-xl") {
         display: block;
       }
     }

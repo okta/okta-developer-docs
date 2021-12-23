@@ -2,7 +2,7 @@
   <aside class="on-this-page-navigation">
     <div v-show="showOnthisPage">
       <StackSelector v-if="$page.hasStackContent" />
-      <div class="title">On This Page</div>
+      <div class="title">On this page</div>
       <div>
         <ul class="links" v-if="items">
           <OnThisPageItem
