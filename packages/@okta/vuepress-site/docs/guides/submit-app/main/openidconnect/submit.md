@@ -40,3 +40,4 @@
 * **What type of sign-in flows do you support?**: Choose either **IdP initiated** or **SP initiated**, or both.
 
 * **Select the OIDC mode supported by your application**: Choose either **SPA** (for Single-Page Application) or **Web**.
+

@@ -48,6 +48,7 @@ This guide covers submissions that use one or more of these protocols:
 After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
 1. Create a customer-facing configuration guide.
+    >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
     >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact <developers@okta.com> to have this capability temporarily activated when submitting a SCIM app integration.
 
@@ -75,11 +76,18 @@ A configuration guide helps your customers understand how to configure your Okta
 
 You need to provide a configuration guide as part of the OIN submission process. Your guide is provided to administrators through the Okta Admin Console. Okta checks your document for general adherence to the configuration guide instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible.
 
+>**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
+
 You can create the guide in whatever format works best for you: a Web page, a Google or Word doc, or a PDF are all acceptable.
 
 ### Examples
 
 Some examples of detailed configuration guides:
+
+OIDC:
+
+* [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
+* [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
 
 SAML:
 
@@ -91,6 +99,7 @@ SAML:
 SCIM:
 
 * [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
+* [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
 * [Fuze](http://images.em.fuze.com/Web/ThinkingPhones/%7Be980dc53-8c7e-4758-b5e5-3fa20845c561%7D_Fuze_Admin_Guide_-_Okta_Provisioning_(1).pdf) (PDF link)
 * [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
@@ -124,7 +133,9 @@ In this section of your guide, you want to outline what features your applicatio
 
 Also include any restrictions. For example:
 
-> **Note:** Okta can't update user attributes for Admin users. This is an API limitation.
+Okta can't update user attributes for Admin users. This is an API limitation.
+
+> **Note:** You can briefly describe what each feature does. See the guides from the earlier SCIM section for examples.
 
 #### Procedure
 
