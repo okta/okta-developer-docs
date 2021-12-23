@@ -4,7 +4,26 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
-## Overview
+This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
+
+---
+
+**Learning outcomes**
+
+* Create and configure a Native OpenID Connect application to support Device Authorization.
+* Enable Device Authorization at the policy rule level.
+* Request the device verification code.
+* Retrieve tokens for the user.
+* Revoke the tokens.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Device Authorization feature enabled for your org](#before-you-begin)
+
+---
+
+## About the Device Authorization feature
 
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
