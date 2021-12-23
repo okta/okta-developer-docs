@@ -10,7 +10,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 **Learning outcomes**
 
-* Create and configure a Native OpenID Connect application to support Device Authorization.
+* Create and configure a native OpenID Connect application to support Device Authorization.
 * Enable Device Authorization at the policy rule level.
 * Request the device verification code.
 * Retrieve tokens for the user.
