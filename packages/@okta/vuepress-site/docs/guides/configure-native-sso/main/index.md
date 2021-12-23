@@ -11,7 +11,7 @@ This guide provides a high-level overview of the Native SSO feature in Okta. It 
 **Learning outcomes**
 
 * Understand the Native SSO flow.
-* Set up native applications.
+* Set up your native application.
 * Update the authorization server policy rule to allow the token exchange grant.
 * Understand the device secret and refresh token idle lifetimes.
 * Verify that the device secret is valid.
