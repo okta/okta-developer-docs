@@ -2,7 +2,7 @@ The following sections outline the main components required to implement the Aut
 
 ### Create the Proof Key for Code Exchange
 
-Just like with the standard [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
+Similar to the standard [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
 
 Your first step is to generate a code verifier and challenge:
 
