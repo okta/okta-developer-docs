@@ -2,8 +2,7 @@ Without using existing libraries, you can make a direct request to Okta's [OIDC 
 
 ### Request for tokens
 
-Using this flow is very similar to the <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>
-except that the `response_type` is `token` and/or `id_token` instead of `code`.
+This flow is very similar to the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/#authorization-code-flow), except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
 
