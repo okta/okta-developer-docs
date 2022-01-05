@@ -16,13 +16,13 @@
 
 #### Configure variables
 
-* **Does your ACS URL or Audience URI vary per tenant?**: If you select **Yes**, a new field appears to assist you in setting up a per tenant configuration.
+* **Does your ACS URL or Audience URI vary per tenant?**: If you select **No**, the ACS URL and Audience URI are pulled from the app during the submission review. If you select **Yes**, new fields appear to assist you in setting up a per tenant configuration.
   * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, the interface displays a dialog box to collect the following information:
     * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration.
     * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
-    * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
+    * **Help Text**: Any descriptive text to be shown to administrators about the variable when they install your app integration.
     * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-  * Click **Save** to add the variable to the list.
+    * Click **Save** to add the variable to the list.
 
     After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
@@ -38,8 +38,6 @@
   * **Construct your dynamic Audience URI by copying the variables above and pasting them where applicable**: Provide your complete Audience URI. This field, which dictates the audience the SAML Assertion is intended for, can be any data string up to 1024 characters long.
 
     It is typically in the form of a URL, often the same as the ACS URL for your app integration. If you're using a per tenant design, include the variable names that you created, the same as for the ASC URL.
-
-  If you select **No**, the ACS URL and Audience URI are pulled from the app during the submission review.
 
 #### Supported features
 
@@ -59,15 +57,28 @@
   * **Key Transport Algorithm**: Select the key transport algorithm used in your encryption.
   * **Are you going to use the same encryption certificate for all tenants?**: If you support the same encryption certificate for all tenants, copy your certificate and paste it in the field provided.
 
-* **Do you support SP-initiated Single-Logout?**: If you select **Yes**, then **Are you going to use the same single-logout certificate for all tenants?**
+* **Do you support SP-initiated Single-Logout?**: If you select **No**, there is nothing to configure in this section. If you select **Yes**, then more questions appear to help you set up your SP-initiated single-logout (SLO) configuration.
 
-    If you support the same single-logout certificate for all tenants, copy your certificate and paste it in the field provided.
+  * **Does your Single-Logout URL vary per tenant?**: If you select **Yes**, new app instance properties appear to assist you in setting up a per tenant configuration.
+
+    * **What variables do your admins need to specify to install your app?**: When you click **Add Variable**, a dialog box appears to collect the following information:
+      * **Label Name**: A descriptive name for the dynamic variable that administrators see when installing your app integration. For example, `sloBase`.
+      * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application. For example, `${org.slobase}`.
+      * **Help Text**: Any descriptive text to be shown to administrators about the variable when they install your app integration.
+      * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
+      * Click **Save** to add the variable to the list.
+
+      After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+
+    * **Construct your dynamic Single-Logout URL by copying the variables above and pasting them where applicable**: Provide your complete SLO URL endpoint where Okta redirects for your app integration single-logout. For example, `${org.slobase}/signout`.
+
+  * **Are you going to use the same single-logout certificate for all tenants?**: Select **Yes** if you support the same single-logout certificate for all tenants. Copy your certificate and paste it in the field provided.
 
     The Single Logout URL and SP Issuer should be specified in the test application.
 
     >**Note:** Okta only supports single logout requests.
 
-* **Do you require a default relay state**: The default relay state is the page where your users land after they successfully sign on. If you have this configured, enter a specific application resource for an IdP initiated Single Sign-On scenario.
+* **Do you require a default relay state**: The default relay state is the page where your users land after they successfully sign on. If you have this configured, enter a specific application resource for an IdP-initiated Single Sign-On (SSO) scenario.
 
 #### Review info
 
