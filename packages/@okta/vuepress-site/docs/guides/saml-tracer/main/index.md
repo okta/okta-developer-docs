@@ -1,5 +1,5 @@
 ---
-title: Testing SAML with SAML tracer
+title: Test SAML with SAML tracer
 excerpt: How to test SAML flows with the SAML Tracer Firefox extension
 layout: Guides
 ---
