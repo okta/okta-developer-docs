@@ -45,6 +45,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oktatookta: 'Okta-to-Okta',
   openidconnect: 'OpenID Connect',
   saml2: 'SAML 2.0',
+  scim: 'SCIM',
   facebook: 'Facebook',
   google: 'Google',
   linkedin: 'LinkedIn',
