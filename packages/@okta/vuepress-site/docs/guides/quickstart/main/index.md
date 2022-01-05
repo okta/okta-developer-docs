@@ -5,7 +5,7 @@ excerpt: Get started with Okta authentication
 
 <StackSelector />
 
-This guide explains how to get you up and running with basic Okta authentication, quickly and effectively. This includes how to create and manage Okta orgs, register a new app, and authenticate the app by using Okta, and the subsequent steps from there.
+This guide explains how to get you up and running with basic Okta authentication, quickly and effectively. This includes how to create and manage Okta orgs, register a new app, authenticate the app by using Okta, and the subsequent steps from there.
 
 ---
 
