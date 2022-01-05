@@ -15,7 +15,7 @@ This guide explains how to test a SAML app implementation with the SAML tracer b
 
 **What you need**
 
-A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration) for more information on how to create one.
+A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
