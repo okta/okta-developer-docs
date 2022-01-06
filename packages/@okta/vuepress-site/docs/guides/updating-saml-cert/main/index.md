@@ -17,7 +17,7 @@ This guide explains how to upgrade older Okta SAML apps from SHA1 certificates t
 
 **What you need**
 
-* A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration) for more information on creating one.
+* A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
