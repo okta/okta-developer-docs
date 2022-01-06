@@ -45,7 +45,7 @@
 
 * **Link to Runscope test results**: A link to the Runscope site test results that show your application passed the SPEC test suite. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
-* **Link to Runscope CRUD test results**: A link to the Runscope site test results that show your application has successfully passed the CRUD test suite. See [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/).
+* **Link to Runscope CRUD test results**: A link to the Runscope site test results that show your application passed the CRUD test suite. See [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/).
 
   > **Note:** Runscope CRUD test results aren't required if your application only supports the Import feature. Instead, enter a link to your SPEC test results for this field.
 
