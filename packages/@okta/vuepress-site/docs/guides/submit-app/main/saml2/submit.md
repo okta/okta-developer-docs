@@ -49,7 +49,7 @@
 
 * **What type(s) of sign-in flows do you support?**: Choose from IdP or SP initiated, or both. If you support SP-initiated flows, you must specify the URL used to initiate the SP flow and include a description of how the SP flow is triggered by your integration.
 
-* **Force authentication?**: Select **Yes** if your application forces users to authenticate again, even if they have an existing session. If you select **Yes**, include how customers configure force authentication on your end? Provide the steps for Okta to test this forced authentication.
+* **Force authentication?**: Select **Yes** if your application forces users to authenticate again, even if they have an existing session. If you select **Yes**, include how customers configure force authentication on your end. Provide the steps for Okta to test this forced authentication.
 
 * **Do you use encrypted assertions?**: Select **Yes** if you support an encryption method for authentication assertion.
 
