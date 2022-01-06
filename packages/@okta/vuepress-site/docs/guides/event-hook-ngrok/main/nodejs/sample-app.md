@@ -30,6 +30,7 @@ The Event Hook use case is a simple local application response to the addition o
 1. In the same `sample-app` directory, create an index page, `index.html`, as follows, which launches when running the application:
 
     ```HTML
+    <html>
     <head>
     <meta charset="utf-8" />
     <title>Simple Test Application</title>
