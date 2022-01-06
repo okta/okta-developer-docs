@@ -82,6 +82,6 @@
 
 #### Review info
 
-* **Optional: link to demo video**: If you have prepared a video that explains how to configure access to your SAML application, enter the URL here. A short demo video showing your working test application helps expedite the review process. Please show the IdP and SP-initiated sign-in flows and sign-out (if applicable).
+* **Optional: link to demo video**: If you have a video that explains how to configure access to your SAML application, enter the URL here. A short demo video showing your working test application helps expedite the review process. Please show the IdP and SP-initiated sign-in flows and sign-out (if applicable).
 
 * **Optional: link to the test results of a SAML validation tool**: Use the tool at <http://saml.oktadev.com> to validate your SAML Service Provider implementation. The results help expedite the review process.
