@@ -33,4 +33,4 @@ The Administrator Roles API includes new app [permissions](/docs/reference/api/r
 
 #### Self-service password reset with User API
 
-Client applications that use the Users API `/users/{$userId}/credentials/forgot_password` to implement the [self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr) flow can now use this API call with password policies configured with the "Any enrolled authenticator used for MFA/SSO" additional verification option. <!--OKTA-452933-->
+Client applications that use the Users API `/users/{$userId}/credentials/forgot_password` to implement the [self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr) flow can now use this API call with password policies configured with the **Any enrolled authenticator used for MFA/SSO** additional verification option. <!--OKTA-452933-->
