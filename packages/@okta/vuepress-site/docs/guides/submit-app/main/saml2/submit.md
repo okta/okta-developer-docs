@@ -78,7 +78,7 @@
 
     >**Note:** Okta only supports single logout requests.
 
-* **Do you require a default relay state**: The default relay state is the page where your users land after they successfully sign on. If you have this configured, enter a specific application resource for an IdP-initiated Single Sign-On (SSO) scenario.
+* **Do you require a default relay state**: The default relay state is the page where your users land after they successfully sign in. If you have this configured, enter a specific application resource for an IdP-initiated Single Sign-On (SSO) scenario.
 
 #### Review info
 
