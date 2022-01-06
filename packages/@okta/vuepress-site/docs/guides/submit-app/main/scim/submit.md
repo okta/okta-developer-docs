@@ -32,7 +32,7 @@
   * Header authentication: Specify what format the token is sent to the server.
   * OAuth 2.0: Specify the token and authorization endpoint URLs for your SCIM server, along with the consumer key and secret.
 
-* **Does your SCIM `userName` attribute value follow an email address format?**: Select **Yes** if your SCIM server uses a `name@company.TLD` format for the unique userName attribute.
+* **Does your SCIM `userName` attribute value follow an email address format?**: Select **Yes** if your SCIM server uses a `name@company.TLD` format for the unique `userName` attribute.
 
 * **Did you delete all unused attributes?**: As outlined in [Check the attributes and corresponding mappings ](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
 
