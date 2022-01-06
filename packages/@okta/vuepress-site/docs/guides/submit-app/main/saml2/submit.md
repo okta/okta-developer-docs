@@ -41,7 +41,7 @@
 
 #### Supported features
 
-* **Do you support SAML Just-In-Time provisioning?**: With Just-in-Time provisioning, you can use a SAML assertion to create users on the fly the first time they try to log in. This eliminates the need to create user accounts in advance.
+* **Do you support SAML Just-In-Time provisioning?**: With Just-in-Time provisioning, you can use a SAML assertion to create users on the fly the first time they try to sign in. This eliminates the need to create user accounts in advance.
 
 * **Do you support receiving SAML user/group attribute statements?**: If **Yes**, you can add the attribute statements or group attribute statements in the provided fields. For more details on configuring attribute statements in SAML integrations, see [Create a SAML integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml).
 
