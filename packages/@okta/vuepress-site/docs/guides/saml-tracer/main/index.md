@@ -30,7 +30,7 @@ When you start an IdP-initiated flow or SP-initiated flow while SAML tracer is e
 
 To install SAML tracer, visit [https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and follow the instructions.
 
-Once you install SAML tracer, open it from the browser menu bar: **Tools** > **SAML tracer**.
+After you install SAML tracer, open it from the browser menu bar: **Tools** > **SAML tracer**.
 
 >Similar tools exist for other browsers, such as [SAML DevTools](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio)
 and [SAML Chrome Panel](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome.
