@@ -10,7 +10,7 @@ This guide explains how to share application key credentials across multiple app
 
 **Learning outcomes**
 
-* Create a new application key credential for your source app, and update it to use the new certificate.
+* Create a new application key credential for your source app and update it to use the new certificate.
 * Share this credential with, and use it in, the target app.
 
 **What you need**
