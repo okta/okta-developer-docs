@@ -43,7 +43,7 @@
 
 * **Optional: link to demo video**: If you have a video that explains how to configure access to your SCIM application, enter the URL for it here.
 
-* **Link to Runscope test results**: A link to the Runscope site test results that show your application has successfully passed the SPEC test suite. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+* **Link to Runscope test results**: A link to the Runscope site test results that show your application passed the SPEC test suite. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 * **Link to Runscope CRUD test results**: A link to the Runscope site test results that show your application has successfully passed the CRUD test suite. See [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/).
 
