@@ -10,7 +10,7 @@ This guide explains how to upgrade older Okta SAML apps from SHA1 certificates t
 
 **Learning outcomes**
 
-* Find out which certificate your SAML app uses, and learn to download your certificate.
+* Find out which certificate your SAML app uses and learn to download your certificate.
 * Use the [Apps API](/docs/reference/api/apps/#list-applications) to return data on the apps that need updating, and generate new credentials for each app.
 * Update the apps to use the new certificate.
 * Learn how to revert to SHA1 if necessary.
