@@ -14,7 +14,7 @@ Role listing APIs provide a union of both standard and custom Roles assigned to 
 
 ## Get started
 
-Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fbd5b9ee6a72eeb6078d)
+Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/276a9ad500a92c942865)
 
 ## Custom Role operations
 

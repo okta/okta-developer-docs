@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ae82431a-6c8f-4a08-9624-2c9609714cb1",
+		"_postman_id": "fc86eb8e-814c-41d3-94c8-75d6eb3234b3",
 		"name": "Administrator Roles (Okta API)",
 		"description": "The Okta Administrator Roles API provides operations to manage administrative role assignments for a User.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -497,7 +497,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{resourceSetId}}\",\n    \"label\": \"SF-IT-Staff\",\n    \"description\": \"Staff in the IT department of San Francisco\"\n}\n"
+							"raw": "{\n    \"label\": \"SF-IT-Staff\",\n    \"description\": \"Staff in the IT department of San Francisco\"\n}\n"
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
