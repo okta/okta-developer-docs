@@ -11,7 +11,7 @@ meta:
 
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
 > **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
@@ -19,7 +19,7 @@ Okta manages the connection to the IdP for your application, sitting between you
 
 **Learning outcomes**
 
-How to configure a social Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure a social Identity Provider so that your users can quickly sign up or sign in to your application by using their social Identity Provider account.
 
 **What you need**
 
