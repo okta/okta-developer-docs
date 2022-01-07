@@ -15,7 +15,7 @@ This document explains how to configure <StackSelector snippet="idp" noSelector 
 
 **Learning outcomes**
 
-Configure a social Identity Provider so that users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure a social Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
 
 **What you need**
 
