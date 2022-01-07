@@ -23,10 +23,10 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
-* An OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
-* An account with <StackSelector snippet="idpaccount" noSelector inline />.
-* Enable **New social Identity Provider integrations**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
+* An account with <StackSelector snippet="idpaccount" noSelector inline />
+* **New social Identity Provider integrations** set to enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
 

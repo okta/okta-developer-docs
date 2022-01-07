@@ -6,7 +6,7 @@ layout: Guides
 
 <StackSelector />
 
-This guide shows you how to use Okta as the user store for your server-side web application and sign users in.
+This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
@@ -16,13 +16,13 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 * Create an Okta app integration to represent your app in your org.
 * Add dependencies and configure your app to use Okta for authentication.
-* Sign a user in to your app.
+* Sign a user in to your app
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Knowledge of building server-side Web applications.
-* A project or application that you want to add authentication to.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Knowledge of building server-side Web applications
+* A project or application to add authentication to.
 
 **Sample code**
 

@@ -9,23 +9,25 @@ meta:
 
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external Identity Provider for your application by creating an application at <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
-
-> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
-
 ---
 
 **Learning outcomes**
 
-How to configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
-* An application that you want to add authentication to. You can use an existing app integration or create a new one. To create a new app integration, see [Create custom app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account <StackSnippet snippet="idpaccount" inline />.
 
 ---
+
+## About the connection to the IdP for your application
+
+Okta manages the connection to the IdP for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+
+> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an app at <StackSelector snippet="idp" noSelector inline />
 
