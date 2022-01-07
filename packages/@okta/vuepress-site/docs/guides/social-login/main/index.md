@@ -11,24 +11,26 @@ meta:
 
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
-
-> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
-
 ---
 
 **Learning outcomes**
 
-How to configure a social Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure a social IdP so that users can quickly sign up or sign in to your application using their social IdP account.
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
-* An OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
-* An account with <StackSelector snippet="idpaccount" noSelector inline />.
-* Enable **New social Identity Provider integrations**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
+* An account with <StackSelector snippet="idpaccount" noSelector inline />
+* **New social Identity Provider integrations** set to enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
+
+## About the connection to the IdP
+
+Okta manages the connection to the IdP for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+
+> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an application at the Identity Provider
 

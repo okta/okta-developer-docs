@@ -4,11 +4,11 @@ excerpt: Learn how to sign users in to your JavaScript front-end applications an
 layout: Guides
 ---
 
-This guide shows you how to use Okta as the user store for your single-page application and sign users in.
+<StackSelector />
+
+This guide explains how to use Okta as the user store for your single-page application and sign users in.
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
-
-<StackSelector />
 
 ---
 
@@ -20,9 +20,9 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Basic knowledge of building JavaScript applications
-* A project or application that you want to add authentication to
+* A project or application to add authentication to
 
 **Sample code**
 
