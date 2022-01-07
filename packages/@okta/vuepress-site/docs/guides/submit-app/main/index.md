@@ -6,7 +6,6 @@ meta:
 layout: Guides
 ---
 
-<StackSelector />
 
 This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparation, configuration, and updating published integrations.
 
@@ -228,6 +227,8 @@ To get your Okta instance URL in your development org:
 ### Protocol-specific settings
 
 Each of the supported protocols has different configuration settings for the remainder of the submission.
+
+<StackSelector />
 
 <StackSnippet snippet="submit" />
 
