@@ -8,7 +8,7 @@ layout: Guides
 
 <StackSelector />
 
-Thie guide explains how to implement multifactor authentication (MFA) and provides an example of how to use Okta's Factors API to add an additional factor for a user.
+Thie guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
 ---
 
 **Learning outcomes**
