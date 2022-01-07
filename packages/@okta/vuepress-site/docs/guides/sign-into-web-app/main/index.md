@@ -16,7 +16,7 @@ This guide explains how to use Okta as the user store for your server-side web a
 
 * Create an Okta app integration to represent your app in your org.
 * Add dependencies and configure your app to use Okta for authentication.
-* Sign a user in to your app.
+* Sign a user in to your app
 
 **What you need**
 
