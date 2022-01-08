@@ -6,15 +6,15 @@ layout: Guides
 
 <StackSelector />
 
-This document guides you through implementing an OAuth 2.0 authorization flow for your application by grant type with Okta.
+This guide explains how to implement an OAuth 2.0 authorization flow for your application by grant type with Okta.
 
 ---
 
 **Learning outcomes**
 
 * Understand OAuth 2.0 grant-type flows.
-* Learn how to set up your app for specific grant types.
-* Learn how to implement the grant-type flows.
+* Set up your app for specific grant types.
+* Implement the grant-type flows.
 
 **What you need**
 

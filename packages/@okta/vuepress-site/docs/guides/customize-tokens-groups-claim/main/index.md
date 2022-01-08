@@ -4,7 +4,7 @@ excerpt: Define Groups claims for tokens returned from Okta.
 layout: Guides
 ---
 
-You can add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+This guide explains how to add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
 
 ---
 
@@ -15,17 +15,19 @@ You can add a Groups claim to ID tokens for any combination of App Groups and Us
 
 **What you need**
 
-* An Okta developer org. [Create an org for free](/signup).
-* An [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 * A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
 
-This guide discusses how to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For groups not mastered in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
+## About customized tokens with a Groups claim
+
+You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For groups not mastered in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
 
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allow list when you need to set group allow lists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
 
-See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 ## Request a token that contains the custom claim
 
