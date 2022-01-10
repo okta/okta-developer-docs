@@ -12,7 +12,7 @@ This guide explains the Custom OAuth 2.0 Authorization Server in Okta and how to
 
 **Learning outcomes**
 
-* Set up and test your Authorization Server.
+Set up and test your Authorization Server.
 
 **What you need**
 
