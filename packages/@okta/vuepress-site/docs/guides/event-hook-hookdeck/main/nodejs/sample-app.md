@@ -2,7 +2,7 @@ Download the sample application, [nodejs-webhook-server-example](https://github.
 
 The Event Hook use case is to print the body of an Event Hook call to the application console, which is triggered with the addition of a new user in the Okta org.
 
-You can also modify an existing local application. Make sure to note the server port number of your local server and ensure there is an endpoint to receive event hooks.
+You can also modify an existing local application. Make sure to note the server port number of your local server and ensure that there is an endpoint to receive event hooks.
 
 ### Clone the Hookdeck application
 
