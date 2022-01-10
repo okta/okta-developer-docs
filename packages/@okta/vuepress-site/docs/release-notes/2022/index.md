@@ -3,6 +3,20 @@ title: Okta API Products release notes 2022
 ---
 ## January
 
+### Weekly release 2022.01.1
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.01.1](#bugs-fixed-in-2022-01-1)         | January 13, 2022           |
+
+#### Bugs fixed in 2022.01.1
+
+* If the [Create a Scope](/docs/reference/api/authorization-servers/#create-a-scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
+
+* When calling the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint, `resourceSetId` was a required parameter in the body of the request. (OKTA-445144)
+
+* When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
+
 ### Monthly release 2022.01.0
 
 | Change                                                                   | Expected in Preview Orgs |
