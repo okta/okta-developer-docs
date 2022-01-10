@@ -6,7 +6,7 @@ layout: Guides
 
 <StackSelector class="cleaner-selector"/>
 
-This guide provides a working example of an Okta Event Hook. It uses the ngrok utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The ngrok utility enables the testing of Okta Event Hooks locally, rather than implementing an internet-based production or test external service.
+This guide provides a working example of an Okta Event Hook that uses the ngrok utility.
 
 ---
 
@@ -27,6 +27,17 @@ This guide provides a working example of an Okta Event Hook. It uses the ngrok u
 * See [Create a local application](#create-a-local-application) for this project's sample code.
 
 ---
+
+## Overview
+
+Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The ngrok utility exposes local applications to the internet and receives and responds to Event Hook calls. This setup enables the development and testing of Event Hooks locally, rather than using an external test or production environment. The ngrok utility also provides replay functionality that assists in testing and developing your external service code.
+
+To use this guide:
+
+* Create a local application or use an existing application.
+* Run the ngrok utility with your local application.
+* Create an Event Hook.
+* Preview and test the Event Hook.
 
 ## Create a local application
 
