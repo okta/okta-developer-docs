@@ -6,24 +6,24 @@ layout: Guides
 
 <ApiAmProdWarning />
 
-This article shows you how to define custom Groups claims for tokens returned from Okta, using a static allow list to define user limits, with a default or custom Authorization Server.
+This guide explains how to define custom Groups claims for tokens that are returned from Okta, by using a static allow list to define user limits with a default or custom Authorization Server.
 
 ---
 
 **Learning outcomes**
 
-* Customize Okta tokens with a static allow list
-* Use a static allow list with an authorization server
+* Customize Okta tokens with a static allow list.
+* Use a static allow list with an authorization server.
 
 **What you need**
 
-* An Okta Developer Edition organization. [Create an org for free](https://developer.okta.com/signup).
-* An [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
-* A [group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
 
-## Overview
+## About the static allow list
 
 You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allow list when you need to set Group allow lists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allow list of Groups that can then easily be referenced.
 

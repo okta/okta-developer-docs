@@ -4,18 +4,18 @@ excerpt: How to refresh access tokens with Okta
 layout: Guides
 ---
 
-This guide teaches you how to refresh access tokens with Okta.
+This guide explains how to refresh access tokens with Okta.
 
 ---
 
 **Learning outcomes**
 
-* Understand and set up refresh token rotation
-* Refresh access tokens
+* Understand how to set up refresh token rotation.
+* Refresh access tokens.
 
 ---
 
-## Overview
+## About refresh tokens
 
 Access and ID [tokens](/docs/reference/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. Typically, a user needs a new access token when they attempt to access a resource for the first time or after the previous access token that was granted to them expires.
 
