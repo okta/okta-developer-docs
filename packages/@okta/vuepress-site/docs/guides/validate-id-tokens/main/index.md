@@ -36,7 +36,7 @@ Access tokens, on the other hand, are not intended to carry information about th
 The high-level overview of validating an ID token looks like this:
 
 * Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
-* Decode the ID token, which is in JWK format
+* Decode the ID token, which is in JWK format.
 * Verify the signature used to sign the ID token
 * Verify the claims found inside the ID token
 
