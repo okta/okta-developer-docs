@@ -179,4 +179,4 @@ To run a test of your Event Hook:
 
 ## See also
 
-For background conceptual information on Event Hooks, see [Event Hooks](/docs/concepts/event-hooks/).
+See [Event Hooks](/docs/concepts/event-hooks/) for background conceptual information on Event Hooks.
