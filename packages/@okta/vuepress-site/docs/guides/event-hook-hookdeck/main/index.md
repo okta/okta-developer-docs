@@ -24,7 +24,7 @@ This guide provides a working example of an Okta Event Hook. It uses the Hookdec
 
 **Sample code**
 
-* See [nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example) for this project's sample code. Installation instructions are available in the next section, [Create a local application](#create-a-local-application).
+* [nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example). Installation instructions are available in [Create a local application](#create-a-local-application).
 
 ---
 
