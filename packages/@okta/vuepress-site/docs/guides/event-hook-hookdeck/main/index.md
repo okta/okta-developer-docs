@@ -132,7 +132,7 @@ The Event Hook is now set up with a status of **VERIFIED** and is ready to send 
 
 ## Preview, test, and review the Event Hook
 
-With your local application now exposed externally through a Hookdeck session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the Hookdeck dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
+With your local application now exposed externally through a Hookdeck session, you can preview and test Okta Event Hook calls, and review details of the calls by using the Hookdeck dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
 
 ### Preview
 
