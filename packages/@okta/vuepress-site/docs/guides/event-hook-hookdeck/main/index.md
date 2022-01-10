@@ -108,7 +108,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
     * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user created in the Okta org: `User created`.
+7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type that you want to monitor. In this example, the Event Type is `User created` for a user created in the Okta org.
 
 8. Click **Save & Continue**.
 
