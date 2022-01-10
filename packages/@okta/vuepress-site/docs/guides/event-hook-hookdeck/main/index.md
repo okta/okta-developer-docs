@@ -141,7 +141,7 @@ To run a preview call of your Event Hook:
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 1. Locate the Event Hook that you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
 1. Click the **Actions** menu for this hook, and select **Preview**.
-1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only `User Created (user.lifecycle.create)`.
 1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook if there is one. If no event is available, the JSON body populates with sample data.
 1. Ensure that both your Hookdeck session and local sample application are running.
 1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the Event Hook body. For example:
