@@ -80,7 +80,7 @@ Each call to your local application appears in the dashboard and includes the re
 
 ### Hookdeck development workflow
 
-Hookdeck URLs are reusable and permanent (when you create a free account) and serve the entire development lifecycle&mdash;from development to staging to production. For further information on using Hookdeck, see [Development Workflow](https://hookdeck.com/docs/dev-workflow).
+Hookdeck URLs are reusable and permanent (when you create a free account) and serve the entire development lifecycle&mdash;from development to staging to production. See [Development Workflow](https://hookdeck.com/docs/dev-workflow) for more information on using Hookdeck.
 
 ## Create an Okta Event Hook
 
