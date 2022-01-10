@@ -12,7 +12,7 @@ You can also modify an existing local application. Make sure to note the server 
     git clone https://github.com/hookdeck/nodejs-webhook-server-example.git
     ```
 
-1. Navigate to the root of the project folder and install the required dependencies:
+1. Navigate to the root of the project folder and install the required dependencies.
 
     ```bash
     cd nodejs-webhook-server-example
