@@ -48,7 +48,7 @@ After installing Hookdeck, start a session to forward your Event Hooks to a loca
 nodejs-webhook-server-example> hookdeck listen 1337
 ```
 
-Complete the interactive session that follows to define the information about the Hookdeck session:
+Complete the following interactive session to define the information about the Hookdeck session:
 
 * **What should your new source label be?**
 
