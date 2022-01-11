@@ -22,7 +22,7 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 **Sample code**
 
 * [Okta-hosted](#use-macros-and-request-context)
-* [Self-hosted] (#style-the-self-hosted-sign-in-widget)
+* [Self-hosted](#style-the-self-hosted-sign-in-widget)
 * [Customization examples](#customization-examples)
 
 ---
