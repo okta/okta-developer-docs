@@ -7,8 +7,6 @@ layout: Guides
 
 This guide explains an important part of security, which is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. It explains the most common strategies to prevent unauthorized use of a session, which include [setting short token lifetimes](/docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
-> **Note:** If you are building a web app that is served by a server framework, see [Sign users in to your web application](/docs/guides/sign-into-web-app/). If you are building a mobile app, see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/). If you are building a single-page app, see [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/).
-
 ---
 
 **Learning outcomes**
@@ -19,7 +17,10 @@ This guide explains an important part of security, which is to minimize the chan
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An app that can sign in to Okta
+* An app that can sign in to Okta. To create your own, see the following guides:
+  * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
+  * [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/)
+  * [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/)
 
 **Sample code**
 

@@ -18,7 +18,7 @@ Customize SMS messages.
 
 ---
 
-## About text customization of SMS messages
+## About SMS customization
 
 You can customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification. SMS messages are sent to a user's mobile device along with a verification code when the user is signing in to their org. The user enters that code to authenticate and finish the sign-in process.
 
