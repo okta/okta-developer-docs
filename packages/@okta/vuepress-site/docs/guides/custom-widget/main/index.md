@@ -4,7 +4,7 @@ excerpt: Learn how to customize the self-hosted sign-in Widget and the Okta-host
 layout: Guides
 ---
 
-This guide teaches you how to customize the Okta Sign-In Widget, whether Okta-hosted or self-hosted.
+This guide explains how to customize the Sign-In Widget when Okta is hosting it or when you are embedding it in your app.
 
 ---
 
@@ -16,14 +16,14 @@ This guide teaches you how to customize the Okta Sign-In Widget, whether Okta-ho
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* (Okta-hosted) A [custom URL domain](/docs/guides/custom-url-domain/main/)
-* (Self-hosted) The Okta Sign-In Widget installed into your project with configured authentication scenarios. See [Okta Sign-In Widget on GitHub](https://github.com/okta/okta-signin-widget#embedded-self-hosted)
+* (Okta-hosted) [Custom URL domain](/docs/guides/custom-url-domain/main/)
+* (Self-hosted) [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
 
-* (Okta-hosted) See the [Use macros and request context](#use-macros-and-request-context) section.
-* (Self-hosted) See the [Style the self-hosted Sign-In Widget](#style-the-self-hosted-sign-in-widget) section.
-* See the [Customization examples](#customization-examples) section.
+* [Okta-hosted](#use-macros-and-request-context)
+* [Self-hosted](#style-the-self-hosted-sign-in-widget)
+* [Customization examples](#customization-examples)
 
 ---
 

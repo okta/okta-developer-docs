@@ -4,7 +4,7 @@ excerpt: Learn how to customize and style the default email notifications that O
 layout: Guides
 ---
 
-This guide teaches you how to customize and style the default Okta email notifications.
+This guide explains how to customize and style the default Okta email notifications.
 
 ---
 
@@ -14,11 +14,11 @@ Customize email notifications.
 
 **What you need**
 
-An [Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 **Sample code**
 
-See the [Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email) section.
+[Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
 
 ---
 
