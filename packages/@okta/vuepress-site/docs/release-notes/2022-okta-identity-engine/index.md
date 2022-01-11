@@ -16,7 +16,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * If the [Create a Scope](/docs/reference/api/authorization-servers/#create-a-scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
 
-* When calling the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
+* When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
 * When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
