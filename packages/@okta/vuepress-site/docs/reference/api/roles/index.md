@@ -1949,11 +1949,11 @@ HTTP/1.1 204 No Content
 
 <ApiLifecycle access="ea" />
 
-The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
+The recommended way to unassign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 
-<ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
+<ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${bindingId}" />
 
-or to assign to a Group:
+or to unassign from a Group:
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
 
