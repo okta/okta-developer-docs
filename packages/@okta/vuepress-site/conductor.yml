@@ -1769,6 +1769,10 @@ redirects:
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
     to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/implement-oauth-for-okta/create-oauth-app
