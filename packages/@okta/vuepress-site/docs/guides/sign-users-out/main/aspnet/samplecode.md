@@ -1,1 +1,1 @@
-[ASP.NET MVC Samples repo](https://github.com/okta/samples-aspnet)
+[ASP.NET MVC samples repo](https://github.com/okta/samples-aspnet)
