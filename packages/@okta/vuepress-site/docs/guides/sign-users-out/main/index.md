@@ -30,7 +30,7 @@ This guide explains an important part of security, which is to minimize the chan
 
 ## About signing users out of an app
 
-Signing users out of an app that is secured using Okta requires that you close the user's session in Okta. In cases where your app also has a session, you also need to close the app session.
+Signing users out of an app that is secured using Okta requires that you close the user's session in Okta. In cases where your app also has a session, you also need to close the user's app session.
 
 * **Okta Session:** Okta maintains a session for the user and stores their information inside an Okta-specific cookie. The next time that a user is redirected to the Okta sign-in page, the user's information is remembered. Sign users out of Okta by clearing the Okta browser session.
 
