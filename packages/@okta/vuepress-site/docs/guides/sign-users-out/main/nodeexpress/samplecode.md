@@ -1,1 +1,1 @@
-[Node Express Samples repo](https://github.com/okta/samples-nodejs-express-4/)
+[Node Express samples repo](https://github.com/okta/samples-nodejs-express-4/)
