@@ -501,6 +501,10 @@ export const guides = [
           guideName: "event-hook-ngrok"
           },
           {
+            title: "Event Hooks with Hookdeck",
+          guideName: "event-hook-hookdeck"
+          },
+          {
             title: "Password Import Inline Hook",
           guideName: "password-import-inline-hook"
           },

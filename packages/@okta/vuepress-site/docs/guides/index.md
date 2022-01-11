@@ -20,6 +20,7 @@ guides:
  - customize-tokens-groups-claim
  - device-authorization-grant
  - enable-cors
+ - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
  - find-your-app-credentials
