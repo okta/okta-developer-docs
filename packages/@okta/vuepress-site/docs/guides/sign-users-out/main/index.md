@@ -20,7 +20,7 @@ This guide explains an important part of security, which is to minimize the chan
 * An app that can sign in to Okta. To create your own, see the following guides:
   * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
   * [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/)
-  * [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/)
+  * [Sign users in to your single-page app](/docs/guides/sign-into-spa/)
 
 **Sample code**
 
