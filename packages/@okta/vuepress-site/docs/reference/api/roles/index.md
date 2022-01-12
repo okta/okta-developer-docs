@@ -334,7 +334,7 @@ curl -v -X GET \
         }
       }
     }
-  ],
+  ]
 }
 ```
 
@@ -800,10 +800,9 @@ Adds more resources to a Resource Set
 
 ##### Response parameters
 
-The following `_links` are returned:
+An updated [Resource Set](#resource-set-object)
 
-* `resources` gets a paginable list of resources included in the set
-* `resource-set` gets the updated Resource Set
+To view the list of resources, use the [List resources](#list-resources) operation.
 
 ##### Request example
 
@@ -824,12 +823,20 @@ curl -v -X PATCH \
 
 ```json
 {
+  "id": "iamoJDFKaJxGIr0oamd9g",
+  "label": "SF-IT-Staff",
+  "description": "Staff in the IT department of San Francisco",
+  "created": "2021-02-06T16:20:57.000Z",
+  "lastUpdated": "2021-02-07T16:20:57.000Z",
   "_links": {
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+    },
     "resources": {
       "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
     },
-    "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+    "bindings": {
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     }
   }
 }
@@ -1942,11 +1949,11 @@ HTTP/1.1 204 No Content
 
 <ApiLifecycle access="ea" />
 
-The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
+The recommended way to unassign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 
-<ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
+<ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${bindingId}" />
 
-or to assign to a Group:
+or to unassign from a Group:
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
 
