@@ -52,11 +52,11 @@ curl -v -X POST \
 -d '{
       "label": "UserCreator",
       "description": "...",
-      "permissions" [
+      "permissions": [
         "okta.users.create",
         "okta.users.read",
         "okta.groups.read",
-        "okta.users.profile.manage"
+        "okta.users.userprofile.manage"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/roles"
 ```
@@ -158,7 +158,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
       "label": "UserCreator-Updated",
-      "description": "Create users",
+      "description": "Create users"
     }' \
 "https://${yourOktaDomain}/api/v1/iam/roles/UserCreator"
 ```
@@ -322,7 +322,7 @@ curl -v -X GET \
       }
     },
     {
-      "label" : "okta.users.profile.manage",
+      "label" : "okta.users.userprofile.manage",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -330,7 +330,7 @@ curl -v -X GET \
           "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.profile.manage"
+          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.userprofile.manage"
         }
       }
     }
@@ -815,7 +815,7 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
 ```
@@ -1064,7 +1064,7 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3",
+        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
 ```
