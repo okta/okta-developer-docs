@@ -1,19 +1,3 @@
----
-
-**Learning outcomes**
-
-Vue content
-
-**What you need**
-
-* TBD
-* TBD
-* TBD
-
-**Sample code**
-
-TBD
-
----
+## Vue
 
 To come ....

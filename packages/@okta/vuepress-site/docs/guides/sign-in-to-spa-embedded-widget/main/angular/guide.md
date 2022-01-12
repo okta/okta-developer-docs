@@ -1,19 +1,3 @@
----
-
-**Learning outcomes**
-
-Angular content
-
-**What you need**
-
-* TBD
-* TBD
-* TBD
-
-**Sample code**
-
-TBD
-
----
+## Angular
 
 To come ....
