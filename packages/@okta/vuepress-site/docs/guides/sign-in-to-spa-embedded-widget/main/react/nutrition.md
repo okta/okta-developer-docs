@@ -1,3 +1,7 @@
+This guide explains how to sign in to your SPA with the Okta Sign-In Widget.
+
+---
+
 **Learning outcomes**
 
 * React - TBD
@@ -14,3 +18,5 @@
 
 * TBD
 * TBD
+
+---
