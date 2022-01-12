@@ -4,7 +4,7 @@ excerpt: Learn how to interact with Okta APIs by using scoped OAuth 2.0 access t
 layout: Guides
 ---
 
-This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 access tokens.
+This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 access tokens.
 
 ---
 
@@ -12,7 +12,7 @@ This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 ac
 
 * Define allowed scopes for your app.
 * Get an access token and make an API request.
-* Learn about the available scopes and supported endpoints.
+* Know what are the available scopes and supported endpoints.
 
 **What you need**
 
