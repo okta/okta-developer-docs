@@ -800,7 +800,7 @@ Adds more resources to a Resource Set
 
 ##### Response parameters
 
-An updated [Resource Set](#resource-set-object).
+An updated [Resource Set](#resource-set-object)
 
 To view the list of resources, use the [List resources](#list-resources) operation.
 
