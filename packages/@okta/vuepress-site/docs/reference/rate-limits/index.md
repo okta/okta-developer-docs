@@ -10,7 +10,7 @@ To protect the service for all customers, Okta APIs are subject to rate limiting
 
 The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually as well as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-#### API rate limit categories and cumulative rate limits
+## API rate limit categories and cumulative rate limits
 
 To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
@@ -31,6 +31,31 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 > * Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
+
+## Burst rate limits
+
+Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned usage may potentially have an impact for an end user. To ensure our customers are successful, Okta now offers burst rate limits (see note below), which provides orgs with additional insurance or a buffer zone for unplanned usage.
+
+This insurance, specifically for authentication and authorization flows,  allows your org to temporarily exceed their default rate limits by 5 times. For example, if your org has a default limit of 600 requests per minute on `/api/v1/authn` and it exceeds that limit, all requests after 600 would receive an HTTP 429 error message. With burst rate limits, your org can exceed the 600 requests per minute limit and burst up to 3000 requests per minute.
+
+Whenever your org taps into burst rate limits, you should also investigate whether the increase in traffic is a one-time occurrence or if it's a new standard. If it's a new standard, you should contact your Okta Sales Representative or Okta support to increase the default rate limit.
+
+Additional burst rate limits apply on top of any rate limit increase you may have, such as DyanmicScale. For example, the default limit on `/api/v1/authn` is 600 requests per minute. You're expecting traffic for your app would need 6000 requests per minute, so you purchase DynamicScale 10x. The burst rate limit would provide 5 times on top of the 6000, giving you 30,000 requests per minute.
+
+> **Note:** While Okta may allow usage above the rate limits listed, sustained usage above these rate limits may require the purchase of an applicable offering. Okta reserves the right to adjust the burst rate limit multiplier for exceptional DynamicScale customers.
+
+On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5 times the default with the buffer zone) as shown in the following example.
+
+![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/BRLoverview.png)
+
+In a typical use case scenario, when your org exceeds a default rate limit, you'd receive a warning event, then a burst event, and then a violation event. For example, your org has a rate limit of 600 requests per minute on the `/api/v1/authn' endpoint. Your org would receive a warning at 360 requests per minute (60%) of 600. Your org would get a burst when the endpoint hits 600 requests per minute and then the violation when it hits 3000 requests all in the same minute.
+
+When a burst rate limit event occurs, the system log event, `system.org.rate_limit.burst`, is triggered and an email is generated.
+
+![Displays the email to notify the admin of a burst rate limit event.](/img/BRLemail.png)
+
+The email is sent to the same admin who received the `system.org.warning` and `system.org.violation` event emails.
+
 ## Other applicable rate limit content
 
 * [Rate limit dashboard](/docs/reference/rl-dashboard/): The rate limit dashboard helps you understand the rate limit and current use of an API. The dashboard provides you with the ability to track the API's use and to notify you with alerts when the API is about to hit or has hit the rate limit. You can also use the multiple views of data use on the dashboard to investigate high usage or rate limit violations.
