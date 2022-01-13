@@ -85,7 +85,7 @@ npm install @okta/okta-auth-js
 
 ### Create Okta instances
 
-Create a `src/okta/index.js` file:
+Create a file to instantiate `OktaSignIn` and `OktaAuth` with your configuration settings. You should make use of environment variables or external configuration files, but for the purpose of this example snippet, the configuration settings are declared in the following `src/okta/index.js` file:
 
 ```js
 import OktaSignIn from '@okta/okta-signin-widget'
@@ -95,12 +95,11 @@ const oktaSignIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   clientId: '${clientId}',
   redirectUri: 'http://localhost:8080/login/callback',
-  authParams: {
-    pkce: true,
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
-    display: 'page',
-    scopes: ['openid', 'profile', 'email']
-  }
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  pkce: true,
+  useInteractionCodeFlow: true,
+  scopes: ['openid', 'profile', 'email'],
+  display: 'page'
 });
 
 const oktaAuth = new OktaAuth({
@@ -113,7 +112,7 @@ const oktaAuth = new OktaAuth({
 export { oktaAuth, oktaSignIn };
 ```
 
-Make sure to replace the `${...}` placeholders with values from your OIDC app on Okta.
+Replace the `${...}` placeholders with values from your [Okta org app integration configuration settings](#okta-org-app-integration-configuration-settings).
 
 ### Create a SIW wrapper
 
