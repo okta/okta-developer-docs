@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-This guide helps you understand access policies and how to configure them for common scenarios.
+This guide explains access policies and how to configure them for common scenarios.
 
 ---
 <!-- Nutrition facts bullets -->
 **Learning outcomes**
 
-* Understand access policies.
+* Understand what access policies are and how they are used.
 * Configure an access policy to limit which scopes that some clients can access.
 * Configure a custom access token lifetime per client.
 
@@ -24,6 +24,8 @@ This guide helps you understand access policies and how to configure them for co
 <ApiAmProdWarning />
 
 ---
+
+## About access policies
 
 Access policies help you secure your APIs by defining different access and refresh token lifetimes for a given combination of grant type, user, and scope. You create policy rules to determine if an application should be permitted to access specific information from your protected APIs and for how long. Access policies are specific to a particular authorization server and the client applications that you designate for the policy.
 
