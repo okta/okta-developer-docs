@@ -36,7 +36,7 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned usage may potentially have an impact for an end user. To ensure our customers are successful, Okta now offers burst rate limits (see note below), which provides orgs with additional insurance or a buffer zone for unplanned usage.
 
-This insurance, specifically for authentication and authorization flows, allows your org to temporarily exceed their default rate limits by 5 times. For example, if your org has a default limit of 600 requests per minute on `/api/v1/authn` and it exceeds that limit, all requests after 600 would receive an HTTP 429 error message. With burst rate limits, your org can exceed the 600 requests per minute limit and burst up to 3000 requests per minute.
+This insurance, specifically for authentication and authorization flows, allows your org to temporarily exceed its default rate limits by 5 times. For example, if your org has a default limit of 600 requests per minute on `/api/v1/authn` and it exceeds that limit, all requests after 600 would receive an HTTP 429 error message. With burst rate limits, your org can exceed the 600 requests per minute limit and burst up to 3000 requests per minute.
 
 Whenever your org taps into burst rate limits, you should also investigate whether the increase in traffic is a one-time occurrence or if it's a new standard. If it's a new standard, you should contact your Okta Sales Representative or Okta support to increase the default rate limit.
 
