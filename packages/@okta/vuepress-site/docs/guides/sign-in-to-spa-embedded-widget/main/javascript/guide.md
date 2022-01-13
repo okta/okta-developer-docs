@@ -114,7 +114,7 @@ Create an app integration that represents the application you want to add authen
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
-   * Ensure that the **Interaction Code** check box is selected.
+   * Select the **Interaction Code** check box.
    * Select the **Refresh Token** check box.
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
 
@@ -125,107 +125,109 @@ Create an app integration that represents the application you want to add authen
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** check box is selected.
 1. In the **Security** > **API** > **Trusted Origins** page, ensure there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value that is used in the next section.
+> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
 
 #### Create a simple SPA
 
 1. On your local machine, create a directory for your sample application. For example `simple-spa`.
-1. In the editor of your choice, add the following HTML into an `index.html` file located in your sample application folder:
+1. In the editor of your choice, add the following HTML and JavaScript into an `index.html` file located in your sample application folder:
 
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Simple Web Page</title>
-    <style>
-      h1 {
-        margin: 2em 0;
-      }
-    </style>
-    <!-- widget stuff here -->
-    <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">Simple Web Page</h1>
-      <div id="messageBox" class="jumbotron">
-        You are not logged in.
-      </div>
-      <!-- where the sign-in form will be displayed -->
-      <div id="okta-login-container"></div>
-      <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
-    </div>
-    <script type="text/javascript">
-      const oktaSignIn = new OktaSignIn({
-        baseUrl: "https://${yourOktaDomain}",
-        redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
-        clientId: "${yourClientId}",
-        useInteractionCodeFlow: true,
-        pkce: true,
-        authParams: {
-          issuer: "https://${yourOktaDomain}/oauth2/default"
+  ```html
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <title>Simple Web Page</title>
+      <style>
+        h1 {
+          margin: 2em 0;
         }
-      });
-
-      oktaSignIn.authClient.token.getUserInfo().then(function(user) {
-        document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
-        document.getElementById("logout").style.display = 'block';
-      }, function(error) {
-        oktaSignIn.showSignInToGetTokens({
-          el: '#okta-login-container'
-        }).then(function(tokens) {
-          oktaSignIn.authClient.tokenManager.setTokens(tokens);
-          oktaSignIn.remove();
-
-          const idToken = tokens.idToken;
-          document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
-          document.getElementById("logout").style.display = 'block';
-
-        }).catch(function(err) {
-          console.error(err);
+      </style>
+      <!-- widget stuff here -->
+      <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+      <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+      <div class="container">
+        <h1 class="text-center">Simple Web Page</h1>
+        <div id="messageBox" class="jumbotron">
+          You are not logged in.
+        </div>
+        <!-- where the sign-in form will be displayed -->
+        <div id="okta-login-container"></div>
+        <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
+      </div>
+      <script type="text/javascript">
+        const oktaSignIn = new OktaSignIn({
+          baseUrl: "https://${yourOktaDomain}",
+          redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
+          clientId: "${yourClientId}",
+          useInteractionCodeFlow: true,
+          pkce: true,
+          authParams: {
+            issuer: "https://${yourOktaDomain}/oauth2/default"
+          }
         });
-      });
 
-      function logout() {
-        oktaSignIn.authClient.signOut({ clearTokensAfterRedirect: true});
-        authClient.start();
-        location.reload();
-      }
-    </script>
-  </body>
-</html>
-```
+        oktaSignIn.authClient.token.getUserInfo().then(function(user) {
+          document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
+          document.getElementById("logout").style.display = 'block';
+        }, function(error) {
+          oktaSignIn.showSignInToGetTokens({
+            el: '#okta-login-container'
+          }).then(function(tokens) {
+            oktaSignIn.authClient.tokenManager.setTokens(tokens);
+            oktaSignIn.remove();
 
-1. Configure the code in `index.html` with values for your Okta org application integration:
+            const idToken = tokens.idToken;
+            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+            document.getElementById("logout").style.display = 'block';
+
+          }).catch(function(err) {
+            console.error(err);
+          });
+        });
+
+        function logout() {
+          oktaSignIn.authClient.signOut({ clearTokensAfterRedirect: true});
+          authClient.start();
+          location.reload();
+        }
+      </script>
+    </body>
+  </html>
+  ```
+
+3. Configure the code in `index.html` with values for your Okta org application integration:
 
     * **baseUrl:** `"https://${yourOktaDomain}"`. For example, `"http://example.okta.com"`
     * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
     * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
-    * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.com/oauth2/default"`
+    * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
 
-1. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature does not require this update.
+4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features in your sample directory, `simple-spa`. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature does not require this update.
 
     ```bash
-    simple-spa % npm install @okta/okta-auth-js
+    npm install @okta/okta-auth-js
     ```
 
     >**Note:** The SPA app logout function requires `okta-auth-js` 5.10 or greater.
 
 #### Run the sample application
 
-1. In your sample directory, you can run a static site web server using the following command:
+1. In your sample directory, `simple-spa`, you can run a static site web server using the following command:
 
     ```bash
-    simple-spa % npx http-server . -p 3000
+    npx http-server . -p 3000
     ```
 
-1. Sign in with a user from your org assigned to the app integration.
+    >**Note:** If not installed previously, you will be prompted to install the `npx` package.
 
-    The web page appears with the signed-in user's email address.
+1. Navigate to the local page, `http://localhost:3000` and sign in with a user from your org assigned to the app integration.
+
+    The simple web page appears with the signed-in user's email address.
 
 ### Sign In to Okta with the Default Dashboard
 
@@ -282,7 +284,7 @@ signIn.showSignInAndRedirect();
 
 ```
 
-#### SPA or Native Application using PKCE
+### SPA or Native Application using PKCE
 
 ```javascript
 

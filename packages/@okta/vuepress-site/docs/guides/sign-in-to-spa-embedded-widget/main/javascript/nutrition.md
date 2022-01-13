@@ -1,4 +1,4 @@
-This guide explains how to sign in to a single page applicatin (SPA) with the embedded Okta Sign-In Widget using JavaScript. It also provides other sign-in use case options and implementation considerations.
+This guide explains how to sign in to a single page application (SPA) with the embedded Okta Sign-In Widget using JavaScript. It also provides other sign-in use case options and implementation considerations.
 
 ---
 
