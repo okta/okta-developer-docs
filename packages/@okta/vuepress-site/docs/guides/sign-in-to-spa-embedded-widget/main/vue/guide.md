@@ -1,46 +1,75 @@
 ## Use the Sign-In Widget with your SPA app
 
-If you want to deploy a Vue.js single-page app (SPA) by using the embedded authentication model, where your app retains authentication control without redirection to Okta, then you can use the Okta Sign-In Widget (SIW) to quickly add authentication. The Okta SIW is a JavaScript library that provides your app with full sign-in features with Okta so the amount of code you have to write is minimal.
+If you want to deploy a Vue.js single-page app (SPA) in the embedded authentication model, where your app retains authentication control without redirection to Okta, then you can use the Okta Sign-In Widget (SIW) to quickly add authentication. The Okta SIW is a JavaScript library that includes full sign-in features with Okta Identity Engine so the amount of authentication code you have to write for your app is minimal.
 
+Before you build your Vue.js app, ensure that you [set up](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#get-set-up) your [Okta org for your use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-your-use-case) and [register your Vue.js app in Okta](#register-your-app-in-okta).
 
-## Add an app in Okta
+## Register your app in Okta
 
-Before building your Vue app, you need to obtain the OpenID Connect client ID from your Okta org by creating an app integration. You can create an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](/docs/reference/api/apps/), or the [Admin Console](/docs/guides/quickstart/website/main/#using-the-admin-console).
+Before building your Vue.js app, you need to obtain the OpenID Connect client ID from your Okta org by creating an app integration. You can create an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](/docs/reference/api/apps/), or the [Admin Console](/docs/guides/quickstart/website/main/#using-the-admin-console).
 
-1. To create an Okta app integration to represent your Vue app, sign in to [your Admin Console](https://login.okta.com).
+1. To create an Okta app integration that represents your Vue.js app, sign in to [your Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, **Single-Page Application** as the **Application type**, and then click **Next**.
 4. Fill in the following new app integration settings, and then click **Save**:
 
-| Setting                | Value/Description                                    |
-| -------------------    | ---------------------------------------------------  |
-| App integration name   | Specify a unique name for your app.                  |
-| Grant types            | Select **Authorization Code**, **Interaction Code**, and  **Refresh Token**. |
-| Sign-in redirect URIs  | `http://localhost:8080/login/callback`               |
-| Sign-out redirect URIs | `http://localhost:8080`                              |
-| Trusted Origins > Base URIs | Specify your app base URI. For example: `http://localhost:8080`|
-| Assignments   | Assign users for your app.                                |
+    | Setting                | Value/Description                                    |
+    | -------------------    | ---------------------------------------------------  |
+    | App integration name   | Specify a unique name for your app.                  |
+    | Grant types            | Select **Authorization Code**, **Interaction Code**, and  **Refresh Token**. |
+    | Sign-in redirect URIs  | `http://localhost:8080/login/callback`               |
+    | Sign-out redirect URIs | `http://localhost:8080`                              |
+    | Trusted Origins > Base URIs | Specify your app base URI. For example: `http://localhost:8080`|
+    | Assignments   | Assign users for your app.                                |
 
-> **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI you've specified. Ensure that both **CORS** and **redirect** are selected in **Security** > **API** > **Trusted Origins** for your base URI.
+    > **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI you've specified. Ensure that both **CORS** and **redirect** are selected in **Security** > **API** > **Trusted Origins** for your base URI.
 
-## Build a Vue app
+### Okta org app integration configuration settings
 
-These instructions creates a new HelloWord Vue app. 
+You need two pieces of information from your org and app integration for your Vue.js app:
+
+* **Client ID**: From the **General** tab of your app integration, save the generated **Client ID** value.
+* **Issuer**: The [issuer](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#issuer) is the authorization server. Use `https://${yourOktaDomain}/oauth2/default` as the issuer for your app if you're using the Okta Developer Edition org. See [Issuer configuration](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#issuer) if you want to use another Okta custom authorization server.
+
+## Build the Vue.js app
+
+Build your Vue.js app by integrating the Okta libraries:
+
+ * [Create a new Vue.js app](#create-a-new-vue-js-app)(optional): Create a new simple Vue.js app if you don't have an existing app.
+ * [Install dependencies](#install-dependencies): Install the Okta libraries for the integration.
+ * [Create Okta instances](#create-okta-instances): Create the Okta auth and SIW instances to be used in your app.
+ * [Create a SIW wrapper](#create-a-siw-wrapper): Create a wrapper for the Sign-In Widget to be rendered as a Vue.js component.
+ * [Create routes](#create-routes): Create the routes for your app.
+ * [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
+
+[Start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
+
+After successfully authenticating with Okta, the app obtains the user's `id_token`, which contains basic claims for the user's identity. You can extend the set of claims by modifying the [scopes](/docs/reference/api/oidc/#scopes) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values). See [Sign users in to your SPA guide for Vue.js](/docs/guides/sign-into-spa/vue/main/#use-the-access-token) to learn how to use the user's `access_token` to protect routes and validate tokens.
+
+See [Run the sample Vue.js app](#run-the-sample-vue-js-app) for an example of a simple embedded authentication Vue.js app that uses the Okta SIW and libraries.
+
 ### Create a new Vue.js app
 
-To quickly create a new Vue app, use the [Vue CLI](https://cli.vuejs.org/guide/installation.html).
+If you don't have an existing Vue.js app, you can quickly create a new app by using the [Vue CLI](https://cli.vuejs.org/guide/installation.html):
 
 ```bash
 npm install -g @vue/cli
 vue create okta-app
-# Manually select features: choose defaults + Router, Vue.js v3
-# Choose history mode for router
+```
+
+* Manually select the following features: defaults and **Router**.
+* Select **3.x** for the Vue.js version.
+* Select **Y** for router history mode.
+
+Go into your app directory to view the created files:
+
+```bash
 cd okta-app
 ```
 
-### Install Dependencies
+### Install dependencies
 
-A simple way to add authentication into a Vue app is using the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library. You can install it via `npm`:
+Add the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library into your Vue.js app. You can install it by using `npm`:
 
 ```bash
 cd okta-app
@@ -86,7 +115,7 @@ export { oktaAuth, oktaSignIn };
 
 Make sure to replace the `${...}` placeholders with values from your OIDC app on Okta.
 
-### Create a Widget Wrapper
+### Create a SIW wrapper
 
 To provide a fully-featured and customizable sign-in experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in Vue, you must create a wrapper that allows Okta to treat it as a Vue component.
 
@@ -120,7 +149,7 @@ export default {
 </script>
 ```
 
-### Create Routes
+### Create routes
 
 Some routes require authentication in order to render. Defining those routes is easy using Vue Router and `@okta/okta-vue`. Let's take a look at what routes are needed for this example:
 
@@ -129,7 +158,7 @@ Some routes require authentication in order to render. Defining those routes is 
 * `/login`: Show the sign-in page.
 * `/login/callback`: A route to parse tokens after a redirect.
 
-### `/ - index page`
+#### `/ - index page`
 
 First, update `src/App.vue` to provide links to navigate your app:
 
@@ -230,7 +259,7 @@ export default {
 </script>
 ```
 
-### `/profile`
+#### `/profile`
 
 This route will only be visible to users with a valid `accessToken`.
 
@@ -275,17 +304,17 @@ export default {
 </script>
 ```
 
-### `/login`
+#### `/login`
 
 This route hosts the Sign-In Widget and redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon successful sign in.
 
 You should have already created `src/components/Login.vue` at the beginning of this guide.
 
-### `/login/callback`
+#### `/login/callback`
 
 The component for this route (LoginCallback) comes with `@okta/okta-vue`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the sign in.
 
-### Connect the Routes
+### Connect the routes
 
 This example is using Vue Router. Replace the code in `src/router/index.js` with the following:
 
@@ -349,28 +378,24 @@ createApp(App)
   .mount('#app')
 ```
 
-## Start your app
+### Start your app
 
-Finally, start your app:
+To start your app, execute:
 
 ```bash
 npm run serve
 ```
 
-## Conclusion
+Open a browser and navigate to your app URL.
 
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
+## Run the sample Vue.js app
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/vue/main' data-proofer-ignore>Vue how to guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+You can run the [sample embedded SIW Vue.js app](https://github.com/okta/samples-js-vue/tree/master/custom-login) to quickly view a simple working Vue.js app with the Sign-In Widget.
 
-## Run the sample Vue app
-
-You can run the [sample Vue app](https://github.com/okta/samples-js-vue/custom-login) to quickly review a simple working Vue app with the SIW.
-
-1. Download sample app: `git clone https://github.com/okta/samples-js-vue.git`
+1. Download the sample app: `git clone https://github.com/okta/samples-js-vue.git`
 2. Go to the `custom-login` directory: `cd samples-js-vue/custom-login`
 3. Install the app and its dependencies: `npm install`
-3. Set the environment variables with your Okta org app integration properties.
+3. Set the environment variables with your [Okta org app integration configuration settings](#okta-org-app-integration-configuration-settings):
 
   ```bash
   export ISSUER=https://${yourOktaDomain}/oauth2/default
@@ -381,6 +406,7 @@ You can run the [sample Vue app](https://github.com/okta/samples-js-vue/custom-l
 4. Run the app: `npm start`
 
 5. Open a browser window and navigate to the app's home page: http://localhost:8080.
+
 
 ## Support
 

@@ -95,7 +95,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   springboot: 'code-spring-32',
   vue: 'code-vue-32',
   go: 'code-go-32',
-  java: 'code-java-32',
+  javascript: 'code-javascript-32',
   php: 'code-php-32',
   blazorwebassembly: 'code-dotnet-32',
   aspnetwebforms: 'code-dotnet-32',
