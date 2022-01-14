@@ -19,7 +19,7 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
 * <StackSnippet snippet="samplecode" inline />
 * [Software requirements](#software-requirements)
 ---
