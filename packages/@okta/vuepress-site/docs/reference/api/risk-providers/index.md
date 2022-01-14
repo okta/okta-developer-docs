@@ -11,7 +11,7 @@ The Okta Risk Providers API provides the ability to manage the Risk Providers wi
 ## Get Started
 Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
-See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/overview/) for guidance on integrating third-party risk providers with Okta.
+See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/) for guidance on integrating third-party risk providers with Okta.
 
 ## Risk Providers Operations
 The Risk Providers API has the following CRUD operations:
@@ -53,7 +53,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-X"
+    "name": "Risk-Partner-X",
     "action": "log_only",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers"
@@ -120,7 +120,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-Y"
+    "name": "Risk-Partner-Y",
     "action": "enforce_and_log",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn"

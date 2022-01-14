@@ -100,6 +100,8 @@ SCIM integrations that are created using the templates from the OIN catalog have
 
 SCIM integrations that are created using the Application Integration Wizard use `PUT` by default. They can't be reconfigured to use `PATCH` for updates.
 
-**Q: How do I get a SCIM application that resides inside my corporate firewall to integrate with Okta?**
+**Q: How do I integrate a SCIM application residing inside my corporate firewall with Okta?**
 
-The [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premises applications. For more details about the Okta agent-based provisioning solution, see the [On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) configuration guide.
+Use the Okta agent-based provisioning solution. See the [On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) configuration guide.
+
+The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based applications.

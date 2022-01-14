@@ -16,8 +16,12 @@
 
    ![Displays an example user profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png)
 
-## Troubleshoot
+### Troubleshoot
 
 * If you get a Null Reference exception when the `IDXClient` is instantiated, then ensure that you have properly set up your local configurations. To troubleshoot the error, set the local configurations in the constructor for the `IdxClient` so that you can determine if the issue originates from the SDK not being able to locate your configurations.
 
-* If the "There was an unexpected internal error. Please try again." message is displayed instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+* If the "There was an unexpected internal error. Please try again." message appears instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+
+### Start your work with the use cases
+
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) to start using the Widget and explore the available use cases.

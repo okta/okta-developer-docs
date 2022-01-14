@@ -1,4 +1,4 @@
-### Client Credentials
+### Client Credentials flow
 
 ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png "Client Credentials flow")
 

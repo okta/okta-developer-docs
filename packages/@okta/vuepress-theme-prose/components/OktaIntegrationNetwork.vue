@@ -81,7 +81,7 @@
               <h1>Are you ready to submit your integration for review?</h1>
               <p class="oin--subtitle">
                 <SmartLink
-                  :item="{ link: '/docs/guides/submit-app/overview/' }"
+                  :item="{ link: '/docs/guides/submit-app/' }"
                   classes="Button--red"
                 >
                   Get Started

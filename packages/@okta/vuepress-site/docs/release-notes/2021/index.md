@@ -3,6 +3,17 @@ title: Okta API Products release notes 2021
 ---
 ## December
 
+### Weekly release 2021.12.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.1](#okta-sign-in-widget-version-5-14-1) | December 15, 2021 |
+
+#### Okta Sign-In Widget, version 5.14.1
+
+See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-452958-->
+
+
 ### Monthly release 2021.12.0
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -351,7 +362,7 @@ The Okta [Brands API](/docs/reference/api/brands/) allows customization of the l
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/overview/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
@@ -770,7 +781,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### Bugs fixed in 2021.03.1
 
-* When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/build-provisioning-integration/-/attribute-mapping/), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
+* When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
 
 * When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the sign-in request for an Okta Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
 

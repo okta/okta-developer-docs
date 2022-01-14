@@ -322,7 +322,7 @@ redirects:
   - from: /use_cases/integrate_with_okta/promotion/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /use_cases/integrate_with_okta/provisioning/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
     to: /docs/guides/build-sso-integration/
   - from: /use_cases/isv/embedded-occ/index.html
@@ -1736,23 +1736,23 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
   - from: /docs/guides/oin-build-provisioning-integration/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
-    to: /docs/guides/build-provisioning-integration/faqs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/build-provisioning-integration/okta-verification/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/overview/index.html
-    to: /docs/guides/build-provisioning-integration/overview/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/publish/index.html
-    to: /docs/guides/build-provisioning-integration/publish/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/review-scim-docs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/index.html
-    to: /docs/guides/build-provisioning-integration/SCIMFiles/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/index.html
-    to: /docs/guides/build-provisioning-integration/submit-for-review/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-server/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-sso-integration/index.html
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/oin-build-sso-integration/get-help/index.html
@@ -1768,6 +1768,10 @@ redirects:
   - from: /docs/guides/oauth-for-okta/overview
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview/index.html
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
@@ -1874,17 +1878,17 @@ redirects:
   - from: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xls
     to: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx
   - from: /docs/guides/build-provisioning-integration/faqs/index.html
-    to: /docs/guides/submit-app/faqs/
-  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/submit-app/submit/
-  - from: /docs/guides/build-provisioning-integration/publish/index.html
-    to: /docs/guides/submit-app/submit/
-  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/prepare-api/
-  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
     to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/publish/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-api/
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
   - from: /docs/guides/build-sso-integration/integrate/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#create-your-integration
   - from: /docs/guides/build-sso-integration/get-help/index.html
@@ -1908,9 +1912,9 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
   - from: /docs/guides/submit-app/prepare-for-submission/index.html
-    to: /docs/guides/submit-app/overview/
+    to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/submit/index.html
-    to: /docs/guides/submit-app/submission1-general/
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
@@ -1920,7 +1924,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#next-steps
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
-    to: /docs/guides/build-provisioning-integration/next-steps/
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
@@ -4134,13 +4138,49 @@ redirects:
   - from: /docs/guides/email-customization/customize-email-templates/index.html
     to: /docs/guides/custom-email/main/#customize-email-templates
   - from: /docs/guides/email-customization/configure-custom-email-domain
-    to: /docs/guides/custom-email/main/#configure-a-custom-email-domain
+    to: /docs/guides/custom-url-domain/main/#configure-a-custom-email-domain
   - from: /docs/guides/email-customization/configure-custom-email-domain/index.html
-    to: /docs/guides/custom-email/main/#configure-a-custom-email-domain
+    to: /docs/guides/custom-url-domain/main/#configure-a-custom-email-domain
   - from: /docs/guides/email-customization/next-steps
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
+  - from: /docs/guides/build-provisioning-integration/overview
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
+  - from: /docs/guides/build-provisioning-integration/overview/index.html
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app/index.html
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/guides/build-sso-integration/-/overview
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/-/before-you-begin
@@ -4257,6 +4297,106 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/submit-app/-/overview
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/submit-app/-/create-guide
+    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/-/submission1-general
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
+  - from: /docs/guides/submit-app/-/submission2-specific
+    to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/-/submission3-process
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/-/update-submission
+    to: /docs/guides/submit-app/-/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/-/overview/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/submit-app/-/create-guide/index.html
+    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/-/submission1-general/index.html
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
+  - from: /docs/guides/submit-app/-/submission2-specific/index.html
+    to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/-/submission3-process/index.html
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/-/update-submission/index.html
+    to: /docs/guides/submit-app/-/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/openidconnect/overview
+    to: /docs/guides/submit-app/openidconnect/main
+  - from: /docs/guides/submit-app/openidconnect/create-guide
+    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/openidconnect/submission1-general
+    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+  - from: /docs/guides/submit-app/openidconnect/submission2-specific
+    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/openidconnect/submission3-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/openidconnect/update-submission
+    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/faqs
+    to: /docs/guides/submit-app/openidconnect/main/#see-also
+  - from: /docs/guides/submit-app/openidconnect/overview/index.html
+    to: /docs/guides/submit-app/openidconnect/main
+  - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+  - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/faqs/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#see-also
+  - from: /docs/guides/submit-app/saml2/overview
+    to: /docs/guides/submit-app/saml2/main
+  - from: /docs/guides/submit-app/saml2/create-guide
+    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/saml2/submission1-general
+    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+  - from: /docs/guides/submit-app/saml2/submission2-specific
+    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/saml2/submission3-process
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/saml2/update-submission
+    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/saml2/overview/index.html
+    to: /docs/guides/submit-app/saml2/main
+  - from: /docs/guides/submit-app/saml2/create-guide/index.html
+    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/saml2/submission1-general/index.html
+    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+  - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
+    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/saml2/submission3-process/index.html
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/saml2/update-submission/index.html
+    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/scim/overview
+    to: /docs/guides/submit-app/scim/main
+  - from: /docs/guides/submit-app/scim/create-guide
+    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/scim/submission1-general
+    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+  - from: /docs/guides/submit-app/scim/submission2-specific
+    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/scim/submission3-process
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/scim/update-submission
+    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/scim/overview/index.html
+    to: /docs/guides/submit-app/scim/main
+  - from: /docs/guides/submit-app/scim/create-guide/index.html
+    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/scim/submission1-general/index.html
+    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+  - from: /docs/guides/submit-app/scim/submission2-specific/index.html
+    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/scim/submission3-process/index.html
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/scim/update-submission/index.html
+    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java
@@ -4517,6 +4657,46 @@ redirects:
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/oin-oidc-guide/overview
+    to: /docs/guides/oin-oidc-overview/main/
+  - from: /docs/guides/oin-oidc-guide/background
+    to: /docs/guides/oin-oidc-overview/main/#overview
+  - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
+    to: /docs/guides/oin-oidc-protocols/main/
+  - from: /docs/guides/oin-oidc-guide/multi-tenancy
+    to: /docs/guides/oin-oidc-multi-tenancy/main/
+  - from: /docs/guides/oin-oidc-guide/integration-best-practices
+    to: /docs/guides/oin-oidc-best-practices/main/
+  - from: /docs/guides/oin-oidc-guide/next-steps
+    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+  - from: /docs/guides/oin-oidc-guide/overview/index.html
+    to: /docs/guides/oin-oidc-overview/main/
+  - from: /docs/guides/oin-oidc-guide/background/index.html
+    to: /docs/guides/oin-oidc-overview/main/#overview
+  - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
+    to: /docs/guides/oin-oidc-protocols/main/
+  - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
+    to: /docs/guides/oin-oidc-multi-tenancy/main/
+  - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
+    to: /docs/guides/oin-oidc-best-practices/main/
+  - from: /docs/guides/oin-oidc-guide/next-steps/index.html
+    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+  - from: /docs/guides/third-party-risk-integration/overview
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/overview/index.html
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/create-service-app
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/create-service-app/index.html
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider/index.html
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/test-integration
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/third-party-risk-integration/test-integration/index.html
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
   - from: /docs/guides/configure-access-policy/overview
     to: /docs/guides/configure-access-policy/
   - from: /docs/guides/configure-access-policy/overview/index.html
@@ -4533,3 +4713,19 @@ redirects:
     to: /docs/guides/configure-access-policy/main/#next-steps
   - from: /docs/guides/configure-access-policy/next-steps/index.html
     to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/migrate-to-okta/prerequisites
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/migrate-to-okta/prerequisites/index.html
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/index.html
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/production-deployment/deployment-checklist
+    to: /docs/guides/deployment-checklist/
+  - from: /docs/guides/production-deployment/deployment-checklist/index.html
+    to: /docs/guides/deployment-checklist/

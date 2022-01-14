@@ -8,25 +8,29 @@ layout: Guides
 
 <StackSelector />
 
-It is quickly becoming the standard for app developers and organizations to implement multifactor authentication (MFA) to add an extra layer of security to their apps. In this guide, we provide an example of how to use Okta's Factors API to add an additional factor for a user. Okta gives you the flexibility to deploy our built-in factors or integrate with existing tokens. Native factors include SMS and the Okta Verify app for iOS and Android. Integrations include Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
-
-> **Note:** How you actually make the HTTPS calls depends on the programming language and web framework that your app uses. [Okta has helper libraries](/code/) that make it easy to add support for Okta to your app in an idiomatic way.
+This guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
 
 ---
 
 **Learning outcomes**
 
-* Set up your Okta org to use MFA
-* Enroll, activate, and test a factor &mdash; examples shown are Google Authenticator and SMS
+* Set up your Okta org to use MFA.
+* Enroll, activate, and test a factor. The examples shown are Google Authenticator and SMS.
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Postman configured](/code/rest/) to make API requests to your Developer Edition org
 * The Users API and Factors API [Postman collections](/docs/reference/postman-collections/)
-* [An API token](/docs/guides/create-an-api-token/) created in your Okta org
+* [An API token](/docs/guides/create-an-api-token/) (created in your Okta org)
 
 ---
+
+## About MFA
+
+MFA is quickly becoming the standard for app developers and organizations to add an extra layer of security to their apps. Okta gives you the flexibility to deploy our built-in factors or integrate with existing tokens. Native factors include SMS and the Okta Verify app for iOS and Android. Integrations include Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
+
+> **Note:** How you actually make the HTTPS calls depends on the programming language and web framework that your app uses. [Okta has helper libraries](/code/) that make it easy to add support for Okta to your app in an idiomatic way.
 
 ## Set up your Okta org for MFA
 

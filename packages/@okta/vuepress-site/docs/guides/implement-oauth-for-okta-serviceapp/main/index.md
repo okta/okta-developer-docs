@@ -4,10 +4,10 @@ excerpt: Learn how to interact with Okta APIs by using scoped OAuth 2.0 access t
 layout: Guides
 ---
 
-This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 access tokens for a service app.
+This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 access tokens for a service app.
 
 ---
-<!-- Nutrition facts bullets -->
+
 **Learning outcomes**
 
 * Create a public/private key pair.
@@ -21,6 +21,8 @@ This guide shows you how to interact with Okta APIs by using scoped OAuth 2.0 ac
 * [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 
 ---
+
+## About scoped OAuth 2.0 access tokens
 
 Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 

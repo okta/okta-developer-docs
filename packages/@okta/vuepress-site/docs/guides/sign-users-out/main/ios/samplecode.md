@@ -1,1 +1,1 @@
-See our [iOS samples repo](https://github.com/okta/samples-ios).
+[iOS samples repo](https://github.com/okta/samples-ios)

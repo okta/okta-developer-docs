@@ -2,7 +2,7 @@
 title: Add a social Identity Provider
 meta:
   - name: description
-    content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the set up instructions.
+    content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the setup instructions.
 ---
 
 <StackSnippet snippet="ea-icon" inline/>
@@ -19,14 +19,14 @@ Okta manages the connection to the IdP for your application, sitting between you
 
 **Learning outcomes**
 
-How to configure a social Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure a social Identity Provider so that your users can quickly sign up or sign in to your application by using their social Identity Provider account.
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
-* An OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
-* An account with <StackSnippet snippet="idpaccount" inline />.
-* Enable **New social Identity Provider integrations**. See [Manage Early Access and Beta features](https://help.okta.com/en/prod/Content/Topics/Security/manage-EA-and-beta-features.htm?cshid=ext_Manage_Early_Access_features).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
+* An account with <StackSnippet snippet="idpaccount" inline />
+* **New social Identity Provider integrations** set to enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
 
@@ -102,11 +102,10 @@ To find your Identity Provider ID:
 
 <StackSnippet snippet="siwconfig" />
 
-
 ## Next steps
 
 You should now understand how to add a social Identity Provider and have successfully added and tested the integration.
 
-To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map).
+To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
 To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).

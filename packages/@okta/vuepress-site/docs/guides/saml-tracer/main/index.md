@@ -1,48 +1,48 @@
 ---
-title: Testing SAML with SAML Tracer
+title: Test SAML app implementation with SAML Tracer
 excerpt: How to test SAML flows with the SAML Tracer Firefox extension
 layout: Guides
 ---
 
-This article explains how to test a SAML app implementation with the SAML Tracer browser add-on.
+This guide explains how to test a SAML app implementation with the SAML tracer browser add-on.
 
 ---
 
 **Learning outcomes**
 
 * Install and use SAML Tracer.
-* Create SAML requests for SP- and IdP-initiated flows and inspect them in SAML Tracer.
+* Create SAML requests for SP- and IdP-initiated flows and inspect them in SAML tracer.
 
 **What you need**
 
-* A SAML app to test (see [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration) for more information on creating one).
+A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
-## Overview
+## About SAML tracer
 
 After you complete the SAML configuration, you can test your implementation using SAML tracer.
 SAML tracer is an add-on in Firefox and very useful when troubleshooting SAML for Service Provider-initiated flows (SP-initiated)
 or Identity Provider-initiated flows (IdP-initiated).
 When you start an IdP-initiated flow or SP-initiated flow while SAML tracer is enabled, it captures the SAML request and response.
 
-## Install SAML tracer or Similar Browser Tool
+## Install SAML tracer or similar browser tool
 
 To install SAML tracer, visit [https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and follow the instructions.
 
-Once you install SAML tracer, open it from the browser menu bar: **Tools** > **SAML tracer**.
+After you install SAML tracer, open it from the browser menu bar: **Tools** > **SAML tracer**.
 
 >Similar tools exist for other browsers, such as [SAML DevTools](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio)
 and [SAML Chrome Panel](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome.
-We use SAML Tracer in the following examples.
+We use SAML tracer in the following examples.
 
-## SP-Initiated flow
+## SP-initiated flow
 
 To create a SAML request for an SP-initiated flow and inspect the request and response in SAML tracer:
 
-1. Open SAML tracer and then access your application, which takes you to the Okta login page if you aren't already logged in.
-2. Look at the SAML tracer window and see the SAML request sent from your application to Okta.
-3. Okta returns a SAML Response.
+1. Open SAML tracer and then access your application, which takes you to the Okta sign-in page if you aren't already logged in.
+2. Look at the SAML tracer window and see the SAML request sent from your application to Okta. 
+Okta returns a SAML Response.
 
 ![SAML Request SP flow](/img/saml-request-sp-flow.png "SAML Request SP flow")
 Figure 1: SP-Initiated Request in SAML tracer
@@ -50,7 +50,7 @@ Figure 1: SP-Initiated Request in SAML tracer
 ![SAML Response SP flow](/img/saml-response-sp-flow.png "SAML Response SP flow")
 Figure 2: SP-Initiated Response in SAML tracer
 
-## IDP Initiated flow
+## IDP-initiated flow
 
 To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer:
 
@@ -68,7 +68,7 @@ When you receive a SAML request and response successfully from Okta, it indicate
 As you can see from the SimpleSAMLPhp, Spring Security SAML and PySAML examples,
 the application can read attributes passed from Okta after a user logs in.
 
-## Example SAML Request
+## Example SAML request
 
 ```xml
 <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
@@ -87,7 +87,7 @@ the application can read attributes passed from Okta after a user logs in.
 </samlp:AuthnRequest>
 ```
 
-## Example SAML Response
+## Example SAML response
 
 SAML responses are signed. This example contains profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
 

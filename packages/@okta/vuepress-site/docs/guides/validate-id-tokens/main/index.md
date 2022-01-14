@@ -10,11 +10,14 @@ This guide explains how to validate ID tokens with Okta.
 
 **Learning outcomes**
 
-* Validate ID tokens.
+* Retrieve and parse your Okta JSON Web Keys (JWK).
+* Decode the ID token.
+* Verify the signature that was used to sign the ID token.
+* Verify the claims in the ID token.
 
 ---
 
-## Overview
+## About ID token validation
 
 If your client application requires authentication and would like to obtain information about the authenticated person, then it should use the OpenID Connect protocol to get an ID token.
 
@@ -32,10 +35,10 @@ Access tokens, on the other hand, are not intended to carry information about th
 
 The high-level overview of validating an ID token looks like this:
 
-- Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
-- Decode the ID token, which is in JSON Web Token format
-- Verify the signature used to sign the ID token
-- Verify the claims found inside the ID token
+* Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
+* Decode the ID token, which is in JWK format.
+* Verify the signature used to sign the ID token.
+* Verify the claims found inside the ID token.
 
 ### Retrieve The JSON Web Key Set
 

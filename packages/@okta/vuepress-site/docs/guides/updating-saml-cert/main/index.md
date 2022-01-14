@@ -1,41 +1,41 @@
 ---
-title: Upgrade SAML Apps to SHA256
+title: Upgrade SAML apps to SHA256
 excerpt: Upgrade SAML Apps to SHA256
 layout: Guides
 ---
 
-This article shows you how to upgrade older Okta SAML apps from SHA1 certificates to the newer and more secure SHA256 certificate format.
+This guide explains how to upgrade older Okta SAML apps from SHA1 certificates to the newer and more secure SHA256 certificate format.
 
 ---
 
 **Learning outcomes**
 
-* Find out which certificate your SAML app uses, and download your certificate
-* Use the [Apps API](/docs/reference/api/apps/#list-applications) to return data on the apps that need updating and generate new credentials for each app
-* Update the apps to use the new certificate
-* Learn how to revert to SHA1 if necessary
+* Find out which certificate your SAML app uses and learn to download your certificate.
+* Use the [Apps API](/docs/reference/api/apps/#list-applications) to return data on the apps that need updating and generate new credentials for each app.
+* Update the apps to use the new certificate.
+* Learn how to revert to SHA1 if necessary.
 
 **What you need**
 
-* A SAML app to upgrade (see [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration) for more information on creating one)
+* A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
-## Overview of SAML Apps and SHA256 Certificates
+## About SAML apps and SHA256 certificates
 
 Certificates with a SHA256 signature are supported for SAML 2.0 applications with Okta. You can create new integrations that use SHA256 certificates and update existing integrations from SHA1 certificates to SHA256 certificates. Existing integrations are not changed automatically. The SHA256 certificates and the SHA1 certificates are self-signed.
 
-### Why Should I Do This?
+### Why should I do this?
 
 To take advantage of the additional security features of SHA256 certificates.
 
-### New SAML 2.0 App Integrations
+### New SAML 2.0 app integrations
 
 New SAML 2.0 app integrations automatically use SHA256 certificates.
 
 As instructed below, upload the SHA256 certificate to the ISV.
 
-### Existing SAML 2.0 App Integrations
+### Existing SAML 2.0 app integrations
 
 To update existing app integrations, you first need to list your apps and get the app id, name, and label for each app to update. Then for each app to update, perform the following steps:
 
@@ -47,7 +47,7 @@ These steps are covered in detail below.
 
 > **Important:** For each app, after you complete the first two steps, your users cannot access the application until Step three is completed.
 
-### Determine the Signature Algorithm of a Certificate
+### Determine the signature algorithm of a certificate
 
 You can find the signature algorithm of a certificate either by using the command line or by uploading your certificate to a free, online certificate decoder service.
 
@@ -85,7 +85,7 @@ sure to note the certificate format that the decoder service requires.
 
 The Signature Algorithm is either *sha256WithRSAEncryption* or *sha1WithRSAEncryption*.
 
-### Obtaining the Certificate for an App from a URL
+### Obtaining the certificate for an app from a URL
 
 You can obtain the current certificate for an app from the following URL:
 
@@ -247,7 +247,7 @@ curl -v -X PUT \
 1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
-## Reverting to a SHA1 Certificate
+## Revert to a SHA1 certificate
 
 If your ISV does not accept certificates with a SHA256 signature, you can revert the settings to use the previous SHA1 certificate by rolling
 over the app key to specify the SHA1 certificate you previously associated with your integration.

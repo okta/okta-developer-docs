@@ -1,4 +1,4 @@
-### Authorization Code with PKCE
+### Authorization Code with PKCE flow
 
 ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png "Auth Code flow with PKCE")
 

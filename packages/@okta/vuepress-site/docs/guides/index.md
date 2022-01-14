@@ -20,6 +20,7 @@ guides:
  - customize-tokens-groups-claim
  - device-authorization-grant
  - enable-cors
+ - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
  - find-your-app-credentials
@@ -29,13 +30,21 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - mfa
- - migrate-to-okta
- - oin-oidc-guide
- - build-provisioning-integration
+ - migrate-to-okta-prerequisites
+ - migrate-to-okta-bulk
+ - migrate-to-okta-password-hooks
+ - oin-oidc-overview
+ - oin-oidc-best-practices
+ - oin-oidc-multi-tenancy
+ - oin-oidc-protocols
+ - scim-provisioning-integration-overview
+ - scim-provisioning-integration-prepare
+ - scim-provisioning-integration-connect
+ - scim-provisioning-integration-test
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
- - production-deployment
+ - deployment-checklist
  - deploy-your-app
  - protect-your-api
  - quickstart
@@ -131,9 +140,9 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 5. Deploy to production
 
-    * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
-    * [Deploy your app](/docs/guides/deploy-your-app/overview/)
-    * [Migrate to Okta](/docs/guides/migrate-to-okta/prerequisites/)
+    * [Pre-launch checklist](/docs/guides/deployment-checklist/)
+    * [Deploy your app](/docs/guides/deploy-your-app/)
+    * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Customize Okta process flows with Event or Inline Hooks
 
@@ -150,7 +159,7 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
-1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-guide/overview/)
+1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
 1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
-1. [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
-1. [Submit an app integration](/docs/guides/submit-app/openidconnect/overview/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/)
+1. [Submit an app integration](/docs/guides/submit-app/)
