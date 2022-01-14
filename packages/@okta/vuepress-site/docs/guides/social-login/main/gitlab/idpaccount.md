@@ -1,1 +1,1 @@
-[GitHub](https://gitlab.com/users/sign_in)
+[GitLab](https://gitlab.com/users/sign_in)

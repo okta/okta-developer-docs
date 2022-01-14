@@ -5,9 +5,9 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
-## <StackSelector snippet="idp" noSelector inline />
+## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external Identity Provider for your application by creating an application at <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an external Identity Provider for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
@@ -27,9 +27,9 @@ How to configure an external Identity Provider so that your users can quickly si
 
 ---
 
-## Create an app at <StackSelector snippet="idp" noSelector inline />
+## Create an app at <StackSnippet snippet="idp" inline />
 
-At <StackSelector snippet="idp" noSelector inline />, create the client application that you want to use for authenticating and authorizing your users.
+At <StackSnippet snippet="idp" inline />, create the client application that you want to use for authenticating and authorizing your users.
 
 <StackSnippet snippet="appatidp" />
 
@@ -41,7 +41,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
-1. Select **Add Identity Provider** and then select **<StackSelector snippet="idp" noSelector inline />**.
+1. Select **Add Identity Provider** and then select **<StackSnippet snippet="idp" inline />**.
 
 1. In the **Add an Identity Provider** dialog box, define the following:
 
@@ -57,7 +57,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 ## Test the integration
 
-You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSelector snippet="idp" noSelector inline /> as the Identity Provider.
+You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSnippet snippet="idp" inline /> as the Identity Provider.
 
 Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
