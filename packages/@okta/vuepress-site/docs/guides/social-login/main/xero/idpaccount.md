@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://www.xero.com/us/signup/api/)
+[Xero](https://www.xero.com/us/signup/api/)

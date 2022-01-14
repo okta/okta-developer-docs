@@ -1,1 +1,1 @@
-Create <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create <StackSnippet snippet="apptype" inline /> at Xero.
