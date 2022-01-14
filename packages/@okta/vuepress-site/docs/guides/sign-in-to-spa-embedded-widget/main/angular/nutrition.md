@@ -1,4 +1,4 @@
-This guide explains how to sign in to your SPA with the Okta Sign-In Widget.
+This guide explains how to sign in to a single page application (SPA) with the embedded Okta Sign-In Widget using the Angular framework .
 
 ---
 
