@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://login.salesforce.com/)
+[Salesforce](https://login.salesforce.com/)
