@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://discord.com/login)
+[Discord](https://discord.com/login)
