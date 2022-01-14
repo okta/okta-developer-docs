@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://login.yahoo.com/)
+[Yahoo](https://login.yahoo.com/)
