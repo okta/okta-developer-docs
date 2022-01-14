@@ -225,9 +225,9 @@ Create an app integration that represents the application you want to add authen
 
     >**Note:** If not installed previously, you will be prompted to install the `npx` package.
 
-1. Navigate to the local page, `http://localhost:3000` and sign in with a user from your org assigned to the app integration.
+1. Navigate to the local page, `http://localhost:3000`. The simple web page appears with a message that you're not signed in and displays the Sign-In Widget.
 
-    The simple web page appears with the signed-in user's email address.
+1. Sign in with a user from your org assigned to the app integration. The simple web page appears with the signed-in user's email address.
 
 ### Sign In to Okta with the Default Dashboard
 
@@ -334,6 +334,7 @@ function callMessagesApi() {
   });
 }
 ```
+
 ### Handling Errors
 
 The Widget render function either results in a success or an error. The error function is called when the Widget has been initialized with invalid config options, or has entered a state it cannot recover from.
