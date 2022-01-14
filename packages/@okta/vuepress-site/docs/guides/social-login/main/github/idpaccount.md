@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://github.com/join)
+[GitHub](https://github.com/join)
