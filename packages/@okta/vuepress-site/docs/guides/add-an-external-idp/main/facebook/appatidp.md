@@ -1,10 +1,10 @@
-1. Access the [<StackSelector snippet="idp" noSelector inline /> App Dashboard](https://developers.facebook.com/apps).
+1. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
 
-2. Create a <StackSelector snippet="idp" noSelector inline /> app using these [instructions](https://developers.facebook.com/docs/apps/register).
+2. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/apps/register).
 
-    > **Note:** The `public_profile` and `email` OAuth scopes are automatically included by Okta. If your app requires more scopes, request a [Login Review](https://developers.facebook.com/docs/facebook-login/review) with <StackSelector snippet="idp" noSelector inline />. For more information on <StackSelector snippet="idp" noSelector inline /> scopes, see [Permissions](https://developers.facebook.com/docs/facebook-login/permissions).
+    > **Note:** The `public_profile` and `email` OAuth scopes are automatically included by Okta. If your app requires more scopes, request a [Login Review](https://developers.facebook.com/docs/facebook-login/review) with Facebook. For more information on Facebook scopes, see [Permissions](https://developers.facebook.com/docs/facebook-login/permissions).
 
-3. After you create the app, on the **Add a Product** page, click **Set Up** in the **<StackSelector snippet="idp" noSelector inline /> Login** tile.
+3. After you create the app, on the **Add a Product** page, click **Set Up** in the **Facebook Login** tile.
 
 4. On the first page of the Quickstart, select **Web**.
 
@@ -22,4 +22,4 @@
 
 10. Save the **App ID** and the **App Secret** values so you can add them to the Okta configuration in the next section.
 
-> **Note:** There may be additional settings on the [<StackSelector snippet="idp" noSelector inline /> App Dashboard](https://developers.facebook.com/apps) that you can configure for the app. The steps in this guide address the quickest route to setting up <StackSelector snippet="idp" noSelector inline /> as an Identity Provider with Okta. See the <StackSelector snippet="idp" noSelector inline /> documentation for more information on additional configuration settings.
+> **Note:** There may be additional settings on the [Facebook App Dashboard](https://developers.facebook.com/apps) that you can configure for the app. The steps in this guide address the quickest route to setting up Facebook as an Identity Provider with Okta. See the Facebook documentation for more information on additional configuration settings.

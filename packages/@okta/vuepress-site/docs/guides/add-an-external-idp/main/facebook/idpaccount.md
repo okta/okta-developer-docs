@@ -1,1 +1,1 @@
-with [<StackSelector snippet="idp" noSelector inline />](https://developers.facebook.com)
+with [Facebook](https://developers.facebook.com)

@@ -1,6 +1,6 @@
-1. Make sure that you can access the [<StackSelector snippet="idp" noSelector inline /> Developers Console](https://console.developers.google.com/).
+1. Make sure that you can access the [Google Developers Console](https://console.developers.google.com/).
 
-1. Create a <StackSelector snippet="idp" noSelector inline /> project using these [instructions](https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin).
+1. Create a Google project using these [instructions](https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin).
 
 1. In the **Authorized redirect URIs** section of the creation wizard, click **ADD URI** to add the Okta redirect URI for your app integration.
 
@@ -12,4 +12,4 @@
 
 1. Save the generated Client ID and Client Secret values so that you can add them to your Okta configuration.
 
-> **Note:** There may be additional settings on the [<StackSelector snippet="idp" noSelector inline /> Developers Console](https://console.developers.google.com) site that you can configure for your application. The steps in this guide address the quickest route to setting up <StackSelector snippet="idp" noSelector inline /> as an Identity Provider with Okta. See the <StackSelector snippet="idp" noSelector inline /> documentation for more information on additional configuration settings.
+> **Note:** There may be additional settings on the [Google Developers Console](https://console.developers.google.com) site that you can configure for your application. The steps in this guide address the quickest route to setting up Google as an Identity Provider with Okta. See the Google documentation for more information on additional configuration settings.
