@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://gitlab.com/users/sign_in)
+[GitHub](https://gitlab.com/users/sign_in)
