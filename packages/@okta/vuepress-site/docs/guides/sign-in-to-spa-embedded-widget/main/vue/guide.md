@@ -44,7 +44,7 @@ Build your Vue.js app by integrating the Okta libraries:
 
 [Start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
 
-After successfully authenticating with Okta, the app obtains the user's `id_token`, which contains basic claims for the user's identity. You can extend the set of claims by modifying the [scopes](/docs/reference/api/oidc/#scopes) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values). See [Sign users in to your SPA guide for Vue.js](/docs/guides/sign-into-spa/vue/main/#use-the-access-token) to learn how to use the user's `access_token` to protect routes and validate tokens.
+After successfully authenticating with Okta, the app obtains the user's `id_token`, which contains basic claims for the user's identity. You can extend the set of claims by modifying the SIW [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values). See [Sign users in to your SPA guide for Vue.js](/docs/guides/sign-into-spa/vue/main/#use-the-access-token) to learn how to use the user's `access_token` to protect routes and validate tokens.
 
 See [Run the sample Vue.js app](#run-the-sample-vue-js-app) for an example of a simple embedded authentication Vue.js app that uses the Okta SIW and libraries.
 
@@ -85,7 +85,7 @@ npm install @okta/okta-auth-js
 
 ### Create Okta instances
 
-Create a file to instantiate `OktaSignIn` and `OktaAuth` with your configuration settings. You should make use of environment variables or external configuration files, but for the purpose of this example snippet, the configuration settings are declared in the following `src/okta/index.js` file:
+Create a file to instantiate `OktaSignIn` and `OktaAuth` with [your configuration settings](#okta-org-app-integration-configuration-settings). You should make use of environment variables or external configuration files, but for the purpose of this example snippet, the configuration settings are declared in the following `src/okta/index.js` file:
 
 ```js
 import OktaSignIn from '@okta/okta-signin-widget'
@@ -99,7 +99,11 @@ const oktaSignIn = new OktaSignIn({
   pkce: true,
   useInteractionCodeFlow: true,
   scopes: ['openid', 'profile', 'email'],
-  display: 'page'
+  i18n: {
+    en: {
+      'primaryauth.title': 'Sign in to my Vue app`
+    }
+  }
 });
 
 const oktaAuth = new OktaAuth({
@@ -114,11 +118,13 @@ export { oktaAuth, oktaSignIn };
 
 Replace the `${...}` placeholders with values from your [Okta org app integration configuration settings](#okta-org-app-integration-configuration-settings).
 
+> **Note:** `baseUrl` setting is not a required for OIDC applications as of SIW version 5.15.0. `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
+
 ### Create a SIW wrapper
 
-To provide a fully-featured and customizable sign-in experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in Vue, you must create a wrapper that allows Okta to treat it as a Vue component.
+To provide a fully-featured and customizable sign-in experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in Vue.js, you must create a wrapper that allows Okta to treat it as a Vue component.
 
-Create a `src/components/Login.vue` file:
+For example, create a `src/components/Login.vue` file with the following content:
 
 ```html
 <template>
@@ -150,16 +156,16 @@ export default {
 
 ### Create routes
 
-Some routes require authentication in order to render. Defining those routes is easy using Vue Router and `@okta/okta-vue`. Let's take a look at what routes are needed for this example:
+Some routes require authentication in order to render. Defining those routes is easy using Vue Router and the Okta Vue.js library (`@okta/okta-vue`). Let's take a look at what routes are needed for this example:
 
-* `/`: A default page to handle basic control of the app.
-* `/profile`: A protected route to the current user's profile.
+* A [default page](#default-page-route) to handle basic control of the app.
+* A [protected route](#protected-route) for authenticated users. In this example, the current user's profile information is provided in this protected route.
 * `/login`: Show the sign-in page.
 * `/login/callback`: A route to parse tokens after a redirect.
 
-#### `/ - index page`
+#### Default page route
 
-First, update `src/App.vue` to provide links to navigate your app:
+To create the default `/index` page, update the `src/App.vue` file to provide links to navigate your app:
 
 ```html
 <template>
@@ -258,11 +264,11 @@ export default {
 </script>
 ```
 
-#### `/profile`
+#### Protected route
 
-This route will only be visible to users with a valid `accessToken`.
+Create a protected route that is only available to users with a valid `accessToken`. In this example, the user's profile data is displayed with a valid `accessToken`.
 
-Create a new `Profile` component at `src/components/Profile.vue`:
+Create a new `Profile` component in the `src/components/Profile.vue` file:
 
 ```html
 <template>
