@@ -1,14 +1,14 @@
 ## About Angular and the Okta Sign-In Widget
 
-The Okta Sign-In Widget works authenticate users in your Angular application
+The embedded Okta Sign-In Widget provides user authentication, as well as an opportunity to customize the sign in experience for users of your Angular application.
 
-To implement authentication in your Angular application, the embedded Okta Sign-In Widget provides user authentication, as well as an opportunity to customize the sign in experience. This guide explains how to build a sample application with the Sign-In Widget, included in the [okta/samples-js-angular](https://github.com/okta/samples-js-angular) repository . See [Create a simple authentication use case with Angular](#create-a-simple-authentication-use-case-with-angular) for further details.
+This guide explains how to build a sample application with the embedded Sign-In Widget included in the [okta/samples-js-angular](https://github.com/okta/samples-js-angular) repository. See [Create a simple authentication use case with Angular](#create-a-simple-authentication-use-case-with-angular) for further walk-through instructions on how to implement this sample application.
 
-<img src="/img/okta-sign-in-angular.png" alt="Screenshot of basic Okta Sign-In Widget using Angular" width="400">
+<img src="/img/okta-sign-in-angular.png" alt="Screenshot of basic Okta Sign-In Widget using Angular" width="800">
 
 ## Installation
 
-The first step is to install the Widget. You have two options for your application: linking out to the Okta CDN, or installing locally through `npm`.
+For all applications, the first step is to install the Widget. You have two options: linking out to the Okta CDN, or installing locally through `npm`.
 
 ### CDN
 
@@ -33,15 +33,15 @@ More info, including the latest published version, can be found in the [Widget D
 
 ## Create a simple authentication use case with Angular
 
-In this case, you use the Widget to sign in to a simple web page and xyz?. Ensure you have an Okta developer account, and use the github repo sample.
+In this use case, you use the Widget to sign in to a simple web page that provides details on the user signed in. Ensure you have an Okta developer account, and use the github repo sample.
 
 To create and run this sample use case:
 
 * Create an app integration on your Okta org.
-* Download a simple SPA from the gitHub repository.
+* Download the simple SPA from the gitHub repository.
 * Run the sample application.
 
->**Note:** This use case uses Angulr x, Node y, and Auth-JS blah
+>**Note:** This use case uses Angulr x, Node y, and Auth-JS blah ******TBD*******
 
 ### Create the app integration
 

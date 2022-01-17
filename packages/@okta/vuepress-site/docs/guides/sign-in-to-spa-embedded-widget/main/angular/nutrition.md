@@ -4,19 +4,18 @@ This guide explains how to sign in to an Angular framework single page applicati
 
 **Learning outcomes**
 
-* Angular - TBD
-* Angular - TBD
-* Angular - TBD
+* Understand how to implement a sign-in use case using Angular and the Okta Sign-In Widget.
+* Understand basic installation and code configurations using Angular.
+* Implement a simple SPA use-case, and sign a user in to the application.
 
 **What you need**
 
-* TBD
-* TBD
-* TBD
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* Basic knowledge of building Angular applications
 
 **Sample code**
 
-* TBD
-* TBD
+* See [Create a simple authentication use case with Angular](#create-a-simple-authentication-use-case-with-Angular)
+* [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login)
 
 ---
