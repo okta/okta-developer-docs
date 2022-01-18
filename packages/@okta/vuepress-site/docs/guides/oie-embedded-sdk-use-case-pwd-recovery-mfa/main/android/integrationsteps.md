@@ -86,7 +86,7 @@ If the request to verify the code is successful, the Java SDK returns an `Authen
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's new password value.
 
-```val
+```kotlin
 val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
 val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
