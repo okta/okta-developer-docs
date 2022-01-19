@@ -84,9 +84,6 @@ You can choose to [get a refresh token](/docs/guides/refresh-tokens/main/#get-a-
 
 The default refresh token behavior is **Use persistent token** for web apps.
 
-Rotating refresh tokens is an <ApiLifecycle access="ea"/> feature.
-You can enable an [Early Access (Self-Service)](/docs/reference/releases-at-okta/#early-access-ea) feature for your org in the **Settings** > **Features** page inside the Admin Console.
-
 To enable refresh token rotation in your app integration, do the following:
 
 1. Open the web app integration that you just created and select the **General** tab.
