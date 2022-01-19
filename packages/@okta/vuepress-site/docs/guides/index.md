@@ -91,6 +91,7 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - sign-in-to-spa-embedded-widget
 
 ---
 
