@@ -15,11 +15,11 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 ## Create an app
 
-<StackSnippet snippet="app-create-app" />
+<StackSnippet snippet="create-app" />
 
 ## Add app configurations
 
-<StackSnippet snippet="app-configuration" />
+<StackSnippet snippet="app-config" />
 
 ## Create app routes
 
