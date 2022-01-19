@@ -5220,7 +5220,7 @@ If `client_secret` in the request is less than 14 characters long, you receive a
 }
 ```
 
-If `client_secret` in the request is less than 32 characters long and the `token_endpoint_auth_method` of the app is `client_secret_jwt`, you receive an error response.
+If `client_secret` in the request is less than 32 characters long, and the `token_endpoint_auth_method` of the app is `client_secret_jwt`, you receive an error response.
 
 ```json
 {
@@ -5298,7 +5298,7 @@ Enumerates the client's collection of secrets
 
 ##### Response parameters
 
-Returns the list of [Client Secret](#client-secret-response-object)
+Returns the list of [Client Secrets](#client-secret-response-object)
 
 ##### Request example
 
@@ -5480,12 +5480,12 @@ Deactivates a specific client secret by `secretId`
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| secretId      | unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns deactivated [Client Secret](#client-secret-response-object)
+Returns the deactivated [Client Secret](#client-secret-response-object)
 
 ##### Request example
 
@@ -5526,7 +5526,7 @@ curl -v -X GET \
   }
 }
 ```
-If secret is not found for the secretId, you receive an error response.
+If a secret isn't found for the `secretId`, you receive an error response.
 
 ```json
 {
@@ -5537,7 +5537,7 @@ If secret is not found for the secretId, you receive an error response.
 }
 ```
 
-If the application has only one active client secret and if deactivate request is received for it, you receive an error response.
+If the application has only one active client secret, and if a deactivate request is sent for that client secret, you receive an error response.
 
 ```json
 {
@@ -5563,8 +5563,8 @@ Deletes a specific client secret by `secretId`
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| secretId      | unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -5585,7 +5585,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-If secret is not found for the secretId, you receive an error response.
+If a secret isn't found for the `secretId`, you receive an error response.
 
 ```json
 {
@@ -5620,18 +5620,18 @@ If the delete request is received for an active secret, you receive an error res
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
-> **Note:** This API does not let you add a key if the existing key does not have a kid. This is also in sync with how the clients/apps APIs behave - they do not allow creating multiple keys without kids. The user will need to use the clients/apps API to update the jwks or use the new JWKS management delete key API and re-add the key with a kid.
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave. They don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
-| metadata      | Metadata for creating a json web key [Json Web Key Metadata](#json-web-key-request-object)   | Body      | Json Web Key Metadata             | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
+| metadata      | Metadata for creating a JSON Web Key [JSON Web Key Metadata](#json-web-key-request-object)   | Body      | JSON Web Key Metadata             | TRUE     |         |
 
 ##### Response parameters
 
-Returns the generated [Json Web Key](#json-web-key-response-object)
+Returns the generated [JSON Web Key](#json-web-key-response-object)
 
 ##### Request example
 
@@ -5676,7 +5676,7 @@ curl -v -X POST \
 }
 ```
 
-If there are more than one Json Web Key each must have unique non-null `kid` else you receive an error response.
+If there is more than one JSON Web Key, each key must have unique non-null `kid` or you receive an error response.
 
 ```json
 {
@@ -5692,7 +5692,7 @@ If there are more than one Json Web Key each must have unique non-null `kid` els
 }
 ```
 
-If Json Web Key has a duplicate `kid`, you receive an error response.
+If the JSON Web Key has a duplicate `kid`, you receive an error response.
 
 ```json
 {
@@ -5708,7 +5708,7 @@ If Json Web Key has a duplicate `kid`, you receive an error response.
 }
 ```
 
-If RSA Json Web Key length is less than `2048` bits , you receive an error response.
+If the RSA JSON Web Key length is less than `2048` bits, you receive an error response.
 
 ```json
 {
@@ -5724,7 +5724,7 @@ If RSA Json Web Key length is less than `2048` bits , you receive an error respo
 }
 ```
 
-If number of Json Web Keys per application exceeds the set limit (currently 50), you receive an error response.
+If the number of JSON Web Keys per application exceeds the set limit (currently 50), you receive an error response.
 
 ```json
 {
@@ -5744,17 +5744,17 @@ If number of Json Web Keys per application exceeds the set limit (currently 50),
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks"/>
 
-Enumerates the client's collection of JSON Web Keys.
+Enumerates the client's collection of JSON Web Keys
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
 
 ##### Response parameters
 
-Returns the list of [Json Web Key](#json-web-key-response-object)
+Returns the list of [JSON Web Keys](#json-web-key-response-object)
 
 ##### Request example
 
@@ -5818,22 +5818,22 @@ curl -v -X GET \
   }
 }
 ```
-### Get Json Web Key
+### Get JSON Web Key
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}" />
 
-Gets a specific Json Web Key by Id.
+Gets a specific JSON Web Key by `id`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| id            | unique key of a [Json Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns [Json Web Key](#json-web-key-response-object)
+Returns the [JSON Web Key](#json-web-key-response-object)
 
 ##### Request example
 
@@ -5871,7 +5871,7 @@ curl -v -X GET \
 }
 ```
 
-If Json Web Key is not found for the id, you receive an error response.
+If the JSON Web Key isn't found for the `id`, you receive an error response.
 
 ```json
 {
@@ -5882,22 +5882,22 @@ If Json Web Key is not found for the id, you receive an error response.
 }
 ```
 
-### Activate a Json Web Key
+### Activate a JSON Web Key
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/activate"/>
 
-Activates a specific Json Web Key by Id.
+Activates a specific JSON Web Key by `id`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| id            | unique key of a [Json Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns activated [Json Web Key](#json-web-key-response-object)
+Returns an activated [JSON Web Key](#json-web-key-response-object)
 
 ##### Request example
 
@@ -5934,7 +5934,7 @@ curl -v -X GET \
   }
 }
 ```
-If Json Web Key is not found for the id, you receive an error response.
+If the JSON Web Key isn't found for the `id`, you receive an error response.
 
 ```json
 {
@@ -5945,22 +5945,22 @@ If Json Web Key is not found for the id, you receive an error response.
 }
 ```
 
-### Deactivate a Json Web Key
+### Deactivate a JSON Web Key
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/deactivate"/>
 
-Deactivates a specific Json Web Key by id.
+Deactivates a specific JSON Web Key by `id`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| id            | unique key of a [Json Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns deactivated [Json Web Key](#json-web-key-response-object)
+Returns a deactivated [JSON Web Key](#json-web-key-response-object)
 
 ##### Request example
 
@@ -6005,7 +6005,7 @@ curl -v -X GET \
   }
 }
 ```
-If secret is not found for the secretId, you receive an error response.
+If a secret isn't found for the `secretId`, you receive an error response.
 
 ```json
 {
@@ -6016,7 +6016,7 @@ If secret is not found for the secretId, you receive an error response.
 }
 ```
 
-If the application has only one active Json Web Key when `token_endpoint_auth_method` is `private_key_jwt` and deactivate request is received for it, you receive an error response.
+If the application has only one active JSON Web Key, the `token_endpoint_auth_method` is `private_key_jwt`, and a deactivate request is received for the JSON Web Key, you receive an error response.
 
 ```json
 {
@@ -6032,7 +6032,7 @@ If the application has only one active Json Web Key when `token_endpoint_auth_me
 }
 ```
 
-If the application has only one active Json Web Key which matches `request_object_signature_algorithm` and deactivate request is received for it, you receive an error response.
+If the application has only one active JSON Web Key that matches `request_object_signature_algorithm` and a deactivate request is received for the JSON Web Key, you receive an error response.
 
 ```json
 {
@@ -6048,18 +6048,18 @@ If the application has only one active Json Web Key which matches `request_objec
 }
 ```
 
-### Delete a Json Web Key
+### Delete a JSON Web Key
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}"/>
 
-Deletes a specific Json Web Key by id.
+Deletes a specific JSON Web Key by `id`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
-| id            | unique key of a [Json Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -6080,7 +6080,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-If Json Web Key is not found for the id, you receive an error response.
+If a JSON Web Key isn't found for the `id`, you receive an error response.
 
 ```json
 {
@@ -6091,7 +6091,7 @@ If Json Web Key is not found for the id, you receive an error response.
 }
 ```
 
-If the delete request is received for an active Json Web Key, you receive an error response.
+If the delete request is received for an active JSON Web Key, you receive an error response.
 
 ```json
 {
@@ -8608,11 +8608,11 @@ Okta updates a user's attributes in the application when the application is assi
 }
 ```
 
-#### Client Secret object Request properties
+#### Client Secret Request object properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| client_secret    | client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14/32  |   100     |
+| client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14/32  |   100     |
 
 ### Client Secret Response object
 
@@ -8647,20 +8647,20 @@ Okta updates a user's attributes in the application when the application is assi
 }
 ```
 
-#### Client Secret object Response properties
+#### Client Secret Response object properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | ------- |
-| id               | unique key of group                                          | String                                                                      | FALSE     | TRUE   | TRUE    |         |
-| client_secret    | client secret                                                | String                                                                      | FALSE     | TRUE   | FALSE   |         |
-| secret_hash      | hash of client secret                                        | String                                                                      | FALSE     | TRUE   | TRUE    |         |
-| created          | timestamp when secret was created                            | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
-| lastUpdated      | timestamp when secret was last updated                       | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| id               | Unique key of the group                                          | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| client_secret    | Client secret                                                | String                                                                      | FALSE     | TRUE   | FALSE   |         |
+| secret_hash      | Hash of the client secret                                        | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| created          | Timestamp when the secret was created                            | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| lastUpdated      | Timestamp when the secret was last updated                       | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
 | status           | Status of the feature                                        | `ACTIVE`, `INACTIVE`                                                        | FALSE     | FALSE  | FALSE   |`ACTIVE` |
 | _links           | Discoverable resources related to client secrets             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE     | FALSE  | TRUE    |         |
 
 
-### JSON Web Key request object
+### JSON Web Key Request object
 
 The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
 
@@ -8678,20 +8678,20 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
 }
 ```
 
-#### Application JSON Web Key request properties
+#### Application JSON Web Key Request properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
 | e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| kid              | unique identifier for the certificate                        | String                                                                      | TRUE     | TRUE   | TRUE     |           |
-| kty              | cryptographic algorithm family for the certificate's keypair | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| use              | acceptable usage of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| kid              | Unique identifier for the certificate                        | String                                                                      | TRUE     | TRUE   | TRUE     |           |
+| kty              | Cryptographic algorithm family for the certificate's key pair | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |
 | status           | Status of the feature                                        | `ACTIVE`, `INACTIVE`                                                        | TRUE     | FALSE  | FALSE    | `ACTIVE`  |
 
 
-### JSON Web Key response object
+### JSON Web Key Response object
 
 The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
 
@@ -8730,11 +8730,11 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
 }
 ```
 
-#### Application JSON Web Key response properties
+#### Application JSON Web Key Response properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| id               | unique key of group                                          | String                                                                      | FALSE    | TRUE   | TRUE     |           |
+| id               | Unique key of group                                          | String                                                                      | FALSE    | TRUE   | TRUE     |           |
 | e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
