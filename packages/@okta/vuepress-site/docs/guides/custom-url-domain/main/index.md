@@ -105,10 +105,12 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 7. If **Certificate issued** appears, click **Finish**.
 
+> **Note:** After you click **Finish**, it may take several minutes before your custom domain is ready.
+
 > **Note:** If an error occurs, the cause may be one of the following:
 >   * The TXT or CNAME record may not have propagated yet.
 >   * There may be a copy and paste issue with the values.
->   * There may be an operational issue with Let's Encrypt which can be checked with https://letsencrypt.status.io/. If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
+>   * There may be an operational issue with Let's Encrypt which can be checked with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
 
 ## Configure a custom domain through your own certificate
 
