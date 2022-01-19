@@ -1,5 +1,6 @@
 After you satisfy the software requirements, clone the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) repository to your local directory.
-```console
+
+```shell
 git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/express-embedded-sign-in-widget
 ```
