@@ -5148,7 +5148,7 @@ Adds a new secret to the client's collection of secrets
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
-| metadata | Metadata for creating a secret [Client Secret Metadata](#client-secret-request-object)   | Body      | Client Secret Metadata                     | FALSE    |         |
+| metadata | Client secret request object [Client Secret Metadata](#client-secret-request-object)   | Body      | Client Secret Metadata                     | FALSE    |         |
 
 ##### Response parameters
 
@@ -5158,12 +5158,12 @@ Returns the generated [Client Secret](#client-secret-response-object)
 
 ```bash
 curl -v -X POST \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
     "client_secret" : "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp"
-}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/"
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
 ```
 
 ##### Response example
@@ -5268,7 +5268,7 @@ If `client_secret` in the request contains non ASCII characters, you receive an 
 }
 ```
 
-If the number of client secrets per application exceeds the set limit (currently 2), you receive an error response.
+If the number of client secrets per application exceeds 2, you receive an error response.
 
 ```json
 {
@@ -5304,10 +5304,10 @@ Returns the list of [Client Secrets](#client-secret-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/"
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
 ```
 
 ##### Response example
@@ -5372,7 +5372,7 @@ Returns the [Client Secret](#client-secret-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
@@ -5432,7 +5432,7 @@ Returns an activated [Client Secret](#client-secret-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate"
@@ -5491,7 +5491,7 @@ Returns the deactivated [Client Secret](#client-secret-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate"
@@ -5574,7 +5574,7 @@ An empty JSON object `{}`
 
 ```bash
 curl -v -X DELETE \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
@@ -5620,7 +5620,7 @@ If the delete request is received for an active secret, you receive an error res
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
-> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave. They don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
 
 ##### Request parameters
 
@@ -5637,7 +5637,7 @@ Returns the generated [JSON Web Key](#json-web-key-response-object)
 
 ```bash
 curl -v -X POST \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
@@ -5760,10 +5760,10 @@ Returns the list of [JSON Web Keys](#json-web-key-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/"
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
 ```
 
 ##### Response example
@@ -5839,7 +5839,7 @@ Returns the [JSON Web Key](#json-web-key-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
@@ -5903,7 +5903,7 @@ Returns an activated [JSON Web Key](#json-web-key-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate"
@@ -5966,7 +5966,7 @@ Returns a deactivated [JSON Web Key](#json-web-key-response-object)
 
 ```bash
 curl -v -X GET \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate"
@@ -6016,7 +6016,7 @@ If a secret isn't found for the `secretId`, you receive an error response.
 }
 ```
 
-If the application has only one active JSON Web Key, the `token_endpoint_auth_method` is `private_key_jwt`, and a deactivate request is received for the JSON Web Key, you receive an error response.
+If the application has only one active JSON Web Key, the `token_endpoint_auth_method` is `private_key_jwt`, and a deactivate request is received for the JSON Web Key, then you will receive an error response.
 
 ```json
 {
@@ -6032,7 +6032,7 @@ If the application has only one active JSON Web Key, the `token_endpoint_auth_me
 }
 ```
 
-If the application has only one active JSON Web Key that matches `request_object_signature_algorithm` and a deactivate request is received for the JSON Web Key, you receive an error response.
+If the application has only one active JSON Web Key that matches `request_object_signature_algorithm` and a deactivate request is received for the JSON Web Key, then you will receive an error response.
 
 ```json
 {
@@ -6069,7 +6069,7 @@ An empty JSON object `{}`
 
 ```bash
 curl -v -X DELETE \
--H "Accept: application/pkcs10" \
+-H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
@@ -8612,7 +8612,9 @@ Okta updates a user's attributes in the application when the application is assi
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14/32  |   100     |
+| client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14  |   100     |
+
+> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then minLength of Client Secret should be 32.
 
 ### Client Secret Response object
 
