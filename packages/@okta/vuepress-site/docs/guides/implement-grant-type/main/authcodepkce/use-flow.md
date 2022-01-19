@@ -2,7 +2,7 @@ The following sections outline the main components required to implement the Aut
 
 ### Create the Proof Key for Code Exchange
 
-Just like with the standard <GuideLink link="../../authcode/main/">Authorization Code flow</GuideLink>, your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
+Similar to the standard [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
 
 Your first step is to generate a code verifier and challenge:
 
@@ -34,7 +34,7 @@ Note the parameters that are being passed:
 
 - `client_id` matches the Client ID of your Okta OAuth application that you created in the [Set up your app](#set-up-your-app) section.
 - `response_type` is `code`, indicating that we are using the Authorization Code grant type.
-- `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Sign-in redirect URIs** that you specified when you created your Okta application in the [Set up your app](#set-up-your-app) section.
 - `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 - `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
@@ -63,7 +63,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&client_id=0oabygpxgk9lXaMgF0h7&redirect_uri=yourApp%3A%2Fcallback&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> **Important:** Unlike the regular <GuideLink link="../../authcode/main/">Authorization Code flow</GuideLink>, this call doesn't require the Authorization header with the Client ID and secret. That is why this version of the Authorization Code flow is appropriate for native apps.
+> **Important:** Unlike the regular [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), this call doesn't require the Authorization header with the Client ID and secret. That is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 

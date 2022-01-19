@@ -1,1 +1,1 @@
-[<StackSelector snippet="idp" noSelector inline />](https://www.paypal.com/signin). You can also test using a PayPal sandbox. See [<StackSelector snippet="idp" noSelector inline /> sandbox testing guide](https://developer.paypal.com/docs/api-basics/sandbox/)
+[PayPal](https://www.paypal.com/signin). You can also test using a PayPal sandbox. See [PayPal sandbox testing guide](https://developer.paypal.com/docs/api-basics/sandbox/)

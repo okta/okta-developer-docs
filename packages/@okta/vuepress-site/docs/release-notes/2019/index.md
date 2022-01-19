@@ -45,7 +45,7 @@ In Scope objects created using the [Authorization Server API](/docs/reference/ap
 
 #### Okta-Hosted User Consent Dialog Change
 
-In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/overview/), Okta-hosted user consent dialogs were updated to display neutral colors for some UI elements. <!-- OKTA-262803 -->
+In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/), Okta-hosted user consent dialogs were updated to display neutral colors for some UI elements. <!-- OKTA-262803 -->
 
 #### OAuth for Okta Enabled for Clear User Sessions Endpoint
 
@@ -66,7 +66,7 @@ The [Clear User Sessions endpoint](/docs/reference/api/users/#clear-user-session
 
 #### Bugs Fixed in 2019.11.3
 
-* POST calls to the `/api/v1/apps` endpoint couldn't be used with [OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/). (OKTA-259867)
+* POST calls to the `/api/v1/apps` endpoint couldn't be used with [OAuth for Okta](/docs/guides/implement-oauth-for-okta/). (OKTA-259867)
 
 * In some situations, ID tokens returned from Okta didn't contain the `idp` claim. (OKTA-253962)
 

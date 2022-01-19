@@ -161,8 +161,6 @@ When you use these API endpoints to create or modify an Authorization Server res
 
 * If set to `CUSTOM_URL`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-<ApiLifecycle access="ea" />
-
 * If set to `DYNAMIC`, then in responses, `issuer` is the custom domain URL if the OAuth 2.0 request was sent to the custom domain or is the Okta org's domain URL if the OAuth 2.0 request was sent to the original Okta org domain. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
 
 After you configure a custom URL domain, all new Custom Authorization Servers use `CUSTOM_URL` by default. If the Dynamic Issuer Mode feature is enabled, then all new Custom Authorization Servers use `DYNAMIC` by default.  All existing Custom Authorization Servers continue to use the original value until changed using the Admin Console or the API, so that existing integrations with the client and resource server continue to work after the feature is enabled.
@@ -1142,7 +1140,7 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case-sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case-sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any Group name that has at least three letters, no more than 16, and contains lowercase letters, a hyphen, or numbers.
 
-If you have complex filters for Groups, you can [create a Groups allow list](/docs/guides/customize-tokens-groups-claim/overview/) to put them all in a Claim.
+If you have complex filters for Groups, you can [create a Groups allow list](/docs/guides/customize-tokens-groups-claim/) to put them all in a Claim.
 
 ##### Details for `alwaysIncludeInToken`
 

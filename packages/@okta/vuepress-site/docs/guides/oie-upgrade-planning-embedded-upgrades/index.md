@@ -35,18 +35,18 @@ When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your 
 When you are embedding the Okta Sign-In Widget, consider and plan for the following steps, depending on your needs:
 
 * [Update your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest version.
-* Add support for the Interaction Code in your Custom Authorization Servers and embedded auth applications. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+* [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your Custom Authorization Servers and embedded auth applications.
 * [Change your embedded Sign-In Widget’s configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
-* [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-authentication-code-to-the-okta-identity-engine-sdk) to update your app if you are using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
+* [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) to update your app if you are using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 * Test and verify your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
 ## Upgrade SDKs to the latest version in your apps
 
 When you are embedding your authentication with our SDKs, consider the steps that you need to take and then make a plan for upgrading your code to the latest version of the SDK. Additionally, plan to replace all Classic Engine Authn calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
 
-1. Update your Custom Authorization Servers to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+1. [Update your Custom Authorization Servers](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) to include the Interaction Code grant type.
 
-2. Update the application settings of your embedded authentication applications to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+2. [Update the application settings](/docs/guides/implement-grant-type/interactioncode/main/#enable-the-interaction-code-grant-on-an-application) of your embedded authentication applications to include the Interaction Code grant type.
 
 > **Note:** Performing steps one and two doesn’t change the way your auth server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your Custom Authorization Server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Authn APIs to using the appropriate SDK.
 
@@ -76,7 +76,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     * **Authentication**
 
-        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and App Sign-On Rules are mapped to a Okta Sign-On Policy and [corresponding Application Sign-On Policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multi Factor Authentication, make sure they still authenticate in the same way. Applications should still work after the policies are upgraded.
+        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and App Sign-On Rules are mapped to a Okta Sign-On Policy and [corresponding Application Sign-On Policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multi Factor Authentication, make sure they still authenticate in the same way. Applications should still work after the policies are upgraded.
 
         > **Note:** Changing the Org Sign-On Policy affects all apps in an org.
 

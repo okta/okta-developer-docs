@@ -7,9 +7,9 @@ title: User password recovery
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
-This use case describes how to integrate a password recovery flow into your app using Okta's SDK. The flow includes an email factor step that the user needs to verify before updating their password.
+This use case describes how to integrate a password recovery flow into your app using an Okta SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
 ---
 
@@ -20,11 +20,13 @@ This use case describes how to integrate a password recovery flow into your app 
 
 **What you need**
 
-[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* An app that uses the embedded Okta Identity Engine SDK
+* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -38,11 +40,11 @@ Before you build a password recovery flow with an email factor, ensure that your
 
 ### Set email as the only factor enabled for password recovery
 
-In addition to configuring your Okta org for the multifactor use case, you need to enable email as the only factor for password recovery.
+In addition to configuring your Okta org for the multifactor use case, you need to enable email as the only factor for password recovery for this flow.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
-1. On the **Authenticators** page, click **Actions** and then **Edit** for the **Password** authenticator.
-1. In the **Password** page, scroll down to the bottom of the page for the **Default Policy** and click
+1. From the **Setup** tab, select **Edit** from the **Actions** drop-down menu on the **Password** authenticator row.
+1. On the **Password** page, scroll down to the **Add Rule** section of the **Default Policy** and click
    the edit pencil icon for the **Default Rule**.
 1. In the **Edit Rule** dialog box, ensure that the following values are configured for the **AND Users can initiate recovery with** field:
    * **Phone (SMS / Voice call)**: Clear
@@ -51,11 +53,11 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 ## Troubleshooting tips
 

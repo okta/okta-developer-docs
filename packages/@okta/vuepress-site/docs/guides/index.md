@@ -9,17 +9,20 @@ guides:
  - configure-native-sso
  - configure-signon-policy
  - create-an-api-token
+ - custom-email
  - custom-error-pages
  - custom-url-domain
+ - custom-widget
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
- - email-customization
  - enable-cors
+ - event-hook-hookdeck
  - event-hook-implementation
+ - event-hook-ngrok
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
@@ -27,13 +30,21 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
  - mfa
- - migrate-to-okta
- - oin-oidc-guide
- - build-provisioning-integration
+ - migrate-to-okta-prerequisites
+ - migrate-to-okta-bulk
+ - migrate-to-okta-password-hooks
+ - oin-oidc-overview
+ - oin-oidc-best-practices
+ - oin-oidc-multi-tenancy
+ - oin-oidc-protocols
+ - scim-provisioning-integration-overview
+ - scim-provisioning-integration-prepare
+ - scim-provisioning-integration-connect
+ - scim-provisioning-integration-test
  - build-sso-integration
- - sms-customization
+ - custom-sms-messaging
  - submit-app
- - production-deployment
+ - deployment-checklist
  - deploy-your-app
  - protect-your-api
  - quickstart
@@ -53,7 +64,6 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
- - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -98,7 +108,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
     * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration)
+    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 
@@ -112,27 +122,27 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Implement authorization by grant type](/docs/guides/implement-grant-type/-/main/)
     * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
-    * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
-    * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
-    * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)
-    * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
-    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/)
+    * [Refresh access tokens](/docs/guides/refresh-tokens/)
+    * [Validate access tokens](/docs/guides/validate-access-tokens/)
+    * [Validate ID tokens](/docs/guides/validate-id-tokens/)
+    * [Configure an access policy](/docs/guides/configure-access-policy/)
+    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
-    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/overview/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/overview/)
+    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
+    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 
-    * [Style the Widget](/docs/guides/style-the-widget/before-you-begin/)
-    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/overview/)
-    * [Customize SMS messages](/docs/guides/sms-customization/before-you-begin/)
-    * [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
+    * [Style the Sign-In Widget](/docs/guides/custom-widget/)
+    * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
+    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+    * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
 5. Deploy to production
 
-    * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
-    * [Deploy your app](/docs/guides/deploy-your-app/overview/)
-    * [Migrate to Okta](/docs/guides/migrate-to-okta/prerequisites/)
+    * [Pre-launch checklist](/docs/guides/deployment-checklist/)
+    * [Deploy your app](/docs/guides/deploy-your-app/)
+    * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Customize Okta process flows with Event or Inline Hooks
 
@@ -149,7 +159,7 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
-1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-guide/overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/overview/)
-1. [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
-1. [Submit an app integration](/docs/guides/submit-app/openidconnect/overview/)
+1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
+1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/)
+1. [Submit an app integration](/docs/guides/submit-app/)

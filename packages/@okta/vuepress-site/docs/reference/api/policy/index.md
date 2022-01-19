@@ -612,10 +612,10 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 Like Policies, Rules have a priority that govern the order that they are considered during evaluation. The highest priority Rule has a `priority` of 1. For example, if a particular Policy had two Rules:
 
-- Rule A has priority 1 and applies to RADIUS VPN scenarios.
+- Rule A has priority 1 and applies to LDAP API scenarios.
 - Rule B has priority 2 and applies to ANYWHERE (network connection) scenarios.
 
-If a request came in from the Radius endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
+If a request came in from the LDAP endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
 
 ### Rules message example (Password Policy)
 
@@ -787,7 +787,7 @@ Specifies an authentication entry point
 
 | Parameter | Description                              | Data Type                             | Required | Default |
 | --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
-| `authType`  | Specifies how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+| `authType`  | Specifies how the user is authenticated | `ANY` or `LDAP_INTERFACE` | No       |  `ANY`  |
 
 > **Note:** The `LDAP_INTERFACE` data type option is an <ApiLifecycle access="ea" /> feature.
 
@@ -2092,3 +2092,5 @@ Policy Rule conditions aren't supported for this policy.
 | `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the Registration Inline Hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
+
+> **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.

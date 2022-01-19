@@ -6,13 +6,19 @@ excerpt: The Schemas API defines custom user profiles for Okta users, applicatio
 
 # Schemas API
 
-Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications. Okta has adopted a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+The Okta Schemas API provides operations to manage custom User profiles as well as endpoints to discover the structure of the Log Stream configuration.
 
-> **Note:** Okta has implemented only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04). This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications.
+Okta adopts a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles.
+For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
+[JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+
+
+> **Note:** Okta implements only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html). This document describes which parts apply to Okta, and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 
 ## Getting started
 
-Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d2aae54268dd28451713)
+Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae)
 
 ## User Schema operations
 
@@ -1533,6 +1539,301 @@ The following response is only a subset of properties for brevity.
 }
 ```
 
+## Log Stream Schema operations
+
+<ApiLifecycle access="ea" />
+
+> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
+
+### Get Log Stream Schema
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
+
+Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which can be the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema.
+
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+
+##### Request parameters
+
+N/A
+
+##### Response parameters
+
+[Log Stream Schema](#log-stream-schema-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge"
+```
+
+##### Response example
+
+For brevity, the following response doesn't include all available properties.
+
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+  "title": "AWS EventBridge",
+  "type": "object",
+  "properties": {
+    "settings": {
+      "description": "Configuration properties specific to AWS EventBridge",
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "title": "AWS Account ID",
+          "description": "Your Amazon AWS Account ID.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^\\d{12}$"
+        },
+        "eventSourceName": {
+          "title": "AWS Event Source Name",
+          "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
+        },
+        "region": {
+          "title": "AWS Region",
+          "description": "The destination AWS region for your system log events.",
+          "type": "string",
+          "writeOnce": true,
+          "oneOf": [
+            {
+              "title": "US East (Ohio)",
+              "const": "us-east-2"
+            },
+            {
+              "title": "US East (N. Virginia)",
+              "const": "us-east-1"
+            },
+            {
+              "title": "US West (N. California)",
+              "const": "us-west-1"
+            },
+            {
+              "title": "US West (Oregon)",
+              "const": "us-west-2"
+            },
+            {
+              "title": "Canada (Central)",
+              "const": "ca-central-1"
+            },
+            {
+              "title": "Europe (Frankfurt)",
+              "const": "eu-central-1"
+            },
+            {
+              "title": "Europe (Ireland)",
+              "const": "eu-west-1"
+            },
+            {
+              "title": "Europe (London)",
+              "const": "eu-west-2"
+            },
+            {
+              "title": "Europe (Paris)",
+              "const": "eu-west-3"
+            },
+            {
+              "title": "Europe (Milan)",
+              "const": "eu-south-1"
+            },
+            {
+              "title": "Europe (Stockholm)",
+              "const": "eu-north-1"
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventSourceName",
+        "accountId",
+        "region"
+      ],
+      "errorMessage": {
+        "properties": {
+          "accountId": "Account number must be 12 digits.",
+          "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+        }
+      }
+    },
+    "name": {
+      "title": "Name",
+      "description": "A name for this log stream in Okta",
+      "type": "string",
+      "writeOnce": false,
+      "pattern": "^.{1,100}$"
+    }
+  },
+  "required": [
+    "name",
+    "settings"
+  ],
+  "errorMessage": {
+    "properties": {
+      "name": "Name can't exceed 100 characters."
+    }
+  }
+}
+```
+
+
+### List Log Stream Schemas
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/logStream" />
+
+Lists schemas for all Log Stream types visible for this org.
+
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+
+##### Request parameters
+
+N/A
+
+##### Response parameters
+
+Array of [Log Stream Schema](#log-stream-schema-object) objects
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/logStream"
+```
+
+##### Response example
+
+For brevity, the following response doesn't include all available properties.
+
+
+```json
+[
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+    "title": "AWS EventBridge",
+    "type": "object",
+    "properties": {
+      "settings": {
+        "description": "Configuration properties specific to AWS EventBridge",
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "title": "AWS Account ID",
+            "description": "Your Amazon AWS Account ID.",
+            "type": "string",
+            "writeOnce": true,
+            "pattern": "^\\d{12}$"
+          },
+          "eventSourceName": {
+            "title": "AWS Event Source Name",
+            "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
+            "type": "string",
+            "writeOnce": true,
+            "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
+          },
+          "region": {
+            "title": "AWS Region",
+            "description": "The destination AWS region for your system log events.",
+            "type": "string",
+            "writeOnce": true,
+            "oneOf": [
+              {
+                "title": "US East (Ohio)",
+                "const": "us-east-2"
+              },
+              {
+                "title": "US East (N. Virginia)",
+                "const": "us-east-1"
+              },
+              {
+                "title": "US West (N. California)",
+                "const": "us-west-1"
+              },
+              {
+                "title": "US West (Oregon)",
+                "const": "us-west-2"
+              },
+              {
+                "title": "Canada (Central)",
+                "const": "ca-central-1"
+              },
+              {
+                "title": "Europe (Frankfurt)",
+                "const": "eu-central-1"
+              },
+              {
+                "title": "Europe (Ireland)",
+                "const": "eu-west-1"
+              },
+              {
+                "title": "Europe (London)",
+                "const": "eu-west-2"
+              },
+              {
+                "title": "Europe (Paris)",
+                "const": "eu-west-3"
+              },
+              {
+                "title": "Europe (Milan)",
+                "const": "eu-south-1"
+              },
+              {
+                "title": "Europe (Stockholm)",
+                "const": "eu-north-1"
+              }
+            ]
+          }
+        },
+        "required": [
+          "eventSourceName",
+          "accountId",
+          "region"
+        ],
+        "errorMessage": {
+          "properties": {
+            "accountId": "Account number must be 12 digits.",
+            "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+          }
+        }
+      },
+      "name": {
+        "title": "Name",
+        "description": "A name for this log stream in Okta",
+        "type": "string",
+        "writeOnce": false,
+        "pattern": "^.{1,100}$"
+      }
+    },
+    "required": [
+      "name",
+      "settings"
+    ],
+    "errorMessage": {
+      "properties": {
+        "name": "Name can't exceed 100 characters."
+      }
+    }
+  }
+]
+```
+
 ## User Schema object
 
 The [User object](/docs/reference/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
@@ -2985,3 +3286,64 @@ The following response is only a subset of properties for brevity.
     }
 }
 ```
+
+
+## Log Stream Schema object
+
+<ApiLifecycle access="ea" />
+
+
+The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
+
+| Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
+|:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
+| $id | URI of Log Stream Schema |String |FALSE| TRUE| TRUE|
+|$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
+|title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
+|type| Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, `integer` or `object` |FALSE|FALSE|TRUE|
+|properties|Log Stream Schema properties object (see [`properties` description](#log-stream-schema-object-description-details))| Object |FALSE|TRUE|TRUE|
+|required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
+|oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#log-stream-schema-object-description-details)) |Array|TRUE|FALSE|TRUE|
+|pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
+
+In addition to those, Okta extends [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+with the following keywords:
+
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
+| errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
+
+#### Log Stream Schema object description details
+
+* All Log Stream Schema root object `properties` contain `name` and `settings`:
+     - `name` &mdash; specifies the Log Stream name within Okta
+     - `settings` &mdash; lists properties required to configure Log Stream
+* `properties` object within the `settings` defines configuration properties for the particular Log Stream type
+* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+
+ ```json
+{
+  "const": "enumValue",
+  "title": "display name"
+}
+ ```
+
+* `errorMessage`: Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
+
+##### Error Message object
+
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| properties| Error messages for individual properties in the schema | Map of <String, String> | TRUE | FALSE | TRUE |
+
+
+Within the properties map, the keys are the property names, while the values are the error messages if validation fails on these properties.
+
+##### Log Stream Schema Property Types and validation
+
+Specific property types support a subset of [JSON Schema validations](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00).
+
+| Property Type| Description | Validation Keywords |
+| :------------------------- | :------------- | :-------------------------- |
+| string | JSON String | pattern|

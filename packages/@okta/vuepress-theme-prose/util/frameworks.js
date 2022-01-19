@@ -14,6 +14,13 @@ const COMMON_NAME_TO_FANCY_NAME = {
   azure: 'Azure AD',
   javascript: 'JS',
   angular: 'Angular',
+  amazon: 'Amazon',
+  github: 'GitHub',
+  gitlab: 'GitLab',
+  paypal: 'Paypal',
+  salesforce: 'Salesforce',
+  yahoo: 'Yahoo!',
+  yahoojp: 'Yahoo! Japan',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',
@@ -38,6 +45,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oktatookta: 'Okta-to-Okta',
   openidconnect: 'OpenID Connect',
   saml2: 'SAML 2.0',
+  scim: 'SCIM',
   facebook: 'Facebook',
   google: 'Google',
   linkedin: 'LinkedIn',
@@ -61,6 +69,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   clientcreds: 'Client Credentials',
   ropassword: 'Resource Owner Password',
   saml2assert: 'SAML 2.0 Assertion',
+  interactioncode: 'Interaction Code',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

@@ -1,6 +1,6 @@
 ### 1: Add the forgot password link to the sign-in page
 
-The first step is to create a forgot password link on the sign-in page that redirect the user to a reset password page.
+The first step is to create a forgot password link on the sign-in page that redirects the user to a reset password page.
 
 <div class="common-image-format">
 
@@ -10,7 +10,7 @@ The first step is to create a forgot password link on the sign-in page that redi
 
 ### 2: Create the reset password page
 
-Create a reset password page that initiates the reset password flow. The page should accept the user's email address and have a button that starts the reset flow.
+Create a page that accepts the user's email address and contains a button to start the reset password flow.
 
 <div class="common-image-format">
 
@@ -20,7 +20,7 @@ Create a reset password page that initiates the reset password flow. The page sh
 
 ### 3: Make a call to the RecoverPasswordAsync method
 
-After the user starts the reset flow, your app needs to call the
+After the user starts the reset password flow, your app needs to call the
 `RecoverPasswordAsync()` method and pass in the email address captured from the reset password form.
 The method returns a response with an `AwaitingAuthenticatorSelection` status. This status indicates that there is an email factor in the `Authenticators` property that needs to be verified before resetting the password.
 
@@ -44,10 +44,7 @@ After the `AwaitingAuthenticatorSelection` response status is returned, redirect
 
 ### 4: Create the reset password authenticators page
 
-The next step is to create a page that shows the authenticator that is returned from
-the `RecoverPasswordAsync()` method. For this use case, it shows the email authenticator.
-The page should include the name of the authenticator and the ability to select the
-authenticator to initiate the authentication verification process.
+Create a page to show the authenticators that are returned from the `RecoverPasswordAsync()` method. Provide the user with an option to select the authenticator for the verification process. For this use case, only the email authenticator is returned.
 
 <div class="common-image-format">
 
@@ -57,9 +54,8 @@ authenticator to initiate the authentication verification process.
 
 ### 5: Make a call to the SelectRecoveryAuthenticatorAsync method
 
-After the user selects the email authenticator, the next step is to call
-the `SelectRecoveryAuthenticatorAsync` method with the email `Authentication id`.
-The method should return an `AwaitingAuthenticatorVerification` status. This status indicates that the Okta platform has emailed the verification code to the user's email address and it's now awaiting verification.
+After the user selects the email authenticator, the next step is to call the `SelectRecoveryAuthenticatorAsync()` method with the email `Authenticator Id`.
+If this method returns an `AwaitingAuthenticatorVerification` status, then Okta has sent the verification code to the user's email address and is now waiting for code verification.
 
 ```csharp
 var applyAuthenticatorResponse = await _idxClient.SelectRecoveryAuthenticatorAsync(
@@ -77,25 +73,19 @@ if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.Awai
 
 ### 6: Create the code verification page
 
-After the call to `SelectRecoveryAuthenticatorAsync` has responded with
-`AwaitingAuthenticatorVerification`, the user should be redirected to a
-code verification page.
+Redirect the user to a code verification page when your app receives the `AwaitingAuthenticatorVerification` status after it calls the `SelectRecoveryAuthenticatorAsync()` method.
 
 <div class="common-image-format">
 
-![Displays an example select password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png)
+![Displays an email code verification page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png)
 
 </div>
 
-The page should display a field to enter a code and a button/link to send
-the code to Okta for the email verification.
+Create a code verification page with a code input field and a button or link to submit the code to Okta for verification.
 
 ### 7: Make a call to the VerifyAuthenticatorAsync method
 
-After the user checks their email for the code and enters the code into the field,
-they should click **Verify** to initiate the verification of the email.
-Call `VerifyAuthenticatorAsync` with the email verification code to verify the email
-address.
+After the user submits their email verification code, call the `VerifyAuthenticatorAsync()` method with the submitted code to verify the email authenticator.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
@@ -110,26 +100,21 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-If the `VerifyAuthenticatorAsync` call is successful, it should return
-`AwaitingPasswordReset`. This status indicates that the user can now change their
-password. At this point, the user should be redirected to the change password page.
+If the `VerifyAuthenticatorAsync()` call is successful, then the `AwaitingPasswordReset` status is returned. This status indicates that the user can now change their password. At this point, redirect the user to the change password page.
 
 ### 8: Create the change password page
 
-Create a change password page that allows the user to enter the
-new password and initiate the change password.
+Create a change password page that allows the user to enter their new password and initiate the password change.
 
 <div class="common-image-format">
 
-![Displays an example change password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
+![Displays an example change password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-change-pwd.png)
 
 </div>
 
 ### 9: Make a call to the ChangePasswordAsync method
 
-The final step is to make a call to `ChangePasswordAsync` to change the
-user's password. Pass `ChangePasswordOptions` into the method call with
-the `NewPassword` property set to the new password.
+The final step is to make a call to the `ChangePasswordAsync()` method to change the user's password. Encapsulate the new password into `changePasswordOptions` and pass it as an argument to the `ChangePasswordAsync()` method.
 
 ```csharp
 var authnResponse = await idxAuthClient.ChangePasswordAsync(changePasswordOptions,
@@ -147,5 +132,4 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-If the response's `AuthenticationStatus` returns `Success`, the change password flow has
-completed successfully and you can redirect the user to the default page.
+If the call to `ChangePasswordAsync()` returns an `AuthenticationStatus.Success` status, then the change password flow completed successfully and the user can be redirected to the default page.

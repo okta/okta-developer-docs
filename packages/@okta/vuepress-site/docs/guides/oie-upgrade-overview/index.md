@@ -79,14 +79,16 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
   * [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript methods, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
   * [Update the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
-  * [Update the Sign-in Widget L10n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget L10n key updates.
+  * [Update the Sign-in Widget i18n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget i18n key updates.
 
 * [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
-* Upgrade authentication services and applications to use the Interaction Code grant type: Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+* [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server): Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
 
 * [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/): Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
 * [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
 * [Understand how sessions work after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+
+* [Understand MFA enrollment policy API changes after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.

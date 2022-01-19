@@ -4,7 +4,9 @@ excerpt: Learn how to add authentication to your web applications and sign users
 layout: Guides
 ---
 
-This guide shows you how to use Okta as the user store for your server-side web application and sign users in.
+<StackSelector />
+
+This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
@@ -14,29 +16,23 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 * Create an Okta app integration to represent your app in your org.
 * Add dependencies and configure your app to use Okta for authentication.
-* Sign a user in to your app.
+* Sign a user in to your app
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Knowledge of building server-side Web applications.
-* A project or application that you want to add authentication to.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Knowledge of building server-side Web applications
+* A project or application to add authentication to.
 
 **Sample code**
 
-* ASP.NET &mdash; see our [ASP.NET MVC example](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for a working sample app, or check out [ASP.NET MVC quickstart](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started) if you want to build your own to work through this guide with.
-* ASP.NET Core &mdash; see our [ASP.NET Core example](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a working sample app, or check out [ASP.NET Core quickstart](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-aspnet-core) if you want to build your own to work through this guide with.
-* Golang &mdash; see our [Go Samples on GitHub](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for a working sample app, or check out [Golang getting started guide](https://golang.org/doc/install) if you want to build your own to work through this guide with.
-* Node.js Express &mdash; see our [Node Express example](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for a working sample app, or check out [Express getting started guide](https://expressjs.com/en/starter/installing.html) if you want to build your own to work through this guide with.
-* PHP &mdash; see our [PHP Samples on GitHub](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a working sample app.
-* Python Flask &mdash; see our [Flask Python Samples on GitHub](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a working sample app.
-* Java Spring Boot &mdash; see our [Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for a working sample app, or check out [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) if you want to build your own to work through this guide with. You can directly create a new Spring Boot project with Okta by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web** and **Okta**, then clicking **Generate Project** to download a zip file.
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
 ## Refresh tokens and web apps
 
-With browser-based apps, the risk of the refresh token being compromised is high when a persistent refresh token is used. This threat is greatly reduced by rotating refresh tokens. [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
+With browser-based apps, the risk of the refresh token being compromised is high when a persistent refresh token is used. This threat is greatly reduced by rotating refresh tokens. [Refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
 
 See the [OAuth 2.0 for Browser-Based Apps specification](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-05#page-10) for the latest spec information on using refresh tokens with browser-based apps.
 
@@ -48,7 +44,7 @@ Your web application must host a route that Okta sends information to when a use
 
 The callback route is not seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
-<StackSelector snippet="define-route"/>
+<StackSelector snippet="define-route" noSelector/>
 
 Our examples use `/authorization-code/callback` as a default route path, but you can change this. The route path is used in the next step.
 
@@ -84,7 +80,7 @@ You need to copy some values into your application later, so leave your Admin Co
 
 ### Enable refresh token rotation
 
-You can choose to [get a refresh token](/docs/guides/refresh-tokens/get-refresh-token/) along with the access token and/or ID token.
+You can choose to [get a refresh token](/docs/guides/refresh-tokens/main/#get-a-refresh-token) along with the access token and/or ID token.
 
 The default refresh token behavior is **Use persistent token** for web apps.
 
@@ -98,7 +94,7 @@ To enable refresh token rotation in your app integration, do the following:
 1. In the **Allowed grant types**, select **Refresh Token**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
 
-> **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/refresh-token-rotation/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
+> **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
 
 ### Enable Trusted Origins
 
@@ -124,7 +120,7 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 * **Authorization Server ID** &mdash; find it on the **Security** > **API** > your custom Authorization Server name > **Settings** tab. The Authorization Server ID is the last generated ID string from the **Issuer** property. For example, if the issuer is `https://dev-000000.okta.com/oauth2/auss5kkzkkzYune155e6`, then your Authorization Server ID is `auss5kkzkkzYune155e6`.
 
-> **Note:** The [API Access Management](https://help.okta.com/okta_help.htm?id=ext_API_Access) feature must be enabled in your Okta org for you to use a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server).
+<ApiAmProdWarning />
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
@@ -138,7 +134,7 @@ To sign a user in, your application must redirect the browser to the Okta-hosted
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
-> **Note:** To customize the hosted sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+> **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 You can also define protected routes or areas of your application that will always require authentication.
 
@@ -175,5 +171,5 @@ You should now understand how to sign users in to your web applications using Ok
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)

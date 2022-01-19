@@ -161,6 +161,97 @@
 					"response": []
 				}
 			]
-		}
-	]
+		},
+    {
+      "id": "b6f7d39c-d2eb-472e-8442-11814f03cf4b",
+      "name": "Log Stream Schema",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+
+        {
+          "id": "4f80975d-474b-40a9-ad92-a64302ca5e92",
+          "name": "Get Log Stream schema for a Log Stream type",
+          "request": {
+            "name": "Get Log Stream schema for a Log Stream type",
+            "description": {},
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "meta",
+                "schemas",
+                "logStream",
+                "{{type}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "event": []
+        },
+        {
+          "id": "4f80975d-474b-40a9-ad92-a64302ca5e82",
+          "name": "List Log Stream schemas",
+          "request": {
+            "name": "Get Log Stream schemas for all Log Stream types",
+            "description": {},
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "meta",
+                "schemas",
+                "logStream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "event": []
+        }
+      ],
+      "event": []
+    }
+  ]
 }

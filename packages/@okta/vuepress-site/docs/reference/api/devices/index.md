@@ -20,9 +20,16 @@ The Devices API supports the following **Authorization Schemes**:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
+> **Note:** For devices to enroll in Okta and show up in the Devices API, the following actions are required:
+> 1. Admins - Enable Okta FastPass. See [Enable FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable)
+> 2. End users with existing mobile Okta Verify enrollments - After you upgrade your org to Okta Identity Engine, direct end users with existing Okta Verify enrollments to use [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=csh-fp-main).
+
+> End users with a new enrollment in Okta Verify on an Okta Identity Engine org have a device record created in the device inventory by default.
+See [Device Registration](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration), [Login Using Okta Verify](https://help.okta.com/okta_help.htm?type=eu&id=ext-ov-user-overview).
+
 ## Get started
 
-Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-66eb3f8a-53db-4a7f-bb9b-dbaeed6a9b9e)
+Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5)
 
 ## Device operations
 
@@ -38,8 +45,6 @@ The following Device lifecycle operations:
 * [Deactivate Device](#deactivate-device)
 * [Suspend Device](#suspend-device)
 * [Unsuspend Device](#unsuspend-device)
-
-> **Note:** Device creation occurs during the Okta Verify enrolment flow. The flow creates a Device in the Okta Device Inventory. See [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm).
 
 ### Get Device by ID
 
@@ -113,18 +118,18 @@ curl -v -X GET \
     "profile": {
         "displayName": "Example Device name",
         "platform": "WINDOWS",
-        "manufacturer": null,
-        "model": null,
-        "osVersion": null,
-        "serialNumber": "Example",
-        "imei": null,
-        "meid": null,
-        "udid": null,
+        "serialNumber": "XXDDRFCFRGF3M8MD6D",
         "sid": "S-1-11-111",
-        "tpmPublicKeyHash":null,
         "registered":true,
         "secureHardwarePresent":false
     },
+    "resourceType": "UDDevice",
+    "resourceDisplayName": {
+    "value": "Example Device name",
+      "sensitive": false
+    },
+    "resourceAlternateId": null,
+    "resourceId": "guo1j774nHEZFHsL10w5",
     "_links": {
         "activate": {
             "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
@@ -267,18 +272,18 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
     "profile": {
         "displayName": "Example Device name 1",
         "platform": "WINDOWS",
-        "manufacturer": null,
-        "model": null,
-        "osVersion": null,
-        "serialNumber": "Example 1",
-        "imei": null,
-        "meid": null,
-        "udid": null,
+        "serialNumber": "XXDDRFCFRGF3M8MD6D",
         "sid": "S-1-11-111",
-        "tpmPublicKeyHash":null,
         "registered":true,
         "secureHardwarePresent":false
     },
+    "resourceType": "UDDevice",
+    "resourceDisplayName": {
+    "value": "Example Device name 1",
+      "sensitive": false
+    },
+    "resourceAlternateId": null,
+    "resourceId": "guo4a5u7YAHhjXrMK0g4",
     "_links": {
         "activate": {
             "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate",
@@ -316,18 +321,18 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
     "profile": {
         "displayName": "Example Device name 2",
         "platform": "WINDOWS",
-        "manufacturer": null,
-        "model": null,
-        "osVersion": null,
-        "serialNumber": "Example 2",
-        "imei": null,
-        "meid": null,
-        "udid": null,
+        "serialNumber": "XXDDRFCFRGFDDD4556",
         "sid": "S-1-22-2222",
-        "tpmPublicKeyHash":null,
         "registered":true,
         "secureHardwarePresent":false
     },
+    "resourceType": "UDDevice",
+    "resourceDisplayName": {
+    "value": "Example Device name 2",
+      "sensitive": false
+    },
+    "resourceAlternateId": null,
+    "resourceId": "guo4a5u7YAHhjXrMN0g4",
     "_links": {
         "activate": {
             "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/lifecycle/activate",
@@ -396,18 +401,18 @@ curl -v -X GET \
       "profile": {
           "displayName": "Eng-dev-macbookpro15",
           "platform": "MACOS",
-          "manufacturer": null,
-          "model": null,
-          "osVersion": null,
-          "serialNumber": "",
-          "imei": null,
-          "meid": null,
+          "serialNumber": "C02DR3M8MD6D",
           "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
-          "sid": "",
-          "tpmPublicKeyHash":null,
           "registered":true,
           "secureHardwarePresent":false
       },
+      "resourceType": "UDDevice",
+      "resourceDisplayName": {
+        "value": "Eng-dev-macbookpro15",
+        "sensitive": false
+      },
+      "resourceAlternateId": null,
+      "resourceId": "guo4a5u7JHHhjXrMK0g4",
       "_links": {
           "activate": {
               "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
@@ -476,18 +481,18 @@ curl -v -X GET \
       "profile":{
          "displayName":"Eng-dev-macbookpro15",
          "platform":"MACOS",
-         "manufacturer":null,
-         "model":null,
-         "osVersion":null,
-         "serialNumber":"",
-         "imei":null,
-         "meid":null,
+         "serialNumber":"C02DR3M8MD6D",
          "udid":"36A56558-1793-5B3A-8362-ECBAA14EDD2D",
-         "sid":"",
-         "tpmPublicKeyHash":null,
          "registered":true,
          "secureHardwarePresent":false
       },
+      "resourceType": "UDDevice",
+      "resourceDisplayName": {
+        "value": "Eng-dev-macbookpro15",
+        "sensitive": false
+      },
+      "resourceAlternateId": null,
+      "resourceId": "guo4a5u7JHHhjXrMK0g4",
       "_links":{
          "activate":{
             "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
@@ -959,11 +964,8 @@ The device model defines several read-only properties:
       "model":"VMware7,1",
       "osVersion":"10.0.18362",
       "serialNumber":"56 4d 4f 95 74 c5 d3 e7-fc 3a 57 9c c2 f8 5d ce",
-      "imei":null,
-      "meid":null,
       "udid":"954F4D56-C574-E7D3-FC3A-579CC2F85DCE",
       "sid":"S-1-5-21-3992267483-1860856704-2413701314-500",
-      "tpmPublicKeyHash":null,
       "registered":true,
       "secureHardwarePresent":false
    },
@@ -1012,18 +1014,18 @@ The device model defines several read-only properties:
    }
 }
 ```
+
 ### Device Status
 
-> More details on [Device Lifecycle](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/manage-device-lifecycle.htm)
+> More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
 ![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
 
 > **Note:**
-> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status. 
+> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status.
 > 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. The Device re-enrollment/add account flow via Okta Verify allows end users to setup new factors (sign-in methods) on the device.
 > 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
-
 
 ### Device profile object
 

@@ -4,31 +4,22 @@ excerpt: How to use a custom SAML certificate for apps
 layout: Guides
 ---
 
-This guide teaches you how to upload your own SAML certificates to sign the assertion for Outbound SAML apps, sign the AuthN request, and decrypt the assertion for Inbound SAML.
+This guide explains how to upload your SAML certificates to sign the assertion for Outbound SAML apps, sign the AuthN request, and decrypt the assertion for Inbound SAML.
 
 ---
 
 **Learning outcomes**
 
-* List your apps using Okta APIs.
+* List your apps by using Okta APIs.
 * Generate, sign, and publish a certificate signing request (CSR).
 * Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
-
-**What you need**
-
-n/a
-
-**Sample code**
-
-n/a
-
 ---
 
-## Outbound and Inbound SAML Applications
+## Outbound and Inbound SAML apps
 
-Okta as a SAML Service Provider is referred to as the Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as the Outbound SAML. The general procedure is the same for both. However, some of the API calls are different as described in the following sections. 
+Okta as a SAML Service Provider is referred to as Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as Outbound SAML. The general procedure is the same for both. However, some of the API calls are different as described in the following sections.
 
 > **Note:** After you update the key credential, users can't access the SAML app until you upload the new certificate to the ISV.
 
@@ -348,9 +339,9 @@ Content-Type: application/json
 To share the certificate that you created across multiple apps, clone it with the
 [Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
 
-To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) by using the key `id` that you generated.
+To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](/docs/reference/api/idps/) by using the key `id` that you generated.
 
-Be sure to clone the certificate to every app or IdP that you want to share it with. After it is cloned, you need to [update the key credential](/docs/guides/sign-your-own-saml-csr/update-the-key-credential/) for the target app.
+Ensure that you clone the certificate to every app or IdP that you want to share it with. After the certificate is cloned, you need to [update the key credential](#update-the-key-credential) for the target app.
 
 If the certificate that you cloned from changes, you must repeat the cloning operation for each app or IdP.
 
@@ -358,7 +349,7 @@ If the certificate that you cloned from changes, you must repeat the cloning ope
 
 ## Upload the new certificate to the ISV
 
-> **Caution:** After you complete the [Publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, users can't access the SAML app or the Identity Provider until you complete these next steps.
+> **Caution:** After you complete the [publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, users can't access the SAML app or the Identity Provider until you complete these next steps.
 
 For Outbound SAML, complete the following steps (note that these steps can't be automated):
 

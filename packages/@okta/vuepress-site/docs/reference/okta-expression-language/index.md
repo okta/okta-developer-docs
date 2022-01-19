@@ -178,7 +178,10 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
-**Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
+> **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
+>
+
+> **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
 For an example using group functions and for more information on using group functions for dynamic and static allow lists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
@@ -186,7 +189,7 @@ For an example using group functions and for more information on using group fun
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 ### Linked object function
 
@@ -368,8 +371,8 @@ Sample user data:
 ## Expressions for OAuth 2.0/OIDC custom claims
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
-* See [Create claims](/docs/guides/customize-authz-server/create-claims).
-* See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
+* See [Create claims](/docs/guides/customize-authz-server/main/#create-claims).
+* See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
@@ -382,7 +385,7 @@ Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom
 To include an app Profile label, use the following expression:<br>
 `app.profile.label`
 
-See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
+See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
 #### Sample using access.scope
 

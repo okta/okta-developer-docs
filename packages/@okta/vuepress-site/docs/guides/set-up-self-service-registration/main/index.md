@@ -6,29 +6,25 @@ meta:
 layout: Guides
 ---
 
-This article shows you how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage to allow users to self-register.
+This guide explains how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage that allows users to self-register.
 
 ---
 
 **Learning outcomes**
 
-* Use policies to govern SSR behavior
-* Enable and disable SSR recovery options
-* Configure SSR options in the Okta Sign-In Widget
+* Use policies to govern SSR behavior.
+* Enable and disable SSR recovery options.
+* Configure SSR options in the Okta Sign-In Widget.
 
 **What you need**
 
-* SSR to be enabled (this is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature — contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it)
+* The SSR to be enabled. This is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature. Contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it.
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
-* Widget version 2.9 or later if you are hosting your own [customized Widget](/code/javascript/okta_sign-in_widget/)
-
-**Sample code**
-
-n/a
+* Widget version 2.9 or later if you are hosting a [customized Widget](/code/javascript/okta_sign-in_widget/)
 
 ---
 
-## Overview
+## About Okta's self-service registration
 
 A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
@@ -93,7 +89,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
         * **User dashboard:** Select to redirect users to their Okta homepage.
         * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
 
-    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/main/) for redirects.
+    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/) for redirects.
 
 6. Click **Save**.
 
@@ -133,7 +129,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) check box clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
-> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/overview/) configured.
+> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/) configured.
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.
@@ -166,7 +162,7 @@ Now that you understand how to set up self-service registration, you can learn h
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
-* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/)
+* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/)
 * [Refresh tokens](/docs/guides/refresh-tokens/)
 * [Configure access policies](/docs/guides/configure-access-policy/)
 

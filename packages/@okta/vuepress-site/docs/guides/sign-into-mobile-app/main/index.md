@@ -8,14 +8,16 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 > **Note** If you are building a web application, see [Sign users in to your web application](/docs/guides/sign-into-web-app/) or [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead.
 
+<StackSelector />
+
 ---
 
 **Learning outcomes**
 
-* Create an Okta app integration to represent your app in the system.
-* Implement an Okta-hosted sign-in page.
-* Handle a user sign-in.
-* Handle access tokens appropriately.
+* Create an Okta app integration to represent your app in the system
+* Implement an Okta-hosted sign-in page
+* Handle a user sign-in flow
+* Handle access tokens appropriately
 
 **What you need**
 
@@ -24,9 +26,7 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 **Sample code**
 
-* [Android browser sign-in example](https://github.com/okta/samples-android/tree/master/browser-sign-in)
-* [iOS browser sign-in example](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
-* [React-Native browser sign-in example](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in)
+<StackSelector snippet="samplecode" noSelector/>
 
 ---
 
@@ -38,7 +38,7 @@ You can learn more about how this works by reading about [Okta-hosted flows](/do
 
 The first thing that you need to define is how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in with the browser.
 
-<StackSelector snippet="definescheme"/>
+<StackSelector snippet="definescheme" noSelector/>
 
 This defines your redirect scheme. Add `:/callback` to the scheme to get the full redirect URI (like `com.okta.example:/callback`), which you need in the following steps.
 
@@ -69,7 +69,7 @@ To add Okta authentication to your app, you need install and configure the Okta 
 
 ### Install the SDK
 
-<StackSelector snippet="installsdk"/>
+<StackSelector snippet="installsdk" noSelector/>
 
 ### Configure the SDK
 
@@ -82,15 +82,15 @@ You need the following values from the Okta app that you created in the [Create 
 
 You'll also need the full redirect URI that you defined in the [Define a callback route](#define-a-callback-route) section.
 
-<StackSelector snippet="configuremid"/>
+<StackSelector snippet="configuremid" noSelector/>
 
 ## Open the sign-in page
 
 To sign in users, open a browser and navigate to the Okta-hosted sign-in page.
 
-To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+To learn how to customize the sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
-<StackSelector snippet="signin"/>
+<StackSelector snippet="signin" noSelector/>
 
 ## Get info about the user
 
@@ -98,7 +98,7 @@ When a user signs in, their profile information (stored in Okta) is made availab
 
 By default, the profile items (called "claims") that Okta returns include the user's email address, first name, and last name. You can see the default items returned in the [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6). The claims you see may differ depending on what scopes your app has requested (see [Add and configure packages](#add-and-configure-packages)).
 
-<StackSelector snippet="getinfo"/>
+<StackSelector snippet="getinfo" noSelector/>
 
 <!-- You can also customize the items (called claims) that are returned from Okta. See [Token customization guide]. -->
 
@@ -106,13 +106,13 @@ By default, the profile items (called "claims") that Okta returns include the us
 
 When the app is closed and reopened, you need to check for the existence of an access token to see if the user has an existing session.
 
-<StackSelector snippet="checkfortoken"/>
+<StackSelector snippet="checkfortoken" noSelector/>
 
 ## Keep the user signed in
 
 In many apps, users expect to stay signed in to the app for a long time. Access tokens are short-lived, but you can keep the user signed in by using the refresh token to get new access tokens automatically.
 
-<StackSelector snippet="refresh"/>
+<StackSelector snippet="refresh" noSelector/>
 
 ## Use the access token
 
@@ -126,11 +126,11 @@ Authorization: Bearer ${token}
 
 Your API must check for valid tokens in incoming requests. To learn how to protect your API endpoints and require token authentication, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
-<StackSelector snippet="usetoken"/>
+<StackSelector snippet="usetoken" noSelector/>
 
 ## Next steps
 
 You should now understand how to sign users in to your mobile applications using Okta.
 
-* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+* In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 * To learn how to protect the API endpoints that your mobile app calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).

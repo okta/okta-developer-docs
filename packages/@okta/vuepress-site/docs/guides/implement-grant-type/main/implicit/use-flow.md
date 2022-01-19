@@ -2,8 +2,7 @@ Without using existing libraries, you can make a direct request to Okta's [OIDC 
 
 ### Request for tokens
 
-Using this flow is very similar to the <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>
-except that the `response_type` is `token` and/or `id_token` instead of `code`.
+This flow is very similar to the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/#authorization-code-flow), except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
 
@@ -15,7 +14,7 @@ Note the parameters that are being passed:
 
 - `client_id` matches the Client ID of your Okta OAuth application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the bottom of your application's **General** tab.
 - `response_type` is `token`. It could also be `id_token` or both.
-- `scope` is `openid`, which is required, but additional scopes can be requested. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `scope` is `openid`, which is required, but additional scopes can be requested. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Sign-in redirect URIs** that you specified when you created your Okta app integration in the [Set up your app](#set-up-your-app) section.
 - `state` is an arbitrary alphanumeric string that the Authorization Server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 

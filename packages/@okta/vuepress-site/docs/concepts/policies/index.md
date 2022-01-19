@@ -51,7 +51,7 @@ A password policy also helps you control how users access your app. It determine
 
 ## Control which application can access what information from your APIs
 
-When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object) to do that. Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, when you want to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/create-scopes/) that tie them to a piece of user information.
+When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object) to do that. Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, when you want to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
 
 ## How policies work
 

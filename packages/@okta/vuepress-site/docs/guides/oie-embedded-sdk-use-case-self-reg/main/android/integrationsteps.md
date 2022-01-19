@@ -33,7 +33,7 @@ val newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues
 
 ### 2: The user enters their profile data
 
-Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
+Enroll the user with basic profile information captured from the create account form by calling the `IDXAuthenticationWrapper.register()` method.
 
 ```kotlin
 val userProfile = UserProfile()
@@ -120,7 +120,7 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 </div>
 
-> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [Email link to verify email address does not work](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-email-address-not-working) for details.
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working) for details.
 
 ### 7: The user submits the email verification code
 
@@ -156,7 +156,7 @@ val authenticationResponse = idxAuthenticationWrapper.skipAuthenticatorEnrollmen
 
 > **Note:** Ensure that `isSkipAuthenticatorPresent()=TRUE` for the authenticator before calling `skipAuthenticatorEnrollment()`.
 
-If the request to skip the optional authenticator is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the request to skip the optional authenticator is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
 #### Option 2: The user selects the phone authenticator
 
@@ -174,7 +174,7 @@ This status indicates that the user needs to provide additional authenticator in
 
 This step assumes that the voice feature isn't enabled in your org. The phone verification code is sent through SMS automatically.
 
-When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following code example, the user phone number is encapsulated in the `verifyAuthenticatorOptions` object:
+When the user submits their phone number, capture this information and pass it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method. In the following code example, the user phone number is encapsulated in the `verifyAuthenticatorOptions` object:
 
 ```kotlin
 val authenticationResponse =
@@ -211,7 +211,7 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-When the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
+When the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the `IDXAuthenticationWrapper.submitPhoneAuthenticator()` method.
 
 ```kotlin
 val authenticationResponse =
@@ -234,7 +234,7 @@ val authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
-If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
 #### Resend the code
 

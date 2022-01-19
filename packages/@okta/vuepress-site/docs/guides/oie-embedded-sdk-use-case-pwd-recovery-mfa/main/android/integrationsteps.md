@@ -16,7 +16,7 @@ You need to create a form to capture the user's email for password recovery, suc
 
 </div>
 
-Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
+Begin the authentication process by calling the Java SDK's `IDXAuthenticationWrapper.begin()` method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
 ```kotlin
 val beginResponse = idxAuthenticationWrapper.begin()
@@ -25,7 +25,7 @@ val proceedContext = beginResponse.proceedContext
 
 ### 2: The user enters their email
 
-After the user enters their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method with the user's email as the `username` argument.
+After the user enters their email, call the `IDXAuthenticationWrapper.recoverPassword()` method with the user's email as the `username` argument.
 
 ```kotlin
 val authenticationResponse = idxAuthenticationWrapper.recoverPassword(username, proceedContext)
@@ -62,7 +62,7 @@ This Java SDK method sends the email authenticator selection to Okta. Okta sends
 
 </div>
 
-> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
+> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [SDK limitations and workarounds: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
 ### 4: The user submits the email verification code
 
@@ -91,4 +91,4 @@ val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
 val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
-If the request to update the password is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in with an updated password. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the request to update the password is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in with an updated password. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.

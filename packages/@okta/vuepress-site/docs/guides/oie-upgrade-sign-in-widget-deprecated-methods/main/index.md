@@ -5,7 +5,7 @@ title: Deprecated JavaScript methods in the Sign-In Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers the Javascript method that is deprecated from the Sign-In Widget and describes how to use the `showSignIn()` method instead.
+This guide covers the JavaScript method that is deprecated from the Sign-In Widget and describes how to use `showSignIn` (and related methods) instead.
 
 ---
 
@@ -15,30 +15,43 @@ Understand the `showSignIn` methods that are used in the Sign-In Widget so that 
 
 **What you need**
 
-* [Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
+[Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
 **Sample code**
 
-n/a
+[Code samples using showSignIn](#code-samples-using-showsignin)
 
 ---
 
 ## JavaScript sign-in method changes
 
-After you upgrade your org to Okta Identity Engine, the [setCookieAndRedirect()](https://github.com/okta/okta-signin-widget#renderel) JavaScript method is deprecated from the Sign-In Widget. In the Classic Engine, your app integration calls the `setCookieAndRedirect()` method which means that your app integration sets the redirect URI. However, in the Identity Engine, your app integration shouldn't assume whether it sets the redirect URI as part of the flow. Administrators set the sign-in policies in the [Okta Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-policies). Instead of the `setCookieAndRedirect()` method, use the `showSignIn()` method to resolve the returned promise or redirect it, based on the Administrator's policy.
+After you upgrade your org to Okta Identity Engine, the [`setCookieAndRedirect`](https://github.com/okta/okta-signin-widget#renderel) JavaScript method is deprecated from the Sign-In Widget. In the Classic Engine, your app integration calls the `setCookieAndRedirect` method, which means that your app integration sets the redirect URI. However, in the Identity Engine, your app integration shouldn't assume whether it sets the redirect URI as part of the flow. Administrators set the sign-in policies in the [Okta Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-policies). Instead of the `setCookieAndRedirect` method, use the `showSignIn` method to resolve the returned promise or redirect it, based on the Administrator's policy.
+
+> **Note:** In the Classic Engine, the `setCookieAndRedirect` method is still available.
+
+> **Note:** For users of the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js), the `setCookieAndRedirect` method is also deprecated. However, as part of the upgrade, you need to use the `idx.authenticate` method. See the Okta Auth JavaScript SDK [migration doc](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md#new-methods).
+
+## About showSignIn methods
+
+There are three similar methods in the Sign-In Widget. `showSignIn` applies to most use cases, but you might want to use `showSignInAndRedirect` or `showSignInAndGetTokens()`. The following describes the methods and when to use them:
+
+* [showSignIn](https://github.com/okta/okta-signin-widget#showsignin) &mdash; use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If the result is a redirect, the method redirects to Okta or another Identity Provider (IdP). The responses and errors are the same as those for [renderEl()](https://github.com/okta/okta-signin-widget#renderel).
+
+* [showSignInAndRedirect](https://github.com/okta/okta-signin-widget#showsigninandredirect) &mdash; use this method to define the flow so that it always includes a redirect URI. This is the recommended method for server-side web apps.
+
+* [showSignInToGetTokens](https://github.com/okta/okta-signin-widget#showsignintogettokens) &mdash; use this method to define the flow so that it never includes a redirect URI.
+
+## Code samples using showSignIn
+
+### Sample for a token flow
 
 ```javascript
-  el: `#osw-container`,
+var signIn = new OktaSignIn({
+    // Assumes there is an empty element on the page with an id of 'osw-container'  el: `#osw-container`,
+  el: '#osw-container',
   clientId: `${clientId of your OIDC app integration}`,
   redirectUri: `${redirectUri configured in your OIDC app integration}`,
   baseUrl: `https://${yourOktaDomain}`,
-=======
-   // Assumes there is an empty element on the page with an id of 'osw-container'
-  el: '#osw-container',
-  clientId: '${clientId of your OIDC app integration}',
-  redirectUri: '${redirectUri configured in your OIDC app integration}',
-  baseUrl: 'https://${yourOktaDomain},
->>>>>>> 902d8c1a57d84a6e55bb6f40373e0fb37d61dffa
   authParams: {
     issuer: `https://${yourOktaDomain}/oauth2/default`
   }
@@ -55,9 +68,10 @@ oktaSignIn.authClient.handleLoginRedirect(res.tokens);
   });
 ```
 
-> **Note:** For response handling, use the `handleLoginRedirect()` method. See [Auth.js API reference](https://github.com/okta/okta-auth-js#handleloginredirecttokens-originaluri).
+> **Note:** For response handling, use the `handleLoginRedirect` method. See [Okta Auth API reference](https://github.com/okta/okta-auth-js#handleloginredirecttokens-originaluri).
 
-The following shows a basic redirect callback:
+### Sample for a basic redirect callback
+
 ```javascript
 if (authClient.isLoginRedirect()) {
   const res = await authClient.token.parseFromUrl();
@@ -65,7 +79,8 @@ if (authClient.isLoginRedirect()) {
 }
 ```
 
-The following shows how to handle social authentication with the embedded Widget:
+### Sample for social authentication
+
 ```javascript
 if (authClient.isLoginRedirect()) {
   if (authClient.isInteractionRequired()) {

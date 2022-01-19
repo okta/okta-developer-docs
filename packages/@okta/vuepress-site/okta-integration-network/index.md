@@ -15,14 +15,14 @@ guides:
         url: /docs/concepts/saml
       - text: What is OIDC?
         url: https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
-    docsUrl: /docs/guides/build-sso-integration/saml2/overview/
+    docsUrl: /docs/guides/build-sso-integration/
   - name: Automate Provisioning
     icon: /img/icons/icon--lock.svg
     description: Synchronize user identities using SCIM
     links:
       - text: What is SCIM?
         url: /docs/concepts/scim
-    docsUrl: /docs/guides/build-provisioning-integration/overview/
+    docsUrl: /docs/guides/scim-provisioning-integration-overview
 
 developSteps:
   - name: Build
