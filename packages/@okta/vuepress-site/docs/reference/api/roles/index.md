@@ -10,7 +10,7 @@ meta:
 
 The Okta Administrator Roles API provides operations to manage administrative Role assignments for a User.
 
-Role listing APIs provide a union of both standard and custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc.
+Role listing APIs provide a union of both standard and Custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc.
 
 ## Get started
 
@@ -20,7 +20,7 @@ Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/bu
 
 <ApiLifecycle access="ea" />
 
-These operations allow the creation and manipulation of custom Roles as custom collections of [permissions](#permission-types).
+These operations allow the creation and manipulation of Custom Roles as custom collections of [permissions](#permission-types).
 
 ### Create Role
 
@@ -28,7 +28,7 @@ These operations allow the creation and manipulation of custom Roles as custom c
 
 <ApiOperation method="post" url="/api/v1/iam/roles" />
 
-Creates a new Role with a custom set of permissions
+Creates a new Role with a custom collection of permissions
 
 #### Request parameters
 
@@ -36,11 +36,11 @@ Creates a new Role with a custom set of permissions
 | :---------- | :------------------------------------------ | :----------- | :----------------------------------------------- | :------- |
 | `label`       | The name given to the new Role            | Body         | String                                           | TRUE     |
 | `description` | A description of the new Role             | Body         | String                                           | TRUE     |
-| `permissions` | The permissions that the new Role grants  | Body         | Array of [Permission types](#permission-types)   | TRUE     |
+| `permissions` | The permissions that the new Role grants  | Body         | Array of [Permission](#permission-types) names   | TRUE     |
 
 #### Response parameters
 
-A created Custom [Role](#custom-role-object)
+A created [Custom Role](#custom-role-object)
 
 #### Request example
 
@@ -51,7 +51,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
       "label": "UserCreator",
-      "description": "...",
+      "description": "Create users",
       "permissions": [
         "okta.users.create",
         "okta.users.read",
@@ -97,7 +97,7 @@ Gets a Custom Role by its ID or label
 
 #### Response parameters
 
-The requested custom [Role](#custom-role-object)
+The requested [Custom Role](#custom-role-object)
 
 #### Request example
 
@@ -135,19 +135,19 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Updates a custom Role's label or description by its ID or label
+Updates a Custom Role's label or description by its ID or label
 
 #### Request parameters
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
 | `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
-| `label` | The updated label to apply to the Role          | URL          | String                                           | TRUE     |
-| `description` | The updated description to apply to the Role          | URL          | String                                           | TRUE     |
+| `label` | The updated label to apply to the Role          | Body          | String                                           | TRUE     |
+| `description` | The updated description to apply to the Role          | Body          | String                                           | TRUE     |
 
 #### Response parameters
 
-The updated custom [Role](#custom-role-object)
+The updated [Custom Role](#custom-role-object)
 
 #### Request example
 
@@ -193,7 +193,7 @@ Gets a paginated list of Custom Roles
 
 #### Response parameters
 
-A paginated list of [custom Roles](#custom-role-object)
+A paginated list of [Custom Roles](#custom-role-object)
 
 #### Request example
 
@@ -213,7 +213,7 @@ curl -v -X GET \
     {
       "id": "cr0Yq6IJxGIr0ouum0g3",
       "label": "UserCreator",
-      "description": "...",
+      "description": "Create users",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -228,7 +228,7 @@ curl -v -X GET \
     {
       "id": "cr0Fw7HKcWIroo88m3r1",
       "label": "GroupMembershipManager",
-      "description": "...",
+      "description": "Manage group membership",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -255,7 +255,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
-Gets the list of permissions included in a custom Role identified by its `id` or `label`
+Gets the list of permissions included in a Custom Role identified by its `id` or `label`
 
 #### Request parameters
 
@@ -351,11 +351,11 @@ Adds a new permission to an existing Role
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
-| `permissionType` | Permission to add to the Role        | URL          | [Permission type](#permission-types) | TRUE     |
+| `permissionType` | Permission to add to the Role        | URL          | [Permission](#permission-types) name | TRUE     |
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -371,12 +371,11 @@ curl -v -X POST \
 
 #### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
 ### Get permission
-Gets an existing permission from an existing Role
 
 <ApiLifecycle access="ea" />
 
@@ -386,10 +385,10 @@ Gets a permission from an existing Role
 
 #### Request parameters
 
-| Parameter      | Description                          | Param Type   | DataType                              | Required |
-| :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
+| Parameter      | Description                            | Param Type   | DataType                              | Required |
+| :------------- | :------------------------------------- | :----------- | :------------------------------------ | :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
-| `permissionType` | Permission to retrieve from the Role        | URL          | [Permission type](#permission-types) | TRUE     |
+| `permissionType` | Permission to retrieve from the Role | URL          | [Permission](#permission-types) name  | TRUE     |
 
 #### Response parameters
 
@@ -398,7 +397,7 @@ The requested permission object
 #### Request example
 
 ```bash
-curl -v -X POST \
+curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -417,7 +416,7 @@ curl -v -X POST \
       "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/users.manage"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.manage"
     }
   }
 }
@@ -437,11 +436,11 @@ Deletes a permission from an existing Role
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
-| `permissionType` | Permission to remove from the Role   | URL          | [Permission type](#permission-types)) | TRUE     |
+| `permissionType` | Permission to remove from the Role   | URL          | [Permission](#permission-types) name | TRUE     |
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -457,7 +456,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -467,17 +466,17 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Deletes a custom Role
+Deletes a Custom Role
 
 #### Request parameters
 
 | Parameter       | Description                          | Param Type   | DataType                              | Required |
 | :-------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| `roleIdOrLabel`   | `id` or `label` of the Role          | URL          | String                                | TRUE     |
+| `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                | TRUE     |
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -493,11 +492,11 @@ curl -v -X DELETE \
 
 #### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
-## Resource set operations
+## Resource Set operations
 
 <ApiLifecycle access="ea" />
 
@@ -509,7 +508,7 @@ These operations allow the creation and manipulation of Resource Sets as custom 
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets" />
 
-Creates a new Resource Set with a custom set of resources
+Creates a new Resource Set with a custom collection of resources
 
 #### Request parameters
 
@@ -615,7 +614,7 @@ curl -v -X GET \
 }
 ```
 
-### List resource sets
+### List Resource Sets
 
 <ApiLifecycle access="ea" />
 
@@ -645,7 +644,7 @@ curl -v -X GET \
     {
       "id": "iamoJDFKaJxGIr0oamd9g",
       "label": "SF-IT-1",
-      "description": "...",
+      "description": "First San Francisco IT Resource Set",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -663,7 +662,7 @@ curl -v -X GET \
     {
       "id": "iamoJDFKaJxGIr0oamd0q",
       "label": "SF-IT-2",
-      "description": "...",
+      "description": "Second San Francisco IT Resource Set",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -687,7 +686,7 @@ curl -v -X GET \
 }
 ```
 
-### Update resource set
+### Update Resource Set
 
 <ApiLifecycle access="ea" />
 
@@ -743,7 +742,7 @@ curl -v -X PUT \
 }
 ```
 
-### Delete resource set
+### Delete Resource Set
 
 <ApiLifecycle access="ea" />
 
@@ -759,7 +758,7 @@ Deletes a Resource Set and all its associated Bindings
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -775,7 +774,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -848,17 +847,17 @@ curl -v -X PATCH \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
-Lists the resources that make up a Resource Set
+Lists the Resources that make up a Resource Set
 
 ##### Request parameters
 
-| Parameter   | Description                                                                       | Param Type   | DataType     | Required |
+| Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
 | `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
-A paginated array of [resources](#resource-object)
+A paginated array of [Resources](#resource-object)
 
 ##### Request example
 
@@ -954,7 +953,7 @@ then `ire106sQKoHoXXsAe0g4` could be used as `resourceId` to remove the Groups f
 
 ##### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -970,7 +969,7 @@ curl -v -X DELETE \
 
 ##### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -993,6 +992,7 @@ Assigns a Custom Role by creating a Binding between the Role and the admin that 
 
 | Parameter      | Description                                                   | Param Type    | DataType       | Required |
 | :------------- | :------------------------------------------------------------ | :------------ | :------------- | :------- |
+| `resourceSetId`| ID of the Resource Set                                        | URL           | String         | TRUE     |
 | `role`           | ID of the Role                                              | Body          | String         | TRUE     |
 | `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role  | Body          | Array of hrefs | TRUE     |
 
@@ -1255,7 +1255,7 @@ then `irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from 
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1271,7 +1271,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1407,7 +1407,7 @@ Deletes a Binding of a Role from a Resource Set
 
 #### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1423,7 +1423,7 @@ curl -v -X DELETE \
 
 ##### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1819,11 +1819,12 @@ as long as the request body contains a Custom `role` ID and a `resource-set` ID.
 
 ##### Request parameters
 
-| Parameter       | Description                 | Param Type   | DataType                    | Required |
-| :-------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
-| `type`            | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
-| `role`            | ID of the Custom Role     | Body         | String                      | TRUE     |
-| `resource-set`    | ID of the Resource Set    | Body         | String                      | TRUE     |
+| Parameter             | Description                 | Param Type   | DataType                    | Required |
+| :-------------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
+| `userId` or `groupId` | User ID or Group ID         | URL          | String                      | TRUE     |
+| `type`                | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
+| `role`                | ID of the Custom Role       | Body         | String                      | TRUE     |
+| `resource-set`        | ID of the Resource Set      | Body         | String                      | TRUE     |
 
 ##### Response parameters
 
@@ -1890,7 +1891,7 @@ Unassigns a Role from a User
 
 ##### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1906,7 +1907,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1925,7 +1926,7 @@ Unassigns a Role from a Group
 
 ##### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1941,7 +1942,7 @@ curl -v -X DELETE \
 
 ##### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -1971,7 +1972,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2162,7 +2163,7 @@ When you add the first Group target, you reduce the scope of the role assignment
 ###### Response parameters
 
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2180,7 +2181,7 @@ curl -v -X PUT \
 ###### Response example
 
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2203,7 +2204,7 @@ When you add the first Group target, you reduce the scope of the role assignment
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2219,7 +2220,7 @@ curl -v -X PUT \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2245,7 +2246,7 @@ Removes a Group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 ###### Response parameters
 
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2261,7 +2262,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2283,7 +2284,7 @@ Removes a Group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2299,7 +2300,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2533,15 +2534,15 @@ Adding an App target overrides any existing App Instance targets of the App. For
 ###### Request parameters
 
 
-| Parameter   | Description                                                  | Param Type   | DataType   | Required |
-| :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
-| `appName`     | Name of the App target from the catalog to scope Role assignment   | URL          | String     | TRUE     |
-| `roleId`      | ID of a Role                                               | URL          | String     | TRUE     |
-| `userId`      | ID of a User                                               | URL          | String     | TRUE     |
+| Parameter   | Description                                                      | Param Type   | DataType   | Required |
+| :---------- | :--------------------------------------------------------------- | :----------- | :--------- | :------- |
+| `appName`   | Name of the App target from the catalog to scope Role assignment | URL          | String     | TRUE     |
+| `roleId`    | ID of a Role                                                     | URL          | String     | TRUE     |
+| `userId`    | ID of a User                                                     | URL          | String     | TRUE     |
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2557,7 +2558,7 @@ curl -v -X PUT \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2582,7 +2583,7 @@ An App target that is added overrides any existing instance targets of the app. 
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2598,7 +2599,7 @@ curl -v -X PUT \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2630,7 +2631,7 @@ When you add the first App or App Instance target, you reduce the scope of the r
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2646,7 +2647,7 @@ curl -v -X PUT \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2672,7 +2673,7 @@ When you add the first App or App Instance target, you reduce the scope of the r
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2688,7 +2689,7 @@ curl -v -X PUT \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2713,7 +2714,7 @@ Removes an App target from an `APP_ADMIN` Role assigned to a User
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2729,7 +2730,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2751,7 +2752,7 @@ Removes an App target from an `APP_ADMIN` Role assigned to a Group
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2767,7 +2768,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2793,7 +2794,7 @@ Removes an App instance target from an `APP_ADMIN` Role assigned to a User
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2809,7 +2810,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2833,7 +2834,7 @@ Removes an App Instance target from an `APP_ADMIN` Role assigned to a Group
 
 ###### Response parameters
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2849,7 +2850,7 @@ curl -v -X DELETE \
 
 ###### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3047,14 +3048,14 @@ A Role could either be assigned to the User directly or be assigned to a Group o
 
 A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role is uniquely identified within your org by its ID or label.
 
-### Custom role properties
+### Custom Role Properties
 | Property         | Description                         | DataType                                       | Nullable   | Unique   | Read Only |
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
 | `id`               | Unique key for the Role             | String                                         | FALSE      | TRUE     | TRUE      |
 | `label`            | Display name of the Role                | String                                         | FALSE      | TRUE     | FALSE     |
 | `created`      | The date and time the Role was created | Timestamp | FALSE      | FALSE    | TRUE     |
 | `lastUpdated`      | The date and time that the Role's label or description were last updated | Timestamp | FALSE      | FALSE    | TRUE     |
-| `_links`           | Discoverable resources related to the Role      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | TRUE     |
+| `_links`           | Discoverable resources related to the Role      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE       | FALSE    | TRUE     |
 
 
 #### Example
@@ -3080,7 +3081,7 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
 
 <ApiLifecycle access="ea" />
 
-Permissions can be added to, or removed from, custom Roles.  Permissions to manage a resource also grant the viewing privileges for the same resource so that you won't need to assign them separately.
+Permissions can be added to, or removed from, Custom Roles.  Permissions to manage a resource also grant the viewing privileges for the same resource so that you won't need to assign them separately.
 
 User permissions are only effective with respect to the Group(s) to which the admin is granted a Role through Resource Set assignments.
 
@@ -3090,7 +3091,7 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `label`            | Type of permissions                | String                                         | FALSE      | FALSE     | TRUE     |
 | `created`      | The date and time the Permission was added to the role | Timestamp | FALSE      | FALSE    | TRUE     |
 | `lastUpdated`      | The date and time the Permission's association with the role was last updated | Timestamp | FALSE      | FALSE    | TRUE     |
-| `_links`           | Discoverable resources related to the Permission      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | TRUE     |
+| `_links`           | Discoverable resources related to the Permission      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE       | FALSE    | TRUE     |
 
 
 | Permission type                         | Description                                                                                                                                           | Applicable resource types                    |
@@ -3144,7 +3145,7 @@ User permissions are only effective with respect to the Group(s) to which the ad
 
 <ApiLifecycle access="ea" />
 
-A Resource Set is a collection of resources. As there can be too many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
+A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
 
 | Property         | Description                                             | DataType                                                                                                      | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :--------- | :------- | :-------- |
@@ -3284,7 +3285,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
 
 A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There is a maximum of one Binding object per Role in a Resource Set.
 
-The admin list assigned to a Role is made of [resource objects](#resource-object) that represent either of the following types of admin assignments:
+The admin list assigned to a Role is made of [Resource objects](#resource-object) that represent either of the following types of admin assignments:
 
 * Directly assigned to the User
 * Assigned to a Group
@@ -3292,7 +3293,7 @@ The admin list assigned to a Role is made of [resource objects](#resource-object
 | Property         | Description                                                     | DataType       | Nullable   | Unique   | Read Only |
 | :--------------- | :-------------------------------------------------------------- | :------------- | :--------- | :------- | :-------- |
 | `id`               | ID of the Role granted in this Binding                        | String         | FALSE      | FALSE    | FALSE     |
-| `_links`           | Discoverable resources related to the Resource Set              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | FALSE     |
+| `_links`           | Discoverable resources related to the Resource Set            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE       | FALSE    | FALSE     |
 
 The following `_links` are returned:
 

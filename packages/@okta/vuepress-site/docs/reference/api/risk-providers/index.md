@@ -53,7 +53,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-X"
+    "name": "Risk-Partner-X",
     "action": "log_only",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers"
@@ -120,7 +120,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-Y"
+    "name": "Risk-Partner-Y",
     "action": "enforce_and_log",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn"

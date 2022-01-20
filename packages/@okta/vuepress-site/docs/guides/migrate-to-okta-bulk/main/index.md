@@ -6,28 +6,28 @@ meta:
 layout: Guides
 ---
 
-As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide shows you how to use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
+As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide explains how you can use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
 
 ---
 
 **Learning outcomes**
 
-Perform a bulk migration of users into Okta using Okta APIs.
+Perform a bulk migration of users into Okta by using Okta APIs.
 
 **What you need**
 
-* An Okta developer org. (Don't have one? [Create an org for free.](https://developer.okta.com/signup))
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Postman client to run API requests. See [Use Postman with the Okta REST APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
-* Example or test source data to test user and group creation requests. (Do not use real user data when testing!)
-* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/).
+* Example or test source data to test user and group creation requests. (Do not use real user data when testing.)
+* [A plan for migrating existing users to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 **Sample code**
 
-On this page you can find curl request examples for [creating groups](#request-example), [creating users with groups](#request-example-with-groups), and [creating users without groups](#request-example-without-groups).
+[Creating groups](#request-example), [creating users with groups](#request-example-with-groups), and [creating users without groups](#request-example-without-groups) for cURL request examples
+
+> **Note:** The examples in this guide are presented by using cURL commands. Postman can generate request code for a number of programming languages that can help with development.
 
 ---
-
-> **Note:** The examples in this guide are presented using cURL commands. Postman can generate request code for a number of programming languages that can help with development.
 
 ## Sample data
 

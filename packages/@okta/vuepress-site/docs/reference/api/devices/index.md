@@ -29,7 +29,7 @@ See [Device Registration](https://help.okta.com/okta_help.htm?type=oie&id=csh-de
 
 ## Get started
 
-Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-66eb3f8a-53db-4a7f-bb9b-dbaeed6a9b9e)
+Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5)
 
 ## Device operations
 

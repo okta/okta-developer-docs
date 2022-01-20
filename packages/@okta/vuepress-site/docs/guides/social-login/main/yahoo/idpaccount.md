@@ -1,1 +1,1 @@
-[<StackSelector snippet="idp" noSelector inline />](https://login.yahoo.com/)
+[Yahoo](https://login.yahoo.com/)
