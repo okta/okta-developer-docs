@@ -2904,6 +2904,8 @@ Generates a one-time token (OTT) that can be used to reset a user's password
 
 The user will be required to validate their security question's answer when visiting the reset link.  This operation can only be performed on users with an `ACTIVE` status and a valid [recovery question credential](#recovery-question-object).
 
+>**Note:** If you have migrated to Okta Identity Engine, you can allow users to recover passwords with any enrolled MFA authenticator. See [Self-serve account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
+><ApiLifecycle access="ie" />
 ##### Request Parameters
 
 
