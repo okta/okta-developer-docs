@@ -8614,7 +8614,7 @@ Okta updates a user's attributes in the application when the application is assi
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14  |   100     |
 
-> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then MinLength of Client Secret should be 32.
+> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then MinLength of `client_secret` should be 32.
 
 ### Client Secret Response object
 
