@@ -35,7 +35,7 @@ Production orgs are always a known-stable release, covered by our Software Licen
 The Admin Console is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the **Dashboard** tab. This landing page provides a summary of activity in Okta and in your apps. The page also lists notifications of any problems or outstanding work that you need to complete. The Admin Console also provides you with quick access to your application configuration and API Access Management features.
 
 ## Cells
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and of feature redundancy to ensure availability.
+Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and feature redundancy to ensure availability.
 
 > **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin.
 
