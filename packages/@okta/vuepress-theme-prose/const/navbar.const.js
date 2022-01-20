@@ -292,7 +292,20 @@ export const guides = [
           {
             title: "Configure Okta sign-on and App sign-on policies",
             guideName: "configure-signon-policy"
-          }
+          },
+          {
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "authenticators-google-authenticator"
+              }
+            ]
+          },
         ]
       },
       {

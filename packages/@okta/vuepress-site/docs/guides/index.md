@@ -91,7 +91,8 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
-
+ - authenticators-overview
+ - authenticators-google-authenticator
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
