@@ -3642,7 +3642,7 @@ Removes an inactive application
 
 ##### Response parameters
 
-An empty JSON object `{}`
+Empty response
 
 ##### Request example
 
@@ -5141,7 +5141,7 @@ curl -v -X GET \
 
 Adds a new secret to the client's collection of secrets
 
-> **Note:** This API lets you bring your own secret. If no secrets are specified in the request, it adds a new system-generated secret.
+> **Note:** This API lets you bring your own secret. If no secret is specified in the request, it adds a new system-generated secret.
 
 ##### Request parameters
 
@@ -5568,7 +5568,7 @@ Deletes a specific client secret by `secretId`
 
 ##### Response parameters
 
-An empty JSON object `{}`
+Empty response
 
 ##### Request example
 
@@ -5627,7 +5627,7 @@ Adds a new JSON Web Key to the client’s JSON Web Keys.
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
-| metadata      | Metadata for creating a JSON Web Key [JSON Web Key Metadata](#json-web-key-request-object)   | Body      | JSON Web Key Metadata             | TRUE     |         |
+| metadata      | JSON Web Key Request Object [JSON Web Key Metadata](#json-web-key-request-object)   | Body      | JSON Web Key Metadata             | TRUE     |         |
 
 ##### Response parameters
 
@@ -5647,7 +5647,7 @@ curl -v -X POST \
   "use": "sig",
   "e":"AQAB",
   "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
-}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/"
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
 ```
 
 ##### Response example
@@ -6005,7 +6005,7 @@ curl -v -X GET \
   }
 }
 ```
-If a secret isn't found for the `secretId`, you receive an error response.
+If a JSON Web Key isn't found for the `id`, you receive an error response.
 
 ```json
 {
@@ -6063,7 +6063,7 @@ Deletes a specific JSON Web Key by `id`
 
 ##### Response parameters
 
-An empty JSON object `{}`
+Empty response
 
 ##### Request example
 
@@ -8264,11 +8264,11 @@ The application key credential object defines a [JSON Web Key](https://tools.iet
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | created          | timestamp when certificate was created                       | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
-| e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | expiresAt        | timestamp when certificate expires                           | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | kid              | unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the certificate's keypair | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
-| n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | use              | acceptable usage of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |           |            |
 | x5c              | X.509 certificate chain                                      | Array                                                                       | TRUE     | TRUE   | TRUE     |           |           |            |
 | x5t#S256         | X.509 certificate SHA-256 thumbprint                         | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
@@ -8614,7 +8614,7 @@ Okta updates a user's attributes in the application when the application is assi
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14  |   100     |
 
-> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then minLength of Client Secret should be 32.
+> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then MinLength of Client Secret should be 32.
 
 ### Client Secret Response object
 
@@ -8653,12 +8653,12 @@ Okta updates a user's attributes in the application when the application is assi
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | ------- |
-| id               | Unique key of the group                                          | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| id               | Unique key of the group                                      | String                                                                      | FALSE     | TRUE   | TRUE    |         |
 | client_secret    | Client secret                                                | String                                                                      | FALSE     | TRUE   | FALSE   |         |
-| secret_hash      | Hash of the client secret                                        | String                                                                      | FALSE     | TRUE   | TRUE    |         |
-| created          | Timestamp when the secret was created                            | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
-| lastUpdated      | Timestamp when the secret was last updated                       | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
-| status           | Status of the feature                                        | `ACTIVE`, `INACTIVE`                                                        | FALSE     | FALSE  | FALSE   |`ACTIVE` |
+| secret_hash      | Hash of the client secret                                    | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| created          | Timestamp when the secret was created                        | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| lastUpdated      | Timestamp when the secret was last updated                   | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| status           | Status of the Client Secret                                  | `ACTIVE`, `INACTIVE`                                                        | FALSE     | FALSE  | FALSE   |`ACTIVE` |
 | _links           | Discoverable resources related to client secrets             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE     | FALSE  | TRUE    |         |
 
 
@@ -8684,13 +8684,13 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | kid              | Unique identifier for the certificate                        | String                                                                      | TRUE     | TRUE   | TRUE     |           |
-| kty              | Cryptographic algorithm family for the certificate's key pair | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| use              | Acceptable use of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |
-| status           | Status of the feature                                        | `ACTIVE`, `INACTIVE`                                                        | TRUE     | FALSE  | FALSE    | `ACTIVE`  |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | TRUE     | FALSE  | FALSE    | `ACTIVE`  |
 
 
 ### JSON Web Key Response object
@@ -8737,13 +8737,13 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
 | id               | Unique key of group                                          | String                                                                      | FALSE    | TRUE   | TRUE     |           |
-| e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
 | kid              | Unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |
-| kty              | Cryptographic algorithm family for the certificate's key pair | String                                                                      | FALSE    | FALSE  | TRUE     |           |
-| use              | Acceptable use of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |
-| created          | Timestamp when the JSON Web Key was created                      | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
-| lastUpdated      | timestamp when the JSON Web Key was last updated                 | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
-| status           | Status of the feature                                        | `ACTIVE`, `INACTIVE`                                                        | FALSE    | FALSE  | FALSE    | `ACTIVE`  |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| created          | Timestamp when the JSON Web Key was created                  | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| lastUpdated      | Timestamp when the JSON Web Key was last updated             | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | FALSE    | FALSE  | FALSE    | `ACTIVE`  |
 | _links           | Discoverable resources related to JSON Web Keys              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE    | FALSE  | TRUE     |           |
