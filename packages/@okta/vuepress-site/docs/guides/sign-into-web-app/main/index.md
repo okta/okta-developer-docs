@@ -21,8 +21,8 @@ This guide explains how to use Okta as the user store for your server-side web a
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Knowledge of building server-side web applications
-* A project or application to add authentication to
+* Knowledge of building server-side Web applications
+* A project or application to add authentication to.
 
 ---
 
