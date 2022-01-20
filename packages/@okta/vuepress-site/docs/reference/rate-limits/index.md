@@ -34,15 +34,15 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 ## Burst rate limits
 
-Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned usage may potentially have an impact for an end user. To ensure our customers are successful, Okta now offers burst rate limits (see note below), which provides orgs with additional insurance or a buffer zone for unplanned usage.
+Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned usage may potentially have an impact for an end user. To ensure our customers are successful, Okta may offer temporary burst rate limits, which provides orgs with additional insurance or a buffer zone for unplanned usage.
+
+> **Note:** While Okta may allow usage above the rate limits listed, sustained usage above these rate limits may require the purchase of an applicable offering. Okta reserves the right to adjust the burst rate limit multiplier for exceptional DynamicScale customers.
 
 This insurance, specifically for authentication and authorization flows, allows your org to temporarily exceed its default rate limits by 5 times. For example, if your org has a default limit of 600 requests per minute on `/api/v1/authn` and it exceeds that limit, all requests after 600 would receive an HTTP 429 error message. With burst rate limits, your org can exceed the 600 requests per minute limit and burst up to 3000 requests per minute.
 
 Whenever your org taps into burst rate limits, you should also investigate whether the increase in traffic is a one-time occurrence or if it's a new standard. If it's a new standard, you should contact your Okta Sales Representative or Okta support to increase the default rate limit.
 
 Additional burst rate limits apply on top of any rate limit increase you may have, such as DyanmicScale. For example, the default limit on `/api/v1/authn` is 600 requests per minute. You're expecting traffic for your app would need 6000 requests per minute, so you purchase DynamicScale 10x. The burst rate limit would provide 5 times on top of the 6000, giving you 30,000 requests per minute.
-
-> **Note:** While Okta may allow usage above the rate limits listed, sustained usage above these rate limits may require the purchase of an applicable offering. Okta reserves the right to adjust the burst rate limit multiplier for exceptional DynamicScale customers.
 
 On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5 times the default with the buffer zone) as shown in the following example.
 
