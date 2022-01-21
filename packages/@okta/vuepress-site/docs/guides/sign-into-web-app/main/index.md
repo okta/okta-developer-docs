@@ -8,29 +8,26 @@ layout: Guides
 
 This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
-> **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
+> **Note**: For information on building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/). For information on building a server with an API that doesn't return HTML, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
 ---
 
 **Learning outcomes**
 
-* Create an Okta app integration to represent your app in your org.
+* Create an Okta app integration representing your app in your org.
 * Add dependencies and configure your app to use Okta for authentication.
 * Sign a user in to your app
-
-**What you need**
-
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Knowledge of building server-side Web applications
-* A project or application to add authentication to.
 
 ---
 
 ## Create an Okta app integration
 
-Before you begin, you'll need a free Okta developer account. Install the [Okta CLI](https://cli.okta.com/) and run `okta register` to sign up for a new account. If you already have an account, run `okta login`. Then, run `okta apps create web`. Use "Quickstart" when prompted for a name.
+First install the Okta command line interface: [Okta CLI](https://cli.okta.com/). If you don't already have a free Okta developer account create one by entering `okta register` on the command line.
 
-Accept the default Redirect URI values provided for you. That is, a Login Redirect of `http://localhost:8080/login/oauth2/code/okta` and a Logout Redirect of `http://localhost:8080`.
+Create the app integration:
+1. Run the command `okta login` to log in to your Okta developer account.
+2. Run the command `okta apps create web` to create the integration. When prompted for a name, use "Quickstart".
+3. Accept the default Redirect URI values: a Login Redirect of `http://localhost:8080/login/oauth2/code/okta` and a Logout Redirect of `http://localhost:8080`.
 
 <!--
 You can also use the Okta Admin Console to create your app
@@ -58,7 +55,7 @@ You can also use the Okta Admin Console to create your app
 
 ## Add and configure packages
 
-Next you need to add the Okta Spring Boot Starter to your application.
+Add the Okta Spring Boot Starter to your application.
 
 <StackSelector snippet="addconfigpkg" noSelector />
 
@@ -78,7 +75,7 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 <ApiAmProdWarning />
 
-You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
+Configure the properties of your application. This may be done with configuration files, environment variables, or other framework specific techniques.
 
 <StackSelector snippet="configmid" noSelector />
 
@@ -129,7 +126,7 @@ By default, the profile items (called "claims") that Okta returns include the us
 
 ## Next steps
 
-You should now understand how to sign users in to your web applications using Okta.
+Here are some more things to explore now that you can use Okta for signing users in to your web applications.
 
 Read more:
 
