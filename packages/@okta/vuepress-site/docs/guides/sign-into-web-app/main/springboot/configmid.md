@@ -13,7 +13,7 @@ source .okta.env
 ./mvnw spring-boot:run
 ```
 
-<!-- todo: add Windows instructions -->
+<!-- todo: add Windows instructions with WSL -->
 
 <!--
 If you're using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), replace `${authorizationServerId}` with `default`. If you're using another [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `${authorizationServerId}` to the custom Authorization Server ID.
