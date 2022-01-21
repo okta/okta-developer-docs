@@ -40,7 +40,7 @@ cd okta-app
 npm install @okta/okta-signin-widget
 ```
 
-You also need `@okta/okta-vue` for route protection and `@okta/okta-auth-js`:
+You also need `@okta/okta-vue` for route protection and `@okta/okta-auth-js` for SIW dependencies:
 
 ```bash
 npm install @okta/okta-vue
@@ -48,6 +48,36 @@ npm install @okta/okta-auth-js
 ```
 
 ### Load the Sign-In Widget
+
+#### Initialize the Sign-In Widget
+
+Initialize the Sign-In Widget for your sign-in page by setting the required [configuration settings](#okta-org-app-integration-configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+
+You can create a `config.js` file to define your configuration settings. For example:
+
+```js
+const { CLIENT_ID, ISSUER, USE_INTERACTION_CODE } = process.env
+
+const BASENAME = process.env.NODE_ENV === 'production' ? '/custom-login' : '';
+const REDIRECT_URI = `${window.location.origin}${BASENAME}/login/callback`;
+
+export default {
+  oidc: {
+    clientId: CLIENT_ID,
+    issuer: ISSUER,
+    redirectUri: REDIRECT_URI,
+    scopes: ['openid', 'profile', 'email'],
+    pkce: true,
+    useInteractionCodeFlow: USE_INTERACTION_CODE_FLOW
+  },
+  resourceServer: {
+    messagesUrl: 'http://localhost:8000/api/messages'
+  },
+  app: {
+    basename: BASENAME
+  }
+}
+```
 
 Create a file to instantiate `OktaSignIn` and `OktaAuth` with [your configuration settings](#okta-org-app-integration-configuration-settings). You should make use of environment variables or external configuration files, but for the purpose of this example snippet, the configuration settings are declared in the following `src/okta/index.js` file:
 
