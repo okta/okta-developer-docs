@@ -1,3 +1,0 @@
-## JavaScript
-
-To come ....

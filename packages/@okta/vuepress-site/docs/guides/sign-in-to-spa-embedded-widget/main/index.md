@@ -9,15 +9,15 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 <StackSnippet snippet="nutrition" />
 
-## Create an Okta app integration
+## Use the Sign-In Widget with your SPA app
 
 <StackSnippet snippet="app-integration" />
 
-## Create an app
+## Register your app in Okta
 
 <StackSnippet snippet="create-app" />
 
-## Add app configurations
+## Integrate the SIW with your SPA app
 
 <StackSnippet snippet="app-config" />
 
