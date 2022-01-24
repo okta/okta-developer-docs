@@ -112,11 +112,11 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 2. Sign users in
 
-    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/angular/before-you-begin/)
+    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/angular/main/)
     * [Sign users in to your web application](/docs/guides/sign-into-web-app/aspnet/main/)
     * [Sign users in using the Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
-    * [Sign users out](/docs/guides/sign-users-out/android/before-you-begin/)
+    * [Sign users out](/docs/guides/sign-users-out/android/main/)
 
 3. Authorize
 
@@ -127,7 +127,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Validate ID tokens](/docs/guides/validate-id-tokens/)
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
-    * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
+    * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/main/)
     * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
     * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
 
