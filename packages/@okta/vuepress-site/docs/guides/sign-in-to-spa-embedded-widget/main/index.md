@@ -13,13 +13,13 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 <StackSnippet snippet="intro" />
 
-## Download the sample application
-
-<StackSnippet snippet="download-sample" />
-
 ## Create an Okta app integration
 
 <StackSnippet snippet="create-app-integration" />
+
+## Install the SDK
+
+<StackSnippet snippet="install-sdk" />
 
 ## Load the widget
 
