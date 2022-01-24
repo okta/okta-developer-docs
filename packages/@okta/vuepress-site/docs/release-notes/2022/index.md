@@ -3,6 +3,18 @@ title: Okta API Products release notes 2022
 ---
 ## January
 
+### Weekly release 2022.01.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.01.2](#bugs-fixed-in-2022-01-2)         | January 26, 2022           |
+
+#### Bugs fixed in 2022.01.2
+
+* When the [Create a new Binding](/docs/reference/api/roles/#create-a-new-binding) or the [Add more Members to a Binding](/docs/reference/api/roles/#add-more-members-to-a-binding) endpoints were called, and included all users or all groups in the request, the request was successful. (OKTA-459994)
+
+* When an invalid client assertion type was provided during a [client credentials grant type flow](/docs/guides/implement-grant-type/clientcreds/main/), the error response code was 401 instead of 400. (OKTA-456503)
+
 ### Weekly release 2022.01.1
 
 | Change                                                                                              | Expected in Preview Orgs |
