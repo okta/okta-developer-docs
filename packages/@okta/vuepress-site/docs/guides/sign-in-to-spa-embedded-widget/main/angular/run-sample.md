@@ -1,4 +1,6 @@
-From the `custom-login` folder, run the sample application:
+Run the sample application to see the rendering of the Sign-In Widget and authentication flow.
+
+1. From the `custom-login` folder, run the sample application:
 
     ```bash
     ng serve
