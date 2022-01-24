@@ -175,6 +175,10 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ### Identity Engine features not supported with Okta Classic APIs
 
+#### Okta Sign-In Widget upgrade
+
+For Identity Engine, some specific objects that were previously in the Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade the Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
+
 #### Factor API enrollment limitations
 
 The following Identity Engine features aren't supported using the Factor APIs.
