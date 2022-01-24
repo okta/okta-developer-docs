@@ -8,7 +8,7 @@ ngOnInit() {
     if (!originalUri || originalUri === DEFAULT_ORIGINAL_URI) {
       this.oktaAuth.setOriginalUri('/');
     }
-    
+
     this.signIn.showSignInToGetTokens({
       el: '#sign-in-widget',
       scopes: sampleConfig.oidc.scopes
@@ -25,7 +25,7 @@ ngOnInit() {
   }
   ```
 
-The following sample application code in the `home.component.ts` file retrieves the user information from the ID Token(?):
+The following sample application code in the `home.component.ts` file retrieves the user information from the ID Token:
 
 ```javascript
 async ngOnInit() {
@@ -39,3 +39,42 @@ async ngOnInit() {
 
 And displays the user's name on the Custom Login Page after you sign in.
 
+### Routes
+
+Some application routes require authentication in order to render. Define these protected routes with the [`OktaAuthGuard`](https://github.com/okta/okta-angular#oktaauthguard) method from the `@okta/okta-angular` SDK. For example, in the sample application, the Profile page is protected using this method:
+
+```JavaScript
+import {
+  OKTA_CONFIG,
+  OktaAuthGuard,
+  OktaAuthModule,
+  OktaCallbackComponent,
+} from '@okta/okta-angular';
+
+...
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'login/callback',
+    component: OktaCallbackComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [ OktaAuthGuard ],
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent,
+    canActivate: [ OktaAuthGuard ],
+  },
+];
+```
