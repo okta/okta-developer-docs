@@ -144,3 +144,4 @@ The user then copies the one-time password from Google Authenticator to your app
 ```
 
 Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.
+<!--File needs review-->
