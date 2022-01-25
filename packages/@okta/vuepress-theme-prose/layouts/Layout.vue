@@ -1,5 +1,9 @@
 <template>
-  <div class="layout">
+  <div :class="{
+      'layout': true, 
+      'dark-theme': this.appContext.isDarkMode
+    }"
+  >
     <div class="fixed-header">
       <Header />
     </div>
@@ -86,7 +90,8 @@ export default {
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false,
-        treeNavDocs: []
+        treeNavDocs: [],
+        isDarkMode: false,
       },
       stackSelectorData: {
         to: '',

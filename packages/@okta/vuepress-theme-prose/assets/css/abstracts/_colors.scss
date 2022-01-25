@@ -35,6 +35,26 @@ $colors: (
     'input-border': #C1C1C8,
   ),
 
+  // dark theme
+  'dark-theme': (
+    'gray-900': #17171B,
+    'gray-800': #1D1D21,
+    'gray-700': #232327,
+    'gray-600': #41414B,
+    'gray-500': #6E6E78,
+    'gray-400': #8C8C96,
+    'gray-300': #AAAAB4,
+    'gray-000': #F5F5F6,
+
+    'blue-300': #92BCFF,
+    'blue-800': #234F97,
+
+    'orange': #B35909,
+    'green':  #0D7855,
+    'yellow': #FFC61C,
+    'lilac':  #8D6E97,
+  ),
+
   // Copied from Odyssey
   'success': (
     'lightest': #e5fff6,

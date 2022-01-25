@@ -27,6 +27,7 @@
           <span></span>
         </div>
       </div>
+      <ThemeModeToggle />
     </div>
   </header>
 </template>
@@ -38,6 +39,7 @@ export default {
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
     HeaderMenu: () => import("../components/HeaderMenu.vue"),
+    ThemeModeToggle: () => import("../components/ThemeModeToggle.vue"),
   },
   data() {
     return {
