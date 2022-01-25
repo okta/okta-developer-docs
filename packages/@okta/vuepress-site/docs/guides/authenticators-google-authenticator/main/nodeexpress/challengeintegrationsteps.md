@@ -91,4 +91,5 @@ When the user enters and submits this one-time password, call `OktaAuth.idx.proc
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` depending whether there are other authenticators that need to be enrolled.
+Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.
+

@@ -36,7 +36,7 @@ If you've configured your Okta org as detailed in [Configuration updates](#updat
 
 #### Construct UI
 
-Using `value` and `label`, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
+Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
 
 ```xml
   <select id="authenticator-options" class="ui selection dropdown" name="authenticator">
@@ -65,7 +65,7 @@ When the user selects and submits Google Authenticator, call `OktaAuth.idx.proce
 
 ### 4: Display shared secret and QR Code
 
-Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code containing the shared secret. The `IdxTransaction` object is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` storing the secret in a base64-encoded PNG image. See the following `IdxTransaction` example for more details.
+Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code containing the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` storing the secret in a base64-encoded PNG image. See the following `IdxTransaction` example for more details.
 
 ``` json
 {
@@ -75,9 +75,7 @@ Next, display the shared secret to the user so they can copy the value to the Go
     inputs: [
       {
         name: "verificationCode",
-        label: "Enter code",
-        required: true,
-        type: "string",
+        ...
       },
     ],
     type: "app",
@@ -90,18 +88,30 @@ Next, display the shared secret to the user so they can copy the value to the Go
         },
         sharedSecret: "6BCSPLSQTAYWOCDX",
       },
-      type: "app",
-      key: "google_otp",
-      id: "autc4m1ze3b3RW3hl696",
-      displayName: "Google Authenticator",
-      methods: [
-        {
-          type: "otp",
-        },
-      ],
+      ...
     },
   },
 }
+```
+
+#### Construct UI
+
+The following [Mustache](https://mustache.github.io/) template snippet shows how the sample app displays the QR code and shared secret string.
+
+```xml
+    <div class="ui segment">
+      {{#contextualData.qrcode}}
+        <div class="ui fluid image">
+          <img id="authenticator-qr-code" src="{{contextualData.qrcode.href}}" />
+        </div>
+      {{/contextualData.qrcode}}
+    </div>
+    <div class="ui segment">
+      {{#contextualData.sharedSecret}}
+        <div class="ui label">SharedSecret: </div>
+        <p id="authenticator-shared-secret">{{contextualData.sharedSecret}}</p>
+      {{/contextualData.sharedSecret}}
+    </div>
 ```
 
 Example UI showing the Google Authenticator in the dropdown list:
@@ -133,4 +143,4 @@ The user then copies the one-time password from Google Authenticator to your app
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` depending whether there are other authenticators that need to be enrolled.
+Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.

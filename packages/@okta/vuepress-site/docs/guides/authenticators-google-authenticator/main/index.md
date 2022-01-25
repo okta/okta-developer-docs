@@ -9,7 +9,7 @@ title: Google Authenticator integration guide
 
 <StackSelector />
 
-This guide shows you how to integrate the Google Authenticator into your authentication use cases using the embedded SDK. The Google Authenticator can be used in various authentication uses such as [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in) and [Sign-in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp).
+This guide shows you how to integrate the Google Authenticator into your authentication use cases using the embedded SDK. Google Authenticator can be used in various authentication use cases such as <StackSnippet snippet="basicsignin" inline/> and <StackSnippet snippet="signinfacebook" inline/> .
 
 ---
 **Learning outcomes**
@@ -19,8 +19,9 @@ This guide shows you how to integrate the Google Authenticator into your authent
 
 **What you need**
 
-* [An Okta org already configured for a password-only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
-* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/)
+* <StackSnippet snippet="orgconfigurepwdonly" />
+* <StackSnippet snippet="oiesdksetup" />
+* Google Authenticator installed on a mobile device
 
 **Sample code**
 
@@ -30,7 +31,7 @@ This guide shows you how to integrate the Google Authenticator into your authent
 
 ## Update configurations
 
-Before you can start using the Google Authenticator, create an Okta org application as described in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case). Then add the Google Authenticator to your app integration by executing the following steps:
+Before you can start using the Google Authenticator, create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add the Google Authenticator to your app integration by executing the following steps:
 
 ### 1: Add Google Authenticator to the Okta org
 
@@ -47,7 +48,7 @@ Before you can start using the Google Authenticator, create an Okta org applicat
 1. In the Admin Console, go to **Applications** and **Applications**.
 1. On the **Applications** page, click on the application you've previously created.
 1. On the **General** tab ensure that **Interaction Code** and **Refresh Token** are selected.
-1. On the **Sign On** tab, scroll down to the **Sign On Policy** section and click **Add Rule**.
+1. On the **Sign-On** tab, scroll down to the **Sign-On Policy** section and click **Add Rule**.
 1. On the **Add Rule** dialog box, do the following:
    1. Enter a name for the new rule (for example "2FA Rule").
    1. Set **User must authenticate with** to **Password+Another Factor**.
@@ -61,13 +62,13 @@ Install the Google Authenticator app on your mobile device either using either t
 
 ## Integrate SDK for authenticator enrollment
 
-The following are step-by-step instructions on how to integrate the Google Authenticator enrollment flow into your app.
+The following instructions detail step-by-step how to integrate the Google Authenticator enrollment flow into your app.
 
 <StackSnippet snippet="enrollmentintegrationsteps" />
 
 ## Integrate SDK for authenticator challenge
 
-The following are step-by-step instructions on how to integrate the Google Authenticator challenge flow into your app.
+The following instructions detail step-by-step how to integrate the Google Authenticator challenge flow into your app.
 
 <StackSnippet snippet="challengeintegrationsteps" />
 
