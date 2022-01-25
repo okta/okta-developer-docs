@@ -44,7 +44,7 @@ Some installation notes:
 
 After installing Hookdeck, start a session to forward your Event Hooks to a local port (1337 in this example). Run the following command in your terminal:
 
-```terminal
+```shell
 nodejs-webhook-server-example> hookdeck listen 1337
 ```
 

@@ -45,19 +45,19 @@ Some installation notes:
 
 After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, sample-app, run the following command in your terminal:
 
-```terminal
+```shell
 sample-app > ./ngrok http 8082
 ```
 
 or if you installed in your system path:
 
-```terminal
+```shell
 sample-app > ngrok http 8082
 ```
 
 or if you used your favorite folder:
 
-```terminal
+```shell
 sample-app > ~/applications/ngrok http 8082
 ```
 
