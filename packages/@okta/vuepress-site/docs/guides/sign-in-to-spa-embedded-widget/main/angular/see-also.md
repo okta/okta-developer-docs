@@ -3,4 +3,3 @@
 * [okta-signin-widget](https://github.com/okta/okta-signin-widget)
 * [okta-angular](https://github.com/okta/okta-angular)
 * Blog post by Holger Schmitz, [Build a Beautiful App + Login with Angular Material](https://developer.okta.com/blog/2020/01/21/angular-material-login)
-
