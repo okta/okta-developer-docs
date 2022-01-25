@@ -516,7 +516,7 @@ Creates a new Resource Set with a custom collection of resources
 | :---------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
 | `label`       | Unique name given to the new Resource Set                                      | Body         | String       | TRUE     |
 | `description` | A description of the new Resource Set                                          | Body         | String       | TRUE     |
-| `resources`   | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
+| `resources`   | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | TRUE    |
 
 #### Response parameters
 
@@ -1050,7 +1050,7 @@ Adds more Members to a Role Binding that is already created in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to grant                                         | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to grant                                         | URL          | String         | TRUE     |
 | `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
 
 #### Response parameters
@@ -1107,7 +1107,7 @@ Gets a paginated list of Members that are assigned to a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                          | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                          | URL          | String         | TRUE     |
 
 #### Response parameters
 
@@ -1171,7 +1171,7 @@ Gets a Member of a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member within the Binding                                 | URL          | String         | TRUE     |
 
 
@@ -1234,7 +1234,7 @@ Deletes a Member of a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member in the Binding                                 | URL          | String         | TRUE     |
 
 
