@@ -107,27 +107,27 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
+    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 
-    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/angular/main/)
-    * [Sign users in to your web application](/docs/guides/sign-into-web-app/aspnet/main/)
+    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/angular/)
+    * [Sign users in to your web application](/docs/guides/sign-into-web-app/aspnet/)
     * [Sign users in using the Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
-    * [Sign users out](/docs/guides/sign-users-out/android/main/)
+    * [Sign users out](/docs/guides/sign-users-out/)
 
 3. Authorize
 
-    * [Implement authorization by grant type](/docs/guides/implement-grant-type/-/main/)
-    * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
+    * [Implement authorization by grant type](/docs/guides/implement-grant-type/)
+    * [Configure SSO for native apps](/docs/guides/configure-native-sso/)
     * [Refresh access tokens](/docs/guides/refresh-tokens/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/)
     * [Configure an access policy](/docs/guides/configure-access-policy/)
-    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
-    * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/main/)
+    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
+    * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
     * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
     * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
 
@@ -160,6 +160,6 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/main/)
+1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/)
+1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
 1. [Submit an app integration](/docs/guides/submit-app/)
