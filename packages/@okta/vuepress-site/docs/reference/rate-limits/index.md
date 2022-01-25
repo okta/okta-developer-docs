@@ -46,7 +46,7 @@ On the rate limit dashboard, the trendline can now exceed 100% of the org's defa
 
 In a typical use case scenario, when your org exceeds a default rate limit, you'd receive a warning event, then a burst event, and then a violation event. For example, your org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. Your org would receive a warning at 360 requests per minute (60%) of 600. Your org would get a burst notification when the endpoint hits 600 requests per minute and then the violation when it hits 3000 requests all in the same minute.
 
-When a burst rate limit event occurs, the system log event, `system.org.rate_limit.burst`, is triggered, and email and banner notifications are generated. The following shows an example of an email notification.
+When a burst rate limit event occurs, the system log event, `system.org.rate_limit.burst`, is triggered and email notifications are generated. The following shows an example of an email notification.
 
 ![Displays the email to notify the admin of a burst rate limit event.](/img/BRLemail.png)
 
