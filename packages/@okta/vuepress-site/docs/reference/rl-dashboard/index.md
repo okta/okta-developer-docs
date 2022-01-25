@@ -98,7 +98,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard2.png)
 
-* You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Utilization** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
+* You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Usage** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
 
 ![Displays the event in the System Log that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard3.png)
 
@@ -111,8 +111,8 @@ The rate limit dashboard provides data use information for the API based on a se
 The Overview pane provides a summary of the data use for the specified API. The following information on data use appears:
 
 * Rate Limit: The rate limit for this API per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
-* Latest Utilization: The latest use of the API, which includes the API and its sub-APIs, as of the specified time
-* Average Utilization: The average use of the API within the last 24 hours and the last hour
+* Latest Usage: The latest use of the API, which includes the API and its sub-APIs, as of the specified time
+* Average Usage: The average use of the API within the last 24 hours and the last hour
 * Impact: The amount of time that the org is affected by a rate limit violation on this API. The impact time is the remainder of the one-minute interval after your org hits the rate limit. For example, if your org hits the rate limit 40 seconds into the one-minute interval, then the impact time is 20 seconds for that API.
 
 #### Rate limit multiplier
