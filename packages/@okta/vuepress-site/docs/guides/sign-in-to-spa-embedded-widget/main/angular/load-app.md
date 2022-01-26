@@ -9,6 +9,43 @@ npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 More information, including the latest published version, is available in the [Okta Sign-In Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
 
+### Add styles
+
+To add or customize application styles, you need to update the `angular.json` config file. You can do so manually or at the terminal.
+
+#### Terminal
+
+ Run the following command. This replaces all existing styles, so you need to add any existing style files to this command.
+
+```shell
+ng config projects.okta-signin-test.architect.build.options.styles '["src/styles.css", "./node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"]'
+```
+
+#### Angular.json
+
+Add the styles manually by opening `src/angular.json`, and updating `projects.custom-login.architect.options`. When complete, the configuration appears as follows:
+
+```json
+"options": {
+            "outputPath": "dist/custom-login",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "./node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
+            ],
+            "scripts": []
+          },
+```
+
+### Sample application code
+
 The sample application adds the Okta Sign-In Widget in the `apps.module.ts` file:
 
 ```JavaScript
