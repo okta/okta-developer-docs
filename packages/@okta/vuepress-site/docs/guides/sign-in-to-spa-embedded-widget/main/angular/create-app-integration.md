@@ -4,7 +4,7 @@ The sample application requires an integration with your Okta org to implement a
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** for the **Application Type**.
-1. On the **New Single-Page App Integration** page:
+1. On the **New Single-Page App Integration** page, add the following configurations that work with the sample application:
 
    * Enter an application name.
    * Select the **Interaction Code** check box.

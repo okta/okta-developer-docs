@@ -112,7 +112,8 @@ export class LoginComponent implements OnInit {
 And references the Okta app configuration information in `app.config.js` or `env.js` and the `testenv` file:
 
 ```javascript
-// Read environment variables from "testenv" in the repository root. Override environment vars if they are already set.
+// Read environment variables from "testenv" in the repository root.
+// Override environment vars if they are already set.
 const path = require('path');
 const dotenv = require('dotenv');
 const fs = require('fs');
