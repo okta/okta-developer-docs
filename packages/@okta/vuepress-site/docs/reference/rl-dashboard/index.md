@@ -18,7 +18,7 @@ The following describes some typical reasons for viewing the dashboard:
 * You want to open the rate limits report to proactively monitor rate limit usage, and to manage rate limit settings and the warning threshold. See [Rate limit monitoring](#rate-limit-monitoring).
 * You've hit a rate limit violation for an API, and you receive a notification that contains a link to the rate limits dashboard for that API so that you can investigate the violation. See [API rate limits and violations](#API-rate-limits-and-violations).
 
-You can only access the rate limit dashboard if you're assigned one of these admin roles:
+You can access the rate limit dashboard only if you're assigned one of these admin roles:
 
 * `ROLE_APP_ADMIN`
 * `ROLE_MOBILE_ADMIN`
