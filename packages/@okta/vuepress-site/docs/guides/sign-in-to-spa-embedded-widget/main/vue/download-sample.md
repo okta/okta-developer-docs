@@ -11,7 +11,7 @@ vue create okta-app
 * Select **3.x** for the Vue.js version.
 * Select **Y** for router history mode.
 
-Go into your app directory to view the created files:
+Go into your root app directory to view the created files:
 
 ```bash
 cd okta-app
@@ -19,10 +19,9 @@ cd okta-app
 
 ### Install dependencies
 
-Add the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library into your Vue.js app. You can install it by using `npm`:
+Add the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library into your Vue.js app. You can install it by using `npm` from your root app directory:
 
 ```bash
-cd okta-app
 npm install @okta/okta-signin-widget
 ```
 

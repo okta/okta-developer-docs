@@ -4,7 +4,7 @@ This guide walks you through building a Vue.js app that uses the Okta Sign-In Wi
 
 **Learning outcomes**
 
-* Understand the sequence of steps to add the Okta Sign-In Widget to a Vue.js app for [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with Okta Identity Engine.
+* Understand the sequence of steps required to add the Okta Sign-In Widget to a Vue.js app for [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with the Okta Identity Engine.
 * Understand how to run the Vue.js sample app.
 
 **What you need**
@@ -19,6 +19,6 @@ This guide walks you through building a Vue.js app that uses the Okta Sign-In Wi
 
 **Sample code**
 
-[Embedded Vue.js sample app with Okta Sign-In Widget](https://github.com/okta/samples-js-vue/tree/master/custom-login) &mdash; See [Run the sample Vue.js app](#run-the-sample-vue-js-app) for details.
+[Embedded Vue.js sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-vue/tree/master/custom-login) &mdash; See [Run the sample application](#run-the-sample-application) for details.
 
 ---

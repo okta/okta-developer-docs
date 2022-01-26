@@ -14,7 +14,7 @@ Before integrating Okta authentication to your Vue.js app, you need to register 
     | Trusted Origins > Base URIs | Specify your app base URI for CORS. For example: `http://localhost:8080`|
     | Assignments   | Assign users for your app.                                |
 
-    > **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI you've specified. Ensure that both **CORS** and **redirect** are selected in **Security** > **API** > **Trusted Origins** for your base URI.
+    > **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI you've specified. Ensure that both **CORS** and **redirect** are selected in **Security** > **API** > **Trusted Origins** for your app base URI.
 
 ### Okta org app integration configuration settings
 

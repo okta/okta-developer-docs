@@ -3,8 +3,8 @@
 Initialize the Sign-In Widget for your sign-in page by setting the required [configuration settings](#okta-org-app-integration-configuration-settings) for your app:
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
-* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features in the embedded SIW.
-* `pkce`: Set this option to `true` to enable Authentication Code with PKCE flow.
+* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded SIW.
+* `pkce`: Set this option to `true` to enable PKCE in the SIW. This is used for SPA apps that uses the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
@@ -25,9 +25,9 @@ export default {
 
 > **Note:** The Sign-In Widget `baseUrl` setting is not a required for OIDC applications as of SIW version 5.15.0. `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
 
-### Instantiate OktaAuth
+### Instantiate Okta authentication
 
-Instantiate `OktaAuth`, with the settings in [Set up the Okta configuration settings](#set-up-the-okta-configuration-settings), in your `main.js` file:
+Add Okta authentication by instantiating `OktaAuth` with the settings from [Set up the Okta configuration settings](#set-up-the-okta-configuration-settings) in your `main.js` file:
 
 ```js
 import { createApp } from 'vue'
