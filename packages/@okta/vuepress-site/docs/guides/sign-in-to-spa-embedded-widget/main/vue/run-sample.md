@@ -1,4 +1,4 @@
-You can run the [sample embedded SIW Vue.js app](https://github.com/okta/samples-js-vue/tree/master/custom-login) to quickly view a simple working Vue.js app with the Sign-In Widget.
+You can run the [sample embedded Sign-In Widget Vue.js app](https://github.com/okta/samples-js-vue/tree/master/custom-login) to quickly view a simple working Vue.js app with the Sign-In Widget.
 
 1. Ensure that you [create an app integration in Okta](#create-an-okta-app-integration) for your sample app.
 2. Download the sample app: `git clone https://github.com/okta/samples-js-vue.git`

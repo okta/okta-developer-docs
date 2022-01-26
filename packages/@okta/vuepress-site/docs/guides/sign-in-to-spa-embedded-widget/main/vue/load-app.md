@@ -3,8 +3,8 @@
 Initialize the Sign-In Widget for your sign-in page by setting the required [configuration settings](#okta-org-app-integration-configuration-settings) for your app:
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
-* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded SIW.
-* `pkce`: Set this option to `true` to enable PKCE in the SIW. This is used for SPA apps that uses the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
+* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
+* `pkce`: Set this option to `true` to enable PKCE in the Widget. This is used for SPA apps that uses the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
@@ -23,7 +23,7 @@ export default {
 }
 ```
 
-> **Note:** The Sign-In Widget `baseUrl` setting is not a required for OIDC applications as of SIW version 5.15.0. `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
+> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of version 5.15.0. `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
 
 ### Instantiate Okta authentication
 
@@ -54,9 +54,9 @@ createApp(App)
   .mount('#app')
 ```
 
-### Create a SIW container
+### Create a Sign-In Widget container
 
-To render the SIW in Vue.js, you must create a wrapper that allows Okta to treat it as a Vue component. For example, create a `src/components/Login.vue` file with the following content:
+To render the Sign-In Widget in Vue.js, you must create a wrapper that allows Okta to treat it as a Vue component. For example, create a `src/components/Login.vue` file with the following content:
 
 ```html
 <template>
@@ -82,7 +82,7 @@ export default {
         logo: require('@/assets/logo.png'),
         i18n: {
           en: {
-            'primaryauth.title': 'Sign in to my Okta SIW Vue.js app'
+            'primaryauth.title': 'Sign in to my Okta Sign-In Widget Vue.js app'
           }
         },
         authParams: {

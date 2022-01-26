@@ -25,7 +25,7 @@ Add the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library int
 npm install @okta/okta-signin-widget
 ```
 
-You also need [Okta Vue SDK](https://github.com/okta/okta-vue) (`@okta/okta-vue`) for route protection and [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`) for SIW dependencies:
+You also need [Okta Vue SDK](https://github.com/okta/okta-vue) (`@okta/okta-vue`) for route protection and [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`) for Widget dependencies:
 
 ```bash
 npm install @okta/okta-vue

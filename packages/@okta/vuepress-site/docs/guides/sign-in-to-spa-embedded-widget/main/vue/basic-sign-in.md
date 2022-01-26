@@ -49,7 +49,7 @@ export default {
 
 #### Login route
 
-This route hosts the Sign-In Widget and redirects if the user is already logged in. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create a SIW container](#create-a-siw-container).
+This route hosts the Sign-In Widget and redirects if the user is already logged in. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create a Sign-In Widget container](#create-a-sign-in-widget-container).
 
 #### Callback route
 
