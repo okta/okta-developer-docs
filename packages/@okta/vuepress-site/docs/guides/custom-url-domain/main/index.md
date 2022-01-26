@@ -73,9 +73,10 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
 
-1. In the Admin Console, select **Customizations**, and then **Domain**.
+1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
-3. Click **Get Started** to start the configuration wizard.
+3. Click **Get started** to start the configuration wizard.
+4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed**.
 
 ### Add your subdomain information
 
@@ -124,12 +125,13 @@ Okta performs validation checks on the certificate that you upload. If your TLS 
 
 If you receive the previous error, consult with the person in your organization responsible for generating certificates to determine whether your TLS certificate is a wildcard certificate.
 
-### Use the configuration wizard to walk through the steps to customize your Okta URL domain.
+### Use the configuration wizard to customize your Okta URL domain
 
-1. In the Admin Console, select **Settings**, and then **Customization**.
+1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
-3. Click **Get Started** to start the configuration wizard.
-    * The **Continue** button appears if the configuration is incomplete.
+3. Click **Get started** to start the configuration wizard.
+4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Bring your own certificate**.
+    * The **Next** button appears if the configuration is incomplete.
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
 
 ### Add your subdomain information
