@@ -10,13 +10,13 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
-| [Device information in the OAuth 2.0 interact flow](#device-information-in-the-oauth-2-0-interact-flow) | January 26, 2022 |
+| [Device information in the OAuth 2.0 interaction code flow](#device-information-in-the-oauth-2-0-interaction-code-flow) | January 26, 2022 |
 | [Fewer digits revealed for shorter phone numbers](#fewer-digits-revealed-for-shorter-phone-numbers) | January 26, 2022 |
 | [Bugs fixed in 2022.01.2](#bugs-fixed-in-2022-01-2)         | January 26, 2022           |
 
 #### Device information in the OAuth 2.0 interaction code flow
 
-Confidential clients can now specify device information using the `X-Device-Token` header during the OAuth 2.0 interaction code flow. <!--OKTA-455553-->
+Confidential clients can now specify device information using the `X-Device-Token` header during the OAuth 2.0 [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-455553-->
 
 #### Fewer digits revealed for shorter phone numbers
 
