@@ -1,14 +1,4 @@
-The first step for any application is to install or embed the Widget. You can link out to the Okta CDN or install locally through a package manager (for example, `npm`).
-
-### To use the CDN, include the following tags in your HTML:
-
-```html
-<!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-```
-
-More information, including the latest published version, is available in the [Okta Sign-In Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
+The first step for any application is to install or embed the Widget. Best practice is to install locally through a package manager (for example, `npm`) for better performance and testing purposes.
 
 ### npm
 
@@ -19,7 +9,29 @@ npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 More information, including the latest published version, is available in the [Okta Sign-In Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
 
-The sample application embeds the Sign-In Widget in the `login.components.ts` file:
+The sample application adds the Okta Sign-In Widget in the `apps.module.ts` file:
+
+```JavaScript
+providers: [
+    {
+      provide: OKTA_CONFIG,
+      useFactory: () => {
+        const oktaAuth = new OktaAuth(config.oidc);
+        return {
+          oktaAuth,
+          onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
+            const router = injector.get(Router);
+            // Redirect the user to your custom login page
+            router.navigate(['/login']);
+          }
+        }
+      }
+    },
+    { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
+  ]
+```
+
+The sample application instantiates the Sign-In Widget in the `login.components.ts` file:
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
