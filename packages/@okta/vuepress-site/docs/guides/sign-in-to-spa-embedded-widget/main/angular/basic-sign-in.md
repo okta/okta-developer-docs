@@ -1,4 +1,4 @@
-The following sample application code renders the Sign-In widget and after a successful authentication receives an object with OAuth tokens. From the `login.components.ts` file:
+The following sample application code renders the Sign-In Widget and after a successful authentication receives an object with OAuth tokens. From the `login.components.ts` file:
 
 ```javascript
 ngOnInit() {

@@ -31,7 +31,7 @@ providers: [
   ]
 ```
 
-The sample application instantiates the Sign-In Widget in the `login.components.ts` file:
+The Sign-In Widget is instantiated in the `login.components.ts` file:
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
