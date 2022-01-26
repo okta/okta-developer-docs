@@ -12,7 +12,7 @@ title: Okta API Products release notes 2022
 
 #### Fewer digits revealed for shorter phone numbers
 
-The masking algorithm now reveals fewer digits for shorter phone numbers. For example, if the phone number has eight digits, the first five digits are masked and the final three digits are visible. <!--OKTA-455393-->
+The masking algorithm now reveals fewer digits in API responses for shorter profile phone numbers. <!--OKTA-455393-->
 
 #### Bugs fixed in 2022.01.2
 

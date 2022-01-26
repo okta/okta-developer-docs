@@ -14,13 +14,13 @@ title: Okta Identity Engine API Products release notes 2022
 | [Fewer digits revealed for shorter phone numbers](#fewer-digits-revealed-for-shorter-phone-numbers) | January 26, 2022 |
 | [Bugs fixed in 2022.01.2](#bugs-fixed-in-2022-01-2)         | January 26, 2022           |
 
-#### Device information in the OAuth 2.0 interact flow
+#### Device information in the OAuth 2.0 interaction code flow
 
-Confidential clients can now specify device information using the `X-Device-Token` header during the OAuth 2.0 `/interact` flow. <!--OKTA-455553-->
+Confidential clients can now specify device information using the `X-Device-Token` header during the OAuth 2.0 interaction code flow. <!--OKTA-455553-->
 
 #### Fewer digits revealed for shorter phone numbers
 
-The masking algorithm now reveals fewer digits for shorter phone numbers. For example, if the phone number has eight digits, the first five digits are masked and the final three digits are visible. <!--OKTA-455393-->
+The masking algorithm now reveals fewer digits in API responses for shorter profile phone numbers. <!--OKTA-455393-->
 
 #### Bugs fixed in 2022.01.2
 
