@@ -22,9 +22,7 @@ See the following `src/App.vue` file example:
     <router-link to="/about">About</router-link> |
     <router-link to="/login" v-if="authState && !authState.isAuthenticated">Login</router-link>
     <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
-    <br>
-    <a id="logout-button" v-if="authState && authState.isAuthenticated"
-          v-on:click="logout()">Logout</a>
+    <button v-if="authState && authState.isAuthenticated" v-on:click="logout()">Logout</button>
   </div>
   <router-view/>
 </template>
