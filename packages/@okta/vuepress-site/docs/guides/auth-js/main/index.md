@@ -219,8 +219,7 @@ Create an app integration in the Okta org that represents the application you wa
         });
 
         function logout() {
-          oktaSignIn.authClient.signOut({ clearTokensAfterRedirect: true});
-          authClient.start();
+          oktaSignIn.authClient.signOut();
           location.reload();
         }
       </script>
