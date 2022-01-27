@@ -3,6 +3,23 @@ title: Okta API Products release notes 2022
 ---
 ## January
 
+### Weekly release 2022.01.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Fewer digits revealed for shorter phone numbers](#fewer-digits-revealed-for-shorter-phone-numbers) | January 26, 2022 |
+| [Bugs fixed in 2022.01.2](#bugs-fixed-in-2022-01-2)         | January 26, 2022           |
+
+#### Fewer digits revealed for shorter phone numbers
+
+The masking algorithm now reveals fewer digits in API responses for shorter profile phone numbers. <!--OKTA-455393-->
+
+#### Bugs fixed in 2022.01.2
+
+* When an invalid client assertion type was provided during a [Client Credentials grant type flow](/docs/guides/implement-grant-type/clientcreds/main/), the error response code was 401 instead of 400. (OKTA-456503)
+
+* When the [Create a new Binding](/docs/reference/api/roles/#create-a-new-binding) or the [Add more Members to a Binding](/docs/reference/api/roles/#add-more-members-to-a-binding) operation was performed on the `/iam/resource-sets` endpoint, and included all users or all groups in the request, the request didn't fail as expected. (OKTA-459994)
+
 ### Weekly release 2022.01.1
 
 | Change                                                                                              | Expected in Preview Orgs |
@@ -16,6 +33,8 @@ title: Okta API Products release notes 2022
 * When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
 * When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
+
+* When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
 ### Monthly release 2022.01.0
 

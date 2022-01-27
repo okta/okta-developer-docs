@@ -6,6 +6,32 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## January
 
+### Weekly release 2022.01.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Device information in the OAuth 2.0 Interaction Code flow](#device-information-in-the-oauth-2-0-interaction-code-flow) | January 26, 2022 |
+| [Fewer digits revealed for shorter phone numbers](#fewer-digits-revealed-for-shorter-phone-numbers) | January 26, 2022 |
+| [Bugs fixed in 2022.01.2](#bugs-fixed-in-2022-01-2)         | January 26, 2022           |
+
+#### Device information in the OAuth 2.0 Interaction Code flow
+
+Confidential clients can now specify device information using the `X-Device-Token` header during the OAuth 2.0 [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-455553-->
+
+#### Fewer digits revealed for shorter phone numbers
+
+The masking algorithm now reveals fewer digits in API responses for shorter profile phone numbers. <!--OKTA-455393-->
+
+#### Bugs fixed in 2022.01.2
+
+* Administrators were able to access and modify internal policies. (OKTA-455506)
+
+* When an invalid client assertion type was provided during a [Client Credentials grant type flow](/docs/guides/implement-grant-type/clientcreds/main/), the error response code was 401 instead of 400. (OKTA-456503)
+
+* When the [Create a new Binding](/docs/reference/api/roles/#create-a-new-binding) or the [Add more Members to a Binding](/docs/reference/api/roles/#add-more-members-to-a-binding) operation was performed on the `/iam/resource-sets` endpoint, and included all users or all groups in the request, the request didn't fail as expected. (OKTA-459994)
+
+* When the [Get all policies](/docs/reference/api/policy/#get-all-policies-by-type) operation was performed on the `/policies` endpoint, unused Radius policies were returned. (OKTA-460965)
+
 ### Weekly release 2022.01.1
 
 | Change                                                                                              | Expected in Preview Orgs |
@@ -19,6 +45,8 @@ title: Okta Identity Engine API Products release notes 2022
 * When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
 * When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
+
+* When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
 ### Monthly release 2022.01.0
 
