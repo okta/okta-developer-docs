@@ -193,14 +193,10 @@ Create an app integration in the Okta org that represents the application you wa
       </div>
       <script type="text/javascript">
         const oktaSignIn = new OktaSignIn({
-          baseUrl: "https://${yourOktaDomain}",
-          redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
+          issuer: "https://${yourOktaDomain}/oauth2/default",
+          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
           clientId: "${yourClientId}",
-          useInteractionCodeFlow: true,
-          pkce: true,
-          authParams: {
-            issuer: "https://${yourOktaDomain}/oauth2/default"
-          }
+          useInteractionCodeFlow: true
         });
 
         oktaSignIn.authClient.token.getUserInfo().then(function(user) {
@@ -234,10 +230,10 @@ Create an app integration in the Okta org that represents the application you wa
 
 3. Configure the code in `index.html` with values for your Okta org application integration:
 
-    * **baseUrl:** `"https://${yourOktaDomain}"`. For example, `"http://example.okta.com"`
+    * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
     * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
     * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
-    * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
+
 
 4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features in your sample directory, `simple-spa`. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
