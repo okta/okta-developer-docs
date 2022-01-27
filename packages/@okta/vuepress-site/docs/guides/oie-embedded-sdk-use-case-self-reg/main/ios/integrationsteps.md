@@ -1,12 +1,9 @@
-### Summary
-
 The following steps document how to integrate the sample code into your
 application. The sample code wraps the SDK's functionality using a more
 prescriptive and explicit interface. It converts the SDK's generic remediation
 interface into explicit authentication steps and automatically executes steps
-such as the code-to-token exchange. The diagram below illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
-component, which represents the code you write to call into the sample code's interface.
+such as the code-to-token exchange. The following diagram illustrates this call flow
+from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
 
 <div class="common-image-format">
 
@@ -19,8 +16,8 @@ component, which represents the code you write to call into the sample code's in
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
 into its initializer a `configuration` object and `stephandler` closure.
-The `stephandler` closure is called whenever application interaction is requested
-during the password recovery flow. In this case it's called for the following
+The `stephandler` closure is called whenever an application interaction is requested
+during the password recovery flow. In this case, the `stephandler` closure is called for the following
 user interactions:
 
 1. Choose the email factor for authentication
@@ -57,7 +54,7 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 For more information on how to set the `configuration` parameter, see
 [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
 in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
+[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
 ### 2: The user initiates the sign-up
 
@@ -86,9 +83,9 @@ self.authHandler.register(username: "user@example.com",
 ### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after successful sign-in. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-user-profile-information).
+after the user successfully signs in. Optionally, you can obtain basic user information after a
+user successfully signs in by making a request to Okta's OpenID Connect authorization server.
+See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ### Sample code
 

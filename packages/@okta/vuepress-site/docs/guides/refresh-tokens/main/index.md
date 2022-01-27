@@ -4,18 +4,18 @@ excerpt: How to refresh access tokens with Okta
 layout: Guides
 ---
 
-This guide teaches you how to refresh access tokens with Okta.
+This guide explains how to refresh access tokens with Okta.
 
 ---
 
 **Learning outcomes**
 
-* Understand and set up refresh token rotation
-* Refresh access tokens
+* Understand how to set up refresh token rotation.
+* Refresh access tokens.
 
 ---
 
-## Overview
+## About refresh tokens
 
 Access and ID [tokens](/docs/reference/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. Typically, a user needs a new access token when they attempt to access a resource for the first time or after the previous access token that was granted to them expires.
 
@@ -26,8 +26,6 @@ For clients such as native apps, persistent refresh tokens help improve a user's
 > **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 However, public clients such as browser-based applications have a much higher risk of a refresh token being compromised when a persistent refresh token is used. With clients such as single-page applications (SPAs), long-lived refresh tokens aren't suitable, because there isn't a way to safely store a persistent refresh token in a browser and assure access by only the intended app. These threats are greatly reduced by rotating refresh tokens. [Refresh token rotation](#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. With refresh token rotation behavior, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
-
-Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
 
 ## Set up your application
 
@@ -97,7 +95,7 @@ See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/overview/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server access policy](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 ## Get a refresh token
 

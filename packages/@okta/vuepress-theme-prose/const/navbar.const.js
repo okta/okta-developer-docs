@@ -390,11 +390,44 @@ export const guides = [
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
-            guideName: "build-provisioning-integration"
+            subLinks: [
+              {
+                title: "Overview",
+                path: "/docs/guides/scim-provisioning-integration-overview/main/"
+              },
+              {
+                title: "Prepare your SCIM API service",
+                path: "/docs/guides/scim-provisioning-integration-prepare/main/"
+              },
+              {
+                title: "Connect your SCIM API service to Okta",
+                path: "/docs/guides/scim-provisioning-integration-connect/main/"
+              },
+              { title: "Test your SCIM Okta integration",
+                path: "/docs/guides/scim-provisioning-integration-test/main/"
+              }
+            ]
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
-            guideName: "oin-oidc-guide"
+            subLinks: [
+              {
+                title: "Overview",
+                path: "/docs/guides/oin-oidc-overview/main/"
+              },
+              {
+                title: "Protocol-level requirements",
+                path: "/docs/guides/oin-oidc-protocols/main/"
+              },
+              {
+                title: "Multi-tenancy",
+                path: "/docs/guides/oin-oidc-multi-tenancy/main/"
+              },
+              {
+                title: "OIN integration best practices",
+                path: "/docs/guides/oin-oidc-best-practices/main/"
+              }
+            ]
           },
           {
             title: "Build a Single Sign-On (SSO) integration",
@@ -431,9 +464,25 @@ export const guides = [
       {
         title: "Deploy to Production",
         subLinks: [
-          { title: "Deployment checklist", guideName: "production-deployment" },
+          { title: "Deployment checklists", path: "/docs/guides/deployment-checklist/main/" },
           { title: "Deploy your app", guideName: "deploy-your-app" },
-          { title: "Migrate to Okta", guideName: "migrate-to-okta" }
+          {
+            title: "Migrate to Okta",
+            subLinks: [
+              {
+                title: "Prerequisites",
+                path: "/docs/guides/migrate-to-okta-prerequisites/main/"
+              },
+              {
+                title: "Bulk migration with credentials",
+                path: "/docs/guides/migrate-to-okta-bulk/main/"
+              },
+              {
+                title: "Import Users with Inline Password Hooks",
+                path: "/docs/guides/migrate-to-okta-password-hooks/main/"
+              }
+            ]
+          }
         ]
       },
       {
@@ -450,6 +499,10 @@ export const guides = [
           {
             title: "Event Hooks with ngrok",
           guideName: "event-hook-ngrok"
+          },
+          {
+            title: "Event Hooks with Hookdeck",
+          guideName: "event-hook-hookdeck"
           },
           {
             title: "Password Import Inline Hook",
@@ -528,7 +581,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
-                    title: "Limitations",
+                    title: "SDK limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
                   }
                 ]
@@ -856,6 +909,8 @@ export const releaseNotes = [
     title: "Release Notes",
     subLinks: [
       { title: "Overview", path: "/docs/release-notes/" },
+      { title: "2022", path: "/docs/release-notes/2022/" },
+      { title: "2022 - Okta Identity Engine", path: "/docs/release-notes/2022-okta-identity-engine/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
       { title: "2021 - Okta Identity Engine", path: "/docs/release-notes/2021-okta-identity-engine/" },
       { title: "2020", path: "/docs/release-notes/2020/" },

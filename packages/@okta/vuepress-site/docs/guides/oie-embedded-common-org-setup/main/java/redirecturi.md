@@ -1,2 +1,1 @@
-  If you're using the Java SDK sample app, add the following redirect URI: `http://localhost:8080` (in addition to the default redirect URI `http://localhost:8080/authorization-code/callback` that is already listed). <br>
-  Otherwise, specify the redirect URI that is appropriate for your app.
+ a URI that is appropriate for your app, or `http://localhost:8000` if you're using the sample app (in addition to the default redirect URI `http://localhost:8080/authorization-code/callback` that is already listed).

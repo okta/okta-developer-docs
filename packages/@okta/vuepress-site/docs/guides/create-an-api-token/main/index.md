@@ -4,24 +4,20 @@ excerpt: How to create a token for the Okta API
 layout: Guides
 ---
 
-This page explains what an API token is, why you need one, and how to create one.
+This guide explains what an API token is, why you need one, and how to create one.
 
 ---
 **Learning outcomes**
 
-* How an Okta API token is used
-* Why it's good practice to create a service account for use with an API token
-* Alternatives to Okta API tokens
-* Token expiration
-* How API tokens are deactivated
+* Learn how an Okta API token is used.
+* Understand why it's good practice to create a service account for use with an API token.
+* Know the alternatives to Okta API tokens.
+* Find out when a token expires and what happens when it expires.
+* Find out how API tokens are deactivated.
 
 **What you need**
 
-Have an Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
-
-**Sample code**
-
-n/a
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
 

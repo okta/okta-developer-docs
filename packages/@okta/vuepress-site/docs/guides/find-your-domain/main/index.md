@@ -8,9 +8,7 @@ This guide explains how you can find your Okta org domain.
 
 <!-- I don't think this article needs nutrition facts; it is too short and simple -->
 
-## Overview
-
-If you're building an application using one of our SDKs or client libraries, you may run into the following message:
+If you're building an application by using one of our SDKs or client libraries, you may run into the following message:
 
 > **Note:** Your Okta URL is missing. Replace `${yourOktaDomain}` with your Okta domain. You can copy your domain from the Okta Admin Console.
 

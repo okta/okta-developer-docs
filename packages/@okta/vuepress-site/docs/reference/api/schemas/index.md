@@ -18,7 +18,7 @@ For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schem
 
 ## Getting started
 
-Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cddf71b90ac2618861e2)
+Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae)
 
 ## User Schema operations
 
@@ -1586,7 +1586,7 @@ For brevity, the following response doesn't include all available properties.
   "type": "object",
   "properties": {
     "settings": {
-      "description": "Configuration properties specific to instance",
+      "description": "Configuration properties specific to AWS EventBridge",
       "type": "object",
       "properties": {
         "accountId": {
@@ -1670,7 +1670,7 @@ For brevity, the following response doesn't include all available properties.
     },
     "name": {
       "title": "Name",
-      "description": "A name for this integration instance in Okta",
+      "description": "A name for this log stream in Okta",
       "type": "string",
       "writeOnce": false,
       "pattern": "^.{1,100}$"
@@ -1686,6 +1686,152 @@ For brevity, the following response doesn't include all available properties.
     }
   }
 }
+```
+
+
+### List Log Stream Schemas
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/logStream" />
+
+Lists schemas for all Log Stream types visible for this org.
+
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+
+##### Request parameters
+
+N/A
+
+##### Response parameters
+
+Array of [Log Stream Schema](#log-stream-schema-object) objects
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/logStream"
+```
+
+##### Response example
+
+For brevity, the following response doesn't include all available properties.
+
+
+```json
+[
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+    "title": "AWS EventBridge",
+    "type": "object",
+    "properties": {
+      "settings": {
+        "description": "Configuration properties specific to AWS EventBridge",
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "title": "AWS Account ID",
+            "description": "Your Amazon AWS Account ID.",
+            "type": "string",
+            "writeOnce": true,
+            "pattern": "^\\d{12}$"
+          },
+          "eventSourceName": {
+            "title": "AWS Event Source Name",
+            "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
+            "type": "string",
+            "writeOnce": true,
+            "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
+          },
+          "region": {
+            "title": "AWS Region",
+            "description": "The destination AWS region for your system log events.",
+            "type": "string",
+            "writeOnce": true,
+            "oneOf": [
+              {
+                "title": "US East (Ohio)",
+                "const": "us-east-2"
+              },
+              {
+                "title": "US East (N. Virginia)",
+                "const": "us-east-1"
+              },
+              {
+                "title": "US West (N. California)",
+                "const": "us-west-1"
+              },
+              {
+                "title": "US West (Oregon)",
+                "const": "us-west-2"
+              },
+              {
+                "title": "Canada (Central)",
+                "const": "ca-central-1"
+              },
+              {
+                "title": "Europe (Frankfurt)",
+                "const": "eu-central-1"
+              },
+              {
+                "title": "Europe (Ireland)",
+                "const": "eu-west-1"
+              },
+              {
+                "title": "Europe (London)",
+                "const": "eu-west-2"
+              },
+              {
+                "title": "Europe (Paris)",
+                "const": "eu-west-3"
+              },
+              {
+                "title": "Europe (Milan)",
+                "const": "eu-south-1"
+              },
+              {
+                "title": "Europe (Stockholm)",
+                "const": "eu-north-1"
+              }
+            ]
+          }
+        },
+        "required": [
+          "eventSourceName",
+          "accountId",
+          "region"
+        ],
+        "errorMessage": {
+          "properties": {
+            "accountId": "Account number must be 12 digits.",
+            "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+          }
+        }
+      },
+      "name": {
+        "title": "Name",
+        "description": "A name for this log stream in Okta",
+        "type": "string",
+        "writeOnce": false,
+        "pattern": "^.{1,100}$"
+      }
+    },
+    "required": [
+      "name",
+      "settings"
+    ],
+    "errorMessage": {
+      "properties": {
+        "name": "Name can't exceed 100 characters."
+      }
+    }
+  }
+]
 ```
 
 ## User Schema object

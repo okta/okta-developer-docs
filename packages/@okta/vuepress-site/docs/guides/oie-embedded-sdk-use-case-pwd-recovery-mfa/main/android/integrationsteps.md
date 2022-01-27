@@ -62,7 +62,7 @@ This Java SDK method sends the email authenticator selection to Okta. Okta sends
 
 </div>
 
-> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
+> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [SDK limitations and workarounds: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
 ### 4: The user submits the email verification code
 
@@ -86,7 +86,7 @@ If the request to verify the code is successful, the Java SDK returns an `Authen
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's new password value.
 
-```val
+```kotlin
 val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
 val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```

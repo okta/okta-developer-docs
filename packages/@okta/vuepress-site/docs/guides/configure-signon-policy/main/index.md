@@ -4,7 +4,7 @@ excerpt: How to configure an Okta Sign-On policy and an App Sign-On Policy.
 layout: Guides
 ---
 
-This guide teaches you how to add and configure Okta Sign-On Policies and App Sign-On Policies to your [Okta organization](/docs/concepts/okta-organizations/), and what they are used for.
+This guide explains how to add and configure Okta Sign-On Policies and App Sign-On Policies to your [Okta organization](/docs/concepts/okta-organizations/), and what the Policies are used for.
 
 ---
 
@@ -15,14 +15,14 @@ This guide teaches you how to add and configure Okta Sign-On Policies and App Si
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](/docs/reference/api/groups/) in your org
 * An application that you want to add a Sign-On Policy to
-* A [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) configured
+* A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
 ---
 
-## Overview
+## About the Okta Sign-On and App Sign-On Policies
 
 An Okta Sign-On Policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure App Sign-On Policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
 
@@ -149,4 +149,4 @@ Next, take a look at the following:
 
 * [Sign Users Out](/docs/guides/sign-users-out/)
 * [Set up self-registration](/docs/guides/set-up-self-service-registration/)
-* [Configure an access policy](/docs/guides/configure-access-policy/overview/)
+* [Configure an access policy](/docs/guides/configure-access-policy/)
