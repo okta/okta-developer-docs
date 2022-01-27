@@ -609,7 +609,20 @@ export const guides = [
               },
             ]
             },
-          {
+            {
+              title: "Okta Sign-In Widget",
+              subLinks: [
+                {
+                  title: "Upgrade your Okta Sign-In Widget",
+                  guideName: "oie-upgrade-sign-in-widget",
+                },
+                {
+                  title: "Updates to the Sign-In Widget i18n properties",
+                  guideName: "oie-upgrade-sign-in-widget-i18n",
+                },
+              ]
+            },
+                {
             title: "Okta Identity Engine Limitations",
             path: "/docs/guides/ie-limitations/"
           },
