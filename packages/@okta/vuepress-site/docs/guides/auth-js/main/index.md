@@ -137,7 +137,7 @@ To create and run this sample use case:
 
 #### Create an app integration
 
-Create an app integration that represents the application you want to add authentication to using Okta:
+Create an app integration in the Okta org that represents the application you want to add authentication to:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
