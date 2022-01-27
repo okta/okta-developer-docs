@@ -5,20 +5,20 @@ title: Okta Auth JS fundamentals
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide explains fundamental details and use cases on authentication using JavaScript and the embedded Okta Sign-In Widget, and provides a simple one-page SPA application to demonstrate a sign-in use case.
+This guide explains authentication fundamentals using JavaScript and the embedded Okta Sign-In Widget, and provides a simple one-page SPA application to demonstrate a sign-in use case.
+
 ---
 
 **Learning outcomes**
 
 * Understand how to implement basic sign-in using JavaScript and the embedded Okta Sign-In Widget.
 * Understand basic installation and code configurations using JavaScript.
-* Implement a simple SPA use case, and sign a user iin to the application.
+* Implement a simple SPA use case and sign a user in to the application.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * Basic knowledge of building front-end JavaScript applications
-* xyz
 
 **Sample code**
 
@@ -28,19 +28,19 @@ This guide explains fundamental details and use cases on authentication using Ja
 
 ## About Okta Auth JS and the Okta Sign-In Widget
 
-The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign in experience, which can be used to authenticate users on any website.
+The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign in experience, which you can use to authenticate users on any website.
 
 Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you will need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
 A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-users-email)
 
-> A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
+> A version of the Widget that you can edit in real time is available on the [Okta Developer Documentation site](https://developer.okta.com/live-widget/).
 
 <img src="/img/okta-sign-in-javascript.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
 ## Installation
 
-The first step is to install the Widget. You have two options: linking out to the Okta CDN, or installing locally through `npm` instead.
+The first step is to install the Widget. You have two options: linking out to the Okta CDN, or installing locally through `npm`.
 
 ### CDN
 
@@ -76,13 +76,13 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). More information is available on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget makes cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/) page.
 
-## Add code to reference the widget
+## Add code to reference the Widget
 
 The following sections display basic code snippets you use when embedding and accessing the Widget.
 
-### Initializing the Widget
+### Initialize the Widget
 
 The code that initializes the Widget appears as follows:
 
@@ -96,14 +96,14 @@ The code that initializes the Widget appears as follows:
       console.log('Do something with this sessionToken', res.session.token);
     } else {
     // The user can be in another authentication state that requires further action.
-    // For more information about these states, see:
-    //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
+    // See:
+    // https://github.com/okta/okta-signin-widget#rendereloptions-success-error
     }
   });
 </script>
 ```
 
-To reference the Sign-In Widget on your desired sign in page, include the following `<div>` tag:
+To reference the Sign-In Widget on your desired sign-in page, include the following `<div>` tag:
 
 ```HTML
 <div id="widget-container"></div>
@@ -113,7 +113,7 @@ To reference the Sign-In Widget on your desired sign in page, include the follow
 
 ### Mobile Consideration
 
-To ensure that the Widget renders properly on mobile, include the `viewport` metatag in your `head`:
+To ensure that the Widget renders properly on a mobile device, include the `viewport` metatag in your `head`:
 
 ```html
 <head>
@@ -121,13 +121,13 @@ To ensure that the Widget renders properly on mobile, include the `viewport` met
 </head>
 ```
 
-## Sign-In Widget Use Cases
+## Sign-In Widget use cases
 
 The Widget handles a number of different authentication scenarios. See the following sections for common applications. For a full-walk through of a simple JavaScript sample, follow the [Sign In and Display User's Email](#sign-in-and-display-user's-email) use case.
 
-### Sign In and Display User's Email
+### Sign In and display user's email
 
-In this case, you use the Widget to sign in to a simple web page and display the user's email. Ensure you have an Okta developer account, and use the following one page of code to create a new Single-Page App (SPA) and see it working with the Widget.
+In this case, you use the Widget to sign in to a simple web page and display the user's email. Ensure that you have an Okta developer account, and use the following one page of code to create a new Single-Page App (SPA) and see it working with the Widget.
 
 To create and run this sample use case:
 
@@ -146,22 +146,22 @@ Create an app integration that represents the application you want to add authen
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
-   * Select the **Interaction Code** check box.
-   * Select the **Refresh Token** check box.
+   * Select the **Interaction Code** checkbox.
+   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
 
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
 1. Select the **Sign On** tab.
 1. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For this use case, ensure that the **1 factor type** authenticator is **Password / IdP**.
-1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** check box is selected.
-1. In the **Security** > **API** > **Trusted Origins** page, ensure there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
+1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
 
 #### Create a simple SPA
 
-1. On your local machine, create a directory for your sample application. For example `simple-spa`.
+1. On your local machine, create a directory for your sample application. For example: `simple-spa`.
 1. In the editor of your choice, add the following HTML and JavaScript into an `index.html` file located in your sample application folder:
 
   ```html
@@ -187,7 +187,7 @@ Create an app integration that represents the application you want to add authen
         <div id="messageBox" class="jumbotron">
           You are not logged in.
         </div>
-        <!-- where the sign-in form will be displayed -->
+        <!-- where the sign-in form appears -->
         <div id="okta-login-container"></div>
         <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
       </div>
@@ -239,7 +239,7 @@ Create an app integration that represents the application you want to add authen
     * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
     * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
 
-4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features in your sample directory, `simple-spa`. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature does not require this update.
+4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features in your sample directory, `simple-spa`. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
     ```bash
     npm install @okta/okta-auth-js
@@ -255,15 +255,15 @@ Create an app integration that represents the application you want to add authen
     npx http-server . -p 3000
     ```
 
-    >**Note:** If not installed previously, you will be prompted to install the `npx` package.
+    >**Note:** If not installed previously, you are prompted to install the `npx` package.
 
-1. Navigate to the local page, `http://localhost:3000`. The simple web page appears with a message that you're not signed in and displays the Sign-In Widget.
+1. Navigate to `http://localhost:3000`. The simple web page appears with a message that you're not signed in and displays the Sign-In Widget.
 
 1. Sign in with a user from your org assigned to the app integration. The simple web page appears with the signed-in user's email address.
 
-### Sign In to Okta with the Default Dashboard
+### Sign in to Okta with the default dashboard
 
-In this case, you use the Widget to sign in to the default Okta dashboard. This requires taking the Widget initialization code, and modifying the success behavior to redirect to your org's dashboard.
+In this case, you use the Widget to sign in to the default Okta dashboard. This requires taking the Widget initialization code and modifying the success behavior to redirect to your org's dashboard.
 
 ```javascript
 function success(res) {
@@ -273,11 +273,11 @@ function success(res) {
 }
 ```
 
-### Sign In to Okta and SSO Directly to an App
+### Sign in to Okta and SSO directly to an app
 
 If you want to sign the user directly in to an application within Okta, you redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://help.okta.com/okta_help.htm?id=ext-apps-page-show-application-embed-links).
 
-### Sign In to Okta with a Custom Dashboard
+### Sign in to Okta with a custom dashboard
 
 If you are signing your users in to Okta, but you don't want to use the Okta dashboard, then you can change the redirect URL to point to your custom portal instead.
 
@@ -289,11 +289,11 @@ function success(res) {
 }
 ```
 
-### Sign In to Your Application
+### Sign in to your application
 
-If want to use the Widget to sign in to your own application instead of Okta, you need to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
+If want to use the Widget to sign in to your own application instead of Okta, you need to [set up a Custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
 
-### Server-side Web Application using "authorization_code" flow
+### Server-side web application using Authorization Code flow
 
 ```javascript
 
@@ -310,13 +310,13 @@ const signIn = new OktaSignIn({
   }
 });
 
-// A query parameter named `code` will be passed to the login redirect URI
+// A query parameter named `code` is passed to the login redirect URI
 // This should be handled by server-side code. The code can be exchanged for tokens
 signIn.showSignInAndRedirect();
 
 ```
 
-### SPA or Native Application using PKCE
+### SPA or Native application using PKCE
 
 ```javascript
 
@@ -345,7 +345,7 @@ function callMessagesApi() {
   const accessToken = signIn.authClient.getAccessToken();
 
   if (!accessToken) {
-    // This means that the user is not logged in
+    // This means that the user isn't logged in
     return;
   }
 
@@ -367,9 +367,9 @@ function callMessagesApi() {
 }
 ```
 
-### Handling Errors
+### Handling errors
 
-The Widget render function either results in a success or an error. The error function is called when the Widget has been initialized with invalid configuration options, or has entered a state it cannot recover from.
+The Widget render function either results in a success or an error. The error function is called when the Widget is initialized with invalid configuration options, or entered a state it can't recover from.
 
 The Widget is designed to internally handle any user and API errors. This means that the custom error handler should primarily be used for debugging any configuration errors.
 
@@ -398,19 +398,19 @@ Okta provides a number of SDKs that you might want to use the Sign-In Widget wit
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in an Angular app. (Note: this code does not use the [okta-angular](https://github.com/okta/okta-angular) SDK)
+The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you need to embed the Sign-In Widget in an Angular app. **Note:** this code doesn't use the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
 ### React
 
-The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a React app.
+The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you need in order to embed the Sign-In Widget in a React app.
 
 See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example using the [okta-react](https://github.com/okta/okta-react) SDK.
 
 ### Vue
 
-The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a Vue app.
+The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you need in order to embed the Sign-In Widget in a Vue app.
 
 See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example using the [okta-vue](https://github.com/okta/okta-vue) SDK.
 
@@ -418,16 +418,16 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
-For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
+For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
 See the following examples:
 
 * Android:
     * [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    * [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    * [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
 * iOS:
-    * [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    * [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    * [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
+    * [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 
