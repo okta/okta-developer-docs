@@ -2,11 +2,37 @@
 title: Okta Auth JS fundamentals
 ---
 
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+This guide explains fundamental details and use cases on authentication using JavaScript and the embedded Okta Sign-In Widget, and provides a simple one-page SPA application to demonstrate a sign-in use case.
+---
+
+**Learning outcomes**
+
+* Understand how to implement basic sign-in using JavaScript and the embedded Okta Sign-In Widget.
+* Understand basic installation and code configurations using JavaScript.
+* Implement a simple SPA use case, and sign a user iin to the application.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* Basic knowledge of building front-end JavaScript applications
+* xyz
+
+**Sample code**
+
+* Sample code is provided in the following section: [Sign In and display user's email](#sign-in-and-display-users-email)
+
+---
+
 ## About Okta Auth JS and the Okta Sign-In Widget
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign in experience, which can be used to authenticate users on any website.
 
-Okta uses the Widget as part of its normal sign-in page. If you would like to customize the Widget, then you will need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
+Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you will need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
+
+A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-users-email)
 
 > A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
 
@@ -26,7 +52,7 @@ To use the CDN, include this in your HTML:
 <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
+More info, including the latest published version, can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
 ### npm
 
@@ -35,11 +61,11 @@ More info, including the latest published version, can be found in the [Widget D
 npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 ```
 
-More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+More info, including the latest published version, can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
 
 #### Bundling the Widget
 
-If you are bundling your assets, import them from `@okta/okta-signin-widget`. For example, using [webpack](https://webpack.js.org/):
+If you're bundling your assets, import them from `@okta/okta-signin-widget`. For example, using [webpack](https://webpack.js.org/):
 
 ```javascript
 import OktaSignIn from '@okta/okta-signin-widget';
@@ -50,9 +76,11 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). More information is available on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 ## Add code to reference the widget
+
+The following sections display basic code snippets you use when embedding and accessing the Widget.
 
 ### Initializing the Widget
 
@@ -341,7 +369,7 @@ function callMessagesApi() {
 
 ### Handling Errors
 
-The Widget render function either results in a success or an error. The error function is called when the Widget has been initialized with invalid config options, or has entered a state it cannot recover from.
+The Widget render function either results in a success or an error. The error function is called when the Widget has been initialized with invalid configuration options, or has entered a state it cannot recover from.
 
 The Widget is designed to internally handle any user and API errors. This means that the custom error handler should primarily be used for debugging any configuration errors.
 
@@ -367,8 +395,6 @@ function error(err) {
 ## Using with Okta SDKs
 
 Okta provides a number of SDKs that you might want to use the Sign-In Widget with, including Angular, React, and Vue.
-
-Using the Sign-In Widget with our SDKs that target the web is fairly straightforward.
 
 ### Angular
 
