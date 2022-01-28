@@ -44,7 +44,7 @@ On the rate limit dashboard, the trendline can now exceed 100% of the org's defa
 
 ![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/BRLoverview.png)
 
-When a burst rate limit event occurs, the system log event, `system.org.rate_limit.burst`, is triggered and email notifications are generated.
+When a burst rate limit event occurs, the system log event, `system.org.rate_limit.burst`, is triggered and an email notification is generated.
 
 ![Displays the email to notify the admin of a burst rate limit event.](/img/BRLemail.png)
 
