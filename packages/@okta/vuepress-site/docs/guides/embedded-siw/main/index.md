@@ -241,7 +241,7 @@ Create an app integration in the Okta org that represents the application you wa
 
 #### Run the sample application
 
-1. In your sample directory, `simple-spa`, you can run a static site web server using the following command:
+1. In your sample `simple-spa` directory, you can run a static site web server using the following command:
 
     ```bash
     npx http-server . -p 3000
