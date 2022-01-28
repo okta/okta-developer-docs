@@ -13,7 +13,7 @@ sections:
 This guide shows you how to rotate and manage your client secrets without service or application downtime. Additionally, this guide shows you how to generate public/private key pairs and manage them using the Admin Console.
 
 ---
-<!-- Nutrition facts bullets -->
+
 **Learning outcomes**
 
 * Create additional client secrets for a client app and manage existing client secrets
@@ -28,7 +28,7 @@ This guide shows you how to rotate and manage your client secrets without servic
 [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 * The [Client Secret Rotation and JWT Creation] Postman collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
+  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7)
 
 ---
 
@@ -38,7 +38,7 @@ Just like periodically changing passwords, regularly rotating the client secret 
 
 Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JWT public/private key may be required. Apps that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private key JWT generation can be laborious and time-consuming, and using the API can lead to errors.
 
-To make client secret rotation more seamless, you can generate additional client secrets for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in .jwk format) for your app using the Admin Console.
+To make client secret rotation more seamless, you can generate additional client secrets for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in .JWK format) for your app using the Admin Console.
 
 > **Note:** Using client authentication with a client secret isn’t recommended for native apps because they are public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Recommended flow by application type](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) and [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on the type of flow to use for your application and how to implement that flow.
 
@@ -54,35 +54,33 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
 2. Select the OpenID Connect app that you want to rotate the client secret for.
 
-3. In the **Client Secrets** section, click **Generate new secret** to create a client secret as a backup to your existing client secret. A second secret appears with the creation date. The maximum number of secrets that you can generate is two for each app.
+3. In the **Client Secrets** section, click **Generate new secret** to create a client secret as a backup to your existing one. A second secret appears with the creation date. The maximum number of secrets that you can generate is two for each app.
 
-  > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
+    > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
 
-4. When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation.
+    When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
 
-  > **Note:** If you turn off the **OAuth secrets and key management** feature in your org, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
+    > **Note:** If you turn off the **OAuth secrets and key management** feature in your org, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
 
 5. [Update your web app](/docs/guides/sign-into-web-app/-/main/#configure-the-package) to start using the newly generated client secret.
-
-  > **Note:** Any requests for a secret returns the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is **Inactive**.
 
 6. Test your application and ensure that all functionality works with the newly generated client secret.
 
 7. After you update the client secret, return to the **Client secrets** section for the app and change the old client secret status from **Active** to **Inactive**.
 
-  > **Note:** You can try this in Postman using the **Deactivate a client secret** request.
+    > **Note:** You can try this in Postman using the **Deactivate a client secret** request.
 
 8. Re-validate that your app works after changing the old client secret status to rule out any possibility that your app is using older credentials. Should there be any issues with your app, you can change the status of the old client secret back to **Active** and troubleshoot.
 
 9. After validation is successful, you can then delete the old secret using the Admin Console by changing the status of the old secret from **Inactive** to **Delete**. This ensures that the older secret isn’t used by mistake.
 
-  > **Note:** You can try this in Postman using the **Delete a client secret** request.
+    > **Note:** You can try this in Postman using the **Delete a client secret** request.
 
 ## Generate JWTs
 
 To use the Admin Console to generate a JWK key pair for your app for testing, follow these steps:
 
-> **Note:** Use the Admin Console to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator, like [this one](https://github.com/mitreid-connect/mkjwk.org).
+> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 
@@ -92,14 +90,14 @@ To use the Admin Console to generate a JWK key pair for your app for testing, fo
 
 4. Select **Public key/private key** as the **Client authentication** method.
 
-  > **Note:** You can try this in Postman using the **Update client auth method** request.
+    > **Note:** You can try this in Postman using the **Update client auth method** request.
 
-  If there is an existing key associated with your app, that key’s ID and the creation date of the key appear in the **Public Keys** section that appears.
+    If there is an existing key associated with your app, that key’s ID and the creation date of the key appear in the **Public Keys** section.
 
 5. Click **Add** and in the **Add a public key** dialog box, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 
-    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.
-    OR
+    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
+  **OR**<br>
     * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
 6. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
@@ -114,13 +112,14 @@ To delete a public key, follow these steps:
 
 1. In the app’s **Public Keys** section, change the **Status** to **Inactive** for the key that you want to remove. You can’t deactivate the only active public key.
 
-  > **Note:** You can try this in Postman using the **Deactivate a JWK** request.
+    > **Note:** You can try this in Postman using the **Deactivate a JWK** request.
 
 2. From the **Status** drop-down box you can then select **Delete**. The key is removed.
 
-  > **Note:** You can try this in Postman using the **Delete a JWK** request.
+    > **Note:** You can try this in Postman using the **Delete a JWK** request.
 
 ## See also
 
-* [OpenID Connect and OAuth 2.0 API `/key` endpoint](/docs/reference/api/oidc/#keys)
+* [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/java/main/)
+* [OpenID Connect and OAuth 2.0 API /key endpoint](/docs/reference/api/oidc/#keys)
 * [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/)

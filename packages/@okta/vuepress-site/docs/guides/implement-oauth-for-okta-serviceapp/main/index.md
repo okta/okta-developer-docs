@@ -32,33 +32,52 @@ For machine-to-machine use cases where a backend service or a daemon has to call
 
 The following are the high-level steps required to perform the Client Credentials grant flow with an OAuth service app:
 
-1. Create a public/private JSON Web Key Set (JWKS) key pair and extract the public key to pass it along with the client creation API call.
-1. Create the app and register the public key with the app.
+1. Create the service app integration in Okta.
+1. Generate a public/private JSON Web Key Set (JWKS) key pair and store the private key.
 1. Grant the required OAuth 2.0 scopes to the app.
 1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
 > **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
 
-## Create a public/private key pair
+## Create a service app integrationand generate a JWKS
 
-The `private_key_jwt` client authentication method is the only supported method for OAuth 2.0 service apps that want to get access tokens with Okta scopes.
+<ApiLifecycle access="ea" />
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth 2.0 service app. We recommend that you generate the public/private key pair first before you create the OAuth 2.0 service app.
+Create an OAuth 2.0 service app integration and generate a public/private key pair in the Admin Console.
 
-1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
+> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
-    * **Key Size**: 2048
-    * **Key Use**: Signature
-    * **Algorithm**: RSA256
-    * **Key ID**: (Optional) This can be any random value.
+1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
-> **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own [internal instance](https://github.com/mitreid-connect/mkjwk.org) of the key pair generator.
+2. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
 
-2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
+3. On the Create a new app integration page, select **API Services** as the **Sign-in method** and click **Next**.
 
-> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
+    > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, generate your public/private JWKS key pair first.
 
-The JWKS should look something like this:
+4. Enter a name for your app integration and click **Save**.
+
+5. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
+
+6. Select **Public key/private key** as the **Client authentication** method.
+
+7. Click **Add** and in the **Add a public key** dialog box, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+
+    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
+    **OR**<br>
+    * Click **Generate new key**  and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+
+    > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
+
+8. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
+
+9. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
+
+10. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+
+    > **Note:** There is no limit to the number of JWKs that you can add for an app.
+
+    The JWKS should look something like this:
 
 ```json
 {
@@ -75,65 +94,18 @@ The JWKS should look something like this:
 }
 ```
 
-## Create a service app and grant scopes
+## Grant allowed scopes
 
-Create an OAuth 2.0 service app and register the public key with the service app by using the dynamic client registration endpoint (`/oauth2/v1/clients`). Then grant the scopes that you want to allow for the service app.
-
-### Create a service app
-
-1. Use the following POST example to create your service app using the `/oauth2/v1/clients` endpoint and provide values for these parameters:
-
-    * `client_name`: Name of the service app
-    * `grant_types`: `client_credentials`
-    * `token_endpoint_auth_method`: `private_key_jwt`
-    * `application_type`: `service`
-    * `jwks`: Add the JSON Web Key Set (JWKS) that you created in the [last step](#create-a-public-private-key-pair).
-
-```bash
-curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: SSWS ${api_token}' \
---data-raw ' {
-    "client_name": "Service Client Name",
-    "response_types": [
-      "token"
-    ],
-    "grant_types": [
-      "client_credentials"
-    ],
-    "token_endpoint_auth_method": "private_key_jwt",
-    "application_type": "service",
-    "jwks": {
-                "keys": [
-                    {
-                      "kty": "RSA",
-                      "e": "AQAB",
-                      "use": "sig",
-                      "kid": "O4O",
-                      "alg": "RS256",
-                      "n": "l-iy7THGCtFVMK6izukV_0K858jhoxg9-d99b6t6cn3Ydy6jNrHl5_OrisCpdJvzTVskQ8XrJulKkPa91JVTPIhCWvVHIKyi43qlLEJE4t0qF1hkUL1Qyhl3cM-oXtyKu9MHBqSSBoMokLSlaOAa_Lx6yDGsCy-ZWSwGdxH5zuygOX1k3tpotbZ7773uFMPEK-6Ol7v0_E9PY-lPUK8M6nH_DNp3TIqn6h2W0r_L2N-M5HBGbfUf0xWtoV5yyRpde6tsA8XnsSjBfR-N_e2xItrQ3uJ5Fk5MdWoZBw5hLNtcUkOt9qbwv6WlLl0UEBEl9dzwJKWEYmoJg3Gai6Z5-w"
-                      }
-                  ]
-              }
- }'
-```
-
-2. Make note of the `client_id` that is returned in the response. You need that to grant scopes to your service app and when you create and sign the JWT.
-
-### Grant allowed scopes
-
-When a request is sent to the Okta Org Authorization Server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
-
-> **Note:** You can find a list of available values for `scopeId` on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page.
-
-Now that you've created the service app and registered the public key with that service app, you need to define the allowed scopes.
+Now that you've created the service app and registered the public key with that service app, you need to [define the allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). When a request is sent to the Okta Org Authorization Server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
 
 > **Note:** Only the Super Admin role has permissions to grant scopes to an app.
 
-1. Use the `/grants` API to add a grant for an allowed scope to your service app. The POST example request below creates a grant for the `okta.users.read` scope.
+1. From the service app page, select the **Okta API Scopes** tab.
+2. Click **Grant** for each of the scopes that you want to add to the application's grant collection.
 
-2. Provide values for these parameters in your request:
+    > **Note:** You can also use the `/grants` API to add a grant for an allowed scope to your service app. The POST example request below creates a grant for the `okta.users.read` scope.
+
+    Provide values for these parameters in your request:
 
     * `scopeID`: `okta.users.read`
     * `issuer`: `https://${yourOktaDomain}`
@@ -149,8 +121,6 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceap
     "issuer": "https://${yourOktaDomain}"
 }'
 ```
-
-> **Note:** You can also use the Admin Console to grant allowed scopes to your service app on the **Okta API Scopes** tab. Click **Grant** for each of the scopes that you want to add to the application's grant collection.
 
 ## Create and sign the JWT
 
