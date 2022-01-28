@@ -1,5 +1,5 @@
 ---
-title: Okta Auth JS fundamentals
+title: Embedded Okta Sign-In Widget fundamentals
 ---
 
 <ApiLifecycle access="ie" /><br>
@@ -22,17 +22,17 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 **Sample code**
 
-* Sample code is provided in the following section: [Sign In and display user's email](#sign-in-and-display-users-email)
+* Sample code is provided in the following section: [Sign In and display user's email](#sign-in-and-display-user-s-email)
 
 ---
 
-## About Okta Auth JS and the Okta Sign-In Widget
+## About the embedded Okta Sign-In Widget
 
-The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign in experience, which you can use to authenticate users on any website.
+The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience, which you can use to authenticate users on any website.
 
-Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you will need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
+Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#sign-in-widget-use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-users-email)
+A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email)
 
 > A version of the Widget that you can edit in real time is available on the [Okta Developer Documentation site](https://developer.okta.com/live-widget/).
 
@@ -123,7 +123,7 @@ To ensure that the Widget renders properly on a mobile device, include the `view
 
 ## Sign-In Widget use cases
 
-The Widget handles a number of different authentication scenarios. See the following sections for common applications. For a full-walk through of a simple JavaScript sample, follow the [Sign In and Display User's Email](#sign-in-and-display-user's-email) use case.
+The Widget handles a number of different authentication scenarios. See the following sections for common applications. For a full-walk through of a simple JavaScript sample, follow the [Sign In and Display User's Email](#sign-in-and-display-user-s-email) use case.
 
 ### Sign In and display user's email
 
@@ -233,14 +233,11 @@ Create an app integration in the Okta org that represents the application you wa
     * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
     * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
 
-
-4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features in your sample directory, `simple-spa`. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
+4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features.. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
     ```bash
     npm install @okta/okta-auth-js
     ```
-
-    >**Note:** The SPA app logout function requires `okta-auth-js` 5.10 or greater.
 
 #### Run the sample application
 
