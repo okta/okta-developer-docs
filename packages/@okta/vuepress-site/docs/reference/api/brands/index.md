@@ -1095,6 +1095,936 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
+## Email template operations
+
+The Email Templates API has the following operations:
+
+* [List email templates](#list-email-templates)
+* [Get email template](#get-email-template)
+* [Get email template default content](#get-email-template-default-content)
+* [Preview email template default content](#preview-email-template-default-content)
+* [List email customizations](#list-email-customizations)
+* [Create email customization](#create-email-customization)
+* [Delete all email customizations](#delete-all-email-customizations)
+* [Get email customization](#get-email-customization)
+* [Update email customization](#update-email-customization)
+* [Delete email customization](#delete-email-customization)
+* [Preview email customization](#preview-email-customization)
+* [Send test email](#send-test-email)
+
+### List email templates
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
+
+Lists all supported email templates.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description            |
+| -------------- | ----------- | ---------------------- |
+| `brandId`      | String      | ID of a Brand          |
+
+#### Response body
+
+A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources.
+
+Passing an invalid `brandId` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the list of all supported email templates.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
+  <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ad.welcome&limit=10>; rel="next"
+```
+
+```json
+[
+    {
+        "name": "welcome",
+        "_links": {
+            "customizations": {
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST",
+                        "DELETE"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations"
+            },
+            "defaultContent": {
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+            },
+            "self": {
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            },
+            "test": {
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            }
+        }
+    },
+    ...
+    {
+        "name": "ad.welcome",
+        "_links": {
+          ...
+        }
+    }
+]
+```
+
+### Get email template
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
+
+Fetches the email template named `templateName`.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+The requested [Email Template](#email-template) resource.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "name": "welcome",
+    "_links": {
+        "customizations": {
+            "hints": {
+                "allow": [
+                    "GET",
+                    "POST",
+                    "DELETE"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations"
+        },
+        "defaultContent": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        },
+        "test": {
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+        }
+    }
+}
+```
+
+### Get email template default content
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
+
+Fetches an email template's default content.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+The requested email template's default [Email Content](#email-content) resource.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the `welcome` email template's default content.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "body": "<!DOCTYPE html><html>...</html>",
+    "subject": "Welcome to Okta!",
+    "_links": {
+        "preview": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        }
+    }
+}
+```
+
+### Preview email template default content
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content/preview" />
+
+Fetches a preview of an email template's default content.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+The requested email template's default [Email Content](#email-content) resource, with variables populated using the current user's context.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns a preview of the `welcome` email template's default content.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "body": "<!DOCTYPE html><html>...</html>",
+    "subject": "Welcome to Okta!",
+    "_links": {
+        "defaultContent": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        }
+    }
+}
+```
+
+### Send test email
+
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/test" />
+
+Sends a test email.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+Returns a `204 No Content` on success.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example sends a test `welcome` email.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test'
+```
+
+##### Response
+
+```http
+HTTP/1.1 204 No Content
+```
+
+### List email customizations
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+Lists all customizations for an email template.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the list of all customizations for the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations?limit=10>; rel="self",
+  <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
+```
+
+```json
+[
+    {
+        "body": "<!DOCTYPE html><html>...</html>",
+        "created": "2022-01-24T23:22:36.000Z",
+        "id": "oel2hr0orNF3xGHpS0g4",
+        "isDefault": true,
+        "language": "en",
+        "lastUpdated": "2022-01-25T03:22:52.000Z",
+        "subject": "Welcome to Okta!"
+        "_links": {
+            "preview": {
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2hr0orNF3xGHpS0g4/preview"
+            },
+            "self": {
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2hr0orNF3xGHpS0g4"
+            },
+            "template": {
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            },
+            "test": {
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                },
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            }
+        },
+    },
+    ...
+]
+```
+
+### Create email customization
+
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+Creates a new email customization.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Request body
+
+The [Email Customization](#email-customization) resource to create.
+
+#### Response body
+
+The [Email Customization](#email-customization) resource that was created.
+
+If this is the first customization being created for the email template, `isDefault` will be set to `true`.
+
+Returns a `400 Bad Request` if:
+- `language` is not one of the [supported languages](#supported-languages).
+- `body` does not contain a required variable references.
+
+Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and a default customization already exists.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+
+#### Use examples
+
+The following example creates an English customization for the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "language": "en",
+  "subject": "Welcome to Okta!",
+  "body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+  "isDefault": true
+}' \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+```
+
+##### Response
+
+```http
+HTTP/1.1 201 Created
+```
+
+```json
+{
+		"body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+    "created": "2022-01-27T05:42:07.000Z",
+    "id": "oel2kk2VDW0K4AOZp0g4",
+    "isDefault": false,
+		"language": "en",
+    "lastUpdated": "2022-01-27T05:42:07.000Z",
+		"subject": "Welcome to Okta!",
+    "_links": {
+        "preview": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        },
+        "test": {
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+        }
+    }
+}
+```
+
+### Delete all email customizations
+
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+Deletes an email customization.
+
+#### Request path parameters
+
+| Parameter      | Type        | Description               |
+| -------------- | ----------- | ------------------------- |
+| `brandId`      | String      | ID of a Brand             |
+| `templateName` | String      | Name of an Email Template |
+
+#### Response body
+
+Returns a `204 No Content` on success.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example deletes all customizations of the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+```
+
+##### Response
+
+```http
+HTTP/1.1 204 No Content
+```
+
+### Get email customization
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+Fetches an email customization.
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+| `customizationId` | String      | ID of an Email Customization |
+
+#### Response body
+
+The requested [Email Customization](#email-customization) resource.
+
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns a specific customization of the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "body": "<!DOCTYPE html><html>...</html>",
+    "created": "2022-01-27T05:42:07.000Z",
+    "id": "oel2kk2VDW0K4AOZp0g4",
+    "isDefault": true,
+    "language": "en",
+    "lastUpdated": "2022-01-27T05:42:07.000Z",
+    "subject": "Welcome to Okta!",
+    "_links": {
+        "preview": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        },
+        "test": {
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+        }
+    }
+}
+```
+
+### Update email customization
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+Updates an email customization.
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+| `customizationId` | String      | ID of an Email Customization |
+
+#### Request body
+
+The [Email Customization](#email-customization) resource to update.
+
+#### Response body
+
+The [Email Customization](#email-customization) resource that was updated.
+
+If `isDefault` is `true`, the previous default email customization will have its `isDefault` set to `false`.
+
+Returns a `409 Conflict` if:
+- there is already another email customization for the specified `language`.
+- `isDefault` is `false` and the email customization being updated is the default.
+
+Returns a `400 Bad Request` if:
+- `language` is not one of the [supported locales](#supported-locales).
+- `body` does not contain a required variable references.
+
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+
+> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+
+#### Use examples
+
+The following example updates a customization for the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "language": "en",
+  "subject": "Hello from Okta!",
+  "body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+  "isDefault": true
+}' \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+		"body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+    "created": "2022-01-27T00:23:48.000Z",
+    "id": "oel2kk1zYJBJbeaGo0g4",
+    "isDefault": true,
+    "language": "en",
+    "lastUpdated": "2022-01-27T00:23:48.000Z",
+    "subject": "Hello from Okta!",
+    "_links": {
+        "preview": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+        },
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        },
+        "test": {
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+        }
+    }
+}
+```
+
+### Delete email customization
+
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+Deletes an email customization.
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+| `customizationId` | String      | ID of an Email Customization |
+
+#### Response body
+
+Returns a `204 No Content` on success.
+
+Returns a `409 Conflict` if the email customization to be deleted is the default.
+
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+
+> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+
+#### Use examples
+
+The following example deletes a specific customization of the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+```
+
+##### Response
+
+```http
+HTTP/1.1 204 No Content
+```
+
+### Preview email customization
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}/preview" />
+
+Fetches a preview of an email customization.
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+| `customizationId` | String      | ID of an Email Customization |
+
+#### Response body
+
+The requested email customization's [Email Content](#email-content) resource, with variables populated using the current user's context.
+
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns a preview of a customization of the `welcome` email template.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}/preview'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "body": "<!DOCTYPE html><html>...</html>",
+    "created": "2022-01-27T00:23:48.000Z",
+    "id": "oel2kk1zYJBJbeaGo0g4",
+    "isDefault": false,
+    "language": "en",
+    "lastUpdated": "2022-01-27T00:23:48.000Z",
+    "subject": "Welcome to Okta!",
+    "_links": {
+        "self": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+        },
+        "template": {
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+        },
+        "test": {
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            },
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+        }
+    }
+}
+```
+
 ## Brand API Objects
 
 ### Brand object
@@ -1382,3 +2312,78 @@ The following scenarios explain which logo is used when based on the `THEME_BUIL
 > Enabling the `THEME_BUILDER` feature automatically updates the Theme logo from Org. The Org logo is still stored.
 > Disabling the `THEME_BUILDER` feature uses the logo configured for the Org.
 > Pages use the logo from the source defined above based on feature status.
+
+## Email Template Resources
+
+### Email Template
+
+The Email Template resource defines the following properties:
+
+| Property       | Type                    | Description                    |
+| ---------------| ----------------------- | ------------------------------ |
+| `name`         | String                  | The name of the email template |
+| `_links`       | [Links](#links-object)  | Link relations for this object |
+
+### Email Content
+
+The Email Content resource defines the following properties:
+
+| Property       | Type                    | Description                    |
+| ---------------| ----------------------- | ------------------------------ |
+| `subject`      | String                  | The subject of the email       |
+| `body`         | String                  | The body of the email          |
+| `_links`       | [Links](#links-object)  | Link relations for this object |
+
+### Email Customization
+
+The Email Customization resource defines the following properties:
+
+| Property       | Type                    | Description                                 |
+| ---------------| ----------------------- | ------------------------------------------- |
+| `id`           | String                  | The ID of the customization                 |
+| `language`     | String                  | The language supported by the customization |
+| `isDefault`    | boolean                 | Whether the customization is the default    |
+| `subject`      | String                  | The subject of the customization            |
+| `body`         | String                  | The body of the customization               |
+| `_links`       | [Links](#links-object)  | Link relations for this object              |
+
+
+#### Email Customization Constraints
+
+The following constraints apply to email customizations:
+1. If an email template has customizations, exactly one of them must be the default (where `isDefault` is `true`).
+1. Each email template can have at most one customization for each [supported language](#supported-languages).
+
+### Supported Languages
+
+Email customizations can be created for the following languages. Languages must be specified as [BCP 47 language tags](https://en.wikipedia.org/wiki/IETF_language_tag).
+
+| Language               | BCP 47 Language Code |
+| ---------------------- | -------------------- |
+| Czech                  | `cs`                 |
+| Danish                 | `da`                 |
+| German                 | `de`                 |
+| Greek                  | `el`                 |
+| English                | `en`                 |
+| Spanish                | `es`                 |
+| Finnish                | `fi`                 |
+| French                 | `fr`                 |
+| Hungarian              | `hu`                 |
+| Indonesian             | `id`                 |
+| Italian                | `it`                 |
+| Japanese               | `ja`                 |
+| Korean                 | `ko`                 |
+| Malaysian              | `ms`                 |
+| Norwegian              | `nb`                 |
+| Dutch                  | `nl-NL`              |
+| Polish                 | `pl`                 |
+| Portuguese             | `pt-BR`              |
+| Romanian               | `ro`                 |
+| Russian                | `ru`                 |
+| Swedish                | `sv`                 |
+| Thai                   | `th`                 |
+| Turkish                | `tr`                 |
+| Ukrainian              | `uk`                 |
+| Vietnamese             | `vi`                 |
+| Chinese (Simplified)   | `zh-CN`              |
+| Chinese (Traditional)  | `zh-TW`              |
