@@ -1,10 +1,12 @@
 ---
-title: Securing API connections between orgs with OAuth 2.0
+title: Secure API connections between orgs with OAuth 2.0
 excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 in a multi-tenancy solution.
 layout: Guides
 ---
 
-This guide explains how to securely set up Okta hub and spoke orgs to synchronize users and groups by using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). The connection between Okta orgs can be set up for API access to specific scoped data using the OAuth 2.0 client credential flow for the [Org2Org integration](https://help.okta.com/en/prod/Content/Topics/Provisioning/org2org/org2org-integrate.htm) app.
+<ApiLifecycle access="ea" />
+
+This guide explains how to securely set up Okta hub and spoke orgs to synchronize users and groups by using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). The connection between Okta orgs can be set up for API access to specific scoped data using the OAuth 2.0 client credential flow for the [Org2Org integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) app.
 
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
 ---
@@ -15,6 +17,7 @@ This guide explains how to securely set up Okta hub and spoke orgs to synchroniz
 * Configure hub Okta org with service apps for each spoke Okta org.
 * Configure Org2Org app on each spoke Okta org.
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
+* Rotate keys for the OAuth 2.0 connection.
 
 **What you need**
 
@@ -26,11 +29,11 @@ This guide explains how to securely set up Okta hub and spoke orgs to synchroniz
 
 To secure API connections between orgs for a [multi-tenant solution](/docs/concepts/multi-tenancy/) that uses the hub and spoke model, Okta provides the OAuth 2.0 client credential flow using the Okta Org2Org integration as an OAuth 2.0 client. This enables Okta admins to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. Now the Org2Org integration can be configured to access the Okta API as an OAuth 2.0 client. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
 
-![Displays the service apps required in the hub org and the Org2Org apps required in the spoke org.](/img/multi-tenancy/multi-org-provisioning.svg "OAuth 2.0 connection configuration for hub and spoke org model")
+![Displays the service apps required in the hub org and the Org2Org apps required in the spoke org.](/img/multi-tenancy/multi-org-provisioning.png "OAuth 2.0 connection configuration for hub and spoke org model")
 
-In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/).  Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS)  used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you can grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/).  Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS)  used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
-After the Org2Org OAuth 2.0 connection is configured, you can start to test your connection and push user data from the spoke orgs to the hub org.
+After the Org2Org OAuth 2.0 connection is configured, you can start to test your connection and push user data from the spoke orgs to the hub org. You can also create a [rotate keys](#key-rotation) schedule to update your credentials on a regular basis.
 
 > **Note**: For a hub and spoke org model provisioning using API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta ](https://help.okta.com/okta_help.htm?id=ext-org2org-intg).
 
@@ -38,12 +41,12 @@ After the Org2Org OAuth 2.0 connection is configured, you can start to test your
 
 You can use OAuth 2.0 to push user and group information from a spoke org to a centralized hub org by performing the following configuration:
 
-1. In each spoke org, [add a new instance of the Org2Org app integration](#add-an-org2org-app-integration-to-the-spoke-org).
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org] with `private_key_jwt` authentication method and JKWS public key of each Org2Org app in the spoke orgs. Grant [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) to the hub org service app (the OAuth 2.0 client).
-3. [Set and Activate Provisioning for Org2Org apps](#enable-provisioning-in-the-spoke-orgs-org2org-apps) from the Okta API.
-4. [Assign users and groups to be pushed to the hub org](#assign-users-and-groups-in-the-spoke-org-org2org-apps).
+1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
+2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) with `private_key_jwt` authentication method and JWKS public key of each Org2Org app in the spoke orgs. Grant [allowed scopes](#request-examples) to the hub org service app (the OAuth 2.0 client).
+3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
+4. [Assign users and groups to be pushed to the hub org](#assign-users-and-groups-in-the-org2org-app).
 
-### Add an Org2Org app integration to a spoke org
+### Add an Org2Org app integration in a spoke org
 
 In the spoke org, where you want to push users and groups to the central hub org, you need to add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-basic-authentication-application). This generates an Org2Org app integration instance and the key certificates required to connect to the hub org.
 
@@ -84,25 +87,13 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${yourOrg2OrgId}/credentials/keys"
+"https://${yourOktaDomain}/api/v1/apps/${yourOrg2OrgAppId}/credentials/keys"
 ```
 
 ##### Response example
 
 ```json
 [
-  {
-    "created": "2015-12-10T18:56:23.000Z",
-    "expiresAt": "2017-12-10T18:56:22.000Z",
-    "x5c": [
-      "MIIDqDCCApCgAwIBAgIGAVGNQFX5MA0 … eIBvPVjfRcxsJxXJ8jx70ATDskw=="
-    ],
-    "e": "AQAB",
-    "n": "mkC6yAJVvFwUlmM9gKjb2d-YK5qHFt-mXSsb … n9pf8L2fK8d-FIbm4",
-    "kty": "RSA",
-    "use": "sig",
-    "x5t#S256": "5GOpy9CQVtfvBmu2T8BHvpKE4OGtC3BuS046t7p9pps"
-  },
   {
     "created": "2015-12-10T18:55:35.000Z",
     "expiresAt": "2045-01-23T02:15:23.000Z",
@@ -126,13 +117,13 @@ For each spoke org that you have in your multi-tenant solution, you must create 
 
 ### Create an OAuth 2.0 service app in the hub org
 
- In the hub org, create an OAuth 2.0 service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
+ In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `client_name`  |  Specify a label for this service app to represent the OAuth 2.0 client. |
 | `grant_types`  |  `client_credentials` |
-| `jwks`  |  Specify the JSON Web Key Set from the spoke org’s Org2Org app integration. |
+| `jwks`  |  Specify the JSON Web Key Set from the corresponding spoke org’s Org2Org app integration. |
 | `response_types`  |  `token` |
 | `token_endpoint_auth_method`  |  `private_key_jwt` |
 | `application_type`  |  `service` |
@@ -171,4 +162,150 @@ curl -X POST \
 From the response of your POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the `POST /api/v1/apps/${client_id}/grants` request.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
+
+##### Request examples
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "scopeId": "okta.users.manage",
+    "issuer": "https://${yourHubOrgDomain}"
+}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grant"
+```
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "scopeId": "okta.groups.manage",
+    "issuer": "https://${yourHubOrgDomain}"
+}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grant"
+```
+
+### Enable provisioning in the Org2Org app
+
+In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#set-default-provisioning-connection-for-application).
+
+> **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
+
+As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default?activate=TRUE`](/docs/reference/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
+
+| Parameter |  Description/Value   |
+| --------- |  ------------- |
+| `authScheme`  |  `OAUTH2` |
+| `clientId`  |  Specify the corresponding service app client ID in your hub org. |
+
+##### Request example
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "profile": {
+        "authScheme": "OAUTH2",
+        "clientId": "${yourHubOrgServiceAppId}"
+    }
+}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
+```
+
+> **Note**: After provisioning is enabled, if you want to edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/), or alternatively, you can go to the Okta Admin Console and edit the **Okta Org2Org Attribute Mappings** section of the Org2Org app **Provisioning To App** settings.
+
+### Assign users and groups in the Org2Org app
+
+In each spoke org, assign the users and groups to the Org2Org app integration by using the [Okta Apps API application operations](/docs/reference/api/apps/#application-user-operations):
+
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (assign user to an application for SSO and provisioning)](/docs/reference/api/apps/#assign-user-to-application-for-sso-and-provisioning)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (assign group to an application)](/docs/reference/api/apps/#assign-group-to-application)
+
+Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [ Assign an app integration to a user](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-assign-app-user.htm) and [Assign an app integration to a group](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-assign-app-groups.htm).
+
+## Key rotation
+
+An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices.
+
+From your spoke org, make a request to [generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user:
+
+`POST /api/v1/apps/${yourSpokeOrgDomain}/credentials/keys/generate?validityYears=${validYears}`
+
+##### Response example
+
+```json
+{
+    "kty": "RSA",
+    "created": "2022-01-20T19:50:14.000Z",
+    "lastUpdated": "2022-01-20T19:50:14.000Z",
+    "expiresAt": "2024-01-20T19:50:13.000Z",
+    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
+    "use": "sig",
+    "x5c": [
+        "MIIDqDCCApCgAwIBAgIGAX55C … Iuo9j3wpemDSgGapXQ=="
+    ],
+    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
+    "e": "AQAB",
+    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NSFJA … FiAYF7p_k3XMXOh-hsL_D8FDQ"
+}
+```
+
+> **Note**: The keys are truncated for brevity.
+
+From the response of your POST request, copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
+
+
+##### Request example
+
+```bash
+curl -X PUT \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "credentials": {
+        "signing": {
+            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
+        }
+    }
+}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
+```
+
+Then go to your hub org and register the new key to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
+
+> **Note**: When you update the keys in the service app `jwks` property, all the old keys are overwritten.
+
+##### Request example
+
+```bash
+curl -X PUT \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "id": "Spoke-i service app",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
+    "jwks": {
+                "keys": [
+                  {
+                    "kty": "RSA",
+                    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
+                    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
+                    "e": "AQAB",
+                    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj … FiAYF7p_k3XMXOh-hsL_D8FDQ"
+                  }
+                ]
+            }
+ }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}"
+```
 
