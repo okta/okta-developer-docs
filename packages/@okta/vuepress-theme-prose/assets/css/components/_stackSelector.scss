@@ -29,6 +29,11 @@ $small-spacing: 0.75rem;
         margin-left: 0.8rem;
       }
     }
+    .select-dropdown {
+      @include media(">desktop-xl") {
+        margin-left: 0.8rem;
+      }
+    }
     .icon {
       width: 24px;
       height: 24px;
