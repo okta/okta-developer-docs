@@ -53,7 +53,7 @@ The following diagram illustrates how the Google authenticator enrollment and ch
 
 Before you can start using the Google Authenticator, create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add the Google Authenticator to your app integration by executing the following steps:
 
-### 1: Add Google Authenticator to the Okta org
+### Add Google Authenticator to the Okta org
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, click **Add Authenticator**.
@@ -63,7 +63,7 @@ Before you can start using the Google Authenticator, create an Okta org applicat
 1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
 1. Set **Google Authenticator** to **Optional** and click **Update Policy**.
 
-### 2: Configure your Okta org application to use Google Authenticator
+### Configure your Okta org application to use Google Authenticator
 
 1. In the Admin Console, go to **Applications** and **Applications**.
 1. On the **Applications** page, click on the application you've previously created.
