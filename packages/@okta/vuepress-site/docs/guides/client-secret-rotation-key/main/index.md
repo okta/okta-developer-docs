@@ -10,23 +10,23 @@ sections:
 
 <ApiLifecycle access="ea" />
 
-This guide shows you how to rotate and manage your client secrets without service or application downtime. Additionally, this guide shows you how to generate public/private key pairs and manage them using the Admin Console.
+This guide shows you how to rotate and manage your client secrets without service or app downtime. Additionally, this guide shows you how to generate public/private key pairs and manage them using the Admin Console.
 
 ---
 
 **Learning outcomes**
 
-* Create additional client secrets for a client app and manage existing client secrets
-* Generate public/private key pairs for a client app using the Admin console and manage additional key pairs
+* Create additional client secrets for a client app and manage existing client secrets.
+* Generate public/private key pairs for a client app using the Admin console and manage additional key pairs.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* **OAuth secrets and key management** feature enabled in the Admin Console (**Settings** | **Features**).
+* **OAuth secrets and key management** feature enabled in the Admin Console (**Settings** | **Features**)
 * Access to the new APIs: Client Secret Management `/api/v1/apps/{appId}//credentials/secrets` and JWKS Management `/api/v1/apps/{appId}/credentials/jwks`
 * An existing OpenID Connect client app in Okta for testing and an existing Service client app in Okta (optional)
 [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
-* The [Client Secret Rotation and JWT Creation] Postman collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
+* The [Client Secret Rotation and Key Management] Postman collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
 
   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7)
 
@@ -34,17 +34,17 @@ This guide shows you how to rotate and manage your client secrets without servic
 
 ## About client secret rotation and public/private key pairs
 
-Just like periodically changing passwords, regularly rotating the client secret that your application uses to authenticate is a security best practice. The challenge with rotating the client secret is to facilitate a seamless client secret rotation without service or application downtime. You need the ability to create overlapping client secrets.
+Just like periodically changing passwords, regularly rotating the client secret that your app uses to authenticate is a security best practice. The challenge with rotating the client secret is to facilitate a seamless client secret rotation without service or app downtime. You need the ability to create overlapping client secrets.
 
-Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JWK public/private key pair may be required. Applications that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private/public key pair generation can be laborious and time-consuming, and using the API can lead to errors.
+Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JWK public/private key pair may be required. Apps that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private/public key pair generation can be laborious and time-consuming, and using the API can lead to errors.
 
-To make client secret rotation more seamless, you can generate an additional client secret for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in .JWK format) for your app using the Admin Console.
+To make client secret rotation more seamless, you can generate an additional client secret for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in JWK format) for your app using the Admin Console.
 
-> **Note:** Using client authentication with a client secret isn’t recommended for native apps because they are public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Recommended flow by application type](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) and [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on the type of flow to use for your application and how to implement that flow.
+> **Note:** Using client authentication with a client secret isn’t recommended for native apps because they are public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Recommended flow by application type](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) and [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on the type of flow to use for your app and how to implement that flow.
 
 ### About the Postman collection
 
-It is up to you how you make requests to the APIs to generate client secrets and manage JWKs. In this guide, we provide examples of the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. The collection contains two sub-collections: Secret Management API for client secret generation and management tasks and JSON Web Key (JWK) Management API for JWK management tasks.
+It is up to you how you make requests to the APIs to generate client secrets and manage JWKs. In this guide, we provide examples of the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. The collection contains two sub-collections: Secret Management API for client secret generation and management tasks and JSON Web Key (JWK) Management API for key management tasks.
 
 ## Rotate a client secret
 
@@ -56,15 +56,13 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
 3. In the **Client Secrets** section, click **Generate new secret** to create a client secret as a backup to your existing one. A second secret appears with the creation date. The maximum number of secrets that you can generate is two for each app.
 
+    > **Note:** When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
+
     > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
-
-    When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
-
-    > **Note:** If you turn off the **OAuth secrets and key management** feature in your org, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
 
 5. [Update your web app](/docs/guides/sign-into-web-app/-/main/#configure-the-package) to start using the newly generated client secret.
 
-6. Test your application and ensure that all functionality works with the newly generated client secret.
+6. Test your app and ensure that all functionality works with the newly generated client secret.
 
 7. After you update the client secret, return to the **Client secrets** section for the app and change the old client secret status from **Active** to **Inactive**.
 
@@ -75,6 +73,8 @@ When you are ready to rotate a client secret for an app, follow these steps:
 9. After validation is successful, you can then delete the old secret using the Admin Console by changing the status of the old secret from **Inactive** to **Delete**. This ensures that the older secret isn’t used by mistake.
 
     > **Note:** You can try this in Postman using the **Delete a client secret** request.
+
+    > **Note:** If you turn off the **OAuth secrets and key management** feature in your org, and you have two secrets for an app, Okta retains the secret with the most recent **Creation date**.
 
 ## Generate JWK Key Pairs
 
