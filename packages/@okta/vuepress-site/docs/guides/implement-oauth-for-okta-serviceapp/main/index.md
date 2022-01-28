@@ -39,13 +39,9 @@ The following are the high-level steps required to perform the Client Credential
 
 > **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
 
-## Create a service app integrationand generate a JWKS
+## Create a service app integration
 
-<ApiLifecycle access="ea" />
-
-Create an OAuth 2.0 service app integration and generate a public/private key pair in the Admin Console.
-
-> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
+Create an OAuth 2.0 service app integration.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
@@ -57,11 +53,19 @@ Create an OAuth 2.0 service app integration and generate a public/private key pa
 
 4. Enter a name for your app integration and click **Save**.
 
-5. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
+## Generate the JWK in the Admin Console
 
-6. Select **Public key/private key** as the **Client authentication** method.
+<ApiLifecycle access="ea" />
 
-7. Click **Add** and in the **Add a public key** dialog box, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+Generate a public/private key pair using the Admin Console.
+
+> **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
+
+1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
+
+2. Select **Public key/private key** as the **Client authentication** method.
+
+3. Click **Add** and in the **Add a public key** dialog box, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
@@ -69,30 +73,30 @@ Create an OAuth 2.0 service app integration and generate a public/private key pa
 
     > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
 
-8. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
+4. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
 
-9. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
+5. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
 
-10. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+6. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
     > **Note:** There is no limit to the number of JWKs that you can add for an app.
 
     The JWKS should look something like this:
 
-```json
-{
-  "keys": [
+    ```json
     {
-      "kty": "RSA",
-      "e": "AQAB",
-      "use": "sig",
-      "kid": "my_key_id",
-      "alg": "RS256",
-      "n": "u0VYW2-76A_lYg5NQihhcPJYYU9-NHbNaO6LFERWnOUbU7l3MJdmCailwSzjO76O-2GdLE-Hn2kx04jWCCPofnQ8xNmFScNo8UQ1dKVq0UkFK-sl-Z0Uu19GiZa2fxSWwg_1g2t-ZpNtKCI279xGBi_hTnupqciUonWe6CIvTv0FfX0LiMqQqjARxPS-6fdBZq8WN9qLGDwpjHK81CoYuzASOezVFYDDyXYzV0X3X_kFVt2sqL5DVN684bEbTsWl91vV-bGmswrlQ0UVUq6t78VdgMrj0RZBD-lFNJcY7CwyugpgLbnm4HEJmCOWJOdjVLj3hFxVVblNJQQ1Z15UXw"
+        "keys": [
+        {
+            "kty": "RSA",
+            "e": "AQAB",
+            "use": "sig",
+            "kid": "my_key_id",
+            "alg": "RS256",
+            "n": "u0VYW2-76A_lYg5NQihhcPJYYU9-NHbNaO6LFERWnOUbU7l3MJdmCailwSzjO76O-2GdLE-Hn2kx04jWCCPofnQ8xNmFScNo8UQ1dKVq0UkFK-sl-Z0Uu19GiZa2fxSWwg_1g2t-ZpNtKCI279xGBi_hTnupqciUonWe6CIvTv0FfX0LiMqQqjARxPS-6fdBZq8WN9qLGDwpjHK81CoYuzASOezVFYDDyXYzV0X3X_kFVt2sqL5DVN684bEbTsWl91vV-bGmswrlQ0UVUq6t78VdgMrj0RZBD-lFNJcY7CwyugpgLbnm4HEJmCOWJOdjVLj3hFxVVblNJQQ1Z15UXw"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 ## Grant allowed scopes
 
@@ -110,17 +114,17 @@ Now that you've created the service app and registered the public key with that 
     * `scopeID`: `okta.users.read`
     * `issuer`: `https://${yourOktaDomain}`
 
-```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: SSWS 00...Y' \
---header 'Cache-Control: no-cache' \
---data-raw '{
-    "scopeId": "okta.users.read",
-    "issuer": "https://${yourOktaDomain}"
-}'
-```
+    ```bash
+    curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: SSWS 00...Y' \
+    --header 'Cache-Control: no-cache' \
+    --data-raw '{
+        "scopeId": "okta.users.read",
+        "issuer": "https://${yourOktaDomain}"
+    }'
+    ```
 
 ## Create and sign the JWT
 
@@ -151,14 +155,14 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
     **Payload example**
 
-```json
-{
-    "aud": "https://${yourOktaDomain}/oauth2/v1/token",
-    "iss": "0oar95zt9zIpYuz6A0h7",
-    "sub": "0oar95zt9zIpYuz6A0h7",
-    "exp": "1614664267"
-}
-```
+    ```json
+    {
+        "aud": "https://${yourOktaDomain}/oauth2/v1/token",
+        "iss": "0oar95zt9zIpYuz6A0h7",
+        "sub": "0oar95zt9zIpYuz6A0h7",
+        "exp": "1614664267"
+    }
+    ```
 
 2. In the **Signing Key** box, paste the public and private key that you generated in the [Create a public/private key pair](#create-a-public-private-key-pair) step.
 
