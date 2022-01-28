@@ -65,7 +65,7 @@ Generate a public/private key pair using the Admin Console.
 
 2. Select **Public key/private key** as the **Client authentication** method.
 
-3. Click **Add** and in the **Add a public key** dialog box, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+3. Click **Add** and in the **Add a public key** dialog, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>

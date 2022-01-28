@@ -94,7 +94,7 @@ To use the Admin Console to generate a JWK key pair for your app for testing, fo
 
     If there is an existing key associated with your app, that key’s ID and the creation date of the key appear in the **Public Keys** section.
 
-5. Click **Add** and in the **Add a public key** dialog box, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+5. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
   **OR**<br>
