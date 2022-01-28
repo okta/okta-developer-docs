@@ -1,5 +1,5 @@
 ---
-title: Client secret rotation and JWK management
+title: Client secret rotation and key management
 meta:
   - name: description
     content: Okta client secret rotation helps you rotate and manage your client secrets without service or app downtime. Additionally, you can generate public/private key pairs and manage them using the Admin Console.
@@ -36,9 +36,9 @@ This guide shows you how to rotate and manage your client secrets without servic
 
 Just like periodically changing passwords, regularly rotating the client secret that your application uses to authenticate is a security best practice. The challenge with rotating the client secret is to facilitate a seamless client secret rotation without service or application downtime. You need the ability to create overlapping client secrets.
 
-Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JWT public/private key may be required. Apps that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private key JWT generation can be laborious and time-consuming, and using the API can lead to errors.
+Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JWK public/private key pair may be required. Applications that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private/public key pair generation can be laborious and time-consuming, and using the API can lead to errors.
 
-To make client secret rotation more seamless, you can generate additional client secrets for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in .JWK format) for your app using the Admin Console.
+To make client secret rotation more seamless, you can generate an additional client secret for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in .JWK format) for your app using the Admin Console.
 
 > **Note:** Using client authentication with a client secret isn’t recommended for native apps because they are public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Recommended flow by application type](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) and [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on the type of flow to use for your application and how to implement that flow.
 
@@ -76,7 +76,7 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
     > **Note:** You can try this in Postman using the **Delete a client secret** request.
 
-## Generate JWTs
+## Generate JWK Key Pairs
 
 To use the Admin Console to generate a JWK key pair for your app for testing, follow these steps:
 
