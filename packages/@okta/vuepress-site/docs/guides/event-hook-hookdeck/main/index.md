@@ -4,8 +4,6 @@ excerpt: How to demonstrate Event Hooks using Hookdeck to expose a local app to 
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide provides a working example of an Okta Event Hook. It uses the Hookdeck utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events that occur in your Okta org. The Hookdeck utility enables the testing of Event Hooks locally, rather than implementing an internet-based production or test external service.
 
 ---

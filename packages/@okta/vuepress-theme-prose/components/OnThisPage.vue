@@ -1,9 +1,9 @@
 <template>
   <aside class="on-this-page-navigation">
-    <div v-show="showOnthisPage">
+    <div v-show="showNavigation">
       <StackSelector v-if="$page.hasStackContent" />
-      <div class="title">On this page</div>
-      <div>
+      <div v-show="showOnthisPage">
+        <div class="title">On this page</div>
         <ul class="links" v-if="items">
           <OnThisPageItem
             v-for="(link, index) in items"
@@ -52,9 +52,15 @@ export default {
         (this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
       );
+    },
+    showNavigation: function() {
+      return this.showOnthisPage || this.$page.hasStackContent;
     }
   },
   mounted() {
+console.log(this.$page.hasStackContent, '$page.hasStackContent')
+console.log(this.$page, '$page')
+console.log(this.$page.found, '$page.found')
     this.paddedHeaderHeight =
       document.querySelector(".fixed-header").clientHeight +
       LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
