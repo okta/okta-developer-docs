@@ -1,6 +1,6 @@
 ### 1: Initiate use case requiring authentication
 
-Initiate a use case requiring authentication. This guide uses [basic user sign-in](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/), which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case requiring authentication. This guide uses a sign-in with username and password.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
