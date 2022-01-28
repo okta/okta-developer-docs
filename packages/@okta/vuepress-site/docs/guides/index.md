@@ -2,7 +2,6 @@
 title: Guides overview
 guides:
  - add-an-external-idp
- - auth-js
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - common-hook-set-up-steps
@@ -20,6 +19,7 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
+ - embedded-siw
  - enable-cors
  - event-hook-hookdeck
  - event-hook-implementation
