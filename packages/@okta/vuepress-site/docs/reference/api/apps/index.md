@@ -5214,7 +5214,7 @@ If `client_secret` in the request is less than 14 characters long, you receive a
   "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
   "errorCauses": [
     {
-      "errorSummary": "client_secret: The field is too short"
+      "errorSummary": "client_secret: 'client_secret' must be at least '14' characters long."
     }
   ]
 }
@@ -5230,7 +5230,7 @@ If `client_secret` in the request is less than 32 characters long, and the `toke
   "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
   "errorCauses": [
     {
-      "errorSummary": "client_secret: 'client_secret' must be at least '32' characters long for client_secret_jwt auth method."
+      "errorSummary": "client_secret: 'client_secret' must be at least '32' characters long when 'token_endpoint_auth_method' is 'client_secret_jwt'."
     }
   ]
 }
