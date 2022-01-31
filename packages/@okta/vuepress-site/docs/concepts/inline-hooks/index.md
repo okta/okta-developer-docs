@@ -31,6 +31,17 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
 
+#### Progressive Profile support
+
+<ApiLifecycle access="ie" /><br>
+
+If you have migrated to Okta Identity Engine, you can use Inline Hooks with the Progressive Profile feature.
+
+When you configure a registration Inline Hook and add it to a Profile enrollment policy, the registration inline hook runs when existing users sign in after new required attributes are added to the user profile. The registration inline hook verifies and modifies user data.
+
+See [Registration Inline Hook](/docs/reference/registration-hook/).
+
+
 ## Inline Hook process flow
 
 ### Extension points
