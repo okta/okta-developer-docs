@@ -90,8 +90,8 @@ export class LoginComponent implements OnInit {
   constructor(public oktaAuth: OktaAuth) {
     this.signIn = new OktaSignIn({
       /**
-       * Note: when using the Sign-In Widget for an OIDC flow, it still
-       * needs to be configured with the base URL for your Okta Org. Here
+       * Note: when using the Sign-In Widget for an OIDC flow, you still
+       * need to configure the base URL for your Okta Org. Here
        * we derive it from the given issuer for convenience.
        */
       baseUrl: sampleConfig.oidc.issuer.split('/oauth2')[0],
@@ -109,7 +109,7 @@ export class LoginComponent implements OnInit {
   }
 ```
 
-And references the Okta app configuration information in `app.config.js` or `env.js` and the `testenv` file:
+And references the Okta app configuration information in `app.config.js` or in the `env.js` and the `testenv` files:
 
 ```javascript
 // Read environment variables from "testenv" in the repository root.

@@ -1,4 +1,4 @@
-1. In your project folder, download the sample application from the gitHub repository, and navigate to the custom-login folder.
+1. In your project folder, download the sample application from the gitHub repository and navigate to the custom-login folder.
 
     ```bash
     git clone https://github.com/okta/samples-js-angular.git
@@ -11,7 +11,7 @@
     npm install
     ```
 
-1. Ensure you're using the angular version and node version designed for this sample application.
+1. Ensure that you're using the angular version and node version designed for this sample application.
 
     ```bash
     node --version
@@ -27,7 +27,7 @@
     npm install @okta/okta-auth-js@5.9.1
     ```
 
-1. Navigate to the `samples-js-angular` folder, and create a configuration file, `testenv` (no extension).
+1. Navigate to the `samples-js-angular` folder and create a configuration file called`testenv` (no extension).
 
     >**Note:** You may need to install the `dotenv` package if not already installed (`npm install dotenv`).
 

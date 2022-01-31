@@ -2,8 +2,8 @@ The following sample application code renders the Sign-In Widget and after a suc
 
 ```javascript
 ngOnInit() {
-    // When navigating to a protected route, the route path will be saved as the `originalUri`
-    // If no `originalUri` has been saved, then redirect back to the app root
+    // When navigating to a protected route, the route path is saved as the `originalUri`
+    // If no `originalUri` is saved, then redirect back to the app root
     const originalUri = this.oktaAuth.getOriginalUri();
     if (!originalUri || originalUri === DEFAULT_ORIGINAL_URI) {
       this.oktaAuth.setOriginalUri('/');
@@ -25,7 +25,7 @@ ngOnInit() {
   }
   ```
 
-The following sample application code in the `home.component.ts` file retrieves the user information from the ID Token:
+The following sample application code in the `home.component.ts` file retrieves the user information from the ID token:
 
 ```javascript
 async ngOnInit() {
@@ -41,7 +41,7 @@ And displays the user's name on the Custom Login Page after you sign in.
 
 ### Routes
 
-Some application routes require authentication in order to render. Define these protected routes with the [`OktaAuthGuard`](https://github.com/okta/okta-angular#oktaauthguard) method from the `@okta/okta-angular` SDK. For example, in the sample application, the Profile page is protected using this method:
+Some application routes require authentication to render. Define these protected routes with the [`OktaAuthGuard`](https://github.com/okta/okta-angular#oktaauthguard) method from the `@okta/okta-angular` SDK. For example, in the sample application, the Profile page is protected using this method:
 
 ```JavaScript
 import {
