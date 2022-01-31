@@ -1,1 +1,1 @@
-[<StackSnippet snippet="idp" inline />](https://developer.spotify.com/dashboard/)
+[Spotify](https://developer.spotify.com/dashboard/)

@@ -225,6 +225,10 @@ export const guides = [
                     path: "/docs/guides/social-login/salesforce/main/"
                   },
                   {
+                    title: "Spotify",
+                    path: "/docs/guides/social-login/spotify/main/"
+                  },
+                  {
                     title: "Yahoo",
                     path: "/docs/guides/social-login/yahoo/main/"
                   },
