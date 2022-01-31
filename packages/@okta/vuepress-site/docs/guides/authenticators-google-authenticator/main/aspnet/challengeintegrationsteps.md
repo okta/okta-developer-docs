@@ -1,7 +1,5 @@
-The following instructions detail step-by-step how to integrate the Google Authenticator challenge flow into your app.
-
 ### 1 - 4: Sign-in and Select Authenticator
-The challenge flow follows the same first four steps as the Enrollment flow
+The challenge flow follows the same first four steps as the [Enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 
 * Build a sign-in page on the client
 * Authenticate the user credentials
@@ -19,14 +17,15 @@ var selectAuthenticatorOptions = new SelectAuthenticatorOptions
     AuthenticatorId = model.AuthenticatorId,
 };
 
-selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync(selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync(
+    selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
 If the call is successful, the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification` and the Challenge Page should be displayed.
 
+```csharp
 Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
 
-```csharp
 switch (selectAuthenticatorResponse?.AuthenticationStatus)
 {
     case AuthenticationStatus.AwaitingAuthenticatorVerification:
@@ -54,7 +53,7 @@ The user’s copy of Google Authenticator now displays the time-based one-time p
 ![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 
 ### 7 - 8: Display challenge page and process password
-The challenge flow now follows the same final steps as the Enrollment flow
+The challenge flow now follows the same final steps as the [Enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 
 * Display challenge page
 * Process the one-time password

@@ -84,7 +84,7 @@ Install the Google Authenticator app on your mobile device either using either t
 
 ### Summary of steps
 
-The following summaries the Google Authenticator enrollment flow using a basic user sign-in use case.
+The following summarizes the Google Authenticator enrollment flow using a basic user sign-in use case.
 
 <StackSnippet snippet="enrollmentintegrationsummary" />
 
