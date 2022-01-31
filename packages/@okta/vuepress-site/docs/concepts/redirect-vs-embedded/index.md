@@ -107,6 +107,8 @@ as -> cl: Tokens
  -->
 ![Embedded authentication](/img/embedded-auth-seq-flow.png "Embedded authentication sequence flow diagram")
 
+<EmbeddedBrowserWarning />
+
 ## Comparison between deployment models
 
 The deployment model or authentication approach is dependent on your implementation requirements and client application. In general, the method of delegating user sign-in interaction (redirect authentication) is generally preferred for many reasons spanning security to user experience.
