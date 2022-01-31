@@ -281,33 +281,6 @@ function success(res) {
 }
 ```
 
-### Sign in to your application
-
-If want to use the Widget to sign in to your own application instead of Okta, you need to [set up a Custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
-
-### Server-side web application using Authorization Code flow
-
-```javascript
-
-const signIn = new OktaSignIn({
-  baseUrl: 'https://${yourOktaDomain}',
-  el: '#widget-container',
-  clientId: '${clientId}',
-  // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
-  authParams: {
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
-    pkce: false,
-    responseType: ['code']
-  }
-});
-
-// A query parameter named `code` is passed to the login redirect URI
-// This should be handled by server-side code. The code can be exchanged for tokens
-signIn.showSignInAndRedirect();
-
-```
-
 ### SPA or Native application using PKCE
 
 ```javascript
@@ -318,6 +291,7 @@ const signIn = new OktaSignIn({
   clientId: '${clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
   redirectUri: '${redirectUri}',
+  useInteractionCodeFlow: true,
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
