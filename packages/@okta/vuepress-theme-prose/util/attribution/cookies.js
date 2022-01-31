@@ -13,10 +13,10 @@ function getPrefixedKey(key) {
 }
 
 export function deleteCookie(key) {
-  const { host } = location;
-  const domain = getDomain(host);
+  const { hostname } = location;
+  const domain = getDomain(hostname);
 
-  return Cookies.remove(getPrefixedKey(key), { domain: domain || host });
+  return Cookies.remove(getPrefixedKey(key), { domain: domain || hostname });
 }
 
 export function getCookie(key, defaultValue = false) {
@@ -25,11 +25,10 @@ export function getCookie(key, defaultValue = false) {
 }
 
 export function setCookie(key, value, props = {}) {
-  const { host } = location;
-  const domain = getDomain(host);
-
+  const { hostname } = location;
+  const domain = getDomain(hostname);
   Cookies.set(getPrefixedKey(key), JSON.stringify(value), {
-    domain: domain || host,
+    domain: domain || hostname,
     ...props
   });
 }
