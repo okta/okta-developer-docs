@@ -2,7 +2,7 @@ For this example, only emails containing "example.com" are allowed and can self-
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
-<> this is a placeholder
+<!--- need to add PP sample --->
 
 
 ```javascript
