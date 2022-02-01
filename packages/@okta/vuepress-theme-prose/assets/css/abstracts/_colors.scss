@@ -1,21 +1,111 @@
+:root {
+  --c-gray-000: #ffffff;
+  --c-gray-100: #EBEBED;
+  --c-gray-200: #DCDCDC;
+  --c-gray-300: #DCDCDC;
+  --c-gray-400: #C1C1C8;
+  --c-gray-500: #6E6E78;
+  --c-gray-600: #6E6E78;
+  --c-gray-700: #6E6E78;
+  --c-gray-800: #1D1D21;
+  --c-gray-900: #1D1D21;
+
+  --c-blue-000: #f2f5ff;
+  --c-blue-300: #a7b5ec;
+  --c-blue-400: #788ee2;
+  --c-blue-500: #1662dd;
+  --c-blue-900: #00297a;
+  --c-blue-whale: #142430;
+
+  --c-success-lightest: #e5fff6;
+  --c-success-base: #00d1b3;
+  --c-success-dark: #00a08e;
+
+  --c-action-lightest: #e5edfb;
+  --c-action-base: #1662dd;
+  --c-action-dark: #124a94;
+
+  --c-yellow-lightest: #fcf9e1;
+  --c-yellow-base: #ebd551;
+  --c-yellow-dark: #bc960f;
+
+  --c-warning-lightest: #feefe2;
+  --c-warning-base: #f47c25;
+  --c-warning-dark: #cb5500;
+
+  --c-danger-lightest: #fee6ea;
+  --c-danger-base: #dd0744;
+  --c-danger-dark: #b80047;
+
+  --c-cyan-lightest: #c6fafa;
+  --c-cyan-base: #007f9c;
+  --c-cyan-dark: #004d6b;
+  
+  --c-violet-lightest: #f3eafe;
+  --c-violet-base: #8d6e97;
+  --c-violet-dark: #5a13b4;
+
+  --c-magenta-base: #c72c86;
+
+  // body colors
+  --c-body-base: #F5F5F6;
+  --c-body-lighter: #F7F7F8;
+  --c-header-base: #00297A;
+  
+  --c-text-darker: #1D1D21;
+  --c-text-base: #6E6E78;
+  --c-text-lighter: #D7D7DC;
+
+}
+.layout.dark-theme {
+  --c-gray-900: #17171B;
+  --c-gray-800: #1D1D21;
+  --c-gray-700: #232327;
+  --c-gray-600: #41414B;
+  --c-gray-500: #6E6E78;
+  --c-gray-400: #8C8C96;
+  --c-gray-300: #AAAAB4;
+  --c-gray-200: #DCDCDC;
+  --c-gray-100: #EBEBED;
+  --c-gray-000: #F5F5F6;
+
+  --c-blue-300: #92BCFF;
+  --c-blue-800: #234F97;
+
+  --c-orange: #B35909;
+  --c-green:  #0D7855;
+  --c-yellow: #FFC61C;
+  --c-lilac:  #8D6E97;
+  --c-white:  #ffffff;
+  
+  // body colors
+  --c-body-base: #17171B;
+  --c-body-lighter: #1D1D21;
+  --c-header-base: #232327;
+  
+  --c-text-darker: #fff;
+  --c-text-base: #8C8C96;
+  --c-text-lighter: #F5F5F6;
+}
+
 $colors: (
   'cerise': (
     'base': #E22866,
   ),
   // redesign 2021-07
   'header': (
-    'base': #00297A,
+    'base': var(--c-header-base),
   ),
   'body': (
-    'base': #F5F5F6,
-    'lighter': #F7F7F8,
+    'base': var(--c-body-base),
+    'lighter': var(--c-body-lighter),
     'border': #DCDCDC,
     'white': #ffffff,
   ),
   'text': (
-    'darker': #1D1D21,
-    'base': #6E6E78,
-    'lighter': #D7D7DC,
+    'darker': var(--c-text-darker),
+    'base': var(--c-text-base),
+    'lighter': var(--c-text-lighter),
   ),
   'tile': (
     'angle': #8C8C96,
@@ -35,83 +125,63 @@ $colors: (
     'input-border': #C1C1C8,
   ),
 
-  // dark theme
-  'dark-theme': (
-    'gray-900': #17171B,
-    'gray-800': #1D1D21,
-    'gray-700': #232327,
-    'gray-600': #41414B,
-    'gray-500': #6E6E78,
-    'gray-400': #8C8C96,
-    'gray-300': #AAAAB4,
-    'gray-000': #F5F5F6,
-
-    'blue-300': #92BCFF,
-    'blue-800': #234F97,
-
-    'orange': #B35909,
-    'green':  #0D7855,
-    'yellow': #FFC61C,
-    'lilac':  #8D6E97,
-  ),
-
   // Copied from Odyssey
   'success': (
-    'lightest': #e5fff6,
-    'base': #00d1b3,
-    'dark': #00a08e,
+    'lightest': var(--c-success-lightest),
+    'base': var(--c-success-base),
+    'dark': var(--c-success-dark),
   ),
   'action': (
-    'lightest': #e5edfb,
-    'base': #1662dd,
-    'dark': #124a94,
+    'lightest': var(--c-action-lightest),
+    'base': var(--c-action-base),
+    'dark': var(--c-action-dark),
   ),
   'yellow': (
-    'lightest': #fcf9e1,
-    'base': #ebd551,
-    'dark': #bc960f,
+    'lightest': var(--c-yellow-lightest),
+    'base': var(--c-yellow-base),
+    'dark': var(--c-yellow-dark),
   ),
   'warning': (
-    'lightest': #feefe2,
-    'base': #f47c25,
-    'dark': #cb5500,
+    'lightest': var(--c-warning-lightest),
+    'base': var(--c-warning-base),
+    'dark': var(--c-warning-dark),
   ),
   'danger': (
-    'lightest': #fee6ea,
-    'base': #dd0744,
-    'dark': #b80047,
+    'lightest': var(--c-danger-lightest),
+    'base': var(--c-danger-base),
+    'dark': var(--c-danger-dark),
   ),
   'cyan': (
-    'lightest': #c6fafa,
-    'base': #007f9c,
-    'dark': #004d6b,
+    'lightest': var(--c-cyan-lightest),
+    'base': var(--c-cyan-base),
+    'dark': var(--c-cyan-dark),
   ),
   'violet': (
-    'lightest': #f3eafe,
-    'base': #8d6e97,
-    'dark': #5a13b4,
+    'lightest': var(--c-violet-lightest),
+    'base': var(--c-violet-base),
+    'dark': var(--c-violet-dark),
   ),
   'magenta': (
-    'base': #c72c86,
+    'base': var(--c-magenta-base),
   ),
   'blue': (
-    '000': #f2f5ff,
-    '300': #a7b5ec,
-    '400': #788ee2,
-    '500': #1662dd,
-    '900': #00297a,
-    'whale': #142430,
+    '000': var(--c-blue-000),
+    '300': var(--c-blue-300),
+    '400': var(--c-blue-400),
+    '500': var(--c-blue-500),
+    '900': var(--c-blue-900),
+    'whale': var(--c-blue-whale),
   ),
   'gray': (
-    '000': #ffffff,
-    '100': #EBEBED,
-    '200': #DCDCDC,
-    '300': #DCDCDC,
-    '400': #C1C1C8,
-    '500': #6E6E78,
-    '600': #6E6E78,
-    '700': #6E6E78,
-    '800': #1D1D21,
-    '900': #1D1D21,
+    '000': var(--gray-000),
+    '100': var(--gray-100),
+    '200': var(--gray-200),
+    '300': var(--gray-300),
+    '400': var(--gray-400),
+    '500': var(--gray-500),
+    '600': var(--gray-600),
+    '700': var(--gray-700),
+    '800': var(--gray-800),
+    '900': var(--gray-900),
   ),
 );

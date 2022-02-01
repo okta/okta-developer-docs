@@ -1,0 +1,122 @@
+.dark-theme {
+
+  // .page-body {
+  //   background: cv("dark-theme", "gray-800");
+  // }
+
+  // // header
+  // header.page-header {
+  //   .sign-up--button {
+  //     background-color: cv("dark-theme", "gray-700");
+  //     border-color: cv("dark-theme", "blue-300");
+  //     color: cv("dark-theme", "blue-300");
+  //   }
+  // }
+
+  // .content--container .sidebar-area {
+  //   background: cv("dark-theme", "gray-900");
+  // }
+
+  // // main
+  // h1, h2, h3, h4, h5, h6 {
+  //   color: cv("dark-theme", "white")
+  // }
+
+  // // aside
+  // .tree-nav {
+  //   background-color: cv("dark-theme", "gray-900");
+  //   .sections {
+  //     &:first-child > .link-wrap {
+  //       & > .tree-nav-link > .text-holder {
+  //         color: cv("dark-theme", "gray-000");
+  //       }
+  //       & > .tree-nav-link.router-link-active > .text-holder {
+  //         color: cv("dark-theme", "blue-300");
+  //       }
+  //     }
+  //     & .tree-nav-link.router-link-active::before {
+  //       background: cv("dark-theme", "blue-300");
+  //     }
+  //     & .tree-nav-link:hover {
+  //       color: cv("dark-theme", "blue-300");
+  //     }
+  //   }
+  // }
+
+  .homepage {
+    &--top-section {
+      background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+    }
+    // &--color-main {
+    //   color: cv("dark-theme", "white")
+    // }
+    // &--intro-heading {
+    //   border-bottom: none;
+    // }
+    // &--sub-heading h2 {
+    //   border-bottom: 1px solid cv("dark-theme", "gray-400");
+    //   padding-bottom: 12px;
+    // }
+    &--assurance-block-margin {
+      background: #212125 url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+    }
+    &--customize-your-app-margin {
+      background-color: #212125;
+      padding-bottom: 75px;
+      margin-bottom: 0;
+      &::before {
+        background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+      }
+    }
+    &--partners-block-margin {
+      background-color: #212125;
+      padding-bottom: 58px;
+      margin-bottom: 0;
+    }
+  }
+  
+
+  // .selector-tile {
+  //   &--data {
+  //     &--item {
+  //       color: cv("dark-theme", "white");
+  //       border-bottom: none;
+  //       &:visited, 
+  //       &:active, 
+  //       &:focus {
+  //         color: cv("dark-theme", "white");
+  //       }
+  //       &:hover {
+  //         &:visited, 
+  //         &:active, 
+  //         &:focus {
+  //           color: cv("blue", "900");
+  //         }
+  //       }
+  //     }
+  //   }
+  //   &--header {
+  //     margin-bottom: 8px;
+  //     color: cv("dark-theme", "blue-300");
+  //     border-bottom: 1px solid cv("dark-theme", "blue-300");
+  //     &:visited, 
+  //     &:active, 
+  //     &:focus {
+  //       color: cv("dark-theme", "blue-300");
+  //     }
+  //     &:hover {
+  //       color: cv("dark-theme", "white");
+  //     }
+  //   }
+  // }
+
+  // .assurance-item {
+  //   &--rounded {
+  //     background-color: cv("dark-theme", "gray-800");
+  //   }
+  //   &--content--title {
+  //     color: cv("dark-theme", "white");
+  //   }
+  // }
+}
+  

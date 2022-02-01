@@ -22,9 +22,9 @@
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('header'));
+    border-color: cv('header');
     background-color: transparent;
-    color: fauxpacity(cv('gray', '000'));
+    color: cv('gray', '000');
   }
 }
 
@@ -52,9 +52,9 @@
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('header'));
+    border-color: cv('header');
     background-color: cv('header');
-    color: fauxpacity(cv('header'));
+    color: cv('header');
   }
 }
 
@@ -94,8 +94,8 @@
 
 	&:active,
 	&:hover {
-		border-color: mix(cv('header', 'base'), cv('gray', '000'), 75%);
-		color: mix(cv('header', 'base'), cv('gray', '000'), 75%);
+		border-color: linear-gradient(cv('header', 'base'), cv('gray', '000'), 75%);
+		color: linear-gradient(cv('header', 'base'), cv('gray', '000'), 75%);
 	}
 
 	&:visited {
