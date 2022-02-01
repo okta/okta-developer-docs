@@ -90,15 +90,15 @@ The dashboard is an optimized tool that helps you investigate warnings and viola
 
 When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 
-* You receive a rate limit email that informs you that you've hit a rate limit for an API. Click **View usage history** in the email to navigate to the rate limits dashboard and System Log for that particular API.
+* You receive a rate limit email that informs you that you've hit a rate limit for an API. Click **View usage** in the email to navigate to the rate limits dashboard and System Log for that particular API.
 
 ![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard1.png)
 
-* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **usage history** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
+* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **usage** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
 
 ![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard2.png)
 
-* You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Usage** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
+* You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Utilization** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
 
 ![Displays the event in the System Log that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard3.png)
 
@@ -127,7 +127,7 @@ The key benefit of purchasing the rate limit multiplier, therefore getting an in
 
 The Rate limit usage over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Displays the line graph, bar graph, and timeline graph](/img/rl_dashboard5.png)
+![Displays the line graph, bar graph, and timeline graph](/img/rl_usage_over_time.png)
 
 ##### Line graph
 
