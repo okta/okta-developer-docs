@@ -13,7 +13,7 @@ This guide explains how to securely set up Okta hub and spoke orgs to synchroniz
 
 **Learning outcomes**
 
-* Set up a multi-tenant hub and spoke Okta org configuration for provisioning by using the OAuth 2.0 client credential grant flow
+* Set up a multi-tenant hub and spoke Okta org provisioning configuration to use the OAuth 2.0 client credential grant flow.
 * Configure hub Okta org with service apps for each spoke Okta org.
 * Configure Org2Org app on each spoke Okta org.
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
@@ -31,18 +31,18 @@ To secure API connections between orgs for a [multi-tenant solution](/docs/conce
 
 ![Displays the service apps required in the hub org and the Org2Org apps required in the spoke org.](/img/multi-tenancy/multi-org-provisioning.png "OAuth 2.0 connection configuration for hub and spoke org model")
 
-In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/).  Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS)  used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/). Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS) used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
 After the Org2Org OAuth 2.0 connection is configured, you can start to test your connection and push user data from the spoke orgs to the hub org. You can also create a [rotate keys](#key-rotation) schedule to update your credentials on a regular basis.
 
-> **Note**: For a hub and spoke org model provisioning using API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta ](https://help.okta.com/okta_help.htm?id=ext-org2org-intg).
+> **Note**: For provisioning in a hub and spoke org model that uses API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta ](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
 You can use OAuth 2.0 to push user and group information from a spoke org to a centralized hub org by performing the following configuration:
 
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) with `private_key_jwt` authentication method and JWKS public key of each Org2Org app in the spoke orgs. Grant [allowed scopes](#request-examples) to the hub org service app (the OAuth 2.0 client).
+2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) with the `private_key_jwt` authentication method and the JWKS public key of each Org2Org app in the spoke orgs. Grant [allowed scopes](#request-examples) to the hub org service app (the OAuth 2.0 client).
 3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
 4. [Assign users and groups to be pushed to the hub org](#assign-users-and-groups-in-the-org2org-app).
 
@@ -56,7 +56,7 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | --------- |  ------------- |
 | `name`  |  `okta_org2org` |
 | `label`  |  Specify a label for this Org2Org app integration. |
-| `baseUrl`  |  Specify your hub org base URL. |
+| `baseUrl`  |  Specify the base URL of your hub org. |
 | `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. |
 
 ##### Request example
@@ -111,7 +111,7 @@ curl -v -X GET \
 
 > **Note**: The keys are truncated for brevity.
 
-Save the returned key credentials for use in the hub org service app configuration.
+Save the returned key credentials for use in the service app configuration for the hub org.
 
 For each spoke org that you have in your multi-tenant solution, you must create an Org2Org app instance and generate the key credentials that need to be configured in the hub org’s service app.
 
@@ -224,7 +224,7 @@ In each spoke org, assign the users and groups to the Org2Org app integration by
 * [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (assign user to an application for SSO and provisioning)](/docs/reference/api/apps/#assign-user-to-application-for-sso-and-provisioning)
 * [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (assign group to an application)](/docs/reference/api/apps/#assign-group-to-application)
 
-Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [ Assign an app integration to a user](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-assign-app-user.htm) and [Assign an app integration to a group](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-assign-app-groups.htm).
+Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
 ## Key rotation
 
