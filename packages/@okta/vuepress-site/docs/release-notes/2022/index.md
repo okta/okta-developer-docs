@@ -1,6 +1,43 @@
 ---
 title: Okta API Products release notes 2022
 ---
+## February
+
+### Monthly release 2022.02.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Custom Administrator Roles is GA in Preview](#custom-administrator-roles-is-ga-in-preview) | February 3, 2022 |
+| [Client secret rotation and key management is EA](#client-secret-rotation-and-key-management-is-ea) | February 3, 2022 |
+| [Group role assignment improvement](#group-role-assignment-improvement) | February 3, 2022 |
+| [Custom application username formats that allow the word "source" is GA in Production](#custom-application-username-formats-that-allow-the-word-source-is-ga-in-production) | February 3, 2022 |
+| [Custom Domains with Okta-Managed Certificates is GA in Production](#custom-domains-with-okta-managed-certificates-is-ga-in-production) | February 3, 2022 |
+| [Bug fixed in 2022.02.0](#bug-fixed-in-2022-02-0)         | February 3, 2022           |
+
+#### Custom Administrator Roles is GA in Preview
+
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-457514-->
+
+#### Client secret rotation and key management is EA
+
+Rotating client secrets without service or application downtime is a challenge. Additionally, JSON Web Key management can be cumbersome. To make [client secret rotation](/docs/guides/client-secret-rotation-key/) a seamless process and improve JWK management, you can now create overlapping client secrets and manage JWK key pairs in the Admin Console. You can also create JWK key pairs from the Admin Console without having to use an external tool. <!--OKTA-460699-->
+
+#### Group role assignment improvement
+
+[Assigning a role to a group](/docs/reference/api/roles/#assign-a-role-to-a-group) through the Administrator Roles API has been enhanced by retaining the existing role assignment ID where possible. <!--OKTA-457506-->
+
+#### Custom application username formats that allow the word "source" is GA in Production
+
+Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source." <!--OKTA-443207-->
+
+#### Custom Domains with Okta-Managed Certificates is GA in Production
+
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-Managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
+
+#### Bug fixed in 2022.02.0
+
+* In the Custom Administrator Roles API, some public DELETE requests returned a different response code than their contract. (OKTA-456896)
+
 ## January
 
 ### Weekly release 2022.01.2
@@ -47,7 +84,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Error response updated for malicious IP address sign-in requests is GA in Production
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can't be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
 
 #### Dynamic Issuer Mode is GA in Production
 
@@ -59,7 +96,7 @@ With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updat
 
 #### Custom domains with Okta-managed certificates is GA in Production
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-437290-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let's Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-437290-->
 
 #### New permissions for custom admin roles
 
