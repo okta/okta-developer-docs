@@ -19,15 +19,15 @@ cd okta-app
 
 ### Install dependencies
 
-Add the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) library into your Vue.js app. You can install it by using `npm` from your root app directory:
+Add the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) library to your Vue.js app. You can install it by using `npm` from your root app directory:
 
 ```bash
-npm install @okta/okta-signin-widget
+npm install @okta/okta-signin-widget@latest
 ```
 
-You also need [Okta Vue SDK](https://github.com/okta/okta-vue) (`@okta/okta-vue`) for route protection and [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`) for Widget dependencies:
+You also need the [latest version Okta Vue.js SDK](https://github.com/okta/okta-vue/releases)(`@okta/okta-vue`) for route protection and the [latest version of Okta Auth JS SDK](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) for Widget dependencies:
 
 ```bash
-npm install @okta/okta-vue
-npm install @okta/okta-auth-js
+npm install @okta/okta-vue@latest
+npm install @okta/okta-auth-js@latest
 ```

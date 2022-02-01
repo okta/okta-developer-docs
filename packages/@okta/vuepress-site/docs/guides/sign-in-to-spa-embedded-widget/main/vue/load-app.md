@@ -1,6 +1,7 @@
 ### Set up the Okta configuration settings
 
-Initialize the Sign-In Widget for your sign-in page by setting the required [configuration settings](#okta-org-app-integration-configuration-settings) for your app:
+Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Sign-In Widget and your Auth JS instance:
+
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
 * `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
@@ -8,7 +9,7 @@ Initialize the Sign-In Widget for your sign-in page by setting the required [con
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
-You can create a `config.js` file to define your configuration settings. For example:
+You can create a `src/config.js` file to define your configuration settings. For example:
 
 ```js
 export default {
@@ -23,7 +24,7 @@ export default {
 }
 ```
 
-> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of version 5.15.0. `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
+> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
 
 ### Instantiate Okta authentication
 

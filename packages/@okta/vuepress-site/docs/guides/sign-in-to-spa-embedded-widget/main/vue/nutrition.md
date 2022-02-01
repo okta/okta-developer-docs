@@ -15,7 +15,7 @@ This guide walks you through building a Vue.js app that uses the Okta Sign-In Wi
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) (`@okta/okta-signin-widget`) &mdash; See [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for details.
 * [Vue CLI](https://cli.vuejs.org/guide/installation.html)
 
-    > **Note**: Use the latest version of the Okta SDKs and Sign-In Widget for you app. This guide was written for `@okta/okta-signin-widget` v5.16.1, `@okta/okta-vue` v5.1.0, and `@okta/okta-auth-js` v5.10.1.
+    > **Note**: Use the latest version of the Okta libraries for your Vue.js app. <!--This guide was written for `@okta/okta-signin-widget@6`, `@okta/okta-vue@5.1.1`, and `@okta/okta-auth-js@6`. -->
 
 **Sample code**
 
