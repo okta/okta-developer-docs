@@ -28,31 +28,195 @@ This guide explains authentication fundamentals using Auth JS, formally known as
 
 ## About the Okta Auth JavaScript SDK
 
+The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
+
+The Okta Auth JS SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/), which powers the default Okta sign-in page. If you're building a JavaScript front end or single-page app (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
+
+In this guide you'll learn how to use the Auth JS SDK, with a simple static page application, to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
+
+> **Note:** `@okta/okta-auth-js` version 6.0.0 or above is required to run samples in this guide.
+
+If you'd like to explore the entire Auth JS SDK, see the [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
+
 ## Installation
+
+Install the Auth JS SDK by linking out to the Okta CDN, or installing locally through `npm` or another package manager.
+
+### CDN
+
+To use the CDN, include this in your target HTML page:
+
+```html
+<!-- Latest CDN production Auth JS SDK-->
+<script src="https://global.oktacdn.com/okta-auth-js/6.0.0/okta-auth-js.polyfill.js" type="text/javascript"></script>
+```
+
+More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
+
+### npm
+
+```shell
+# Run this command in your project root folder.
+# yarn
+yarn add @okta/okta-auth-js
+
+# npm
+npm install @okta/okta-auth-js
+```
+
+More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
 
 ## Add code to reference the SDK
 
+The following sections display basic code snippets you use when accessing the Auth JS SDK.
+
 ### Initialize the SDK
 
-    var authClient = new OktaAuth({})
+To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps.js` file of the static-spa sample ues the function `createAuthClient()`:
+
+```JavaScript
+ function createAuthClient() {
+  // The `OktaAuth` constructor can throw if the config is malformed
+  try {
+    authClient = new OktaAuth({
+      issuer: config.issuer,
+      clientId: config.clientId,
+      redirectUri: config.redirectUri,
+      scopes: config.scopes,
+      tokenManager: {
+        storage: config.storage
+      },
+      transformAuthState,
+      recoveryToken: config.recoveryToken
+    });
+    if (config.startService) {
+      authClient.start();
+    }
+  } catch (error) {
+    return showError(error);
+  }
+}
+```
+
+The object is initialized with the configurations from your Okta org app integration: `issuer`, `clientId`, and `redirectUri`. These values are reference in the sample application's `config` variable and `loadConfig()` function.
 
 ### Create a sign-in page
 
+Build a sign-in page that captures both the username and password. From the `index.html` page of the static-spa sample:
+
+```HTML
+<!-- authMethod: form -->
+        <!-- static signin form (authn and oie)-->
+        <div id="static-signin-form" style="display: none" class="panel pure-form pure-form-aligned">
+          <div class="pure-control-group">
+            <label for="username">Username</label>
+            <input name="username" type="email" autocomplete="username">
+          </div>
+          <div class="pure-control-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" autocomplete="password">
+          </div>
+          <div class="pure-controls">
+            <p><a href="/" data-se="recover-password" onclick="_showRecoverPassword(event)">Forgot your password?</a></p>
+            <a class="pure-button pure-button-primary" href="/" data-se="submit" onclick="_submitStaticSigninForm(event)">Signin</a>
+          </div>
+        </div>
+```
+
 ### Authenticate user credentials
 
-    idx.authenticate
+After the user enters a username and password and clicks **Signin**, the function `submitStaticSigninform()` is called and sends the credentials for authentication to the Okta org for verification using the `idx.authenticate` method.
+
+See [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
+
+```JavaScript
+function submitStaticSigninForm() {
+  const username = document.querySelector('#static-signin-form input[name=username]').value;
+  const password = document.querySelector('#static-signin-form input[name=password]').value;
+
+  if (!config.useInteractionCodeFlow) {
+    // Authn
+    return authClient.signIn({ username, password })
+      .then(handleTransaction)
+      .catch(showError);
+  }
+
+  return authClient.idx.authenticate({ username, password })
+    .then(handleTransaction)
+    .catch(showError);
+
+}
+```
 
 ### Handle responses
 
-    Idx.Status.SUCCESS
+For a successful sign-in, the response from Okta includes a status field value of `SUCCESS` and includes the access and ID tokens. The `handleTransaction` function in the static-spa sample processes this state, as well as other values of the status field. The `endAuthFlow` function stores the tokens.
 
-    and other cases
+```JavaScript
+function handleTransaction(transaction) {
+  if (!config.useInteractionCodeFlow) {
+    // Authn
+    return handleTransactionAuthn(transaction);
+  }
+
+  // IDX
+  if (transaction.messages) {
+    showError(transaction.messages);
+  }
+
+  switch (transaction.status) {
+    case 'PENDING':
+      if (transaction.nextStep.name === 'identify') {
+        renderDynamicSigninForm(transaction);
+        break;
+      }
+      hideSigninForm();
+      updateAppState({ transaction });
+      showMfa();
+      break;
+    case 'FAILURE':
+      showError(transaction.error);
+      break;
+    case 'SUCCESS':
+      hideSigninForm();
+      endAuthFlow(transaction.tokens);
+      break;
+    default:
+      throw new Error(transaction.status + ' status');
+  }
+```
+
+See [`status`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#status).
 
 ### Get the user profile information
 
-    authClient.token.getUserInfo(accessToken, idToken)
+The static-spa sample application renders user and access token information after a successful sign in. The function `getUserInfo` retrieves the user details:
+
+```JavaScript
+function getUserInfo() {
+  return authClient.token.getUserInfo()
+    .then(function(value) {
+      updateAppState({ userInfo: value });
+      renderApp();
+    })
+    .catch(function (error) {
+      // This is expected when Okta SSO does not exist
+      showError(error);
+    });
+}
+```
+
+And the `accessToken` information is rendered using the `renderAuthenticated` and `renderUserInfo` functions.
+
+See [`token.getUserInfo`](https://github.com/okta/okta-auth-js#tokengetuserinfoaccesstokenobject-idtokenobject).
 
 ## Run the sample application
+
+Run the static-spa sample application to see a working example of the authentication flow using the Auth JS SDK. To run the Auth JS SDK static-spa sample application:
+
+* Create an app integration on your Okta org.
+* Download and install the sample application.
+* Run the sample application.
 
 ### Create an app integration
 
@@ -95,7 +259,7 @@ cd okta-auth-js/samples/generated/static-spa
 npm install
 ```
 
-1. In the `apps.js` file, update the Okta org configurations for your sample application in the `config` variable:
+1. In the `apps.js` file, update your Okta org configurations (`issuer` and `clientId`) for the static-spa application in the `config` variable:
 
 ```JavaScript
 var config = {
@@ -113,7 +277,7 @@ var config = {
 };
 ```
 
-> **Note:** You can also set these configurations at runtime.
+> **Note:** You can also set these configurations when you run the sample app.
 
 ### Run the sample app
 
@@ -129,7 +293,10 @@ var config = {
 
 > **Note:** You can also configure an embedded Sign-In Widget use-case or a redirect use-case by updating the configuration details in the application. Click `Edit Config` to make those changes. For more information, see the [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa#configuring).
 
-## Next steps
-
 ## See also
 
+* [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main)
+* [Okta Auth JS SDK IDX documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
+* [Okta Auth JS and Angular](/docs/guides/)
+* [Okta Auth JS and React](/docs/guides)
+* [Okta Auth JS and Vue](/docs/guides)
