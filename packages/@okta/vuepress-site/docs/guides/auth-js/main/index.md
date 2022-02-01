@@ -5,7 +5,7 @@ title: Auth JS fundamentals
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide explains authentication fundamentals using Auth JS, formally known as the Okta Auth JavaScript SDK, and provides a simple SPA application to demonstrate a sign-in use case.
+This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple SPA application to demonstrate a sign-in use case.
 
 ---
 
@@ -32,9 +32,7 @@ The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/a
 
 The Okta Auth JS SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/), which powers the default Okta sign-in page. If you're building a JavaScript front end or single-page app (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
 
-In this guide you'll learn how to use the Auth JS SDK, with a simple static page application, to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
-
-> **Note:** `@okta/okta-auth-js` version 6.0.0 or above is required to run samples in this guide.
+In this guide you'll learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
 
 If you'd like to explore the entire Auth JS SDK, see the [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -98,11 +96,11 @@ To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps
 }
 ```
 
-The object is initialized with the configurations from your Okta org app integration: `issuer`, `clientId`, and `redirectUri`. These values are reference in the sample application's `config` variable and `loadConfig()` function.
+The object is initialized with the configurations from your Okta org app integration: `issuer`, `clientId`, and `redirectUri`. These values are referenced in the sample application's `config` variable and `loadConfig` function.
 
 ### Create a sign-in page
 
-Build a sign-in page that captures both the username and password. From the `index.html` page of the static-spa sample:
+Build a sign-in page that captures both the username and password. As an example, from the `index.html` page of the static-spa sample:
 
 ```HTML
 <!-- authMethod: form -->
@@ -125,9 +123,9 @@ Build a sign-in page that captures both the username and password. From the `ind
 
 ### Authenticate user credentials
 
-After the user enters a username and password and clicks **Signin**, the function `submitStaticSigninform()` is called and sends the credentials for authentication to the Okta org for verification using the `idx.authenticate` method.
+After the user enters a username and password and clicks **Signin**, the function `submitStaticSigninform` is called and sends the credentials for authentication to the Okta org for verification using the `idx.authenticate` method.
 
-See [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
+See [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 
 ```JavaScript
 function submitStaticSigninForm() {
