@@ -94,7 +94,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard1.png)
 
-* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **usage** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
+* You've hit a rate limit when you're in the Admin Console and a banner appears to inform you. Click **usage** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
 
 ![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard2.png)
 
