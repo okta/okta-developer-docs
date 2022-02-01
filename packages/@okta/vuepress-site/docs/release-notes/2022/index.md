@@ -28,7 +28,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Custom application username formats that allow the word "source" is GA in Production
 
-Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443207-->
+Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source." <!--OKTA-443207-->
 
 #### Custom Domains with Okta-Managed Certificates is GA in Production
 
