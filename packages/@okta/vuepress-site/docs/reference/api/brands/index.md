@@ -1428,7 +1428,7 @@ HTTP/1.1 200 OK
 
 Sends a test email
 
-The content of the email is determined based on the following priority:
+The following set of priorities determines the content of the email:
 1. The email customization for the language specified in the `language` query parameter.
 1. The email template's default customization.
 1. The email template’s default content, translated to the current user's language.
@@ -1454,7 +1454,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example sends a test `welcome` email for the `fr` language.
+The following example sends a test `welcome` email in French (`fr`).
 
 ##### Request
 
@@ -1487,7 +1487,7 @@ Lists all customizations for an email template
 
 #### Response body
 
-A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources.
+A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
@@ -1585,7 +1585,7 @@ The [Email Customization](#email-customization) resource to create.
 
 The [Email Customization](#email-customization) resource that was created.
 
-If this is the first customization being created for the email template, `isDefault` will be set to `true`.
+If this is the first customization being created for the email template, `isDefault` is set to `true`.
 
 Returns a `400 Bad Request` if:
 - `language` is not one of the [supported languages](#supported-languages).
@@ -1595,7 +1595,7 @@ Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
 
 #### Use examples
 
@@ -1832,7 +1832,7 @@ Returns a `400 Bad Request` if:
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
 
 #### Use examples
 
@@ -1930,7 +1930,7 @@ Returns a `409 Conflict` if the email customization to be deleted is the default
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See more information about email customization constraints [here](#email-customization-constraints).
+> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
 
 #### Use examples
 
@@ -2356,39 +2356,39 @@ The Email Customization resource defines the following properties:
 #### Email Customization Constraints
 
 The following constraints apply to email customizations:
-1. If an email template has customizations, exactly one of them must be the default (where `isDefault` is `true`).
-1. Each email template can have at most one customization for each [supported language](#supported-languages).
+- If an email template has customizations, exactly one of them must be the default (where `isDefault` is `true`).
+- Each email template can have at most one customization for each [supported language](#supported-languages).
 
 ### Supported Languages
 
-Email customizations can be created for the following languages. Languages must be specified as [BCP 47 language tags](https://en.wikipedia.org/wiki/IETF_language_tag).
+Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) format.
 
-| Language               | BCP 47 Language Code |
-| ---------------------- | -------------------- |
-| Czech                  | `cs`                 |
-| Danish                 | `da`                 |
-| German                 | `de`                 |
-| Greek                  | `el`                 |
-| English                | `en`                 |
-| Spanish                | `es`                 |
-| Finnish                | `fi`                 |
-| French                 | `fr`                 |
-| Hungarian              | `hu`                 |
-| Indonesian             | `id`                 |
-| Italian                | `it`                 |
-| Japanese               | `ja`                 |
-| Korean                 | `ko`                 |
-| Malaysian              | `ms`                 |
-| Norwegian              | `nb`                 |
-| Dutch                  | `nl-NL`              |
-| Polish                 | `pl`                 |
-| Portuguese             | `pt-BR`              |
-| Romanian               | `ro`                 |
-| Russian                | `ru`                 |
-| Swedish                | `sv`                 |
-| Thai                   | `th`                 |
-| Turkish                | `tr`                 |
-| Ukrainian              | `uk`                 |
-| Vietnamese             | `vi`                 |
-| Chinese (Simplified)   | `zh-CN`              |
-| Chinese (Traditional)  | `zh-TW`              |
+| Language               | BCP 47 Language Tag |
+| ---------------------- | ------------------- |
+| Czech                  | `cs`                |
+| Danish                 | `da`                |
+| German                 | `de`                |
+| Greek                  | `el`                |
+| English                | `en`                |
+| Spanish                | `es`                |
+| Finnish                | `fi`                |
+| French                 | `fr`                |
+| Hungarian              | `hu`                |
+| Indonesian             | `id`                |
+| Italian                | `it`                |
+| Japanese               | `ja`                |
+| Korean                 | `ko`                |
+| Malaysian              | `ms`                |
+| Norwegian              | `nb`                |
+| Dutch                  | `nl-NL`             |
+| Polish                 | `pl`                |
+| Portuguese             | `pt-BR`             |
+| Romanian               | `ro`                |
+| Russian                | `ru`                |
+| Swedish                | `sv`                |
+| Thai                   | `th`                |
+| Turkish                | `tr`                |
+| Ukrainian              | `uk`                |
+| Vietnamese             | `vi`                |
+| Chinese (Simplified)   | `zh-CN`             |
+| Chinese (Traditional)  | `zh-TW`             |
