@@ -151,3 +151,9 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in the Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
+
+***
+
+### Okta Sign-In Widget upgrade
+
+For Identity Engine, some specific objects that were previously in the Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade the Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
