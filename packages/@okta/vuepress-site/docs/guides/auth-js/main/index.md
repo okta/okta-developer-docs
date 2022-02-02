@@ -42,7 +42,7 @@ Install the Auth JS SDK by linking out to the Okta CDN, or installing locally th
 
 ### CDN
 
-To use the CDN, include this in your target HTML page:
+To use the CDN, include this script in your target HTML page:
 
 ```html
 <!-- Latest CDN production Auth JS SDK-->
@@ -253,13 +253,13 @@ git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/static-spa
 ```
 
-1. Install the dependencies with a package manager, `npm` for example:
+2. Install the dependencies with a package manager, `npm` for example:
 
 ```shell
 npm install
 ```
 
-1. In the `apps.js` file, update your Okta org configurations (`issuer` and `clientId`) for the static-spa application in the `config` variable:
+3. In the `apps.js` file, update your Okta org configurations (`issuer` and `clientId`) for the static-spa application in the `config` variable:
 
 ```JavaScript
 var config = {
