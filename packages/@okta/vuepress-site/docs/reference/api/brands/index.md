@@ -1097,8 +1097,6 @@ HTTP/1.1 204 No Content
 
 ## Email template operations
 
-The Email Templates API has the following operations:
-
 * [List email templates](#list-email-templates)
 * [Get email template](#get-email-template)
 * [Get email template default content](#get-email-template-default-content)
@@ -1116,7 +1114,7 @@ The Email Templates API has the following operations:
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
 
-Lists all supported email templates.
+Lists all supported email templates
 
 #### Request path parameters
 
@@ -1126,13 +1124,9 @@ Lists all supported email templates.
 
 #### Response body
 
-A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources.
+A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources
 
 Passing an invalid `brandId` returns a `404 Not Found` with error code `E0000007`.
-
-#### Use examples
-
-The following example returns the list of all supported email templates.
 
 ##### Request
 
@@ -1207,7 +1201,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
 
-Fetches the email template named `templateName`.
+Fetches the email template named `templateName`
 
 #### Request path parameters
 
@@ -1288,7 +1282,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
 
-Fetches an email template's default content.
+Fetches an email template's default content
 
 #### Request path parameters
 
@@ -1360,7 +1354,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content/preview" />
 
-Fetches a preview of an email template's default content.
+Fetches a preview of an email template's default content
 
 #### Request path parameters
 
@@ -1432,7 +1426,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/test" />
 
-Sends a test email.
+Sends a test email
 
 #### Request path parameters
 
@@ -1471,7 +1465,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-Lists all customizations for an email template.
+Lists all customizations for an email template
 
 #### Request path parameters
 
@@ -1563,7 +1557,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcom
 
 <ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-Creates a new email customization.
+Creates a new email customization
 
 #### Request path parameters
 
@@ -1670,7 +1664,7 @@ HTTP/1.1 201 Created
 
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-Deletes an email customization.
+Deletes an email customization
 
 #### Request path parameters
 
@@ -1709,7 +1703,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-Fetches an email customization.
+Fetches an email customization
 
 #### Request path parameters
 
@@ -1797,7 +1791,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-Updates an email customization.
+Updates an email customization
 
 #### Request path parameters
 
@@ -1907,7 +1901,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-Deletes an email customization.
+Deletes an email customization
 
 #### Request path parameters
 
@@ -1951,7 +1945,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}/preview" />
 
-Fetches a preview of an email customization.
+Fetches a preview of an email customization
 
 #### Request path parameters
 
