@@ -36,8 +36,6 @@ In this guide you'll learn how to use the Auth JS SDK with a simple static page 
 
 If you'd like to explore the entire Auth JS SDK, see the [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
-<img src="/img/okta-sign-in-javascript-custom.png" alt="Screenshot of a custom sign-in form used with the Auth JS SDK" width="400">
-
 ## Installation
 
 Install the Auth JS SDK by linking out to the Okta CDN, or installing locally through `npm` or another package manager.
@@ -217,6 +215,8 @@ Run the static-spa sample application to see a working example of the authentica
 * Create an app integration on your Okta org.
 * Download and install the sample application.
 * Run the sample application.
+
+<img src="/img/okta-sign-in-javascript-custom.png" alt="Screenshot of a custom sign-in form used with the Auth JS SDK" width="400">
 
 ### Create an app integration
 
