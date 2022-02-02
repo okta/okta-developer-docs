@@ -1,6 +1,6 @@
 {
-  "release" : "2022.01.1",
-  "build" : "2022.01.1-begin-83-ga5b42812cf8e",
+  "release" : "2022.02.1",
+  "build" : "2022.02.1-begin-105-g431e6daa625c",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -421,13 +421,6 @@
     "internalErrorCode" : "invalid_application_type_client_credentials",
     "errorCode" : "invalid_client",
     "errorDescription" : "Only clients with 'application_type' of 'service' may use the client_credentials 'grant_type' with the Org Authorization Server."
-  }, {
-    "title" : "Client assertion type invalid",
-    "statusCode" : 401,
-    "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "client_assertion_type_invalid",
-    "errorCode" : "invalid_client",
-    "errorDescription" : "The client_assertion_type is invalid."
   }, {
     "title" : "Client assertion invalid issuer",
     "statusCode" : 401,
@@ -1038,6 +1031,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "PKCE code challenge is required to use the interaction code flow."
   }, {
+    "title" : "Invalid device token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_device_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The request has a deviceToken with length greater than {0}."
+  }, {
     "title" : "Illegal post logout redirect URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1073,6 +1073,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The access token cannot be specified in both the Authorization header and the request-body."
   }, {
+    "title" : "Client assertion type invalid",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "client_assertion_type_invalid",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The client_assertion_type is invalid."
+  }, {
     "title" : "Authorize request object and request URI provided",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1100,6 +1107,13 @@
     "internalErrorCode" : "invalid_application_type_for_interact",
     "errorCode" : "invalid_request",
     "errorDescription" : "Only confidential clients can use the activation token flow"
+  }, {
+    "title" : "Invalid recovery token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_recovery_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The recovery token is invalid"
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
@@ -1374,6 +1388,41 @@
     "errorCode" : "invalid_token",
     "errorDescription" : "The id token is invalid."
   }, {
+    "title" : "Web sso token invalid",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' is invalid."
+  }, {
+    "title" : "Web sso token invalid jti",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_jti",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' contains an invalid 'jti'."
+  }, {
+    "title" : "Web sso token revoked",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_revoked",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' was revoked."
+  }, {
+    "title" : "Web sso token invalid aud",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_aud",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' has an invalid audience."
+  }, {
+    "title" : "Web sso token invalid iss",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_iss",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' has an invalid issuer."
+  }, {
     "title" : "Invalid user code",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1640,6 +1689,13 @@
     "errorCode" : "unauthorized_client",
     "errorDescription" : "This client cannot use a custom authorization server."
   }, {
+    "title" : "Confidential client required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "confidential_client_required",
+    "errorCode" : "unauthorized_client",
+    "errorDescription" : "Confidential client is required to make this request."
+  }, {
     "title" : "Unsupported grant type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1653,6 +1709,13 @@
     "internalErrorCode" : "unsupported_grant_type_client_creds_org_as",
     "errorCode" : "unsupported_grant_type",
     "errorDescription" : "'client_credentials' grant type can only be used with a custom authorization server."
+  }, {
+    "title" : "Unsupported grant type token exchange",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_grant_type_token_exchange",
+    "errorCode" : "unsupported_grant_type",
+    "errorDescription" : "'urn:ietf:params:oauth:grant-type:token-exchange' grant type is not supported."
   }, {
     "title" : "Unsupported response mode",
     "statusCode" : 400,
@@ -1688,5 +1751,12 @@
     "internalErrorCode" : "mfa_attestation_response_type_invalid",
     "errorCode" : "unsupported_response_type",
     "errorDescription" : "'response_type' must be 'id_token' for MFA attestation."
+  }, {
+    "title" : "Web sso token replayed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_token_replayed",
+    "errorCode" : "web_sso_token_replayed",
+    "errorDescription" : "The 'web_sso_token' was already consumed."
   } ]
 }
