@@ -1,5 +1,5 @@
 <div class="common-image-format">
 
-![Sequence diagram showing Google challenge summary](/img/authenticators/authenticators-google-challenge-summary.png)
+![Sequence diagram showing WebAuthn challenge summary](/img/authenticators/authenticators-webauthn-challenge-summary.png)
 
 </div>

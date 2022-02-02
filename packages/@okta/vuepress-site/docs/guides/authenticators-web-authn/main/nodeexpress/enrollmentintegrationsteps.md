@@ -1,6 +1,6 @@
-### Initiate use case requiring authentication
+### 1: Initiate use case requiring authentication
 
-Initiate a use case requiring authentication. This guide uses [basic user sign-in](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/), which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -9,7 +9,7 @@ Initiate a use case requiring authentication. This guide uses [basic user sign-i
   });
 ```
 
-### Display WebAuthn option
+### 2: Display WebAuthn option
 
 If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with WebAuthn in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and WebAuthn included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
 
@@ -51,16 +51,16 @@ UI showing the Google Authenticator option:
 
 </div>
 
-### Submit WebAuthn option
+### 3: Submit WebAuthn option
 
-When the user selects and submits Google Authenticator, call `OktaAuth.idx.proceed()` passing in the `webauthn` value from `IdxOption.value`.
+When the user selects and submits the WebAuthn option, call `OktaAuth.idx.proceed()` passing in the `webauthn` value from `IdxOption.value`.
 
 ```javascript
     const transaction = await authClient.idx.proceed({ authenticator });
     handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-### Get identifier data for registering a WebAuthn credential
+### 4: Get data for creating a new credential
 
 The response from `OktaAuth.idx.proceed()` returns objects needed to create a WebAuthn credential on the client. Specifically, `IdxTransaction` is returned with `nextStep.authenticator.contextualData.activationData` that contains the randomly generated challenge and user information and `nextStep.authenticatorEnrollments` which includes a list of enrolled authenticators. See the following `IdxTransaction` example for more details.
 
@@ -90,18 +90,18 @@ The response from `OktaAuth.idx.proceed()` returns objects needed to create a We
 }
 ```
 
-### Display page to create WebAuthn credentials
+### 5: Display page to create credentials
 
 Redirect the user to page that creates the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.activationData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step.
 
-The sample app accesses these objects by converting them to JSON strings and assigning them to server side variables.
+The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
 
 ```javascript
 const authenticatorEnrollmentsJSON = authenticatorEnrollments ? JSON.stringify(authenticatorEnrollments) : null;
 const activationData = contextualData ? JSON.stringify(contextualData.activationData) : null;
 ```
 
-These variables are then used to set client side javascript variables using a [Mustache](https://mustache.github.io/) template.
+These variables are then used to set client-side javascript variables using a [Mustache](https://mustache.github.io/) template.
 
 ```javascript
 const activationData = {{{activationData}}};
@@ -117,7 +117,7 @@ The [Mustache](https://mustache.github.io/) template renders the following javas
   {"type":"password","key":"okta_password","id":"lae15gwr6... ","displayName":"Password","methods":[{"type":"password"}]}];
 ```
 
-### Build parameter for creating a new credential
+### 6: Build parameter for creating a new credential
 
 On page load, build the parameter needed to create a new credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialCreationOptions()` in the client browser.  Pass into the method the `activateData` and `authenticatorEnrollments` variables that were set in the previous step.
 
@@ -149,7 +149,7 @@ The response is an object of type `CredentialCreationOptions` and includes the c
 }
 ```
 
-### Create a new credential
+### 7: Create a new credential
 
 Call the Web Authentication API's `navigator.credentials.create()` in the client browser and pass in the `CredentialCreationOptions` object created in the previous step.
 
@@ -167,15 +167,15 @@ This call initiates the following steps:
 
 </div>
 
-1. After choosing the authenticator, it asks the user for consent. In the example below the **Touch Id** authenticator is prompting the user for a fingerprint to confirm the consent.
+2. After choosing the authenticator, it asks the user for consent. In the example below the **Touch Id** authenticator is prompting the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 
 ![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
 
-</div>
+</div></br>
 
-1. Private and public key pair are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential`, which contains the public key, credential id, and other information used to associated the new credential with the server and browser.
+3. Private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential`, which contains the public key, credential id, and other information used to associate the new credential with the server and browser.
 
 ```json
 {
@@ -188,7 +188,7 @@ This call initiates the following steps:
 }
 ```
 
-### Build parameter for sending the public key to the Okta server
+### 8: Build parameter for sending the public key to the Okta server
 
 The returned `PublicKeyCredential` object contains binary formatted data that needs to get converted to a string before being sent back to the Okta servers. Call `OktaAuth.webauthn.getAttestation()` to retrieve a string formatted object of the public key and other information required to complete the credential registration.
 
@@ -207,7 +207,7 @@ The returned attestation object looks as follows:
 
 ```
 
-### Forward public key credentials to Okta server
+### 9: Forward public key credentials to Okta server
 
 Send the values of the attestation object's `clientData` and `attestation` properties back to the server. The sample app assigns these values in elements within the page.
 
@@ -231,4 +231,4 @@ const transaction = await authClient.idx.proceed({
 });
 ```
 
-Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.
+Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and ID tokens.
