@@ -316,6 +316,10 @@ export const guides = [
             guideName: "device-authorization-grant"
           },
           {
+            title: "Client secret rotation and key management",
+            guideName: "client-secret-rotation-key"
+          },
+          {
             title: "Tokens",
             subLinks: [
               {
