@@ -1101,6 +1101,7 @@ HTTP/1.1 204 No Content
 * [Get email template](#get-email-template)
 * [Get email template default content](#get-email-template-default-content)
 * [Preview email template default content](#preview-email-template-default-content)
+* [Send test email](#send-test-email)
 * [List email customizations](#list-email-customizations)
 * [Create email customization](#create-email-customization)
 * [Delete all email customizations](#delete-all-email-customizations)
@@ -1108,7 +1109,6 @@ HTTP/1.1 204 No Content
 * [Update email customization](#update-email-customization)
 * [Delete email customization](#delete-email-customization)
 * [Preview email customization](#preview-email-customization)
-* [Send test email](#send-test-email)
 
 ### List email templates
 
@@ -1428,12 +1428,23 @@ HTTP/1.1 200 OK
 
 Sends a test email
 
+The content of the email is determined based on the following priority:
+1. The email customization for the language specified in the `language` query parameter.
+1. The email template's default customization.
+1. The email template’s default content, translated to the current user's language.
+
 #### Request path parameters
 
 | Parameter      | Type        | Description               |
 | -------------- | ----------- | ------------------------- |
 | `brandId`      | String      | ID of a Brand             |
 | `templateName` | String      | Name of an Email Template |
+
+#### Request query parameters
+
+| Parameter      | Type        | Description                                                        |
+| -------------- | ----------- | ------------------------------------------------------------------ |
+| `language`     | String      | One of the [supported BCP 47 language codes](#supported-languages) |
 
 #### Response body
 
@@ -1443,7 +1454,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example sends a test `welcome` email.
+The following example sends a test `welcome` email for the `fr` language.
 
 ##### Request
 
@@ -1452,7 +1463,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test?language=fr'
 ```
 
 ##### Response
