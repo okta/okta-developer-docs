@@ -46,9 +46,7 @@ Additionaly, `IdxTransaction` returns challenge and other information to verify 
 
 ### 3: Display page to verify WebAuthn credentials
 
-Redirect the user to page that verifies the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.challengeData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step.
-
-The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
+Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.challengeData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
 
 ```javascript
   const authenticatorEnrollmentsJSON = authenticatorEnrollments ? JSON.stringify(authenticatorEnrollments) : null;
@@ -112,7 +110,7 @@ This call initiates the following steps:
 
 1. The authenticator looks up the information stored for the credential id and checks that the domain name matches the one that was used during enrollment.
 
-1. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch Id** authenticator is prompting the user for a fingerprint to confirm the consent.
+1. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 

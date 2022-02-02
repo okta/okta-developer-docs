@@ -53,11 +53,11 @@ WebAuthn uses public-key cryptopgraphy to security communicate and validate the 
 1. Once the fingerprint is validated, the challenge is unencrypted using a private key, repackaged with additional information and re-encrypted using a private key.
 1. This repackaged signature is then sent back to the server, where the challenge is unencrypted using the public key and validated that it's the same challenge that started the flow.
 
-In the above flow the public and private keys were generated on the user's device during enrollment. The following diagram illustrates the enrollment and challenge flows and how they are integrated within Okta.
+In the previous example the public and private keys are generated on the user's device during enrollment. The following diagram illustrates the enrollment and challenge flows and how they are integrated within Okta.
 
 <div class="common-image-format">
 
-![Diagram showing the WebAuthN enrollment flow](/img/authenticators/authenti.png)
+![Diagram showing the WebAuthN enrollment flow](/img/authenticators/authenticators-webauthn-flow-overview.png)
 
 </div>
 

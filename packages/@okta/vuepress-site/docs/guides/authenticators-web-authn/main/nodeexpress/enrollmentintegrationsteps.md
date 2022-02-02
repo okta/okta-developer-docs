@@ -62,7 +62,7 @@ When the user selects and submits the WebAuthn option, call `OktaAuth.idx.procee
 
 ### 4: Get data for creating a new credential
 
-The response from `OktaAuth.idx.proceed()` returns objects needed to create a WebAuthn credential on the client. Specifically, `IdxTransaction` is returned with `nextStep.authenticator.contextualData.activationData` that contains the randomly generated challenge and user information and `nextStep.authenticatorEnrollments` which includes a list of enrolled authenticators. See the following `IdxTransaction` example for more details.
+The response from `OktaAuth.idx.proceed()` returns objects needed to create a WebAuthn credential on the client. Specifically, `IdxTransaction` is returned with `nextStep.authenticator.contextualData.activationData`, which contains the randomly generated challenge, and `nextStep.authenticatorEnrollments`, which includes a list of enrolled authenticators. See the following `IdxTransaction` example for more details.
 
 ```json
 {
@@ -92,9 +92,7 @@ The response from `OktaAuth.idx.proceed()` returns objects needed to create a We
 
 ### 5: Display page to create credentials
 
-Redirect the user to page that creates the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.activationData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step.
-
-The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
+Redirect the user to page that creates the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.activationData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
 
 ```javascript
 const authenticatorEnrollmentsJSON = authenticatorEnrollments ? JSON.stringify(authenticatorEnrollments) : null;
@@ -119,7 +117,7 @@ The [Mustache](https://mustache.github.io/) template renders the following javas
 
 ### 6: Build parameter for creating a new credential
 
-On page load, build the parameter needed to create a new credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialCreationOptions()` in the client browser.  Pass into the method the `activateData` and `authenticatorEnrollments` variables that were set in the previous step.
+On page load, build the parameter needed to create a new credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialCreationOptions()` in the client browser.  Call the method with the `activateData` and `authenticatorEnrollments` variables that were set in the previous step.
 
 ```javascript
 const options = OktaAuth.webauthn.buildCredentialCreationOptions(activationData, authenticatorEnrollments);
@@ -167,7 +165,7 @@ This call initiates the following steps:
 
 </div>
 
-2. After choosing the authenticator, it asks the user for consent. In the example below the **Touch Id** authenticator is prompting the user for a fingerprint to confirm the consent.
+2. After the user chooses the authenticator, the device's local authenticator asks the user for consent to create the credentials. In the following example the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 
@@ -175,7 +173,7 @@ This call initiates the following steps:
 
 </div></br>
 
-3. Private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential`, which contains the public key, credential id, and other information used to associate the new credential with the server and browser.
+3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential`, which contains the public key, credential id, and other information used to associate the new credential with the server and browser.
 
 ```json
 {
@@ -216,13 +214,13 @@ document.getElementById('credentials-clientData').value = res.clientData;
 document.getElementById('credentials-attestation').value = res.attestation;
 ```
 
-On the server, extract these elements from the page as shown in the following sample app's code example.
+On the server, extract these elements from the page as shown in the following example.
 
 ```javascript
 const { clientData, attestation } = req.body;
 ```
 
-Then, pass these values to `OktaAuth.idx.proceed()` to have the server validate the signature and store the credential Id and public key in association with the user's account.
+Then, pass these values to `OktaAuth.idx.proceed()` to have the server validate the signature and store the credential ID and public key in association with the user's account.
 
 ``` javascript
 const transaction = await authClient.idx.proceed({
