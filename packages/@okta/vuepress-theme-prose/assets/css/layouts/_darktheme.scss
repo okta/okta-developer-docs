@@ -2,45 +2,48 @@
 
   .page-body {
     background-color: var(--c-gray-800);
-  }
-  
-  .on-this-page .title {
-    color: var(--c-gray-000);
-  }
-  
-  pre[class*=language-] {
-    background-color: var(--c-gray-900);
-  }
-  
-  :not([class*=language-]) > code {
-    background-color: var(--c-gray-600);
-    color: var(--c-gray-000);
-    border: none;
-  }
-
-  .stack-selector .selector-control nav {
-    background-color: transparent;
-  }
-
-  .content--container {
-    color: var(--c-gray-000);
-    .edit-on-github .fa {
+    .content--container {
       color: var(--c-gray-000);
+      .edit-on-github .fa {
+        color: var(--c-gray-000);
+      }
+      blockquote {
+        border-right: none;
+        border-bottom: none;
+        border-top: none;
+        background-color: var(--c-gray-700);
+      }
+      .vs__selected {
+        color: var(--c-gray-600);
+      }
+      .vs__dropdown-menu {
+        .vs__dropdown-option {
+          background-color: var(--c-gray-900);
+          color: var(--c-gray-000);
+          &:hover {
+            border: 1px solid var(--c-blue-500);
+          }
+        }
+      }
+      .mobile-on-this-page {
+        color: var(--c-gray-800);
+      }
+      .on-this-page .title {
+        color: var(--c-gray-000);
+      }
+      pre[class*=language-] {
+        background-color: var(--c-gray-900);
+      }
+      :not([class*=language-]) > code {
+        background-color: var(--c-gray-600);
+        color: var(--c-gray-000);
+        border: none;
+      }
+      .stack-selector .selector-control nav {
+        background-color: transparent;
+      }
     }
-    blockquote {
-      border-right: 1px solid var(--c-violet-base);
-      border-bottom: 1px solid var(--c-violet-base);
-      border-top: 1px solid var(--c-violet-base);
-      background-color: #232327;
-    }
   }
-  .vs__selected {
-    color: var(--c-gray-600);
-  }
-  .mobile-on-this-page {
-    color: var(--c-gray-800);
-  }
-
 
   .homepage {
     &--top-section {
@@ -98,7 +101,6 @@
   
   .selector-tile {
     &--header {
-      margin-bottom: 8px;
       color: var(--c-blue-300);
       border-bottom: 1px solid var(--c-blue-300);
       &:visited, 
@@ -184,7 +186,8 @@
     }
   }
 }
-  
+
+// ADD CUSTOM WIDTH
 header.page-header ul.menu--items > li.expandable > ul.submenu--items {
   width: 130px;
   & li a {
