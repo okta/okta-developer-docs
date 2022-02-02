@@ -19,7 +19,7 @@ $gray-900: #2f3f4a;
     position: relative;
     z-index: 15;
     svg {
-      fill: cv('gray', '000');
+      fill: var(--c-gray-000);
       width: 91.54967px;
     }
   }
@@ -270,7 +270,7 @@ $gray-900: #2f3f4a;
         width: 1.4em;
       }
       svg.toggle-close {
-        fill: cv('gray', '200');
+        fill: var(--c-gray-200);
         width: 1.6em;
       }
     }

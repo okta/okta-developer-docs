@@ -1,7 +1,7 @@
 .is-button-cerise-outline {
   border-color: cv('header');
   background-color: transparent;
-  color: cv('gray', '000');
+  color: var(--c-gray-000);
   text-decoration: none;
   font-weight: 400;
   padding: 1em 3em;
@@ -11,27 +11,27 @@
   &.is-button-hover {
     border-color: cv('header');
     background-color: transparent;
-    color: cv('gray', '000');
+    color: var(--c-gray-000);
   }
 
   &:focus,
   &.is-button-focus {
     border-color: cv('header');
     background-color: transparent;
-    color: cv('gray', '000');
+    color: var(--c-gray-000);
   }
 
   &:disabled {
     border-color: cv('header');
     background-color: transparent;
-    color: cv('gray', '000');
+    color: var(--c-gray-000);
   }
 }
 
 .is-button-cerise {
   border-color: cv('header');
   background-color: cv('header');
-  color: cv('gray', '000');
+  color: var(--c-gray-000);
   text-decoration: none;
   font-weight: 500;
   padding: 1em 3em;
@@ -42,7 +42,7 @@
   &.is-button-hover {
     border-color: cv('header');
     background-color: cv('header');
-    color: cv('gray', '000');
+    color: var(--c-gray-000);
   }
 
   &:focus,
@@ -77,13 +77,13 @@
 
 	&:active,
 	&:hover {
-		border-color: cv('gray', '900');
-		color: cv('gray', '900');
+		border-color: var(--c-gray-900);
+		color: var(--c-gray-900);
 		text-decoration: none;
 	}
 
 	&:visited {
-		color: cv('gray', '900');
+		color: var(--c-gray-900);
 	}
 }
 
@@ -131,17 +131,17 @@
 	@extend %Button;
 	background-color: cv('action', 'dark');
 	border-color: cv('action', 'dark');
-	color: cv('gray', '000');
+	color: var(--c-gray-000);
 
 	&:active,
 	&:hover {
 		background-color: cv('action', 'dark');
 		border-color: cv('action', 'dark');
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 }
 
@@ -190,17 +190,17 @@
 	@extend %Button;
 	background-color: cv('success', 'dark');
 	border-color: cv('success', 'dark');
-	color: cv('gray', '000');
+	color: var(--c-gray-000);
 
 	&:active,
 	&:hover {
 		background-color: cv('success', 'base');
 		border-color: cv('success', 'base');
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 }
 
@@ -225,8 +225,8 @@
 	&,
 	&:active,
 	&:hover {
-		background-color: cv('gray', '000');
-		border-color: cv('gray', '000');
+		background-color: var(--c-gray-000);
+		border-color: var(--c-gray-000);
 		color: cv('action', 'base');
 	}
 
@@ -241,12 +241,12 @@
 	&,
 	&:active,
 	&:hover {
-		border-color: cv('gray', '000');
-		color: cv('gray', '000');
+		border-color: var(--c-gray-000);
+		color: var(--c-gray-000);
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 }
 
@@ -257,8 +257,8 @@
 	&,
 	&:active,
 	&:hover {
-		border-color: cv('gray', '000');
-		color: cv('gray', '000');
+		border-color: var(--c-gray-000);
+		color: var(--c-gray-000);
 	}
 }
 
@@ -270,11 +270,11 @@
 	&:hover {
 		background-color: cv('header');
 		border-color: cv('header');
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: var(--c-gray-000);
 	}
 }
 

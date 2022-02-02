@@ -1,9 +1,9 @@
 .api-uri-template {
-  border-top:1px solid cv('gray', '300');
-  border-right:1px solid cv('gray', '300');
-  border-bottom:1px solid cv('gray', '300');
+  border-top:1px solid var(--c-gray-300);
+  border-right:1px solid var(--c-gray-300);
+  border-bottom:1px solid var(--c-gray-300);
   border-radius:.25em;
-  background: cv('gray', '000');
+  background: var(--c-gray-000);
   display: flex;
   align-items: center;
   width: fit-content;

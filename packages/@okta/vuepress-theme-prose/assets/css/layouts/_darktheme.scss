@@ -1,5 +1,47 @@
 .dark-theme {
 
+  .page-body {
+    background-color: var(--c-gray-800);
+  }
+  
+  .on-this-page .title {
+    color: var(--c-gray-000);
+  }
+  
+  pre[class*=language-] {
+    background-color: var(--c-gray-900);
+  }
+  
+  :not([class*=language-]) > code {
+    background-color: var(--c-gray-600);
+    color: var(--c-gray-000);
+    border: none;
+  }
+
+  .stack-selector .selector-control nav {
+    background-color: transparent;
+  }
+
+  .content--container {
+    color: var(--c-gray-000);
+    .edit-on-github .fa {
+      color: var(--c-gray-000);
+    }
+    blockquote {
+      border-right: 1px solid var(--c-violet-base);
+      border-bottom: 1px solid var(--c-violet-base);
+      border-top: 1px solid var(--c-violet-base);
+      background-color: #232327;
+    }
+  }
+  .vs__selected {
+    color: var(--c-gray-600);
+  }
+  .mobile-on-this-page {
+    color: var(--c-gray-800);
+  }
+
+
   .homepage {
     &--top-section {
       background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
@@ -68,6 +110,17 @@
         color: var(--c-gray-000);
       }
     }
+    &--data {
+      &--item {
+        &:hover {
+          color: var(--c-white);
+          background: rgba(242, 245, 255, 0.2);
+          & > i {
+            color: var(--c-white);
+          }
+        }
+      }
+    }
   }
 
   .assurance-item {
@@ -90,18 +143,18 @@
   }
   .company-logos--icon {
     &:nth-child(1) {
-      background-image: none !important;;
+      background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;;
+      background-color: var(--c-blue-300) !important;
       -webkit-mask-image: url(/img/logos/baseball.svg);
       mask-image: url(/img/logos/baseball.svg);
     }
     &:nth-child(2) {
-      background-image: none !important;;
+      background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;;
+      background-color: var(--c-blue-300) !important;
       -webkit-mask-image: url(/img/logos/splunk.svg);
       mask-image: url(/img/logos/splunk.svg);
     }
@@ -132,3 +185,17 @@
   }
 }
   
+header.page-header ul.menu--items > li.expandable > ul.submenu--items {
+  width: 130px;
+  & li a {
+    color: var(--c-gray-900); 
+    &:after {
+      background-image: none !important;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-gray-900) !important;
+      -webkit-mask-image: url("/img/icons/external--white.svg");
+      mask-image: url("/img/icons/external--white.svg");
+    }
+  }
+}

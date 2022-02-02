@@ -9,7 +9,7 @@
 
     a {
       text-decoration: none;
-      color: cv('gray', '000');
+      color: var(--c-gray-000);
       display: inline-block;
       height: 42px;
       line-height: 32px;
@@ -23,7 +23,7 @@
       }
       &.active,
       &:hover {
-        border-bottom: 2px solid cv('gray', '000');
+        border-bottom: 2px solid var(--c-gray-000);
       }
       .icon {
         left: 5px;
@@ -34,7 +34,7 @@
     h3 {
       margin-top: 0rem;
       margin-bottom: 1.5rem;
-      color: cv('gray', '000');
+      color: var(--c-gray-000);
       font-size: 18px;
       font-weight: lighter;
     }

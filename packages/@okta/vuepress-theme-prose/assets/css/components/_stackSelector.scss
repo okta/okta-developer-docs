@@ -94,7 +94,7 @@ $small-spacing: 0.75rem;
       .vs__dropdown-option {
         padding: 0.7rem 1rem;
         border: 1px solid transparent;
-        border-bottom: 1px solid cv('gray', '100');
+        border-bottom: 1px solid var(--c-gray-100);
         width: 100%;
 
         &:last-child {
