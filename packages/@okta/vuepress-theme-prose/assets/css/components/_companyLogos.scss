@@ -30,6 +30,8 @@
     .company-logos--icon {
       max-width: 85px;
       max-height: 40px;
+      min-width: 85px;
+      min-height: 40px;
       margin: 0 10px 45px;
     }
 
@@ -58,6 +60,7 @@
     .company-logos--icons {
       .company-logos--icon {
         max-width: 70px;
+        min-width: 70px;
       }
     }
   }

@@ -1,4 +1,6 @@
 :root {
+
+  // PALETTE LIGHT THEME
   --c-gray-000: #ffffff;
   --c-gray-100: #EBEBED;
   --c-gray-200: #DCDCDC;
@@ -47,17 +49,22 @@
 
   --c-magenta-base: #c72c86;
 
-  // body colors
+  // VARIABLES COLORS FOR LIGHT THEME
   --c-body-base: #F5F5F6;
   --c-body-lighter: #F7F7F8;
-  --c-header-base: #00297A;
+  --c-header-base: var(--c-blue-900);
   
-  --c-text-darker: #1D1D21;
-  --c-text-base: #6E6E78;
-  --c-text-lighter: #D7D7DC;
+  --c-text-darker: var(--c-gray-900);
+  --c-text-base: var(--c-gray-700);
+  --c-text-lighter: var(--c-gray-300);
+
+  --c-link-base: var(--c-blue-500);
+  --c-code-base: var(--c-gray-000);
 
 }
 .layout.dark-theme {
+  
+  // PALETTE DARK THEME
   --c-gray-900: #17171B;
   --c-gray-800: #1D1D21;
   --c-gray-700: #232327;
@@ -78,14 +85,17 @@
   --c-lilac:  #8D6E97;
   --c-white:  #ffffff;
   
-  // body colors
-  --c-body-base: #17171B;
-  --c-body-lighter: #1D1D21;
-  --c-header-base: #232327;
+  // VARIABLES COLORS FOR DARK THEME
+  --c-body-base: var(--c-gray-900);
+  --c-body-lighter: var(--c-gray-800);
+  --c-header-base: var(--c-gray-700);
   
-  --c-text-darker: #fff;
+  --c-text-darker: var(--c-white);
   --c-text-base: #8C8C96;
-  --c-text-lighter: #F5F5F6;
+  --c-text-lighter: var(--c-gray-000);
+
+  --c-link-base: var(--c-blue-300);
+  --c-code-base: var(--c-gray-900);
 }
 
 $colors: (
@@ -111,7 +121,7 @@ $colors: (
     'angle': #8C8C96,
   ),
   'link': (
-    'base': #1662DD,
+    'base': var(--c-link-base),
     'darker': #00297A,
     'footer': #B5D0DF,
   ),

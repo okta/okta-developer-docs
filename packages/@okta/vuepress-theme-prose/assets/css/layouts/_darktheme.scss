@@ -1,64 +1,43 @@
 .dark-theme {
 
-  // .page-body {
-  //   background: cv("dark-theme", "gray-800");
-  // }
-
-  // // header
-  // header.page-header {
-  //   .sign-up--button {
-  //     background-color: cv("dark-theme", "gray-700");
-  //     border-color: cv("dark-theme", "blue-300");
-  //     color: cv("dark-theme", "blue-300");
-  //   }
-  // }
-
-  // .content--container .sidebar-area {
-  //   background: cv("dark-theme", "gray-900");
-  // }
-
-  // // main
-  // h1, h2, h3, h4, h5, h6 {
-  //   color: cv("dark-theme", "white")
-  // }
-
-  // // aside
-  // .tree-nav {
-  //   background-color: cv("dark-theme", "gray-900");
-  //   .sections {
-  //     &:first-child > .link-wrap {
-  //       & > .tree-nav-link > .text-holder {
-  //         color: cv("dark-theme", "gray-000");
-  //       }
-  //       & > .tree-nav-link.router-link-active > .text-holder {
-  //         color: cv("dark-theme", "blue-300");
-  //       }
-  //     }
-  //     & .tree-nav-link.router-link-active::before {
-  //       background: cv("dark-theme", "blue-300");
-  //     }
-  //     & .tree-nav-link:hover {
-  //       color: cv("dark-theme", "blue-300");
-  //     }
-  //   }
-  // }
-
   .homepage {
     &--top-section {
       background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
     }
-    // &--color-main {
-    //   color: cv("dark-theme", "white")
-    // }
-    // &--intro-heading {
-    //   border-bottom: none;
-    // }
-    // &--sub-heading h2 {
-    //   border-bottom: 1px solid cv("dark-theme", "gray-400");
-    //   padding-bottom: 12px;
-    // }
     &--assurance-block-margin {
       background: #212125 url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+      .col-xl-4 {
+        &:nth-child(1) {
+          & span {
+            background-image: none !important;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: var(--c-blue-300) !important;
+            -webkit-mask-image: url(/img/homepage/compliance-out-of-box.svg);
+            mask-image: url(/img/homepage/compliance-out-of-box.svg);
+          }
+        }
+        &:nth-child(2) {
+          & span {
+            background-image: none !important;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: var(--c-blue-300) !important;
+            -webkit-mask-image: url(/img/homepage/uptime.svg);
+            mask-image: url(/img/homepage/uptime.svg);
+          }
+        }
+        &:nth-child(3) {
+          & span {
+            background-image: none !important;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: var(--c-blue-300) !important;
+            -webkit-mask-image: url(/img/homepage/standards.svg);
+            mask-image: url(/img/homepage/standards.svg);
+          }
+        }
+      }
     }
     &--customize-your-app-margin {
       background-color: #212125;
@@ -75,48 +54,81 @@
     }
   }
   
+  .selector-tile {
+    &--header {
+      margin-bottom: 8px;
+      color: var(--c-blue-300);
+      border-bottom: 1px solid var(--c-blue-300);
+      &:visited, 
+      &:active, 
+      &:focus {
+        color: var(--c-blue-300);
+      }
+      &:hover {
+        color: var(--c-gray-000);
+      }
+    }
+  }
 
-  // .selector-tile {
-  //   &--data {
-  //     &--item {
-  //       color: cv("dark-theme", "white");
-  //       border-bottom: none;
-  //       &:visited, 
-  //       &:active, 
-  //       &:focus {
-  //         color: cv("dark-theme", "white");
-  //       }
-  //       &:hover {
-  //         &:visited, 
-  //         &:active, 
-  //         &:focus {
-  //           color: cv("blue", "900");
-  //         }
-  //       }
-  //     }
-  //   }
-  //   &--header {
-  //     margin-bottom: 8px;
-  //     color: cv("dark-theme", "blue-300");
-  //     border-bottom: 1px solid cv("dark-theme", "blue-300");
-  //     &:visited, 
-  //     &:active, 
-  //     &:focus {
-  //       color: cv("dark-theme", "blue-300");
-  //     }
-  //     &:hover {
-  //       color: cv("dark-theme", "white");
-  //     }
-  //   }
-  // }
+  .assurance-item {
+    &--rounded {
+      background-color: var(--c-gray-800);
+    }
+  }
+  
+  .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
+    fill: var(--c-blue-300);
+  }
 
-  // .assurance-item {
-  //   &--rounded {
-  //     background-color: cv("dark-theme", "gray-800");
-  //   }
-  //   &--content--title {
-  //     color: cv("dark-theme", "white");
-  //   }
-  // }
+  .homepage--code-example {
+    background-color: var(--c-code-base);
+    border: none;
+    &--cm-wrapper .CodeMirror {
+      background-color: var(--c-code-base);
+      border: none;
+    }
+  }
+  .company-logos--icon {
+    &:nth-child(1) {
+      background-image: none !important;;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-blue-300) !important;;
+      -webkit-mask-image: url(/img/logos/baseball.svg);
+      mask-image: url(/img/logos/baseball.svg);
+    }
+    &:nth-child(2) {
+      background-image: none !important;;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-blue-300) !important;;
+      -webkit-mask-image: url(/img/logos/splunk.svg);
+      mask-image: url(/img/logos/splunk.svg);
+    }
+    &:nth-child(3) {
+      background-image: none !important;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-blue-300) !important;
+      -webkit-mask-image: url(/img/logos/adobe.svg);
+      mask-image: url(/img/logos/adobe.svg);
+    }
+    &:nth-child(4) {
+      background-image: none !important;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-blue-300) !important;
+      -webkit-mask-image: url(/img/logos/jetblue.svg);
+      mask-image: url(/img/logos/jetblue.svg);
+    }
+    &:nth-child(5) {
+      background-image: none !important;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--c-blue-300) !important;
+      -webkit-mask-image: url(/img/logos/experian.svg);
+      mask-image: url(/img/logos/experian.svg);
+    }
+  }
 }
   
