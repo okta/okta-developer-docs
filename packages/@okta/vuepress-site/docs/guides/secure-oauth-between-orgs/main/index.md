@@ -68,7 +68,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${spokeApiToken}" \
 -d '{
   "name": "okta_org2org",
-  "label": "My spoke Org2Org App",
+  "label": "'${spokeOrg2OrgClientLabel}'",
   "signOnMode": "SAML_2_0",
   "settings": {
     "app": {
@@ -115,7 +115,7 @@ curl -v -X GET \
 
 You need to save the JWKS properties `kty`, `e`, `n`, `use`, and `kid` for use in the corresponding hub org service app.
 
-For each spoke org that you have in your multi-tenant solution, you must create an Org2Org app instance and generate the key credentials that need to be configured in the hub org’s service app.
+For each spoke org that you have in your multi-tenant solution, you must create an Org2Org app instance and generate the key credentials that need to be configured in the hub org’s corresponding service app.
 
 ### Create an OAuth 2.0 service app in the hub org
 
@@ -123,7 +123,7 @@ For each spoke org that you have in your multi-tenant solution, you must create 
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
-| `client_name`  |  Specify a label for this service app to represent the OAuth 2.0 client. |
+| `client_name`  |  Specify a label for this service app to represent the spoke org OAuth 2.0 client. |
 | `grant_types`  |  `client_credentials` |
 | `jwks`  |  Specify the JSON Web Key Set from the corresponding spoke org’s Org2Org app integration. |
 | `response_types`  |  `token` |
@@ -138,7 +138,7 @@ curl -X POST \
   -H "Authorization: SSWS ${hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d '{
-    "client_name": "'${hubOrgServiceClientLabel}'",
+    "client_name": "'${hubServiceClientLabel}'",
     "response_types": [
       "token"
     ],
@@ -162,7 +162,7 @@ curl -X POST \
  }' "https://${yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note**: You need to specify `kty`, `e`, `use`, `alg`, `n`, and `kid` properties in your `jwks` parameter for the service app.
+> **Note**: You need to specify `kty`, `e`, `use`, `alg`, `n`, and `kid` properties in your `jwks` parameter for the service app. These values are taken from the corresponding spoke Org2Org credentials.
 
 From the response of your POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request.
 
@@ -188,7 +188,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.groups.manage",
-    "issuer": "https://${yourHubOrgDomain}"
+    "issuer": "https://'${yourHubOrgDomain}'"
 }' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grants"
 ```
 
@@ -260,7 +260,7 @@ From your spoke org, make a request to [generate a new application key credentia
 }
 ```
 
-> **Note**: The keys are truncated for brevity.
+> **Note**: The keys are truncated for brevity. Save the `kty`, `e`, `use`, `n`, and `kid` properties to update the keys in your Org2Org and service apps.
 
 From the response of your POST request, copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
 
@@ -272,6 +272,8 @@ curl -X PUT \
   -H "Authorization: SSWS ${spokeApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
+    "name": "okta_org2org",
+    "label": "'${spokeOrg2OrgClientLabel}'",
     "credentials": {
         "signing": {
             "kid": "'${kid}'"
@@ -280,9 +282,9 @@ curl -X PUT \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
 ```
 
-Then go to your hub org and register the new key to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
+> **Note**: You must specify `name` and `label` body parameters when you update an Org2Org app.
 
-> **Note**: When you update the keys in the service app `jwks` property, all the old keys are overwritten.
+Then go to your hub org and register the new key to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
 
 ##### Request example
 
@@ -292,6 +294,16 @@ curl -X PUT \
   -H "Authorization: SSWS ${hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
+    "client_id": "'${yourServiceAppId}'",
+    "client_name": "'${hubServiceClientLabel}'",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
     "jwks": {
                 "keys": [
                   {
@@ -306,3 +318,5 @@ curl -X PUT \
             }
  }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}"
 ```
+
+> **Note**: When you update the keys in the service app `jwks` property, all the old keys are overwritten. You must specify all settings when you update a client app. Partial updates aren't supported. If any settings are missing when you update a client app, the update fails.
