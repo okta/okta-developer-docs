@@ -1097,6 +1097,54 @@ HTTP/1.1 204 No Content
 
 ## Email template operations
 
+The Email Templates API allows you to programatically manage email customizations.
+
+### Email Templates
+
+Okta provides many customizable **email templates** - e.g., the `welcome` email allows users to activate their account. Okta provides **default content** for each of these email templates that is automatically translated to any one of the [supported languages](#supported-languages).
+
+### Email Customizations
+
+**Email customizations** allow you to override an email template's default content.
+
+The following constraints apply to email customizations:
+- If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
+- Each email template can have at most one customization for each [supported language](#supported-languages).
+
+### Supported Languages
+
+Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) format.
+
+| Language               | BCP 47 Language Tag |
+| ---------------------- | ------------------- |
+| Czech                  | `cs`                |
+| Danish                 | `da`                |
+| German                 | `de`                |
+| Greek                  | `el`                |
+| English                | `en`                |
+| Spanish                | `es`                |
+| Finnish                | `fi`                |
+| French                 | `fr`                |
+| Hungarian              | `hu`                |
+| Indonesian             | `id`                |
+| Italian                | `it`                |
+| Japanese               | `ja`                |
+| Korean                 | `ko`                |
+| Malaysian              | `ms`                |
+| Norwegian              | `nb`                |
+| Dutch                  | `nl-NL`             |
+| Polish                 | `pl`                |
+| Portuguese             | `pt-BR`             |
+| Romanian               | `ro`                |
+| Russian                | `ru`                |
+| Swedish                | `sv`                |
+| Thai                   | `th`                |
+| Turkish                | `tr`                |
+| Ukrainian              | `uk`                |
+| Vietnamese             | `vi`                |
+| Chinese (Simplified)   | `zh-CN`             |
+| Chinese (Traditional)  | `zh-TW`             |
+
 * [List email templates](#list-email-templates)
 * [Get email template](#get-email-template)
 * [Get email template default content](#get-email-template-default-content)
@@ -1595,7 +1643,7 @@ Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
+> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
 
 #### Use examples
 
@@ -1611,7 +1659,7 @@ curl -v -X POST \
 -d '{
   "language": "en",
   "subject": "Welcome to Okta!",
-  "body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+  "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
 'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
@@ -1625,13 +1673,13 @@ HTTP/1.1 201 Created
 
 ```json
 {
-		"body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+    "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
     "created": "2022-01-27T05:42:07.000Z",
     "id": "oel2kk2VDW0K4AOZp0g4",
     "isDefault": false,
-		"language": "en",
+    "language": "en",
     "lastUpdated": "2022-01-27T05:42:07.000Z",
-		"subject": "Welcome to Okta!",
+    "subject": "Welcome to Okta!",
     "_links": {
         "preview": {
             "hints": {
@@ -1832,7 +1880,7 @@ Returns a `400 Bad Request` if:
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
+> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
 
 #### Use examples
 
@@ -1848,7 +1896,7 @@ curl -v -X PUT \
 -d '{
   "language": "en",
   "subject": "Hello from Okta!",
-  "body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+  "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
 'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
@@ -1862,7 +1910,7 @@ HTTP/1.1 200 OK
 
 ```json
 {
-		"body": "<!DOCTYPE html><html>...${activationToken}...</html>",
+	  "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
     "created": "2022-01-27T00:23:48.000Z",
     "id": "oel2kk1zYJBJbeaGo0g4",
     "isDefault": true,
@@ -1930,7 +1978,7 @@ Returns a `409 Conflict` if the email customization to be deleted is the default
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [email customization constraints](#email-customization-constraints) for more information.
+> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
 
 #### Use examples
 
@@ -2283,10 +2331,6 @@ The Image Upload Response object defines the following properties:
 }
 ```
 
-### Links object
-
-Specifies link relations available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
-
 ## Existing org scenarios
 
 ### Data migration from existing orgs
@@ -2352,43 +2396,6 @@ The Email Customization resource defines the following properties:
 | `body`         | String                  | The body of the customization               |
 | `_links`       | [Links](#links-object)  | Link relations for this object              |
 
+## Links object
 
-#### Email Customization Constraints
-
-The following constraints apply to email customizations:
-- If an email template has customizations, exactly one of them must be the default (where `isDefault` is `true`).
-- Each email template can have at most one customization for each [supported language](#supported-languages).
-
-### Supported Languages
-
-Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) format.
-
-| Language               | BCP 47 Language Tag |
-| ---------------------- | ------------------- |
-| Czech                  | `cs`                |
-| Danish                 | `da`                |
-| German                 | `de`                |
-| Greek                  | `el`                |
-| English                | `en`                |
-| Spanish                | `es`                |
-| Finnish                | `fi`                |
-| French                 | `fr`                |
-| Hungarian              | `hu`                |
-| Indonesian             | `id`                |
-| Italian                | `it`                |
-| Japanese               | `ja`                |
-| Korean                 | `ko`                |
-| Malaysian              | `ms`                |
-| Norwegian              | `nb`                |
-| Dutch                  | `nl-NL`             |
-| Polish                 | `pl`                |
-| Portuguese             | `pt-BR`             |
-| Romanian               | `ro`                |
-| Russian                | `ru`                |
-| Swedish                | `sv`                |
-| Thai                   | `th`                |
-| Turkish                | `tr`                |
-| Ukrainian              | `uk`                |
-| Vietnamese             | `vi`                |
-| Chinese (Simplified)   | `zh-CN`             |
-| Chinese (Traditional)  | `zh-TW`             |
+Specifies link relations available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
