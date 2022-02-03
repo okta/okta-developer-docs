@@ -1101,7 +1101,7 @@ The Email Templates API allows you to programatically manage email customization
 
 ### Email Templates
 
-Okta provides many customizable **email templates** - e.g., the `welcome` email allows users to activate their account. Okta provides **default content** for each of these email templates that is automatically translated to any one of the [supported languages](#supported-languages).
+Okta provides many customizable **email templates**. For example, the `welcome` email template allows users to activate their account. Each template has **default content** that is translated to any one of the [supported languages](#supported-languages).
 
 ### Email Customizations
 
@@ -1109,7 +1109,7 @@ Okta provides many customizable **email templates** - e.g., the `welcome` email 
 
 The following constraints apply to email customizations:
 - If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
-- Each email template can have at most one customization for each [supported language](#supported-languages).
+- Each email template can have only one customization for each [supported language](#supported-languages).
 
 ### Supported Languages
 
@@ -1643,7 +1643,7 @@ Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
+> **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
 #### Use examples
 
@@ -1880,7 +1880,7 @@ Returns a `400 Bad Request` if:
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
+> **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
 #### Use examples
 
@@ -1978,7 +1978,7 @@ Returns a `409 Conflict` if the email customization to be deleted is the default
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
 
-> **Note:** See [Email Customizations](#email-customizations) for more information about the constraints surrounding email customizations.
+> **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
 #### Use examples
 
