@@ -1,5 +1,7 @@
 > **Note:** [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/ios/main/#run-the-embedded-sdk-sample-app) and explore the available [iOS use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/) to get familiar with the SDK before you start to integrate your own embedded iOS app.
 
+<EmbeddedBrowserWarning />
+
 Begin to integrate the SDK into your own app by following these steps:
 
 #### 1: Add the package dependency
