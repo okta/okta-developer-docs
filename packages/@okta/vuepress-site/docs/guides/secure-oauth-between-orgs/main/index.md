@@ -173,7 +173,7 @@ curl -X POST \
   -d ' {
     "scopeId": "okta.users.manage",
     "issuer": "https://${yourHubOrgDomain}"
-}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grant"
+}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grants"
 ```
 
 ```bash
@@ -184,7 +184,7 @@ curl -X POST \
   -d ' {
     "scopeId": "okta.groups.manage",
     "issuer": "https://${yourHubOrgDomain}"
-}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grant"
+}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grants"
 ```
 
 ### Enable provisioning in the Org2Org app
