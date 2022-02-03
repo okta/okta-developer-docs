@@ -303,6 +303,10 @@ export const guides = [
               {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator"
+              },
+              {
+                title: "Web Authentication",
+                guideName: "authenticators-web-authn"
               }
             ]
           },
