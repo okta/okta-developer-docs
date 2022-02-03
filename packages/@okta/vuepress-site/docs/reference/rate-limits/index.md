@@ -38,7 +38,7 @@ Okta provides rate limits for orgs based on the traffic that they expect to have
 
 In a typical use case scenario where orgs exceed a default rate limit, they receive a system log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60%) of 600. That org would get a burst notification when the endpoint hits 600 requests per minute and then the violation event when it hits 3000 requests all in the same minute.
 
-Additionally, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DyanmicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario would provide 5x coverage on top of the 6000 and ensure peace of mind for any unplanned spike in use.
+Additionally, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario would provide 5x coverage on top of the 6000 and ensure peace of mind for any unplanned spike in use.
 
 On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5x the default with the buffer zone) as shown in the following example.
 
