@@ -1,6 +1,6 @@
 {
-  "release" : "2022.01.1",
-  "build" : "2022.01.1-begin-83-ga5b42812cf8e",
+  "release" : "2022.02.1",
+  "build" : "2022.02.1-begin-105-g431e6daa625c",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -5432,6 +5432,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "certification.campaign.close",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is closed. This event can be used by admins to audit Access Certification Review activity to understand when a Campaign Instance has transitioned into the closed state. This event is triggered when a Campaign is closed either by an admin or on the configured campaign end date.",
+      "info" : {
+        "created" : "2022-01-25",
+        "release" : "2022.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "certification.campaign.create",
       "category" : "id-fabric",
       "description" : "Triggered when a new campaign is created. Can be used to audit campaign activity in the system log as well as reports. This is triggered by creating a new campaign.",
@@ -5498,6 +5515,23 @@
         "debugData" : "IgaReviewerDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "certification.campaign.launch",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is launched. This event can be used by admins to audit Access Certification Review activity to understand when a Campaign Instance has transitioned into the Active state. This event is triggered when a Campaign starts and moves from scheduled to active.",
+      "info" : {
+        "created" : "2022-01-25",
+        "release" : "2022.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "certification.campaign.update",
@@ -8832,6 +8866,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.agent.ldap.realtimesync",
+      "category" : "directories",
+      "description" : "Fired when LDAP Delegated Authentication is used to sign in and a user profile is updated using RealTimeSync action. Can be used by admins to identify user profile changes resulting from corresponding changes in the LDAP directory. The previous name for this event was system.agent.ad.realtimesync.",
+      "info" : {
+        "created" : "2022-01-05",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AdAgentGenericDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.agent.ldap.reconnect",
       "category" : "directories",
       "description" : "Reconnect LDAP agent to Okta.",
@@ -10889,6 +10940,23 @@
         "targets" : null
       }
     }, {
+      "id" : "system.org.rate_limit.burst",
+      "category" : "performance",
+      "description" : "Fired when burst rate limit capacity is activated. This can be used to identify when an API in the Org exceeds standard rate limits and the frequency with which the activities occur. This event is fired after a corresponding warning event. If usage continues on this API the risk is hitting a rate limit violation which will fire a corresponding violation event. The event contains a burst rate limit threshold which informs how much capacity is remaining before a violation occurs.",
+      "info" : {
+        "created" : "2022-01-10",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "BurstRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.org.rate_limit.expiration.warning",
       "category" : "performance",
       "description" : "Rate limit approaching expiration date.",
@@ -12591,7 +12659,7 @@
     }, {
       "id" : "workflows.user.table.create",
       "category" : "wax-insights",
-      "description" : "Triggered when a user creates a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user adds a new table.",
+      "description" : "This event can be used by any admin or security team member to monitor the creation of new tables in the Workflows platform. The target fields provide information on the user that created the table and the new table. Other table lifecycle events include workflows.user.table.view, workflows.user.table.update, and workflows.user.table.delete. Note that this event doesn't fire when a table is imported.  For that, users can reference workflows.user.table.import or workflows.user.folder.import.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12608,7 +12676,7 @@
     }, {
       "id" : "workflows.user.table.delete",
       "category" : "wax-insights",
-      "description" : "Triggered when a user deletes a table in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user deletes a table.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user deletes a table from the Workflows platform. The target fields provide information on the user that deleted the table and the table itself. Other table lifecycle events include workflows.user.table.view, workflows.user.table.update, and workflows.user.table.create.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12625,7 +12693,7 @@
     }, {
       "id" : "workflows.user.table.export",
       "category" : "wax-insights",
-      "description" : "Triggered when a user exports a table from Workflows. Can be used to audit user activity in Workflows. This is triggered by exporting a table as part of a flowpack.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user exports table data from the Workflows platform using the Tables interface. The target fields provide information on the user that exported the table and the table itself. Related events include workflows.user.table.import, workflows.user.folder.import, and workflows.user.folder.export. Note that exports through the table interface include table data, while exporting tables as part of folder export does not.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12642,7 +12710,7 @@
     }, {
       "id" : "workflows.user.table.import",
       "category" : "wax-insights",
-      "description" : "Triggered when a user imports a table into Workflows. Can be used to audit user activity in Workflows. This is triggered by importing a table included in a flowpack.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user imports table data into the Workflows platform using the Tables interface. The target fields provide information on the user that imported the table and the table itself. Related events include workflows.user.table.export, workflows.user.folder.export, and workflows.user.folder.import. Note that importing through the table interface requires an existing schema and is used to import the data from a .csv file.  This event does not fire as part of workflows.user.folder.import.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12659,7 +12727,7 @@
     }, {
       "id" : "workflows.user.table.update",
       "category" : "wax-insights",
-      "description" : "Triggered when a user updates a table's schema in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user adds, removes, or renames columns.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user updates a table's schema on the Workflows platform. The target fields provide information on the user that updated the table and the table itself. Other table lifecycle events include workflows.user.table.view, workflows.user.table.create, and workflows.user.table.delete. Note that this event does not include information about what was updated, only that the table name or columns were modified. It does not fire when the table data itself is updated.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12676,7 +12744,7 @@
     }, {
       "id" : "workflows.user.table.view",
       "category" : "wax-insights",
-      "description" : "Triggered when a user views a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a table is accessed by a user.",
+      "description" : "This event can be used by any admin or security team member to monitor the viewing of table data in the Workflows platform. The target fields provide information on the user that viewed the table and which table was viewed. Other table lifecycle events include workflows.user.table.create, workflows.user.table.update, and workflows.user.table.delete. Note that this event only fires when a user manually accesses a table.  It does not fire when table data is accessed using the Workflows Table functions.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -14554,6 +14622,211 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "5000", "10000", "100000" ]
+          }
+        }
+      },
+      "BurstRateLimitDebugData" : {
+        "name" : "BurstRateLimitDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "user_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:userId",
+            "examples" : [ "00ura3zeedtL1tjut0h7", "00urdiw7ulE1reI7a0h7" ]
+          },
+          "burst_rate_limit_url_pattern" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "/api/v1/authn", "/oauth2/{authorizationServerId}/v1/authorize" ]
+          },
+          "time_span" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "5", "10" ]
+          },
+          "time_unit" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MINUTES" ]
+          },
+          "burst_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "8000", "10000" ]
+          },
+          "base_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "600", "1000", "1200", "2000" ]
+          },
+          "burst_rate_limit_expiration_date" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2020-07-30T18:19:17.000Z" ]
           }
         }
       },
@@ -16527,6 +16800,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "flow_continuation" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "originating tab", "new tab" ]
+          },
+          "verification" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "link clicked", "code entered" ]
           },
           "same_browser" : {
             "type" : "Boolean",
