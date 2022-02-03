@@ -93,9 +93,7 @@ Before you can start using Web Authentication (Webauthn), create an Okta org app
 
 ## Verify browser version
 
-To use WebAuthn, your browser must be up to date.
-
-> **Note:** The Embedded SDK sample app for the Javascript SDK only supports Chrome (version 88 and higher).
+<StackSnippet snippet="softwareversions" />
 
 ## Integrate SDK for authenticator enrollment
 
