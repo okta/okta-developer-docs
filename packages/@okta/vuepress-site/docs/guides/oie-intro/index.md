@@ -5,13 +5,13 @@ meta:
     content: Find out more about Okta's Identity Engine authentication flow, what developer features it unlocks, and how to use it.
 ---
 
-Okta Identity Engine is Okta's new authentication pipeline, which provides valuable new features and a more flexible approach to your auth needs.
+Okta Identity Engine is Okta's new authentication pipeline, which provides valuable new features and a more flexible approach to your auth needs. This article provides a high-level introduction.
 
-This guide explains what new features Identity Engine brings to the table, talks about what new deployment models we have to make use of these features, and shows how our documentation experience is changing to support it.
+Below we explain what new features Identity Engine brings to the table and the fundamental differences in its approach from our Classic auth pipeline, talk about the deployment models we have to make use of these features, and show how our documentation experience is changing to support it.
 
-> **Note**: If you are an admin, or are just looking for product docs related to Identity Engine, see our [Identity Engine Get started page](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-get-started.htm?cshid=ext-get-started-oie) over on the Okta Help Center.
+> **Note**: If you are an admin, or are looking for product docs related to Identity Engine, see our [Identity Engine Get started page](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-get-started.htm?cshid=ext-get-started-oie) over on the Okta Help Center.
 
-## Why use the Identity Engine?
+## Identity Engine new features
 
 WHAT OTHER FEATURES DO WE WANT TO CALL OUT?
 
@@ -19,7 +19,7 @@ Identity Engine unlocks many new capabilities.
 
 ### Passwordless authentication, e.g. with a "magic link"
 
-Okta enables users to authenticate without a password by emailing them an embedded link — this can be clicked to complete their authentication experience without having to enter their password. Other non-password authenticators include phone (SMS or voice call, biometrics, and answers to security questions.
+Okta enables users to authenticate without a password by emailing them an embedded link — this can be clicked to complete their authentication experience without having to enter their password. Other non-password authenticators include phone (SMS or voice call), biometrics, and answers to security questions.
 
 * [Authenticator SDK integration guides](ADD LINK)
 * [Email SDK use cases](ADD LINK)
@@ -39,7 +39,7 @@ App-level policies are [security policy frameworks](https://csrc.nist.gov/public
 * [ADD DEV.OKTA LINKS](ASK OTHER WRITERS)
 * [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
-### Flexible Account Recovery
+### Flexible account recovery
 
 You can now use authenticators such as Okta Verify Push to reset user passwords, including offering self-service recovery options, and setting any authenticator you like as a second factor (previously limited to the security question authenticator).
 
@@ -48,7 +48,7 @@ You can now use authenticators such as Okta Verify Push to reset user passwords,
 * [Custom password recovery](ADD LINK)
 * [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
 
-## Differences in Identity Engine
+## Identity Engine fundamental differences
 
 WHAT OTHER CONCEPTUAL DIFFERENCES DO WE WANT TO CALL OUT?
 
@@ -65,35 +65,31 @@ One key aspect is its policy-driven nature — if you are using Identity Engine 
 
 To enable a more customized user authentication experience, Okta has introduced an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the [Interaction Code grant type](/docs/concepts/interaction-code/). This grant type allows native, SPA, and web apps to manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Okta Sign-In Widget).
 
-### Deployment models
+## Authentication deployment models
 
-The Identity Engine user authentication deployment model can be divided into two approaches:
+The Identity Engine user authentication deployment model can be divided into two approaches — redirect and embedded authentication.
 
-* **Redirect authentication:** A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML. This approach is recommended for most developers, as it is easier to build and maintain.
+> **Note**: See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for a full list of reasons for using these authentication approaches and a complete overview of the different deployment models.
 
-* **Embedded authentication:** A user sign-in flow where the application retains authentication control, without redirection to Okta, using the Identity Engine SDKs or the SDKs along with a client-hosted Sign-In Widget.
+### Redirect authentication
 
-See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for a full list of reasons for using these authentication approaches and a complete overview of the different deployment models.
+Redirect authentication is a user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML. This approach is recommended for most developers, as it is easier to build and maintain.
 
-## Identity Engine SDKs
-
-To take advantage of the new Identity Engine features &mdash; and for a better development experience &mdash; use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
-
-
-### Redirect authentication sample apps
-
-The redirect authentication sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. Implement redirect authentication when you:
+Implement redirect authentication when you:
 
 * Have multiple applications or use third-party applications and need Single Sign-On
 * Want Okta to control the authentication flows through policy configuration
 * Want Okta to control upgrades to take advantage of new functionality
 * Have an application that already uses an OAuth 2.0 or SAML provider to sign users in
 
-Learn how to implement this approach with the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/).
+To get started with redirect authentication:
 
-### Embedded authentication sample apps
+* Our [quickstarts](ADD LINK) provide a rapid introduction.
+* [Set up our Identity Engine sample apps](/guides/oie-embedded-common-download-setup-app/android/main/) and implement our [redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/)
 
-The embedded authentication sample apps demonstrate how to embed authentication in an app with Okta package dependencies. Okta provides two embedded identity solutions:
+### Embedded authentication
+
+Embedded authentication is a user sign-in flow where the application retains authentication control, without redirection to Okta, using the [Identity Engine SDKs](https://developer.okta.com/code/oie/) or the SDKs along with a client-hosted Sign-In Widget.
 
 **Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity use cases. Choose the embedded SDK when you want to build out your identity solution that includes the ability to:
 
@@ -107,11 +103,14 @@ The embedded authentication sample apps demonstrate how to embed authentication 
 * Features that are ready out of the box
 * Simple configuration changes with no additional code for most functionalities, such as multifactor authentication
 
-Learn how to implement these approaches with the [Embedded authentication guide](/docs/guides/oie-embedded-common-org-setup/).
+To get started with embeded authentication:
 
-## Identity Engine versus Classic in the docs
+* [Embedded Sign-In Widget fundamentals](ADD LINK) and [Auth.js fundamentals](ADD LINK)
+* [Set up our Identity Engine sample apps](/guides/oie-embedded-common-download-setup-app/) and implement our [Embedded SDK use cases](ADD LINK) and [Embedded Widget use cases](ADD LINK).
 
-In our documentation we have started to move over to supporting Indentity Engine as a first-class citizen, while still providing information for Classic engine users.
+## Identity Engine versus Classic documentation approach
+
+In our documentation we have started to move over to supporting Identity Engine as a first-class citizen, while still providing information for Classic engine users.
 
 * Pages and page sections covering features that only work in Identity Engine will have a blue "Identity Engine" banner at the top.
 * Content that works in Identity Engine and Classic will have no banner. Any slight differences will be covered in the page text.
@@ -120,9 +119,9 @@ In our documentation we have started to move over to supporting Indentity Engine
 
 > **Note**: See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
 
-## How to use Identity Engine
+## Accessing and upgrading to Identity Engine
 
-From March 1 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) will be Identity Engine orgs, so all new customers can take advantage of the new features.
+From March 1 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) will be Identity Engine orgs, so all new customers can take advantage of the new features. You can start building apps that take advantage of new Identity features using our redirect or embedded (SDK and/or Widget) authentication models — see [Authentication deployment models](#authentication-deployment-models). 
 
 If you are a Classic customer who wants to upgrade their apps to use Identity Engine, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
 
