@@ -57,7 +57,7 @@ ul.menu--items {
 
       .menu--divider {
         margin: 15px 0;
-        border: 1px solid var(--c-gray-900);
+        border: 1px solid cv('gray', '900');
       }
 
       .menu--icons {
@@ -67,7 +67,7 @@ ul.menu--items {
           width: 20px;
 
           svg {
-            fill: var(--c-gray-900);
+            fill: cv('gray', '900');
           }
         }
 

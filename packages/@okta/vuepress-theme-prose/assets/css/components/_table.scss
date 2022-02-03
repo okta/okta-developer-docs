@@ -19,7 +19,7 @@ table {
   thead {
 
     tr {
-      border-bottom: 0.2em solid var(--c-gray-600);
+      border-bottom: 0.2em solid cv('gray', '600');
 
       th {
         font-weight: 600;
@@ -33,7 +33,7 @@ table {
   tbody {
 
     tr {
-      border-bottom: 0.05em solid var(--c-gray-500);
+      border-bottom: 0.05em solid cv('gray', '500');
     }
   }
 }

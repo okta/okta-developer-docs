@@ -1,63 +1,63 @@
 .dark-theme {
 
   .breadcrumb--container {
-    & svg path {
-      stroke: var(--c-gray-400);
+    svg path {
+      stroke: cv('gray', '400');
     }
-    & ol li a,
-    & ol li span {
-      color: var(--c-gray-500);
+    ol li a,
+    ol li span {
+      color: cv('gray', '500');
     }
-    & ol li a.router-link-exact-active.router-link-active {
-      color: var(--c-blue-300);
+    ol li a.router-link-exact-active.router-link-active {
+      color: cv('blue', '300');
     }
   }
 
   .page-body {
-    background-color: var(--c-gray-800);
+    background-color: cv('gray', '800');
     .content--container {
-      color: var(--c-gray-000);
+      color: cv('gray', '000');
       .edit-on-github .fa {
-        color: var(--c-gray-000);
+        color: cv('gray', '000');
       }
       blockquote {
         border-right: none;
         border-bottom: none;
         border-top: none;
-        background-color: var(--c-gray-700);
+        background-color: cv('gray', '700');
       }
       .vs__selected {
-        color: var(--c-gray-600);
+        color: cv('gray', '500');
       }
       .vs__dropdown-menu {
         .vs__dropdown-option {
-          background-color: var(--c-gray-900);
-          color: var(--c-gray-000);
+          background-color: cv('gray', '900');
+          color: cv('gray', '000');
           &:hover {
-            border: 1px solid var(--c-blue-500);
+            border: 1px solid cv('blue', '500');
           }
         }
       }
       .mobile-on-this-page {
-        color: var(--c-gray-800);
+        color: cv('gray', '800');
       }
       .on-this-page {
-        & .title {
-          color: var(--c-gray-000);
+        .title {
+          color: cv('gray', '000');
         }
-        & .links {
+        .links {
           border-color: rgba(255,255,255,.2);
         }
-        & a.router-link-active {
-          border-color: var(--c-blue-300);
+        a.router-link-active {
+          border-color: cv('blue', '300');
         }
       }
       pre[class*=language-] {
-        background-color: var(--c-gray-900);
+        background-color: cv('gray', '900');
       }
       :not([class*=language-]) > code {
-        background-color: var(--c-gray-600);
-        color: var(--c-gray-000);
+        background-color: cv('gray', '600');
+        color: cv('gray', '000');
         border: none;
       }
       .stack-selector .selector-control nav {
@@ -66,65 +66,55 @@
     }
   }
   .tree-nav {
-    & .sections {
-      & .tree-nav-link {
-        & > i.parent svg path {
-          fill: var(--c-blue-300);
-        }
+    .sections {
+      .tree-nav-link > i.parent svg path {
+        fill: cv('blue', '300');
       }
-      & .tree-nav-link.children-active {
-        & > i.parent svg path {
-          fill: var(--c-blue-300);
-        }
+      .tree-nav-link.children-active > i.parent svg path {
+        fill: cv('blue', '300');
       }
-      &:first-child {
-        & > .link-wrap {
-          & > .tree-nav-link.children-active {
-            & > .text-holder {
-              color: var(--c-white);
-            }
-          }
-        }
+      &:first-child > .link-wrap > .tree-nav-link.children-active & > .text-holder {
+        color: cv('white');
       }
-      & .tree-nav-link.router-link-active {
-        color: var(--c-blue-300);
+      .tree-nav-link.router-link-active {
+        color: cv('blue', '300');
       }
     }
   }
 
   .homepage {
     &--top-section {
-      background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+      background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
     }
     &--assurance-block-margin {
-      background: #212125 url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+      background: cv('assurance') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
       .col-xl-4 {
         &:nth-child(1) {
-          & span {
+          span {
             background-image: none !important;
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: var(--c-blue-300) !important;
+            background-color: cv('blue', '300') !important;
             -webkit-mask-image: url(/img/homepage/compliance-out-of-box.svg);
             mask-image: url(/img/homepage/compliance-out-of-box.svg);
           }
         }
         &:nth-child(2) {
-          & span {
+          span {
             background-image: none !important;
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: var(--c-blue-300) !important;
+            background-color: cv('blue', '300') !important;
             -webkit-mask-image: url(/img/homepage/uptime.svg);
             mask-image: url(/img/homepage/uptime.svg);
           }
         }
         &:nth-child(3) {
-          & span {
+          span {
             background-image: none !important;
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: var(--c-blue-300) !important;
+            background-color: cv('blue', '300') !important;
             -webkit-mask-image: url(/img/homepage/standards.svg);
             mask-image: url(/img/homepage/standards.svg);
           }
@@ -132,15 +122,15 @@
       }
     }
     &--customize-your-app-margin {
-      background-color: #212125;
+      background-color: cv('customize');
       padding-bottom: 75px;
       margin-bottom: 0;
       &::before {
-        background: var(--c-gray-800) url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+        background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
       }
     }
     &--partners-block-margin {
-      background-color: #212125;
+      background-color: cv('partners');
       padding-bottom: 58px;
       margin-bottom: 0;
     }
@@ -148,45 +138,49 @@
   
   .selector-tile {
     &--header {
-      color: var(--c-blue-300);
-      border-bottom: 1px solid var(--c-blue-300);
+      color: cv('blue', '300');
+      border-bottom: 1px solid cv('blue', '300');
       &:visited, 
       &:active, 
       &:focus {
-        color: var(--c-blue-300);
+        color: cv('blue', '300');
       }
       &:hover {
-        color: var(--c-gray-000);
+        color: cv('gray', '800');
       }
     }
     &--data {
       &--item {
         &:hover {
-          color: var(--c-white);
+          color: cv('white');
           background: rgba(242, 245, 255, 0.2);
           & > i {
-            color: var(--c-white);
+            color: cv('white');
           }
         }
       }
     }
   }
 
+  .cards-own .card--main {
+    color: cv('white');
+  }
+
   .assurance-item {
     &--rounded {
-      background-color: var(--c-gray-800);
+      background-color: cv('gray', '800');
     }
   }
   
   .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-    fill: var(--c-blue-300);
+    fill: cv('blue', '300');
   }
 
   .homepage--code-example {
-    background-color: var(--c-code-base);
+    background-color: cv('homepage');
     border: none;
     &--cm-wrapper .CodeMirror {
-      background-color: var(--c-code-base);
+      background-color: cv('homepage');
       border: none;
     }
   }
@@ -195,7 +189,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;
+      background-color: cv('blue', '300') !important;
       -webkit-mask-image: url(/img/logos/baseball.svg);
       mask-image: url(/img/logos/baseball.svg);
     }
@@ -203,7 +197,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;
+      background-color: cv('blue', '300') !important;
       -webkit-mask-image: url(/img/logos/splunk.svg);
       mask-image: url(/img/logos/splunk.svg);
     }
@@ -211,7 +205,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;
+      background-color: cv('blue', '300') !important;
       -webkit-mask-image: url(/img/logos/adobe.svg);
       mask-image: url(/img/logos/adobe.svg);
     }
@@ -219,7 +213,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;
+      background-color: cv('blue', '300') !important;
       -webkit-mask-image: url(/img/logos/jetblue.svg);
       mask-image: url(/img/logos/jetblue.svg);
     }
@@ -227,7 +221,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-blue-300) !important;
+      background-color: cv('blue', '300') !important;
       -webkit-mask-image: url(/img/logos/experian.svg);
       mask-image: url(/img/logos/experian.svg);
     }
@@ -237,13 +231,13 @@
 // ADD CUSTOM WIDTH
 header.page-header ul.menu--items > li.expandable > ul.submenu--items {
   width: 130px;
-  & li a {
-    color: var(--c-gray-900); 
+  li a {
+    color: cv('gray', '900'); 
     &:after {
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: var(--c-gray-900) !important;
+      background-color: cv('gray', '900') !important;
       -webkit-mask-image: url("/img/icons/external--white.svg");
       mask-image: url("/img/icons/external--white.svg");
     }

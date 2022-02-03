@@ -58,7 +58,7 @@
 
         &.active {
           background-color: cv('blue', '900');
-          color: var(--c-gray-000);;
+          color: cv('gray', '000');;
           cursor: initial;
         }
       }

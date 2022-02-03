@@ -1,6 +1,7 @@
 :root {
 
   // PALETTE LIGHT THEME
+  --c-white:  #ffffff;
   --c-gray-000: #ffffff;
   --c-gray-100: #EBEBED;
   --c-gray-200: #DCDCDC;
@@ -11,6 +12,9 @@
   --c-gray-700: #6E6E78;
   --c-gray-800: #1D1D21;
   --c-gray-900: #1D1D21;
+
+  --c-lightgray-200: #F5F5F5;
+  --c-lightgray-300: #F7F7F8;
 
   --c-blue-000: #f2f5ff;
   --c-blue-300: #a7b5ec;
@@ -49,9 +53,26 @@
 
   --c-magenta-base: #c72c86;
 
+  --c-code-purple: #965ABE;
+  --c-code-orange: #F19B56;
+  --c-code-lightblue: #8BC5EB;
+  --c-code-lightgray: #C4C4C4;
+
+  --c-cerise-red: #E22866;
+
+  --c-link-blue: #00297A;
+  --c-link-lightgray: #B5D0DF;
+
+  --c-body-lightgray: #DCDCDC;
+  --c-body: #ffffff;
+  --c-tile-gray: #8C8C96;
+  --c-form-gray: #C1C1C8;
+
   // VARIABLES COLORS FOR LIGHT THEME
-  --c-body-base: #F5F5F6;
-  --c-body-lighter: #F7F7F8;
+  --c-cerise: var(--c-cerise-red);
+
+  --c-body-base: var(--c-lightgray-200);
+  --c-body-lighter: var(--c-lightgray-300);
   --c-header-base: var(--c-blue-900);
   
   --c-text-darker: var(--c-gray-900);
@@ -59,10 +80,23 @@
   --c-text-lighter: var(--c-gray-300);
 
   --c-link-base: var(--c-blue-500);
+  --c-link-darkblue: var(--c-link-blue);
+  --c-link-footer: var(--c-link-lightgray);
+
   --c-code-base: var(--c-gray-000);
 
+  --c-code-keyword: var(--c-code-purple);
+  --c-code-define: var(--c-code-orange);
+  --c-code-property: var(--c-code-lightblue);
+  --c-code-string: var(--c-code-lightgray);
+
+  --c-body-border: var(--c-body-lightgray);
+  --c-body-white: var(--c-body);
+  --c-tile-angle: var(--c-tile-gray);
+  --c-form-input-border: var(--c-form-gray);
+
 }
-.layout.dark-theme {
+.dark-theme {
   
   // PALETTE DARK THEME
   --c-gray-900: #17171B;
@@ -76,31 +110,52 @@
   --c-gray-100: #EBEBED;
   --c-gray-000: #F5F5F6;
 
+  --c-lightgray: #212125;
+
   --c-blue-300: #92BCFF;
   --c-blue-800: #234F97;
 
-  --c-orange: #B35909;
-  --c-green:  #0D7855;
-  --c-yellow: #FFC61C;
-  --c-lilac:  #8D6E97;
-  --c-white:  #ffffff;
-  
+  --c-code-purple: #8D6E97;
+  --c-code-orange: #E97107;
+  --c-code-lightblue: #92BCFF;
+  --c-code-lightgray: #8C8C96;
+
   // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-900);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
   
   --c-text-darker: var(--c-white);
-  --c-text-base: #8C8C96;
+  --c-text-base: var(--c-gray-400);
   --c-text-lighter: var(--c-gray-000);
 
   --c-link-base: var(--c-blue-300);
   --c-code-base: var(--c-gray-900);
+
+  --c-lightgray-block: var(--c-lightgray);
+  
+  --c-code-keyword: var(--c-code-purple);
+  --c-code-define: var(--c-code-orange);
+  --c-code-property: var(--c-code-lightblue);
+  --c-code-string: var(--c-code-lightgray);
+
 }
 
 $colors: (
+  'homepage': (
+    'base': var(--c-gray-900),
+  ),
+  'assurance': (
+    'base': var(--c-lightgray-block),
+  ),
+  'customize': (
+    'base': var(--c-lightgray-block),
+  ),
+  'partners': (
+    'base': var(--c-lightgray-block),
+  ),
   'cerise': (
-    'base': #E22866,
+    'base': var(--c-cerise),
   ),
   // redesign 2021-07
   'header': (
@@ -109,8 +164,8 @@ $colors: (
   'body': (
     'base': var(--c-body-base),
     'lighter': var(--c-body-lighter),
-    'border': #DCDCDC,
-    'white': #ffffff,
+    'border': var(--c-body-border),
+    'white': var(--c-body-white),
   ),
   'text': (
     'darker': var(--c-text-darker),
@@ -118,21 +173,21 @@ $colors: (
     'lighter': var(--c-text-lighter),
   ),
   'tile': (
-    'angle': #8C8C96,
+    'angle': var(--c-tile-angle),
   ),
   'link': (
     'base': var(--c-link-base),
-    'darker': #00297A,
-    'footer': #B5D0DF,
+    'darker': var(--c-link-darker),
+    'footer': var(--c-link-footer),
   ),
   'code': (
-    'keyword': #965ABE,
-    'define': #F19B56,
-    'property': #8BC5EB,
-    'string': #C4C4C4,
+    'keyword': var(--c-code-keyword),
+    'define': var(--c-code-define),
+    'property': var(--c-code-property),
+    'string': var(--c-code-string),
   ),
   'form': (
-    'input-border': #C1C1C8,
+    'input-border': var(--c-form-input-border),
   ),
 
   // Copied from Odyssey
@@ -183,15 +238,18 @@ $colors: (
     'whale': var(--c-blue-whale),
   ),
   'gray': (
-    '000': var(--gray-000),
-    '100': var(--gray-100),
-    '200': var(--gray-200),
-    '300': var(--gray-300),
-    '400': var(--gray-400),
-    '500': var(--gray-500),
-    '600': var(--gray-600),
-    '700': var(--gray-700),
-    '800': var(--gray-800),
-    '900': var(--gray-900),
+    '000': var(--c-gray-000),
+    '100': var(--c-gray-100),
+    '200': var(--c-gray-200),
+    '300': var(--c-gray-300),
+    '400': var(--c-gray-400),
+    '500': var(--c-gray-500),
+    '600': var(--c-gray-600),
+    '700': var(--c-gray-700),
+    '800': var(--c-gray-800),
+    '900': var(--c-gray-900),
   ),
+  'white': (
+    'base': var(--c-white),
+  )
 );

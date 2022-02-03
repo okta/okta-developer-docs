@@ -7,7 +7,7 @@
   border-radius: 5px;
 
   a {
-    color: var(--c-gray-000);
+    color: cv('gray', '000');
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -15,7 +15,7 @@
 
     &.router-link-exact-active,
     &:hover {
-      border-bottom: 1px solid var(--c-gray-000);
+      border-bottom: 1px solid cv('gray', '000');
     }
 
     i {

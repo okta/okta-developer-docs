@@ -23,7 +23,7 @@
 
 .api-label-beta {
   background: cv('yellow');
-  color: var(--c-gray-900);
+  color: cv('gray', '900');
   margin-bottom: $base-spacing;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .api-label-cors {
-  background: var(--c-gray-300);
+  background: cv('gray', '300');
   margin-bottom: $base-spacing;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .api-label-classic-engine {
-  background: var(--c-gray-900);
+  background: cv('gray', '900');
   margin-bottom: $base-spacing;
 }
 

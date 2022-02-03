@@ -124,10 +124,10 @@ header.page-header {
     }
 
     &--black {
-      color: var(--c-gray-900);
+      color: cv('gray', '900') !important;
 
       &:visited, &:active, &:focus {
-        color: var(--c-gray-900);
+        color: cv('gray', '900');
       }
     }
 

@@ -27,12 +27,12 @@
     font-size: 1rem;
     margin-left: 0.8rem;
     margin-bottom: 14px;
-    color: var(--c-gray-900);
+    color: cv('gray', '900');
     font-weight: 500;
   }
 
   .links {
-    border-left: 3px solid var(--c-gray-100);
+    border-left: 3px solid cv('gray', '100');
     padding-left: 1rem;
     font-size: 14px;
   }
@@ -135,9 +135,9 @@
 
     .vs__dropdown-option {
       padding: 0.7rem 1rem;
-      border-bottom: 1px solid var(--c-gray-100);
+      border-bottom: 1px solid cv('gray', '100');
       width: 100%;
-      color: var(--c-gray-900);
+      color: cv('gray', '900');
       .dropdown-item{
         width: 100%;
         overflow: hidden;
