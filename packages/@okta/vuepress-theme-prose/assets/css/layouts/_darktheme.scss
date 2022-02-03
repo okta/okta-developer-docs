@@ -1,5 +1,18 @@
 .dark-theme {
 
+  .breadcrumb--container {
+    & svg path {
+      stroke: var(--c-gray-400);
+    }
+    & ol li a,
+    & ol li span {
+      color: var(--c-gray-500);
+    }
+    & ol li a.router-link-exact-active.router-link-active {
+      color: var(--c-blue-300);
+    }
+  }
+
   .page-body {
     background-color: var(--c-gray-800);
     .content--container {
@@ -28,8 +41,16 @@
       .mobile-on-this-page {
         color: var(--c-gray-800);
       }
-      .on-this-page .title {
-        color: var(--c-gray-000);
+      .on-this-page {
+        & .title {
+          color: var(--c-gray-000);
+        }
+        & .links {
+          border-color: rgba(255,255,255,.2);
+        }
+        & a.router-link-active {
+          border-color: var(--c-blue-300);
+        }
       }
       pre[class*=language-] {
         background-color: var(--c-gray-900);
@@ -41,6 +62,32 @@
       }
       .stack-selector .selector-control nav {
         background-color: transparent;
+      }
+    }
+  }
+  .tree-nav {
+    & .sections {
+      & .tree-nav-link {
+        & > i.parent svg path {
+          fill: var(--c-blue-300);
+        }
+      }
+      & .tree-nav-link.children-active {
+        & > i.parent svg path {
+          fill: var(--c-blue-300);
+        }
+      }
+      &:first-child {
+        & > .link-wrap {
+          & > .tree-nav-link.children-active {
+            & > .text-holder {
+              color: var(--c-white);
+            }
+          }
+        }
+      }
+      & .tree-nav-link.router-link-active {
+        color: var(--c-blue-300);
       }
     }
   }
