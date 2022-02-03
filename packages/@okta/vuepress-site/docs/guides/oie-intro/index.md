@@ -85,7 +85,7 @@ Implement redirect authentication when you:
 To get started with redirect authentication:
 
 * Our [quickstarts](ADD LINK) provide a rapid introduction.
-* [Set up our Identity Engine sample apps](/guides/oie-embedded-common-download-setup-app/android/main/) and implement our [redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/)
+* [Set up our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/) and implement our [redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/)
 
 ### Embedded authentication
 
@@ -106,7 +106,7 @@ Embedded authentication is a user sign-in flow where the application retains aut
 To get started with embeded authentication:
 
 * [Embedded Sign-In Widget fundamentals](ADD LINK) and [Auth.js fundamentals](ADD LINK)
-* [Set up our Identity Engine sample apps](/guides/oie-embedded-common-download-setup-app/) and implement our [Embedded SDK use cases](ADD LINK) and [Embedded Widget use cases](ADD LINK).
+* [Set up our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/) and implement our [Embedded SDK use cases](ADD LINK) and [Embedded Widget use cases](ADD LINK).
 
 ## Identity Engine versus Classic documentation approach
 
@@ -115,7 +115,7 @@ In our documentation we have started to move over to supporting Identity Engine 
 * Pages and page sections covering features that only work in Identity Engine will have a blue "Identity Engine" banner at the top.
 * Content that works in Identity Engine and Classic will have no banner. Any slight differences will be covered in the page text.
 * Content written for Classic that won't work in Identity Engine will have a note at the top, explaining what the issue is, and, if appropriate, where Identity Engine users can go to find support.
-* For guides that have been extensively updated to support Identity Engine, we'll keep the classic version in our [Classic archive](/guides/classic-archive/), so it is still accessible if needed.
+* For guides that have been extensively updated to support Identity Engine, we'll keep the classic version in our [Classic archive](ADD LINK), so it is still accessible if needed.
 
 > **Note**: See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
 
