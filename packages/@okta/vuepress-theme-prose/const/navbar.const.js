@@ -51,7 +51,7 @@ export const concepts = [
           },
           {
             title: "Redirect vs. embedded authentication",
-            path: "/docs/concepts/redirect-vs-embedded"
+            path: "/docs/concepts/redirect-vs-embedded/"
           },
         ]
       },
