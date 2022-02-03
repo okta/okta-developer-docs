@@ -58,9 +58,6 @@ export default {
     }
   },
   mounted() {
-console.log(this.$page.hasStackContent, '$page.hasStackContent')
-console.log(this.$page, '$page')
-console.log(this.$page.found, '$page.found')
     this.paddedHeaderHeight =
       document.querySelector(".fixed-header").clientHeight +
       LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;

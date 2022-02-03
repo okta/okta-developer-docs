@@ -84,11 +84,15 @@ $small-spacing: 0.75rem;
         flex-basis: auto;
         padding: 0;
         padding-left: 0.5rem;
-        max-width: 95%;
+        max-width: 93%;
         .vs__selected{
           margin: 0;
           padding: 0;
           border: 0;
+          max-width: 90%;
+        }
+        .vs__search {
+          margin: 0;
         }
       }
       .vs__actions {
