@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a8948bd0-5501-4f54-990b-b1a3297197b0",
+		"_postman_id": "5f8063b8-1e76-41e5-b1b8-00f5281157b4",
 		"name": "Brands (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -427,6 +427,552 @@
 								"themes",
 								"{{themeId}}",
 								"favicon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email template operations",
+			"item": [
+				{
+					"name": "List email templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"templateName\", jsonData.name)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email template default content",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/default-content",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"default-content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preview email template default content",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/default-content/preview",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"default-content",
+								"preview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send test email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/test?language={{language}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"test"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "{{language}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List email customizations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create email customization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"customizationId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"language\": \"en\",\n    \"isDefault\": true,\n    \"subject\": \"Welcome to ${org.name}!\",\n    \"body\": \"<!DOCTYPE html><html><body><a href=\\\"${activationLink}\\\">Activate your account</a></body></html>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all email customizations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"language\": \"en\",\n    \"isDefault\": true,\n    \"subject\": \"Welcome to ${org.name}!\",\n    \"body\": \"<!DOCTYPE html><html><body><p>Welcome to ${org.name}, ${user.profile.firstName}!</p></body></html>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email customization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"customizationId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations/{{customizationId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations",
+								"{{customizationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update email customization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"customizationId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"language\": \"en\",\n    \"isDefault\": true,\n    \"subject\": \"Welcome to ${org.name}!\",\n    \"body\": \"<!DOCTYPE html><html><body><p>Welcome to ${org.name}, ${user.profile.firstName}! <a href=\\\"${activationLink}\\\">Activate your account</a></p></body></html>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations/{{customizationId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations",
+								"{{customizationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete email customization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations/{{customizationId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations",
+								"{{customizationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preview email customization",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/templates/email/{{templateName}}/customizations/{{customizationId}}/preview",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"templates",
+								"email",
+								"{{templateName}}",
+								"customizations",
+								"{{customizationId}}",
+								"preview"
 							]
 						}
 					},

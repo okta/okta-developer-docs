@@ -43,7 +43,7 @@ It is up to you how you make requests to the API to update your branding. In thi
 1. After you install Postman, import the Okta environment and add your Okta domain and API token to Postman, as explained in [Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment).
 1. Click **Run in Postman** to add the Brands collection to Postman, which allows you to test the API calls that are described below.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
 ## Important: Overriding themes in the code template editors
 

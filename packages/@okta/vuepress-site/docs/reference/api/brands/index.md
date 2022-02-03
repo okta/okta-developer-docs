@@ -11,7 +11,7 @@ Each org starts off with Okta's default branding. You can upload your own assets
 
 ## Get started
 
-Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
+Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
 ## Brand operations
 

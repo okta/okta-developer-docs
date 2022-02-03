@@ -18,7 +18,7 @@ Import any Okta API collection for Postman from the following list:
 | Authentication                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a) |
 | Authenticators <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e) |
 | Authorization Servers             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a) |
-| Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb) |
+| Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb) |
 | CAPTCHAs <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101)|
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
 | Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5) |
