@@ -1,10 +1,8 @@
 ---
 title: Download and set up the SDK, Sign-In Widget, and sample app
 ---
-<div class="oie-embedded-sdk">
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -87,5 +85,3 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 ## Set up the Sign-In Widget and SDK for your own app
 
 <StackSnippet snippet="widgetforyourapp" />
-
-</div>

@@ -2,8 +2,7 @@
 title: Updates to the Sign-In Widget styling
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers how you can style an updated Sign-In Widget and make your own customizations to the Widget.
 

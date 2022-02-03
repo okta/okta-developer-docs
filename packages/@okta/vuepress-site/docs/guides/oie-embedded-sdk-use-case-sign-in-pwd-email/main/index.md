@@ -2,10 +2,7 @@
 title: Sign in with password and email factors
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -56,5 +53,3 @@ Before you build a sign-in flow with password and email factors, you need to con
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

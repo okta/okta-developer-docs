@@ -2,8 +2,7 @@
 title: Add the Identity Engine SDK to your app
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 

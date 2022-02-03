@@ -2,10 +2,7 @@
 title: Basic sign-in flow using the password factor
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -46,5 +43,3 @@ Before you build a basic sign-in flow, ensure that your org is configured for th
 <StackSnippet snippet="integrationsteps" />
 
 <StackSnippet snippet="getuserprofile" />
-
-</div>

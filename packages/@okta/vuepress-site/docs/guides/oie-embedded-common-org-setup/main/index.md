@@ -2,10 +2,7 @@
 title: Get set up
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -249,5 +246,3 @@ The final step is to add the [created Facebook IdP](#_4-create-the-facebook-iden
 1. Click **Create Rule**.
 1. At the prompt, click **Activate**.
 1. Your new rule appears above the **Default Rule** in the routing rule list. This top position signifies that the setting in your new rule overrides the **Default Rule**.
-
-</div>

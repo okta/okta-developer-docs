@@ -1,10 +1,8 @@
 ---
 title: Refresh the access and ID tokens
 ---
-<div class="oie-embedded-sdk">
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -128,5 +126,3 @@ token_type_hint=access_token
     "uid": "00u128itb5sYrGii55d7"
 }
 ```
-
-</div>

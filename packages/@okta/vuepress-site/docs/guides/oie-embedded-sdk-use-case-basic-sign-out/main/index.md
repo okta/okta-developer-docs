@@ -2,10 +2,7 @@
 title: User sign out (local app)
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector class="cleaner-selector"/>
 
@@ -40,5 +37,3 @@ There are no additional configuration changes needed to implement this use case.
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

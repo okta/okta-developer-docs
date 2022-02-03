@@ -2,10 +2,7 @@
 title: Sign in with Facebook using the Widget
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -42,5 +39,3 @@ After you've set up your Okta org for the social IdP use case, [download and con
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

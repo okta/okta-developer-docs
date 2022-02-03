@@ -2,10 +2,7 @@
 title: Sign in with Facebook
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -40,5 +37,3 @@ Before you build the Facebook IdP sign-in flow, ensure that you've [set up your 
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

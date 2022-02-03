@@ -2,10 +2,7 @@
 title: Basic sign-in flow using the Widget
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -40,5 +37,3 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

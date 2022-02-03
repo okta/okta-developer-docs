@@ -5,8 +5,7 @@ meta:
     content: Learn how sessions work with the Okta Identity Engine.
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 Okta uses an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user agents such as a browser. The Okta [Sessions API](/docs/reference/api/sessions/) provides operations to create and manage authentication sessions for users in your Okta org.
 

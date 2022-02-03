@@ -4,8 +4,7 @@ excerpt: Run the sample apps
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 

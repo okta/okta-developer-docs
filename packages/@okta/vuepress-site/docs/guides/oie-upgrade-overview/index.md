@@ -4,10 +4,9 @@ meta:
   - name: description
     content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Learn about the Identity Engine upgrade and what your org upgrade process may look like.
 ---
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
-To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/#about-okta-identity-engine) and to easily adopt new features, migrate your existing orgs from Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
+To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to easily adopt new features, migrate your existing orgs from Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
 
 Are you an admin? See the [Identity Engine Upgrade Overview](https://help.okta.com/en/programs/oie/Content/Topics/identity-engine-upgrade/home.htm) for admins.
 

@@ -7,8 +7,7 @@ meta:
 
 # Interaction Code grant type
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 ## Overview
 
@@ -18,7 +17,7 @@ The Interaction Code flow consists of a series of interactions between the user 
 
 Remediation is the direct communication between the client and the Identity Engine that can be achieved either without a browser redirect or with a browser redirect when the remediation transitions through a push authorization request. For example, a user could start an authentication flow by entering only a username, and this flow would prompt the client to request more information, or remediation, as required. A follow-up remediation step might involve the client prompting the user for a password or to add a second factor, and then sending that information directly to the Identity Engine component for verification. Each form of remediation that the user must supply is dictated by the evaluated policies between the Okta Authorization Server and the app. When the remediation steps are complete, the Identity Engine component provides the client with an Interaction Code that is exchanged for tokens by the Okta Authentication Server, following [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standards.
 
-The Interaction Code grant is intended for developers who want to control the step-by-step remediation user experience without using a web browser to redirect the authentication experience. This grant type enables developers to include [Identity Engine features](https://help.okta.com/okta_help.htm?type=oie&id=ext-features) in their app, such as passwordless authentication and progressive profiling. The Interaction Code flow can use policy-driven remediation steps not only for authentication, but also for registration and account recovery. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for Identity Engine authentication deployment models. Also, see the embedded authentication use cases in the [Identity Engine deployment guides](/docs/guides/oie-intro/) for detailed Interaction Code flow implementations.
+The Interaction Code grant is intended for developers who want to control the step-by-step remediation user experience without using a web browser to redirect the authentication experience. This grant type enables developers to include [Identity Engine features](https://help.okta.com/okta_help.htm?type=oie&id=ext-features) in their app, such as passwordless authentication and progressive profiling. The Interaction Code flow can use policy-driven remediation steps not only for authentication, but also for registration and account recovery. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for Identity Engine authentication deployment models. Also, see the embedded authentication use cases linked in the [Identity Engine deployment guides](/docs/guides/oie-intro/#authentication-deployment-models) for detailed Interaction Code flow implementations.
 
 ## The Interaction Code flow
 

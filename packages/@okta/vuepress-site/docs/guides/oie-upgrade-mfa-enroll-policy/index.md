@@ -5,8 +5,7 @@ meta:
     content: Learn how to use and manage the MFA enrollment policy with the API in Okta Identity Engine.
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Overview
 

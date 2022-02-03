@@ -2,8 +2,7 @@
 title: Upgrade your application to the Okta Identity Engine SDK
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector class="cleaner-selector"/>
 

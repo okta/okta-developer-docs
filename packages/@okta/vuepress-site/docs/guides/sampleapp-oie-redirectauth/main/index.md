@@ -4,8 +4,7 @@ excerpt: Learn how to test some of the features of Okta Identity Engine with our
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 

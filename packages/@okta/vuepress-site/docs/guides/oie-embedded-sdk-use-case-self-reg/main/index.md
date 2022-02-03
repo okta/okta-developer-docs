@@ -2,10 +2,7 @@
 title: Self-service registration
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 <StackSelector />
 
@@ -109,5 +106,3 @@ During new user registration, there are no factors required other than the passw
 the following email template: **Registration - Activation**.
 
 The user clicks the link in the activation email and is redirected to the sample app's home page.
-
-</div>

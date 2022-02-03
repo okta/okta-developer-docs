@@ -6,8 +6,7 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Enable Okta Identity Engine for your organization
 

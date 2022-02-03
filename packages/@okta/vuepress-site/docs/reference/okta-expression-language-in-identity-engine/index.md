@@ -7,8 +7,7 @@ meta:
 
 # Okta Expression Language in Okta Identity Engine
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Overview
 
