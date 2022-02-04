@@ -93,6 +93,7 @@ guides:
  - oie-upgrade-sign-in-widget-styling
  - authenticators-overview
  - authenticators-google-authenticator
+ - authenticators-web-authn
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

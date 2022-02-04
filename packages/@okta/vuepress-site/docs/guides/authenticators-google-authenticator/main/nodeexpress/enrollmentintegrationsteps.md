@@ -1,6 +1,6 @@
-### Initiate use case requiring authentication
+### 1: Initiate use case requiring authentication
 
-Initiate a use case requiring authentication. This guide uses [basic user sign-in](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/), which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -9,7 +9,7 @@ Initiate a use case requiring authentication. This guide uses [basic user sign-i
   });
 ```
 
-### Display Google Authenticator option
+### 2: Display Google Authenticator option
 
 If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with Google Authenticator in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Google Authenticator included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
 
@@ -52,7 +52,7 @@ UI showing the Google Authenticator option:
 
 </div>
 
-### Submit Google Authenticator option
+### 3: Submit Google Authenticator option
 
 When the user selects and submits Google Authenticator, call `OktaAuth.idx.proceed()` passing in the `google_otp` value from `IdxOption.value`.
 
@@ -61,7 +61,7 @@ When the user selects and submits Google Authenticator, call `OktaAuth.idx.proce
     handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-### Display shared secret and QR Code
+### 4: Display shared secret and QR Code
 
 Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code containing the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` storing the secret in a base64-encoded PNG image. See the following `IdxTransaction` example for more details.
 
@@ -118,7 +118,7 @@ Example UI showing the Google Authenticator in the dropdown list:
 
 </div>
 
-### Copy shared secret to Google Authenticator
+### 5: Copy shared secret to Google Authenticator
 
 After the shared secret is displayed, the user installs the Google Authenticator app on their mobile device if it's not already installed.  Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. Once added, Google Authenticator displays the time-based one-time password for the newly added account.
 
@@ -128,7 +128,7 @@ After the shared secret is displayed, the user installs the Google Authenticator
 
 </div>
 
-### Submit one-time password in your app
+### 6: Submit one-time password in your app
 
 The user then copies the one-time password from Google Authenticator to your app. Once the user submits the password, call `OktaAuth.idx.proceed()` passing in the password.
 
@@ -139,4 +139,4 @@ The user then copies the one-time password from Google Authenticator to your app
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.
+Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and ID tokens.

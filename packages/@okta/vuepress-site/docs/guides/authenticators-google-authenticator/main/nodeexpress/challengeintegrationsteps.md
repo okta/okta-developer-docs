@@ -1,6 +1,6 @@
-### Initiate use case requiring authentication
+### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses a sign-in with username and password.
+The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -9,7 +9,7 @@ The first step is to initiate a use case requiring authentication. This guide us
   });
 ```
 
-### Display Google Authenticator challenge
+### 2: Display Google Authenticator challenge
 
 If you've configured your Okta org as detailed in [Configuration updates](#update-configurations) and the Google Authenticator has already been [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating Google Authenticator is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `challenge-authenticator`, and `nextStep.authenticator` filled with Google Authenticator details. See the following `IdxTransaction` example for more details.
 
@@ -68,7 +68,7 @@ UI showing the one-time password input field.
 
 </div>
 
-### Get one-time password from Google authenticator
+### 3: Get one-time password from Google authenticator
 
 Next, the user opens Google authenticator on their mobile device and finds their one-time password for their account.
 
@@ -78,7 +78,7 @@ Next, the user opens Google authenticator on their mobile device and finds their
 
 </div>
 
-### Submit one-time password in your app
+### 4: Submit one-time password in your app
 
 When the user enters and submits this one-time password, call `OktaAuth.idx.proceed()` passing in the password.
 
@@ -89,4 +89,4 @@ When the user enters and submits this one-time password, call `OktaAuth.idx.proc
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and Id tokens.
+Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and ID tokens.
