@@ -34,10 +34,12 @@ Progressive profiling allows you to capture additional user information or updat
 
 ### App-level policies
 
-App-level policies are [security policy frameworks](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allow organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected.
+App-level policies are [security policy frameworks](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allow organizations to model security outcomes for an app — these policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected.
 
-* [ADD DEV.OKTA LINKS](ASK OTHER WRITERS)
-* [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+* [App-level policies](ADD LINK)
+* [Configure Global Session Policy](ADD LINK)
+* [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
+* [Policies (high-level concept)](/docs/concepts/policies/)
 
 ### Flexible account recovery
 
@@ -58,6 +60,7 @@ Identity Engine has a number of fundamental differences from Okta Classic Engine
 
 One key aspect is its policy-driven nature — if you are using Identity Engine you are able to create flexible apps that can change their authentication methods without having to alter a line of code.
 
+* [Configure Global Session Policy](ADD LINK)
 * [Sign-on policies](https://help.okta.com/en/prod/Content/Topics/Security/policies/policies-home.htm)
 * [Authenticator integrations](ADD LINK)
 
@@ -85,7 +88,7 @@ Implement redirect authentication when you:
 To get started with redirect authentication:
 
 * Our [quickstarts](ADD LINK) provide a rapid introduction.
-* [Set up our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/) and implement our [redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/)
+* Implement our [redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/)
 
 ### Embedded authentication
 
@@ -110,7 +113,7 @@ To get started with embeded authentication:
 
 ## Identity Engine versus Classic documentation approach
 
-In our documentation we have started to move over to supporting Identity Engine as a first-class citizen, while still providing information for Classic engine users.
+In our documentation we have started to move over to supporting Identity Engine by default, while still providing information for Classic engine users.
 
 * Pages and page sections covering features that only work in Identity Engine will have a blue "Identity Engine" banner at the top.
 * Content that works in Identity Engine and Classic will have no banner. Any slight differences will be covered in the page text.
@@ -123,10 +126,11 @@ In our documentation we have started to move over to supporting Identity Engine 
 
 From March 1 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) will be Identity Engine orgs, so all new customers can take advantage of the new features. You can start building apps that take advantage of new Identity features using our redirect or embedded (SDK and/or Widget) authentication models — see [Authentication deployment models](#authentication-deployment-models). 
 
-If you are a Classic customer who wants to upgrade their apps to use Identity Engine, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
+If you are a Classic customer who wants to upgrade their apps to use Identity Engine, bear in mind that
 
-For classic customers who don't yet want to upgrade:
+* the existing Okta-hosted Widget continues to work after upgrading your org.
+* you should upgrade your SDK as you would normally do with other SDK updates.
 
-* The v1 API continues to work as before until you're ready to use new Identity Engine functionality.
-* The existing Okta-hosted Widget continues to work after upgrading your org.
-* Upgrade your SDK as you would normally do with other SDK updates.
+For help with upgrading, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
+
+For Classic customers who don't yet want to upgrade, your existing functionality will continue to work for now, including your Classic org, v1 API, and SDKs.
