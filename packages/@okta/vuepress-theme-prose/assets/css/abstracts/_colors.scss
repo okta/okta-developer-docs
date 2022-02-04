@@ -95,6 +95,8 @@
   --c-tile-angle: var(--c-tile-gray);
   --c-form-input-border: var(--c-form-gray);
 
+  --c-darkgray: var(--c-white);
+
 }
 .dark-theme {
   
@@ -139,9 +141,19 @@
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
 
+  --c-garkgray: var(--c-gray-700);
+
+  --c-signuplink: var(--c-blue-500);
+
 }
 
 $colors: (
+  'signup': (
+    'base': var(--c-signuplink),
+  ),
+  'darkgray': (
+    'base': var(--c-garkgray),
+  ),
   'homepage': (
     'base': var(--c-gray-900),
   ),

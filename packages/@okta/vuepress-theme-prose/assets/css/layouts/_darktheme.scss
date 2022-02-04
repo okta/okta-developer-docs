@@ -136,6 +136,14 @@
     }
   }
   
+  .oin .oin--bg {
+    background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+  }
+
+  .oin .oin-alt-bg {
+    background: cv('assurance') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+  }
+
   .selector-tile {
     &--header {
       color: cv('blue', '300');
@@ -184,12 +192,60 @@
       border: none;
     }
   }
+  .authorization-layout {
+    .authorization-layout--content {
+      a.social-btn, 
+      input.social-btn, 
+      button.social-btn {
+        color: cv('darkgray');
+      }
+    }
+  }
+  .login .login--form {
+    .goto-signup,
+    .splitter {
+      color: cv('darkgray');
+    }
+    .goto-signup a {
+      color: cv('signup');
+    }
+  }
+  .signup .signup--content {
+    .signup--form {
+      .goto-signin,
+      .splitter {
+        color: cv('darkgray');
+      }
+      .goto-signin a {
+        color: cv('signup');
+      }
+    }
+  }
+
+  .authorization-layout {
+    .row .field-wrapper,
+    .authorization-layout--content .auth0-banner {
+      color: cv('darkgray');
+    }
+  }
+
+  .oin--leader p a.magentaLink {
+    color: cv('signup');
+  }
+
+  .Button--redOutline, 
+  .Button--redOutline:active, 
+  .Button--redOutline:hover {
+    color: cv('white');
+    border-color: cv('white');
+  }
+
   .company-logos--icon {
     &:nth-child(1) {
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('blue', '300') !important;
+      background-color: cv('white') !important;
       -webkit-mask-image: url(/img/logos/baseball.svg);
       mask-image: url(/img/logos/baseball.svg);
     }
@@ -197,7 +253,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('blue', '300') !important;
+      background-color: cv('white') !important;
       -webkit-mask-image: url(/img/logos/splunk.svg);
       mask-image: url(/img/logos/splunk.svg);
     }
@@ -205,7 +261,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('blue', '300') !important;
+      background-color: cv('white') !important;
       -webkit-mask-image: url(/img/logos/adobe.svg);
       mask-image: url(/img/logos/adobe.svg);
     }
@@ -213,7 +269,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('blue', '300') !important;
+      background-color: cv('white') !important;
       -webkit-mask-image: url(/img/logos/jetblue.svg);
       mask-image: url(/img/logos/jetblue.svg);
     }
@@ -221,9 +277,46 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('blue', '300') !important;
+      background-color: cv('white') !important;
       -webkit-mask-image: url(/img/logos/experian.svg);
       mask-image: url(/img/logos/experian.svg);
+    }
+  }
+  @media (max-width: 1023px) {
+    header.page-header {
+      .menu--slideout .header--links {
+        & > ul.menu--items {
+          &:not(.expanded) {
+            & > li {
+              span.link,
+              a.link {
+                color: cv('darkgray');
+              }
+              a.link.router-link-active {
+                color: cv('signup') !important;
+              }
+            }
+          }
+          li a.link:hover, 
+          li span.link:hover {
+            color: cv('signup');
+          }
+        }
+        & > ul.menu--items.expanded {
+          li.opened > span {
+            color: cv('signup');
+          }
+        }
+      }
+    }
+    .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+      color: cv('text');
+    }
+  }
+  .pricing {
+    background-color: transparent;
+    .Button--redOutline {
+      color: cv('white');
     }
   }
 }
