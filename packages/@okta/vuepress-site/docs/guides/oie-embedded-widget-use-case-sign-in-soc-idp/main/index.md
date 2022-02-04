@@ -7,8 +7,6 @@ title: Sign in with Facebook using the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide provides a sequence of steps to follow to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
 ---

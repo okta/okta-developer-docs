@@ -6,7 +6,7 @@ meta:
     content: Use this guide to learn how to build federated Single Sign-On into your Okta integration. 
 layout: Guides
 ---
-<StackSelector />
+
 This guide teaches you how to build federated Single Sign-On into your Okta-integrated application.
 
 ---

@@ -362,6 +362,12 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
     }
+
+    // mark all generated non-root stack-enabled pages(i.e. those containing stack name in the URL)
+    // to display StackSelector for
+    if(found && !found.guide && !found.sections && found.mainFramework) {
+      $page.hasStackContent = true
+    }
   },
   async ready() {
     if (process.env.DEPLOY_ENV && process.env.DEPLOY_ENV === 'test') {
