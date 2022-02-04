@@ -28,10 +28,8 @@
     max-width: 800px;
 
     .company-logos--icon {
-      max-width: 85px;
-      max-height: 45px;
-      min-width: 85px;
-      min-height: 45px;
+      width: 85px;
+      height: 45px;
       margin: 0 10px 45px;
     }
 
@@ -59,8 +57,8 @@
   &.company-logos--small {
     .company-logos--icons {
       .company-logos--icon {
-        max-width: 70px;
-        min-width: 70px;
+        width: 70px;
+        width: 70px;
       }
     }
   }

@@ -157,15 +157,6 @@ $colors: (
   'homepage': (
     'base': var(--c-gray-900),
   ),
-  'assurance': (
-    'base': var(--c-lightgray-block),
-  ),
-  'customize': (
-    'base': var(--c-lightgray-block),
-  ),
-  'partners': (
-    'base': var(--c-lightgray-block),
-  ),
   'cerise': (
     'base': var(--c-cerise),
   ),
@@ -178,6 +169,9 @@ $colors: (
     'lighter': var(--c-body-lighter),
     'border': var(--c-body-border),
     'white': var(--c-body-white),
+    'assurance': var(--c-lightgray-block),
+    'customize': var(--c-lightgray-block),
+    'partners': var(--c-lightgray-block),
   ),
   'text': (
     'darker': var(--c-text-darker),
