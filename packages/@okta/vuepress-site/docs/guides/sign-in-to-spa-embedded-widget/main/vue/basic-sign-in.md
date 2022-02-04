@@ -183,7 +183,7 @@ router.beforeEach(navigationGuard)
 export default router
 ```
 
-> **Note** The [Okta Vue SDK](https://github.com/okta/okta-vue#readme) provides navigation guard logic to circumvent national guard mixins issue in `vue-router-next`.
+> **Note** The [Okta Vue SDK](https://github.com/okta/okta-vue#readme) provides navigation guard logic to circumvent navigational guard mixins issue in `vue-router-next`.
 
 ### Start your app
 
