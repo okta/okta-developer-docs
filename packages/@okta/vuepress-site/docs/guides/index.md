@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso

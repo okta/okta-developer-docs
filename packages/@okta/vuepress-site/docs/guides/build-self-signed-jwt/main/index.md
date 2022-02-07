@@ -4,7 +4,6 @@ excerpt: Learn how to build a self-signed JWT.
 layout: Guides
 ---
 
-<StackSelector />
 
 This guide explains how to build a self-signed JSON Web Token (JWT) that is used throughout Okta. For example, when you make requests to Okta API endpoints that require [client authentication](/docs/reference/api/oidc/#client-authentication-methods), you can optionally use a JWT for additional security.
 
