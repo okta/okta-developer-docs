@@ -6,8 +6,6 @@ layout: Guides
 
 <StackSnippet snippet="nutrition" />
 
-<ApiAmProdWarning />
-
 <StackSnippet snippet="nut-facts-samplecode" />
 
 ---

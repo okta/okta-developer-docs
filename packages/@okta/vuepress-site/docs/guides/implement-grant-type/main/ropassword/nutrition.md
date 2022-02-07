@@ -12,3 +12,5 @@ This guide explains how to implement a Resource Owner Password flow for your app
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 authorization with Okta
+
+<ApiAmProdWarning />
