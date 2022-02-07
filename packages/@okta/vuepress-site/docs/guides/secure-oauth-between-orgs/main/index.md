@@ -56,7 +56,7 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 | --------- |  ------------- |
 | `name`  |  `okta_org2org` |
 | `label`  |  Specify a label for this Org2Org app integration |
-| `baseUrl`  |  Specify the base URL of your hub org. |
+| `baseUrl`  |  Specify the base URL of your hub org |
 | `signOnMode`  |  You can set this parameter to any valid value, but if you specify `SAML_2_0`, the Org2Org app signing certificate appears in the Admin Console. |
 
 ##### Request example
