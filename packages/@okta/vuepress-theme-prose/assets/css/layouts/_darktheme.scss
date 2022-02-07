@@ -14,7 +14,10 @@
   }
 
   .page-body {
-    background-color: cv('gray', '800');
+    background-color: cv('body');
+    .authorization-layout {
+      background-color: cv('body');
+    }
     .content--container {
       color: cv('gray', '000');
       .edit-on-github .fa {
@@ -87,7 +90,7 @@
       background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
     }
     &--assurance-block-margin {
-      background: cv('body', 'assurance') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+      background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
       .col-xl-4 {
         &:nth-child(1) {
           span {
@@ -122,7 +125,7 @@
       }
     }
     &--customize-your-app-margin {
-      background-color: cv('body', 'customize');
+      background-color: cv('body', 'homepage-lighter-block');
       padding-bottom: 75px;
       margin-bottom: 0;
       &::before {
@@ -130,18 +133,22 @@
       }
     }
     &--partners-block-margin {
-      background-color: cv('body', 'partners');
+      background-color: cv('body', 'homepage-lighter-block');
       padding-bottom: 58px;
       margin-bottom: 0;
     }
   }
   
-  .oin .oin--bg {
-    background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
-  }
-
-  .oin .oin-alt-bg {
-    background: cv('body', 'assurance') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+  .oin {
+    .oin {
+      &--bg,
+      &--bg:last-of-type {
+        background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+      }
+      &-alt-bg {
+        background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+      }
+    }
   }
 
   .selector-tile {
@@ -185,10 +192,10 @@
   }
 
   .homepage--code-example {
-    background-color: cv('homepage');
+    background-color: cv('body');
     border: none;
     &--cm-wrapper .CodeMirror {
-      background-color: cv('homepage');
+      background-color: cv('body');
       border: none;
     }
   }
@@ -197,27 +204,27 @@
       a.social-btn, 
       input.social-btn, 
       button.social-btn {
-        color: cv('darkgray');
+        color: cv('body', 'darkgray');
       }
     }
   }
   .login .login--form {
     .goto-signup,
     .splitter {
-      color: cv('darkgray');
+      color: cv('body', 'darkgray');
     }
     .goto-signup a {
-      color: cv('signup');
+      color: cv('link', 'signup');
     }
   }
   .signup .signup--content {
     .signup--form {
       .goto-signin,
       .splitter {
-        color: cv('darkgray');
+        color: cv('body', 'darkgray');
       }
       .goto-signin a {
-        color: cv('signup');
+        color: cv('link', 'signup');
       }
     }
   }
@@ -225,12 +232,12 @@
   .authorization-layout {
     .row .field-wrapper,
     .authorization-layout--content .auth0-banner {
-      color: cv('darkgray');
+      color: cv('body', 'darkgray');
     }
   }
 
   .oin--leader p a.magentaLink {
-    color: cv('signup');
+    color: cv('link', 'signup');
   }
 
   .Button--redOutline, 
@@ -290,21 +297,21 @@
             & > li {
               span.link,
               a.link {
-                color: cv('darkgray');
+                color: cv('body', 'darkgray');
               }
               a.link.router-link-active {
-                color: cv('signup') !important;
+                color: cv('link', 'signup') !important;
               }
             }
           }
           li a.link:hover, 
           li span.link:hover {
-            color: cv('signup');
+            color: cv('link', 'signup');
           }
         }
         & > ul.menu--items.expanded {
           li.opened > span {
-            color: cv('signup');
+            color: cv('link', 'signup');
           }
         }
       }
@@ -321,7 +328,7 @@
   }
 }
 
-// ADD CUSTOM WIDTH
+// fix submenu width
 header.page-header ul.menu--items > li.expandable > ul.submenu--items {
   width: 130px;
   li a {

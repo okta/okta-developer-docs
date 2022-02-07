@@ -65,6 +65,7 @@
 
   --c-body-lightgray: #DCDCDC;
   --c-body: #ffffff;
+  
   --c-tile-gray: #8C8C96;
   --c-form-gray: #C1C1C8;
 
@@ -82,6 +83,7 @@
   --c-link-base: var(--c-blue-500);
   --c-link-darkblue: var(--c-link-blue);
   --c-link-footer: var(--c-link-lightgray);
+  --c-auth-link: var(--c-white);
 
   --c-code-base: var(--c-gray-000);
 
@@ -94,10 +96,8 @@
   --c-body-white: var(--c-body);
   --c-tile-angle: var(--c-tile-gray);
   --c-form-input-border: var(--c-form-gray);
-
-  --c-darkgray: var(--c-white);
-
 }
+
 .dark-theme {
   
   // PALETTE DARK THEME
@@ -133,30 +133,16 @@
 
   --c-link-base: var(--c-blue-300);
   --c-code-base: var(--c-gray-900);
-
-  --c-lightgray-block: var(--c-lightgray);
+  --c-auth-link: var(--c-gray-700);
   
   --c-code-keyword: var(--c-code-purple);
   --c-code-define: var(--c-code-orange);
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
 
-  --c-garkgray: var(--c-gray-700);
-
-  --c-signuplink: var(--c-blue-500);
-
 }
 
 $colors: (
-  'signup': (
-    'base': var(--c-signuplink),
-  ),
-  'darkgray': (
-    'base': var(--c-garkgray),
-  ),
-  'homepage': (
-    'base': var(--c-gray-900),
-  ),
   'cerise': (
     'base': var(--c-cerise),
   ),
@@ -169,9 +155,8 @@ $colors: (
     'lighter': var(--c-body-lighter),
     'border': var(--c-body-border),
     'white': var(--c-body-white),
-    'assurance': var(--c-lightgray-block),
-    'customize': var(--c-lightgray-block),
-    'partners': var(--c-lightgray-block),
+    'homepage-lighter-block': var(--c-lightgray),
+    'darkgray': var(--c-gray-700),
   ),
   'text': (
     'darker': var(--c-text-darker),
@@ -185,6 +170,7 @@ $colors: (
     'base': var(--c-link-base),
     'darker': var(--c-link-darker),
     'footer': var(--c-link-footer),
+    'signup': var(--c-blue-500),
   ),
   'code': (
     'keyword': var(--c-code-keyword),
