@@ -58,7 +58,6 @@ export const LAYOUT_CONSTANTS = {
 const TABLET_BREAKPOINT = 767;
 
 import SidebarItems from "../mixins/SidebarItems";
-import { getCookie } from "../util/attribution/cookies";
 
 export const endingSlashRE = /\/$/;
 export default {
@@ -87,7 +86,7 @@ export default {
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false,
-        treeNavDocs: [],
+        treeNavDocs: []
       },
       stackSelectorData: {
         to: '',

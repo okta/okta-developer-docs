@@ -24,6 +24,10 @@ export function getCookie(key, defaultValue = false) {
   return cookies || defaultValue;
 }
 
+export function isSetCookie(key) {
+  return Cookies.get(getPrefixedKey(key)) !== undefined;
+}
+
 export function setCookie(key, value, props = {}) {
   const { hostname } = location;
   const domain = getDomain(hostname);

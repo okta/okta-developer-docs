@@ -6,14 +6,19 @@
 </template>
 
 <script>
-import { deleteCookie, getCookie, setCookie } from "../util/attribution/cookies";
+import { isSetCookie, getCookie, setCookie } from "../util/attribution/cookies";
 
 const themeModeCookieName = 'is_dark_mode';
 
 export default {
   data() {
     return {
-      isDarkMode: getCookie(themeModeCookieName, false),
+      isDarkMode: 
+        (
+          !isSetCookie(themeModeCookieName) 
+          && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ) 
+        || getCookie(themeModeCookieName, false),
     };
   },
   created() {
