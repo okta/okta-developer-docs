@@ -203,7 +203,7 @@ As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `authScheme`  |  `OAUTH2` |
-| `clientId`  |  Specify the corresponding service app client ID in your hub org. |
+| `clientId`  |  Specify the corresponding service app client ID in your hub org |
 
 ##### Request example
 
