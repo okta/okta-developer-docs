@@ -123,7 +123,7 @@ For each spoke org that you have in your multi-tenant solution, you must create 
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
-| `client_name`  |  Specify a label for this service app to represent the spoke org OAuth 2.0 client. |
+| `client_name`  |  Specify a label for this service app to represent the spoke org OAuth 2.0 client |
 | `grant_types`  |  `client_credentials` |
 | `jwks`  |  Specify the JSON Web Key Set from the corresponding spoke org’s Org2Org app integration. |
 | `response_types`  |  `token` |
