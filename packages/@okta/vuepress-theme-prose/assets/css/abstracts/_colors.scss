@@ -121,13 +121,19 @@
   --c-code-orange: #E97107;
   --c-code-lightblue: #92BCFF;
   --c-code-lightgray: #8C8C96;
+  --c-code-green: #00B478;
+
+  --c-warning-base: #B35909;
+
+  --c-success-base: #0D7855;
+
 
   // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-900);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
   
-  --c-text-darker: var(--c-white);
+  --c-text-darker: var(--c-gray-000);
   --c-text-base: var(--c-gray-400);
   --c-text-lighter: var(--c-gray-000);
 
@@ -139,6 +145,7 @@
   --c-code-define: var(--c-code-orange);
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
+  --c-code-greenstring: var(--c-code-green);
 
 }
 
@@ -178,6 +185,7 @@ $colors: (
     'define': var(--c-code-define),
     'property': var(--c-code-property),
     'string': var(--c-code-string),
+    'green': var(--c-code-greenstring),
   ),
   'form': (
     'input-border': var(--c-form-input-border),
