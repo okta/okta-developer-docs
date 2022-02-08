@@ -1,4 +1,20 @@
 .dark-theme {
+  &, * {
+    scrollbar-width: thin;
+    scrollbar-color: dark;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: cv('gray', '700');
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: cv('gray', '500');
+      border-radius: 6px;
+      border: 2px solid cv('gray', '700');
+    }
+  }
+
   .breadcrumb--container {
     svg path {
       stroke: cv('gray', '400');
@@ -29,14 +45,16 @@
         background-color: cv('gray', '700');
       }
       .vs__selected {
-        color: cv('gray', '500');
+        color: cv('text');
       }
       .vs__dropdown-menu {
+        border-color: cv('gray', '600') !important;
         .vs__dropdown-option {
+          border: none !important;
           background-color: cv('gray', '900');
-          color: cv('gray', '000');
+          color: cv('text');
           &--highlight {
-            border: 1px solid cv('blue', '300');
+            border: none !important;
           }
         }
       }
@@ -318,7 +336,8 @@
       mask-image: url(/img/logos/experian.svg);
     }
   }
-  @media (max-width: 1023px) {
+
+  @include media(">desktop-xl") {
     header.page-header {
       .menu--slideout .header--links {
         & > ul.menu--items {
@@ -349,6 +368,7 @@
       color: cv('text');
     }
   }
+
   .pricing {
     background-color: transparent;
     .Button--redOutline {
@@ -442,6 +462,10 @@
 
   .cards-own .is-card-clickable {
     border: 1px solid cv('gray', '400');
+    &:hover, &:active {
+      background: cv('gray', '700');
+      box-shadow: none;
+    }
   }
   
   .page-title [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -457,23 +481,10 @@
     color: cv('gray', '000');
   }
   .api-uri-template {
-    background-color: cv('gray', '600');
+    background-color: cv('gray', '700');
     border-color: cv('body');
   }
-}
-
-// fix submenu width
-header.page-header ul.menu--items > li.expandable > ul.submenu--items {
-  width: 130px;
-  li a {
-    color: cv('gray', '900'); 
-    &:after {
-      background-image: none !important;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      background-color: cv('gray', '900') !important;
-      -webkit-mask-image: url("/img/icons/external--white.svg");
-      mask-image: url("/img/icons/external--white.svg");
-    }
+  .api-uri-put strong {
+    color: cv('link');
   }
 }

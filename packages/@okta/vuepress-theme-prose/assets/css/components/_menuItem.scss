@@ -35,6 +35,19 @@ ul.menu--items {
       top: 42px;
       transform: translateX(-50%);
       width: auto;
+      max-width: 130px;
+
+      li a {
+        color: cv('gray', '900'); 
+        &:after {
+          background-image: none !important;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          background-color: cv('gray', '900') !important;
+          -webkit-mask-image: url("/img/icons/external--white.svg");
+          mask-image: url("/img/icons/external--white.svg");
+        }
+      }
       
       @include media("<tablet") {
         display: block;
