@@ -1,3 +1,3 @@
 **Sample code**
 
-See [Examples](#examples).
+[Embedded authentication app examples](#examples)
