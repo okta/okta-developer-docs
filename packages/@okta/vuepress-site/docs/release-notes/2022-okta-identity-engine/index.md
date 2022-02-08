@@ -51,7 +51,7 @@ When you customize an Okta URL domain, your Okta-hosted pages are branded with y
 
 #### Bug fixed in 2022.02.0
 
-* In the [Custom Administrator Roles](/docs/reference/api/roles/) API, some public DELETE requests returned a different response code than their contract. (OKTA-456896)
+In the [Custom Administrator Roles](/docs/reference/api/roles/) API, some public DELETE requests returned a different response code than their contract. (OKTA-456896)
 
 ## January
 
