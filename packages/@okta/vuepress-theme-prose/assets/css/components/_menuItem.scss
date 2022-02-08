@@ -35,9 +35,9 @@ ul.menu--items {
       top: 42px;
       transform: translateX(-50%);
       width: auto;
-      max-width: 130px;
 
       li a {
+        white-space: nowrap;
         color: cv('gray', '900'); 
         &:after {
           background-image: none !important;
