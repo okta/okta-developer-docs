@@ -44,6 +44,8 @@ When crafting a translation or creating a custom SMS message, keep the following
 
 2. Select the **SMS** tab.
 
+> **Note**: In Okta Identity Engine, select **Customizations** and then **SMS** to find the SMS editor.
+
 > **Note:** In the **Custom Language** section of the page, you can view Okta's default SMS message by clicking the **Default** arrow to expand it.
 
 3. Click the pencil icon under **Actions** to start creating a custom message from the default. The changes that you make create a custom SMS message template, and you are no longer using the default Okta SMS message.

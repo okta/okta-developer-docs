@@ -4,6 +4,8 @@ excerpt: Learn how to integrate biometric authentication like Face ID and Touch 
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 In this guide you will learn how to integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta.
 
 ---
