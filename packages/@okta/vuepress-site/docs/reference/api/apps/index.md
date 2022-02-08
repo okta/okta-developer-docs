@@ -8422,7 +8422,7 @@ The provisioning connection object is a read only object that displays the metho
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| authScheme              | Defines the method of authentication    | `TOKEN`, `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
+| authScheme              | Defines the method of authentication    | `TOKEN`, `OAUTH2` <ApiLifecycle access="ea" /> , `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
 | status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
@@ -8430,7 +8430,7 @@ If the authScheme is `UNKNOWN`, then either the authentication scheme used by th
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, only token based authentication is supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, both token based and  OAuth 2.0 based authentication <ApiLifecycle access="ea" /> are supported.
 
 #### Token based Provisioning Connection Profile example
 ```json
@@ -8448,6 +8448,23 @@ The application provisioning connection profile is used to configure the method 
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+
+#### OAuth 2.0 based Provisioning Connection Profile example
+```json
+{
+    "profile": {
+        "authScheme": "OAUTH2",
+        "clientId": "${clientId}"
+    }
+}
+```
+
+#### OAuth 2.0 based Provisioning Connection Profile properties
+
+| Property                                | Description                                                   | DataType                               | Nullable | Unique | Readonly |
+| --------------------------------------- | ------------------------------------------------------------- | -------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme                              | Defines the method of authentication                          | `OAUTH2` <ApiLifecycle access="ea" />  | FALSE    | FALSE  | FALSE    |
+| clientId <ApiLifecycle access="ea" />   | Unique identifier for OAuth 2.0 service app in the target org | String                                 | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
