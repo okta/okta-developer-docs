@@ -139,41 +139,144 @@ export const guides = [
     subLinks: [
       { title: "Guides overview", path: "/docs/guides/" },
       {
-        title: "Basics",
+        title: "Sign users in",
         subLinks: [
+          { title: "Overview", guideName: "Sign users in overview" },
           {
-            title: "Quickstart: Signing in your first user",
-            guideName: "quickstart"
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Okta Email (OTP/Email)",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Okta Verify (Push/OTP)",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "WebAuthN",
+                guideName: "guide-name-here"
+              }
+            ]
           },
-          { title: "Create an API token", guideName: "create-an-api-token" },
-          { title: "Enable CORS", guideName: "enable-cors" },
-          { title: "Find your Okta domain", guideName: "find-your-domain" },
           {
-            title: "Find your application credentials",
-            guideName: "find-your-app-credentials"
+            title: "Set up to run Identity Engine use cases",
+            subLinks: [
+              {
+                title: "Get set up",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "SIW",
+                guideName: "guide-name-here"
+              }
+            ]
           },
           {
-            title: "Share Application Key Credentials for IdPs across Apps",
-            guideName: "sharing-cert"
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "SPA with hosted Widget",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Mobile app with hosted Widget",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Web app with hosted Widget",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Redirect authentication use cases",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Set up refresh tokens",
+                guideName: "guide-name-here"
+              }
+            ]
           },
-          { title: "Set up SAML Tracer", guideName: "saml-tracer" },
           {
-            title: "Upgrade SAML Apps to SHA256",
-            guideName: "updating-saml-cert"
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Sign in to your SPA with Auth.js",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Sign in to your SPA with the embedded Okta Sign-In WAidget ",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Embedded SDK use cases",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Embedded Widget use cases",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Email uses cases",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Advanced uses cases",
+                guideName: "guide-name-here"
+              }
+            ]
           },
           {
-            title: "Sign the Okta certificate with your own CA",
-            guideName: "sign-your-own-saml-csr"
+            title: "Mobile techniques",
+            subLinks: [
+              {
+                title: "Unlock a mobile app with biometrics",
+                guideName: "unlock-mobile-app-with-biometrics"
+              },
+              {
+                title: "Build a custom sign-in UI in your mobile app",
+                guideName: "build-custom-ui-mobile"
+              },
+              {
+                title: "Sign users in to your mobile app",
+                guideName: "sign-into-mobile-app"
+              },
+              {
+                title: "Share a sign-in session with native mobile apps",
+                guideName: "shared-sso-android-ios"
+              }
+            ]
           },
           {
-            title: "Set up self-service registration",
-            guideName: "set-up-self-service-registration"
-          }
-        ]
-      },
-      {
-        title: "Sign Users In",
-        subLinks: [
+            title: "Sign-in policies",
+            subLinks: [
+              {
+                title: "Configure a Global Session Policy and app sign-on policies",
+                guideName: "configure-signon-policy"
+              },
+              {
+                title: "Policy for EML",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Policy for Password Optional",
+                guideName: "guide-name-here"
+              },
+              {
+                title: "Policy for Progressive Profiling",
+                guideName: "guide-name-here"
+              }
+            ]
+          },
+          { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Add an Identity Provider",
             subLinks: [
@@ -257,29 +360,6 @@ export const guides = [
               },
             ]
           },
-
-          { title: "Add multifactor authentication", guideName: "mfa" },
-          {
-            title: "Mobile App",
-            subLinks: [
-              {
-                title: "Unlock a mobile app with biometrics",
-                guideName: "unlock-mobile-app-with-biometrics"
-              },
-              {
-                title: "Build a custom sign-in UI in your mobile app",
-                guideName: "build-custom-ui-mobile"
-              },
-              {
-                title: "Sign users in to your mobile app",
-                guideName: "sign-into-mobile-app"
-              },
-              {
-                title: "Share a sign-in session with native mobile apps",
-                guideName: "shared-sso-android-ios"
-              }
-            ]
-          },
           {
             title: "Sign users in to your single-page application",
             guideName: "sign-into-spa"
@@ -290,8 +370,62 @@ export const guides = [
           },
           { title: "Sign users out", guideName: "sign-users-out" },
           {
-            title: "Configure Okta sign-on and App sign-on policies",
+            title: "Configure a Global Session Policy and app sign-on policies",
             guideName: "configure-signon-policy"
+          }
+        ]
+      },
+      {
+        title: "Classic archive",
+        subLinks: [
+          {
+            title: "Overview",
+            guideName: "archive-overview"
+          },
+          {
+            title: "Configure Okta Sign-On and App Sign-On Policies",
+            guideName: "archive-configure-signon-policy"
+          },
+          {
+            title: "Guide title",
+            guideName: "guide-name-here"
+          },
+          {
+            title: "Guide title",
+            guideName: "guide-name-here"
+          }
+        ]
+      },
+      {
+        title: "Basics",
+        subLinks: [
+          {
+            title: "Quickstart: Signing in your first user",
+            guideName: "quickstart"
+          },
+          { title: "Create an API token", guideName: "create-an-api-token" },
+          { title: "Enable CORS", guideName: "enable-cors" },
+          { title: "Find your Okta domain", guideName: "find-your-domain" },
+          {
+            title: "Find your application credentials",
+            guideName: "find-your-app-credentials"
+          },
+          {
+            title: "Share Application Key Credentials for IdPs across Apps",
+            guideName: "sharing-cert"
+          },
+          { title: "Set up SAML Tracer", guideName: "saml-tracer" },
+          {
+            title: "Upgrade SAML Apps to SHA256",
+            guideName: "updating-saml-cert"
+          },
+          {
+            title: "Sign the Okta certificate with your own CA",
+            guideName: "sign-your-own-saml-csr"
+          },
+          {
+            title: "Set up self-service registration",
+            guideName: "set-up-self-service-registration"
           }
         ]
       },
