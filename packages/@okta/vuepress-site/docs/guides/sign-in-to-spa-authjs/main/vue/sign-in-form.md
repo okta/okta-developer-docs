@@ -1,12 +1,11 @@
 ### Set up the Okta configuration settings
 
-Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Sign-In Widget and your Auth JS instance:
+Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Auth JS instance:
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
-* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
-* `pkce`: Set this option to `true` to enable PKCE in the Widget. This is used for SPA apps that uses the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
-* `scopes`: Set the OAuth 2.0 scopes that your app requires.
+* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow)
+* `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
 You can create a `src/config.js` file to define your configuration settings. For example:
@@ -18,13 +17,119 @@ export default {
     issuer: '${yourIssuer}',
     redirectUri: '${yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],
-    pkce: true,
     useInteractionCodeFlow: true
   }
 }
 ```
 
-> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details of additional supported scopes.
+### Create the Auth client instance to support the sign-in form
+
+Before you create the sign-in form, you need to create the authentication client instance and methods to support Okta authentication. For example, create a `src/auth.js` file with the following content:
+
+```js
+import { OktaAuth } from '@okta/okta-auth-js'
+import OktaVue from '@okta/okta-vue'
+import sampleConfig from '@/config'
+
+const OktaAuth = require('@okta/okta-auth-js').OktaAuth
+
+const authClient = new OktaAuth({
+  issuer: 'https://${yourOktaDomain}',
+  clientId: '${clientId}',
+  scopes: ['openid', 'email', 'profile'],
+  redirectUri: window.location.origin + '/login/callback',
+  tokenManager: {
+        storage: 'localStorage'
+      },
+  transformAuthState,
+  useInteractionCodeFlow: true
+})
+
+export default {
+  login (email, pass, cb) {
+    cb = arguments[arguments.length - 1]
+    if (localStorage.token) {
+      if (cb) cb(true)
+      this.onChange(true)
+      return
+    }
+    return authClient.idx.authenticate({ username: email, password: pass })
+    .then(handleTransaction)
+    .catch(showError);
+
+    return authClient.signInWithCredentials({
+      username: email,
+      password: pass
+    }).then(transaction => {
+      if (transaction.status === 'SUCCESS') {
+        return authClient.token.getWithoutPrompt({
+          responseType: ['id_token', 'token'],
+          sessionToken: transaction.sessionToken,
+        }).then(response => {
+          localStorage.token = response.tokens.accessToken
+          localStorage.idToken = response.tokens.idToken
+          if (cb) cb(true)
+          this.onChange(true)
+        })
+      }
+    }).catch(err => {
+      console.error(err.message)
+      if (cb) cb(false)
+      this.onChange(false)
+    })
+  },
+
+  getToken () {
+    return localStorage.token
+  },
+
+  logout (cb) {
+    delete localStorage.token
+    delete localStorage.idToken
+    if (cb) cb()
+    this.onChange(false)
+    return authClient.signOut()
+  },
+
+  loggedIn () {
+    return !!localStorage.token
+  },
+
+  onChange () {
+  },
+
+  handleTransaction(transaction) {
+  // IDX
+  if (transaction.messages) {
+    showError(transaction.messages);
+  }
+
+  switch (transaction.status) {
+    case 'PENDING':
+      if (transaction.nextStep.name === 'identify') {
+        renderDynamicSigninForm(transaction);
+        break;
+      }
+      hideSigninForm();
+      updateAppState({ transaction });
+      showMfa();
+      break;
+    case 'FAILURE':
+      showError(transaction.error);
+      break;
+    case 'SUCCESS':
+      hideSigninForm();
+      endAuthFlow(transaction.tokens);
+      break;
+    default:
+      throw new Error('TODO: add handling for ' + transaction.status + ' status');
+  }
+}
+
+}
+```
+
+> **Note**: See [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
 
 ### Instantiate Okta authentication
 
