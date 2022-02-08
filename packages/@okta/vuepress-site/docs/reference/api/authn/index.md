@@ -11,12 +11,12 @@ The Okta Authentication API provides operations to authenticate users, perform m
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your **Okta Sign-On Policy**.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your Global Session Policy.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the **Okta Sign-On Policy**, **MFA Enrollment Policy**, or **Password Policy**.
+The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, MFA Enrollment Policy, or Password Policy.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
@@ -1114,7 +1114,7 @@ curl -v -X POST \
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
-> **Note:** Okta Sign-On Policy and the related App Sign-On Policy are evaluated after successful primary authentication.
+> **Note:** Global Session Policy and the related app sign-on policy are evaluated after successful primary authentication.
 
 ```bash
 curl -v -X POST \
