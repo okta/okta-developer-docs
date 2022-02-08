@@ -1339,11 +1339,19 @@ Fetches an email template's default content
 | `brandId`      | String      | ID of a Brand             |
 | `templateName` | String      | Name of an Email Template |
 
+#### Request query parameters
+
+| Parameter      | Type        | Description                                                        |
+| -------------- | ----------- | ------------------------------------------------------------------ |
+| `language`     | String      | One of the [supported BCP 47 language codes](#supported-languages) |
+
 #### Response body
 
 The requested email template's default [Email Content](#email-content) resource.
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+If `language` isn't specified or is invalid, it defaults to the current user's language.
 
 #### Use examples
 
@@ -1411,11 +1419,19 @@ Fetches a preview of an email template's default content
 | `brandId`      | String      | ID of a Brand             |
 | `templateName` | String      | Name of an Email Template |
 
+#### Request query parameters
+
+| Parameter      | Type        | Description                                                        |
+| -------------- | ----------- | ------------------------------------------------------------------ |
+| `language`     | String      | One of the [supported BCP 47 language codes](#supported-languages) |
+
 #### Response body
 
 The requested email template's default [Email Content](#email-content) resource, with variables populated using the current user's context.
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+If `language` isn't specified or is invalid, it defaults to the current user's language.
 
 #### Use examples
 
@@ -1499,6 +1515,8 @@ The following set of priorities determines the content of the email:
 Returns a `204 No Content` on success.
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+If `language` isn't specified or is invalid, it defaults to the current user's language.
 
 #### Use examples
 
