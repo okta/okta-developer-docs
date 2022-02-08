@@ -5,8 +5,10 @@ meta:
     content: Mobile apps use an external user-agent (the device's browser) to perform authentication. Get information on how you can apply sign-in principles that are similar to web apps to share a sign-in session between mobile apps on a device.
 layout: Guides
 ---
-<StackSelector  />
+
 This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) session on a mobile device. After you complete this guide, you should have a better understanding of how a sign-in session is shared between two mobile apps on a device and will be able to use the steps in the guide to help you configure your own apps.
+
+<EmbeddedBrowserWarning />
 
 ---
 

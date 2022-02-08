@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-on-this-page" v-show="options.length > 0">
-    <h3 class="mobile-header">On This Page</h3>
+    <h3 class="mobile-header">On this page</h3>
     <v-select :options="options" v-model="selectedOption" :searchable="false" :multiple="false" :clearable="false" v-on:input="inputChanged">
 
       <template #option="{label, isSubheading}">

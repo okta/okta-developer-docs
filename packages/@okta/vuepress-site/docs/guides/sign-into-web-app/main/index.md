@@ -4,8 +4,6 @@ excerpt: Learn how to add authentication to your web applications and sign users
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
