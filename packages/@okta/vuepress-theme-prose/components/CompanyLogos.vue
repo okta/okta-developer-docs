@@ -9,13 +9,13 @@
     <h1 v-if="withHeading && !small">Trusted by developers</h1>
     <h4 v-else-if="withHeading && small">Trusted by developers</h4>
     <div class="company-logos--icons">
-      <img
+      <span
         class="company-logos--icon"
         v-for="(logo, index) in $themeConfig.company_logos"
         :key="index"
-        :src="logo.icon"
-        :alt="logo.name"
-      />
+        v-bind:style="{ 'background': 'url(' + logo.icon + ') 50% 50% no-repeat' }"
+      >
+      </span>
     </div>
   </div>
 </template>
