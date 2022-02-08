@@ -197,7 +197,7 @@
         border-bottom: none;
         &:hover {
           color: cv('gray', '000');
-          background: rgba(242, 245, 255, 0.2);
+          background: cv('gray', '600');
           & > i {
             color: cv('gray', '000');
           }
