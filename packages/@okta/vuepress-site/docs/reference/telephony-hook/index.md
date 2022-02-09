@@ -26,7 +26,7 @@ For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](
 
 The Okta Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (CALL) messages.
 You can integrate this hook with Enrollment, Authentication, and Recovery flows that involve the Phone
-factor as an authenticator. While sending the OTP (One Time Passcode) to the requester, Okta calls out to your external
+authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external
 service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
 
 Only one active telephony inline hook is allowed to be created for any org.
