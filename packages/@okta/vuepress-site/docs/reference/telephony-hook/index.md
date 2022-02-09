@@ -231,7 +231,6 @@ This section covers what happens when a telephony inline hook flow fails either 
   **Who can see this error?** Administrators, developers, and end users.
 
 - When a hook response is malformed or could not be mappeed to expected API response, the inline hook operation is skipped.
-  duplicate SMS/CALL because of external service and Okta provider(s) both attempting to deliver the OTP.
 
 
   **Who can see this error?** Administrators
