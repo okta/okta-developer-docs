@@ -44,7 +44,7 @@ You can use OAuth 2.0 to push user and group information from a spoke org to a c
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JWKS public key.
 2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. [Grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client) to the hub org service apps (the OAuth 2.0 clients).
 3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
-4. [Assign users and groups in the Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to be pushed to the hub org.
+4. [Assign users and groups in the spoke Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
 ### Add an Org2Org app integration in a spoke org
 
@@ -113,7 +113,7 @@ curl -v -X GET \
 
 > **Note**: The keys are truncated for brevity.
 
-You need to save the generated credentials to configure in the corresponding hub org service app.
+You need to save the generated credentials to configure the corresponding hub org service app.
 
 ### Create an OAuth 2.0 service app in the hub org
 
@@ -226,7 +226,7 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections of the Org2Org app **Provisioning** > **To App** settings.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 
@@ -247,7 +247,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 2. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app)
 3. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)
 
-Alternatively, you can perform step three before step two to minimize provisioning downtime. If you want to achieve zero downtime during key rotation, you can update the service app (step three) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
+To minimize provisioning downtime, you can [register the new key in the service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app) (step three) before you [update the new key in the Org2Org app](#update-the-current-credentials-for-the-org2org-app) (step two). If you want to achieve zero downtime during key rotation, you can update the service app (step three) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
 
 ### Generate a new key for the Org2Org app
 
