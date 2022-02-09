@@ -1,6 +1,6 @@
 ---
 title: Telephony Inline Hook Reference
-excerpt: Customizes Okta's flows that send SMS or Voice messages.
+excerpt: Customizes Okta's flows that send SMS or Voice messages
 ---
 
 # Telephony Inline Hook Reference
