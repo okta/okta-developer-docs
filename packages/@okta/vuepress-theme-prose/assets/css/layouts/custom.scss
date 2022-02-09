@@ -1,0 +1,43 @@
+ol,
+ol:not([class]) {
+	counter-reset: ol;   
+	margin-left: 25px;
+	padding-left: 31px;
+	li {
+		position: relative;
+		z-index: 1;
+		&::marker {
+			content: '';
+		}
+		&:before {
+			counter-increment: ol;
+			content: counter(ol);
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			left: -42px;
+			font-size: 12px;
+			line-height: 14px;
+			border-radius: 50%;
+			background-color: cv('gray', '300');
+			color: cv('gray', '900');
+			z-index: -1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+ul,
+ul:not([class]) {
+	li {
+		&::marker {
+			color: #a1a1a3;
+		}
+	}
+}
+
+:not(pre) > code[class*=language-], pre[class*=language-] {
+	padding: 47px 78px 49px 81px;
+}
