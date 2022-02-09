@@ -239,6 +239,6 @@ This section covers what happens when a telephony inline hook flow fails either 
 
   - Using an invalid status in the response
 
-  - Attempting to add an active telephony hook when one already exists
+  - Attempting to add an active Telephony Inline Hook when one already exists
 
   - Not including auth scheme in request header
