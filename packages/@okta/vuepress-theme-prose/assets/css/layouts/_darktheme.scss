@@ -1,5 +1,5 @@
 .dark-theme {
-  .sidebar-area, table, .CodeMirror-vscrollbar {
+  &, .sidebar-area, table, .CodeMirror-vscrollbar {
     scrollbar-width: thin;
     scrollbar-color: dark;
     &::-webkit-scrollbar {
