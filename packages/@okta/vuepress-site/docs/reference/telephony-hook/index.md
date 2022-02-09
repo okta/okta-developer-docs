@@ -241,4 +241,4 @@ This section covers what happens when a telephony inline hook flow fails either 
 
   - Attempting to add an active Telephony Inline Hook when one already exists
 
-  - Not including auth scheme in request header
+  - Not including the `authScheme` in the request header
