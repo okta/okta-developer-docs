@@ -41,14 +41,14 @@ After the Org2Org OAuth 2.0 connection is configured, you can start to test your
 
 You can use OAuth 2.0 to push user and group information from a spoke org to a centralized hub org by performing the following configuration:
 
-1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org).
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) with the `private_key_jwt` authentication method and the JWKS public key of each Org2Org app in the spoke orgs. Grant [allowed scopes](#request-examples) to the hub org service app (the OAuth 2.0 client).
+1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JWKS public key.
+2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. [Grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client) to the hub org service apps (the OAuth 2.0 clients).
 3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
-4. [Assign users and groups to be pushed to the hub org](#assign-users-and-groups-in-the-org2org-app).
+4. [Assign users and groups in the Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to be pushed to the hub org.
 
 ### Add an Org2Org app integration in a spoke org
 
-In the spoke org, where you want to push users and groups to the central hub org, you need to add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-basic-authentication-application). This generates an Org2Org app integration instance and the key certificates required to connect to the hub org.
+In the spoke org, where you want to push users and groups to the central hub org, you need to add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-okta-org2org-application). This generates an Org2Org app integration instance and the key certificates required to connect to the hub org.
 
 As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/reference/api/apps/#add-okta-org2org-application):
 
@@ -113,9 +113,7 @@ curl -v -X GET \
 
 > **Note**: The keys are truncated for brevity.
 
-You need to save the JWKS properties `kty`, `e`, `n`, `use`, and `kid` for use in the corresponding hub org service app.
-
-For each spoke org that you have in your multi-tenant solution, you must create an Org2Org app instance and generate the key credentials that need to be configured in the hub org’s corresponding service app.
+You need to save the generated credentials to configure in the corresponding hub org service app.
 
 ### Create an OAuth 2.0 service app in the hub org
 
@@ -148,23 +146,31 @@ curl -X POST \
     "token_endpoint_auth_method": "private_key_jwt",
     "application_type": "service",
     "jwks": {
-                "keys": [
-                    {
-                        "kty": "'${kty}'",
-                        "e":   "'${e}'",
-                        "use": "'${use}'",
-                        "alg": "RS256",
-                        "n":   "'${n}'",
-                        "kid":   "'${kid}'"
-                    }
-                ]
+              "keys": [
+                {
+                  "kty": "RSA",
+                  "created": "2022-01-20T19:50:14.000Z",
+                  "lastUpdated": "2022-01-20T19:50:14.000Z",
+                  "expiresAt": "2024-01-20T19:50:13.000Z",
+                  "kid": "sf-jWwRKMUU55 ... GucHLxIh_-fYLAofB8",
+                  "use": "sig",
+                  "x5c": [
+                      "MIIDqDCCApCgAwIBAgIGAX55CiDiMA0GCSqG ... c5Iuo9j3wpemDSgGapXQ=="
+                    ],
+                  "x5t#S256": "v-v2V8soFmXuhC ... nrJ4ho-N3P8aASFc",
+                  "e": "AQAB",
+                  "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NSFJAl ... 7dZFiAYF7p_k3XMXOh-hsL_D8FDQ"
+                }
+              ]
             }
  }' "https://${yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note**: You need to specify `kty`, `e`, `use`, `alg`, `n`, and `kid` properties in your `jwks` parameter for the service app. These values are taken from the corresponding spoke Org2Org credentials.
+> **Note**: You can copy the entire [response from the previous `GET /api/v1/apps/${id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
 
-From the response of your POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request.
+### Grant allowed scopes to the OAuth 2.0 client
+
+From the response of the previous POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
 
@@ -220,7 +226,7 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Okta Admin Console and edit the **Okta Org2Org Attribute Mappings** section of the Org2Org app **Provisioning To App** settings.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections of the Org2Org app **Provisioning** > **To App** settings.
 
 ### Assign users and groups in the Org2Org app
 
@@ -235,11 +241,27 @@ After you've assigned your users or groups in the spoke org, validate that the s
 
 ## Key rotation
 
-An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices.
+An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices. You can rotate keys for a specific OAuth 2.0 connection by following these API steps:
 
-From your spoke org, make a request to [generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user:
+1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app)
+2. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app)
+3. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)
 
-`POST /api/v1/apps/${yourOrg2OrgAppId}/credentials/keys/generate?validityYears=${validYears}`
+Alternatively, you can perform step three before step two to minimize provisioning downtime. If you want to achieve zero downtime during key rotation, you can update the service app (step three) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
+
+### Generate a new key for the Org2Org app
+
+From your spoke org, make a request to [generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user.
+
+##### Request example
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${spokeApiToken}" \
+  -H 'Content-Type: application/json' \
+  "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/credentials/keys/generate?validityYears=${validYears}"
+```
 
 ##### Response example
 
@@ -260,9 +282,13 @@ From your spoke org, make a request to [generate a new application key credentia
 }
 ```
 
-> **Note**: The keys are truncated for brevity. Save the `kty`, `e`, `use`, `n`, and `kid` properties to update the keys in your Org2Org and service apps.
+> **Note**: The keys are truncated for brevity.
 
-From the response of your POST request, copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
+Save the generated credentials to update the keys in your Org2Org and service apps.
+
+### Update the current credentials for the Org2Org app
+
+From the response of the [previous POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
 
 ##### Request example
 
@@ -276,15 +302,17 @@ curl -X PUT \
     "label": "'${spokeOrg2OrgClientLabel}'",
     "credentials": {
         "signing": {
-            "kid": "'${kid}'"
+            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
         }
     }
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
 ```
 
-> **Note**: You must specify `name` and `label` body parameters when you update an Org2Org app.
+> **Note**: You must specify `name` and `label` parameters when you update an Org2Org app.
 
-Then go to your hub org and register the new key to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
+### Register the new Org2Org app key with the corresponding service app
+
+On your hub org, register the new key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#update-a-client-application).
 
 ##### Request example
 
@@ -307,16 +335,19 @@ curl -X PUT \
     "jwks": {
                 "keys": [
                   {
-                    "kty": "'${kty}'",
-                    "kid": "'${kid}'",
-                    "e": "'${e}'",
-                    "alg": "RS256",
-                    "use": "'${use}'",
-                    "n": "'${n}'"
+                    "kty": "RSA",
+                    "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8",
+                    "use": "sig",
+                    "x5c": [
+                        "MIIDqDCCApCgAwIBAgIGAX55C ... Iuo9j3wpemDSgGapXQ=="
+                    ],
+                    "x5t#S256": "v-v2V8soFmXuhCAhta8wycA9lXKnrJ4ho-N3P8aASFc",
+                    "e": "AQAB",
+                    "n": "gIxwqCNkdAb1ioyNBY2boqUCrMj_NS ... FiAYF7p_k3XMXOh-hsL_D8FDQ"
                   }
                 ]
             }
  }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}"
 ```
 
-> **Note**: When you update the keys in the service app `jwks` property, all the old keys are overwritten. You must specify all settings when you update a client app. Partial updates aren't supported. If any settings are missing when you update a client app, the update fails.
+> **Note**: You must specify all required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a new key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
