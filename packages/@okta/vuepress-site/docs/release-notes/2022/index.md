@@ -7,10 +7,10 @@ title: Okta API Products release notes 2022
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [API token ID added to System Log Event types](#api-token-id-added-to-system-log-event-types)                        | February 9, 2022         |
+| [API token ID added to System Log event types](#api-token-id-added-to-system-log-event-types)                        | February 9, 2022         |
 | [Bug fixed in 2022.02.1](#bug-fixed-in-2022-02-1)                        | February 9, 2022         |
 
-#### API token ID added to System Log Event types
+#### API token ID added to System Log event types
 
 API requests that include an API token and return a System Log event now include the API token in the event payload. The token identifier appears in the System Log API `transaction.details.requestApiTokenId` field and in the `Event > System > Transaction > Detail > RequestApiTokenId` node in the Admin Console System Log. <!--OKTA-463678-->
 
