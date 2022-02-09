@@ -226,7 +226,7 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App API features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 
@@ -244,10 +244,10 @@ After you've assigned your users or groups in the spoke org, validate that the s
 An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices. You can rotate keys for a specific OAuth 2.0 connection by following these API steps:
 
 1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app)
-2. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app)
-3. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)
+2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)
+3. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app)
 
-To minimize provisioning downtime, you can [register the new key in the service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app) (step three) before you [update the new key in the Org2Org app](#update-the-current-credentials-for-the-org2org-app) (step two). If you want to achieve zero downtime during key rotation, you can update the service app (step three) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
+> **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
 
 ### Generate a new key for the Org2Org app
 
@@ -285,30 +285,6 @@ curl -X POST \
 > **Note**: The keys are truncated for brevity.
 
 Save the generated credentials to update the keys in your Org2Org and service apps.
-
-### Update the current credentials for the Org2Org app
-
-From the response of the [previous POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
-
-##### Request example
-
-```bash
-curl -X PUT \
-  -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${spokeApiToken}" \
-  -H 'Content-Type: application/json' \
-  -d ' {
-    "name": "okta_org2org",
-    "label": "'${spokeOrg2OrgClientLabel}'",
-    "credentials": {
-        "signing": {
-            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
-        }
-    }
-}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
-```
-
-> **Note**: You must specify `name` and `label` parameters when you update an Org2Org app.
 
 ### Register the new Org2Org app key with the corresponding service app
 
@@ -351,3 +327,27 @@ curl -X PUT \
 ```
 
 > **Note**: You must specify all required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a new key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
+
+### Update the current credentials for the Org2Org app
+
+From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
+
+##### Request example
+
+```bash
+curl -X PUT \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${spokeApiToken}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "name": "okta_org2org",
+    "label": "'${spokeOrg2OrgClientLabel}'",
+    "credentials": {
+        "signing": {
+            "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
+        }
+    }
+}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
+```
+
+> **Note**: You must specify `name` and `label` parameters when you update an Org2Org app.
