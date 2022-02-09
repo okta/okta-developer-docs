@@ -160,64 +160,54 @@ createApp(App)
   .mount('#app')
 ```
 
-### Create a Sign-In Widget container
+### Create the sign-in component
 
-To render the Sign-In Widget in Vue.js, you must create a wrapper that allows Okta to treat it as a Vue component. For example, create a `src/components/Login.vue` file with the following content:
+Create a Vue component that displays the sign-in form. For example, create a `src/components/Login.vue` file with the following content:
 
 ```html
 <template>
-  <div class="login">
-    <div id="okta-signin-container"></div>
+  <div>
+    <h2>Login</h2>
+    <p v-if="$route.query.redirect">
+      You need to login first.
+    </p>
+    <form @submit.prevent="login" autocomplete="off">
+      <label><input v-model="email" placeholder="email" v-focus></label>
+      <label><input v-model="pass" placeholder="password" type="password"></label><br>
+      <button type="submit">login</button>
+      <p v-if="error" class="error">Bad login information</p>
+    </form>
   </div>
 </template>
 
 <script>
-import OktaSignIn from '@okta/okta-signin-widget'
-import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
-
-import sampleConfig from '../config'
-
-export default {
-  name: 'Login',
-  mounted: function () {
-    this.$nextTick(function () {
-      const { issuer, clientId, redirectUri, scopes, useInteractionCodeFlow } = sampleConfig.oidc
-      this.widget = new OktaSignIn({
-        clientId,
-        redirectUri,
-        logo: require('@/assets/logo.png'),
-        i18n: {
-          en: {
-            'primaryauth.title': 'Sign in to my Okta Sign-In Widget Vue.js app'
-          }
-        },
-        authParams: {
-          issuer,
-          scopes,
-        },
-        useInteractionCodeFlow
-      })
-
-      const originalUri = this.$auth.getOriginalUri();
-      if (!originalUri) {
-        this.$auth.setOriginalUri('/');
+  import auth from '../auth'
+  export default {
+    data () {
+      return {
+        email: '',
+        pass: '',
+        error: false
       }
-
-      this.widget.showSignInToGetTokens({
-        el: '#okta-signin-container',
-        scopes
-      }).then(tokens => {
-        this.$auth.handleLoginRedirect(tokens)
-      }).catch(err => {
-        throw err
-      })
-
-    })
-  },
-  unmounted () {
-    // Remove the widget from the DOM on path change
-    this.widget.remove()
+    },
+    methods: {
+      login () {
+        auth.login(this.email, this.pass, loggedIn => {
+          if (!loggedIn) {
+            this.error = true
+          } else {
+            this.$router.replace(this.$route.query.redirect || '/')
+          }
+        })
+      }
+    }
   }
-}
 </script>
+
+<style>
+  .error {
+    color: red;
+  }
+</style>
+
 ```
