@@ -237,7 +237,7 @@ This section covers what happens when a telephony inline hook flow fails either 
 
   The following actions result in an error:
 
-  - Using an invalid status in response
+  - Using an invalid status in the response
 
   - Attempting to add an active telephony hook when one already exists
 
