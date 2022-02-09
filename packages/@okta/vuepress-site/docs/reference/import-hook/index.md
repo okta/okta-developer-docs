@@ -288,7 +288,7 @@ You then need to associate the registered Inline Hook with an app by completing 
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Any Inline Hooks you have registered will be listed. Select the one to use.
+1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline Hooks that you've registered appears in the list. Select the Inline Hook to use.
 
 1. Click **Save**.
 
