@@ -19,7 +19,7 @@ cd okta-app
 
 ### Install dependencies
 
-Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) and the [latest version of Okta Angular](https://github.com/okta/okta-angular/releases)(`@okta/okta-vue`) libraries to your Angular app. You can install them by using `npm` from your root app directory:
+Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) and the [latest version of Okta Angular](https://github.com/okta/okta-angular/releases)(`@okta/okta-angular`) libraries to your Angular app. You can install them by using `npm` from your root app directory:
 
 ```bash
 npm install @okta/okta-angular@latest
