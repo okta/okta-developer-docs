@@ -2,6 +2,8 @@
 title: Work with Okta session cookies
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
 
 ---

@@ -156,11 +156,6 @@ export const guides = [
             title: "Share Application Key Credentials for IdPs across Apps",
             guideName: "sharing-cert"
           },
-          { title: "Set up SAML Tracer", guideName: "saml-tracer" },
-          {
-            title: "Upgrade SAML Apps to SHA256",
-            guideName: "updating-saml-cert"
-          },
           {
             title: "Sign the Okta certificate with your own CA",
             guideName: "sign-your-own-saml-csr"

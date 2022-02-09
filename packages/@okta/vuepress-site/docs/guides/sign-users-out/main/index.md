@@ -4,6 +4,8 @@ excerpt: Learn how to sign users out of your applications that use Okta's APIs.
 layout: Guides
 ---
 
+> **Note**: This document is written for Okta Classic Engine. If you’re using Okta Identity Engine, see [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+
 This guide explains an important part of security, which is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. It explains the most common strategies to prevent unauthorized use of a session, which include [setting short token lifetimes](/docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
 ---
