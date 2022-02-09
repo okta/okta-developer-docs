@@ -1,5 +1,5 @@
 .dark-theme {
-  &, * {
+  &, .sidebar-area, table, .CodeMirror-vscrollbar {
     scrollbar-width: thin;
     scrollbar-color: dark;
     &::-webkit-scrollbar {
@@ -27,7 +27,9 @@
       color: cv('blue', '300');
     }
   }
-
+  footer {
+    z-index: 2;
+  }
   .page-body {
     background-color: cv('body');
     .authorization-layout {
@@ -35,6 +37,10 @@
     }
     .content--container {
       color: cv('gray', '000');
+      .sidebar-area {
+        box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+        z-index: 1;
+      }
       .edit-on-github .fa {
         color: cv('gray', '000');
       }
@@ -299,7 +305,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('white') !important;
+      background-color: cv('gray', '000') !important;
       -webkit-mask-image: url(/img/logos/baseball.svg);
       mask-image: url(/img/logos/baseball.svg);
     }
@@ -307,7 +313,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('white') !important;
+      background-color: cv('gray', '000') !important;
       -webkit-mask-image: url(/img/logos/splunk.svg);
       mask-image: url(/img/logos/splunk.svg);
     }
@@ -315,7 +321,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('white') !important;
+      background-color: cv('gray', '000') !important;
       -webkit-mask-image: url(/img/logos/adobe.svg);
       mask-image: url(/img/logos/adobe.svg);
     }
@@ -323,7 +329,7 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('white') !important;
+      background-color: cv('gray', '000') !important;
       -webkit-mask-image: url(/img/logos/jetblue.svg);
       mask-image: url(/img/logos/jetblue.svg);
     }
@@ -331,35 +337,49 @@
       background-image: none !important;
       mask-repeat: no-repeat;
       mask-position: center;
-      background-color: cv('white') !important;
+      background-color: cv('gray', '000') !important;
       -webkit-mask-image: url(/img/logos/experian.svg);
       mask-image: url(/img/logos/experian.svg);
     }
   }
 
-  @include media(">desktop-xl") {
+  @include media("<desktop") {
     header.page-header {
-      .menu--slideout .header--links {
-        & > ul.menu--items {
-          &:not(.expanded) {
-            & > li {
-              span.link,
-              a.link {
-                color: cv('body', 'darkgray');
-              }
-              a.link.router-link-active {
-                color: cv('link', 'signup') !important;
+      .search--slideout {
+        background-color: cv('header');
+      }
+      .menu--slideout {
+        background-color: cv('header');
+        .header--links {
+          & > ul.menu--items {
+            &:not(.expanded) {
+              & > li {
+                span.link,
+                a.link {
+                  color: cv('gray', '000');
+                }
+                a.link.router-link-active {
+                  color: cv('blue', '300') !important;
+                }
               }
             }
+            li a.link:hover, 
+            li span.link:hover {
+              color: cv('blue', '300');
+            }
           }
-          li a.link:hover, 
-          li span.link:hover {
-            color: cv('link', 'signup');
-          }
-        }
-        & > ul.menu--items.expanded {
-          li.opened > span {
-            color: cv('link', 'signup');
+          & > ul.menu--items.expanded {
+            li.opened > span {
+              color: cv('blue', '300');
+              &:after {
+                background-image: none !important;
+                mask-repeat: no-repeat;
+                mask-position: center;
+                background-color: cv('blue', '300') !important;
+                -webkit-mask-image: url(/img/icons/chevron-down-gray.svg);
+                mask-image: url(/img/icons/chevron-down-gray.svg);
+              }
+            }
           }
         }
       }
@@ -413,6 +433,7 @@
 
   .search--wrapper {
     background-color: cv('body');
+    border: none;
     .SearchBox {
       .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
         color: cv('gray', '200');
