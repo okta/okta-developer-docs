@@ -3,7 +3,7 @@
 Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Auth JS instance:
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
-* ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
+* `issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
 * `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow)
 * `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
@@ -29,9 +29,6 @@ Before you create the sign-in form, you need to create the authentication client
 ```js
 import { OktaAuth } from '@okta/okta-auth-js'
 import OktaVue from '@okta/okta-vue'
-import sampleConfig from '@/config'
-
-const OktaAuth = require('@okta/okta-auth-js').OktaAuth
 
 const authClient = new OktaAuth({
   issuer: 'https://${yourOktaDomain}',
@@ -41,7 +38,6 @@ const authClient = new OktaAuth({
   tokenManager: {
         storage: 'localStorage'
       },
-  transformAuthState,
   useInteractionCodeFlow: true
 })
 
@@ -53,11 +49,8 @@ export default {
       this.onChange(true)
       return
     }
-    return authClient.idx.authenticate({ username: email, password: pass })
-    .then(handleTransaction)
-    .catch(showError);
 
-    return authClient.signInWithCredentials({
+    return authClient.idx.authenticate({
       username: email,
       password: pass
     }).then(transaction => {
@@ -96,35 +89,7 @@ export default {
   },
 
   onChange () {
-  },
-
-  handleTransaction(transaction) {
-  // IDX
-  if (transaction.messages) {
-    showError(transaction.messages);
   }
-
-  switch (transaction.status) {
-    case 'PENDING':
-      if (transaction.nextStep.name === 'identify') {
-        renderDynamicSigninForm(transaction);
-        break;
-      }
-      hideSigninForm();
-      updateAppState({ transaction });
-      showMfa();
-      break;
-    case 'FAILURE':
-      showError(transaction.error);
-      break;
-    case 'SUCCESS':
-      hideSigninForm();
-      endAuthFlow(transaction.tokens);
-      break;
-    default:
-      throw new Error('TODO: add handling for ' + transaction.status + ' status');
-  }
-}
 
 }
 ```
