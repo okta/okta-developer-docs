@@ -13,9 +13,9 @@ The next step is for the user to click on link in the email. Add a route to acce
 
 ```javascript
 router.get('/login/callback', async (req, res, next) => {
-  const { protocol, originalUrl } = req;
-  const parsedUrl = new URL(protocol + '://' + req.get('host') + originalUrl);
+  const parsedUrl = new URL(req.protocol + '://' + req.get('host') + req.originalUrl);
   const { search, href } = parsedUrl;
+  const { state, otp } = req.query;
   const authClient = getAuthClient(req);
   ...
 ```
@@ -25,63 +25,22 @@ router.get('/login/callback', async (req, res, next) => {
 Check to see if OTP and state exists in the query parameter by calling `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter string. An example query string: `?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ```javascript
-   if (authClient.idx.isEmailVerifyCallback(search)) {
-      ...
-    }
-```
-
-To check for the existence of an in-progress idx transaction, use `idx.canProceed`.
-
-### 3: Submit the OTP and state parameters
-
-If the parameters exist, submit and verify them by calling `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query string used in the previous step.
-
-```javascript
-const transaction = await authClient.idx.handleEmailVerifyCallback(search);
-handleTransaction({ req, res, next, authClient, transaction });
-```
-
-### 4: Handle next step response
-
-If the OTP and state area valid, `OktaAuth.idx.handleEmailVerifyCallback()` returns an `IdxTransaction` object indicating that the next step is for the user to reset their password.  Specifically, `status` equals `PENDING` and `nextStep.name` is set to `reset-authenticator`
-
-```json
-{
-  status: "PENDING",
-  nextStep: {
-    name: "reset-authenticator",
-    inputs: [
-      {
-        name: "password",
-        label: "New password",
-        secret: true,
-        ...
-      },
-    ],
-    type: "password",
-    authenticator: {
-      type: "password",
-      ...
-    },
-  }
+if (authClient.idx.isEmailVerifyCallback(search)) {
+  ...
 }
-
 ```
 
-### Display password reset page and continuing the password recovery flow
+### 4: Check for the existence of an in-progress password recovery
 
-Display the password reset page and continue the password recovery flow described in the [User password recovery guide](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+Call `OktaAuth.idx.canProceed()` passing in the`state` parameter to verify there is an active in-progress password recovery for the current user.
 
 ```javascript
-    case 'reset-authenticator':
-      nextRoute = '/reset-password';
+    if (authClient.idx.canProceed({ state })) {
+      res.redirect(`/login?state=${state}&otp=${otp}`);
+      return;
 ```
 
-
-
-
-
-
+### 5:
 -------- ACTUAL DATA
 ### Check if OTP and relaystate has been passed to url
 

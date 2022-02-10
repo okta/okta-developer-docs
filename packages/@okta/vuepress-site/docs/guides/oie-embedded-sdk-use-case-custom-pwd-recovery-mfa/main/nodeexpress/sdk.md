@@ -25,9 +25,9 @@ router.get('/login/callback', async (req, res, next) => {
 Check to see if OTP and state exists in the query parameter by calling `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter string. An example query string: `?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ```javascript
-   if (authClient.idx.isEmailVerifyCallback(search)) {
-      ...
-    }
+if (authClient.idx.isEmailVerifyCallback(search)) {
+  ...
+}
 ```
 
 ### 3: Submit the OTP and state parameters
