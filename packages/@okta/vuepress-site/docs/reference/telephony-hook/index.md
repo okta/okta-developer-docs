@@ -40,7 +40,7 @@ For the Telephony Inline Hook, the outbound call from Okta to your external serv
 
 ### data.userProfile
 
-Provides information on the OTP requester.
+Provides information on the OTP requester
 
 | Property | Description                   | Data Type                    |
 |----------|-------------------------------|------------------------------|
