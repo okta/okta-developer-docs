@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-if="options.length">
+  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-show="isVisible()" v-if="options.length">
     <div class="selector-control" v-if="!noSelector">
       <span class="instructions-label">
         Instructions for
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import CompanyLogosVue from '../components/CompanyLogos.vue';
   import { getGuidesInfo, guideFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
@@ -70,6 +71,12 @@
           this.stackSelectorData.from = this.selectedOption.link;
           this.stackSelectorData.to = value.link;
         }
+      },
+      isVisible: function() {
+        if(this.$page.frontmatter.showStackSelector == false ) {
+          return false;
+        }
+        return true;
       }
     },
     created () {
