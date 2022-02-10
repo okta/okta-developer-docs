@@ -46,7 +46,7 @@ Provides information on the OTP requester
 |----------|-------------------------------|------------------------------|
 | firstName   | First name of the OTP requester. | String     |
 | lastName | Last name of the OTP requester.        | String |
-| login | Okta Login of the OTP requester.        | String |
+| login | Okta Login of the OTP requester        | String |
 | userId | Okta userId of the OTP requester.        | String |
 
 ### data.messageProfile
