@@ -5,7 +5,7 @@ title: Auth JS fundamentals
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple SPA application to demonstrate a sign-in use case.
+This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple, single-page application (SPA) to demonstrate a sign-in use case.
 
 ---
 
@@ -28,9 +28,9 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 ## About the Okta Auth JavaScript SDK
 
-The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
+The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/), as well as the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow, to enable you to create a fully branded sign-in experience using JavaScript.
 
-The Okta Auth JS SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/), which powers the default Okta sign-in page. If you're building a JavaScript front end or single-page app (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
+The Okta Auth JS SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/), which powers the default Okta sign-in page. If you're building a JavaScript front end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
 
 In this guide you'll learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
 
@@ -84,8 +84,7 @@ To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps
       tokenManager: {
         storage: config.storage
       },
-      transformAuthState,
-      recoveryToken: config.recoveryToken
+      transformAuthState
     });
     if (config.startService) {
       authClient.start();
@@ -287,9 +286,9 @@ var config = {
     npm start
     ```
 
-1. Navigate to `http://localhost:8080`. The static spa page appears with a custom login form. Application status details appear to the right of the screen.
+1. Navigate to `http://localhost:8080`. The static-spa application page appears with a custom login form. Application status details appear to the right of the screen.
 
-1. Sign in with a user from your org assigned to the app integration. The static spa page appears printing the user's info and access token details to the page.
+1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears printing the user's info and access token details to the page.
 
 > **Note:** You can also configure an embedded Sign-In Widget use-case or a redirect use-case by updating the configuration details in the application. Click `Edit Config` to make those changes. For more information, see the [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa#configuring).
 
