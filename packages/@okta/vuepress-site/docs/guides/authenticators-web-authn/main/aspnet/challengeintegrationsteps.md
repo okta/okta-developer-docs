@@ -85,7 +85,7 @@ The call to `navigator.credentials.get` calls WebAuthn APIs in the browser and p
 
 If the validations are successful, the user sees the authenticator challenge dialog box.
 
-![The authenticator challenge dialog box](/img/authenticators/TBD.png)
+![The authenticator challenge dialog box](/img/authenticators/dotnet-Authenticators-WebAuthn-Challenge_Prompt.png)
 
 When the authenticator has validated the user, it returns an assertion object which contains proof that the user is who they say they are.
 
@@ -123,7 +123,8 @@ Send the validating credentials back to the Okta server to finish validating the
             fetch('@Url.Action("VerifyWebAuthnAuthenticatorAsync", "Manage")', options)
                 .then(res => {
                     console.log("Request successful! Response:", res);
-                    location.href = '@Url.Action("VerifyWebAuthnAuthenticator", "Manage", new { verificationCompleted = true })';
+                    location.href = '@Url.Action("VerifyWebAuthnAuthenticator",
+                        "Manage", new { verificationCompleted = true })';
                 })
                 .catch(function(err) {
                     console.error(err);
@@ -151,14 +152,7 @@ Session["webAuthnResponse"] = authnResponse;
 
 ### 8. Check Verification Is Successful and Log User In
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `ChallengeAuthenticatorAsync` to discover the current status of the authentication process. You'll need to respond to two specific authenticator statuses:
-
-* `AwaitingAuthenticatorEnrollment`
-* `Success`
-
-A status of `AwaitingAuthenticatorEnrollment` means that there are other authenticator types (Google, Okta Verify) which can be enrolled by the user and that your app should return to Step 4 in the enrollemnt process and display a list of those authenticators which are still available along with an option to skip further enrollment.
-
-A status of `Success` means that the user has now successfully logged into the app. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application.
+Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `ChallengeAuthenticatorAsync` to discover the current status of the authentication process. A status of `Success` means that the user has now successfully logged into the app. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application.
 
 ```csharp
  var authnResponse = (IAuthenticationResponse)Session["webAuthnResponse"];
@@ -172,14 +166,7 @@ switch (authnResponse?.AuthenticationStatus)
         _authenticationManager.SignIn(identity);
         return RedirectToAction("Index", "Home");
 
-    case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
-        Session["isChallengeFlow"] = false;
-        Session["authenticators"] =
-            ViewModelHelper.ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
-        TempData["canSkip"] = authnResponse.CanSkip;
-        return RedirectToAction("SelectAuthenticator", "Manage");
-
-    default:
+     default:
         return RedirectToAction("Index", "Home");
 }
 ```
