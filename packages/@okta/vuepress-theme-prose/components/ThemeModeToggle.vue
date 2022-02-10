@@ -17,7 +17,7 @@ export default {
     };
   },
 
-  created() {
+  mounted() {
     this.getDarkMode();
     this.addHtmlClass();
   },
