@@ -8430,9 +8430,9 @@ If the authScheme is `UNKNOWN`, then either the authentication scheme used by th
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, both token based and  OAuth 2.0 based authentication <ApiLifecycle access="ea" /> are supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication <ApiLifecycle access="ea" /> are supported.
 
-#### Token based Provisioning Connection Profile example
+#### Token-based Provisioning Connection Profile example
 ```json
 {
     "profile": {
@@ -8442,14 +8442,14 @@ The application provisioning connection profile is used to configure the method 
 }
 ```
 
-#### Token based Provisioning Connection Profile properties
+#### Token-based Provisioning Connection Profile properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
 
-#### OAuth 2.0 based Provisioning Connection Profile example
+#### OAuth 2.0-based Provisioning Connection Profile example
 ```json
 {
     "profile": {
@@ -8459,12 +8459,12 @@ The application provisioning connection profile is used to configure the method 
 }
 ```
 
-#### OAuth 2.0 based Provisioning Connection Profile properties
+#### OAuth 2.0-based Provisioning Connection Profile properties
 
 | Property                                | Description                                                   | DataType                               | Nullable | Unique | Readonly |
 | --------------------------------------- | ------------------------------------------------------------- | -------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme                              | Defines the method of authentication                          | `OAUTH2` <ApiLifecycle access="ea" />  | FALSE    | FALSE  | FALSE    |
-| clientId <ApiLifecycle access="ea" />   | Unique identifier for OAuth 2.0 service app in the target org | String                                 | FALSE    | FALSE  | FALSE    |
+| clientId <ApiLifecycle access="ea" />   | Unique client identifier for the OAuth 2.0 service app from the target org | String                                 | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
