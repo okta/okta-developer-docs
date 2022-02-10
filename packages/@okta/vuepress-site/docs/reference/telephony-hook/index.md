@@ -23,7 +23,7 @@ For information on the API for registering external service endpoints with Okta,
 
 The Okta Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
 
-**Note:** You can have only one active Telephony Inline Hook per org.
+You can have only one active Telephony Inline Hook per org. 
 
 When you create a Telephony Inline Hook, you must include the `authScheme` parameter. See [Create Inline Hook](/docs/reference/api/inline-hooks/#create-inline-hook) and the [authScheme object](/docs/reference/api/inline-hooks/#authscheme-object).
 
@@ -92,13 +92,13 @@ The `value` object is where you specify the result of the send OTP operation.
 | transactionId    | Transaction ID that uniquely identifies an attempt to deliver the OTP to the requester | String |
 | transactionMetadata    | Any relevant transaction metadata, such as duration | String |
 
-#### Status
+#### status
 
 | Status      | Description               |
 |---------|---------------------------|
-| SUCCESSFUL     | External web service was able to deliver the OTP to the requester |
-| PENDING | External web service wasn't able to confirm delivery of the OTP to the requester |
-| FAILED  | External web service was unable to deliver the OTP to the requester |
+| SUCCESSFUL     | External web service was able to deliver the OTP to the requester. |
+| PENDING | External web service wasn't able to confirm delivery of the OTP to the requester. |
+| FAILED  | External web service was unable to deliver the OTP to the requester. |
 
 ### error
 
