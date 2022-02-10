@@ -31,7 +31,7 @@ service to deliver the OTP, and your service can respond with commands that indi
 
 **Note:** You can have only one active Telephony Inline Hook per org.
 
-All telephony hooks require authentication field and secret to be specified while creating the hook. It is passed as the
+When you create a Telephony Inline Hooks, you must include the `authScheme` parameter. See [Create Inline Hook](/docs/reference/api/inline-hooks/#create-inline-hook) and the [authScheme object](/docs/reference/api/inline-hooks/#authscheme-object) for more information.
 `authScheme` parameter during hook creation. See [how to create inline hooks](/docs/reference/api/inline-hooks/)
 
 ## Objects in the request from Okta
