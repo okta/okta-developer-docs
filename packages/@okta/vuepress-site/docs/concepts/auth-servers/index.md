@@ -93,3 +93,11 @@ The following table describes which capabilities are supported by the Custom Aut
 | Integrate with an API Gateway              | Yes                                  | No                          |
 | Machine-to-Machine or Microservices        | Yes                                  | No                          |
 | Mint Access Tokens with Okta API Scopes    | No                                   | Yes                         |
+
+Term 1
+
+:   Definition 1
+
+Term 2
+
+:   Definition 2

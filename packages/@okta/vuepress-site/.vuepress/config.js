@@ -284,6 +284,7 @@ module.exports = ctx => ({
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-attrs'))
+      .use(require('markdown-it-deflist'));
     },
     anchor: {
       permalinkBefore: false,
