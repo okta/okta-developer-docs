@@ -165,7 +165,6 @@ In the case of an Inline Hook timeout or failure, the Okta process flow either c
 | Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the Inline Hook again. |
 | User Import Inline Hook | Okta import process continues and user is created. |
 | Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following default UI message: "There was an error creating your account. Please try registering again". |
-| Telephony Inline Hook | Okta process to deliver the OTP continues and the OTP is sent using Okta's telephony providers. |
 
 >**Note:** Review the System Log for errors of type `inline_hook.executed`. This error type appears when Okta doesn't receive a response from your external service or receives a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
 
