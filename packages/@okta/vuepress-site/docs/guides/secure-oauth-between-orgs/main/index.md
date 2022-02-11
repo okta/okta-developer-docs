@@ -247,7 +247,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)
 3. [Update the current credentials for the Org2Org app](#update-the-current-credentials-for-the-org2org-app)
 
-> **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you've verified that provisioning works with the new key.
+> **Note**: If you want to minimize downtime during key rotation, you can update the service app (step two) with both the old and new keys, since `jwks.keys` is an array that can handle different `kid` identifiers. You can remove the old key after you verify that provisioning works with the new key.
 
 ### Generate a new key for the Org2Org app
 
