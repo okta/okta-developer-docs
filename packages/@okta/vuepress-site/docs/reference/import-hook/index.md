@@ -1,9 +1,9 @@
 ---
-title: User Import Inline Hook Reference
+title: User Import Inline Hook reference
 excerpt: Add custom logic to the user import process.
 ---
 
-# User Import Inline Hook Reference
+# User Import Inline Hook reference
 
 <ApiLifecycle access="ea" />
 
@@ -21,7 +21,7 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a User Import Inline Hook](#enabling-a-user-import-inline-hook).
+For steps to enable this Inline Hook, see [Enabling a User Import Inline Hook](#enabling-a-user-import-inline-hook).
 
 ## About
 
@@ -265,15 +265,6 @@ If the external service times out after receiving an Okta request, the Okta proc
 
 {
   "commands": [{
-    "type": "com.okta.user.profile.update",
-    "value": {
-      "firstName": "Stan"
-    }
-  }]
-}
-
-{
-  "commands": [{
     "type": "com.okta.appUser.profile.update",
     "value": {
       "firstName": "Stan",
@@ -297,7 +288,7 @@ You then need to associate the registered Inline Hook with an app by completing 
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** dropdown menu. Any Inline Hooks you have registered will be listed. Select the one to use.
+1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline Hooks that you've registered appears in the list. Select the Inline Hook to use.
 
 1. Click **Save**.
 
