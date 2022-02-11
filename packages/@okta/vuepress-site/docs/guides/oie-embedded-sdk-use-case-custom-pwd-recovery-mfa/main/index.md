@@ -9,20 +9,13 @@ title: Custom password recovery
 
 <StackSelector />
 
-This guide shows you how to
-
-This guide shows you how to customize the password recovery use case to create a tighter integration
-
-
-flexible self-service recovery operations in OIE
-
-This guide shows you how to customize the password recovery use case using Okta's embedded authentication solutions. Specifically,
+This guide shows how to customize the self-service password recovery flow using Okta's embedded solutions. Specifically, it details how you can better control your user's password recovery experience using email authentication and magic links.
 
 ---
 **Learning outcomes**
 
-* Understand the password recovery use case
-* Learn how to customize your password recovery integration
+* Understand the supported flows within password recovery
+* Learn step-by-step how to customize your user's password recovery experience
 
 **What you need**
 
@@ -42,11 +35,11 @@ This guide shows you how to customize the password recovery use case using Okta'
 
 ## Overview
 
-Okta's embedded solutions allow you to fully customize your user's authentication journeys with full support for theming, branding and, depending your solution, complete control of the user experience. This guide covers customizations for one particular journey, self-service password recovery, where an authenticator is used to verify the user before they can reset their password.
+Okta's embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
 
 ### Two different user experiences using email
 
-When the email authenticator is used with password recovery, there is out of the box support for two different types of user experiences: using the magic link or one-time password (OTP). With the magic link, the user initiates the password recovery in your app, clicks on the magic link in their email, and completes the password reset using an Okta hosted site. With OTP, the user intiates the password recovery in your app, copies the OTP from their email to your app, and completes the password reset in your app. The following diagram illustrates these two experiences:
+When you configure an email authenticator with password recovery, there is out-of-the-box support for two different types of user experiences: click a magic link or copy a one-time password (OTP). With the magic link experience, the user initiates the password recovery in your app, clicks on the magic link in their email, and completes the password reset using an Okta-hosted site. With OTP, the user initiates the password recovery in your app, copies the OTP from their email to your app, and completes the password reset in your app. The following diagram illustrates these two experiences:
 
 <div class="common-image-format">
 
@@ -56,9 +49,9 @@ When the email authenticator is used with password recovery, there is out of the
 
 ### The case for customizing the email magic link experience
 
-The OTP experience allows for greater customization because it keeps the user within your app when they make the password reset. Since the user needs to copy the OTP from email to your app, it does however, introduce additional friction to the overall experience. Magic links provides a smoother experience by only requiring the user to click a link. This experience however, sends them to an Okta hosted site to complete the password reset which limits the branding and other customizations you can implement.
+The OTP experience allows for greater customization because it keeps the user within your app when performing the password reset. However, it does introduce additional friction since the user needs to copy the OTP from their email to your app. Magic links, on the other hand, provide a smoother experience by only requiring the user to click a link. However, the drawback with this experience is that it sends them to an Okta-hosted site to reset their password, which limits the branding and other customizations you can implement.
 
-Fortunately, you can provide your users with a password recovery experience that friction free and customized. When your users initiate a password recovery, they click on the magic link in their email and get sent directly to your app to complete the password reset. The flow looks like the following:
+Fortunately, you can provide your users with a password recovery experience that's friction-free and customizable. In this customized experience, your users click the magic link and, instead of redirecting to an Okta-hosted site, they get sent directly to your app to reset their password. The flow looks like the following:
 
 <div class="common-image-format">
 
@@ -66,50 +59,50 @@ Fortunately, you can provide your users with a password recovery experience that
 
 </div>
 
-With this customized password recovery experience, you gain better control of the user experience, keep user interactions contained as much as possible within your app, and have your users back to your app with a single click. This guide discusses the configuration changes and updates needed to make to your app support this experience.
+With this customized experience, you gain better control of the user experience, keep user interactions contained as much as possible within your app, and send your users back to your app with a single click. This guide discusses the configuration changes and updates needed to make your app support this experience.
 
 ## Before you begin
 
 Before you begin you need to:
 
-* Create and Okta org and configure it as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>.
-* Build an app with the Embedded Sign-in Widget or SDK.
-  * For Sign-in Widget based apps, implement [Basic sign-in flow](docs/guides/oie-embedded-widget-use-case-basic-sign-in/nodejs/main/).
-  * For SDK based apps, implement [User Password Recovery](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
-* If you want to test the flows without building an app, use the provided sample apps which have prebult support password recovery email customizations.
+1. Create an Okta org and configure it as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>.
+1. [Set up the SDK and Sign-in Widget](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/)
+1. Build an app with the Embedded Sign-in Widget or SDK.
+    * For Sign-in Widget based apps, implement [Basic sign-in flow](docs/guides/oie-embedded-widget-use-case-basic-sign-in/nodejs/main/).
+    * For SDK based apps, implement [User Password Recovery](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+1. If you want to test the flows without building an app, use the provided sample apps, which have prebuilt support for password recovery email customizations.
 
 ## Summary of changes
 
 To give your users this customized experience, perform the following steps:
 
-* [Update your org to support email authentication during password recovery](#update-your-org)
+* [Update your org to support the email authenticator with password recovery](#update-your-org)
 * [Update the Forgot Password email template to point to your app](#update-the-forgot-password-email-template)
 * Depending on your embedded integration solution either:
-    * [Update your Sign-In Widget based app](#update-your-app-with-the-embedded-sign-in-widget)
-    * [Update your SDK based app](#update-your-app-with-the-embedded-sdk)
+    * [Update your Sign-In Widget based app](#update-your-sign-in-widget-integration)
+    * [Update your SDK based app](#update-your-sdk-integration)
 
 ## Update your org
 
-Confirm that you have the email authenticator setup for password recovery by performing the following steps:
+Confirm that you have the email authenticator set up for password recovery by performing the following steps:
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, confirm you have the **Email** authenticator added to your org. If not present, add it by clicking on **Add Authenticator** and locating **Email**.
-1. Open the **Email** authenticator and note the value of **
-1. The **Password** authenticator and click on its **Actions** menu and select **Edit**.
-1. On the **Password** page, scroll down to the rules section click and edit the **Default Rule** (or currently active rule) by clicking the pencil icon.
+1. Find the **Password** authenticator, click on its **Actions** link, and select **Edit** in the dropdown.
+1. On the **Password** page, scroll down to the rules section. Edit the **Default Rule** (or currently active rule) by clicking on its pencil icon.
 1. On the **Edit Rule** page, confirm that **Email** is checked for the **Users can initiate recovery with** field.
-1. If changes were made, click **Update Rule**
+1. If changes were made, click **Update Rule**.
 
 ## Update the Forgot Password email template
 
-When the user selects the email authenticator during the password recovery flow, the receive an email based on the **Forgot Password** email template. This template contains variables the dynmaically set the reset password link, one-time password, and other values in the generated email. Update the link in this template to point to your app and include the OTP and relay state variable. To update the template execute the following steps:
+When users initiate a password recovery, they are sent an email based on the **Forgot Password** template. Variables in this template are dynamically set before the email is generated and sent to the user. By default, the magic link is set to `resetPasswordLink`, which resolves to an Okta-hosted site. Update this link to point to your app and include the `oneTimePassword` and `request.relayState` variables in the URL's query parameter. To make this update perform the following steps:
 
 1. In the Admin Console, go to **Customizations > Emails**.
 1. On the **Emails** page, find the **Password** category on the template menu.
 1. Under **Password**, click **Forgot Password**.
 1. On the **Forgot Password** email template page, click **Edit**.
 1. On the **Edit Default Email**, do the following:
-  1. In the **Message** field, locate the reset password link in the field's HTML. The link is located in the `href` attribute of an `<a>` tag with the `id` of `reset-password-link`.  The following snippet shows the actual placement of the `<a>` tag within the HMTL:
+  1. In the **Message** field, locate the magic link in the field's HTML. The link is located in the `href` attribute of an `<a>` tag with the `id` of `reset-password-link`. The following snippet shows the actual placement of the `<a>` tag within the HMTL:
 
       ```html
       <a id="reset-password-link" href="${resetPasswordLink}" style="text-decoration: none;">
@@ -126,17 +119,35 @@ When the user selects the email authenticator during the password recovery flow,
       | otp            | *${oneTimePassword}*    |
       | state          | *${request.relayState}* |
 
+      After your updates the URL should take the following format: `http://[your app's address]?otp=${oneTimePassword}&state=${request.relayState}`.
 
       <StackSnippet snippet="emailtemplate" />
 
-  1. Click **Save**, to save the changes and close the dialog window.
+  1. Click **Save** and close the dialog window.
 
 
-### Update your Embedded Sign-In Widget integration
+## Update your Sign-In Widget integration
+
+The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the Sign-in Widget, execute the following steps to make this update. If your app uses the SDK, go to [Update your SDK integration](#update-your-sdk-integration).
+
+### Summary of steps
+
+The following diagram illustrates the steps in the customized password recovery using a Sign-in Widget based app.
+
+
+<StackSnippet snippet="siwsummary" />
 
 <StackSnippet snippet="siw" />
 
-### Update your Embedded SDK integratino
+## Update your SDK integration
+
+The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the SDK, execute the following steps to make this update. If your app uses the Sign-in Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
+
+### Summary of steps
+The following diagram illustrates the steps in the customized password recovery using a SDK based app.
+
+
+<StackSnippet snippet="sdksummary" />
 
 <StackSnippet snippet="sdk" />
 
