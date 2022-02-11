@@ -20,7 +20,7 @@ To view an example of this new event detail, [create a user by API](/docs/guides
 
 * The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
 
-* For SAML 1.1 template applications, the assertion, `AssertionID=aid0` is sent in the SAML responses intermittently resulting in an error message when the assertion value is repeated. (OKTA-468418)
+* For SAML 1.1 template applications, `AssertionID=aid0` was sent in the SAML responses intermittently that resulted in an error message when the assertion value is repeated. (OKTA-468418)
 
 ### Monthly release 2022.02.0
 
