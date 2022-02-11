@@ -8,7 +8,7 @@ title: Okta API Products release notes 2022
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [API token ID added to System Log event types](#api-token-id-added-to-system-log-event-types)                        | February 9, 2022         |
-| [Bug fixed in 2022.02.1](#bug-fixed-in-2022-02-1)                        | February 9, 2022         |
+| [Bugs fixed in 2022.02.1](#bugs-fixed-in-2022-02-1)                        | February 9, 2022         |
 
 #### API token ID added to System Log event types
 
@@ -16,9 +16,11 @@ API requests that include an API token and return a System Log event now include
 
 To view an example of this new event detail, [create a user by API](/docs/guides/quickstart/main/#create-a-user-by-api) and view the associated event (`user.lifecycle.create`).
 
-#### Bug fixed in 2022.02.1
+#### Bugs fixed in 2022.02.1
 
-The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+* The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+
+* For SAML 1.1 template applications, the assertion, `AssertionID=aid0` is sent in the SAML responses intermittently resulting in an error message when the assertion value is repeated. (OKTA-468418)
 
 ### Monthly release 2022.02.0
 
