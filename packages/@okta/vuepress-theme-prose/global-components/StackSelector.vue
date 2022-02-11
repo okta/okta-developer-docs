@@ -73,7 +73,7 @@ import CompanyLogosVue from '../components/CompanyLogos.vue';
         }
       },
       isVisible: function() {
-        if(this.$page.frontmatter.showStackSelector == false ) {
+        if(this.$page.frontmatter.showStackSelector == false && !this.noSelector) {
           return false;
         }
         return true;
