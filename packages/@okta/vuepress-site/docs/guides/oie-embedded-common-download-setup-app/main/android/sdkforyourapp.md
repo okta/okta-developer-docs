@@ -1,5 +1,7 @@
 Follow these steps to integrate the SDK into your own app.
 
+<EmbeddedBrowserWarning />
+
 #### 1: Set up your app with the prerequisites
 
 1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app.

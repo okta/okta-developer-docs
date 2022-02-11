@@ -4,8 +4,6 @@ excerpt: Learn how to add authentication to your web applications and sign users
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
@@ -83,9 +81,6 @@ You need to copy some values into your application later, so leave your Admin Co
 You can choose to [get a refresh token](/docs/guides/refresh-tokens/main/#get-a-refresh-token) along with the access token and/or ID token.
 
 The default refresh token behavior is **Use persistent token** for web apps.
-
-Rotating refresh tokens is an <ApiLifecycle access="ea"/> feature.
-You can enable an [Early Access (Self-Service)](/docs/reference/releases-at-okta/#early-access-ea) feature for your org in the **Settings** > **Features** page inside the Admin Console.
 
 To enable refresh token rotation in your app integration, do the following:
 

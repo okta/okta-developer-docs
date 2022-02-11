@@ -51,7 +51,7 @@ export const concepts = [
           },
           {
             title: "Redirect vs. embedded authentication",
-            path: "/docs/concepts/redirect-vs-embedded"
+            path: "/docs/concepts/redirect-vs-embedded/"
           },
         ]
       },
@@ -331,6 +331,10 @@ export const guides = [
           {
             title: "Configure Device Authorization Grant Flow",
             guideName: "device-authorization-grant"
+          },
+          {
+            title: "Client secret rotation and key management",
+            guideName: "client-secret-rotation-key"
           },
           {
             title: "Tokens",
@@ -626,7 +630,20 @@ export const guides = [
               },
             ]
             },
-          {
+            {
+              title: "Okta Sign-In Widget",
+              subLinks: [
+                {
+                  title: "Upgrade your Okta Sign-In Widget",
+                  guideName: "oie-upgrade-sign-in-widget",
+                },
+                {
+                  title: "Updates to the Sign-In Widget i18n properties",
+                  guideName: "oie-upgrade-sign-in-widget-i18n",
+                },
+              ]
+            },
+                {
             title: "Okta Identity Engine Limitations",
             path: "/docs/guides/ie-limitations/"
           },

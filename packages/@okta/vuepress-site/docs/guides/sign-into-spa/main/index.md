@@ -4,8 +4,6 @@ excerpt: Learn how to sign users in to your JavaScript front-end applications an
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide explains how to use Okta as the user store for your single-page application and sign users in.
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
