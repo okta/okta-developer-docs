@@ -35,9 +35,9 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 ## The case for WebAuthn
 
-Passwords and other authenticators that rely on one-time passwords (OTPs) are vulnerable to security attacks because they rely on relayable information that can be easily obtained by bad actors. Phishing, where phony websites, phone calls, and other fraudulent tactics are used to gain access to passwords, OTPs, and other data is the major cause of security attacks today.
+Passwords and other authenticators that rely on one-time passwords (OTPs) are vulnerable to security attacks because they rely on relayable information that bad actors can easily obtain. Phishing, where phony websites, phone calls, and other fraudulent tactics are used to gain access to passwords, OTPs, and other data is the major cause of security attacks today.
 
-In order to be resistant to phishing attacks, there needs to be a local communication channel between the device and the authentication factor. WebAuthn provides this local communication channel by providing a framework to authenticate through USB security keys, fingerprints, Touch ID, and other types of localized authenticators. For example, an app running in a browser can authenticate a user by initiating a biometric request using a fingerprint scanner on their laptop.
+To be resistant to phishing attacks, a local communication channel should exist between the device and the authentication factor. WebAuthn supplies this local communication channel by providing a framework to authenticate through USB security keys, fingerprints, Touch ID, and other types of localized authenticators. For example, an app running in a browser can authenticate a user by initiating a biometric request using a fingerprint scanner on their laptop.
 
 Besides being resistant to phishing attacks, WebAuthn can drastically reduce the sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in today allowing iPhone users to sign-in using only Face ID after the first sign-in with a password.
 
@@ -71,9 +71,9 @@ Before you can start using Web Authentication (WebAuthn), create an Okta org app
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog box, click **Add** under **FIDO2 (WebAuthn)**.
+1. On the **Add Authenticator** dialog, click **Add** under **FIDO2 (WebAuthn)**.
 1. Leave the default value for **User Verification**, which is set to "Discouraged".
-1. On the **Add FIDO2(WebAuthn)** dialog box, click **Add**.
+1. On the **Add FIDO2(WebAuthn)** dialog, click **Add**.
 1. On the **Authenticators** page, select the **Enrollment** tab.
 1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
 1. Set **FIDO2 (WebAuthn)** to **Optional** and click **Update Policy**.

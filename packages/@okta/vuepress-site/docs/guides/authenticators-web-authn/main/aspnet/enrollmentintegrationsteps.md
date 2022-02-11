@@ -1,16 +1,15 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign in page that captures the user’s name and password, as shown in the following example.
+Build a sign-in page that captures the user’s name and password, as shown in the following example.
 
 ![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
 
 ### 2: Authenticate the user credentials
 
-Once a user has initiated the sign-on process by entering the username and password and clicking **Log In**, create an `AuthenticationOptions` object in your `LogIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` which you have also instantiated.
+After a user initiates the sign-on flow by entering their username and password and then clicks **Log In**, create an `AuthenticationOptions` object in your `LogIn` method. Then, set the object's `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient`.
 
 ```csharp
-var _idxClient = new Okta.Idx.Sdk.IdxClient();
-var authnOptions = new Okta.Idx.Sdk.AuthenticationOptions
+var authnOptions = new AuthenticationOptions
 {
     Username = model.UserName,
     Password = model.Password,
@@ -35,14 +34,14 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
                 … your code …
 ```
 
-If you've configured your Okta org correctly, you'll need to respond to two specific authenticator statuses to handle this scenario in addition to `Success` and `PasswordExpired`:
+If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario in addition to `Success` and `PasswordExpired`:
 
-* `AwaitingAuthenticatorEnrollment` which is covered in this section
-* `AwaitingChallengeAuthenticatorSelection` which is covered in the [challenge flow section](/docs/guides/authenticators-web-authn/aspnet/main/#integrate-sdk-for-authenticator-challenge).
+* `AwaitingAuthenticatorEnrollment` that is covered in this section
+* `AwaitingChallengeAuthenticatorSelection` that is covered in the [challenge flow section](/docs/guides/authenticators-web-authn/aspnet/main/#integrate-sdk-for-authenticator-challenge).
 
-The names of the authenticators available for enrollment or challenge can be found in the `AuthenticationResponse` object's `Authenticators` collection. The user should be redirected to the authenticator list page that displays the WebAuthn Authenticator factor as an authenticator to be verified.
+The names of the authenticators available for enrollment or challenge can be found in the `AuthenticationResponse` object's `Authenticators` collection. Redirect the user to a list of authenticators to select the WebAuthn authenticator for enrollment.
 
-> Note that the `isChallengeFlow` session variable is set to `false` if the user has not already enrolled, and `true` if they have already done so.
+> **Note**: The `isChallengeFlow` session variable is set to `false` if the user needs to enroll the WebAuthn authenticator, and `true` if they have already done so.
 
 ```csharp
         case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
@@ -73,8 +72,8 @@ Build a page to display the list of authenticators (including a WebAuthn option)
 ```csharp
 public ActionResult SelectAuthenticator()
 {
-   var authenticators = 
-      (IList<AuthenticatorViewModel>)Session["authenticators"] ?? 
+   var authenticators =
+      (IList<AuthenticatorViewModel>)Session["authenticators"] ??
       new List<AuthenticatorViewModel>();
    var viewModel = new SelectAuthenticatorViewModel
    {
@@ -97,7 +96,7 @@ public ActionResult SelectAuthenticator()
 }
 ```
 
-This `viewModel` is then consumed in a Razor page.
+The `viewModel` parameter is then consumed in a Razor page.
 
 ```razor
 <section id="selectAuthenticatorForm">
@@ -136,13 +135,13 @@ This `viewModel` is then consumed in a Razor page.
 </section>
 ```
 
-The WebAuthn factor option is listed as **Security Key or Biometric**, as shown in the following screenshot.
+The WebAuthn factor option is listed as **Security Key or Biometric**, as shown in the following image.
 
 ![An authenticator list showing WebAuthn Authenticator available for use](/img/authenticators/dotnet-Authenticators-WebAuthn-AuthenticatorList.png)
 
 ### 5: Retrieve encrypted challenge and user information
 
-When the user selects the WebAuthn authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in _Challenge Flow_ or _Enrollment Flow_.
+When the user selects the WebAuthn authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
 
 When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the WebAuthn Authenticator factor ID.
 
@@ -188,9 +187,9 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-### 6: Enroll authenticator via the browser
+### 6: Enroll authenticator through the browser
 
-Build a page which takes the challenge and user information from the website's backend servers and calls `navigator.credentials.create` to raise the prompt to enter a security key, validate with Windows Hello, Touch Id, or other WebAuthn Authenticator. For example, in the sample application, a new `EnrollWebAuthnViewModel` is populated from the `currentAuthenticator` object returned by the `enrollResponse` in the previous step.
+Build a page which that the challenge and user information from the website's backend servers and calls `navigator.credentials.create` to raise the prompt to enter a security key, validate with Windows Hello, Touch ID, or other WebAuthn Authenticator. For example, in the sample application, a new `EnrollWebAuthnViewModel` is populated from the `currentAuthenticator` object returned by the `enrollResponse` in the previous step.
 
 ```csharp
 var currentAuthenticator = (IAuthenticator)Session["currentWebAuthnAuthenticator"];
@@ -204,7 +203,7 @@ var viewModel = new EnrollWebAuthnViewModel
 };
 ```
 
-This `ViewModel` is then consumed in the script section of a Razor page. First it is prepared to be passed to the authenticator.
+The `viewModel` is then consumed in the script section of a Razor page. First it's prepared to be passed to the authenticator.
 
 ```js
 document.addEventListener('DOMContentLoaded', function () {
@@ -229,11 +228,11 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 ```
 
-Then the call to `navigator.credentials.create` calls WebAuthn APIs in the browser and passes the challenge to the authenticator for validation. The user sees the authenticator challenge dialog box. In this case, the WebAuthn option is a security USB key.
+Then the call to `navigator.credentials.create` calls WebAuthn APIs in the browser and passes the challenge to the authenticator for validation. The user sees the authenticator challenge dialog. In this case, the WebAuthn option is a security USB key.
 
-![A dialog box generated by the browser prompting the user to set up their security key ](/img/authenticators/dotnet-Authenticators-WebAuthn-Enroll-KeySetup.png)
+![A dialog generated by the browser prompting the user to set up their security key ](/img/authenticators/dotnet-Authenticators-WebAuthn-Enroll-KeySetup.png)
 
-When the authenticator has validated the user, it returns an `attestationObject` containing the information needed to validate the registration event, and a `clientDataJSON` object which is used to associate the new credential with the server and the browser.
+After the authenticator validates the user, it returns an `attestationObject` that contains the information needed to validate the registration event, and a `clientDataJSON` object used to associate the new credential with the server and the browser.
 
 ```js
     navigator.credentials.create({
@@ -262,7 +261,7 @@ When the authenticator has validated the user, it returns an `attestationObject`
 
 ### 7. Send verification credentials to Okta server
 
-Send the verifying credentials back to the Okta server to finish enrolling the WebAuthn authenticator for the user. Okta will decrypt the challenge using the user's public key and store the user's credentials and public key.
+Send the verifying credentials back to the Okta server to finish enrolling the WebAuthn authenticator for the user. Okta decrypts the challenge using the user's public key and stores the user's credentials and public key.
 
 ```js
         fetch("@Url.Action("EnrollWebAuthnAuthenticatorAsync", "Manage")", options)
@@ -293,16 +292,16 @@ var authnResponse = await _idxClient.EnrollAuthenticatorAsync(
 Session["WebAuthnResponse"] = authnResponse;
 ```
 
-### 8: Enroll More Authenticators or Log the User In
+### 8: Enroll more authenticators or sign the user in
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `EnrollAuthenticatorAsync` to discover the current status of the authentication process. You'll need to respond to two specific authenticator statuses:
+Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `EnrollAuthenticatorAsync` to discover the current status of the authentication process. You need to respond to two specific authenticator statuses:
 
 * `AwaitingAuthenticatorEnrollment`
 * `Success`
 
-A status of `AwaitingAuthenticatorEnrollment` means that there are other authenticator types (Google, Okta Verify) which can be enrolled by the user and that your app should return to Step 4 and display a list of those authenticators which are still unenrolled as well as an option to skip further enrollment.
+A status of `AwaitingAuthenticatorEnrollment` means that there are other authenticator types (Google, Okta Verify) the user has yet to enroll. Your app should return to Step 4 and display a list of those authenticators that are still unenrolled as well as an option to skip further enrollment.
 
-A status of `Success` (or the user choosing to skip further authenticator enrollment) means that the user has now successfully enrolled their WebAuthn authenticator and is logged into the app. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application.
+A status of `Success` (or the user choosing to skip further authenticator enrollment) means that the user has now successfully enrolled their WebAuthn authenticator and is signed into the app. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application.
 
 ```csharp
 var authnResponse = (IAuthenticationResponse)Session["webAuthnResponse"];
