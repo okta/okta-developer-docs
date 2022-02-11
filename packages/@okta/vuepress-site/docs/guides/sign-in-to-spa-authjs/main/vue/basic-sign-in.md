@@ -17,29 +17,39 @@ See the following `src/App.vue` file example:
 
 ```html
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/login" v-if="authState && !authState.isAuthenticated">Login</router-link>
-    <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
-    <button v-if="authState && authState.isAuthenticated" v-on:click="logout()">Logout</button>
+  <div id="app">
+    <h1>Okta Identity Engine Vue.js and Auth JS example</h1>
+      <div id="nav">
+        <router-link v-if="loggedIn" to="/logout">Sign out</router-link>
+        <router-link v-if="!loggedIn" to="/login">Sign in</router-link>
+        |
+        <router-link to="/about">About</router-link> |
+        <router-link to="/dashboard">Dashboard</router-link> (protected)
+      </div>
+    <template v-if="$route.matched.length">
+      <router-view></router-view>
+    </template>
+    <template v-else>
+      <p>You are logged {{ loggedIn ? 'in' : 'out' }}</p>
+    </template>
   </div>
-  <router-view/>
 </template>
 
 <script>
+import auth from './auth'
 export default {
-  name: 'app',
-  methods: {
-    async logout () {
-      const publicPath = this.$route.href.replace(new RegExp(this.$route.fullPath + '$'), '');
-      await this.$auth.signOut({ postLogoutRedirectUri: `${window.location.origin}${publicPath}` })
+  data () {
+    return {
+      loggedIn: auth.loggedIn()
+    }
+  },
+  created () {
+    auth.onChange = loggedIn => {
+      this.loggedIn = loggedIn
     }
   }
 }
 </script>
-
-<style>
 
 ...
 
@@ -68,16 +78,15 @@ In this protected `/profile` component example, the `src/components/Profile.vue`
 
 ```html
 <template>
-  <div class="profile">
-    <h1 class="ui header">
-      <i aria-hidden="true" class="drivers license outline icon">
-      </i>
-      My User Profile (ID Token Claims)
-    </h1>
-    <p>
-      This route is protected with the <code>onAuthRequired</code>, navigation guard which will ensure that this page cannot be accessed until you have authenticated.
-    </p>
-    <table class="ui table">
+  <div>
+    <h1>Dashboard</h1>
+    <h3>Success</h3>
+       <p>
+       You have signed in to an embedded Okta auth SPA app with Vue.js and Auth JS SDK.
+       </p>
+    <h3>User Profile</h3>
+    <br><br>
+    <table>
       <thead>
         <tr>
           <th>Claim</th>
@@ -95,18 +104,22 @@ In this protected `/profile` component example, the `src/components/Profile.vue`
 </template>
 
 <script>
+import auth from '../auth'
 export default {
-  name: 'Profile',
+  name: 'Dashboard',
   data () {
     return {
       claims: []
     }
   },
   async created () {
-    this.claims = await Object.entries(await this.$auth.getUser()).map(entry => ({ claim: entry[0], value: entry[1] }))
+    this.claims = await Object.entries(await auth.getUser()).map(entry => ({ claim: entry[0], value: entry[1] }))
   }
 }
 </script>
+
+...
+
 ```
 
 > **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
@@ -139,48 +152,40 @@ This route definition example uses the [Vue Router](https://router.vuejs.org/) a
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
 import { LoginCallback } from '@okta/okta-vue'
-import { navigationGuard } from '@okta/okta-vue'
-import Home from '../views/Home.vue'
-import LoginComponent from '@/components/Login.vue'
-import ProfileComponent from '@/components/Profile.vue'
-
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: LoginComponent
-  },
-  {
-    path: '/login/callback',
-    component: LoginCallback
-  },
-  {
-    path: '/profile',
-    component: ProfileComponent,
-    meta: {
-      requiresAuth: true
-    }
-  }
-]
+import auth from '@/auth'
+import About from '@/components/About.vue'
+import Dashboard from '@/components/Dashboard.vue'
+import Login from '@/components/Login.vue'
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHistory(__dirname),
+  routes: [
+    { path: '/about', component: About },
+    { path: '/dashboard', component: Dashboard, beforeEnter: requireAuth },
+    { path: '/login', component: Login },
+    { path: '/login/callback', component: LoginCallback },
+    { path: '/logout',
+      beforeEnter (to, from, next) {
+        auth.logout()
+        next('/')
+      }
+    }
+  ]
 })
 
-router.beforeEach(navigationGuard)
+function requireAuth (to, from, next) {
+  if (!auth.loggedIn()) {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  } else {
+    next()
+  }
+}
 
-export default router
+
+export default router;
 ```
 
 > **Note** The [Okta Vue SDK](https://github.com/okta/okta-vue#readme) provides navigation guard logic to circumvent navigational guard mixins issue in `vue-router-next`.
