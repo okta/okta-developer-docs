@@ -1615,7 +1615,6 @@ The following link expansions are supported to embed additional resources into t
 
 > **Note:** The `user/:uid` expansion can currently only be used in conjunction with the `user.id eq ":uid"` filter. See [List applications assigned to a user](#list-applications-assigned-to-a-user).
 
-
 ##### Response parameters
 
 Array of [Applications](#application-object)
@@ -1836,7 +1835,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+\"00ucw2RPGIUNTDQOYPOF\"&expand=user/00ucw2RPGIUNTDQOYPOF"
+"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+%2200ucw2RPGIUNTDQOYPOF%22&expand=user/00ucw2RPGIUNTDQOYPOF"
 ```
 
 > **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-object) information in the response body's `_embedded` property.
@@ -2077,7 +2076,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+\"00gckgEHZXOUDGDJLYLG\""
+"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+%2200gckgEHZXOUDGDJLYLG%22"
 ```
 
 ##### Response example
@@ -2158,7 +2157,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+\"SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4\""
+"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+%22SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4%22"
 ```
 
 ##### Response example
@@ -2288,7 +2287,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
 ```
 
 ##### Response example
