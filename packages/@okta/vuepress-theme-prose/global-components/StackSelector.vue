@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import CompanyLogosVue from '../components/CompanyLogos.vue';
   import { getGuidesInfo, guideFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
