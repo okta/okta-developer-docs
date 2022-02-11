@@ -148,7 +148,7 @@ To run a test of your Event Hook:
 
     `The user John Doe has been deactivated on the Okta org!`
 
-> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/troubleshooting) section for information if you encounter any setup or configuration difficulties.
+> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations) section for information if you encounter any setup or configuration difficulties.
 
 ## Next steps
 
