@@ -1,10 +1,12 @@
 To retain authentication control of your Vue.js single-page app (SPA) without redirection to Okta, you can implement the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model with the help of Okta Auth JS and Okta Vue.js libraries. These libraries provide you with common, reusable OAuth 2.0 methods and properties to handle the interaction between the Okta authorization server and your client app. This allows you to customize the sign-in experience for your app with minimal use of low-level [Okta Authentication](/docs/reference/api/authn/) and [Okta OpenID Connect & OAuth 2.0](/docs/reference/api/oidc/) APIs.
 
+The authentication interaction between the Okta authorization server and your client app follows the [Interaction Code](/docs/concepts/interaction-code/) flow. This Identity Engine flow is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) standard that allows you to customize the user authentication experience for your app without redirecting to an authentication component outside your app. See [Implement authorization by Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/) to understand the Interaction Code flow and how to implement your authentication experience.
+
 > **Note**: You can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) to quickly add embedded authentication if you don't need to customize your sign-in form and interaction. See [Sign in to your SPA with embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/).
 
 ### Build Okta authentication with Auth JS in your SPA app
 
-This guide explains how to build a password-only sign-in use case for your Vue.js app. This use case is outlined in the following flow diagram with your single-page app as the client:
+This guide explains how to build a password-only sign-in use case for your Vue.js app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
 ![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg "Auth JS + SPA password-only sign-in flow")
 

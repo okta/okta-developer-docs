@@ -1,55 +1,3 @@
-### Create the sign-in component
-
-Create a Vue component that displays the sign-in form. For example, create a `src/components/Login.vue` file with the following content:
-
-```html
-<template>
-  <div>
-    <h1>Sign in</h1>
-    <p v-if="$route.query.redirect">
-      You need to sign in first.
-    </p>
-    <form @submit.prevent="login" autocomplete="off">
-      Email: <label><input v-model="email" placeholder="email" v-focus></label><br><br>
-      Password: <label><input v-model="pass" placeholder="password" type="password"></label><br>
-      <br>
-      <button type="submit">Continue</button>
-      <p v-if="error" class="error">Incorrect sign-in information</p>
-    </form>
-  </div>
-</template>
-
-<script>
-  import auth from '../auth'
-  export default {
-    data () {
-      return {
-        email: '',
-        pass: '',
-        error: false
-      }
-    },
-    methods: {
-      login () {
-        auth.login(this.email, this.pass, loggedIn => {
-          if (!loggedIn) {
-            this.error = true
-          } else {
-            this.$router.replace(this.$route.query.redirect || '/')
-          }
-        })
-      }
-    }
-  }
-</script>
-
-<style>
-  .error {
-    color: red;
-  }
-</style>
-```
-
 ### Set up the Okta configuration settings
 
 Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Okta Auth JS instance:
@@ -79,79 +27,88 @@ export default {
 
 > **Note**: See [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
 
-### Create the Auth JS client instance to support the sign-in form
+### Create the sign-in component
 
-Create an Auth JS client instance and add methods to support Okta authentication. Add Okta authentication by instantiating `OktaAuth` with the settings from [Set up the Okta configuration settings](#set-up-the-okta-configuration-settings). For example, create a `src/auth.js` file with the following content:
+Create a Vue component that displays the sign-in form and submits the authentication request to Okta. You need to handle the response from the authentication request which follows the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow). For example, create a `src/components/Login.vue` file with the following content:
 
-```js
-import { OktaAuth } from '@okta/okta-auth-js';
-import sampleConfig from '@/config'
+```html
+<template>
+  <div class="login">
+    <h1>Sign in</h1>
+    <p v-if="$route.query.redirect">
+      You need to sign in first.
+    </p>
+    <form @submit.prevent="signIn" autocomplete="off">
+      Email: <label><input v-model="email" placeholder="email" v-focus></label><br><br>
+      Password: <label><input v-model="pass" placeholder="password" type="password"></label><br>
+      <br>
+      <button type="submit">Continue</button>
+      <p v-if="error" class="error">{{msg}}</p>
+    </form>
+  </div>
+</template>
 
-const authClient = new OktaAuth(sampleConfig.oidc)
-
+<script>
 export default {
-  login (email, pass, cb) {
-    cb = arguments[arguments.length - 1]
-    if (localStorage.token) {
-      if (cb) cb(true)
-      this.onChange(true)
-      return
+  data () {
+    return {
+      email: '',
+      pass: '',
+      msg: '',
+      error: false
     }
-    return authClient.idx.authenticate({
-      username: email,
-      password: pass
+  },
+  methods: {
+    signIn () {
+      this.$auth.idx.authenticate({
+      username: this.email,
+      password: this.pass
     }).then(transaction => {
-      if (transaction.status === 'SUCCESS') {
-        console.error('ID token: ', transaction.tokens.idToken)
-          authClient.tokenManager.setTokens(transaction.tokens)
-          localStorage.token = transaction.tokens.accessToken
-          localStorage.idToken = transaction.tokens.idToken
-          if (cb) cb(true)
-          this.onChange(true)
-      }
-      if (transaction.status == 'PENDING') {
-        // next IDX step not handled in this app yet
-        if (cb) cb(false)
-        this.onchange(false)
-      }
-      if (transaction.status == 'FAILURE') {
-        // failure from idx.authenticate
-        console.error(transaction.error)
-        if (cb) cb(false)
-        this.onchange(false)
+      switch (transaction.status) {
+        case 'SUCCESS':
+          this.$auth.tokenManager.setTokens(transaction.tokens)
+          this.$router.replace(this.$route.query.redirect || '/')
+          break
+        case 'PENDING':
+          // next IDX step not handled in this app yet
+          this.error = true
+          this.msg = transaction.messages[0].message
+          console.error('TODO: add handling for status: ', transaction.status,
+            'message: ', transaction.messages,
+            'next step: ', transaction.nextStep)
+          break
+        case 'FAILURE':
+          // failure from idx.authenticate
+          this.error = true
+          this.msg = transaction.messages[0].message
+          console.error(transaction.status)
+          console.error(transaction.messages)
+          break
+        default:
+          this.error = true
+          this.msg = transaction.messages[0].message
+          console.error('What happened?: ', transaction.status, transaction.messages)
       }
     }).catch(err => {
+      this.error = true
+      this.msg = err.message
       console.error(err.message)
-      if (cb) cb(false)
-      this.onChange(false)
-    })
-  },
-
-  getToken (){
-    return localStorage.token
-  },
-
-  getUser () {
-    return authClient.token.getUserInfo()
-  },
-
-  logout (cb) {
-    delete localStorage.token
-    delete localStorage.idToken
-    if (cb) cb()
-    this.onChange(false)
-    return authClient.signOut()
-  },
-
-  loggedIn () {
-    return !!localStorage.token
-  },
-
-  onChange () {
+      })
+    }
   }
 }
+</script>
 
+<style>
+  .error {
+    color: red;
+  }
+</style>
 ```
+
+### Create the Vue.js app and instantiate the Okta Auth JS client
+
+Create the Vue.js app definition by importing all the required libraries and instantiate the Okta Auth JS client with the settings from [`config.js`](#set-up-the-okta-configuration-settings). For example, create a `src/main.js` file with the following content:
 
 ### Define the Vue.js app
 
@@ -159,6 +116,11 @@ export default {
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { OktaAuth } from '@okta/okta-auth-js'
+import OktaVue from '@okta/okta-vue'
+import sampleConfig from '@/config'
+
+const oktaAuth = new OktaAuth(sampleConfig.oidc)
 
 createApp(App)
 .directive('focus', {
@@ -169,6 +131,13 @@ createApp(App)
   }
 })
 .use(router)
+.use(OktaVue, { oktaAuth,
+  onAuthRequired: () => {
+    router.push('/login')
+  },
+  onAuthResume: () => {
+    router.push('/login')
+  },
+})
 .mount('#app')
 ```
-
