@@ -105,9 +105,9 @@ Example:
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-### <span v-pre>`{{{errorSummary}}}`</span>
+### <span v-pre>`{{errorSummary}}`</span>
 
-### <span v-pre>`{{{errorDescription}}}`</span>
+### <span v-pre>`{{errorDescription}}`</span>
 
 Inserts a title and detailed description of the error.
 
@@ -115,7 +115,7 @@ Example:
 
 ```html
 <h2 class="o-form-title">{{errorSummary}}</h2>
-<p class="o-form-explain">What happened? {{{errorDescription}}}</p>
+<p class="o-form-explain">What happened? {{errorDescription}}</p>
 ```
 
 ### <span v-pre>`{{back}}`</span>
