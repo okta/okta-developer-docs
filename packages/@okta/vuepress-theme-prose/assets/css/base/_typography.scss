@@ -112,8 +112,8 @@ blockquote {
 ol,
 ol:not([class]) {
 	counter-reset: ol_parent;   
-	margin: 0 0 0 25px !important;
-	padding-left: 31px;
+	margin: 0 0 0 1.5625rem !important;
+	padding-left: 1.9375rem;
 	li {
 		position: relative;
 		z-index: 1;
@@ -124,13 +124,13 @@ ol:not([class]) {
 			counter-increment: ol_parent;
 			content: counter(ol_parent);
 			position: absolute;
-			width: 24px;
-			height: 24px;
-			left: -42px;
-			font-size: 12px;
-			line-height: 14px;
+			width: 1.5rem;
+			height: 1.5rem;
+			left: -2.625rem;
+			font-size: 0.75rem;
+			line-height: 0.875rem;
 			border-radius: 50%;
-			background-color: cv('gray', '300');
+			background-color: rgba(215,215,220,0.3);
 			color: cv('gray', '900');
 			z-index: -1;
 			display: flex;
@@ -155,13 +155,13 @@ ul,
 ul:not([class]) {
 	li {
 		&::marker {
-			color: #a1a1a3;
+			color: rgba(29, 29, 33, .4)
 		}
 	}
 }
 
 :not(pre) > code[class*=language-], pre[class*=language-] {
-	padding: 47px 78px 49px 81px !important;
+	padding: 1.6875rem 3.625rem 1.8125rem 2.5625rem !important;
 }
 
 dl {
@@ -179,7 +179,7 @@ dl {
     font-size: 1rem;
     line-height: 1.25rem;
     color: cv('gray', '900');
-    padding-left: 30px;
+    padding-left: 1.875rem;
     border-bottom: 1px solid cv('gray', '300');
   }
 }
