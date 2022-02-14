@@ -27,7 +27,7 @@ Some of the new capabilities unlocked by Identity Engine include:
 
 * App-level policies
 
-  An app sign-on policy is a [security policy framework](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allows organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. See [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+  An authentication policy is a [security policy framework](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allows organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. See [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 * Flexible Account Recovery
 

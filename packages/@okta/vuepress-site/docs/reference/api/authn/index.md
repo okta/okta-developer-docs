@@ -1114,7 +1114,7 @@ curl -v -X POST \
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
-> **Note:** Global Session Policy and the related app sign-on policy are evaluated after successful primary authentication.
+> **Note:** Global Session Policy and the related authentication policy are evaluated after successful primary authentication.
 
 ```bash
 curl -v -X POST \
@@ -1277,7 +1277,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 
 ##### Response example for Factor challenge for step-up authentication with Okta session
 
-User is assigned to a Sign-On Policy or App Sign-On Policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
+User is assigned to a Global Session Policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
 
 ```json
 {
@@ -7340,7 +7340,7 @@ Subset of [profile properties](/docs/reference/api/users/#profile-object) for a 
 
 #### Remember device policy object
 
-A subset of policy settings of the Sign-On Policy or App Sign-On Policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
+A subset of policy settings of the Global Session Policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
 
 | Property                        | Description                                                                      | DataType  | Nullable | Unique | Readonly |
 | ------------------------------- | -------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- |

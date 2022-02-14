@@ -104,7 +104,7 @@ After you've created your app integration in your Okta org, the next step is to 
 This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
 
 1. [Update the password authenticator to password only](#_1-update-the-password-authenticator-to-password-only)
-2. [Update your app sign-on policy with password-only authentication](#_2-update-your-app-sign-on-policy-with-password-only-authentication)
+2. [Update your authentication policy with password-only authentication](#_2-update-your-authentication-policy-with-password-only-authentication)
 
 #### 1: Update the password authenticator to password only
 
@@ -116,7 +116,7 @@ For password-only authentication, you need to update the password authenticator 
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
 
-#### 2: Update your app sign-on policy with password-only authentication
+#### 2: Update your authentication policy with password-only authentication
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
@@ -131,7 +131,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 1. [Set up the email authenticator for authentication and recovery](#_1-set-up-the-email-authenticator-for-authentication-and-recovery)
 1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
-1. [Update your app sign-on policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
+1. [Update your authentication policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
@@ -156,7 +156,7 @@ This section shows you how to set up your Okta org and app to support the multif
 
 If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field for the phone authenticator.
 
-#### 3: Update your app sign-on policy with multifactor authentication
+#### 3: Update your authentication policy with multifactor authentication
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. From the **Applications** page, select the [app that you created](#create-a-new-application) to represent your application.
