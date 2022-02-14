@@ -77,12 +77,7 @@ If you have an Identity Engine org, you must [enable and configure a profile enr
 
 > **Note:** Profile Enrollment and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
-> **Note:** You can use Inline Hooks with the Progressive Profile feature and configure the hooks to run in one of the following ways:
-> - When a new user is created
-> - When attributes are collected for an existing user
-> - Both when a new user is created and when attributes are collected for an existing user</br>
-> 
-> See [Create Profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+> **Note:** You can use Inline Hooks with the Progressive Profile feature to verify and modify user data. See [Progressive Profile support](/docs/concepts/inline-hooks/#progressive-profile-support).
 
 To associate the Registration Inline Hook with your Profile Enrollment policy:
 
@@ -90,13 +85,21 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. Click the Pencil icon to edit the policy and associate it with your Registration Inline Hook.
 
-1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. Select **Allowed** for **Sign-up** in the **For new users** section.
+1. In **Enrollment Settings**, click the More Options icon and then select **Edit**.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
+1. Select **Allowed** for **Self-service registration** in the **Profile enrollment** section.
 
-1. Click **Save**.
+1. Select your hook from the drop-down menu for **Use the following inline hook** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
 
-Your Registration Inline Hook is now configured for Profile Enrollment. You are now ready to preview and test the example.
+1. In **Run this hook**, select when you want your inline hook to run:
+
+- **When a new user is created**: Your inline hook is triggered once by a self-service registration request and again after the initial registration is completed.
+- **When attributes are collected for an existing user**: Your inline hook is triggered during the progressive profile process.
+- **Both**: Your inline hook is triggered by a self-service registration request and also during the progressive profile process.
+
+7. Click **Save**.
+
+Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
 > **Note:** You can associate only one Inline Hook with your Profile Enrollment policy at a time.
 
