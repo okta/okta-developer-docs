@@ -125,21 +125,16 @@ Use this table and the following Q&A to understand the differences between redir
 Further questions to determine what authentication flow works best for your implementation:
 
 Q. Does the application want to own the authentication and registration process without leaving the application?
-
-A. Embedded authentication
+:   A. Embedded authentication
 
 Q. Does the application want to own user remediation (communication with Identity Server)?
-
-A. Embedded authentication
+:   A. Embedded authentication
 
 Q. Does the application need to support external Identity Providers, authenticators, or claims providers?
-
-A. Redirect authentication or embedded authentication
+:   A. Redirect authentication or embedded authentication
 
 Q. Does the application need SSO for downstream resources?
-
-A. Redirect authentication
+:   A. Redirect authentication
 
 Q. Does the application need centralized session management across applications?
-
-A. Redirect authentication
+:   A. Redirect authentication
