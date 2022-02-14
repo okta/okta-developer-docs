@@ -1,8 +1,5 @@
 <template>
   <div class="signup">
-    <div class="signup--banner-oie" v-if="isOie">
-      Identity engine preview
-    </div>
     <div class="signup--content">
       <div class="signup--form">
         <form id="signupForm" @submit="submitForm">
@@ -209,40 +206,38 @@
             </div>
           </div>
         </form>
-        <template v-if="!isOie">
-          <div class="splitter">
-            <span></span>
-            <span>or</span>
-            <span></span>
+        <div class="splitter">
+          <span></span>
+          <span>or</span>
+          <span></span>
+        </div>
+        <div class="row">
+          <div class="field-wrapper">
+            <button
+              id="continue-github"
+              class="btn social-btn"
+              @click="openTermsConditionsDialog(uris.github)"
+            >
+              <i class="fa fa-github"></i> Continue with GitHub
+            </button>
           </div>
-          <div class="row">
-            <div class="field-wrapper">
-              <button
-                id="continue-github"
-                class="btn social-btn"
-                @click="openTermsConditionsDialog(uris.github)"
-              >
-                <i class="fa fa-github"></i> Continue with GitHub
-              </button>
-            </div>
+        </div>
+        <div class="row">
+          <div class="field-wrapper">
+            <button
+              id="continue-google"
+              class="btn social-btn"
+              @click="openTermsConditionsDialog(uris.google)"
+            >
+              <span class="google-logo"></span> Continue with Google
+            </button>
           </div>
-          <div class="row">
-            <div class="field-wrapper">
-              <button
-                id="continue-google"
-                class="btn social-btn"
-                @click="openTermsConditionsDialog(uris.google)"
-              >
-                <span class="google-logo"></span> Continue with Google
-              </button>
-            </div>
-          </div>
-          <TermsAndConditionsDialog
-            v-if="isShowTermsConditionsDialog"
-            :socialUrl="socialUrl"
-            @close="closeTermsConditionsDialog()"
-          ></TermsAndConditionsDialog>
-        </template>
+        </div>
+        <TermsAndConditionsDialog
+          v-if="isShowTermsConditionsDialog"
+          :socialUrl="socialUrl"
+          @close="closeTermsConditionsDialog()"
+        ></TermsAndConditionsDialog>
         <div class="row goto-signin">
           Already signed up?
           <SmartLink :item="{ link: '/login/' }">Sign in</SmartLink>
@@ -250,10 +245,10 @@
       </div>
       <div class="signup--description">
         <Content slot-key="signup-description" />
-        <div class="logo-wrapper" v-if="!isOie">
+        <div class="logo-wrapper">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
-        <div class="auth0-banner" v-if="!isOie">
+        <div class="auth0-banner">
           <div class="auth0-banner--content">
             <p>
               Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
@@ -294,12 +289,6 @@ const GENERIC_ERROR_MSG =
   "Something unexpected happened while processing your registration. Please try again.";
 
 export default {
-  props: {
-    isOie: {
-      type: Boolean,
-      default: false,
-    },
-  },
   components: {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
@@ -395,14 +384,11 @@ export default {
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
             captchaResponse: this.form.captcha.value,
+            okta_oie: true,
             // Merge in analytics tracking data
             ...this.analyticsValues,
           },
         };
-
-        if (this.isOie) {
-          body.userProfile.okta_oie = true;
-        }
 
         this.isPending = true;
 
