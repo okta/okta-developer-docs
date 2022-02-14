@@ -11,10 +11,6 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/"
       },
       {
-        title: "Authentication",
-        path: "/docs/concepts/authentication/"
-      },
-      {
         title: "Authorization Servers",
         path: "/docs/concepts/auth-servers/"
       },
