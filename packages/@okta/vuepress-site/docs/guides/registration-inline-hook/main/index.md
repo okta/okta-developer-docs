@@ -53,14 +53,13 @@ The Registration Inline Hook must be set up and activated and enabled within you
 To set up and activate the Registration Inline Hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-2. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
-3. Add a name for the hook (in this example, "Guide Registration Hook Code").
-4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
-5. Include the authentication field and secret. In this example:
-
-    * **Authentication Field** = `authorization`
-    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
-6. Click **Save**.
+1. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
+1. Add a name for the hook (in this example, "Guide Registration Hook Code").
+1. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
+1. Include the authentication field and secret. In this example:
+    - **Authentication Field** = `authorization`
+    - **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+1. Click **Save**.
 
 The Registration Inline Hook is now set up with a status of active.
 
@@ -92,12 +91,11 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 1. Select your hook from the drop-down menu for **Use the following inline hook** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
 
 1. In **Run this hook**, select when you want your inline hook to run:
+    - **When a new user is created**: Your inline hook is triggered once by a self-service registration request and again after the initial registration is completed.
+    - **When attributes are collected for an existing user**: Your inline hook is triggered during the progressive profile process.
+    - **Both**: Your inline hook is triggered by a self-service registration request and also during the progressive profile process.
 
-- **When a new user is created**: Your inline hook is triggered once by a self-service registration request and again after the initial registration is completed.
-- **When attributes are collected for an existing user**: Your inline hook is triggered during the progressive profile process.
-- **Both**: Your inline hook is triggered by a self-service registration request and also during the progressive profile process.
-
-7. Click **Save**.
+1. Click **Save**.
 
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
