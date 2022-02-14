@@ -1,3 +1,37 @@
+This section guides you to build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+
+![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg "Auth JS + SPA password-only sign-in flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+actor "Resource Owner (User)" as user
+participant "Client (SPA)" as client
+participant "Auth JS (SDK)" as sdk
+participant "Authorization server (Okta)" as okta
+
+autonumber "<b>#."
+user -> client: Navigate to app sign-in page
+client -> client: Display sign-in page, instantiate OktaAuth()
+user -> client: Enter credentials
+client -> sdk: Call idx.authenticate(username,password)
+sdk -> okta: API request to authenticate user
+okta -> sdk: Return Auth response
+sdk -> client: Return tokens and idxStatus.SUCCESS
+client -> client: For idxStatus.SUCCESS, store tokens in browser storage
+client -> user: Direct user to authenticated page
+client -> client: For idxStatus.SUCCESS, store tokens in browser storage
+client -> sdk: (Optional) Call token.getUserInfo() to get user info
+sdk -> okta: (Optional) API request to get user info
+okta -> sdk: (Optional) Return user info response
+sdk -> client: (Optional) Return user info
+client -> user:  (Optional) Display required user info
+@enduml
+
+-->
+The steps to add Okta authentication described in the following sections focus on the interaction between your client app, the user, and the Auth JS SDK.
+
 ### Set up the Okta configuration settings
 
 Before you code your forms and routes, use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Okta Auth JS instance:
@@ -109,8 +143,6 @@ export default {
 ### Create the Vue.js app and instantiate the Okta Auth JS client
 
 Create the Vue.js app definition by importing all the required libraries and instantiate the Okta Auth JS client with the settings from [`config.js`](#set-up-the-okta-configuration-settings). For example, create a `src/main.js` file with the following content:
-
-### Define the Vue.js app
 
 ```js
 import { createApp } from 'vue'

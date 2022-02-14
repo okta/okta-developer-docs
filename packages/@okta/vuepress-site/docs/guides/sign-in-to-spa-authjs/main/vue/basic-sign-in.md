@@ -1,9 +1,10 @@
+### Create routes
+
 Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions.  Some routes require authentication in order to render and other don't. The following are some basic routes you need to configure for your app:
 
-* A [default page](#default-page-route) to handle the landing page of the app.
-* A [login route](#login-route) to show your app sign-in page.
-* A [callback route](#callback-route) to parse tokens after a redirect from Okta.
-* A [protected route](#protected-route) for authenticated users to access protected content.
+* A [default page](#default-page-route) to handle the landing page of the app
+* A [login route](#login-route) to show your app sign-in page
+* A [protected route](#protected-route) for authenticated users to access protected content
 
 #### Default page route
 
@@ -55,22 +56,29 @@ export default {
 
 #### Login route
 
-This route directs the user to your app sign-in page. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create a sign-in component](#create-a-sign-in-component).
-
-#### Callback route
-
-The [Okta Vue SDK](https://github.com/okta/okta-vue) provides the [LoginCallback](https://github.com/okta/okta-vue#use-the-logincallback-component) component for the callback route. It handles token parsing, token storage, and redirecting to a protected page after a user is authenticated.
-
-See how the callback route component is called from the route definition file (`src/router/index.js`) in the [Connect the routes](#connect-the-routes) section.
+This route directs the user to your app sign-in page. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create the sign-in component](#create-the-sign-in-component).
 
 #### Protected route
 
 Create a protected route that is only available to users with a valid `accessToken`:
 
 * You can provide access to a protected route when the `requiresAuth` metadata is added in the [route definition](#connect-the-routes).
-* You can use the `authState.isAuthenticated` property in the [default route](#default-page-route) to determine if you need to show a protected element.
 
-> **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
+  For example, this snippet from the `src/router/index.js` router file provides access to the `/dashboard` component only if `requiresAuth` metadata is true:
+
+  ```js
+  { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
+  ```
+
+* You can use the `authState.isAuthenticated` property in the [default route](#default-page-route) landing page to determine if you need to show a protected element.
+
+  For example, this snippet from the `App.vue` file provides access to the `/dashboard` component only if `authState.isAuthenticated` is true:
+
+  ```html
+  <router-link to="/dashboard" v-if="authState && authState.isAuthenticated" >Dashboard</router-link>
+  ```
+
+  > **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
 
 In this protected `/dashboard` component example, the `src/components/Dashboard.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Auth JS SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function.
 
@@ -121,26 +129,12 @@ export default {
 
 > **Note**: You can extend the set of claims by modifying the [scope settings in your Okta configuration](#set-up-the-okta-configuration-settings) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
 
-
-This snippet from the `App.vue` file provides access to the `/dashboard` component only if `authState.isAuthenticated` is true:
-
-```html
-<router-link to="/dashboard" v-if="authState && authState.isAuthenticated" >Dashboard</router-link>
-```
-
-This snippet from the `src/router/index.js` router file provides access to the `/dashboard` component only if `requiresAuth` metadata is true:
-
-```js
-{ path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
-```
-
 ### Connect the routes
 
 This route definition example uses the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) in the `src/router/index.js` file. Notice that the `requiresAuth` metadata needs to be true for protected routes.
 
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
-import { LoginCallback } from '@okta/okta-vue'
 import { navigationGuard } from '@okta/okta-vue'
 import About from '@/components/About.vue'
 import Dashboard from '@/components/Dashboard.vue'
@@ -152,8 +146,7 @@ const router = createRouter({
     { path: '/', name: 'Home', component: About },
     { path: '/about', name: 'About', component: About },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
-    { path: '/login', component: Login },
-    { path: '/login/callback', component: LoginCallback }
+    { path: '/login', component: Login }
   ]
 })
 
