@@ -43,7 +43,7 @@ After you create a registration Inline Hook and add it to a Profile enrollment p
 - When attributes are collected for an existing user
 - Both when a new user is created and when attributes are collected for an existing user
 
-See [Registration Inline Hook](/docs/reference/registration-hook/).
+See [Create Profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) and [Enable a Registration Inline Hook in the Identity Engine](/)
 
 
 ## Inline Hook process flow

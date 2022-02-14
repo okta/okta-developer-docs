@@ -77,7 +77,11 @@ If you have an Identity Engine org, you must [enable and configure a profile enr
 
 > **Note:** Profile Enrollment and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
-> **Note:** You can use Inline Hooks with the Progressive Profile feature. The registration Inline Hook runs when existing users sign in after new required attributes are added to the user profile. The registration inline hook verifies and modifies user data. See [Registration Inline Hook](/docs/reference/registration-hook/).
+> **Note:** You can use Inline Hooks with the Progressive Profile feature and configure the hooks to run in one of the following ways:
+> - When a new user is created
+> - When attributes are collected for an existing user
+> - Both when a new user is created and when attributes are collected for an existing user
+> See [Registration Inline Hook](/docs/reference/registration-hook/).
 
 To associate the Registration Inline Hook with your Profile Enrollment policy:
 
