@@ -80,8 +80,9 @@ If you have an Identity Engine org, you must [enable and configure a profile enr
 > **Note:** You can use Inline Hooks with the Progressive Profile feature and configure the hooks to run in one of the following ways:
 > - When a new user is created
 > - When attributes are collected for an existing user
-> - Both when a new user is created and when attributes are collected for an existing user
-> See [Registration Inline Hook](/docs/reference/registration-hook/).
+> - Both when a new user is created and when attributes are collected for an existing user</br>
+> 
+> See [Create Profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 To associate the Registration Inline Hook with your Profile Enrollment policy:
 
