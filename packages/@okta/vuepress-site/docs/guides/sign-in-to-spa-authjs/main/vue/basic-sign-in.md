@@ -1,13 +1,13 @@
 Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions.  Some routes require authentication in order to render and other don't. The following are some basic routes you need to configure for your app:
 
-* A [default page](#default-page-route) to handle basic control of the app.
-* A [login route](#login-route) to show the Sign-In Widget.
+* A [default page](#default-page-route) to handle the landing page of the app.
+* A [login route](#login-route) to show your app sign-in page.
 * A [callback route](#callback-route) to parse tokens after a redirect from Okta.
 * A [protected route](#protected-route) for authenticated users to access protected content.
 
 #### Default page route
 
-To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` property (see [`authStateManager` in Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
+To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. You need to provide a link to your sign-in page, a link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` property (see [`authStateManager` in Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
 
 You can use the following condition to hide or show specific elements:
 
@@ -55,7 +55,7 @@ export default {
 
 #### Login route
 
-This route hosts the Sign-In Widget and redirects if the user is already logged in. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create a Sign-In Widget container](#create-a-sign-in-widget-container).
+This route directs the user to your app sign-in page. See the `Login` route component, specified in the `src/components/Login.vue` file, from [Create a sign-in component](#create-a-sign-in-component).
 
 #### Callback route
 
@@ -119,27 +119,19 @@ export default {
 
 ```
 
-> **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
+> **Note**: You can extend the set of claims by modifying the [scope settings in your Okta configuration](#set-up-the-okta-configuration-settings) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
 
 
-
-
-This snippet from the `App.vue` file provides access to the `/profile` component only if `authState.isAuthenticated` is true:
+This snippet from the `App.vue` file provides access to the `/dashboard` component only if `authState.isAuthenticated` is true:
 
 ```html
- <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
+<router-link to="/dashboard" v-if="authState && authState.isAuthenticated" >Dashboard</router-link>
 ```
 
-This snippet from the `src/router/index.js` router file provides access to the `/profile` component only if `requiresAuth` metadata is true:
+This snippet from the `src/router/index.js` router file provides access to the `/dashboard` component only if `requiresAuth` metadata is true:
 
 ```js
- {
-    path: '/profile',
-    component: ProfileComponent,
-    meta: {
-      requiresAuth: true
-    }
-  }
+{ path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
 ```
 
 ### Connect the routes
@@ -175,7 +167,7 @@ export default router;
 
 ### Start your app
 
-To run your app, execute:
+To run and test your app, execute:
 
 ```bash
 npm run serve
