@@ -35,9 +35,13 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 
 <ApiLifecycle access="ie" /><br>
 
-If you have migrated to Okta Identity Engine, you can use Inline Hooks with the Progressive Profile feature.
+If you have migrated to Okta Identity Engine, you can use Inline Hooks with the Progressive Profile feature to verify and modify user data.
 
-When you configure a registration Inline Hook and add it to a Profile enrollment policy, the registration inline hook runs when existing users sign in after new required attributes are added to the user profile. The registration inline hook verifies and modifies user data.
+After you create a registration Inline Hook and add it to a Profile enrollment policy, you can run the hook in one of the following ways:
+
+- When a new user is created
+- When attributes are collected for an existing user
+- Both when a new user is created and when attributes are collected for an existing user
 
 See [Registration Inline Hook](/docs/reference/registration-hook/).
 
