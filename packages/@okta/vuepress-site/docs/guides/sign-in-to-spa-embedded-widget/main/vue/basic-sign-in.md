@@ -32,8 +32,7 @@ export default {
   name: 'app',
   methods: {
     async logout () {
-      const publicPath = this.$route.href.replace(new RegExp(this.$route.fullPath + '$'), '');
-      await this.$auth.signOut({ postLogoutRedirectUri: `${window.location.origin}${publicPath}` })
+      await this.$auth.signOut()
     }
   }
 }
