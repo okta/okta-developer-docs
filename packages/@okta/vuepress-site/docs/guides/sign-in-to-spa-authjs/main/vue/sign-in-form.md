@@ -61,7 +61,9 @@ export default {
 
 ### Create the sign-in component
 
-Create a Vue component that displays the sign-in form and submits the authentication request to Okta. You need to handle the response from the authentication request which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For example, create a `src/components/Login.vue` file with the following content:
+Create a Vue component that displays the sign-in form and submits the authentication request to Okta. You need to handle the response from the authentication request, which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For Auth JS Interaction Code methods, see the [Auth JS Identity Engine module readme](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
+
+For example, create a `src/components/Login.vue` file with the following content:
 
 ```html
 <template>

@@ -19,7 +19,7 @@ See the following `src/App.vue` file example:
 ```html
 <template>
   <div id="app">
-    <h1>Okta Identity Engine Vue.js and Auth JS example</h1>
+    <h1>Okta Vue.js and Auth JS example</h1>
       <div id="nav">
         <router-link to="/about">About</router-link> |
         <router-link to="/dashboard" v-if="authState && authState.isAuthenticated" >Dashboard</router-link>
@@ -79,7 +79,7 @@ Create a protected route that is only available to users with a valid `accessTok
 
   > **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
 
-In this protected `/dashboard` component example, the `src/components/Dashboard.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Auth JS SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function.
+In this protected `/dashboard` component example, the `src/components/Dashboard.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Vue SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function from the Okta Auth JS SDK.
 
 ```html
 <template>
