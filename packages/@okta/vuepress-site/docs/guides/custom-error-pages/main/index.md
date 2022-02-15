@@ -35,7 +35,7 @@ However, if an error occurs during sign-in, Okta may need to display an error pa
 
 **In what situations does Okta serve error pages to the user?**
 
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta-hosted flows](/docs/concepts/okta-hosted-flows/) for more information on Okta-hosted functionality.
+The error page appears when a critical error occurs or an application is misconfigured. See [Okta authentication models — Redirect vs. embedded authentication](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
 **What can I customize on the error page?**
 

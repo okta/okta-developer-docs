@@ -37,8 +37,6 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 
 To sign users in, your application opens a browser and shows an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user. 
 
-You can learn more about how this works by reading about [Okta-hosted flows](/docs/concepts/okta-hosted-flows/).
-
 The first thing that you need to define is how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in with the browser.
 
 <StackSelector snippet="definescheme" noSelector/>
