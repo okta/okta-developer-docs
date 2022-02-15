@@ -40,11 +40,11 @@ A fixed authentication strategy for each one of your users is not ideal, especia
 
 Okta's AMFA uses device information coupled with policy-driven logic to decide when users should be required to verify themselves with additional authenticators. Okta manages this device information for you automatically when you use the Redirect or Sign-in Widget deployment models. Create the policies in your org to start using AMFA.
 
-### Use device context with the Embedded SDK
+### Use device context with the embedded SDK
 
-For Embedded SDK integrations, where your middleware server-side application is a trusted client, you are required to create, store, and pass this device context information to Okta. Currently, the SDK supports using a device ID, which represents a unique identifier for the user's device. With this device ID, you can detect whether a user is using a new or previously used device to sign in.
+For embedded SDK integrations, where your middleware server-side application is a trusted client, you are required to create, store, and pass this device context information to Okta. Currently, the SDK supports using a device ID, which represents a unique identifier for the user's device. With this device ID, you can detect whether a user is using a new or previously used device to sign in.
 
-To enable AMFA in your app using the Embedded SDK, you need to create and store these device IDs, enable AMFA in your org, and update your application to pass the device ID to the SDK. This guide shows you step-by-step how to do this.
+To enable AMFA in your app using the embedded SDK, you need to create and store these device IDs, enable AMFA in your org, and update your application to pass the device ID to the SDK. This guide shows you step-by-step how to do this.
 
 ## Update configurations
 

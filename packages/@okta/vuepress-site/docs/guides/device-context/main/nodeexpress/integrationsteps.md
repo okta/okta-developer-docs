@@ -4,7 +4,13 @@ Capture the device ID from the user sign-in. When you use the Embedded SDK, it i
 
 ### 2. Pass device ID to the Okta SDK
 
-Pass the device ID to the Okta SDK. Do this by calling the  `OktaAuth.setHeaders()` method, passing `X-Device-Token` as the header name with a user-defined value. Call this method after instantiating `OktaAuth`.
+Pass the device ID to the Okta SDK. Do this by calling the  `OktaAuth.setHeaders()` method, passing `X-Device-Token` as the header name with a user-defined value.
+
+```javascript
+authClient.setHeaders({'X-Device-Token': '123e4567-e89b-12d3-a456-426614174000'});
+```
+
+Call this method after instantiating `OktaAuth` as in the following example.
 
 ```javascript
 authClient = new OktaAuth({
@@ -22,5 +28,5 @@ authClient = new OktaAuth({
       ...options
     });
 
-    authClient.setHeaders({'X-Device-Token': '123e4567-e89b-12d3-a456-426614174000'});
+authClient.setHeaders({'X-Device-Token': '123e4567-e89b-12d3-a456-426614174000'});
 ```
