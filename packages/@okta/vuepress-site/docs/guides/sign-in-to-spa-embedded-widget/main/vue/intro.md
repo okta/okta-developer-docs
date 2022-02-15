@@ -1,13 +1,13 @@
-If you want to deploy a Vue.js single-page app (SPA) in the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model, where your app retains authentication control without redirection to Okta, then you can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) to quickly add authentication. The Okta Sign-In Widget is a JavaScript library that includes full sign-in features with Okta Identity Engine so the amount of authentication code you have to write for your app is minimal.
+If you want to deploy a Vue.js single-page app (SPA) in the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model, where your app retains authentication control without redirection to Okta, then you can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) to quickly add authentication. The Okta Sign-In Widget is a JavaScript library that includes support for full sign-in features with Okta so that the amount of authentication code you have to write for your app is minimal.
 
 ### Integrate the Sign-In Widget with your SPA app
 
 This guide explains how to build a password-only sign-in flow for your Vue.js app. Before you build or integrate your Vue.js app, ensure that you:
-* [enable the Interaction Code grant on you default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server) 
+* [enable the Interaction Code grant on you default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
 * [set up your Okta org for a password-factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * register your Vue.js app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
-If you don't have an existing Vue.js app, you can [create a new basic Vue.js app](#create-a-new-vue-js-app) from the Vue CLI.
+If you don't have an existing Vue.js app, you can [create a new basic Vue.js app](#create-a-new-vue-js-app-optional) from the Vue CLI.
 
 Integrate the Sign-In Widget to your Vue.js app to add Okta authentication with the following steps:
 

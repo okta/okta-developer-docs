@@ -1,11 +1,11 @@
-This guide walks you through how to build a password-only sign-in flow Vue.js app that uses the Okta Sign-In Widget for Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication).
+This guide walks you through how to build a password-only sign-in flow Vue.js app that uses the Okta Sign-In Widget for Okta embedded authentication.
 
 ---
 
 **Learning outcomes**
 
-* Understand the sequence of steps required to add the Okta Sign-In Widget to a Vue.js app for [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with the Okta Identity Engine.
-* Understand how to run the Vue.js sample app.
+* Understand the sequence of steps required to add the Okta Sign-In Widget to a Vue.js app for [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication).
+* Understand how to run the Vue.js embedded authentication sample app.
 
 **What you need**
 

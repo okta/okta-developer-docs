@@ -59,11 +59,30 @@ See how the callback route component is called from the route definition file (`
 Create a protected route that is only available to users with a valid `accessToken`:
 
 * You can provide access to a protected route when the `requiresAuth` metadata is added in the [route definition](#connect-the-routes).
+
+  This snippet from the `src/router/index.js` router file provides access to the `/profile` component only if `requiresAuth` metadata is true:
+
+  ```js
+  {
+      path: '/profile',
+      component: ProfileComponent,
+      meta: {
+        requiresAuth: true
+      }
+    }
+  ```
+
 * You can use the `authState.isAuthenticated` property in the [default route](#default-page-route) to determine if you need to show a protected element.
+
+  This snippet from the `App.vue` file provides access to the `/profile` component only if `authState.isAuthenticated` is true:
+
+  ```html
+  <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
+  ```
 
 > **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
 
-In this protected `/profile` component example, the `src/components/Profile.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Auth JS SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function.
+In this protected `/profile` component example, the `src/components/Profile.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Vue SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function from the Okta Auth JS SDK.
 
 ```html
 <template>
@@ -109,27 +128,6 @@ export default {
 ```
 
 > **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
-
-
-
-
-This snippet from the `App.vue` file provides access to the `/profile` component only if `authState.isAuthenticated` is true:
-
-```html
- <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
-```
-
-This snippet from the `src/router/index.js` router file provides access to the `/profile` component only if `requiresAuth` metadata is true:
-
-```js
- {
-    path: '/profile',
-    component: ProfileComponent,
-    meta: {
-      requiresAuth: true
-    }
-  }
-```
 
 ### Connect the routes
 
@@ -186,7 +184,7 @@ export default router
 
 ### Start your app
 
-To run your app, execute:
+To run and test your app, execute:
 
 ```bash
 npm run serve
