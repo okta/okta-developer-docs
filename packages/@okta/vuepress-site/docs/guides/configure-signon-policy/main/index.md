@@ -35,13 +35,15 @@ Assurance refers to a level of confidence that the user signing in is also the p
 
 Identity Engine requires that an assurance specified in the Global Session Policy and in the authentication policy be satisfied before a user can access an app. This is a change from the traditional model of authentication, which evaluates one policy depending on whether the user signs in to the org or directly through the app.
 
+A Global Session Policy and an authentication policy control the authentication assurance part of your requirements. [Other policies](/docs/concepts/policies/), such as an MFA enrollment policy, password policy, profile policy, and so on, work together to determine the overall authentication experience.
+
 ### Global Session Policy
 
 Global Session Policies help control who can have access and how a user gains access to Okta, including whether they are challenged for additional factors and how long they are allowed to remain signed in before re-authenticating. A Global Session Policy supplies the context necessary for the user to advance to the next authentication step after they are identified by Okta.
 
 You can configure a Global Session Policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
 
-> **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as the primary factor for a rule, you remove the global password requirement from the Global Session Policy and transfer responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#app-sign-on-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+> **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as the primary factor for a rule, you remove the global password requirement from the Global Session Policy and transfer responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policy) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of Global Session Policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named Default. By definition, the Default policy applies to all users.
 
@@ -57,7 +59,7 @@ You don’t have to use the default authentication policy. You can create a new 
 
 > **Note:** There can be only one authentication policy per app.
 
-## Configure sign-on policies for common scenarios
+## Configure policies for common scenarios
 
 This section provides step-by-step instructions to configure a Global Session Policy and add a rule to the shared default authentication policy for two of the most common scenarios:
 
@@ -66,7 +68,7 @@ This section provides step-by-step instructions to configure a Global Session Po
 
 ## Prompt for an additional factor for a group
 
-Configure a Global Session Policy to prompt a user for a factor [authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) when the user is a member of a certain group.
+Configure a Global Session Policy to prompt a user for an additional [factor](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) when the user is a member of a certain group.
 
 ### Create the policy container
 
@@ -88,7 +90,7 @@ Configure a Global Session Policy to prompt a user for a factor [authenticator](
 
 3. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** drop-down box. For example, prompting a user for a factor when they aren't on the corporate network.
 
-4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave **Password/IDP** option selected. Additionally, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they are granted access
+4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave the **Password/IDP** option selected. Additionally, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they are granted access
 
     > **Note:** Click the **Multifactor Authentication** link for quick access to the **Authenticators** page to configure the factors that you want to use.
 
@@ -116,11 +118,11 @@ Configure a Global Session Policy to prompt a user for a factor [authenticator](
 
 You may want all default Okta users to provide a password, but you want all Okta users outside of the United States to provide both a password and another factor to access your app. You can use the default authentication policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not within the United States to provide both a password and another factor each time that they sign in.
 
-Follow these steps to configure another rule for the default authentication policy to prompt a user for an additional factor when the user is outside of the United States.
-
 > **Note:**  You can add as many rules to the default authentication policy that you want, but remember that the changes are applied to all new apps as it is a shared app policy.
 
 ### Select the policy and add a rule
+
+Follow these steps to configure another rule for the default authentication policy to prompt a user for an additional factor when the user is outside of the United States.
 
 > **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network). In this example, we are using a dynamic zone defined for IP addresses within the United States.
 
