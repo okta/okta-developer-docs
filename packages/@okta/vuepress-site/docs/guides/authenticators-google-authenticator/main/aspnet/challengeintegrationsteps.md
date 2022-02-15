@@ -1,5 +1,5 @@
 ### 1 - 4: Sign-in and Select Authenticator
-The challenge flow follows the same first four steps as the [Enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
+The challenge flow follows the same first four steps as the [enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 
 * Build a sign-in page on the client
 * Authenticate the user credentials
@@ -7,7 +7,7 @@ The challenge flow follows the same first four steps as the [Enrollment flow](/d
 * Display a list of possible authenticator factors
 
 ### 5: Check Authenticator Status
-When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in _Challenge Flow_ or _Enrollment Flow_.
+When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
 
 When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 
