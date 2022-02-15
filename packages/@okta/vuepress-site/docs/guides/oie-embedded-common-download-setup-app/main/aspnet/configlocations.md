@@ -1,32 +1,54 @@
 You have several options for setting the configuration values in your app.
 
-### Option 1: Create a configuration file
+### Option 1: Create a YAML configuration file
 
-Create a YAML file named `okta.yaml` in one of the following directories:
+Create a YAML file named `okta.yaml` in:
 
-* Current user's home directory
-  * **Unix/Linux**:    `~/.okta/okta.yaml`
-  * **Windows**:       `%userprofile%\.okta\okta.yaml`
+- A folder called `.okta` whose parent is the current user's home directory
+  - On Mac/Linux, this is `~/.okta/okta.yaml`
+  - On Windows, this is `%userprofile%\.okta\okta.yaml`
+- The application's current working directory
+  - If you're using the recommended IISExpress debugger in Visual Studio to run your app, this is `{IIS Express install location}\IIS Express`, for example, `C:\Program Files\IIS Express\okta.yaml`.
 
-* Application or project's root directory
-
-> **Note:** If you're using the recommended **IISExpress** debugger in Visual Studio to run your app, the `okta.yaml` file needs to be in the following location: `${IIS Express install location}\IIS Express`, for example, `C:\Program Files (x86)\IIS Express\okta.yaml`.
-
-The following is the required content format for the YAML file:
+The information in the YAML file should be formatted as follows:
 
 ```yaml
 okta:
   idx:
-    issuer: "https://${yourOktaDomain}/oauth2/default"
-    clientId: "${clientId}"
-    clientSecret: "${clientSecret}"
+    issuer: "{YOUR_ISSUER}"
+    clientId: "{YOUR_CLIENT_ID}"
+    clientSecret: "{YOUR_CLIENT_SECRET}"
     scopes:
-      - "${scope1}"
-      - "${scope2}"
-    redirectUri: "${redirectUri}"
+      - "openid"
+      - "profile"
+      - "offline_access"
+    redirectUri: "{YOUR_REDIRECT_URI}"
 ```
 
-### Option 2: Set the values as environment variables
+### Option 2: Create a JSON configuration file
+
+Create a JSON file named `appsettings.json` in:
+
+- The application’s current working directory
+  - If you're using the recommended IISExpress debugger in Visual Studio to run your app, this is `{IIS Express install location}\IIS Express`, for example, `C:\Program Files\IIS Express\appsettings.json`.
+
+The information in the JSON file should be formatted as follows:
+
+```json
+{
+    "okta": {
+        "idx": {
+            "issuer" : "{YOUR_ISSUER}",
+            "clientId" : "{YOUR_CLIENT_ID}",
+            "clientSecret": "{YOUR_CLIENT_SECRET}",
+            "redirectUri": "{YOUR_REDIRECT_URI}",
+            "scopes": [ "openid", "profile", "offline_access" ]
+        }
+    }
+}
+```
+
+### Option 3: Set the values as environment variables
 
 Set the following environment variables with the configuration values:
 
@@ -34,21 +56,28 @@ Set the following environment variables with the configuration values:
 * `OKTA_IDX_CLIENTID`
 * `OKTA_IDX_CLIENTSECRET`
 * `OKTA_IDX_REDIRECTURI`
-* `OKTA_IDX_SCOPES`
 
-### Option 3: Add the values as parameters to the SDK's client constructor
+Environment variables hold only single values so you need to create one for each scope you need to give to your application.
+
+```
+OKTA_IDX_SCOPES_0 = "openid"
+OKTA_IDX_SCOPES_1 = "profile"
+OKTA_IDX_SCOPES_2 = "offline_access"
+```
+
+### Option 4: Add the values as parameters to the SDK's client constructor
 
 Add the values as parameters to the constructor for the `IdxClient`.
 
 ```csharp
- var client = new IdxClient(new IdxConfiguration()
-           {
-               Issuer = "${YOUR_ISSUER}",
-               ClientId = "${YOUR_CLIENT_ID}",
-               ClientSecret = "${YOUR_CLIENT_SECRET}",
-               RedirectUri = "${YOUR_REDIRECT_URI}",
-               Scopes = new List<string>{"openid","profile", "offline_access"}
-           });
+var client = new IdxClient(new IdxConfiguration()
+{
+    Issuer = "{YOUR_ISSUER}",
+    ClientId = "{YOUR_CLIENT_ID}",
+    ClientSecret = "{YOUR_CLIENT_SECRET}",
+    RedirectUri = "{YOUR_REDIRECT_URI}",
+    Scopes = new List<string> { "openid", "profile", "offline_access" }
+});
 ```
 
 > **Note:** The sample app uses dependency injection to instantiate the `IdxClient`,
