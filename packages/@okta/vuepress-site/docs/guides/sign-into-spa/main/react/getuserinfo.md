@@ -19,7 +19,7 @@ const Home = () => {
       // When user isn't authenticated, forget any user info
       setUserInfo(null);
     } else {
-      oktaAuth.getUserInfo().then(info => {
+      oktaAuth.token.getUserInfo().then(info => {
         setUserInfo(info);
       });
     }
@@ -47,7 +47,7 @@ import React, { Component } from "react";
 
 async function checkUser() {
   if (this.props.authState.isAuthenticated && !this.state.userInfo) {
-    const userInfo = await this.props.oktaAuth.getUserInfo();
+    const userInfo = await this.props.oktaAuth.token.getUserInfo();
     if (this._isMounted) {
       this.setState({ userInfo });
     }
