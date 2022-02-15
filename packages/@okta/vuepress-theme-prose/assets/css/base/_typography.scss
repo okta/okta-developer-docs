@@ -109,10 +109,13 @@ blockquote {
   padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
 }
 
+ol:not([start]) {
+	counter-reset: item;   
+}
+
 ol,
-ol:not([class]) {
-	counter-reset: ol_parent;   
-	margin: 0 0 0 1.5625rem !important;
+ol:not([class]) {  
+	margin: 0 0 1.5rem 1.5625rem !important;
 	padding-left: 1.9375rem;
 	li {
 		position: relative;
@@ -121,8 +124,8 @@ ol:not([class]) {
 			content: '';
 		}
 		&:before {
-			counter-increment: ol_parent;
-			content: counter(ol_parent);
+			counter-increment: item;
+			content: counter(item);
 			position: absolute;
 			width: 1.5rem;
 			height: 1.5rem;
@@ -166,6 +169,7 @@ ul:not([class]) {
 
 dl {
   margin-bottom: 1.5rem;
+  border-bottom: 1px solid cv('gray', '300');
   dt {
     padding-top: 2rem;
     font-weight: 700;
@@ -180,6 +184,8 @@ dl {
     line-height: 1.25rem;
     color: cv('gray', '900');
     padding-left: 1.875rem;
-    border-bottom: 1px solid cv('gray', '300');
+    & + dt {
+      border-top: 1px solid cv('gray', '300');
+    }
   }
 }
