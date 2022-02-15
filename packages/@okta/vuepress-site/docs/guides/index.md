@@ -95,6 +95,7 @@ guides:
  - authenticators-google-authenticator
  - authenticators-web-authn
  - device-context
+ - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

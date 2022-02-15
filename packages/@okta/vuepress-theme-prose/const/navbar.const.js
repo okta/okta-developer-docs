@@ -297,6 +297,10 @@ export const guides = [
             title: "Advanced use cases",
             subLinks: [
               {
+                title: "Custom password recovery",
+                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
+              },
+              {
                 title: "Device Context",
                 guideName: "device-context"
               }
