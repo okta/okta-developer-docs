@@ -294,6 +294,15 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Advanced use cases",
+            subLinks: [
+              {
+                title: "Device Context",
+                guideName: "device-context"
+              }
+            ]
+          },
+          {
             title: "Authenticators",
             subLinks: [
               {

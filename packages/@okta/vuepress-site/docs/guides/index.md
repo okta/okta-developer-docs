@@ -94,6 +94,7 @@ guides:
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
+ - device-context
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
