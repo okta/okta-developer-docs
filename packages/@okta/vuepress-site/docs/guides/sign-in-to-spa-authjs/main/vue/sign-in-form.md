@@ -37,8 +37,7 @@ The steps to add Okta authentication described in the following sections focus o
 Before you code your forms and routes, use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Okta Auth JS instance:
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
-* `issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
-* `useInteractionCodeFlow`: Set this option to `true` to enable Identity Engine features that use the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow)
+* `issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
 * `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
@@ -48,13 +47,12 @@ You can create a `src/config.js` file to define your configuration settings. For
 export default {
   oidc: {
     clientId: '${yourClientId}',
-    issuer: '${yourIssuer}',
+    issuer: 'https://${yourOktaDomain}/oauth2/default',
     redirectUri: '${yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],
     tokenManager: {
       storage: 'localStorage'
-    },
-    useInteractionCodeFlow: true
+    }
   }
 }
 ```
@@ -107,7 +105,7 @@ export default {
           // next IDX step not handled in this app yet
           this.error = true
           this.msg = transaction.messages[0].message
-          console.error('TODO: add handling for status: ', transaction.status,
+          console.log('TODO: add handling for status: ', transaction.status,
             'message: ', transaction.messages,
             'next step: ', transaction.nextStep)
           break
@@ -115,8 +113,7 @@ export default {
           // failure from idx.authenticate
           this.error = true
           this.msg = transaction.messages[0].message
-          console.error(transaction.status)
-          console.error(transaction.messages)
+          console.log(transaction.status, transaction.messages)
           break
         default:
           this.error = true
