@@ -100,7 +100,7 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. |
+| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For self-service registration (SSR) only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
 | com.okta.user.progressive.profile.update   | Change values of attributes in the user's Okta progressive profile (Okta Identity Engine only). |
 
@@ -110,9 +110,9 @@ To explicitly allow or deny registration to the user, supply a type property set
 
 In Okta Identity Engine, to set attributes in the user's Okta progressive profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the progressive profile  attributes you want to set. See [Registration Inline Hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response) for more information. <ApiLifecycle access="ie" />
 
-Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
+Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` or `com.okta.user.progressive.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. However, the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
