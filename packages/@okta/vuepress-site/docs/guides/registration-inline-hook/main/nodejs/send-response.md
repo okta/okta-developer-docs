@@ -50,8 +50,21 @@ app.post('/registrationHook', async (request, response) => {
 
 ### Send Progressive Profile response
 
-For this example, use the `com.okta.user.progressive.profile.update` command to supply values for attributes in the response.
+This response example uses the `com.okta.user.progressive.profile.update` command to supply values for attributes in the response.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
+```javascript
+{
+  "commands": [
+    {
+      "type": "com.okta.user.progressive.profile.update",
+      "value": {
+        "test1": "value1",
+        "test2": "value2"
+      }
+    }
+  ]
+}
 
+```
