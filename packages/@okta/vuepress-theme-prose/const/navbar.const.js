@@ -640,7 +640,7 @@ export const languagesSdk = [
   {
     title: "Languages & SDKs",
     subLinks: [
-      { title: "Languages & SDKs overview", path: "/code/" },
+      { title: "Overview", path: "/code/" },
       {
         title: "Mobile/native",
         subLinks: [
