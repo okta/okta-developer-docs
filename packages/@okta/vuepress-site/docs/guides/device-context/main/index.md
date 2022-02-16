@@ -48,8 +48,7 @@ To enable AMFA in your app using the Embedded SDK, you need to enable AMFA in yo
 
 ## Update configurations
 
-Update your Okta org to allow for AMFA. The following steps show you how to create a setup where your users are prompted for an additional authenticator when they sign in on a new device. Subsequent sign-ins only require a username and password. Customize these steps to fit your company's needs.
- The steps are as follows:
+Update your Okta org to allow for AMFA. The following steps set up your org to prompt users with an additional authenticator when they are on a new device. Subsequent sign-ins only require a username and password. The steps are as follows:
 
 1. [Create your Okta org](#create-your-okta-org)
 1. [Add a new global sign-on policy](#add-a-new-global-sign-on-policy)
