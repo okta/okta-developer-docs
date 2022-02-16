@@ -42,6 +42,7 @@ guides:
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
+ - secure-oauth-between-orgs
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
