@@ -3,6 +3,21 @@ title: Okta API Products release notes 2022
 ---
 ## February
 
+### Weekly release 2022.02.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Org2Org integration now supports Okta API access using an OAuth 2.0 client](#okta-org2org-integration-now-supports-okta-api-access-using-an-OAuth-2-0-client)                        | February 16, 2022         |
+| [Bug fixed in 2022.02.2](#bug-fixed-in-2022-02-2)                        | February 16, 2022         |
+
+#### Okta Org2Org integration now supports Okta API access using an OAuth 2.0 client
+
+The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-468121 -->
+
+#### Bug fixed in 2022.02.2
+
+Resend verification emails for self-service registered users didn't appear in the [System Log](/docs/reference/api/system-log/). (OKTA-456831)
+
 ### Weekly release 2022.02.1
 
 | Change                                                                   | Expected in Preview Orgs |
