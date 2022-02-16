@@ -1,5 +1,5 @@
 ---
-title: Use Postman with the Okta REST APIs
+title: Test the Okta REST APIs using Postman
 language: rest
 integration: back-end
 icon: code-rest

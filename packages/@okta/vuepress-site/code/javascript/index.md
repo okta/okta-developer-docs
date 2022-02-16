@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your JavaScript App
+title: Add user authentication to your JavaScript app
 language: JavaScript
 integration: front-end
 icon: code-javascript
@@ -8,59 +8,44 @@ meta:
     content: Our guide explains how to add authentication to your JavaScript app and customize the sign-in experience.
 ---
 
-New to Okta? Our how to guide will walk you through adding user authentication to your JavaScript app in minutes.
+## Get started with JavaScript + Okta
+
+New to Okta? Our resources will walk you through adding user authentication to your JavaScript app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/protect-your-api/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Auth.js fundamentals</span>
+		</a>
+	</li>
+	<li>
+		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign-In Widget fundamentals</span>
 		</a>
 	</li>
 </ul>
 
-## Okta JavaScript Authentication SDK
+> **Note**: This set of resources is relevant to front-end JavaScript. For back-end JavaScript, see [Node.js](/code/nodejs/).
 
-Auth.js is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience, or use the Okta Sign-In Widget for a pre-built, customizable experience.
+## Okta JavaScript libraries
 
-<a href='https://www.npmjs.com/package/@okta/okta-auth-js' class="language-reference">
-	<span class='icon download-16'></span> <span>okta-auth-js on npm</span>
-</a>
+Use the Okta Sign-In Widget for a pre-built, best practice, customizable experience.
 
-<a href='https://github.com/okta/okta-auth-js'>
-	<span class='fa fa-github'></span> <span>JavaScript Auth SDK Source</span>
-</a>
+Auth.js is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience.
 
-## JavaScript Libraries
-
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-signin-widget">
-			<span>Okta Sign-In Widget</span>
-		</a>
-	</li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-js">
-			<span>Okta's OpenID Connect</span>
-		</a>
-	</li>
-</ul>
+* [okta-auth-js on npm](https://www.npmjs.com/package/@okta/okta-auth-js)
+* [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine-specific instructions
+* [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
+* [Okta's OpenID Connect JS library](https://github.com/okta/okta-oidc-js)
 
 ## Recommended Guides
 
+* [Auth.js fundamentals](#) (WILL EVENTUALLY BE /docs/guides/auth-js/main/)
+* [Embedded Okta Sign-In Widget fundamentals](/code/javascript/okta_sign-in_widget/) (WILL EVENTUALLY BE /docs/guides/embedded-siw/main/)
+* [Implementing the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
+* [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-- [Okta Auth SDK Guide](/code/javascript/okta_auth_sdk/)
-- [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/)
-- [Implementing the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
-- [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
-
-## Related Blog Posts
-
-
-- [Add Authentication to Your Vanilla JavaScript App in 20 Minutes](/blog/2018/06/05/authentication-vanilla-js)
-- [Build a Video Chat Service with JavaScript, WebRTC, and Okta](/blog/2018/05/08/build-video-chat-app-with-javascript-webrtc-and-okta)
-
+> **Note**: Browse our [JavaScript Developer Blog posts](/search/#q=javascript&f:@commonoktasource=[Developer%20blog]) for further useful topics.

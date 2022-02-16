@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your Node.js App
+title: Add user authentication to your Node.js Express app
 language: Node.js
 integration: back-end
 icon: code-nodejs
@@ -8,76 +8,57 @@ meta:
     content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
 ---
 
-New to Okta? Our how to guide will walk you through adding user authentication to your Node.js app in minutes.
+## Get started with Node.js Express + Okta
+
+New to Okta? Our resources will walk you through adding user authentication to your Node.js Express app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
+	  <li>
+    <a href='/docs/guides/protect-your-api/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <span>Protect your API quickstart</span>
+    </a>
+  </li>
 	<li>
 		<a href='https://github.com/okta/samples-nodejs-express-4' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
+## Identity Engine samples and Auth.js SDK
+
+* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine specific instructions
+* [Express JS embedded authentication with SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk)
+* [Express JS embedded Sign-In Widget sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget)
+* [Express JS redirect authentication sample app](https://github.com/okta/samples-nodejs-express-4) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for redirect configuration
 
 ## Okta Node.js SDK
 
 The Okta Node.js SDK can be used in your server-side code to create and update users and groups.
 
-<a href='https://www.npmjs.com/package/@okta/okta-sdk-nodejs' class="language-reference">
-	<span class='icon download-16'></span> <span>okta-sdk-nodejs on npm</span>
-</a>
+* [okta-sdk-nodejs on npm](https://www.npmjs.com/package/@okta/okta-sdk-nodejs)
+* [Node.js SDK reference (JSDoc)](https://developer.okta.com/okta-sdk-nodejs/jsdocs/)
+* [Node.js SDK Source](https://github.com/okta/okta-sdk-nodejs)
 
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-sdk-nodejs/jsdocs/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>Node.js SDK Reference</span>
-	</a>
-</p>
+## Node.js libraries
 
-<a href='https://github.com/okta/okta-sdk-nodejs'>
-	<span class='fa fa-github'></span> <span>Node.js SDK Source</span>
-</a>
+* [Okta JWT Verifier for Node.js](https://github.com/okta/okta-jwt-verifier-js)
+* [Okta OIDC Middleware for Node.js](https://github.com/okta/okta-oidc-middleware)
 
-## Node.js Libraries
+## Recommended guides
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-jwt-verifier-js">
-			<span>Okta JWT Verifier for Node.js</span>
-		</a>
-	</li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-middleware">
-			<span>Okta OIDC Middleware for Node.js</span>
-		</a>
-	</li>
-</ul>
-
-## Recommended Guides
-
-
+* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/nodeexpress/main/)
+* [Protect your API endpoints](/docs/guides/protect-your-api/nodeexpress/main/)
+* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 - [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-## Related Blog Posts
-
-
-- [Build a Basic CRUD App with Vue.js and Node](/blog/2018/02/15/build-crud-app-vuejs-node)
-- [Build a Simple REST API with Node and OAuth 2.0](/blog/2018/08/21/build-secure-rest-api-with-node)
-- [Tutorial: Build a Basic CRUD App with Node.js](/blog/2018/06/28/tutorial-build-a-basic-crud-app-with-node)
-- [Build a Basic CRUD App with Node and React](/blog/2018/07/10/build-a-basic-crud-app-with-node-and-react)
-- [Build User Registration with Node, React, and Okta](/blog/2018/02/06/build-user-registration-with-node-react-and-okta)
-- [Build Secure Node Authentication with Passport.js and OpenID Connect](/blog/2018/05/18/node-authentication-with-passport-and-oidc)
-- [How to Securely Manage Users in Your Node App](/blog/2018/06/26/securely-manage-users-node-app)
-- [Simple Multi-Factor Authentication in Node](/blog/2018/05/22/simple-multifactor-authentication-in-node)
-
-
+> **Note**: Browse our [Node.js Developer Blog posts](/search/#q=node&f:@commonoktasource=[Developer%20blog]) for further useful topics.

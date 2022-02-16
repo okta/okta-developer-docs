@@ -4729,3 +4729,7 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
+  - from: /code/oie/
+    to: /code/
+  - from: /code/oie/index.html
+    to: /code/
