@@ -53,7 +53,7 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 ## Recommended guides
 
 * [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/nodeexpress/main/)
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/nodejs/main/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/nodeexpress/main/)
 * [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 - [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)

@@ -77,7 +77,7 @@ The Okta SDK for Xamarin follows current best practice for native apps using OID
 ## Recommended guides
 
 * [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnetcore3/main/)
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/aspnetcore3/main/)
 * [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)

@@ -63,7 +63,7 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 ## Recommended guides
 
 * [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/spring-boot/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/springboot/main/)
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/java/main/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/nodeexpress/main/)
 * [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
