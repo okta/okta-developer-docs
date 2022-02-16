@@ -102,7 +102,7 @@ The following commands are supported for the Registration Inline Hook type:
 |------------------------------|--------------------------------------------------------------|
 | com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For self-service registration (SSR) only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
-| com.okta.user.progressive.profile.update   | Change values of attributes in the user's Okta progressive profile (Okta Identity Engine only). |
+| com.okta.user.progressive.profile.update   | Change values of attributes in the user's Okta Progressive Profile (Okta Identity Engine only). |
 
 To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
