@@ -32,6 +32,8 @@ You can customize and style the default email notifications that Okta sends to e
 
 Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
 
+> **Note:** When you edit a template, Okta stops sending the default in other languages. You are responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
+
 ### Use the Brands API
 
 The [Brands API](/docs/reference/api/brands/) is a feature that allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
@@ -46,21 +48,23 @@ The [Brands API](/docs/reference/api/brands/) is a feature that allows you to cu
 
 - If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
 
-## Add or edit email templates
+## Edit a default template
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
 > **Note:** Free trial editions of Okta can't create or send customized email templates.
 
-1. In the Admin Console, go to **Settings** and then **Emails & SMS**. The **Email** tab is selected by default.
-2. From the left pane, select the email template that you want to edit or for which you want to add a new translation. A text version of the default message appears.
-3. Click **Edit** to open the message in HTML.
-4. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
-5. If your org supports additional languages, click **Add Translation**, and then select a language from the drop-down box.
-6. Make your edits, and then click **Add Translation**.
-7. Repeat steps 5 and 6 for additional languages.
+1. In the Admin Console, go to **Customizations** > **Emails**.
+1. Select either **Okta Identity Engine templates** or **Okta Classic templates**.
+1. Click a default email template listed in the left pane.
+1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template has already been customized. You need to make any additional edits in the default language version. 
+1. Select a language from the dropdown menu.
+1. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
+1. If your org supports additional languages, click **Add Translation**, and then select a language from the drop-down box.
+1. Make your edits, and then click **Add Translation**.
+1. Repeat steps 5 and 6 for additional languages.
 
-## Localization notes
+## Add translations
 
 * When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
