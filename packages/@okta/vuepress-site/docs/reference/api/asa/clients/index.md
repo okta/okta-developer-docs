@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) Client corresponds to a user's device. Clients are the primary way users access servers managed by ASA.
 
-Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Clients API operations
 
-
 The Clients API has the following operations:
+
 * [List ASA Clients](#list-asa-clients)
 * [Fetch an ASA Client](#fetch-an-asa-client)
 * [Revoke an ASA Client](#revoke-an-asa-client)

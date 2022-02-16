@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Entitlements offer ASA admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
-Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Entitlements API operations
 
-
 The Entitlements API has the following operations:
+
 * [List the sudo Entitlements for a Team](#list-the-sudo-entitlements-for-a-team)
 * [Create a sudo Entitlement](#create-a-sudo-entitlement)
 * [Fetch a single sudo Entitlement](#fetch-a-single-sudo-entitlement)

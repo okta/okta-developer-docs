@@ -13,20 +13,18 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Attributes are key-value mappings that hold metadata of ASA Users and ASA Groups.
 
-Explore the Attributes API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Attributes API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Attributes API operations
 
-
 The Attributes API has the following operations:
+
 * [List Group Attributes](#list-group-attributes)
 * [Fetch a Group Attribute](#fetch-a-group-attribute)
 * [Update a Group Attribute](#update-a-group-attribute)
 * [List the Attributes for a User](#list-the-attributes-for-a-user)
 * [Fetch a User Attribute](#fetch-a-user-attribute)
 * [Update a single Attribute for a User](#update-a-single-attribute-for-a-user)
-
 
 ### List Group Attributes
 

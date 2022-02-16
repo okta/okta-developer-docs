@@ -15,13 +15,12 @@ An Advanced Server Access (ASA) Team is the top-level organizational concept in 
 
 All other configuration objects in Advanced Server Access are scoped to an ASA Team.
 
-Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Teams API operations
 
-
 The Teams API has the following operations:
+
 * [List Servers for a Team](#list-servers-for-a-team)
 * [Update a Server](#update-a-server)
 * [Fetch Team settings](#fetch-team-settings)
