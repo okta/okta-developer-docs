@@ -76,8 +76,6 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 ## Enhanced Email Macros
 
-<ApiLifecycle access="ea" />
-
 > **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
 
 > **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
