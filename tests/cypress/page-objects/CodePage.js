@@ -8,13 +8,13 @@ export class CodePage extends BasePage {
   }
 
   getSimpleAppButton() {
-    const sampleAppButtonText = /^Sample App$/;
+    const sampleAppButtonText = /^Sample app$/;
 
     return cy.get('span').contains(sampleAppButtonText);
   }
 
   getHowToGuide() {
-    const howToGuideText = /^How To Guide$/;
+    const howToGuideText = /^Sign users in quickstart$/;
 
     return cy.get('span').contains(howToGuideText);
   }
