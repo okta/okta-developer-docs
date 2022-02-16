@@ -12,7 +12,7 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 **Learning outcomes**
 
 * Understand common set up steps for implementing an Okta Event or Inline Hook. Test 3.
-* Understand how to use these steps when running the example hook code in the accompanying guides
+* Understand how to use these steps when running the example hook code in the accompanying guides. Test 4.
 
 **What you need**
 
