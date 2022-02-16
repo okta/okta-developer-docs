@@ -2,8 +2,6 @@ For this example, only emails containing "example.com" are allowed and can self-
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
-<!--- need to add PP sample --->
-
 
 ```javascript
 app.post('/registrationHook', async (request, response) => {
@@ -49,5 +47,11 @@ app.post('/registrationHook', async (request, response) => {
 )
 
 ```
+
+### Send Progressive Profile response
+
+For this example, use the `com.okta.user.progressive.profile.update` command to supply values for attributes in the response.
+
+See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 

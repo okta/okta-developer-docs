@@ -93,7 +93,7 @@ To set attributes in the user's Okta profile, supply a type property set to `com
 
 To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"}`. The default is to allow registration.
 
-In Okta Identity Engine, to set attributes in the user's Okta progressive profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the progressive profile  attributes you want to set. See [Enable a Registration Inline Hook in the Identity Engine](/docs/guides/registration-inline-hook/nodejs/main/#enable-a-registration-inline-hook-in-the-identity-engine) for more information. <ApiLifecycle access="ie" />
+In Okta Identity Engine, to set attributes in the user's Okta progressive profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the progressive profile  attributes you want to set. See [Registration Inline Hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response) for more information. <ApiLifecycle access="ie" />
 
 Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
