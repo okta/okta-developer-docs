@@ -97,10 +97,9 @@ The Okta Authentication SDK can be used in scenarios where using OAuth 2.0 is no
 
 ## Related Blog Posts
 
-
+- [Build a Java REST API with Java EE and OIDC](/blog/2018/09/12/secure-java-ee-rest-api)
+- [Build Native Java Apps with Micronaut, Quarkus, and Spring Boot](/blog/2021/06/18/native-java-framework-comparison)
 - [5 Tips for Building your Java API](/blog/2017/08/23/five-java-tips)
-- [NoSQL Options for Java Developers](/blog/2017/09/08/nosql-options-for-java-developers)
 - [TLS Client Authentication for Internal Services](/blog/2015/12/02/tls-client-authentication-for-services)
 - [Add Authentication to Play Framework with OIDC and Okta](/blog/2017/10/31/add-authentication-to-play-framework-with-oidc)
-- [Build Server Side Authentication in Grails with OAuth 2.0 and Okta](/blog/2018/04/19/okta-with-grails)
 
