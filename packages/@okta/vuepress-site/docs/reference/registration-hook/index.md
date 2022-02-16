@@ -40,7 +40,7 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.userProfile
 
-This object contains name-value pairs for each attribute supplied by the user in the Profile Enrollment form, except for the following:
+This object appears in self-service registration (SSR) requests from Okta. The object contains name-value pairs for each attribute supplied by the user in the Profile Enrollment form, except for the following:
 
 - the `password` field
 - any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
@@ -49,7 +49,22 @@ Using the `com.okta.user.profile.update` commands you send in your response, you
 
 You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
 
+### data.UserProfileUpdate
+
+<ApiLifecycle access="ie" /><br>
+
+This object appears in Progressive Profile requests from Okta.  The object contains name-value pairs for each attribute supplied by the user in the Progressive Profile, except for the following:
+
+- the `password` field
+- any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
+
+Using the `com.okta.user.progressive.profile.update` commands you send in your response, you can progressively change the values of attributes in the user's Okta profile.
+
+You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
+
 ### data.action
+
+> **Note:** The `data.action` object can appear in both self-service registration (SSR) and Progressive Profile requests.
 
 The action that Okta is currently set to take, regarding whether to allow this registration attempt.
 
