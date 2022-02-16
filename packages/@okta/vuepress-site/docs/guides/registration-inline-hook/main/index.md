@@ -21,7 +21,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Sample code**
 
-[Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
+[Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook?path=README.md)
 
 ---
 
@@ -55,7 +55,9 @@ To set up and activate the Registration Inline Hook:
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
 1. Add a name for the hook (in this example, "Guide Registration Hook Code").
-1. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
+1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
+    - If using Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix.
+    - If using Glitch, to find the live site link click **Share**.
 1. Include the authentication field and secret. In this example:
     - **Authentication Field** = `authorization`
     - **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
