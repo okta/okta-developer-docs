@@ -42,7 +42,7 @@ It is up to you to decide how to update your branding. In this guide, we are dem
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
-> **Note**: To make branding updates using the admin interface, see [Branding](https://help.okta.com/en/prod/Content/Topics/Settings/branding.htm?cshid=csh-branding).
+> **Note**: To make branding updates using the Admin Console, see [Branding](https://help.okta.com/en/prod/Content/Topics/Settings/branding.htm?cshid=csh-branding).
 
 ## Important: Overriding themes in the code template editors
 
