@@ -146,6 +146,6 @@ The following are step-by-step instructions to configure another rule for the de
 
 ## See also
 
-* [Sign Users Out](/docs/guides/sign-users-out/)
-* [Set up self-registration](/docs/guides/set-up-self-service-registration/)
+* [Policies concept](/docs/concepts/policies/)
+* [Policy API reference](/docs/reference/api/policy/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
