@@ -114,7 +114,7 @@ If your client application is running on a server with no direct end user, then 
 
 #### Is your app high-trust?
 
-If you own both the client application and the resource that it is accessing, then your application can be trusted to store your end user's username and password — such apps are termed "high-trust". Because of the high degree of trust required here, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
+If you own both the client application and the resource that it's accessing, then your application can be trusted to store your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
 
 If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
