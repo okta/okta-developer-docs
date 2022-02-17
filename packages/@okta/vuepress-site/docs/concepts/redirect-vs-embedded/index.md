@@ -82,7 +82,7 @@ is -> cl: Return assertion to client
 * Extremely customizable through HTML, CSS, and JavaScript
 * Complex logic changes that require source code access are limited
 * The user is redirected out of the application to Okta, and then back to the application.
-* Handles most client deployment requirements.
+* Handles most client deployment requirements
 
 ### Deploy the redirect authentication model when
 
