@@ -131,7 +131,7 @@ export default {
 
 ### Connect the routes
 
-This route definition example uses the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) in the `src/router/index.js` file. Notice that the `requiresAuth` metadata needs to be true for protected routes.
+This route definition example uses the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) in the `src/router/index.js` file. Notice that the `requiresAuth` metadata must be true for protected routes.
 
 ```js
 import { createRouter, createWebHistory } from 'vue-router'
