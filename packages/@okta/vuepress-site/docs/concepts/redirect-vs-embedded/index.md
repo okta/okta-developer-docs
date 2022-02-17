@@ -45,7 +45,7 @@ The user or system is redirected to Okta for credential verification and is then
 
 > **Note**: [Single Sign-On (SSO)](/docs/guides/build-sso-integration/) is supported for redirect authentication. That is, Okta may create a session (based on the Okta policies, for example), and then other integrated applications can use SSO to sign users in.
 
-Consider for example when an organization uses Okta as its Identity Provider. A user tries to access the organization's on-site or cloud-based application (for example, email) and is redirected to the corporate Identity Provider, Okta, to provide sign in and authentication. After the user is authenticated, Okta provides a token or assertion to the original application to grant the user access. Okta also creates an Okta session for the authenticated user. Using SSO with this existing Okta session, the user is automatically signed in to any other of the organization's Service Provider applications (CRM, IT, HR, and so on).
+Consider, for example, when an organization uses Okta as its Identity Provider. A user tries to access the organization's on-site or cloud-based application (for example, email) and is redirected to the corporate Identity Provider, Okta, to provide sign in and authentication. After the user is authenticated, Okta provides a token or assertion to the original application to grant the user access. Okta also creates an Okta session for the authenticated user. Using SSO with this existing Okta session, the user is automatically signed in to any other of the organization's Service Provider applications (CRM, IT, HR, and so on).
 
 The interactions and communication with the Identity Provider are as follows:
 
