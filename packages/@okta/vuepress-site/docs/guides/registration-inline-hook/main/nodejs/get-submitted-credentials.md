@@ -1,11 +1,39 @@
-The following code represents a check on the `email` property of an incoming request from Okta; that is, the email used to self-register. The values of `data.userProfile` from within the request body contains the `email` property that will be verified. The variable `emailRegistration` stores the value of the email.
+### Add self-service registration (SSR) request code
+
+The following code represents a check on the `lastName`, `firstName`, `test`, `login`, and `email` properties of an incoming request from Okta; that is, the basic credentials used in self-serfice registration (SSR). The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
 
 ```javascript
-app.post('/registrationHook', async (request, response) => {
-  var emailRegistration = request.body.data.userProfile['email'];
+{
+   "eventId":"16Ja0HcdSYy602188z6gIg",
+   "eventTime":"2021-12-03T20:08:10.000Z",
+   "eventType":"com.okta.user.pre-registration",
+   "eventTypeVersion":"1.0",
+   "contentType":"application/json",
+   "cloudEventVersion":"0.1",
+   "source":"rul1bufGk5dJdRYw50g4",
+   "data":{
+      "context":{
+         "request":{
+            "id":"reqQFcZNuvhRj2VZbngrI2ZJA",
+            "method":"POST",
+            "url":{
+               "value":"/idp/idx/enroll/new"
+            },
+            "ipAddress":"127.0.0.1"
+         }
+      },
+      "userProfile":{
+         "lastName":"Test",
+         "firstName":"Test",
+         "test":"value",
+         "login":"test.user@okta.com",
+         "email":"test.user@okta.com"
+      },
+      "action":"ALLOW"
+   }
 }
 ```
 
