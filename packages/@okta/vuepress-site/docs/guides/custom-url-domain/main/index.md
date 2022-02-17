@@ -43,7 +43,7 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 ### Caveats
 
-* You must provide one of your [subdomains](https://en.wikipedia.org/wiki/Subdomain) for customizing the Okta URL domain. Okta doesn't support the use of a root name.
+* You must provide a [subdomain](https://en.wikipedia.org/wiki/Subdomain) for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
