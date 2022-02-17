@@ -51,7 +51,7 @@ You can specify any number of Global Session Policies and the order in which the
 
 In addition to the Global Session Policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](link to Graham’s Add apps to a sign-on policy topic).
 
-When you add a new app, it's automatically assigned the shared default policy that has a single catch-all rule that allows a user access with only one factor. You can add as many rules to the default policy as you need, but remember that the changes are applied to all new apps.
+When you add a new app, it's automatically assigned the shared default policy that has a single catch-all rule that allows a user access with only one factor. You can add as many rules to the default policy as you need, but remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
 
 You don’t have to use the default authentication policy. You can create a new policy specifically for an app, or you can [add an app to another existing shared policy](link to Graham’s Add apps to an app sign-on policy topic). If you decide later to change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](link to Graham’s add a rule to a policy topic).
 
@@ -61,7 +61,7 @@ You don’t have to use the default authentication policy. You can create a new 
 
 This guide provides step-by-step instructions to configure a Global Session Policy and an authentication policy for two of the most common scenarios:
 
-* [Prompt for an additional factor for a group](#prompt-for-an-additional authenticator-for-a-group)
+* [Prompt for an additional factor for a group](#prompt-for-an-additional-authenticator-for-a-group)
 * [Prompt for an additional factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
 
 ## Prompt for an additional factor for a group
@@ -86,7 +86,7 @@ The following are step-by-step instructions to configure a Global Session Policy
 
 2. If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
 
-3. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** drop-down box (for example, prompting a user for a factor when they aren't on the corporate network).
+3. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
 
 4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave **Password/IDP** option selected. Additionally, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they are granted access.
 
@@ -98,7 +98,7 @@ The following are step-by-step instructions to configure a Global Session Policy
 
     * **Per Device:** Provides the option **Do not challenge me on this device again** in the end user MFA challenge dialog. This option allows prompts solely for new devices.
     * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they are prompted to provide a factor.
-    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. You specify the **Factor Lifetime** below. When specifying per session, note that sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
+    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, note that sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
 
 6. For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
 
@@ -130,7 +130,7 @@ The following are step-by-step instructions to configure another rule for the de
 
 3. Enter a **Rule name** such as **Prompt for an MFA factor when a user is outside the US**.
 
-4. Configure IF conditions to define the authentication context for the rule. Select **Not in any of the following zones** from the **AND User’s IP is** drop-down list.
+4. Configure IF conditions to define the authentication context for the rule. Select **Not in any of the following zones** from the **AND User’s IP is** dropdown list.
 
     > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](/docs/reference/api/zones/).
 

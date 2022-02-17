@@ -25,9 +25,9 @@ Some of the new capabilities unlocked by Identity Engine include:
 
   Progressive profiling allows you to capture additional user information or update user information beyond registration as the user progresses through the application. Progressive profiling allows you to reduce registration friction. See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
-* App-level policies
+* Authentication policies
 
-  An authentication policy is a [security policy framework](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allows organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. See [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+  An authentication policy is a [security policy framework](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allows organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. See [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 * Flexible Account Recovery
 

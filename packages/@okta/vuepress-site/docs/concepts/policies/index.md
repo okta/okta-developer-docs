@@ -43,7 +43,7 @@ The Global Session Policy controls the manner in which a user is allowed to sign
 
 **Control how users access your app**
 
-In addition to the Global Session Policy, there is a sign-on policy for each application that determines the extra levels of authentication that you may want performed before an application can be accessed. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
+In addition to the Global Session Policy, there is an authentication policy for each application that determines the extra levels of authentication that you may want performed before an application can be accessed. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
 
 You can also control how users access your app by creating an MFA enrollment policy. You may want to prompt users to enroll in a factor the first time that they sign in or to define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
 
