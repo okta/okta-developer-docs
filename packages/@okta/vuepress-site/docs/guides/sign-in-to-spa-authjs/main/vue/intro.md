@@ -9,7 +9,7 @@ The authentication interaction between the Okta authorization server and your cl
 This guide explains how to build a password-only sign-in use case for your Vue.js app. See [Next steps](#next-steps) for resources to other use cases.
 
 Before you build or integrate your Vue.js app, ensure that you:
-* [enable the Interaction Code grant on you default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
+* [enable the Interaction Code grant on your default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
 * [set up your Okta org for a password-factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * register your Vue.js app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
