@@ -27,7 +27,7 @@ Use this table and the subsequent sections to better understand the differences 
 | --------------------------------------------------------- | ------------------------ | --------------------- |
 | Client application requires a redirect to an Identity Provider.   |   &#9989;     | |
 | Client application owns the authentication and registration process.  |        | &#9989; |
-| Client application will own user remediation (communication with Identity Server).  |        | &#9989; |
+| Client application owns user remediation (communication with Identity Server).  |        | &#9989; |
 | Client application needs to support external Identity Providers, authenticators, or claims providers.  | &#9989; | &#9989; |
 | SSO is implicit (if an Okta session is created, SSO is implemented for other resources).   |   &#9989;     | |
 | Full control over application customization is a key requirement.   |        | &#9989;|
