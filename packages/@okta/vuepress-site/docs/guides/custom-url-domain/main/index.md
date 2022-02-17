@@ -122,7 +122,7 @@ If you receive the previous error, consult with the person in your organization 
 
 ### Use the configuration wizard to walk through the steps to customize your Okta URL domain.
 
-1. In the Admin Console, select **Settings**, and then **Customization**
+1. In the Admin Console, select **Settings**, and then **Customization**.
 2. In the **Custom URL Domain** box, click **Edit**.
 > **Note**: In Okta Identity Engine, select **Customizations** and then **Domain** to find the Domain editor.
 3. Click **Get Started** to start the configuration wizard.
