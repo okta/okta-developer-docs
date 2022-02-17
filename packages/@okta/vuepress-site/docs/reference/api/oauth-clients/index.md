@@ -177,7 +177,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-##### Request example: Create a Service App with a JWKS Uri
+##### Request example: Create a Service App with a JWKS URI
 
 
 ```bash
