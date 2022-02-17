@@ -7,7 +7,7 @@ Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://g
 
 #### Default page route
 
-To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` property (see [`authStateManager` in Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
+To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` property (see [`authStateManager` in the Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
 
 You can use the following condition to hide or show specific elements:
 
