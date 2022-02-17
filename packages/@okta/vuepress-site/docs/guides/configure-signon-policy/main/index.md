@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** In Okta Classic Engine, Global Session Policy is called the Okta Sign-On Policy and an authentication policy is called an app sign-on policy.
+> **Note:** In Okta Classic Engine, the Global Session Policy is called the Okta Sign-On Policy and an authentication policy is called an app sign-on policy.
 
 This guide explains what Global Session Policies and authentication policies are used for and how to add and configure them in your [Okta organization](/docs/concepts/okta-organizations/).
 
