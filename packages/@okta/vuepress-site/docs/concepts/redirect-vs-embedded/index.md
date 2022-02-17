@@ -81,7 +81,7 @@ is -> cl: Return assertion to client
 * Easy to integrate manually or with a generic OIDC client
 * Extremely customizable through HTML, CSS, and JavaScript
 * Complex logic changes that require source code access are limited
-* The user is redirected out of the application, to Okta, and then back to the application.
+* The user is redirected out of the application to Okta, and then back to the application.
 * Handles most client deployment requirements.
 
 ### Deploy the redirect authentication model when
