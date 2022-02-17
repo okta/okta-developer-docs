@@ -135,7 +135,7 @@ as -> cl: Tokens
 ### Embedded summary
 
 * Moderate maintenance may be required. If using a CDN, maintenance is more limited as it is being kept up-to-date by Okta. NPM packages a specific version of the Widget, which means that it may need to be updated in the project periodically. Customized or local versions of the Sign-In Widget source code require regular updating.
-* A great level of source code customization control while being drastically easier, and more secure, than building from scratch.
+* A great level of source code customization control is offered while being drastically easier and more secure than building from scratch.
 * Slightly increased risk in security due to Okta not being able to guarantee that the Sign-In Widget has been implemented correctly. Specifically, the application code may have the ability to access the credentials that the user has entered into the Sign-In Widget, which need to be kept secure.
 * XSS (cross-site scripting) attacks on your application may result in stolen sign-in credentials.
 * Higher level of effort to integrate and maintain compared to the Okta-hosted Sign-In Widget.
