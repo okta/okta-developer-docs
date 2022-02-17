@@ -61,7 +61,7 @@ Before you can start using the Google Authenticator, create an Okta org applicat
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog box, click **Add** under **Google Authenticator**.
+1. On the **Add Authenticator** dialog, click **Add** under **Google Authenticator**.
 1. On the **Add Google Authenticator** dialog box, click **Add**.
 1. On the **Authenticators** page, select the **Enrollment** tab.
 1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
@@ -73,7 +73,7 @@ Before you can start using the Google Authenticator, create an Okta org applicat
 1. On the **Applications** page, click on the application you've previously created.
 1. On the **General** tab ensure that **Interaction Code** and **Refresh Token** are selected.
 1. On the **Sign-On** tab, scroll down to the **Sign-On Policy** section and click **Add Rule**.
-1. On the **Add Rule** dialog box, do the following:
+1. On the **Add Rule** dialog, do the following:
    1. Enter a name for the new rule (for example "2FA Rule").
    1. Set **User must authenticate with** to **Password+Another Factor**.
    1. Select **Device Bound**.

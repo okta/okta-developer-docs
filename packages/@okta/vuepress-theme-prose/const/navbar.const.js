@@ -294,6 +294,20 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Email use cases",
+                subLinks: [
+                  {
+                    title: "Custom password recovery",
+                    guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             title: "Authenticators",
             subLinks: [
               {

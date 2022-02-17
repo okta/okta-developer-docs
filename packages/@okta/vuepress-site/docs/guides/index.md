@@ -96,6 +96,7 @@ guides:
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
+ - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
