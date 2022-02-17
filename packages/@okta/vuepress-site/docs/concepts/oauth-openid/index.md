@@ -10,7 +10,7 @@ This article provides a high-level introduction to OAuth 2.0 and OpenID Connect 
 
 ## OAuth 2.0 vs OpenID Connect
 
-There are two major kinds of authentication that you can perform with Okta:
+There are two main types of authentication that you can perform with Okta:
 
 * The [OpenID Connect](/docs/reference/api/oidc/) (OIDC) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It is also more opinionated than plain OAuth 2.0, for example in its scope definitions.
 
