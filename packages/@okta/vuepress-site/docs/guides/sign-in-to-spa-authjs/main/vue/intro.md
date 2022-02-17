@@ -2,7 +2,7 @@ To retain authentication control of your Vue.js single-page app (SPA) without re
 
 The authentication interaction between the Okta authorization server and your client app follows the [Interaction Code](/docs/concepts/interaction-code/) flow. This Okta flow is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) standard that allows you to customize the user authentication experience for your app without redirecting to an authentication component outside of your app. See [Implement authorization by Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/) to understand the Interaction Code flow and the necessary interactions between the Okta authorization server and your app.
 
-> **Note**: You can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) (SIW) to quickly add embedded authentication if you don't need to customize your sign-in user experience. The SIW handles the Interaction Code flow in authentication use cases offered by Okta. The See [Sign in to your SPA with embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/).
+> **Note**: You can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) (SIW) to quickly add embedded authentication if you don't need to customize your sign-in user experience. The SIW handles the Interaction Code flow in authentication use cases offered by Okta. See [Sign in to your SPA with embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/).
 
 ### Build Okta authentication with Auth JS in your SPA app
 
