@@ -33,7 +33,7 @@ For configuring a custom email notification domain:
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
 > **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
 
@@ -43,9 +43,9 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 ### Caveats
 
-* You must provide a [subdomain](https://en.wikipedia.org/wiki/Subdomain) for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
+* You must provide a subdomain for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
 
-* Any DNS TXT and CNAME record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://en.wikipedia.org/wiki/Dig_(command)).
+* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind.isc.org/doc/arm/9.11/man.dig.html).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
@@ -261,7 +261,7 @@ After transferring your domain, you need to create an origin CA certificate:
     > **Note:** On a Mac you can use `cat tls.cert | pbcopy` in a terminal to copy the file to your clipboard.
 
 11. Paste the contents of `private.key` in the **Private key** box. Click **Next**.
-12. You are prompted to add a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). Add this to your Cloudflare DNS, and then click **Finish**.
+12. You are prompted to add a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2). Add this to your Cloudflare DNS, and then click **Finish**.
 13. Wait until `https://<id.domain.name>` resolves in your browser before you continue.
 
 > **Note:** When you first try this, it's possible that your network caches DNS entries, and you won't be able to get to `id.example.com`. As a workaround, you can tether with your phone, then graph the IP address and add it as an entry to your `hosts`.
