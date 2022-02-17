@@ -139,7 +139,7 @@ as -> cl: Tokens
 * There is a slightly increased risk in security due to Okta not being able to guarantee that the Sign-In Widget has been implemented correctly. Specifically, the application code may have the ability to access the credentials that the user has entered into the Sign-In Widget, which need to be kept secure.
 * XSS (cross-site scripting) attacks on your application may result in stolen sign-in credentials.
 * A higher level of effort to integrate and maintain is required compared to the Okta-hosted Sign-In Widget.
-* Keeps the user in the application, reducing redirects to and from Okta.
+* The user is kept in the application, which reduces redirects to and from Okta.
 
 
 ## Deployment models and the Authentication API
