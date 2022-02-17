@@ -29,7 +29,7 @@ This guide explains what Global Session Policies and authentication policies are
 
 ## About authentication policies
 
-Authentication policies are built on IF/THEN rules for app access. IF conditions define the authentication context, like the IP address where a user is signing in, and THEN conditions define the authentication experience, like what assurance factors are required to access an app.
+Authentication policies are built on IF/THEN rules for app access. IF conditions define the authentication context, like the IP address from where a user is signing in, and THEN conditions define the authentication experience, like what assurance factors are required to access an app.
 
 Assurance refers to a level of confidence that the user signing in is also the person who owns the account. This level is measured by the use of one or more authenticators and the [types of factors configured](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). For example, a user who authenticates with a banking app using both a knowledge factor (a password) and a possession factor (an SMS code) has a higher assurance level than a user who authenticates with a shopping app using only one factor.
 
