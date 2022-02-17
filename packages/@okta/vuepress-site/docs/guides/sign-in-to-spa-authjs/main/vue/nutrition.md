@@ -1,10 +1,10 @@
-This guide walks you through building a password sign-in Vue.js app that uses the Okta Auth JS and Vue.js libraries for Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication).
+This guide walks you through building a password sign-in Vue.js app that uses the Okta Auth JS and Vue.js libraries for Okta embedded authentication.
 
 ---
 
 **Learning outcomes**
 
-* Understand the sequence of steps required to implement Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with Okta Auth JS and Vue.js libraries for your Vue.js app.
+* Understand the sequence of steps required to implement Okta embedded authentication with Okta Auth JS and Vue.js libraries for your Vue.js app.
 
 **What you need**
 
