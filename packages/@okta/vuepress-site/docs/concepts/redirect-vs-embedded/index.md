@@ -5,7 +5,7 @@ meta:
     content: A high-level overview of the the redirect and embedded authentication models Okta provides.
 ---
 
-# Okta authentication models — Redirect vs. embedded
+# Okta authentication models — redirect vs. embedded
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
