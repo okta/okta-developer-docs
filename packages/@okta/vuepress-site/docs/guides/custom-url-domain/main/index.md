@@ -45,13 +45,15 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * You must provide a [subdomain](https://en.wikipedia.org/wiki/Subdomain) for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
 
+* Any DNS TXT and CNAME record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://en.wikipedia.org/wiki/Dig_(command)).
+
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
 * If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
 * When an Admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
 
