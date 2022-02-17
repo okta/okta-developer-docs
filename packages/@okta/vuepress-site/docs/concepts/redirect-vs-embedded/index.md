@@ -1,5 +1,5 @@
 ---
-title: Okta authentication models — Redirect vs. embedded
+title: Okta authentication models — redirect vs. embedded
 meta:
   - name: description
     content: A high-level overview of the the redirect and embedded authentication models Okta provides.
