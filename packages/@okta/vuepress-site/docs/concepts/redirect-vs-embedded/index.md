@@ -37,7 +37,7 @@ Use this table and the subsequent sections to better understand the differences 
 
 ## Redirect authentication
 
-Redirect authentication via the Okta-hosted Sign-In Widget is considered the easiest and most secure means of integration. This is because the Sign-In Widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted Sign-In Widget is recommended for most integrations.
+Redirect authentication through the Okta-hosted Sign-In Widget is considered the easiest and most secure means of integration. This is because the Sign-In Widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted Sign-In Widget is recommended for most integrations.
 
 ![Okta-hosted widget](/img/OktaHosted.png "Displays the integration for an Okta-hosted Sign-In Widget")
 
