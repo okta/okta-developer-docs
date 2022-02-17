@@ -3,7 +3,7 @@ If you want to deploy a Vue.js single-page app (SPA) in the [embedded authentica
 ### Integrate the Sign-In Widget with your SPA app
 
 This guide explains how to build a password-only sign-in flow for your Vue.js app. Before you build or integrate your Vue.js app, ensure that you:
-* [enable the Interaction Code grant on you default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
+* [enable the Interaction Code grant on your default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
 * [set up your Okta org for a password-factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * register your Vue.js app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
