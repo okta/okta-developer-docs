@@ -33,7 +33,7 @@ Use this table and the subsequent sections to better understand the differences 
 | Full control over application customization is a key requirement.   |        | &#9989;|
 | Client application requires centralized session management across applications.   |&#9989;|      |
 
-> **Note**: To get started with implementing user sign-in, see [Sign in users](#) (WILL BE /docs/guides/sign-in-overview/ IN THE FINAL VERSION). Read on for more guidance in choosing what model is right for you.
+> **Note**: To get started with implementing a user sign-in flow, see [Sign in users](#) (WILL BE /docs/guides/sign-in-overview/ IN THE FINAL VERSION). Read on for more guidance in choosing what model is right for you.
 
 ## Redirect authentication
 
