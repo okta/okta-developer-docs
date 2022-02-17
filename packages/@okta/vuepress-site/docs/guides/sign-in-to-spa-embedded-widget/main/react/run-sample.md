@@ -12,6 +12,14 @@ You can run the [sample embedded SIW React app](https://github.com/okta/samples-
   export USE_INTERACTION_CODE=true
   ```
 
+  Alternatively, you can set the `samples-js-react/testenv` file with the configuration settings before you run the app:
+
+  ```bash
+  ISSUER=https://${yourOktaDomain}/oauth2/default
+  CLIENT_ID=${yourAppClientId}
+  USE_INTERACTION_CODE=true
+  ```
+
 6. Run the app server: `npm start`
 
 7. Open a browser window and navigate to the app's home page: [http://localhost:8080](http://localhost:8080). Try to sign in to the sample app with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
