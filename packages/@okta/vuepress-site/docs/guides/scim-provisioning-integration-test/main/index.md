@@ -73,7 +73,7 @@ To configure and run the SCIM CRUD tests:
 
 ## Review test results
 
-On the left side of your screen, the test appears in the **Recent Test Runs** s##ection.
+On the left side of your screen, the test appears in the **Recent Test Runs** section.
 
 1. Click **View Progress** inside the **Recent Test Runs** section.
 1. As the test suite runs, Runscope displays live updates of the test in progress. After the test is complete, the main panel displays the results of your test.
