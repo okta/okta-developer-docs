@@ -1,10 +1,10 @@
-This guide walks you through how to build a password-only sign-in flow React app that uses the Okta Sign-In Widget (SIW) for Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication).
+This guide walks you through how to build a password-only sign-in flow React app that uses the Okta Sign-In Widget for Okta embedded authentication.
 
 ---
 
 **Learning outcomes**
 
-* Understand the sequence of steps to add the Okta SIW to a React app for embedded authentication.
+* Understand the sequence of steps required to add the Okta Sign-In Widget to a React app for embedded authentication.
 * Understand how to run the React sample app.
 
 **What you need**
@@ -19,6 +19,6 @@ This guide walks you through how to build a password-only sign-in flow React app
 
 **Sample code**
 
-* [Embedded React sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-react/tree/master/custom-login) &mdash; See [Run the sample React app](#run-the-sample-react-app) for details.
+* [Embedded React sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-react/tree/master/custom-login) &mdash; See [Run the sample React app](#run-the-sample-react-app).
 
 ---

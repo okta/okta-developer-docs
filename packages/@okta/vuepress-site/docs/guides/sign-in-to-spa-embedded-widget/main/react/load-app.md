@@ -1,12 +1,18 @@
-### Create Okta instances
+### Set up the Okta configuration settings
 
-Create a `src/config.js` file to instantiate `OktaSignIn` and `OktaAuth` with your configuration settings:
+Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Sign-In Widget and your Auth JS instance:
+
+* `clientId`: Your client ID &mdash; `${yourClientId}`
+* ` issuer`: The authorization server in your Okta org &mdash; `${yourIssuer}`
+* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
+* `pkce`: Set this option to `true` to enable PKCE in the Widget. This is used for SPA apps that use the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
+* `scopes`: Set the OAuth 2.0 scopes that your app requires.
+* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
+
+You can create a `src/config.js` file to define your configuration settings. For example:
 
 ```js
 const oktaAuthConfig = {
-  // Note: If your app is configured to use the Implicit flow
-  // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-  // you will need to add `pkce: false`
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   clientId: '${clientId}',
   redirectUri: window.location.origin + '/login/callback',
@@ -17,10 +23,6 @@ const oktaSignInConfig = {
   clientId: '${clientId}',
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
-    // If your app is configured to use the Implicit flow
-    // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-    // you will need to uncomment the below line
-    // pkce: false
   }
  useInteractionCodeFlow: true,
   // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options

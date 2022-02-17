@@ -1,17 +1,22 @@
-If you want to deploy a React single-page app (SPA) in the embedded authentication model, where your app retains authentication control without redirection to Okta, then you can use the Okta Sign-In Widget (SIW) to quickly add authentication. The Okta SIW is a JavaScript library that includes full sign-in features with Okta Identity Engine so the amount of authentication code you have to write for your app is minimal.
+If you want to deploy a React single-page app (SPA) in the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model, where your app retains authentication control without redirection to Okta, then you can use the Okta Sign-In Widget to quickly add authentication. The Sign-In Widget is a JavaScript library that includes full sign-in features with Okta so the amount of authentication code you have to write for your app is minimal.
 
-Before you build your React app, ensure that you [set up](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#get-set-up) your [Okta org for your use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-your-use-case) and [register your React app in Okta](#register-your-app-in-okta).
+### Integrate the Sign-In Widget with your SPA app
 
-### Build the React app
+This guide explains how to build a password-only sign-in flow for your React app. Before you build or integrate your React app, ensure that you:
 
-Build your React app by integrating the Okta libraries:
+* [enable the Interaction Code grant on your default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
+* [set up your Okta org for a password-factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* register your React app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
- * [Create a React app](#create-a-react-app)(optional): Create a new simple React.js app if you don't have an existing app.
- * [Install dependencies](#install-dependencies): Install the Okta libraries for the integration.
- * [Create Okta instances](#create-okta-instances): Create the Okta auth and SIW instances to be used in your app.
- * [Create a SIW wrapper](#create-a-siw-wrapper): Create a wrapper for the Sign-In Widget to be rendered as a React component.
- * [Create routes](#create-routes): Create the routes for your app.
- * [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
+If you don't have an existing React app, you can [create a new basic React app](#create-a-react-app-optional) from the Create React App command.
+
+Integrate the Sign-In Widget to your React app to add Okta authentication with the following steps:
+
+ 1. [Install dependencies](#install-dependencies): Install the Okta libraries for the integration.
+ 2. [Create Okta instances](#create-okta-instances): Create the Okta auth and Sign-In Widget instances to be used in your app.
+ 3. [Create a SIW wrapper](#create-a-siw-wrapper): Create a wrapper for the Sign-In Widget to be rendered as a React component.
+ 4. [Create routes](#create-routes): Create the routes for your app.
+ 5. [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
 
 [Start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
 
