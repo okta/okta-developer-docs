@@ -36,13 +36,13 @@ At a high-level, the following workflow occurs:
 
 ## Add request code
 
-This step includes the code that parses the body of the request received from Okta, which gets the values of `data.userProfile`. These properties contain the credentials submitted by the end user who is trying to self register.
+This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration) or update their profile (Progressive Profile).
 
 <StackSelector snippet="get-submitted-credentials" noSelector/>
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
+The external service responds to Okta indicating whether to accept the user self-registration or profile update by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
 
 <StackSelector snippet="send-response" noSelector/>
 
