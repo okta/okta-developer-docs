@@ -1,7 +1,7 @@
 <template>
-  <label class="toggle-switch switch-theme">
-    <span :class="{'light-mode': true, 'active': !isDarkMode}" @click="toggleDarkMode(false)"></span>
-    <span :class="{'dark-mode': true, 'active': isDarkMode}" @click="toggleDarkMode(true)"></span>
+  <label class="toggle-switch switch-theme" @click="toggleDarkMode">
+    <span :class="{'light-mode': true, 'active': !isDarkMode}"></span>
+    <span :class="{'dark-mode': true, 'active': isDarkMode}"></span>
   </label>
 </template>
 
@@ -29,8 +29,8 @@ export default {
           : window.matchMedia('(prefers-color-scheme: dark)').matches;
     },
 
-    toggleDarkMode: function(value) {
-      this.isDarkMode = localStorage[themeModeCookieName] = !!value;
+    toggleDarkMode: function() {
+      this.isDarkMode = localStorage[themeModeCookieName] = !this.isDarkMode;
       this.addHtmlClass();
     },
 
