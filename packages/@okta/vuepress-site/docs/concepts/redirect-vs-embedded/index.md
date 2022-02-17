@@ -144,7 +144,7 @@ as -> cl: Tokens
 
 ## Deployment models and the Authentication API
 
-The following table details the configurations that define which Authentication API (either Okta Classic Engine or Identity Engine) your application is using based on your deployment model.
+The following table details the configurations that define which Authentication API (either Okta Classic Engine or Okta Identity Engine) your application is using based on your deployment model.
 
 | Deployment Model | Classic Engine Authentication API | Identity Engine Authentication API |
 | ---------------- | --------------------------------- | ---------------------------------- |
