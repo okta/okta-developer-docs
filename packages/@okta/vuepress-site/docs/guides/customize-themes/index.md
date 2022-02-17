@@ -46,7 +46,7 @@ It is up to you to decide how to update your branding. In this guide, we are dem
 
 ## Important: Overriding themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors we've made available in the Okta Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
+You can customize individual parts of your Okta org experience using the various code editors we've made available in the Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
 
 So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
 
