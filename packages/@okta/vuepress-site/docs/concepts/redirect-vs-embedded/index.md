@@ -97,7 +97,7 @@ Embedded authentication is the process of authenticating user credentials direct
 
 <EmbeddedBrowserWarning />
 
-The Customer-hosted embedded Sign-In Widget is considered the best balance of flexibility and effort to integrate, and is recommended if an integration requires a deeper level of customization than is available via an Okta-hosted sign-In Widget. The embedded Sign-In Widget works by embedding the open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) into the application's web page. The Sign-In Widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. It can be loaded directly from the CDN, NPM, or built from source.
+The customer-hosted embedded Sign-In Widget is considered the best balance of flexibility and effort to integrate, and is recommended if an integration requires a deeper level of customization than is available through an Okta-hosted Sign-In Widget. The embedded Sign-In Widget works by embedding the open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) into the application's web page. The Sign-In Widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. You can load it directly from the CDN, NPM, or built from source.
 
 ![Customer-hosted widget](/img/CustomerHosted.png "Displays the integration for a customer-hosted Sign-In Widget")
 
