@@ -37,7 +37,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
 
-> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org, and allow them to take actions as a result — for example provisioning external app access once a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
