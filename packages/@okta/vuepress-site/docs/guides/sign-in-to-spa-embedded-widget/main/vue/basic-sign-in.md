@@ -82,7 +82,7 @@ Create a protected route that is only available to users with a valid `accessTok
 
 > **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
 
-In this protected `/profile` component example, the `src/components/Profile.vue` file is created to show basic information from the ID token. ID token information can be retrieved by using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Vue SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function from the Okta Auth JS SDK.
+In this protected `/profile` component example, the `src/components/Profile.vue` file is created to show basic information from the ID token. Retrieve ID token information using the [`$auth`](https://github.com/okta/okta-vue#auth) instance from the Okta Vue SDK and calling the [`$auth.getUser()`](https://github.com/okta/okta-auth-js#getuser) function from the Okta Auth JS SDK.
 
 ```html
 <template>
