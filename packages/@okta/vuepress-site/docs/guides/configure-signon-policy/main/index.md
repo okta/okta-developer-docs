@@ -142,7 +142,7 @@ The following are step-by-step instructions to configure another rule for the de
 
 8. Click **Save**.
 
-> **Note:** You can [use the API](/docs/reference/api/policy/#app-sign-on-policy) to assign an app to an authentication policy. You just need the application ID and the policy ID. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request and the response should contain information on the policy associated with the app.
+> **Note:** You can [use the API](/docs/reference/api/policy/#app-sign-on-policy) to assign an app to an authentication policy. You need the application ID and the policy ID for this API request. Make a `PUT /api/v1/apps/${appId}/policies/${policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/${appId}` request and the response should contain information on the policy associated with the app.
 
 ## See also
 
