@@ -19,6 +19,6 @@ This guide walks you through how to build a password-only sign-in flow Vue.js ap
 
 **Sample code**
 
-[Embedded Vue.js sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-vue/tree/master/custom-login) &mdash; See [Run the sample application](#run-the-sample-application) for details.
+[Embedded Vue.js sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-vue/tree/master/custom-login) &mdash; See [Run the sample application](#run-the-sample-application).
 
 ---
