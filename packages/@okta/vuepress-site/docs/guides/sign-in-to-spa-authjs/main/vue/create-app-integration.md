@@ -2,7 +2,7 @@ Before you integrate Okta authentication to your Vue.js app, you must register y
 
 1. To create an Okta app integration that represents your Vue.js app, sign in to [your Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
-3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-in method**, **Single-Page Application** as the **Application type**, and then click **Next**.
+3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-in method**, **Single-Page Application** as the **Application type**, and then click **Next**.
 4. Fill in the following new app integration settings, and then click **Save**:
 
     | Setting                | Value/Description                                    |
