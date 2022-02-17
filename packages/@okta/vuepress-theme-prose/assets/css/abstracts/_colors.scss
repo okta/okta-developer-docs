@@ -112,10 +112,20 @@
   --c-gray-100: #EBEBED;
   --c-gray-000: #F5F5F6;
 
+  --c-cyan-base: #30C0BC;
+
   --c-lightgray: #212125;
+
+  --c-light: #D7D7DC;
+
+  --c-black: #000;
 
   --c-blue-300: #92BCFF;
   --c-blue-800: #234F97;
+
+  --c-blue-darker: #5976A6;
+
+  --c-checkbox-border: #C1C1C8;
 
   --c-code-purple: #8D6E97;
   --c-code-orange: #E97107;
@@ -129,13 +139,13 @@
 
 
   // VARIABLES COLORS FOR DARK THEME
-  --c-body-base: var(--c-gray-900);
+  --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
   
-  --c-text-darker: var(--c-gray-000);
+  --c-text-darker: var(--c-gray-100);
   --c-text-base: var(--c-gray-400);
-  --c-text-lighter: var(--c-gray-000);
+  --c-text-lighter: var(--c-gray-100);
 
   --c-link-base: var(--c-blue-300);
   --c-code-base: var(--c-gray-900);
@@ -148,7 +158,6 @@
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
   --c-code-greenstring: var(--c-code-green);
-
 }
 
 $colors: (
@@ -171,9 +180,14 @@ $colors: (
     'darker': var(--c-text-darker),
     'base': var(--c-text-base),
     'lighter': var(--c-text-lighter),
+    'cyan': var(--c-cyan-base),
+    'black': var(--c-black),
   ),
   'tile': (
     'angle': var(--c-tile-angle),
+  ),
+  'input': (
+    'border': var(--c-checkbox-border),
   ),
   'link': (
     'base': var(--c-link-base),
@@ -181,6 +195,7 @@ $colors: (
     'footer': var(--c-link-footer),
     'signup': var(--c-blue-500),
     'faq': var(--c-white),
+    'light': var(--c-light),
   ),
   'code': (
     'keyword': var(--c-code-keyword),
@@ -239,6 +254,7 @@ $colors: (
     '500': var(--c-blue-500),
     '900': var(--c-blue-900),
     'whale': var(--c-blue-whale),
+    'darker': var(--c-blue-darker),
   ),
   'gray': (
     '000': var(--c-gray-000),

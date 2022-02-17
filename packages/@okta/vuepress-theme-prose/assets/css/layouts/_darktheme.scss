@@ -1,5 +1,5 @@
 .dark-theme {
-  &, .sidebar-area, table, .CodeMirror-vscrollbar {
+  .sidebar-area, table, .CodeMirror-vscrollbar {
     scrollbar-width: thin;
     scrollbar-color: dark;
     &::-webkit-scrollbar {
@@ -29,6 +29,7 @@
   }
   footer {
     z-index: 2;
+    background-color: cv('gray', '600');
   }
   .page-body {
     background-color: cv('body');
@@ -36,13 +37,13 @@
       background-color: cv('body');
     }
     .content--container {
-      color: cv('gray', '000');
+      color: cv('gray', '100');
       .sidebar-area {
         box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
         z-index: 1;
       }
       .edit-on-github .fa {
-        color: cv('gray', '000');
+        color: cv('gray', '100');
       }
       blockquote {
         border-right: none;
@@ -86,7 +87,7 @@
       }
       .on-this-page {
         .title {
-          color: cv('gray', '000');
+          color: cv('gray', '100');
         }
         .links {
           border-color: rgba(255,255,255,.2);
@@ -100,7 +101,7 @@
       }
       :not([class*=language-]) > code {
         background-color: cv('gray', '600');
-        color: cv('gray', '000');
+        color: cv('gray', '100');
         border: none;
       }
       .stack-selector .selector-control nav {
@@ -109,18 +110,31 @@
     }
   }
   .tree-nav {
+    background-color: cv('gray', '900');
     .sections {
-      .tree-nav-link > i.parent svg path {
-        fill: cv('blue', '300');
+      .tree-nav-link {
+        color: cv('link', 'light');
+        & > i.parent svg {
+          transform: scale(0.8);
+          path {
+            fill: cv('blue', 'darker');
+          }
+        }
       }
       .tree-nav-link.children-active > i.parent svg path {
         fill: cv('blue', '300');
       }
-      &:first-child > .link-wrap > .tree-nav-link.children-active & > .text-holder {
-        color: cv('gray', '000');
+      &:first-child > .link-wrap {
+        & > .tree-nav-link.children-active > .text-holder {
+          color: cv('gray', '100');
+        }
       }
       .tree-nav-link.router-link-active {
         color: cv('blue', '300');
+        &:before {
+          width: 1px;
+          background-color: cv('blue', 'darker');
+        }
       }
     }
   }
@@ -172,7 +186,7 @@
     }
     &--customize-your-app-margin {
       background-color: cv('body', 'homepage-lighter-block');
-      padding-bottom: 75px;
+      padding-bottom: 4.6875rem;
       margin-bottom: 0;
       &::before {
         background: cv('gray', '800') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
@@ -180,7 +194,7 @@
     }
     &--partners-block-margin {
       background-color: cv('body', 'homepage-lighter-block');
-      padding-bottom: 58px;
+      padding-bottom: 3.625rem;
       margin-bottom: 0;
     }
   }
@@ -195,6 +209,9 @@
         background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
       }
     }
+    .oin--develop .oin--develop-content .oin--develop-tiles .tile {
+      border: 1px solid cv('gray', '400');
+    }
   }
 
   .selector-tile {
@@ -207,9 +224,9 @@
         color: cv('blue', '300');
       }
       &:hover {
-        color: cv('gray', '000');
+        color: cv('gray', '100');
         i {
-          color: cv('gray', '000');
+          color: cv('gray', '100');
         }
       }
       i {
@@ -220,10 +237,10 @@
       &--item {
         border-bottom: none;
         &:hover {
-          color: cv('gray', '000');
+          color: cv('gray', '100');
           background: cv('gray', '600');
           & > i {
-            color: cv('gray', '000');
+            color: cv('gray', '100');
           }
         }
       }
@@ -231,7 +248,7 @@
   }
 
   .cards-own .card--main {
-    color: cv('gray', '000');
+    color: cv('gray', '100');
   }
 
   .assurance-item {
@@ -272,6 +289,17 @@
   }
   .signup .signup--content {
     .signup--form {
+      .consent--section {
+        .consent--section-text p {
+          color: cv('body', 'darkgray');
+        }
+        .consent--section-agree {
+          label {
+            color: cv('body', 'darkgray');
+          }
+        }
+      }
+      
       .goto-signin,
       .splitter {
         color: cv('body', 'darkgray');
@@ -296,8 +324,14 @@
   .Button--redOutline, 
   .Button--redOutline:active, 
   .Button--redOutline:hover {
-    color: cv('gray', '000');
-    border-color: cv('gray', '000');
+    color: cv('gray', '100');
+    border-color: cv('gray', '100');
+  }
+  .Button--red, 
+  .Button--red:active, 
+  .Button--red:hover {
+    color: cv('gray', '100');
+    border-color: cv('gray', '100');
   }
 
   .company-logos--icon {
@@ -356,7 +390,7 @@
               & > li {
                 span.link,
                 a.link {
-                  color: cv('gray', '000');
+                  color: cv('gray', '100');
                 }
                 a.link.router-link-active {
                   color: cv('blue', '300') !important;
@@ -386,13 +420,14 @@
     }
     .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
       color: cv('text');
+      background-color: cv('gray', '900');
     }
   }
 
   .pricing {
     background-color: transparent;
     .Button--redOutline {
-      color: cv('gray', '000');
+      color: cv('gray', '100');
     }
     .pricing--costs .pricing-card {
       border-color: cv('header');
@@ -422,9 +457,12 @@
     }
   }
 
-  header.page-header .sign-up--button {
-    color: cv('blue', '300'); 
-    border-color: cv('blue', '300'); 
+  header.page-header {
+    background-color: cv('gray', '600');
+    .sign-up--button {
+      color: cv('blue', '300'); 
+      border-color: cv('blue', '300'); 
+    }
   }
 
   .magic-box .magic-box-input {
@@ -435,11 +473,19 @@
     background-color: cv('body');
     border: none;
     .SearchBox {
-      .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
-        color: cv('gray', '200');
+      .CoveoOmnibox.magic-box .magic-box-input {
+        input {
+          color: cv('gray', '100');
+          background-color: cv('gray', '900');
+        }
+        .magic-box-underlay::before {
+          color: cv('gray', '200');
+        }
       }
       .search--form .CoveoSearchButton {
-        color: cv('gray', '000');
+        color: cv('gray', '100');
+        background-color: cv('gray', '900');
+        border-radius: 0 4px 4px 0;
       }
     }
   }
@@ -454,7 +500,7 @@
 
   code[class*="language-"], 
   pre[class*="language-"] {
-    color: cv('gray', '000');
+    color: cv('gray', '100');
   }
 
   .token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted {
@@ -465,20 +511,20 @@
   .Button--blueDarkOutline:active, 
   .Button--blueDarkOutline:hover {
     background-color: cv('gray', '700');
-    border-color: cv('gray', '000');
-    color: cv('gray', '000');
+    border-color: cv('gray', '100');
+    color: cv('gray', '100');
   }
 
   .api-label-ie {
-    background-color: cv('gray', '700');
-    border-color: cv('gray', '000');
-    color: cv('gray', '000');
+    background-color: cv('blue', '500');
+    border-color: cv('gray', '100');
+    color: cv('gray', '100');
   }
 
   .api-label-limited-ga {
-    background-color: cv('gray', '700');
-    border-color: cv('gray', '000');
-    color: cv('gray', '000');
+    background-color: cv('cyan');
+    border-color: cv('gray', '100');
+    color: cv('gray', '100');
   }
 
   .cards-own .is-card-clickable {
@@ -490,7 +536,7 @@
   }
   
   .page-title [class^="icon-"]:before, [class*=" icon-"]:before {
-    line-height: 46px;
+    line-height: 2.875rem;
   }
 
   [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -499,7 +545,7 @@
   }
   .download-16::before,
   .fa-github:before {
-    color: cv('gray', '000');
+    color: cv('gray', '100');
   }
   .api-uri-template {
     background-color: cv('gray', '700');
@@ -508,4 +554,152 @@
   .api-uri-put strong {
     color: cv('link');
   }
+  .signup--form .fa-github:before {
+    color: cv('text', 'black');
+  }
+  ul.menu--items > li.expandable {
+    & > span:after {
+      background-image: url(/img/icons/chevron-down-white.svg) !important;
+    }
+    & > ul.submenu--items {
+      background: cv('gray', '700');
+      .menu--divider {
+        border-color: cv('gray', '100');
+      }
+      &:before {
+        border-bottom-color: cv('gray', '700');
+      }
+      li a {
+        color: cv('gray', '100');
+      }
+      .menu--icons .menu--icon svg path {
+        fill: cv('gray', '100');
+      }
+    }
+  }
+
+  .magic-box-suggestions {
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: transparent !important;
+  }
+
+  .coveo-magicbox-suggestions {
+    border: none !important;
+  }
+  
+  .magic-box-suggestion {
+    background: cv('gray', '700') !important;
+    border-color: cv('gray', '300') !important;
+    span {
+      color: cv('gray', '100') !important;
+      div {
+        color: cv('gray', '100') !important;
+      }
+    }
+  }
+
+
+  #SearchPage {
+    .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
+      background-color: cv('gray', '100');
+    }
+    .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg .coveo-hook-svg {
+      fill: cv('blue', '300');
+    }
+  }
+
+  .live-widget-wrapper {
+    background-color: cv('gray', '800');
+    .toggle-button {
+      color: cv('blue', '500');
+      &:disabled {
+        background-color: cv('blue', '500');
+      }
+    }
+    .background-darkblue {
+      background-color: cv('gray', '800');
+    }
+    .background-curve {
+      display: none;
+    }
+  }
+  .CodeMirror {
+    color: cv('gray', '100');
+    background-color: cv('gray', '900');
+    border: none;
+    &-gutters {
+      background-color: cv('gray', '900');
+    }
+  }
+  .cm-s-neat {
+    span.cm-variable {
+      color: cv('gray', '100')
+    }
+    span.cm-comment {
+      color: cv('gray', '500')
+    }
+    span.cm-property {
+      color: cv('code', 'property')
+    }
+    span.cm-keyword {
+      color: cv('code', 'keyword')
+    }
+    span.cm-string {
+      color: cv('code', 'define')
+    }
+  }
+  .signup a {
+    color: cv('blue', '500');
+  }
+
+  .dialog {
+    &--header,
+    p,
+    .terms-conditions-btns,
+    .dialog-text {
+      color: cv('gray', '700') !important;
+    }
+    a {
+      color: cv('blue', '500');
+    }
+  }
+  .signup .signup--content .signup--form .consent--section .consent--section-agree,
+  .marketing-c .gdpr-condition {
+    input[type="checkbox"] {
+      position: relative;
+      min-width: 1rem;
+      min-height: 1rem;
+      border: 1px solid #C1C1C8;
+      background-color: cv('white');
+      border-radius: 4px;
+      appearance: none;
+      outline: 0;
+      cursor: pointer;
+      &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 1px;
+        left: 5px;
+        width: 5px;
+        height: 10px;
+        border-style: solid;
+        border-color: #92BCFF;
+        border-width: 0 1px 1px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+      }
+      &:checked {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
+
+header.page-header .link[target="_blank"]:not([href^='mailto:'])::after {
+  display: none !important;
+}
+
