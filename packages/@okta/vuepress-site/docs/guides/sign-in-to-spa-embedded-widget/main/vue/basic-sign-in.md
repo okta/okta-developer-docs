@@ -77,7 +77,7 @@ Create a protected route that is only available to users with a valid `accessTok
   This snippet from the `App.vue` file provides access to the `/profile` component only if `authState.isAuthenticated` is true:
 
   ```html
-  <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile<router-link>
+  <router-link to="/profile" v-if="authState && authState.isAuthenticated">Protected Profile</router-link>
   ```
 
 > **Note**: The `authState.isAuthenticated` property is true if both `accessToken` and `idToken` are valid.
