@@ -3,7 +3,7 @@ Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://g
 * A [default page](#default-page-route) to handle basic control of the app
 * A [login route](#login-route) to show the Sign-In Widget
 * A [callback route](#callback-route) to parse tokens after a redirect from Okta
-* A [protected route](#protected-route) for authenticated users to access protected content.
+* A [protected route](#protected-route) for authenticated users to access protected content
 
 #### Default page route
 
