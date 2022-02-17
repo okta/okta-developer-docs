@@ -57,7 +57,7 @@ export default {
 }
 ```
 
-> **Note**: See [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
+> **Note**: See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
 
 ### Create the sign-in component
 
