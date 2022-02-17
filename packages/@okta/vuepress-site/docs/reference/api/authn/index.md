@@ -16,7 +16,7 @@ The API is targeted for developers who want to build their own end-to-end login 
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, MFA Enrollment Policy, or Password Policy.
+The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, the MFA Enrollment Policy, or the Password Policy.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
