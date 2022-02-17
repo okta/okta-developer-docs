@@ -90,7 +90,7 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 | Trusted                 | [Resource Owner Password](/docs/guides/implement-grant-type/ropassword/main/)            | &#9989;          | &#9989;      |
 | Service                 | [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/)                  | &#9989;          | &#10060;     |
 
-> **Note**: There is also a OAuth flow of type SAML 2.0 Assertion, intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. This supports access and ID tokens.
+> **Note**: There is also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow), intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. This supports access and ID tokens.
 
 ### What kind of client are you building?
 
