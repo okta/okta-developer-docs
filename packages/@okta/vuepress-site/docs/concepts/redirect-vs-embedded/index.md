@@ -101,7 +101,7 @@ The customer-hosted embedded Sign-In Widget is considered the best balance of fl
 
 ![Customer-hosted widget](/img/CustomerHosted.png "Displays the integration for a customer-hosted Sign-In Widget")
 
-The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Okta Admin Console and enabled through JavaScript.
+The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Admin Console and enabled through JavaScript.
 
 The SDK and API options allow for even more control over customization of the entire experience, but they do have their drawbacks — they are more complex to implement and maintain, and the security is your responsibility. They are available if you need that level of customization.
 
