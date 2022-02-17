@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-> **Note**: This document is written for Okta Classic Engine. If you’re using Okta Identity Engine, you can find multiple guides and use cases to help you add MFA to your apps; start with our [authenticator integration guides](/docs/guides/authenticators-overview/main/) for relevant information. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+> **Note**: This document is written for Okta Classic Engine. If you’re using Okta Identity Engine, you can find multiple guides and use cases to help you add MFA to your apps. Start with our [authenticator integration guides](/docs/guides/authenticators-overview/main/) for relevant information. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
 
 This guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
 
