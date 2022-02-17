@@ -78,7 +78,7 @@ is -> cl: Return assertion to client
 * Easy to use with no maintenance and no updates.
 * Hosted and secured by Okta.
 * [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting) (cross-site scripting) attacks on your application doesn't affect the sign-in experience
-* Easy to integrate manually or with a generic OpenID Connect client.
+* Easy to integrate manually or with a generic OIDC client
 * Extremely customizable through HTML, CSS, and JavaScript.
 * Complex logic changes that require source code access are limited.
 * The user is redirected out of the application, to Okta, and then back to the application.
