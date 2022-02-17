@@ -122,7 +122,7 @@ The following are step-by-step instructions to configure another rule for the de
 
 ### Select the policy and add a rule
 
-> **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network). In this example, we are using a dynamic zone defined for IP addresses within the United States.
+> **Note:** This example assumes that you've already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network). In this example, we are using a dynamic zone defined for IP addresses within the United States.
 
 1. In the Admin Console, select **Security** > **Authentication Policies**.
 
