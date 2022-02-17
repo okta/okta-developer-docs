@@ -17,7 +17,7 @@ When you develop applications that require the customer to sign-in and authentic
 Okta's deployment models can be broadly divided into two approaches:
 
 - **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML.
-- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted embedded Sign-In Widget or SDKs, or directly with API calls.
+- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted embedded Sign-In Widget, the SDKs, or directly with API calls.
 
 What deployment model or authentication approach you choose depends on your implementation requirements and client application. In general, the method of delegating user sign-in interaction (redirect authentication) is generally preferred for many reasons spanning security to user experience.
 
