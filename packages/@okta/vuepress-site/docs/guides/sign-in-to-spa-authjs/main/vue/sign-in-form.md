@@ -30,7 +30,7 @@ client -> user:  (Optional) Display required user info
 @enduml
 
 -->
-The steps to add Okta authentication described in the following sections focus on the interaction between your client app, the user, and the Auth JS SDK.
+The steps in the following sections focus on the interaction between your client app, the user, and the Auth JS SDK.
 
 ### Set up the Okta configuration settings
 
