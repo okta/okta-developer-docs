@@ -93,7 +93,7 @@ is -> cl: Return assertion to client
 
 ## Embedded authentication
 
-Embedded authentication is the process of authenticating user credentials directly at the client application site using an embedded Sign-In Widget or authentication SDK, or direct API calls. No redirection to Okta is required. The client application's code determines the methods and processes necessary to authenticate, and uses SDKs to validate the credentials. Client applications create their own application sessions for user access, and may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render native user experiences and use native platform APIs.
+Embedded authentication is the process of authenticating user credentials directly at the client application site using an embedded Sign-In Widget, authentication SDK, or direct API calls. Redirection to Okta isn't required. The client application's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client applications create their own application sessions for user access, and may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render native user experiences and use native platform APIs.
 
 <EmbeddedBrowserWarning />
 
