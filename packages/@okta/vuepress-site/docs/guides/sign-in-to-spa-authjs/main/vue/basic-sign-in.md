@@ -1,6 +1,6 @@
 ### Create routes
 
-Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions.  Some routes require authentication in order to render and other don't. The following are some basic routes you need to configure for your app:
+Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions. Some routes require authentication in order to render and others don't. The following are some basic routes that you need to configure for your app:
 
 * A [default page](#default-page-route) to handle the landing page of the app
 * A [login route](#login-route) to show your app sign-in page
