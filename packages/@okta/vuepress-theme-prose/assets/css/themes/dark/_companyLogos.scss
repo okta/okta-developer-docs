@@ -1,0 +1,32 @@
+.company-logos--icon {
+    &:nth-child(1),
+	&:nth-child(2),
+	&:nth-child(3),
+	&:nth-child(4),
+	&:nth-child(5) {
+		background-image: none !important;
+		mask-repeat: no-repeat;
+		mask-position: center;
+		background-color: cv('text') !important;
+	}
+	&:nth-child(1) {
+		-webkit-mask-image: url(/img/logos/baseball.svg);
+		mask-image: url(/img/logos/baseball.svg);
+	}
+	&:nth-child(2) {
+		-webkit-mask-image: url(/img/logos/splunk.svg);
+		mask-image: url(/img/logos/splunk.svg);
+    }
+    &:nth-child(3) {
+		-webkit-mask-image: url(/img/logos/adobe.svg);
+		mask-image: url(/img/logos/adobe.svg);
+    }
+    &:nth-child(4) {
+		-webkit-mask-image: url(/img/logos/jetblue.svg);
+		mask-image: url(/img/logos/jetblue.svg);
+    }
+    &:nth-child(5) {
+		-webkit-mask-image: url(/img/logos/experian.svg);
+		mask-image: url(/img/logos/experian.svg);
+    }
+}

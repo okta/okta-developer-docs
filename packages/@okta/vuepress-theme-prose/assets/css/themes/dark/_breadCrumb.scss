@@ -1,0 +1,14 @@
+.breadcrumb--container {
+	svg path {
+		stroke: cv('breadcrumb', 'link');
+	}
+	ol {
+		li a,
+		li span {
+			color: cv('breadcrumb', 'svg');
+		}
+	}
+	ol li a.router-link-exact-active.router-link-active {
+		color: cv('action');
+	}
+}

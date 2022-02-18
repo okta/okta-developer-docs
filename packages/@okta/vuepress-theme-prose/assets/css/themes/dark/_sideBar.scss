@@ -1,0 +1,37 @@
+.tree-nav {
+    background-color: cv('code');
+    .sections {
+        .tree-nav-link {
+			color: cv('link', 'light');
+			& > i.parent svg {
+				transform: scale(0.8);
+				path {
+					fill: cv('blue', 'darker');
+				}
+			}
+		}
+		.tree-nav-link.children-active > i.parent svg path {
+			fill: cv('action');
+		}
+		&:first-child > .link-wrap {
+			& > .tree-nav-link.children-active > .text-holder {
+				color: cv('text');
+			}
+		}
+		.tree-nav-link.router-link-active {
+			color: cv('action');
+			&:before {
+				width: 1px;
+				background-color: cv('blue', 'darker');
+			}
+		}
+    }
+}
+.page-body {
+	.content--container {
+		.sidebar-area {
+			box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
+			z-index: 1;
+		}
+	}
+}

@@ -1,0 +1,78 @@
+.cm-s-neat {
+    span.cm-variable {
+		color: cv('text');
+    }
+    span.cm-comment {
+		color: cv('breadcrumb', 'svg')
+    }
+    span.cm-property {
+		color: cv('code', 'property')
+    }
+    span.cm-keyword {
+		color: cv('code', 'keyword')
+    }
+    span.cm-string {
+		color: cv('code', 'define')
+    }
+}
+
+.CodeMirror {
+    color: cv('text');
+    background-color: cv('code');
+    border: none;
+    &-gutters {
+		background-color: cv('code');
+    }
+}
+
+.token.function, 
+.token.class-name {
+    color: cv('code', 'define');
+}
+
+.token.selector, 
+.token.attr-name, 
+.token.string, 
+.token.char, 
+.token.builtin, 
+.token.url, 
+.token.inserted, 
+.token.atrule, 
+.token.attr-value, 
+.token.keyword {
+    color: cv('code', 'green');
+}
+
+code[class*="language-"], 
+pre[class*="language-"] {
+    color: cv('text');
+}
+
+.token.property, 
+.token.tag, 
+.token.boolean, 
+.token.number, 
+.token.constant, 
+.token.symbol, 
+.token.deleted {
+    color: cv('code', 'property');
+}
+
+.homepage--code-example {
+    background-color: cv('body');
+    border: none;
+    &--cm-wrapper .CodeMirror {
+        background-color: cv('body');
+        border: none;
+    }
+}
+
+.api-uri {
+	&-template {
+		background-color: cv('header');
+		border-color: cv('body');
+	}
+	&-put strong {
+		color: cv('link');
+	}
+}

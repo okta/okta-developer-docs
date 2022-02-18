@@ -1,0 +1,30 @@
+.pricing {
+    background-color: transparent;
+    .Button--redOutline {
+		color: cv('text');
+	}
+	.pricing--costs .pricing-card {
+		border-color: cv('header');
+	}
+	.pricing-collapsible-item {
+		&-title {
+			background-color: cv('header');
+		}
+		&-content {
+			background-color: cv('body');
+			border-color: cv('header');
+		}
+	}
+    .selector-lozenge.multiple {
+		.lozenge {
+			color: cv('link', 'faq');
+			border-color: cv('link', 'faq');
+		}
+		.lozenge.active {
+			background-color: cv('header');
+		}
+    }
+    .pricing--plans .pricing-card-row {
+		border-color: cv('link', 'faq');
+    }
+}
