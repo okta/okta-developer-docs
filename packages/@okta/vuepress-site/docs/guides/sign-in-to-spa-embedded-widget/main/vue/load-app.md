@@ -57,7 +57,7 @@ createApp(App)
 
 ### Create a Sign-In Widget container
 
-To render the Sign-In Widget in Vue.js, you must create a wrapper that allows Okta to treat it as a Vue component. For example, create a `src/components/Login.vue` file with the following content:
+To render the Sign-In Widget in Vue.js, you must create a wrapper that allows your app to treat it as a Vue component. For example, create a `src/components/Login.vue` file with the following content:
 
 ```html
 <template>
