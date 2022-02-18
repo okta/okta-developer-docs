@@ -1,4 +1,5 @@
 .dark-theme {
+	@import "../themes/dark/global";
 	@import "../themes/dark/login";
 	@import "../themes/dark/selectorTile";
 	@import "../themes/dark/button";
@@ -7,7 +8,6 @@
 	@import "../themes/dark/sideBar";
 	@import "../themes/dark/content";
 	@import "../themes/dark/authorization";
-	@import "../themes/dark/global";
 	@import "../themes/dark/header";
 	@import "../themes/dark/homepage";
 	@import "../themes/dark/breadCrumb";
@@ -22,3 +22,7 @@
 	@import "../themes/dark/stackSelector";
 }
 
+// hide external icon for light and dark themes
+header.page-header .link[target="_blank"]:not([href^='mailto:'])::after {
+    display: none !important;
+}
