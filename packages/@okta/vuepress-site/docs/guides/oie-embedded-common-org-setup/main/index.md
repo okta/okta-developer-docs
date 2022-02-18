@@ -84,11 +84,14 @@ Create an app integration that represents the application you want to add authen
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.
-1. Select the **Sign On** tab. New app integrations are automatically assigned the shared default policy that has a single catch-all rule that allows a user access with only one factor.
-1. In the **User authentication** section, select **View policy details** next to Default Policy. The **Authentication policies** page appears.
-1. In the **Catch-all Rule** section that appears, verify that the **Available Authenticators** settings displays **Password/IdP**. This setting allows the end user to sign in with just a password. Additionally, users who authenticate through a trusted Identity Provider also satisfy the password requirement.
+1. On the **General** tab, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
+1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with two factors.
+1. Select **View policy details** next to **Default Policy** to go to the Authentication Policies page.
+1. In the **Catch-all Rule** section that appears, select **Edit** from the **Actions** menu.
+1. Scroll down to the **THEN** section of the dialog and change **AND user must authentication with** to **Password/IdP**. This setting allows the end user to sign in with just a password. Additionally, users who authenticate through a trusted identity provider also satisfy the password requirement.
+1. Click **Save**.
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
+   > **Note:** Remember that since the default authentication policy is a shared policy, changes made are applied to both new and existing apps that are assigned to it.
 
 <StackSnippet snippet="appsbaseurl" />
 
@@ -102,7 +105,7 @@ After you've created your app integration in your Okta org, the next step is to 
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
+This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, you updated the catch-all rule for your new app to use **Password/IdP** as the only factor required for a user to sign in. Perform the following configuration to finish setting up your Okta org for a password factor only use case:
 
 [Update the password authenticator to password only](#update-the-password-authenticator-to-password-only)
 
@@ -130,32 +133,33 @@ This section shows you how to set up your Okta org and app to support the multif
 
 1. In the Admin Console, select **Security** > **Authenticators**.
 1. Select **Edit** from the **Actions** drop-down menu on the **Email** authenticator row.
-1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
+1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Save**.
 
 #### 2: Add the phone authenticator for authentication and recovery
 
-1. In the Admin Console, select **Security** > **Authenticators**.
+**Note:** If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field.
+
+1. To add the phone authenticator, select **Security** > **Authenticators** in the Admin Console.
 1. Click **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the **Phone** authenticator.
 1. In the **Verification options** section, select **SMS** for the **User can verify with** field.
 
    > **Note:** Some SDKs support only SMS with a phone authenticator.
 
-1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
+1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Add**.
-
-If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field for the phone authenticator.
 
 #### 3: Update your authentication policy with multifactor authentication
 
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [app that you created](#create-a-new-application) to represent your application.
-1. On the page for your application, select the **Sign On** tab.
-1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
-1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password + Another Factor**.
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. On the Authentication polices page, select **Default Policy** as this is the policy that the [app that you created](#create-a-new-application) is assigned to.
+1. Select **Edit** from the **Actions** menu for the **Catch-all Rule**.
+1. On the **Edit Rule** dialog, scroll down to the **AND User must authenticate with** dropdown menu and select **Password/IdP + Another Factor**.
 1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
+
+   > **Note:** Remember that since the default authentication policy is a shared policy, changes made are applied to both new and existing apps that are assigned to it.
 
 ### Set up your Okta org for a social IdP use case
 
