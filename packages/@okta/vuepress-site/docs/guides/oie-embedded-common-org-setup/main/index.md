@@ -84,8 +84,9 @@ Create an app integration that represents the application you want to add authen
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.
-1. Select the **Sign On** tab.
-1. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
+1. Select the **Sign On** tab. New app integrations are automatically assigned the shared default policy that has a single catch-all rule that allows a user access with only one factor.
+1. In the **User authentication** section, select **View policy details** next to Default Policy. The **Authentication policies** page appears.
+1. In the **Catch-all Rule** section that appears, verify that the **Available Authenticators** settings displays **Password/IdP**. This setting allows the end user to sign in with just a password. Additionally, users who authenticate through a trusted Identity Provider also satisfy the password requirement.
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
 
@@ -103,10 +104,9 @@ After you've created your app integration in your Okta org, the next step is to 
 
 This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
 
-1. [Update the password authenticator to password only](#_1-update-the-password-authenticator-to-password-only)
-2. [Update your authentication policy with password-only authentication](#_2-update-your-authentication-policy-with-password-only-authentication)
+[Update the password authenticator to password only](#update-the-password-authenticator-to-password-only)
 
-#### 1: Update the password authenticator to password only
+#### Update the password authenticator to password only
 
 For password-only authentication, you need to update the password authenticator policy rule to not require any additional verification.
 
@@ -115,15 +115,6 @@ For password-only authentication, you need to update the password authenticator 
 1. On the **Password** policy page, scroll down to the rules section and click the pencil icon next to the **Default Rule**.
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
-
-#### 2: Update your authentication policy with password-only authentication
-
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
-1. On the page for your application, select the **Sign On** tab.
-1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
-1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password**.
-1. Click **Save**.
 
 ### Set up your Okta org for a multifactor use case
 
