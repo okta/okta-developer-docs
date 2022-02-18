@@ -1,15 +1,15 @@
 ### Create routes
 
-Some routes require authentication in order to render. Defining those routes is easy using `SecureRoute` from `@okta/okta-react`. Let's take a look at what routes are needed for this example:
+Typically, an app contain routes that require authentication in order to render. Use the `SecureRoute` component from [Okta React SDK](https://github.com/okta/okta-react) (`@okta/okta-react`) to define authenticated routes for your app. The following are some basic routes that you need to configure for your app:
 
-* `/`: A default page to handle basic control of the app.
-* `/protected`: A route protected by `SecureRoute`.
-* `/login`: Show the sign-in page.
-* `/login/callback`: A route to parse tokens after a redirect.
+* A [default page](#default-page-route) to handle basic control of the app
+* A [login route](#login-route) to show the Sign-In Widget
+* A [callback route](#callback-route) to parse tokens after a redirect from Okta
+* A [protected route](#protected-route) for authenticated users to access protected content
 
-#### `/ - index page`
+#### Default page route
 
-First, create `src/Home.js` to provide links to navigate your app:
+To create the default `/index` page, edit the `src/Home.js` file to provide links to relevant locations in your app. You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` property (see [`authStateManager` in the Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
 
 ```js
 import React from 'react';
@@ -42,11 +42,11 @@ const Home = () => {
 export default Home;
 ```
 
-#### `/protected`
+#### Protected route
 
-This route is visible only to users with a valid `accessToken`.
+Create a protected route that is only available to users with a valid `accessToken`.
 
-Create a new `src/Protected.js` component:
+In this `/protected` component example, a `src/Protected.js` file is created to show a basic protected page:
 
 ```js
 import React from 'react';
@@ -55,11 +55,11 @@ const Protected = () => <h3>Protected</h3>;
 export default Protected;
 ```
 
-#### `/login`
+#### Login route
 
-This route hosts the Sign-In Widget and redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon successful sign in.
+This route hosts the Sign-In Widget and redirects if the user is already signed in. If the user is coming from a protected page, they'll be redirected back to the page upon successful sign in.
 
-Create a new `src/Login.js` component:
+For example, create a `src/Login.js` file with the Login route component:
 
 ```js
 import React from 'react';
@@ -90,9 +90,9 @@ const Login = ({ config }) => {
 export default Login;
 ```
 
-#### `/login/callback`
+#### Callback route
 
-The component for this route (LoginCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if a sign-in was triggered.
+The [Okta React SDK](https://github.com/okta/okta-react) provides the [LoginCallback](https://github.com/okta/okta-react#logincallback) component for the callback route. It handles token parsing, token storage, and redirects the user to the `/` path. If a `SecureRoute` triggered the redirect, then the callback is directed to the secured route. See how the callback route component is called from the route definition file (`src/AppWithRouterAccess.js`) in the [Connect the routes](#connect-the-routes) section.
 
 ### Connect the routes
 
