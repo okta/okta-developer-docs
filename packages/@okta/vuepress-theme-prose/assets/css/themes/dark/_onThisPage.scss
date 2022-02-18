@@ -1,24 +1,24 @@
 .page-body {
     .content--container {
-		.mobile-on-this-page {
-			color: cv('body');
-			.vs__dropdown-toggle {
-				border-color: cv('text', 'gray');
-				.vs__open-indicator {
-					transform: scale(0.6);
-				}
-			}
-		}
-		.on-this-page {
-			.title {
-				color: cv('text');
-			}
-			.links {
-				border-color: rgba(255,255,255,.2);
-			}
-			a.router-link-active {
-				border-color: cv('action');
-			}
-		}
+        .mobile-on-this-page {
+            color: cv('body');
+            .vs__dropdown-toggle {
+                border-color: cv('text', 'gray');
+                .vs__open-indicator {
+                    transform: scale(0.6);
+                }
+            }
+        }
+        .on-this-page {
+            .title {
+                color: cv('text');
+            }
+            .links {
+                border-color: rgba(255,255,255,.2);
+            }
+            a.router-link-active {
+                border-color: cv('action');
+            }
+        }
     }
 }

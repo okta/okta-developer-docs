@@ -1,60 +1,60 @@
 .signup {
-	&--form .fa-github:before {
-		color: cv('text', 'black');
-	}
-	a {
-		color: cv('link', 'signup');
-	}
-	
-	&--form {
-		.goto-signin,
-		.splitter {
-			color: cv('body', 'darkgray');
-		}
-		.goto-signin a {
-			color: cv('link', 'signup');
-		}
-		.consent--section {
-			&-text p {
-				color: cv('body', 'darkgray');
-			}
-			&-agree {
-				label {
-					color: cv('body', 'darkgray');
-				}
-			}
-			&-agree {
-				input[type="checkbox"] {
-					position: relative;
-					min-width: 1rem;
-					min-height: 1rem;
-					border: 1px solid cv('border', 'checkbox');
-					background-color: cv('white');
-					border-radius: 4px;
-					appearance: none;
-					outline: 0;
-					cursor: pointer;
-					&::before {
-						position: absolute;
-						content: '';
-						display: block;
-						top: 1px;
-						left: 5px;
-						width: 5px;
-						height: 10px;
-						border-style: solid;
-						border-color: cv('action');
-						border-width: 0 1px 1px 0;
-						transform: rotate(45deg);
-						opacity: 0;
-					}
-					&:checked {
-						&::before {
-							opacity: 1;
-						}
-					}
-				}
-			}
-		}
-	}
+    &--form .fa-github:before {
+        color: cv('text', 'black');
+    }
+    a {
+        color: cv('link', 'signup');
+    }
+    
+    &--form {
+        .goto-signin,
+        .splitter {
+            color: cv('body', 'darkgray');
+        }
+        .goto-signin a {
+            color: cv('link', 'signup');
+        }
+        .consent--section {
+            &-text p {
+                color: cv('body', 'darkgray');
+            }
+            &-agree {
+                label {
+                    color: cv('body', 'darkgray');
+                }
+            }
+            &-agree {
+                input[type="checkbox"] {
+                    position: relative;
+                    min-width: 1rem;
+                    min-height: 1rem;
+                    border: 1px solid cv('border', 'checkbox');
+                    background-color: cv('white');
+                    border-radius: 4px;
+                    appearance: none;
+                    outline: 0;
+                    cursor: pointer;
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        display: block;
+                        top: 1px;
+                        left: 5px;
+                        width: 5px;
+                        height: 10px;
+                        border-style: solid;
+                        border-color: cv('action');
+                        border-width: 0 1px 1px 0;
+                        transform: rotate(45deg);
+                        opacity: 0;
+                    }
+                    &:checked {
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

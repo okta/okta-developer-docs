@@ -1,18 +1,18 @@
 .cm-s-neat {
     span.cm-variable {
-		color: cv('text');
+    color: cv('text');
     }
     span.cm-comment {
-		color: cv('breadcrumb', 'svg')
+    color: cv('breadcrumb', 'svg')
     }
     span.cm-property {
-		color: cv('code', 'property')
+    color: cv('code', 'property')
     }
     span.cm-keyword {
-		color: cv('code', 'keyword')
+    color: cv('code', 'keyword')
     }
     span.cm-string {
-		color: cv('code', 'define')
+    color: cv('code', 'define')
     }
 }
 
@@ -21,7 +21,7 @@
     background-color: cv('code');
     border: none;
     &-gutters {
-		background-color: cv('code');
+    background-color: cv('code');
     }
 }
 
@@ -68,11 +68,11 @@ pre[class*="language-"] {
 }
 
 .api-uri {
-	&-template {
-		background-color: cv('header');
-		border-color: cv('body');
-	}
-	&-put strong {
-		color: cv('link');
-	}
+    &-template {
+        background-color: cv('header');
+        border-color: cv('body');
+    }
+    &-put strong {
+        color: cv('link');
+    }
 }

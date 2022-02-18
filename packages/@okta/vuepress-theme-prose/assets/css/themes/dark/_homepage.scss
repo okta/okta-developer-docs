@@ -1,83 +1,83 @@
 .homepage {
-	&--section-description {
-		color: cv('breadcrumb', 'link');
-	}
-	&--intro-heading {
-		border-color: cv('breadcrumb', 'link');
-	}
-	&--top-section {
-		background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
-	}
-	&--assurance-block-margin {
-		background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
-		.col-xl-4 {
-			&:nth-child(1),
-			&:nth-child(2),
-			&:nth-child(3) {
-				span {
-					background-image: none !important;
-					mask-repeat: no-repeat;
-					mask-position: center;
-					background-color: cv('action') !important;
-				}
-			}
-			&:nth-child(1) {
-				span {
-					-webkit-mask-image: url(/img/homepage/compliance-out-of-box.svg);
-					mask-image: url(/img/homepage/compliance-out-of-box.svg);
-				}
-			}
-			&:nth-child(2) {
-				span {
-					-webkit-mask-image: url(/img/homepage/uptime.svg);
-					mask-image: url(/img/homepage/uptime.svg);
-				}
-			}
-			&:nth-child(3) {
-				span {
-					-webkit-mask-image: url(/img/homepage/standards.svg);
-					mask-image: url(/img/homepage/standards.svg);
-				}
-			}
-		}
-	}
+    &--section-description {
+        color: cv('breadcrumb', 'link');
+    }
+    &--intro-heading {
+        border-color: cv('breadcrumb', 'link');
+    }
+    &--top-section {
+        background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+    }
+    &--assurance-block-margin {
+        background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+        .col-xl-4 {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                span {
+                    background-image: none !important;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    background-color: cv('action') !important;
+                }
+            }
+            &:nth-child(1) {
+                span {
+                    -webkit-mask-image: url(/img/homepage/compliance-out-of-box.svg);
+                    mask-image: url(/img/homepage/compliance-out-of-box.svg);
+                }
+            }
+            &:nth-child(2) {
+                span {
+                    -webkit-mask-image: url(/img/homepage/uptime.svg);
+                    mask-image: url(/img/homepage/uptime.svg);
+                }
+            }
+            &:nth-child(3) {
+                span {
+                    -webkit-mask-image: url(/img/homepage/standards.svg);
+                    mask-image: url(/img/homepage/standards.svg);
+                }
+            }
+        }
+    }
 
-	&--customize-your-app-margin,
-	&--partners-block-margin {
-		background-color: cv('body', 'homepage-lighter-block');
-		margin-bottom: 0;
-	}
+    &--customize-your-app-margin,
+    &--partners-block-margin {
+        background-color: cv('body', 'homepage-lighter-block');
+        margin-bottom: 0;
+    }
 
-	&--customize-your-app-margin {
-		padding-bottom: 4.6875rem;
-		&::before {
-			background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
-		}
-	}
-	
-	&--partners-block-margin {
-		padding-bottom: 3.625rem;
-	}
+    &--customize-your-app-margin {
+        padding-bottom: 4.6875rem;
+        &::before {
+            background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+        }
+    }
+    
+    &--partners-block-margin {
+        padding-bottom: 3.625rem;
+    }
 }
 
 .oin {
-	&--leader p a.magentaLink {
-		color: cv('link', 'signup');
-	}
-	&--bg,
-	&--bg:last-of-type {
-		background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
-	}
-	&-alt-bg {
-		background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
-	}
-	&--develop .oin--develop-content .oin--develop-tiles .tile {
-		border: 1px solid cv('breadcrumb', 'link');
-	}
+    &--leader p a.magentaLink {
+        color: cv('link', 'signup');
+    }
+    &--bg,
+    &--bg:last-of-type {
+        background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+    }
+    &-alt-bg {
+        background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+    }
+    &--develop .oin--develop-content .oin--develop-tiles .tile {
+        border: 1px solid cv('breadcrumb', 'link');
+    }
 }
 
 .assurance-item {
-	&--rounded {
-		background-color: cv('body');
-	}
+    &--rounded {
+        background-color: cv('body');
+    }
 }
