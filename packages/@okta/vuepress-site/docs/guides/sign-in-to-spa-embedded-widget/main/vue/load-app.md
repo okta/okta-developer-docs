@@ -15,7 +15,7 @@ You can create a `src/config.js` file to define your configuration settings. For
 export default {
   oidc: {
     clientId: '${yourClientId}',
-    issuer: '${yourIssuer}',
+    issuer: 'https://${yourOktaDomain}/oauth2/default',
     redirectUri: '${yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
