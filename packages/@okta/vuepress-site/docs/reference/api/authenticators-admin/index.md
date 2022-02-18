@@ -10,7 +10,7 @@ category: other
 
 The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users for use when signing in to applications.
 
-End users are required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
+End users are required to use one or more Authenticators depending on the security requirements of the [authentication policy](/docs/reference/api/policy/#authentication-policy).
 
 Okta Identity Engine currently supports Authenticators for the following factors:
 
