@@ -66,10 +66,10 @@
     }
     &--bg,
     &--bg:last-of-type {
-        background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+        background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;
     }
     &-alt-bg {
-        background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
+        background: cv('body', 'homepage-lighter-block') url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom !important;
     }
     &--develop .oin--develop-content .oin--develop-tiles .tile {
         border: 1px solid cv('breadcrumb', 'link');

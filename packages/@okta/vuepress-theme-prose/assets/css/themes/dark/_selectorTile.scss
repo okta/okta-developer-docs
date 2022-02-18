@@ -22,7 +22,7 @@
             border-bottom: none;
             &:hover {
                 color: cv('text');
-                background: cv('text', 'gray');
+                background: cv('text', 'accent');
                 & > i {
                     color: cv('text');
                 }

@@ -4,11 +4,11 @@
         a.social-btn, 
             input.social-btn, 
             button.social-btn {
-            color: cv('body', 'darkgray');
+            color: cv('header');
         }
     }
     .row .field-wrapper,
     .authorization-layout--content .auth0-banner {
-        color: cv('body', 'darkgray');
+        color: cv('header');
     }
 }

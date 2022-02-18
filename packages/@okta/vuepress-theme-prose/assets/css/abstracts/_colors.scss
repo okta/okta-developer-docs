@@ -81,7 +81,7 @@
   --c-text-lighter: var(--c-gray-300);
 
   --c-link-base: var(--c-blue-500);
-  --c-link-darkblue: var(--c-link-blue);
+  --c-link-darker: var(--c-link-blue);
   --c-link-footer: var(--c-link-lightgray);
   --c-auth-link: var(--c-white);
 
@@ -194,15 +194,14 @@ $colors: (
     'border': var(--c-body-border),
     'white': var(--c-body-white),
     'homepage-lighter-block': var(--c-lightgray),
-    'darkgray': var(--c-header-base),
   ),
   'text': (
     'darker': var(--c-text-darker),
     'base': var(--c-text-base),
     'lighter': var(--c-text-lighter),
     'cyan': var(--c-cyan-base),
-    'black': var(--c-black),
-    'gray': var(--c-text-gray),
+    'dark': var(--c-black),
+    'accent': var(--c-text-gray),
   ),
   'tile': (
     'angle': var(--c-tile-angle),
@@ -219,11 +218,12 @@ $colors: (
     'light': var(--c-light),
   ),
   'code': (
+    'base': var(--c-code-base),
     'keyword': var(--c-code-keyword),
     'define': var(--c-code-define),
     'property': var(--c-code-property),
     'string': var(--c-code-string),
-    'green': var(--c-code-greenstring),
+    'success': var(--c-code-greenstring),
   ),
   'form': (
     'input-border': var(--c-form-input-border),

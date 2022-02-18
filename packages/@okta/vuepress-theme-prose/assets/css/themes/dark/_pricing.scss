@@ -8,7 +8,7 @@
     }
     .pricing-collapsible-item {
         &-title {
-            background-color: cv('header');
+            background-color: cv('header') !important;
         }
         &-content {
             background-color: cv('body');

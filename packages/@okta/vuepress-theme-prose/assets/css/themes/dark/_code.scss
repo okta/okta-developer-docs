@@ -40,7 +40,7 @@
 .token.atrule, 
 .token.attr-value, 
 .token.keyword {
-    color: cv('code', 'green');
+    color: cv('code', 'success');
 }
 
 code[class*="language-"], 

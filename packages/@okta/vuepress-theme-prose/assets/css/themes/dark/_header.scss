@@ -1,5 +1,5 @@
 header.page-header {
-    background-color: cv('text', 'gray');
+    background-color: cv('text', 'accent');
     .sign-up--button {
         color: cv('action'); 
         border-color: cv('action'); 
@@ -51,12 +51,12 @@ ul.menu--items > li.expandable {
         background-image: url(/img/icons/chevron-down-white.svg) !important;
     }
     & > ul.submenu--items {
-        background: cv('body', 'darkgray');
+        background: cv('header');
         .menu--divider {
             border-color: cv('text');
         }
         &:before {
-            border-bottom-color: cv('body', 'darkgray');
+            border-bottom-color: cv('header');
         }
         li a {
             color: cv('text');

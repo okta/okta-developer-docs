@@ -1,6 +1,6 @@
 .signup {
     &--form .fa-github:before {
-        color: cv('text', 'black');
+        color: cv('text', 'dark');
     }
     a {
         color: cv('link', 'signup');
@@ -9,18 +9,18 @@
     &--form {
         .goto-signin,
         .splitter {
-            color: cv('body', 'darkgray');
+            color: cv('header');
         }
         .goto-signin a {
             color: cv('link', 'signup');
         }
         .consent--section {
             &-text p {
-                color: cv('body', 'darkgray');
+                color: cv('header');
             }
             &-agree {
                 label {
-                    color: cv('body', 'darkgray');
+                    color: cv('header');
                 }
             }
             &-agree {

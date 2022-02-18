@@ -3,7 +3,7 @@
         .mobile-on-this-page {
             color: cv('body');
             .vs__dropdown-toggle {
-                border-color: cv('text', 'gray');
+                border-color: cv('text', 'accent');
                 .vs__open-indicator {
                     transform: scale(0.6);
                 }
