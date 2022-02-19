@@ -9,9 +9,9 @@ Before integrating Okta authentication to your React app, you need to obtain the
     | -------------------    | ---------------------------------------------------  |
     | App integration name   | Specify a unique name for your app.                  |
     | Grant types            | Select **Authorization Code**, **Interaction Code**, and  **Refresh Token**. |
-    | Sign-in redirect URIs  | Specify your app URI for the callback redirect from Okta. For example: `http://localhost:8080/login/callback`              |
-    | Sign-out redirect URIs | Specify your app sign-out redirect URI. For example: `http://localhost:8080`                             |
-    | Trusted Origins > Base URIs | Specify your app base URI for CORS. For example: `http://localhost:8080`|
+    | Sign-in redirect URIs  | Specify your app URI for the callback redirect from Okta. For example: `http://localhost:8080/login/callback` for the sample app, or `http://localhost:3000/login/callback` for the default React app              |
+    | Sign-out redirect URIs | Specify your app sign-out redirect URI. For example: `http://localhost:8080` for the sample app, or `http://localhost:3000` for the default React app                            |
+    | Trusted Origins > Base URIs | Specify your app base URI for CORS. For example: `http://localhost:8080` for the sample app, or `http://localhost:3000` for the default React app|
     | Assignments   | Assign users for your app.                                |
 
     > **Note:** Cross-Origin Resource Sharing (CORS) is automatically enabled for the Trusted Origins base URI that you specified in the Admin Console. If you're using the [Okta CLI](https://cli.okta.com/manual/apps/create/) to create your SPA Okta app integration, CORS is also automatically enabled for your base URI. You can verify that both **CORS** and **redirect** are enabled for your app by reviewing the **Security** > **API** > **Trusted Origins** page in the Admin Console.

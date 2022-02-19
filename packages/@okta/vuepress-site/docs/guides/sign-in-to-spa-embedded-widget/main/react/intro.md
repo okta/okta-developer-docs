@@ -13,13 +13,9 @@ If you don't have an existing React app, you can [create a new basic React app](
 Integrate the Sign-In Widget to your React app to add Okta authentication with the following steps:
 
  1. [Install dependencies](#install-dependencies): Install the Okta libraries for the integration.
- 2. [Create Okta instances](#create-okta-instances): Create the Okta auth and Sign-In Widget instances to be used in your app.
- 3. [Create a Sign-In Widget wrapper](#create-a-sign-in-widget-wrapper): Create a wrapper for the Sign-In Widget to be rendered as a React component.
- 4. [Create routes](#create-routes): Create the routes for your app.
- 5. [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
-
-[Start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
-
-After successfully authenticating with Okta, the app obtains the user's `id_token`, which contains basic claims for the user's identity. You can extend the set of claims by modifying the [scopes](/docs/reference/api/oidc/#scopes) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values). See [Sign users in to your SPA guide for Vue.js](/docs/guides/sign-into-spa/vue/main/#use-the-access-token) to learn how to use the user's `access_token` to protect routes and validate tokens.
+ 2. [Load the Sign-In Widget](#load-the-sign-in-widget): Create the Sign-In Widget instance and a wrapper for the Widget to be rendered as a React component.
+ 3. [Create routes](#create-routes): Create the routes for your app.
+ 4. [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
+ 5. When you are done integrating the Sign-In Widget to your React app, [start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
 
 See [Run the sample React app](#run-the-sample-react-app) for an example of a simple embedded authentication React app that uses the Okta SIW and libraries.
