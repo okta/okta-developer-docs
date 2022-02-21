@@ -81,7 +81,7 @@
   --c-text-lighter: var(--c-gray-300);
 
   --c-link-base: var(--c-blue-500);
-  --c-link-darkblue: var(--c-link-blue);
+  --c-link-darker: var(--c-link-blue);
   --c-link-footer: var(--c-link-lightgray);
   --c-auth-link: var(--c-white);
 
@@ -112,10 +112,22 @@
   --c-gray-100: #EBEBED;
   --c-gray-000: #F5F5F6;
 
+  --c-checkbox-border: #C1C1C8;
+
+  --c-cyan-base: #30C0BC;
+
   --c-lightgray: #212125;
+
+  --c-light: #D7D7DC;
+
+  --c-black: #000;
 
   --c-blue-300: #92BCFF;
   --c-blue-800: #234F97;
+
+  --c-blue-darker: #5976A6;
+
+  --c-checkbox-border: #C1C1C8;
 
   --c-code-purple: #8D6E97;
   --c-code-orange: #E97107;
@@ -129,15 +141,17 @@
 
 
   // VARIABLES COLORS FOR DARK THEME
-  --c-body-base: var(--c-gray-900);
+  --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
   
-  --c-text-darker: var(--c-gray-000);
-  --c-text-base: var(--c-gray-400);
-  --c-text-lighter: var(--c-gray-000);
+  --c-text-darker: var(--c-gray-100);
+  --c-text-base: var(--c-gray-100);
+  --c-text-lighter: var(--c-gray-100);
+  --c-text-gray: var(--c-gray-600);
 
   --c-link-base: var(--c-blue-300);
+  --c-link-signup: var(--c-blue-500);
   --c-code-base: var(--c-gray-900);
   --c-auth-link: var(--c-gray-700);
 
@@ -149,6 +163,12 @@
   --c-code-string: var(--c-code-lightgray);
   --c-code-greenstring: var(--c-code-green);
 
+  --c-breadcrumb-link: var(--c-gray-400);
+  --c-breadcrumb-svg: var(--c-gray-500);
+
+  --c-border: var(--gray-300);
+  --c-border-light: var(--gray-200);
+
 }
 
 $colors: (
@@ -159,35 +179,51 @@ $colors: (
   'header': (
     'base': var(--c-header-base),
   ),
+  'breadcrumb': (
+    'link': var(--c-breadcrumb-link),
+    'svg': var(--c-breadcrumb-svg),
+  ),
+  'border': (
+    'base': var(--c-border-light),
+    'gray': var(--c-border),
+    'checkbox': var(--c-checkbox-border),
+  ),
   'body': (
     'base': var(--c-body-base),
     'lighter': var(--c-body-lighter),
     'border': var(--c-body-border),
     'white': var(--c-body-white),
     'homepage-lighter-block': var(--c-lightgray),
-    'darkgray': var(--c-gray-700),
   ),
   'text': (
     'darker': var(--c-text-darker),
     'base': var(--c-text-base),
     'lighter': var(--c-text-lighter),
+    'cyan': var(--c-cyan-base),
+    'dark': var(--c-black),
+    'accent': var(--c-text-gray),
   ),
   'tile': (
     'angle': var(--c-tile-angle),
+  ),
+  'input': (
+    'border': var(--c-checkbox-border),
   ),
   'link': (
     'base': var(--c-link-base),
     'darker': var(--c-link-darker),
     'footer': var(--c-link-footer),
-    'signup': var(--c-blue-500),
+    'signup': var(--c-link-signup),
     'faq': var(--c-white),
+    'light': var(--c-light),
   ),
   'code': (
+    'base': var(--c-code-base),
     'keyword': var(--c-code-keyword),
     'define': var(--c-code-define),
     'property': var(--c-code-property),
     'string': var(--c-code-string),
-    'green': var(--c-code-greenstring),
+    'success': var(--c-code-greenstring),
   ),
   'form': (
     'input-border': var(--c-form-input-border),
@@ -239,6 +275,7 @@ $colors: (
     '500': var(--c-blue-500),
     '900': var(--c-blue-900),
     'whale': var(--c-blue-whale),
+    'darker': var(--c-blue-darker),
   ),
   'gray': (
     '000': var(--c-gray-000),

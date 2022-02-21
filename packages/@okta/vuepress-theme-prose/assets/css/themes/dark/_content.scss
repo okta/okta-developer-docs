@@ -1,0 +1,62 @@
+.page-body {
+    .content--container {
+        color: cv('text');
+        pre[class*=language-] {
+            background-color: cv('code');
+        }
+        :not([class*=language-]) > code {
+            background-color: cv('text', 'accent');
+            color: cv('text');
+            border: none;
+        }
+        .edit-on-github .fa {
+            color: cv('text');
+        }
+        blockquote {
+            border-right: none;
+            border-bottom: none;
+            border-top: none;
+            background-color: cv('header');
+        }
+        .vs__selected {
+            color: cv('text');
+        }
+        .vs__dropdown-menu {
+            border-color: cv('text', 'accent') !important;
+            .vs__dropdown-option {
+                border: none !important;
+                background-color: cv('code');
+                color: cv('text');
+                &--highlight {
+                    border: none !important;
+                }
+            }
+        }
+    }
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.download-16::before,
+.fa-github:before {
+    color: cv('text');
+}
+
+.page-title [class^="icon-"]:before, [class*=" icon-"]:before {
+    line-height: 2.875rem;
+}
+
+.api-label-ie {
+    background-color: cv('link', 'signup');
+    border-color: cv('text');
+    color: cv('text');
+}
+
+.api-label-limited-ga {
+    background-color: cv('cyan');
+    border-color: cv('text');
+    color: cv('text');
+}

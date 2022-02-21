@@ -1,0 +1,17 @@
+.live-widget-wrapper {
+    background-color: cv('body');
+    .toggle-button {
+        color: cv('breadcrumb', 'svg');
+        &:disabled {
+            background-color: cv('breadcrumb', 'svg');
+        }
+    }
+    .background {
+        &-darkblue {
+            background-color: cv('body');
+        }
+        &-curve {
+            display: none;
+        }
+    }
+}

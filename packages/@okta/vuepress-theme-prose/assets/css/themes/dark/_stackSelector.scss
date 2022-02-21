@@ -1,0 +1,20 @@
+.page-body {
+    .content--container {
+        .stack-selector {
+            .selector-control {
+                .vs__dropdown-toggle {
+                    border-color: cv('text', 'accent');
+                    .vs__open-indicator {
+                        transform: scale(0.6);
+                    }
+                }
+                .instructions-label {
+                    color: cv('text', 'darker');
+                }
+                & nav {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

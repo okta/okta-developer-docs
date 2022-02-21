@@ -1,0 +1,32 @@
+.selector-tile {
+    &--header {
+        color: cv('action');
+        border-bottom: 1px solid cv('action');
+        &:visited, 
+        &:active, 
+        &:focus {
+            color: cv('action');
+        }
+        &:hover {
+            color: cv('text');
+            i {
+                color: cv('text');
+            }
+        }
+        i {
+            color: cv('action');
+        }	
+    }
+    &--data {
+        &--item {
+            border-bottom: none;
+            &:hover {
+                color: cv('text');
+                background: cv('text', 'accent');
+                & > i {
+                    color: cv('text');
+                }
+            }
+        }
+    }
+}
