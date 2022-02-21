@@ -60,7 +60,7 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
     > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
 
-5. [Update your web app](/docs/guides/sign-into-web-app/-/main/#configure-the-package) to start using the newly generated client secret.
+5. [Update your web app](/docs/guides/sign-into-web-app-redirect/-/main/#configure-your-app) to start using the newly generated client secret.
 
 6. Test your app and ensure that all functionality works with the newly generated client secret.
 

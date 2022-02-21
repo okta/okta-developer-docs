@@ -1,12 +1,21 @@
-We suggest using the [Cors Package](https://www.npmjs.com/package/cors) for enabling cors. Once you have your express app instance, you can use `cors`:
+We suggest using the [Cors Package](https://www.npmjs.com/package/cors) for enabling cors.
 
-```js
-var express = require('express')
-var cors = require('cors')
-var app = express()
+Install the `cors` package by running
 
-app.use(cors())
+```shell
+npm install cors@2.8 –save
 ```
 
+Add `cors` to the express app instance inside `server.js`.
 
-For more details, refer to the [Cors Package](https://www.npmjs.com/package/cors).
+```js
+  ...
+
+const cors = require('cors');
+
+  ...
+
+app
+  .use(cors())
+  .listen(port, () => console.log('API Magic happening on port ' + port));
+```

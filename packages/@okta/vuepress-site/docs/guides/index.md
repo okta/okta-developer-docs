@@ -60,9 +60,9 @@ guides:
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
- - sign-into-mobile-app
- - sign-into-spa
- - sign-into-web-app
+ - sign-into-mobile-app-redirect
+ - sign-into-spa-redirect
+ - sign-into-web-app-redirect
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
@@ -114,8 +114,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 2. Sign users in
 
-    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/)
-    * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
+    * [Sign users in to your single-page application](/docs/guides/sign-into-spa-redirect/)
+    * [Sign users in to your web application](/docs/guides/sign-into-web-app-redirect/)
     * [Sign users in using the Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
     * [Sign users out](/docs/guides/sign-users-out/)

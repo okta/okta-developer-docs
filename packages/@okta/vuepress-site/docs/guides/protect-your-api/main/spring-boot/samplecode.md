@@ -1,0 +1,1 @@
+[Finished sample project](https://github.com/okta/samples-java-spring/tree/master/resource-server)

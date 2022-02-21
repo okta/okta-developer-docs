@@ -1,10 +1,7 @@
-All of our Okta packages for Node are hosted on [npm](https://www.npmjs.com/). Install the following dependencies in your project:
+The [Okta JWT Verifier](https://www.npmjs.com/package/@okta/jwt-verifier) library will enable your application to validate Okta access tokens. 
 
-* [@okta/oidc-middleware](https://www.npmjs.com/package/@okta/oidc-middleware) 2.0.0 or higher
+All of our Okta packages for Node are hosted on [npm](https://www.npmjs.com/). Install the JWT Verifier dependency into your project:
 
-You can install them using `npm`:
-
-```
-npm install --save @okta/jwt-verifier
-npm install --save cors
+```shell
+npm install @okta/jwt-verifier@2.3
 ```

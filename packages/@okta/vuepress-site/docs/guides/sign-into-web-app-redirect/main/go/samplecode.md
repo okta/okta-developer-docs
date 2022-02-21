@@ -1,0 +1,2 @@
+* Finished [Go Gin sign-in example](https://github.com/okta-samples/okta-go-gin-sample)
+* [Go samples](https://github.com/okta/samples-golang) to learn more about custom sign-in, resource server, and Okta Identity Engine

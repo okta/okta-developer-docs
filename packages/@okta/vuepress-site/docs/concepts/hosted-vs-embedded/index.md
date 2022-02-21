@@ -66,6 +66,6 @@ Okta organizations host pages on subdomains such as `example.okta.com`. Using th
 
 ## Learn More
 
-Continue reading about the Okta-hosted Sign-In Widget in the [Sign Users In](/docs/guides/sign-into-spa/angular/main) guide.
+Continue reading about the Okta-hosted Sign-In Widget in the [Sign Users In](/docs/guides/sign-into-spa-redirect/angular/main) guide.
 
 Continue reading about the customer hosted experience in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) guide.

@@ -1,0 +1,2 @@
+* [Angular example](https://github.com/okta-samples/okta-angular-quickstart) for a finished working sample of this quickstart
+* [Get started with Angular](https://angular.io/start) to learn about the framework from Angular's official documentation

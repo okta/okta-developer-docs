@@ -1,33 +1,28 @@
-Similar to protecting an individual route, we will use a middleware to check for a bearer token and verify it:
+Create a middleware method inside `server.js` to verify the token in the `Authorization` header. The JWT is added to the `req` object.
 
 ```js
-function authenticationRequired(req, res, next) {
+const authenticationRequired = async (req, res, next) => {
   const authHeader = req.headers.authorization || '';
   const match = authHeader.match(/Bearer (.+)/);
-  // The expected audience passed to verifyAccessToken() is required, and can be either a string (direct match) or
-  // an array  of strings (the actual aud claim in the token must match one of the strings).
-  const expectedAudience = 'api://default';
-
   if (!match) {
-    res.status(401);
-    return next('Unauthorized');
+    return res.status(401).send();
   }
 
-  const accessToken = match[1];
-
-  return oktaJwtVerifier.verifyAccessToken(accessToken, expectedAudience)
-    .then((jwt) => {
-      req.jwt = jwt;
-      next();
-    })
-    .catch((err) => {
-      res.status(401).send(err.message);
-    });
-}
+  try {
+    const accessToken = match[1];
+    if (!accessToken) {
+      return res.status(401, 'Not authorized').send();
+    }
+    req.jwt = await oktaJwtVerifier.verifyAccessToken(accessToken, audience);
+    next();
+  } catch (err) {
+    return res.status(401).send(err.message);
+  }
+};
 ```
 
-Once you have your app instance, you will apply the middleware to `*`:
+Register the middleware for all routes to the app instance.
 
 ```js
-app.all('*', authenticationRequired);
+app.all('*', authenticationRequired); // Require authentication for all routes
 ```
