@@ -124,7 +124,7 @@ header.page-header {
     }
 
     &--black {
-      color: cv('gray', '900') !important;
+      color: cv('gray', '900');
 
       &:visited, &:active, &:focus {
         color: cv('gray', '900');
