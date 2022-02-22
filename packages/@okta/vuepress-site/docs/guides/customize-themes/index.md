@@ -14,9 +14,11 @@ Use the Brands API to customize the theme of your Okta org.
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)\
-* Access to the Brands API. Contact [Okta support](https://support.okta.com/help)
-* [Postman](https://www.postman.com/downloads/)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Access to the Brands API: `/api/v1/brands`
+* The Brands Postman collection allows you to test the API calls that are described in this guide. Click Run in Postman to add the collection to Postman.
+
+
 
 ---
 
