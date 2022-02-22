@@ -4,6 +4,8 @@ excerpt: Learn how to customize and style the default email notifications that O
 layout: Guides
 ---
 
+<ApiLifecycle access="ie" />
+
 This guide explains how to customize and style the default Okta email notifications.
 
 ---
@@ -23,6 +25,14 @@ Customize email notifications.
 ---
 
 ## About email customization
+
+<!---The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
+
+- enhanced conditional logic
+- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- some of the org attributes in these macros
+
+All of Okta's default email templates are available for customization. -->
 
 You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons, such as:
 
@@ -68,7 +78,6 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 * When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
 
-
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Choose an email template that you've customized. The default language version appears in the **Custom Email** table.
 1. Click **Add Translation**, and then select a language from the drop-down box. If the **Add Translation** button isn't available, this template hasn't been customized. See [Edit a default email template](#edit-a-default-email-template]).
@@ -79,35 +88,13 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 > **Note:** It may be more convenient to copy and paste the HTML from the message body into a text editor, compose your custom translation, then copy and paste it back into the message body.
 
-## Expression Language variables
+### Velocity Templating Language
 
-Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/okta_help.htm?id=ext-expression-language). EL variables enable advanced customization and can prevent potential broken links when they're used in place of hard-coded URLs.
+Email templates use common and unique Velocity Templating Language (VTL) variables. Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
 
-> **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
+For example, reference the first name of a user by using `$user.profile.firstName`.
 
-## Enhanced Email Macros
-
-> **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
-
-> **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
-
-The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
-
-- enhanced conditional logic
-- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
-- some of the org attributes in these macros
-
-All of Okta's default email templates are available for customization.
-
-### Velocity Templating syntax
-
-The templating syntax that is used in enhanced email macros is the Velocity Templating Language (VTL). Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
-
-The new templating syntax is different from the EL expression-based Okta email templating syntax that was previously used. You no longer need to use curly braces around the variable name.
-
-Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
-
-The previously available template variables are listed in [Customization Variables](https://help.okta.com/okta_help.htm?id=ext_ref_email_variables).
+See [Velocity Templating Language]() for available template variables.
 
 ## Use all User Profile attributes
 
@@ -125,16 +112,6 @@ See [Profile object](/docs/reference/api/users/#profile-object) for more informa
 In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email recipient.
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
-
-There are slight differences between EL templating syntax and VTL syntax. For example, the following EL and VTL syntax call the same function.
-
-EL templating syntax:
-
-`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
-
-VTL syntax:
-
-`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -160,8 +137,6 @@ You can also reference these org-level attributes, such as:
 * `$org.subDomain`
 
 ### Support for conditional logic
-
-<ApiLifecycle access="ie" />
 
 All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
