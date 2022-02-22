@@ -87,16 +87,14 @@ The code that initializes the Widget appears as follows:
 ```javascript
 <script>
   const signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
-  signIn.renderEl({
-    el: '#widget-container'
-  }, function success(res) {
-    if (res.status === 'SUCCESS') {
-      console.log('Do something with tokens:', res.tokens.accessToken, res.tokens.idToken);
-    } else {
-    // The user can be in another authentication state that requires further action.
-    // See:
-    // https://github.com/okta/okta-signin-widget#renderel
-    }
+
+  signIn.showSignInToGetTokens({
+    scopes: ['openid', 'profile'] // optional
+  }).then(function(tokens) {
+    // Store tokens
+  }).catch(function(error) {
+    // This function is invoked with errors the widget cannot recover from:
+    // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
   });
 </script>
 ```
