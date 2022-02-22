@@ -14,7 +14,7 @@
 }
 ```
 
-  Alternatively, you can use [another configuration option](​​https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1) to handle this as well.
+Alternatively, you can use [another configuration option](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1) to handle this as well.
 
 3. Next, update your `Startup` class and update your `using` statements to import `Okta.AspNetCore`:
 
