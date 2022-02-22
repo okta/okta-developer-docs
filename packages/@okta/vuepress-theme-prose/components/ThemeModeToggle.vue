@@ -1,37 +1,42 @@
 <template>
-  <label class="toggle-switch switch-theme">
-    <span :class="{'light-mode': true, 'active': !isDarkMode}" @click="toggleDarkMode(false)"></span>
-    <span :class="{'dark-mode': true, 'active': isDarkMode}" @click="toggleDarkMode(true)"></span>
+  <label class="toggle-switch switch-theme" @click="toggleDarkMode">
+    <span :class="{'light-mode': true, 'active': !isDarkMode}"></span>
+    <span :class="{'dark-mode': true, 'active': isDarkMode}"></span>
   </label>
 </template>
 
 <script>
-import { isSetCookie, getCookie, setCookie } from "../util/attribution/cookies";
 
 const themeModeCookieName = 'is_dark_mode';
+const darkThemeHtmlClass = 'dark-theme';
 
 export default {
   data() {
     return {
-      isDarkMode: 
-        (
-          !isSetCookie(themeModeCookieName) 
-          && window.matchMedia('(prefers-color-scheme: dark)').matches
-        ) 
-        || getCookie(themeModeCookieName, false),
+      isDarkMode: false,
     };
   },
-  created() {
+
+  mounted() {
+    this.getDarkMode();
     this.addHtmlClass();
   },
+
   methods: {
-    toggleDarkMode: function(value) {
-      this.isDarkMode = !!value;
-      this.addHtmlClass();
-      setCookie(themeModeCookieName, this.isDarkMode, { expires: 365 });
+    getDarkMode: function() {
+      this.isDarkMode = localStorage[themeModeCookieName] 
+          ? JSON.parse(localStorage[themeModeCookieName])  
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
     },
+
+    toggleDarkMode: function() {
+      this.isDarkMode = localStorage[themeModeCookieName] = !this.isDarkMode;
+      this.addHtmlClass();
+    },
+
     addHtmlClass: function() {
-      this.isDarkMode ? document.body.classList.add('dark-theme') : document.body.classList.remove('dark-theme');
+      const bodyClasses = document.body.classList;
+      (this.isDarkMode === true) ? bodyClasses.add(darkThemeHtmlClass) : bodyClasses.remove(darkThemeHtmlClass);
     }
   }
 };

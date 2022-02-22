@@ -1,5 +1,5 @@
 .toggle-switch {
-  background: cv('gray', '900');
+  background: cv('theme-toggle', 'bg');
   border-radius: 30px;
   padding: 0 0.5625rem;
   height: 43px;
@@ -36,7 +36,7 @@
       }
 
       &.active:after {
-        background-color: cv('gray', '900');
+        background-color: cv('theme-toggle', 'bg');
       }
     }
   }

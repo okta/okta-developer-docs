@@ -74,6 +74,7 @@
   --c-body-white: var(--c-body);
   --c-tile-angle: var(--c-tile-gray);
   --c-form-input-border: var(--c-form-gray);
+  --c-toggle-bg: var(--c-gray-800);
 }
 
 .dark-theme {
@@ -153,7 +154,7 @@ $colors: (
     "white": var(--c-body-white),
     "homepage-lighter-block": var(--c-lightgray),
     "footer": var(--c-footer-base),
-    "obscure": var(--c-auth-link),
+    "obscure": var(--c-auth-link)
   ),
   "text": (
     "darker": var(--c-text-darker),
@@ -161,7 +162,7 @@ $colors: (
     "lighter": var(--c-text-lighter),
     "cyan": var(--c-cyan-base),
     "dark": var(--c-black),
-    "accent": var(--c-text-gray),
+    "accent": var(--c-text-gray)
   ),
   "tile": (
     "angle": var(--c-tile-angle)
@@ -249,5 +250,8 @@ $colors: (
   ),
   "white": (
     "base": var(--c-white)
+  ),
+  "theme-toggle": (
+    "bg": var(--c-toggle-bg)
   )
 );

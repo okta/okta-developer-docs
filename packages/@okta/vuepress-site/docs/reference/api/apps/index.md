@@ -1615,7 +1615,6 @@ The following link expansions are supported to embed additional resources into t
 
 > **Note:** The `user/:uid` expansion can currently only be used in conjunction with the `user.id eq ":uid"` filter. See [List applications assigned to a user](#list-applications-assigned-to-a-user).
 
-
 ##### Response parameters
 
 Array of [Applications](#application-object)
@@ -1836,7 +1835,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+\"00ucw2RPGIUNTDQOYPOF\"&expand=user/00ucw2RPGIUNTDQOYPOF"
+"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+%2200ucw2RPGIUNTDQOYPOF%22&expand=user/00ucw2RPGIUNTDQOYPOF"
 ```
 
 > **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-object) information in the response body's `_embedded` property.
@@ -2077,7 +2076,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+\"00gckgEHZXOUDGDJLYLG\""
+"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+%2200gckgEHZXOUDGDJLYLG%22"
 ```
 
 ##### Response example
@@ -2158,7 +2157,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+\"SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4\""
+"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+%22SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4%22"
 ```
 
 ##### Response example
@@ -2288,7 +2287,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
 ```
 
 ##### Response example
@@ -8422,7 +8421,7 @@ The provisioning connection object is a read only object that displays the metho
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| authScheme              | Defines the method of authentication    | `TOKEN`, `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
+| authScheme              | Defines the method of authentication    | `TOKEN`, `OAUTH2` <ApiLifecycle access="ea" /> , `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
 | status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
@@ -8430,9 +8429,9 @@ If the authScheme is `UNKNOWN`, then either the authentication scheme used by th
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, only token based authentication is supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication <ApiLifecycle access="ea" /> are supported.
 
-#### Token based Provisioning Connection Profile example
+#### Token-based Provisioning Connection Profile example
 ```json
 {
     "profile": {
@@ -8442,12 +8441,29 @@ The application provisioning connection profile is used to configure the method 
 }
 ```
 
-#### Token based Provisioning Connection Profile properties
+#### Token-based Provisioning Connection Profile properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+
+#### OAuth 2.0-based Provisioning Connection Profile example
+```json
+{
+    "profile": {
+        "authScheme": "OAUTH2",
+        "clientId": "${clientId}"
+    }
+}
+```
+
+#### OAuth 2.0-based Provisioning Connection Profile properties
+
+| Property                                | Description                                                   | DataType                               | Nullable | Unique | Readonly |
+| --------------------------------------- | ------------------------------------------------------------- | -------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme                              | Defines the method of authentication                          | `OAUTH2` <ApiLifecycle access="ea" />  | FALSE    | FALSE  | FALSE    |
+| clientId <ApiLifecycle access="ea" />   | Unique client identifier for the OAuth 2.0 service app from the target org | String                                 | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
