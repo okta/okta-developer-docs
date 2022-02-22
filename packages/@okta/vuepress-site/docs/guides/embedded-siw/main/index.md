@@ -91,11 +91,11 @@ The code that initializes the Widget appears as follows:
     el: '#widget-container'
   }, function success(res) {
     if (res.status === 'SUCCESS') {
-      console.log('Do something with this sessionToken', res.session.token);
+      console.log('Do something with tokens:', res.tokens.accessToken, res.tokens.idToken);
     } else {
     // The user can be in another authentication state that requires further action.
     // See:
-    // https://github.com/okta/okta-signin-widget#rendereloptions-success-error
+    // https://github.com/okta/okta-signin-widget#renderel
     }
   });
 </script>
