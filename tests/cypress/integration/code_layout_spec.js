@@ -1,10 +1,10 @@
 import { CodePage } from "../page-objects/CodePage";
 
-describe('code page spec (java/spring/)', () => {
+describe('code page spec (nodejs)', () => {
   const codePage = new CodePage();
 
   beforeEach(() => {
-    codePage.visit('/code/java/spring/');
+    codePage.visit('/code/nodejs/');
     codePage.pageReload();
   });
 
@@ -13,11 +13,11 @@ describe('code page spec (java/spring/)', () => {
   });
 });
 
-describe('code page spec (dotnet)', () => {
+describe('code page spec (ios)', () => {
   const codePage = new CodePage();
 
   beforeEach(() => {
-    codePage.visit('/code/dotnet/aspnetcore/');
+    codePage.visit('/code/ios/');
     codePage.pageReload();
   });
 
