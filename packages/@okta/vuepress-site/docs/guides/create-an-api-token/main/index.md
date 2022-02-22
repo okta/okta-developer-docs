@@ -69,7 +69,7 @@ If a user account is deactivated in Okta, any API token created by that user acc
 
 ## Next steps
 
-With the token created, you can begin using it, supplying it in the `Authorization header` of calls to Okta API endpoints. See [Create a user by API](/docs/guides/quickstart/main/#create-a-user-by-api) for an easy way to explore making calls to Okta using the Okta APIs.
+With the token created, you can begin using it, supplying it in the `Authorization header` of calls to Okta API endpoints. See [Sign users into your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token) for a practical example.
 
 ## See also
 
