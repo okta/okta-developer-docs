@@ -11,11 +11,11 @@ meta:
 New to Okta? Our how to guide will walk you through adding user authentication to your React app in minutes.
 
 <ul class='language-ctas'>
-	<li>
+	<!-- <li>
 		<a href='/docs/guides/sign-into-spa-redirect/react/main' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
-	</li>
+	</li> -->
 	<li>
 		<a href='https://github.com/okta/samples-js-react' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sample App</span>

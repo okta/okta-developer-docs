@@ -31,11 +31,11 @@ meta:
 New to Okta? Our how to guide will walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app-redirect/aspnetcore3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+	<!-- <li>
+		<a href='/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
-	</li>
+	</li> -->
 	<li>
 		<a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sample App</span>

@@ -30,7 +30,7 @@ if (sessionClient.isAuthenticated()) {
 }
 ```
 
-Another way is to use the [introspect](/docs/api/resources/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](/docs/api/resources/oidc/#response-properties-3) and you can use that information to check for token expiration:
+Another way is to use the [introspect](/docs/reference/api/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](/docs/reference/api/oidc/#response-properties-3) and you can use that information to check for token expiration:
 
 ```java
 sessionClient.introspectToken(sessionClient.getTokens().getRefreshToken(),
