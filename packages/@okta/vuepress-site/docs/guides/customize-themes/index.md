@@ -15,10 +15,10 @@ Use the Brands API to customize the theme of your Okta org.
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Access to the Brands API: `/api/v1/brands`
-* The Brands Postman collection allows you to test the API calls that are described in this guide. Click Run in Postman to add the collection to Postman.
+* Access to the Brands API: `/api/v1/brands`. Contact [Okta support](https://support.okta.com/help).
+* The Brands Postman collection allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman. See Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment) for more details.
 
-
+  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
 ---
 
@@ -33,19 +33,6 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 * Logo
 * Favicon
 * Background image
-
-## Before you begin
-
-You need to make sure that you have an [Okta organization](/docs/guides/quickstart/cli/main/#create-your-okta-organization) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
-
-It is up to you how you make requests to the API to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
-
-1. [Create an API token](/docs/guides/create-an-api-token/) to use when accessing the API.
-1. [Download](https://www.postman.com/downloads/) and install Postman.
-1. After you install Postman, import the Okta environment and add your Okta domain and API token to Postman, as explained in [Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment).
-1. Click **Run in Postman** to add the Brands collection to Postman, which allows you to test the API calls that are described below.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
 ## Important: Overriding themes in the code template editors
 
