@@ -134,10 +134,6 @@ You can also reference these org-level attributes, such as:
 * `$org.locale`
 * `$org.subDomain`
 
-### Support for conditional logic
-
-All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
-
 ## Use app context
 
 Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
@@ -147,6 +143,10 @@ Okta Identity Engine orgs have access to app context within emails using the Vel
 * `$app.label`
 
 When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
+
+### Support for conditional logic
+
+All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
 ### Example of using app context to brand an email
 
