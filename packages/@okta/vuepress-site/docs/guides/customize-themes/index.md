@@ -62,21 +62,6 @@ You can also return a specific brand by running the **Get brand** request. Befor
 
 This returns a single brand response object.
 
-### Update brands
-
-You can also update brand information with the following request (**Update brand** in Postman):
-
-<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
-
-This request needs to contain a [brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
-
-``` json
-{
-  "agreeToCustomPrivacyPolicy": true,
-  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}
-```
-
 ### Get themes
 
 You can return the themes contained in a brand with the following request (**Get themes** in postman):
@@ -90,6 +75,21 @@ Once you've set the `themeId` variable to a specific theme ID, you can return a 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
+
+## Update your brand
+
+You can also update brand information with the following request (**Update brand** in Postman):
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
+
+This request needs to contain a [brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
+
+``` json
+{
+  "agreeToCustomPrivacyPolicy": true,
+  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
+}
+```
 
 ## Update your theme
 
