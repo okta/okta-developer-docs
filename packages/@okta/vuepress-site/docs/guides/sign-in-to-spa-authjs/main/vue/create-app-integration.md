@@ -18,6 +18,9 @@ Before you integrate Okta authentication to your Vue.js app, you must register y
 
     > **Note:** If you're using the [Okta CLI](https://cli.okta.com/manual/apps/create/) to create your SPA Okta app integration, ensure that **Interaction Code**, **Refresh Token**, and **Authorization Code** grant types are enabled for your app.
 
+5. Select the **Sign On** tab.
+6. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For this use case, ensure that the **1 factor type** authenticator is **Password / IdP**.
+
 ### Okta org app integration configuration settings
 
 You need two pieces of information from your org and app integration for your Vue.js app:
