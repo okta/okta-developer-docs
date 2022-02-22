@@ -13,6 +13,7 @@ The Policy API supports the following **Policy operations**:
 
 * Get all policies of a specific type
 * Create, read, update, and delete a Policy
+* Get all apps of a specific policy
 * Activate and deactivate a Policy
 
 The Policy API supports the following **Rule operations**:
@@ -242,6 +243,29 @@ curl -v -X POST \
 
 HTTP 204:
 *No Content is returned when the deactivation is successful.*
+
+## Policy mapping operations
+
+### Get Applications
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+##### Request parameters
+
+The Policy ID described in the [Policy object](#policy-object) is required.
+
+##### Request example
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/app"
+```
+
+##### Response types
+
+HTTP 200:
+Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Rules operations
 
@@ -485,9 +509,10 @@ Different Policy types control settings for different operations. All Policy typ
 
 ### Default Policies
 
-There is always a default Policy created for each type of Policy. The default Policy applies to any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
+There is always a default Policy created for each type of Policy. The default Policy applies to new applications by default or any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
 
  - A default Policy is required and can't be deleted.
+ - New applications (other than Office365, Radius and MFA) will be assigned to the default Policy.
  - The default Policy is always the last Policy in the priority order. Any added Policies of this type have higher priority than the default Policy.
  - The default Policy always has one default Rule that can't be deleted. It is always the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule. For information on default Rules, see [Rules object and defaults](#rules-object).
  - The `system` attribute determines whether a Policy is created by a system or by a user.
@@ -1781,8 +1806,8 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 
 The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
 
-When you create a new application, it's created with a new app sign-on policy by default. You can't create a new app sign-on policy and assign it to the application. Instead, consider editing the default one to meet your needs.
-
+When you create a new application (other than Office365, Radius and MFA apps), it will be assigned to the default app sign-on policy. You can re-use existing or create a new app sign-on policy and assign it to the application. Also, you can edit the currently assigned policy to meet your needs, these policies are shareable and you can assign them to multiple applications.
+For Office365, Radius and MFA apps, it's created with a new app sign-on policy and you can't change the assignment of those applications or their policies, but you can still edit the policy.
 > **Note:** You can have a maximum of 5000 app sign-on policies in an org.
 > There is a max limit of 100 rules allowed per policy.
 > When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
