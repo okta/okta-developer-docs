@@ -1808,17 +1808,13 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
-When you create a new application (other than Office365, Radius and MFA apps), it will be assigned to the default app sign-on policy. You can re-use existing or create a new app sign-on policy and assign it to the application. Also, you can edit the currently assigned policy to meet your needs, these policies are shareable and you can assign them to multiple applications.
-For Office365, Radius and MFA apps, it's created with a new app sign-on policy and you can't change the assignment of those applications or their policies, but you can still edit the policy.
-> **Note:** You can have a maximum of 5000 app sign-on policies in an org.
-An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
-
-When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](link to Graham's topic - I'll add when I get it) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
-
 > **Note:** You can have a maximum of 5000 authentication policies in an org.
+> An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 > There is a max limit of 100 rules allowed per policy.
 > When you create an authentication policy, you automatically also create a default policy rule with the lowest priority of `99`.
 > The highest priority that an authentication policy rule can be set to is `0`.
+
+When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](link to Graham's topic - I'll add when I get it) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
 
 #### Authentication policy example
 
