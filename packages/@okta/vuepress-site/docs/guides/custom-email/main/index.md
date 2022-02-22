@@ -40,7 +40,7 @@ Email notifications are based on templates that are generated automatically and 
 
 The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
 
-- See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for information about using the Brands API to customize emails and email templates.
+- See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about emails and the Brands API.
 - See [Customize your Okta Experience with the Brands API](/docs/guides/customize-themes/) for a guide about customizing emails and email templates with the Brands API.
 
 ### Caveats
@@ -95,7 +95,7 @@ Email templates use common and unique Velocity VTL variables. Variables that are
 
 For example, reference the first name of a user by using `$user.profile.firstName`.
 
-See [Velocity Templating Language]() for available template variables.
+See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
 
 ## Use all User Profile attributes
 
@@ -103,8 +103,8 @@ You can reference any Okta User Profile attribute in your email templates. The r
 
 Other examples include:
 
-- Trigger an email in your end-users' preferred language by using the conditional logic and calling the `preferredLanguage` attribute.
-- If a customer wants to specify a department such as Engineering in an Activation Email, they are able to call the user attribute `department`.
+- Trigger an email in your end-users' preferred language by using conditional logic and calling the `preferredLanguage` attribute.
+- Specify a department such as Engineering in an activation email by calling the `department` attribute.
 
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
 
