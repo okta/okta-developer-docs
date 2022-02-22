@@ -34,8 +34,6 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to fu
 
 A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email)
 
-> A version of the Widget that you can edit in real time is available on the [Okta Developer Documentation site](https://developer.okta.com/live-widget/).
-
 <img src="/img/okta-sign-in-javascript.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
 ## Installation
@@ -233,7 +231,7 @@ Create an app integration in the Okta org that represents the application you wa
     * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
     * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
 
-4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features.. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
+4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
     ```bash
     npm install @okta/okta-auth-js
@@ -252,34 +250,6 @@ Create an app integration in the Okta org that represents the application you wa
 1. Navigate to `http://localhost:3000`. The simple web page appears with a message that you're not signed in and displays the Sign-In Widget.
 
 1. Sign in with a user from your org assigned to the app integration. The simple web page appears with the signed-in user's email address.
-
-### Sign in to Okta with the default dashboard
-
-In this case, you use the Widget to sign in to the default Okta dashboard. This requires taking the Widget initialization code and modifying the success behavior to redirect to your org's dashboard.
-
-```javascript
-function success(res) {
-  if (res.status === 'SUCCESS') {
-    res.session.setCookieAndRedirect('https://${yourOktaDomain}/app/UserHome');
-  }
-}
-```
-
-### Sign in to Okta and SSO directly to an app
-
-If you want to sign the user directly in to an application within Okta, you redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://help.okta.com/okta_help.htm?id=ext-apps-page-show-application-embed-links).
-
-### Sign in to Okta with a custom dashboard
-
-If you are signing your users in to Okta, but you don't want to use the Okta dashboard, then you can change the redirect URL to point to your custom portal instead.
-
-```javascript
-function success(res) {
-  if (res.status === 'SUCCESS') {
-    res.session.setCookieAndRedirect('https://example.com/dashboard');
-  }
-}
-```
 
 ### SPA or Native application using PKCE
 
@@ -382,7 +352,7 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 ### Mobile SDKs
 
-We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
+Okta also has mobile SDKs for Android, React Native, iOS, and Xamarin.
 
 For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
