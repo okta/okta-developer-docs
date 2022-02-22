@@ -21,8 +21,3 @@
 	@import "../themes/dark/liveWidget";
 	@import "../themes/dark/stackSelector";
 }
-
-// hide external icon for light and dark themes
-header.page-header .link[target="_blank"]:not([href^='mailto:'])::after {
-    display: none !important;
-}

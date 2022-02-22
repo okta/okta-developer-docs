@@ -137,7 +137,7 @@ header.page-header {
 
     &[target="_blank"]:not([href^="mailto:"])::after {
       content: "";
-      display: inline-block;
+      display: none;
       width: 11px;
       height: 11px;
       margin-left: 0.5em;

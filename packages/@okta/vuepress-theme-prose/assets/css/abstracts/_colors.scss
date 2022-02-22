@@ -96,6 +96,7 @@
   --c-body-white: var(--c-body);
   --c-tile-angle: var(--c-tile-gray);
   --c-form-input-border: var(--c-form-gray);
+  --c-toggle-bg: var(--c-gray-800);
 }
 
 .dark-theme {
@@ -227,6 +228,9 @@ $colors: (
   ),
   'form': (
     'input-border': var(--c-form-input-border),
+  ),
+  'theme-toggle': (
+    'bg': var(--c-toggle-bg),
   ),
 
   // Copied from Odyssey
