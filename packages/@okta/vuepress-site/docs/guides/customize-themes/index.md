@@ -40,7 +40,7 @@ You can customize individual parts of your Okta org experience using the various
 
 So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
 
-## Top-level overview: Brands and themes
+## Get info about brands and themes
 
 At the top level, Your Okta org contains a brand, which contains a default theme. The default brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
@@ -62,7 +62,7 @@ You can also return a specific brand by running the **Get brand** request. Befor
 
 This returns a single brand response object.
 
-### Get brands
+### Update brands
 
 You can also update brand information with the following request (**Update brand** in Postman):
 
