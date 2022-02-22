@@ -72,12 +72,12 @@ tiles:
       - name: Node.js
         link: /docs/guides/protect-your-api/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
-      - name: PHP
-        link: /docs/guides/protect-your-api/php/main/
-        image: /img/homepage/stackselectors/php.png
-      - name: Python
-        link: /docs/guides/protect-your-api/python/main/
-        image: /img/homepage/stackselectors/python.png
+      # - name: PHP
+      #   link: /docs/guides/protect-your-api/php/main/
+      #   image: /img/homepage/stackselectors/php.png
+      # - name: Python
+      #   link: /docs/guides/protect-your-api/python/main/
+      #   image: /img/homepage/stackselectors/python.png
 
 assurances:
   - title: Compliant Out of the Box
