@@ -8,12 +8,11 @@
     &--blueDarkOutline,
     &--blueDarkOutline:active, 
     &--blueDarkOutline:hover {
-        color: cv('text');
         border-color: cv('text');
     }
     &--blueDarkOutline,
     &--blueDarkOutline:active, 
     &--blueDarkOutline:hover {
-        background-color: cv('header');
+        background-color: cv("body", "obscure");
     }
 }

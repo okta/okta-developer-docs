@@ -5,12 +5,12 @@
         width: 8px;
     }
     &::-webkit-scrollbar-track {
-        background: cv('header');
+        background: cv("body", "obscure");
     }
     &::-webkit-scrollbar-thumb {
         background-color: cv('breadcrumb', 'svg');
         border-radius: 6px;
-        border: 2px solid cv('header');
+        border: 2px solid cv("body", "obscure");
     }
 }
 

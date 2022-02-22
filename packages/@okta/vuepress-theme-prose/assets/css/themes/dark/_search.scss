@@ -44,7 +44,7 @@
 }
 
 .magic-box-suggestion {
-    background: cv('header') !important;
+    background: cv("body", "obscure") !important;
     border-color: cv('border', 'gray') !important;
     span {
         color: cv('text') !important;
@@ -57,7 +57,7 @@
 @include media("<desktop") {
     header.page-header {
         .search--slideout {
-            background-color: cv('header');
+            background-color: cv("body", "obscure");
         }
     }
     .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {

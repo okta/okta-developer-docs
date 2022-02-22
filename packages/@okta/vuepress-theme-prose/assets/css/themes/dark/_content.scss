@@ -16,7 +16,7 @@
             border-right: none;
             border-bottom: none;
             border-top: none;
-            background-color: cv('header');
+            background-color: cv("body", "obscure");
         }
         .vs__selected {
             color: cv('text');

@@ -1,14 +1,6 @@
 .authorization-layout {
-    background-color: cv('body');
-    &--content {
-        a.social-btn, 
-            input.social-btn, 
-            button.social-btn {
-            color: cv('header');
-        }
-    }
-    .row .field-wrapper,
-    .authorization-layout--content .auth0-banner {
-        color: cv('header');
-    }
+  .row .field-wrapper,
+  .authorization-layout--content .auth0-banner {
+    color: cv("text", "accent");
+  }
 }

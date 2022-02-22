@@ -5,7 +5,7 @@
     .is-card-clickable {
         border: 1px solid cv('breadcrumb', 'link');
         &:hover, &:active {
-            background: cv('header');
+            background: cv("body", "obscure");
             box-shadow: none;
         }
     }
