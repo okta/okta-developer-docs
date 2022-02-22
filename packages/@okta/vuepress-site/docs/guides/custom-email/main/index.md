@@ -26,14 +26,6 @@ Customize email notifications.
 
 ## About email customization
 
-<!---The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
-
-- enhanced conditional logic
-- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
-- some of the org attributes in these macros
-
-All of Okta's default email templates are available for customization. -->
-
 You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons, such as:
 
 - user activation
@@ -90,7 +82,13 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 ### Velocity Templating Language
 
-Email templates use common and unique Velocity Templating Language (VTL) variables. Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
+Velocity Templating Language (VTL) allows you to customize your org's email templates so that you can use:
+
+- enhanced conditional logic
+- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- some of the org attributes in these macros
+
+Email templates use common and unique Velocity VTL variables. Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
 
 For example, reference the first name of a user by using `$user.profile.firstName`.
 
