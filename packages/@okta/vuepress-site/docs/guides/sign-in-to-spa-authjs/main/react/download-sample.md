@@ -1,27 +1,27 @@
 ### Download the sample React application
 
-To view a simple example of a React application, clone the Auth JS and follow the simple set up procedures:
+To view a simple example of a React application, clone the Auth JS and follow the set up procedure:
 
-#### Clone the Auth JS repo
+#### Clone the Auth JS repository
 
-Clone the Auth JS repository and navigate to the React application folder.
+Clone the Auth JS repository and navigate to the top-level folder.
 
 ```bash
 git clone https://github.com/okta/okta-auth-js.git
-cd okta-auth-js/test/apps/react-oie
+cd okta-auth-js
 ```
 
 #### Install the dependencies
 
-Install the dependencies in the project folder:
+Install the dependencies in the `okta-auth-js` folder:
 
 ```bash
-npm install
+yarn install
 ```
 
 #### Add  a configuration file
 
-Create and add a configuration file, `testenv`, to the `test` root folder, which contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
+Create and add a configuration file, `testenv`, to the `okta-auth-js` root folder, which contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
 
 ```txt
 ISSUER=https://${Okta-Domain}/oauth2/default
@@ -31,9 +31,12 @@ USE_INTERACTION_CODE=true
 
 #### Run the sample application
 
-Run the sample application and sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page
+Navigate to the project folder and run the sample application. Sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page.
 
-
+```bash
+cd okta-auth-js/test/apps/react-oie
+yarn start
+```
 
 ### Create a new React app (optional)
 
@@ -56,5 +59,5 @@ Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/re
 ```bash
 npm install @okta/okta-auth-js@latest
 npm install @okta/okta-react@latest
-npm install react-router-dom@v5.2.0 
+npm install react-router-dom@v5.2.0
 ```
