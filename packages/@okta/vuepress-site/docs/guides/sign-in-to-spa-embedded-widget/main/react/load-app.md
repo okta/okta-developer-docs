@@ -4,9 +4,9 @@ Use the required [configuration settings](#okta-org-app-integration-configuratio
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
-* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
+* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the widget for embedded authentication.
 * `scopes`: Set the OAuth 2.0 scopes that your app requires. For example, `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details on additional supported scopes.
-* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
+* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and the URI host must be in the **Trusted Origins** list.
 
 You can create a `src/config.js` file to define your configuration settings. For example:
 
@@ -16,8 +16,7 @@ export default {
     issuer: 'https://${yourOktaDomain}/oauth2/default',
     clientId: '${clientId}',
     scopes: ['openid', 'profile', 'email'],
-    redirectUri: `${window.location.origin}/login/callback`,
-    pkce: true
+    redirectUri: `${window.location.origin}/login/callback`
   },
   widget: {
     issuer: 'https://${yourOktaDomain}/oauth2/default',
@@ -29,7 +28,7 @@ export default {
 };
 ```
 
-> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). The `pkce` configuration setting is set to `true` by default in the Widget. See [Okta Sign-In Widget basic configuration options](https://github.com/okta/okta-signin-widget#basic-config-options) for additional Widget configurations.
+> **Note:** The `baseUrl` configuration setting is required in the Sign-In Widget for OIDC applications prior to [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). See [Okta Sign-In Widget basic configuration options](https://github.com/okta/okta-signin-widget#basic-config-options) for additional widget configurations.
 
 > **Note:** See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
 
@@ -65,4 +64,4 @@ export default OktaSignInWidget;
 
 ```
 
-> **Note:** Use the [Auth JS `showSignInToGetTokens()`](https://github.com/okta/okta-signin-widget#showsignintogettokens) function to call the Widget for OIDC single-page embedded apps.
+> **Note:** Use the [Auth JS `showSignInToGetTokens()`](https://github.com/okta/okta-signin-widget#showsignintogettokens) function to call the widget for OIDC single-page embedded apps.

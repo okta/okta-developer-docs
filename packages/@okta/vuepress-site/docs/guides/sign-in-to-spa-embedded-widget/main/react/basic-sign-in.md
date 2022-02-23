@@ -9,7 +9,7 @@ Typically, an app contain routes that require authentication in order to render.
 
 #### Default page route
 
-To create the default `/` page, edit the `src/Home.jsx` file to provide links to relevant locations in your app.
+For the default `/` page, create a `src/Home.jsx` file to provide links to relevant locations in your app.
 
 You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` object (see [`authStateManager` in the Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)). The [`useOktaAuth()` method is a React hook](https://github.com/okta/okta-react#useoktaauth) that returns an object containing the `authState` and the `oktaAuth` instance. This hook triggers the page to rerender whenever `authState` is updated.
 
@@ -137,7 +137,7 @@ The [Okta React SDK](https://github.com/okta/okta-react) provides the [`LoginCal
 
 ### Connect the routes
 
-Update `src/App.jsx` to include your project components and routes. The `<Security>` component controls the authentication flows, so it requires your OpenID Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign-in page when the user isn't authenticated. In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead.
+Rename the `src/App.js` file to `src/App.jsx`, and include components and routes for your app. The `<Security>` component controls the authentication flows, so it requires your OpenID Connect configuration. By default, the `@okta/okta-react` library redirects the user to Okta's sign-in page when the user isn't authenticated. In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead.
 
 > **Note:** This example uses the `react-router-dom` version 5.x module for the `useHistory` and `Route` objects.
 
@@ -149,7 +149,6 @@ import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
-import Profile from './Profile';
 import config from './config';
 
 import logo from './logo.svg';
@@ -189,15 +188,14 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
 ### Start your app
 
 To run and test your app, execute:
 
-```js
+```bash
 npm start
 ```
 
-Open a browser and navigate to your app URL. For example: [http://localhost:3000](http://localhost:3000)
+Open a browser and navigate to your app.
