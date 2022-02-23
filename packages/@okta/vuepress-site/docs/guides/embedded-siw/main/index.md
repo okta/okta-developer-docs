@@ -29,7 +29,7 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience, which you can use to authenticate users on any website.
 
-Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#sign-in-widget-use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
+Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#sign-in-widget-use-cases) for the Widget and how to implement them. The full Widget reference can be found in the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) repository.
 
 A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email).
 
@@ -331,7 +331,7 @@ Okta provides a number of SDKs that you might want to use the Sign-In Widget wit
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you need to embed the Sign-In Widget in an Angular app. **Note:** this code doesn't use the [okta-angular](https://github.com/okta/okta-angular) SDK.
+The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you need to embed the Sign-In Widget in an Angular app.
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
