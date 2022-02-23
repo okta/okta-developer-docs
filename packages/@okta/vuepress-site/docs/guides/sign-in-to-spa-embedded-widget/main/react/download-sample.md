@@ -24,5 +24,8 @@ npm install @okta/okta-auth-js@latest
 Then install the [latest version of the Okta React SDK](https://github.com/okta/okta-react/releases) (`@okta/okta-react`) and `react-router-dom` to manage the routes:
 
 ```bash
-npm install @okta/okta-react@latest react-router-dom
+npm install @okta/okta-react@latest
+npm install react-router-dom
 ```
+
+> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code does not exist in `react-router-dom` version 6.x.
