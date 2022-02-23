@@ -3,13 +3,11 @@ layout: Landing
 title: Languages and SDKs
 ---
 
-## What's new
-
-[Okta Identity Engine](/docs/guides/oie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features you can continue to use the available [redirect (Okta-hosted) and embedded](/docs/concepts/redirect-vs-embedded/) authentication models with updated Sign-In Widgets, and all-new Identity Engine SDKs.
-
 ## SDKs and tools
 
-Find existing and new SDKs and tools for your stack below.
+Pick your platform from the options below. These pages contain links to SDKs used for redirecting to the Okta-hosted Sign-In Widget, embedding the Sign-In Widget, and/or embedding an [Okta Identity Engine](/docs/guides/oie-intro/) SDK &mdash; along with guides and sample code to show them in use.
+
+> **Note**: See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for background information on the different deployment models.
 
 ## Mobile/native
 
