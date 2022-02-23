@@ -10,7 +10,8 @@ This guide explains how to use the Brands API to rapidly customize the theme of 
 
 **Learning outcomes**
 
-Use the Brands API to customize the theme of your Okta org.
+- Use the Brands API to customize the theme of your Okta org.
+- Customize the email templates of your Okta org.
 
 **What you need**
 
@@ -277,25 +278,31 @@ This operation returns the requested [email customization](/docs/reference/api/b
 
 #### Update an email customization
 
-Updates an email customization
+You can update a specific email customization (**Update email customization** in Postman).
 
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
+The request body needs an [email customization](#email-customization) resource. The operation returns the updated email customization.
 
-#### Delete email customization
+> **Note:** If `isDefault` is `true`, the previous default email customization will have its `isDefault` set to `false`.
 
-Deletes an email customization
+#### Delete an email customization
 
+You can delete a specific customization made to an email template (**Delete email customization** in Postman).
 
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-#### Preview email customization
+On success, this operation returns a `204 No Content` message.
 
-Fetches a preview of an email customization
+If the email customization to be deleted is the default, this operation returns a `409 Conflict` message.
 
+#### Preview an email customization
 
+You can fetch a preview of the customizations of an email template (**Preview email customization** in Postman).
 
-### Email template resources
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}/preview" />
 
-
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
 
 ## See also
 
