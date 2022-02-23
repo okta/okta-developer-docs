@@ -43,17 +43,17 @@ Global Session Policies help control who can have access and how a user gains ac
 
 You can configure a Global Session Policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
 
-> **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as the primary factor for a rule, you remove the global password requirement from the Global Session Policy and transfer responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#app-sign-on-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+> **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as the primary factor for a rule, you remove the global password requirement from the Global Session Policy and transfer responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of Global Session Policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named Default. By definition, the Default policy applies to all users.
 
 ### Authentication policies
 
-In addition to the Global Session Policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](link to Graham’s Add apps to a sign-on policy topic).
+In addition to the Global Session Policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
 
 When you add a new app, it's automatically assigned the shared default policy that has a single catch-all rule that allows a user access with only one factor. You can add as many rules to the default policy as you need, but remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
 
-You don’t have to use the default authentication policy. You can create a new policy specifically for an app, or you can [add an app to another existing shared policy](link to Graham’s Add apps to an app sign-on policy topic). If you decide later to change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](link to Graham’s add a rule to a policy topic).
+You don’t have to use the default authentication policy. You can create a new policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you decide later to change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
 > **Note:** There can be only one authentication policy per app.
 

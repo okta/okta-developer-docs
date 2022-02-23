@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "edef629b-a5a5-4579-98b2-828f1a5d9ff4",
+		"_postman_id": "bdadd681-277a-45bf-a345-8126857c7bc2",
 		"name": "Policy (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -200,10 +200,10 @@
 			]
 		},
 		{
-			"name": "Okta Sign On",
+			"name": "Global Session Policy",
 			"item": [
 				{
-					"name": "Create Okta Sign On Policy",
+					"name": "Create Global Session Policy",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -239,7 +239,7 @@
 					"response": []
 				},
 				{
-					"name": "Create On-Prem Rule",
+					"name": "Create on-prem rule",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -258,7 +258,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Skip Factor Challenge when On-Prem\",\n    \"conditions\": {\n      \"network\": {\n        \"connection\": \"ON_NETWORK\"\n      },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": false,\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}\n"
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Skip Factor Challenge when On-Prem\",\n    \"conditions\": {\n      \"network\": {\n        \"connection\": \"ZONE\",\n            \"include\": [\n            \"{{networkZoneId}}\"\n        ]\n    },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": false,\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}\n"
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
@@ -277,7 +277,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Okta Sign On Policies",
+					"name": "Get Global Session Policies",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -315,7 +315,7 @@
 					"response": []
 				},
 				{
-					"name": "Create RADIUS Rule",
+					"name": "Create RADIUS rule",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -353,7 +353,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Cloud Rule",
+					"name": "Create cloud rule",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -372,7 +372,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"name\": \"Challenge Cloud Users\",\n    \"conditions\": {\n      \"people\": {\n        \"users\": {\n          \"include\": [],\n          \"exclude\": []\n        },\n        \"groups\": {\n          \"include\": [],\n          \"exclude\": []\n        }\n      },\n      \"network\": {\n        \"connection\": \"OFF_NETWORK\"\n      },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": true,\n        \"factorPromptMode\": \"ALWAYS\",\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}"
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"name\": \"Challenge Cloud Users2\",\n    \"conditions\": {\n      \"people\": {\n        \"users\": {\n          \"include\": [],\n          \"exclude\": []\n        },\n        \"groups\": {\n          \"include\": [],\n          \"exclude\": []\n        }\n      },\n      \"network\": {\n        \"connection\": \"ZONE\",\n            \"include\": [\n            \"{{networkZoneId}}\"\n        ]\n    },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": true,\n        \"factorPromptMode\": \"ALWAYS\",\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
@@ -391,7 +391,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Okta Sign On Policy",
+					"name": "Update Global Session Policy",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -410,10 +410,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"My Updated Policy\",\n  \"description\": \"This is my policy\",\n  \"conditions\": {\n  \t\"people\": {\n      \"groups\": {\n        \"include\": [\"00gpcqYQRBCMFWXDMVWO\"]\n      }\n    }\n  }\n}"
+							"raw": "{\n  \"name\": \"My Updated Policy\",\n  \"description\": \"This is my policy\",\n  \"conditions\": {\n  \t\"people\": {\n      \"groups\": {\n        \"include\": [\"{{groupId}}\"]\n      }\n    }\n  }\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/policies/{{policyId}}/",
+							"raw": "{{url}}/api/v1/policies/{{policyId}}",
 							"host": [
 								"{{url}}"
 							],
@@ -421,15 +421,14 @@
 								"api",
 								"v1",
 								"policies",
-								"{{policyId}}",
-								""
+								"{{policyId}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Update Sign On Rule",
+					"name": "Update Global Session Policy rule",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -468,7 +467,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Deny Rule",
+					"name": "Create deny rule",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -694,6 +693,735 @@
 								"{{policyId}}",
 								"rules",
 								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication policies",
+			"item": [
+				{
+					"name": "Get authentication policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?type=ACCESS_POLICY",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "ACCESS_POLICY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update authentication policy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"ACCESS_POLICY\",  \n  \"name\": \"My Updated Policy\",\n  \"description\": \"This is my policy\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create single factor password rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system\": false,\n  \"type\": \"ACCESS_POLICY\",\n  \"name\": \"Simple Corp Rule\",\n  \"conditions\": {\n    \"userType\": {\n      \"include\": [\n        \n      ],\n      \"exclude\": [\n        \n      ]\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    },\n    \"riskScore\": {\n      \"level\": \"ANY\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \n        ],\n        \"include\": [\n          \n        ]\n      },\n      \"groups\": {\n        \"include\": [\n          \n        ],\n        \"exclude\": [\n          \n        ]\n      }\n    },\n    \"platform\": {\n      \"include\": [\n        \n      ]\n    },\n    \"elCondition\": {\n      \n    }\n  },\n  \"actions\": {\n    \"appSignOn\": {\n      \"access\": \"ALLOW\",\n      \"verificationMethod\": {\n        \"factorMode\": \"1FA\",\n        \"reauthenticateIn\": \"PT2H\",\n        \"constraints\": [\n          {\n            \"knowledge\": {\n              \"types\": [\n                \"password\"\n              ]\n            }\n          }\n        ],\n        \"type\": \"ASSURANCE\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create device platform condition rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system\": false,\n  \"type\": \"ACCESS_POLICY\",\n  \"name\": \"Rule with Device Platform condition\",\n  \"conditions\": {\n    \"userType\": {\n      \"include\": [\n        \n      ],\n      \"exclude\": [\n        \n      ]\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    },\n    \"riskScore\": {\n      \"level\": \"ANY\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \n        ],\n        \"include\": [\n          \n        ]\n      },\n      \"groups\": {\n        \"include\": [\n          \n        ],\n        \"exclude\": [\n          \n        ]\n      }\n    },\n    \"platform\": {\n      \"include\": [\n        {\n          \"type\": \"MOBILE\",\n          \"os\": {\n            \"type\": \"IOS\"\n          }\n        },\n        {\n          \"type\": \"MOBILE\",\n          \"os\": {\n            \"type\": \"ANDROID\"\n          }\n        },\n        {\n          \"type\": \"DESKTOP\",\n          \"os\": {\n            \"type\": \"MACOS\"\n          }\n        }\n      ]\n    },\n    \"elCondition\": {\n      \n    }\n  },\n  \"actions\": {\n    \"appSignOn\": {\n      \"access\": \"ALLOW\",\n      \"verificationMethod\": {\n        \"factorMode\": \"2FA\",\n        \"reauthenticateIn\": \"PT2H\",\n        \"constraints\": [\n          {\n            \"knowledge\": {\n              \"reauthenticateIn\": \"PT2H\",\n              \"types\": [\n                \"password\"\n              ]\n            },\n            \"possession\": {\n              \"deviceBound\": \"REQUIRED\"\n            }\n          }\n        ],\n        \"type\": \"ASSURANCE\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create group condition rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system\": false,\n  \"type\": \"ACCESS_POLICY\",\n  \"name\": \"Rule with User Group Condition1\",\n  \"conditions\": {\n    \"userType\": {\n      \"include\": [\n        \n      ],\n      \"exclude\": [\n        \n      ]\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    },\n    \"riskScore\": {\n      \"level\": \"ANY\"\n    },\n    \"people\": {\n      \"groups\": {\n        \"include\": [\n          \"{{groupId}}\"\n        ]\n      },\n      \"users\": {\n        \"exclude\": [\n          \n        ],\n        \"include\": [\n          \n        ]\n      }\n    },\n    \"platform\": {\n      \"include\": [\n        \n      ]\n    },\n    \"elCondition\": {\n      \n    }\n  },\n  \"actions\": {\n    \"appSignOn\": {\n      \"access\": \"ALLOW\",\n      \"verificationMethod\": {\n        \"factorMode\": \"1FA\",\n        \"reauthenticateIn\": \"PT2H\",\n        \"constraints\": [\n          {\n            \"knowledge\": {\n              \"types\": [\n                \"password\"\n              ]\n            }\n          }\n        ],\n        \"type\": \"ASSURANCE\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create deny rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system\": false,\n  \"type\": \"ACCESS_POLICY\",\n  \"name\": \"Deny Rule\",\n  \"conditions\": {\n    \"userType\": {\n      \"include\": [\n        \n      ],\n      \"exclude\": [\n        \n      ]\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    },\n    \"riskScore\": {\n      \"level\": \"ANY\"\n    },\n    \"people\": {\n      \"groups\": {\n        \"include\": [\n          \"{{groupId}}\"\n        ]\n      },\n      \"users\": {\n        \"exclude\": [\n          \n        ],\n        \"include\": [\n          \n        ]\n      }\n    },\n    \"platform\": {\n      \"include\": [\n        \n      ]\n    },\n    \"elCondition\": {\n      \n    },\n    \"device\": {\n      \"registered\": true,\n      \"managed\": false\n    }\n  },\n  \"actions\": {\n    \"appSignOn\": {\n      \"access\": \"DENY\",\n      \"verificationMethod\": {\n        \"factorMode\": \"2FA\",\n        \"reauthenticateIn\": \"PT2H\",\n        \"constraints\": [\n          {\n            \"knowledge\": {\n              \"reauthenticateIn\": \"PT2H\",\n              \"types\": [\n                \"password\"\n              ]\n            },\n            \"possession\": {\n              \"deviceBound\": \"REQUIRED\"\n            }\n          }\n        ],\n        \"type\": \"ASSURANCE\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create UserType risk score EL condition rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"system\": false,\n  \"type\": \"ACCESS_POLICY\",\n  \"name\": \"User Type RiskScore EL Condition Rule\",\n  \"conditions\": {\n    \"userType\": {\n      \"include\": [\n        \"{{userTypeId}}\"\n      ],\n      \"exclude\": [\n        \n      ]\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    },\n    \"riskScore\": {\n      \"level\": \"LOW\"\n    },\n    \"elCondition\": {\n      \"condition\": \"security.risk.level == 'HIGH'\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \n        ],\n        \"include\": [\n          \n        ]\n      },\n      \"groups\": {\n        \"include\": [\n          \n        ],\n        \"exclude\": [\n          \n        ]\n      }\n    },\n    \"platform\": {\n      \"include\": [\n        \n      ]\n    }\n  },\n  \"actions\": {\n    \"appSignOn\": {\n      \"access\": \"ALLOW\",\n      \"verificationMethod\": {\n        \"factorMode\": \"1FA\",\n        \"reauthenticateIn\": \"PT2H\",\n        \"constraints\": [\n          {\n            \"knowledge\": {\n              \"types\": [\n                \"password\"\n              ]\n            }\n          }\n        ],\n        \"type\": \"ASSURANCE\"\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{authenticationPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{authenticationPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Setup policy by creating sample basic app",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let appCreateResponseData = JSON.parse(responseBody)",
+									"let href = appCreateResponseData._links.accessPolicy.href",
+									"",
+									"let appSignOnPolicyId = href.substring(href.lastIndexOf('/'))",
+									"",
+									"postman.setEnvironmentVariable(\"appSignOnPolicyId\", appSignOnPolicyId)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"template_basic_auth\",\n  \"label\": \"Sample Basic Auth App\",\n  \"signOnMode\": \"BASIC_AUTH\",\n  \"settings\": {\n    \"app\": {\n      \"url\": \"https://example.com/login.html\",\n      \"authURL\": \"https://example.com/auth.html\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an authentication policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"type\": \"ACCESS_POLICY\",\n \"status\": \"ACTIVE\",\n \"name\": \"API Created Access Policy\",\n \"description\": \"This policy was created using Okta's APIs.\"\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign an application to an authentication policy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps/{{appId}}/policies/{{policyId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{appId}}",
+								"policies",
+								"{{policyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all authentication policies with 150 limit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?type=ACCESS_POLICY&limit=150",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "ACCESS_POLICY"
+								},
+								{
+									"key": "limit",
+									"value": "150"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all authentication policies using prefix and a 50 limit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?q=Okta&type=ACCESS_POLICY&limit=50",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Okta"
+								},
+								{
+									"key": "type",
+									"value": "ACCESS_POLICY"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all apps assigned to an authentication policy - 50 limit",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/app?limit=50",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"app"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile Enrollment",
+			"item": [
+				{
+					"name": "Create Profile Enrollment Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let policyCreateResponseData = JSON.parse(responseBody)",
+									"let profileEnrollmentPolicyId = policyCreateResponseData.id",
+									"",
+									"postman.setEnvironmentVariable(\"profileEnrollmentPolicyId\", profileEnrollmentPolicyId)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Example User Profile Enrollment Policy\",\n    \"type\": \"PROFILE_ENROLLMENT\",\n    \"description\": \"Standard policy for profile enrollment\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile Enrollment Rules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"let profileEnrollmentPolicyRule = JSON.parse(responseBody)[0]",
+									"let profileEnrollmentPolicyRuleId = profileEnrollmentPolicyRule.id ",
+									"",
+									"postman.setEnvironmentVariable(\"profileEnrollmentPolicyRuleId\", profileEnrollmentPolicyRuleId)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{profileEnrollmentPolicyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{profileEnrollmentPolicyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile Enrollment Policy Rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"system\": true,\n    \"id\": \"{{profileEnrollmentPolicyRuleId}}\",\n    \"name\": \"Catch-all Rule\",\n    \"priority\": 99,\n    \"status\": \"ACTIVE\",\n    \"conditions\": null,\n    \"type\": \"PROFILE_ENROLLMENT\",\n    \"actions\": {\n        \"profileEnrollment\": {\n            \"access\": \"ALLOW\",\n            \"unknownUserAction\": \"REGISTER\",\n            \"preRegistrationInlineHooks\": null,\n            \"profileAttributes\": [\n                {\n                    \"name\": \"email\",\n                    \"label\": \"Email\",\n                    \"required\": true\n                },\n                {\n                    \"name\": \"fax\",\n                    \"label\": \"Fax\",\n                    \"required\": true\n                }\n            ],\n            \"targetGroupIds\": null,\n            \"activationRequirements\": {\n                \"emailVerification\": true\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{profileEnrollmentPolicyId}}/rules/{{profileEnrollmentPolicyRuleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{profileEnrollmentPolicyId}}",
+								"rules",
+								"{{profileEnrollmentPolicyRuleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Deny Profile Enrollment Policy Rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"system\": true,\n    \"id\": \"{{profileEnrollmentPolicyRuleId}}\",\n    \"name\": \"Catch-all Rule\",\n    \"priority\": 99,\n    \"status\": \"ACTIVE\",\n    \"type\": \"PROFILE_ENROLLMENT\",\n    \"conditions\": null,\n    \"actions\": {\n        \"profileEnrollment\": {\n            \"access\": \"ALLOW\",\n            \"unknownUserAction\": \"DENY\",\n            \"preRegistrationInlineHooks\": null,\n            \"profileAttributes\": [\n                {\n                    \"name\": \"email\",\n                    \"label\": \"Email\",\n                    \"required\": true\n                }\n            ],\n            \"targetGroupIds\": [],\n            \"activationRequirements\": {\n                \"emailVerification\": true\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{profileEnrollmentPolicyId}}/rules/{{profileEnrollmentPolicyRuleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{profileEnrollmentPolicyId}}",
+								"rules",
+								"{{profileEnrollmentPolicyRuleId}}"
 							]
 						}
 					},

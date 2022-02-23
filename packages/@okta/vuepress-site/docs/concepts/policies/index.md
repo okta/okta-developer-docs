@@ -23,7 +23,7 @@ Okta supports the following policy types:
 
 * [Global Session Policy](/docs/reference/api/policy/#global-session-policy): Controls who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating.
 
-* [Authentication Policy](https://help.okta.com/okta_help.htm?id=App_Based_Signon): Determines the extra levels of authentication that you may want performed before an application can be accessed.
+* [Authentication Policy](/docs/reference/api/policy/#authentication-policy): Determines the extra levels of authentication that you may want performed before an application can be accessed.
 
 * [Okta MFA Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy): Controls which MFA methods are available for a user, as well as when a user may enroll in a particular factor.
 
