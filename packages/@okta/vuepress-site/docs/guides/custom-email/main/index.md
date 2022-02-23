@@ -40,8 +40,7 @@ Email notifications are based on templates that are generated automatically and 
 
 The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
 
-- See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about emails and the Brands API.
-- See [Customize your Okta Experience with the Brands API](/docs/guides/customize-themes/) for a guide about customizing emails and email templates with the Brands API.
+See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about emails and the Brands API.
 
 ### Caveats
 

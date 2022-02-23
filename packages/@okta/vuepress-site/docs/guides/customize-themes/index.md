@@ -148,6 +148,10 @@ You can also delete these assets using the following requests (**Delete logo**, 
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
+## Customize email notifications
+
+### 
+
 ## See also
 
 * [Brands API reference](/docs/reference/api/brands/)
