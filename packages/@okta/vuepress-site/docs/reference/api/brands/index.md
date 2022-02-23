@@ -1101,7 +1101,7 @@ The Email Templates API allows you to programatically manage email customization
 
 ### Email Templates
 
-Okta provides many customizable **email templates**. For example, the `welcome` email template allows users to activate their account. Each template has **default content** that is translated to any one of the [supported languages](#supported-languages).
+Okta provides many customizable **email templates**. For example, the `UserActivation` email template allows users to activate their account. Each template has **default content** that is translated to any one of the [supported languages](#supported-languages).
 
 ### Email Customizations
 
@@ -1191,13 +1191,13 @@ curl -v -X GET \
 ```http
 HTTP/1.1 200 OK
 Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
-  <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ad.welcome&limit=10>; rel="next"
+  <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ADUserActivation&limit=10>; rel="next"
 ```
 
 ```json
 [
     {
-        "name": "welcome",
+        "name": "UserActivation",
         "_links": {
             "customizations": {
                 "hints": {
@@ -1207,7 +1207,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
             },
             "defaultContent": {
                 "hints": {
@@ -1215,7 +1215,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
             },
             "self": {
                 "hints": {
@@ -1223,7 +1223,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1231,13 +1231,13 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         }
     },
     ...
     {
-        "name": "ad.welcome",
+        "name": "ADUserActivation",
         "_links": {
           ...
         }
@@ -1266,7 +1266,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example returns the `welcome` email template.
+The following example returns the `UserActivation` email template.
 
 ##### Request
 
@@ -1275,7 +1275,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation'
 ```
 
 ##### Response
@@ -1286,7 +1286,7 @@ HTTP/1.1 200 OK
 
 ```json
 {
-    "name": "welcome",
+    "name": "UserActivation",
     "_links": {
         "customizations": {
             "hints": {
@@ -1296,7 +1296,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
         },
         "defaultContent": {
             "hints": {
@@ -1304,7 +1304,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1312,7 +1312,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1320,7 +1320,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1355,7 +1355,7 @@ If `language` isn't specified or is invalid, it defaults to the current user's l
 
 #### Use examples
 
-The following example returns the `welcome` email template's default content.
+The following example returns the `UserActivation` email template's default content.
 
 ##### Request
 
@@ -1364,7 +1364,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content'
 ```
 
 ##### Response
@@ -1384,7 +1384,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "self": {
             "hints": {
@@ -1392,7 +1392,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "template": {
             "hints": {
@@ -1400,7 +1400,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1435,7 +1435,7 @@ If `language` isn't specified or is invalid, it defaults to the current user's l
 
 #### Use examples
 
-The following example returns a preview of the `welcome` email template's default content.
+The following example returns a preview of the `UserActivation` email template's default content.
 
 ##### Request
 
@@ -1444,7 +1444,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview'
 ```
 
 ##### Response
@@ -1464,7 +1464,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1472,7 +1472,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/default-content/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "template": {
             "hints": {
@@ -1480,7 +1480,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1520,7 +1520,7 @@ If `language` isn't specified or is invalid, it defaults to the current user's l
 
 #### Use examples
 
-The following example sends a test `welcome` email in French (`fr`).
+The following example sends a test `UserActivation` email in French (`fr`).
 
 ##### Request
 
@@ -1529,7 +1529,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test?language=fr'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test?language=fr'
 ```
 
 ##### Response
@@ -1559,7 +1559,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example returns the list of all customizations for the `welcome` email template.
+The following example returns the list of all customizations for the `UserActivation` email template.
 
 ##### Request
 
@@ -1568,15 +1568,15 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
 ```
 
 ##### Response
 
 ```http
 HTTP/1.1 200 OK
-Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations?limit=10>; rel="self",
-  <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
+Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?limit=10>; rel="self",
+  <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
 ```
 
 ```json
@@ -1596,7 +1596,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcom
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2hr0orNF3xGHpS0g4/preview"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4/preview"
             },
             "self": {
                 "hints": {
@@ -1606,7 +1606,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcom
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2hr0orNF3xGHpS0g4"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4"
             },
             "template": {
                 "hints": {
@@ -1614,7 +1614,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcom
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1622,7 +1622,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcom
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         },
     },
@@ -1665,7 +1665,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example creates an English customization for the `welcome` email template.
+The following example creates an English customization for the `UserActivation` email template.
 
 ##### Request
 
@@ -1680,7 +1680,7 @@ curl -v -X POST \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
 ```
 
 ##### Response
@@ -1705,7 +1705,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1715,7 +1715,7 @@ HTTP/1.1 201 Created
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1723,7 +1723,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1731,7 +1731,7 @@ HTTP/1.1 201 Created
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1758,7 +1758,7 @@ Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with er
 
 #### Use examples
 
-The following example deletes all customizations of the `welcome` email template.
+The following example deletes all customizations of the `UserActivation` email template.
 
 ##### Request
 
@@ -1767,7 +1767,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
 ```
 
 ##### Response
@@ -1798,7 +1798,7 @@ Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `40
 
 #### Use examples
 
-The following example returns a specific customization of the `welcome` email template.
+The following example returns a specific customization of the `UserActivation` email template.
 
 ##### Request
 
@@ -1807,7 +1807,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
 ```
 
 ##### Response
@@ -1832,7 +1832,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1842,7 +1842,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1850,7 +1850,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1858,7 +1858,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1902,7 +1902,7 @@ Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `40
 
 #### Use examples
 
-The following example updates a customization for the `welcome` email template.
+The following example updates a customization for the `UserActivation` email template.
 
 ##### Request
 
@@ -1917,7 +1917,7 @@ curl -v -X PUT \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
 ```
 
 ##### Response
@@ -1928,7 +1928,7 @@ HTTP/1.1 200 OK
 
 ```json
 {
-	  "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
+    "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
     "created": "2022-01-27T00:23:48.000Z",
     "id": "oel2kk1zYJBJbeaGo0g4",
     "isDefault": true,
@@ -1942,7 +1942,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "self": {
             "hints": {
@@ -1952,7 +1952,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4"
         },
         "template": {
             "hints": {
@@ -1960,7 +1960,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1968,7 +1968,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -2000,7 +2000,7 @@ Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `40
 
 #### Use examples
 
-The following example deletes a specific customization of the `welcome` email template.
+The following example deletes a specific customization of the `UserActivation` email template.
 
 ##### Request
 
@@ -2009,7 +2009,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
 ```
 
 ##### Response
@@ -2040,7 +2040,7 @@ Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `40
 
 #### Use examples
 
-The following example returns a preview of a customization of the `welcome` email template.
+The following example returns a preview of a customization of the `UserActivation` email template.
 
 ##### Request
 
@@ -2049,7 +2049,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/${customizationId}/preview'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}/preview'
 ```
 
 ##### Response
@@ -2074,7 +2074,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "template": {
             "hints": {
@@ -2082,7 +2082,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -2090,7 +2090,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/welcome/test"
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
