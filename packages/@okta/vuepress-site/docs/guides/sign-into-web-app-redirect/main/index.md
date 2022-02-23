@@ -1,6 +1,6 @@
 ---
 title: Sign users into your web app using the redirect model
-excerpt: Configure your Okta org and your web app to use Okta’s redirect sign in.
+excerpt: Configure your Okta org and your web app to use Okta's redirect sign in.
 layout: Guides
 ---
 
@@ -24,12 +24,12 @@ Add authentication with Okta's [redirect model](https://developer.okta.com/docs/
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we’d recommend using it from this point onwards.
+Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we'd recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We'll provide non-CLI instructions along with the CLI steps below as well.
 
 1. Install the Okta command-line interface: [Okta CLI](https://cli.okta.com/).
 2. If you don't already have a free Okta developer account, create one by entering `okta register` on the command line.
-3. Make a note of the Okta Domain as you’ll use that later.
-4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that’s shown after your domain is registered. Look for output similar to this:
+3. Make a note of the Okta Domain as you'll use that later.
+4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
 ```
 Your Okta Domain: https://dev-xxxxxxx.okta.com
@@ -37,15 +37,13 @@ To set your password open this link:
 https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
 ```
 
-5. Connect to your Okta developer org if you didn’t create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org and the access token):
+> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+
+5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/)):
 
 ```
 okta login
 ```
-
-> **Note**: If you don’t want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We’ll provide non-CLI instructions along with the CLI steps below as well.
-
-> **Note**: If you don’t receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
 ## Create an Okta integration for your app
 
@@ -64,7 +62,7 @@ okta apps create web
 <StackSnippet snippet="redirectvalues" />
 4. Note down the application configuration printed to the terminal as you'll use the client id, client secret, and Okta domain to configure your mobile app.
 
-At this point you can move to the next step. If you want to set up the integration manually, or find out what the CLI just did for you, read on. 
+At this point, you can move to the next step — [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on. 
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click the **Admin** button on the top right of the page to open the Admin Console, and then open the Applications configuration pane by selecting **Applications** > **Applications**.
@@ -75,7 +73,7 @@ At this point you can move to the next step. If you want to set up the integrati
 1. Enter an **App integration name**.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/oauth2/code/okta`, and for production, such as `http://app.example.com/login/oauth2/code/okta`. For more information on callback URIs, see [Define a callback route](#define-a-callback-route).    
 1. Select the type of **Controlled access** for your app in the **Assignments** area. Select the **Everyone** group for now. For more information, see [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
-1. Click **Save** to create the app integration. The configuration pane for the integration opens after it’s saved. Keep this pane open as you'll copy some values when configuring your app.
+1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you'll copy some values when configuring your app.
 
 ## Create app
 
@@ -97,13 +95,15 @@ Our app uses information from the Okta integration we created earlier to configu
 
 <StackSnippet snippet="configmid" />
 
-You can also find the required values in your Okta admin console (choose **Applications** > **Applications** and find the entry for your application integration):
+#### Find your config values
+
+If you haven't got your configuration values handy, you can find them in your Okta admin console (choose **Applications** > **Applications** and find the entry for your application integration):
 
 * **Client ID** &mdash; Found in the entry for your application integration shown by choosing **Applications** > **Applications**.
 * **Client Secret** &mdash; Found on the **General** tab in the details view of your application integration.
 * **Okta Domain** &mdash; Found in a drop-down box shown by clicking on your email on the right side of the global header at the top of the page. Open the drop-down, move your pointer over the domain name, and then click the button that appears to copy the domain to the clipboard.
 
-> **Note:** Your Okta domain is different from your admin domain — your Okta domain doesn’t include the `-admin` part.
+> **Note:** Your Okta domain is different from your admin domain — your Okta domain doesn't include the `-admin` part.
 
 ### Redirect to the sign-in page
 
@@ -121,7 +121,7 @@ After successful authentication Okta redirects back to the app with an authoriza
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6). One use of this information is updating your user interface, such as displaying the customer’s name.
+After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6). One use of this information is updating your user interface, such as displaying the customer's name.
 
 The default profile items (called "claims") returned by Okta include the user's email address, name, and preferred username. The claims you see may differ depending on the scopes requested by your app. For more information, see [Configure your app](#configure-your-app).
 

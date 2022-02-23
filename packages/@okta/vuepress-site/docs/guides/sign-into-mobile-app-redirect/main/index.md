@@ -27,7 +27,7 @@ Add authentication using the Okta [redirect model](https://developer.okta.com/do
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we'd recommend using it from this point onwards.
+Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we'd recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We'll provide non-CLI instructions along with the CLI steps below as well.
 
 1. Install the Okta command-line interface: [Okta CLI](https://cli.okta.com/).
 2. If you don't already have a free Okta developer account, create one by entering `okta register` on the command line.
@@ -40,15 +40,13 @@ To set your password open this link:
 https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
 ```
 
-5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org and the access token):
+> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+
+5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/)):
 
 ```
 okta login
 ```
-
-> **Note**: If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We'll provide non-CLI instructions along with the CLI steps below as well.
-
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
 ## Create an Okta integration for your app
 
@@ -64,9 +62,9 @@ okta apps create native
 
 2. When prompted for a name, use "Quickstart".
 3. Press Enter to accept the default values for the application name, redirect URI, and post-logout redirect URI.
-4. Note down the application configuration printed to the terminal as you'll use the issuer and client id to configure your mobile app.
+4. Note down the application configuration printed to the terminal as you'll use the Client ID and Issuer to configure your mobile app.
 
-At this point, you can move to the next step. If you want to set up the integration manually or find out what the CLI just did for you, read on.
+At this point, you can move to the next step — [Creating your app](#create-app). If you want to set up the integration manually or find out what the CLI just did for you, read on.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click the **Admin** button on the top right of the page to open the Admin Console, and then open the Applications configuration pane by selecting **Applications** > **Applications**.
@@ -95,9 +93,16 @@ Add the required dependencies for using the Okta SDK to your app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration we created earlier to configure communication with the API — client id and issuer.
+Our app uses information from the Okta integration we created earlier to configure communication with the API — Client ID and Issuer.
 
 <StackSnippet snippet="configmid" />
+
+#### Find your config values
+
+If you haven't got your configuration values handy, you can find them in your Okta admin console (choose **Applications** > **Applications** and find the entry for your application integration):
+
+* **Client ID** &mdash; Found in the entry for your application integration shown by choosing **Applications** > **Applications**.
+* **Issuer** &mdash; Found in the **Issuer URI** for the entry of your authorization server that's shown by choosing **Security** > **API**.
 
 ### Define a callback route
 

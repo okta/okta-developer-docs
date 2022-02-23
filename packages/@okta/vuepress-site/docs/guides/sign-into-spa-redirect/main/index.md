@@ -1,12 +1,10 @@
 ---
 title: Sign users into your SPA using the redirect model
-excerpt: Configure your Okta org and your single-page app to use Okta’s redirect sign in.
+excerpt: Configure your Okta org and your single-page app to use Okta's redirect sign in.
 layout: Guides
 ---
 
 Add authentication with Okta's [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication) to your single-page app. This example uses Okta as the user store.
-
-> **Note**: For server-side web apps, see [Sign users into your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) instead. To protect the API your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
 ---
 
@@ -26,14 +24,16 @@ Add authentication with Okta's [redirect model](https://developer.okta.com/docs/
 
 ---
 
+> **Note**: For server-side web apps, see [Sign users into your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) instead. To protect the API your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
+
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we’d recommend using it from this point onwards.
+Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we'd recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We'll provide non-CLI instructions along with the CLI steps below as well.
 
 1. Install the Okta command-line interface: [Okta CLI](https://cli.okta.com/).
 2. If you don't already have a free Okta developer account, create one by entering `okta register` on the command line.
-3. Make a note of the Okta Domain as you’ll use that later.
-4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that’s shown after your domain is registered. Look for output similar to this:
+3. Make a note of the Okta Domain as you'll use that later.
+4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
 ```
 Your Okta Domain: https://dev-xxxxxxx.okta.com
@@ -41,15 +41,13 @@ To set your password open this link:
 https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
 ```
 
-5. Connect to your Okta developer org if you didn’t create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org and the access token):
+> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+
+5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command (you'll need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/)):
 
 ```
 okta login
 ```
-
-> **Note**: If you don’t want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We’ll provide non-CLI instructions along with the CLI steps below as well.
-
-> **Note**: If you don’t receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
 ## Create an Okta integration for your app
 
@@ -66,9 +64,9 @@ okta apps create spa
 2. When prompted for a name, use "Quickstart".
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Note down the application configuration printed to the terminal as you'll use the issuer and client id to configure your SPA.
+4. Note down the application configuration printed to the terminal as you'll use the Client ID and Issuer to configure your SPA.
 
-At this point you can move to the next step. If you want to set up the integration manually, or find out what the CLI just did for you, read on. 
+At this point, you can move to the next step — [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on. 
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click the **Admin** button on the top right of the page to open the Applications configuration pane by selecting **Applications** > **Applications**.
@@ -111,11 +109,13 @@ Add the required dependencies for using the Okta SDK to your SPA.
 
 ### Configure your app
 
-Our app uses information from the Okta integration we created earlier to configure communication with the API — client id and issuer.
+Our app uses information from the Okta integration we created earlier to configure communication with the API — Client ID and issuer.
 
 <StackSnippet snippet="configmid" />
 
-You can also find the required values in your Okta admin console (choose **Applications** > **Applications** and find the entry for your application integration):
+#### Find your config values
+
+If you haven't got your configuration values handy, you can find them in your Okta admin console (choose **Applications** > **Applications** and find the entry for your application integration):
 
 * **Client ID** &mdash; Found in the entry for your application integration shown by choosing **Applications** > **Applications**.
 * **Issuer** &mdash; Found in the **Issuer URI** for the entry of your authorization server that's shown by choosing **Security** > **API**.
@@ -128,7 +128,7 @@ To sign a user in your web app redirects the browser to the Okta-hosted sign-in 
 
 <StackSnippet snippet="loginredirect" />
 
-The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the [user](#get-info-about-the-user).
+During sign-in, the user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with [information about the user](#get-info-about-the-user).
 
 > **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
@@ -136,17 +136,20 @@ You can also define protected routes or areas of your application that will alwa
 
 ### Handle the callback from Okta
 
-After Okta authenticates a user, they're redirected back to your application via the callback route that you define. When Okta redirects back, the URL query string contains a short lived code that is exchanged for a token. The SDK does this for you with its callback component.
+After Okta authenticates a user, they're redirected back to your application via the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
 
 <StackSnippet snippet="handlecallback" />
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). This information can be used to update your UI, for example to show the customer’s name.
+After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). This information can be used to update your UI, for example to show the customer's name.
 
 The default profile items (called "claims") returned by Okta include the user's email address, name, and preferred username. The claims you see may differ depending on what scopes your app has requested (see [Configure packages](#configure-packages)).
 
 <StackSnippet snippet="getuserinfo" />
+
+
+<br>To get user information beyond the default profile claims, you can call the [/userinfo endpoint](/docs/reference/api/oidc/#userinfo), or call the `getUser()` method in `OktaAuth`.
 
 ## Sign in a user
 

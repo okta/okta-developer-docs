@@ -1,10 +1,31 @@
 The recommended way to add your access token to HTTP calls in Angular is to use an interceptor. To follow security best practices, the access token should only be added on calls to allowed origins.
 
-Create an [Angular interceptor](https://angular.io/guide/http#intercepting-requests-and-responses) and register the interceptor in the `AppModule`.
+1. Create an [Angular interceptor](https://angular.io/guide/http#intercepting-requests-and-responses) called `auth.interceptor`, using the CLI command `ng generate interceptor auth`.
 
-Update the interceptor to add the access code when calling a trusted origin.
+2. Add the following imports into `app.module.ts`:
 
 ```ts
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+```
+
+3. Register the interceptor in `app.module.ts` by adding the following into the `providers` array:
+
+```ts
+{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+```
+
+4. Update `auth.interceptor.ts` to add the access code when calling a trusted origin:
+
+```ts
+import { Inject, Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
@@ -29,3 +50,5 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 }
 ```
+
+When making HTTP calls within allowed origins, you should now see the `Authorization` header.

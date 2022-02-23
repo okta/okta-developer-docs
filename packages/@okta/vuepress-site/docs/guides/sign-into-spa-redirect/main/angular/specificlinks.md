@@ -1,3 +1,7 @@
+Angular documentation:
+
+* See [Get started with Angular](https://angular.io/start) to learn about the framework from Angular's official documentation
+
 Okta Developer Blog:
 
 * [Build a Beautiful App + Login with Angular Material](https://developer.okta.com/blog/2020/01/21/angular-material-login)

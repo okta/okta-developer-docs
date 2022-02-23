@@ -2,7 +2,7 @@ The `OktaAuthStateService` and `OktaAuth` services are used together to support 
 
 The `OktaAuth` service has methods for sign-in and sign-out.
 
-Add buttons to support sign-in and sign-out to the component template. Display either the sign-in or sign-out button based on the current authenticated state.
+1. Add buttons to support sign-in and sign-out to the component template (`app.component.html`), just inside the top of `<div class="toolbar" role="banner"></div>` so they are nicely visible. Display either the sign-in or sign-out button based on the current authenticated state.
 
 ```html
 <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
@@ -14,29 +14,35 @@ Add buttons to support sign-in and sign-out to the component template. Display e
 </ng-template>
 ```
 
-Update the component TypeScript file to get authenticated state and support sign-in and sign-out.
+2. Update the component TypeScript file (`app.component.ts`) with the following imports and updated export to get authenticated state and support sign-in and sign-out.
 
 ```ts
+import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { AuthState, OktaAuth } from '@okta/okta-auth-js';
+import { filter, map, Observable } from 'rxjs';
 
-export class class AppComponent implements OnInit {
+export class AppComponent implements OnInit {
+  title = 'okta-angular-quickstart';
   public isAuthenticated$!: Observable<boolean>;
 
-  constructor(private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
+  constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
 
-    public ngOnInit(): void {
-      this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-        filter((s: AuthState) => !!s),
-        map((s: AuthState) => s.isAuthenticated ?? false)
-      );
-    }
+  public ngOnInit(): void {
+    this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
+      filter((s: AuthState) => !!s),
+      map((s: AuthState) => s.isAuthenticated ?? false)
+    );
+  }
 
-    public async login() : Promise<void> {
-      await this._oktaAuth.signInWithRedirect();
-    }
+  public async signIn() : Promise<void> {
+    await this._oktaAuth.signInWithRedirect().then(
+      _ => this._router.navigate(['/profile'])
+    );
+  }
 
-  public async logout(): Promise<void> {
+  public async signOut(): Promise<void> {
     await this._oktaAuth.signOut();
   }
 }

@@ -1,11 +1,13 @@
 
 You will need recent versions of [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/). Installation of [Angular CLI](https://angular.io/cli) is recommended.
 
-Create an Angular application named "okta-angular-quickstart" with routing using the following command. This creates an Angular application using version 13 regardless of the version of the Angular CLI installed on your system.
+Create an Angular application named "okta-angular-quickstart" with routing in your current directory using the following command. Choose "CSS" when it asks you what stylesheet format you would like to use.
 
 ```shell
-npx @angular/cli@13 new okta-angular-quickstart –routing
+npx @angular/cli@13 new okta-angular-quickstart --routing
 ```
+
+This creates an Angular application using version 13 regardless of the version of the Angular CLI installed on your system.
 
 > **Note**: This guide uses Angular CLI v13, okta-angular v5.1.1, and okta-auth-js v6.0.0.
 
