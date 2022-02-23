@@ -13,7 +13,7 @@ The Policy API supports the following **Policy operations**:
 
 * Get all policies of a specific type
 * Create, read, update, and delete a Policy
-* Get all apps of a specific policy
+* Get all apps assigned to a specific policy
 * Activate and deactivate a Policy
 
 The Policy API supports the following **Rule operations**:
@@ -512,7 +512,7 @@ Different Policy types control settings for different operations. All Policy typ
 There is always a default Policy created for each type of Policy. The default Policy applies to new applications by default or any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
 
  - A default Policy is required and can't be deleted.
- - New applications (other than Office365, Radius and MFA) will be assigned to the default Policy.
+ - New applications (other than Office365, Radius, and MFA) are assigned to the default Policy.
  - The default Policy is always the last Policy in the priority order. Any added Policies of this type have higher priority than the default Policy.
  - The default Policy always has one default Rule that can't be deleted. It is always the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule. For information on default Rules, see [Rules object and defaults](#rules-object).
  - The `system` attribute determines whether a Policy is created by a system or by a user.

@@ -3682,7 +3682,7 @@ Content-Type: application/json
 
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
 
-Assign the application to the specific policy, it will un-assign the application form the currently assigned policy.
+Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
 
 ##### Request parameters
 
