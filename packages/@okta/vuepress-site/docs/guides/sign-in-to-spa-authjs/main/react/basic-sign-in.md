@@ -1,7 +1,6 @@
 This section helps you review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
-<Insert vans diagram here>
-
+Insert vans diagram here
 
 ### Set up the Okta configuration settings
 
@@ -20,26 +19,6 @@ export default {
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
-```
-
-### Review the sign-in component
-
-The `index.js` file renders the simple sign-in form for the sample app:
-
-```JavaScript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from './App';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 ```
 
 ### Instantiate the Okta Auth JS client

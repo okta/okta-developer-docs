@@ -5,7 +5,6 @@ layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector />
 

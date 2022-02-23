@@ -1,6 +1,6 @@
 ### Download the sample React application
 
-To view a simple example of a React application, clone the Auth JS and follow the set up procedure:
+To view a simple example of a React application, clone the Auth JS repository and follow the set up procedure:
 
 #### Clone the Auth JS repository
 
@@ -31,7 +31,7 @@ USE_INTERACTION_CODE=true
 
 #### Run the sample application
 
-Navigate to the project folder and run the sample application. Sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page.
+Navigate to the project folder and run the sample application. Click **Login** and sign in with a user from your Okta org. After a successful authentication, the user's access token appears on the page.
 
 ```bash
 cd okta-auth-js/test/apps/react-oie
@@ -54,10 +54,10 @@ cd okta-app
 
 ### Install dependencies
 
-Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`), the [latest version Okta React SDK](https://github.com/okta/okta-React/releases)(`@okta/okta-react`), and the `react-router-dom` libraries to your React app. You can install them by using `npm` from your root app directory:
+Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`), the [latest version Okta React SDK](https://github.com/okta/okta-React/releases)(`@okta/okta-react`), and the `react-router-dom` libraries to your React app. Install the dependencies using a package manager in your root app directory:
 
 ```bash
 npm install @okta/okta-auth-js@latest
 npm install @okta/okta-react@latest
-npm install react-router-dom@v5.2.0
+npm install react-router-dom@latest
 ```

@@ -1,61 +1,46 @@
-Build a sign-in page that captures both the username and password. As an example, created a `src/SignInForm.jsx` file using a function-based component:
+Build a sign-in page that captures both the username and password. As an example, from the test application, see the `index.js` file, which renders the simple sign-in for from the `formtransformer.js` file:
 
 ```JavaScript
-import React, { useState } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 
-const SignInForm = () => {
-  const { oktaAuth } = useOktaAuth();
-  const [sessionToken, setSessionToken] = useState();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    oktaAuth.signInWithCredentials({ username, password })
-    .then(res => {
-      const sessionToken = res.sessionToken;
-      setSessionToken(sessionToken);
-      // sessionToken is a one-use token, so make sure this is only called once
-      oktaAuth.signInWithRedirect({ sessionToken });
-    })
-    .catch(err => console.log('Found an error', err));
-  };
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  if (sessionToken) {
-    // Hide form while sessionToken is converted into id/access tokens
-    return null;
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          id="username" type="text"
-          value={username}
-          onChange={handleUsernameChange} />
-      </label>
-      <label>
-        Password:
-        <input
-          id="password" type="password"
-          value={password}
-          onChange={handlePasswordChange} />
-      </label>
-      <input id="submit" type="submit" value="Submit" />
-    </form>
-  );
-};
-export default SignInForm;
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <App />
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 ```
 
+From the `formtransformer.js` file:
+
+```JavaScript
+const inputTransformer = nextStep => form => {
+  // only process UI inputs
+  const inputs = nextStep.inputs?.filter(input => !!input.label);
+  
+  if (!inputs?.length) {
+    return form;
+  }
+
+  return { 
+    ...form,
+    inputs: inputs.map(({ label, name, type, secret, required }) => {
+      if (secret) {
+        type = 'password';
+      } else if (type === 'string') {
+        type = 'text';
+      } else if (type === 'boolean') {
+        type = 'checkbox'
+      }
+      return { label, name, type, required };
+    })
+  };
+};
+```
+
+> **Note:** This guide only reviews the sign-in use case of the test app.
