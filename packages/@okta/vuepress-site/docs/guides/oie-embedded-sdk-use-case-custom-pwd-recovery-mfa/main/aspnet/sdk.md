@@ -8,7 +8,7 @@ To begin the password recovery flow, the user clicks the **Forgot Password** but
 
 </div>
 
-The Reset Password link in the email includes the OTP and request.relayState variables as query parameters back to the application. For example,
+The Reset Password link in the email includes the `OTP` and `request.relayState` variables as query parameters back to the application. For example,
 
 `https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
@@ -16,7 +16,7 @@ The Reset Password link in the email includes the OTP and request.relayState var
 
 Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as parameters to the `VerifyAuthenticatorAsync` method on the `IdxClient`.
 
-> **Note** : This implementation stores the idx context in session, keyed by state. Alternatively, you may choose to store the idx context in a database or a file. The `state` value serves as your handle to recover the idx context to continue the authentication flow.
+> **Note** : This implementation looks for the idx context in session, keyed either by state or by the string `idxContext`. Alternatively, you may choose to store the idx context in a database or a file.
 
 ```csharp
 public async Task<ActionResult> Callback(string state, string otp, string error = null, string error_description = null)
@@ -27,6 +27,10 @@ public async Task<ActionResult> Callback(string state, string otp, string error 
     }
 
     IIdxContext idxContext = Session[state] as IIdxContext;
+    if (idxContext == null)
+    {
+        idxContext = Session["idxContext"] as IIdxContext;
+    }
 
     if (idxContext != null)
     {
@@ -48,7 +52,7 @@ If the `otp` and `state` values are valid, Okta verifies there is a password rec
             case AuthenticationStatus.AwaitingPasswordReset:
                 return RedirectToAction("ChangePassword", "Manage");
 
-      	    // other case statements
+           // other case statements
         }
     }
 ```
