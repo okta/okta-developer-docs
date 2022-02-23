@@ -36,9 +36,9 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 
 ## Important: Overriding themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors we've made available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
+You can customize individual parts of your Okta org experience using the various code editors available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
 
-So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
+So for example, if you make changes to the sign-in page code using the editor and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
 
 ## Get info about brands and themes
 
@@ -157,6 +157,8 @@ The following constraints apply to email customizations:
 - If an email template has any customizations, one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
 - Each email template can have only one customization for each [supported language](#supported-languages).
 
+> **Note:** If you change any email code using the [Admin console](/docs/guides/custom-email/main/#edit-a-default-email-template), your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors in the Admin Console to the default settings.
+
 ### Supported languages
 
 Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
@@ -216,6 +218,8 @@ Fetches an email template's default content
 Fetches a preview of an email template's default content
 
 #### Preview email template default content
+
+Fetches a preview of an email template's default content
 
 
 
