@@ -65,21 +65,50 @@ Generate a public/private key pair using the Admin Console.
 
 2. Select **Public key/private key** as the **Client authentication** method.
 
-3. Click **Add** and in the **Add a public key** dialog, either paste in your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+  > **Note:** When you switch the client authentication method to **Public key/private key**, any existing client secrets are deleted.
+
+3. Choose how you want to store the JWT and then use the next sections to complete the steps.
+    * **Save keys in Okta**: Copy your public keys into Okta
+    * **Use a URL to fetch keys dynamically**: Define the URI where you host your public keys
+
+### Save keys in Okta
+
+This option allows you to bring your own keys or use the Okta key generator.
+
+> **Note:** There is no limit to the number of JWKs that you can add for an app.
+
+1. After you select **Save keys in Okta**, click **Add key**.
+1. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
-    * Click **Generate new key**  and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
-    > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
+     > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
 
-4. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
+1. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public keys** section of the **General** tab.
 
-5. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
+1. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
-6. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+> **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
-    > **Note:** There is no limit to the number of JWKs that you can add for an app.
+## Use a URL to fetch keys dynamically
+
+This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
+
+> **Note:** There is no limit to the number of JWKs that you can add for an app.
+
+1. After you select **Use a URL to fetch keys dynamically**, enter the URL in the **URL** box, for example: `https://${yourOktaDomian}/oauth2/v1/keys`.
+
+    > **Note:** You can try this in Postman using the **Add a JWK URI** request.
+
+1. Click **Save**. The URL appears in a table in the **Public keys** section of the **General** tab. You can expand the URL in the table to view the public key.
+
+    > **Note:** If you switch from using a URL to fetch keys dynamically to saving keys in Okta, any saved public keys are deleted.
+
+1. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+
+1. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
 
     The JWKS should look something like this:
 

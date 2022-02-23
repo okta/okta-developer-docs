@@ -56,9 +56,9 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
 3. In the **Client Secrets** section, click **Generate new secret** to create a client secret as a backup to your existing one. A second secret appears with the creation date. The maximum number of secrets that you can generate is two for each app.
 
-    > **Note:** When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
-
     > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
+
+    When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
 
 5. [Update your web app](/docs/guides/sign-into-web-app/-/main/#configure-the-package) to start using the newly generated client secret.
 
@@ -88,23 +88,48 @@ To use the Admin Console to generate a JWK key pair for your app for testing, fo
 
 3. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
 
+    > **Note:** When you switch the client authentication method to **Public key/private key**, any existing client secrets are deleted.
+
 4. Select **Public key/private key** as the **Client authentication** method.
 
     > **Note:** You can try this in Postman using the **Update client auth method** request.
 
-    If there is an existing key associated with your app, that key’s ID and the creation date of the key appear in the **Public Keys** section.
+5. Choose how you want to store the JWT and then use the next sections to complete the steps.
+    * **Save keys in Okta**: Copy your public keys into Okta
+    * **Use a URL to fetch keys dynamically**: Define the URI where you host your public keys
 
-5. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+### Save keys in Okta
 
-    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
-  **OR**<br>
-    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
-
-6. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public Keys** section of the **General** tab.
-
-7. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+This option allows you to bring your own keys or use the Okta key generator.
 
 > **Note:** There is no limit to the number of JWKs that you can add for an app.
+
+1. After you select **Save keys in Okta**, click **Add key**.
+1. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+
+    * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
+    **OR**<br>
+    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+
+1. Click **Save**. The new public key is now registered with the app and appears in a table in the **Public keys** section of the **General** tab.
+
+1. When you click **Save**, a message states that the client authentication method changes to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+
+> **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
+
+## Use a URL to fetch keys dynamically
+
+This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
+
+> **Note:** There is no limit to the number of JWKs that you can add for an app.
+
+1. After you select **Use a URL to fetch keys dynamically**, enter the URL in the **URL** box, for example: `https://${yourOktaDomian}/oauth2/v1/keys`.
+
+    > **Note:** You can try this in Postman using the **Add a JWK URI** request.
+
+1. Click **Save**. The URL appears in a table in the **Public keys** section of the **General** tab. You can expand the URL in the table to view the public key.
+
+> **Note:** If you switch from using a URL to fetch keys dynamically to saving keys in Okta, any saved public keys are deleted.
 
 ## JWK management
 
