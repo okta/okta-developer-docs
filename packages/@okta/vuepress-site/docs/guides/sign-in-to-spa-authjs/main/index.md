@@ -23,11 +23,9 @@ layout: Guides
 
 <StackSnippet snippet="download-sample" />
 
-## Create a custom sign-in form
+## Basic sign-in flow
 
 <StackSnippet snippet="sign-in-form" />
-
-## Basic sign-in flow
 
 <StackSnippet snippet="basic-sign-in" />
 
