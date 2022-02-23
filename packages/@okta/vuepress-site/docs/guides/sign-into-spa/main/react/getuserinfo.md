@@ -19,7 +19,7 @@ const Home = () => {
       // When user isn't authenticated, forget any user info
       setUserInfo(null);
     } else {
-      oktaAuth.getUserInfo().then(info => {
+      oktaAuth.token.getUserInfo().then(info => {
         setUserInfo(info);
       });
     }
