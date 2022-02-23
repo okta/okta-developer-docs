@@ -3,7 +3,6 @@ title: Auth JS fundamentals
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple, single-page application (SPA) to demonstrate a sign-in use case.
 
@@ -11,13 +10,14 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 **Learning outcomes**
 
-* Understand how to implement basic sign-in using the Okta Auth JavaScript SDK.
-* Understand basic installation and code configurations using the Okta Auth JavaScript SDK.
+* Understand how to implement basic sign-in using Auth JS.
+* Understand basic installation and code configurations using AuthJS.
 * Implement the sample SPA use case and sign a user in to the application.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Auth JS SDK Interaction Code reference documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
 * Basic knowledge of building front-end JavaScript applications
 
 **Sample code**
@@ -34,11 +34,11 @@ The Okta Auth JS SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_si
 
 In this guide you'll learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
 
-If you'd like to explore the entire Auth JS SDK, see the [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
+If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
 ## Installation
 
-Install the Auth JS SDK by linking out to the Okta CDN, or installing locally through `npm` or another package manager.
+Install Auth JS by linking out to the Okta CDN, or installing locally through `npm` or another package manager.
 
 ### CDN
 
@@ -62,11 +62,11 @@ yarn add @okta/okta-auth-js
 npm install @okta/okta-auth-js
 ```
 
-More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#using-the-npm-module).
 
 ## Add code to reference the SDK
 
-The following sections display basic code snippets you use when accessing the Auth JS SDK.
+The following sections display basic code snippets you use when accessing Auth JS.
 
 ### Initialize the SDK
 
@@ -295,7 +295,5 @@ var config = {
 ## See also
 
 * [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main)
-* [Okta Auth JS SDK IDX documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
-* [Okta Auth JS and Angular](/docs/guides/)
 * [Okta Auth JS and React](/docs/guides)
 * [Okta Auth JS and Vue](/docs/guides)
