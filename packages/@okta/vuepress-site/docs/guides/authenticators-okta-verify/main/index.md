@@ -34,7 +34,7 @@ This guide shows you how to integrate Okta Verify into your app using the embedd
 
 ## Overview
 
-...
+TBD
 
 <!--
 <div class="common-image-format">
@@ -47,22 +47,34 @@ As the service provider, you can provide WebAuthn support to your users by enabl
 -->
 
 ## Update configurations
-<!--
 
-Before you can start using Web Authentication (WebAuthn), create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add WebAuthn to your app integration by executing the following steps:
+Before you can start using Okta Verify create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Next
 
-### Add WebAuthn to the Okta org
+### Add Okta Verify for push notification and TOTP
+
+Next, add Okta Verify to your org and enable it for push notification and TOTP. This setup enables the user to do one of the following during the sign-in:
+
+* **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
+* **Time-based one time password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
+
+The authenticator enrollment and challenge flows for this setup are:
+
+* [Integrate enrollment using QR Code](#update-okta-verify-to-use-push-notification-number-challnege)
+* [Integrate enrollment using other channels](#integrate-enrollment-using-other-channels)
+* [Integrate challenge using push notification prompt](#integrate-challenge-using-push-notification-prompt)
+* [Integrate challenge using number TOTP](#integrate-challenge-using-number-totp)
+
+#### Add authenticator
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog, click **Add** under **FIDO2 (WebAuthn)**.
-1. Leave the default value for **User Verification**, which is set to "Discouraged".
-1. On the **Add FIDO2(WebAuthn)** dialog, click **Add**.
-1. On the **Authenticators** page, select the **Enrollment** tab.
-1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
-1. Set **FIDO2 (WebAuthn)** to **Optional** and click **Update Policy**.
+1. On the **Add Authenticator** dialog, click **Add** under **Okta Verify**.
+1. Note that **TOTP (on by default)(Android and iOS only)** is disabled and checked by default.
+1. Check the box for **Push notification (Android and iOS only)**.
+1. Keep **Number challenge for Okta Verify push** set to **Never**.
+1. Click **Add** to save your changes.
 
-### Configure your Okta org application to use WebAuthn
+#### Configure your org application to use Okta Verify
 
 1. In the Admin Console, go to **Applications** and **Applications**.
 1. On the **Applications** page, click on the application you've previously created.
@@ -72,9 +84,12 @@ Before you can start using Web Authentication (WebAuthn), create an Okta org app
    1. Enter a name for the new rule (for example "2FA Rule").
    1. Set **User must authenticate with** to **Password+Another Factor**.
    1. Select **Device Bound**.
-   1. Confirm **Your org's authenticators that satisify this requirment** is set to **Password AND FIDO2 (WebAuthn) or ...**.
-   1. Click **Save**.
--->
+   1. Confirm **Your org's authenticators that satisify this requirment** is set to **Password AND Okta Verify or ...**.
+   1. Click **Save** to save your changes.
+
+### Update Okta Verify to use push notification number challenge
+
+The embedded SDKs currently don't support using the push notification number challenge. If you need to use this option use the embedded widget or redirect option.
 
 ## Integrate enrollment using QR Code
 
@@ -96,7 +111,7 @@ The following summarizes ...
 
 <StackSnippet snippet="enrollmentotherintegrationsteps" />
 
-## Integrate challenge using push notification
+## Integrate challenge using push notification prompt
 
 ### Summary of steps
 
@@ -106,14 +121,14 @@ The following summarizes ...
 
 <StackSnippet snippet="challengepushintegrationsteps" />
 
-## Integrate challenge using number challenge
+## Integrate challenge using number TOTP
 
 ### Summary of steps
 
 The following summarizes ...
 
-<StackSnippet snippet="challengenumintegrationsummary" />
+<StackSnippet snippet="challengetotpintegrationsummary" />
 
-<StackSnippet snippet="challengenumintegrationsteps" />
+<StackSnippet snippet="challengetotpintegrationsteps" />
 
 </div>

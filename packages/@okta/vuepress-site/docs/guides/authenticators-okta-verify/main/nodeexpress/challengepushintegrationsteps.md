@@ -1,7 +1,7 @@
 <!--
 ### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, starting with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -10,169 +10,375 @@ The first step is to initiate a use case requiring authentication. This guide us
   });
 ```
 
-### 2: Handle WebAuthN challenge response
+### 2: Display Okta Verify Challenge
 
-If you've configured your Okta org as detailed in [Configuration updates](#update-configurations) and the WebAuthn has already been [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating WebAuthn is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING` and `nextStep.name` set to `challenge-authenticator`.
-
-Additionaly, `IdxTransaction` returns challenge and other information to verify the WebAuthn credentials on the user's device. Specifically, `nextStep.authenticator.contextualData.challengeData.challenge` contains the challenge and `nextStep.authenticator.authenticatorEnrollments` contains the authenticator details including the credentialId.
-
+If you've configured your Okta org as detailed in [Configuration updates](#update-configurations) and Okta Verify has already been [enrolled]() for the user, `authenticate()` returns a response indicating Okta Verify  is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `challenge-authenticator`, and `nextStep.authenticator` filled with Google Authenticator details. See the following `IdxTransaction` example for more details.
 
 ```json
 {
   status: "PENDING",
   nextStep: {
-    name: "challenge-authenticator",
-    type: "security_key",
+    name: "authenticator-verification-data",
+    type: "app",
     authenticator: {
-      contextualData: {
-        challengeData: {
-          challenge: "HXIGggWAMeey15wTIqWTwkLFaIQ",
+      displayName: "Okta Verify",
+      methods: [
+        {
+          type: "push",
         },
-      },
-    authenticatorEnrollments: [
+        {
+          type: "totp",
+        },
+      ],
+    },
+    options: [
       {
-        type: "security_key",
-        key: "webauthn",
-        id: "fwfeklc4ywN8Ndd3X696",
-        displayName: "MacBook Touch ID",
-        credentialId: "Aa6yUSWzI1uqaAf0beVxPKIA ...",
-        methods: [
-          {
-            type: "webauthn",
-          }, ],
-      },],
-  }, }, }
-```
-
-
-### 3: Display page to verify WebAuthn credentials
-
-Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.challengeData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
-
-```javascript
-  const authenticatorEnrollmentsJSON = authenticatorEnrollments ? JSON.stringify(authenticatorEnrollments) : null;
-  const challengeData = contextualData ? JSON.stringify(contextualData.challengeData) : null;
-```
-
-These variables are then used to set client-side javascript variables using a [Mustache](https://mustache.github.io/) template.
-
-```javascript
-const challengeData = {{{challengeData}}};
-const authenticatorEnrollments = {{{authenticatorEnrollments}}};
-```
-
-The [Mustache](https://mustache.github.io/) template renders the following javascript.
-
-``` javascript
-const challengeData = {"challenge":"oSWT1iFttMs1KX_dxefvgozvzTg","userVerification": ...};
-const authenticatorEnrollments = [{"type":"security_key","key":"webauthn","id": ...}];
-
-```
-
-### 4: Build parameter for getting a credential
-
-On page load, build the parameter needed to request the credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialRequestOptions()` in the client browser.  Pass into the method the `challengeData` and `authenticatorEnrollments` variables that were set in the previous step.
-
-```javascript
-const options = OktaAuth.webauthn.buildCredentialRequestOptions(challengeData, authenticatorEnrollments);
-```
-
-The response is an object of type `CredentialRequestOptions` and includes the challenge and credentials.
-
-```json
-{
-    "publicKey": {
-        "challenge": {
-            "0": 161, "1": 37, "2": 147, ..
-        },
-        "userVerification": "preferred",
-        "allowCredentials": [
-            {
-                "type": "public-key",
-                "id": {
-                    "0": 1,"1": 174, "2": 178, ..
-
-                }
-            }
-        ]
-    }
+        label: "Enter a code",
+        value: "totp",
+      },
+      {
+        label: "Get a push notification",
+        value: "push",
+      },
+    ],
+  },
 }
+
+Using the `IdxTransaction` properties, show a challenge page displaying a one-time password input field. The sample app constructs this page using [Mustache](https://mustache.github.io/) template.
+
+```xml
+<div class="field">
+  <div class="ui labeled input">
+    <div class="ui label">
+      Enter Code
+    </div>
+    {{#input}}
+      <input id="authenticator-code-input" type="{{type}}" name="{{name}}" autoComplete="off" required />
+    {{/input}}
+  </div>
+</div>
+<button id="submit-button" class="ui fluid large primary submit button" type="submit">
+  Verify
+</button>
 ```
 
-### 5: Get credential and create cryptographic signature
-
-Call the Web Authentication API's `navigator.credentials.get()` in the client browser and pass in the `CredentialRequestOptions` object created in the previous step.
-
-```javascript
-              const credential = await navigator.credentials.get(options);
-```
-
-This call initiates the following steps:
-
-1. The authenticator looks up the information stored for the credential id and checks that the domain name matches the one that was used during enrollment.
-
-1. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
+UI showing the one-time password input field.
 
 <div class="common-image-format">
 
-![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
+![Google Authenticator input field in UI](/img/authenticators/authenticators-google-challenge-password.png)
 
 </div>
 
-1. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential`, which contains this signature.
+### 3: Get one-time password from Google authenticator
 
-```json
-{
-"id": "Aa9rTddZCalI...",
-"rawId": ..,
-"response" : {
-  "authenticatorData" : Binary data ... ,
-  "clientDataJSON": Binary data ... ,
-  "signature": Binary data ... ,
-  "userHandle": Binary data ... ,
-"type": "public-key"
-}
-```
+Next, the user opens Google authenticator on their mobile device and finds their one-time password for their account.
 
-### 6: Build parameter for sending the signature to Okta
+<div class="common-image-format">
 
-The returned `PublicKeyCredential` object contains binary formatted data that needs to get converted to a string before being sent back to the Okta servers. Call `OktaAuth.webauthn.getAssertion()` to retrieve a string formatted object of the information required to verify the user.
+![Challenge google authenticator UI](/img/authenticators/authenticators-google-one-time-password-fetch.png)
+
+</div>
+
+### 4: Submit one-time password in your app
+
+When the user enters and submits this one-time password, call `OktaAuth.idx.proceed()` passing in the password.
 
 ```javascript
-const res = OktaAuth.webauthn.getAssertion(credential);
-```
-
-The returned assertion object looks as follows:
-
-```json
-{
-    "id": "Aa6yUSWzI1uqaAf0beVx...",
-    "clientData": "eyJ0eXBlIjoid2ViYXV0aG4...",
-    "authenticatorData": "SZYN5YgOjGh0NBcPZ...",
-    "signatureData": "MEYCIQCja1jQB+J2D4oM..."
-}
-```
-
-### 7: Forward signature to Okta
-
-Send the values of the assertion object's `clientData`, `authenticatorData`, and 'signatureData` properties back to the server. The sample app assigns these values in elements within the page.
-
-```javascript
-document.getElementById('credentials-clientData').value = res.clientData;
-document.getElementById('credentials-authenticatorData').value = res.authenticatorData;
-document.getElementById('credentials-signatureData').value = res.signatureData;
-```
-
-On the server, extract these elements from the page and pass the values to `OktaAuth.idx.proceed()` to have the server validate the signature
-corresponds to the challenge and public key.
-
-``` javascript
-const transaction = await authClient.idx.proceed({
-  clientData,
-  authenticatorData,
-  signatureData
-});
+  const { verificationCode } = req.body;
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.proceed({ verificationCode });
+  handleTransaction({ req, res, next, authClient, transaction });
 ```
 
 Depending on how the org is configured, the returned `IdxTransaction` object can either return a status of `PENDING` or `SUCCESS` with access and ID tokens.
+
+
+------- OLD
+
+### 2: Display Okta Verify option
+
+If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with Okta Verify in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Okta Verify is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
+
+```json
+{
+  status: "PENDING",
+  nextStep: {
+    name: "select-authenticator-enroll",
+    inputs: [
+      {
+        name: "authenticator",
+        key: "string",
+      },
+    ],
+    options: [
+      {
+        label: "Okta Verify",
+        value: "okta_verify",
+      }
+    ],
+  },
+```
+
+Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
+
+```xml
+  <select id="authenticator-options" class="ui selection dropdown" name="authenticator">
+    {{#options}}
+      <option value="{{value}}">{{label}}</option>
+    {{/options}}
+  </select>
+```
+
+UI showing the Okta Verify authenticator option:
+
+<div class="common-image-format">
+
+![Okta Verify option shown in UI](/img/authenticators/authenticators-oktaverify-dropdown-selection.png)
+
+</div>
+
+### 3: Submit Okta Verify option
+
+When the user selects and submits the Okta Verify option, call `OktaAuth.idx.proceed()` passing in the `okta_verify` value from `IdxOption.value`.
+
+```javascript
+    const transaction = await authClient.idx.proceed({ authenticator });
+    handleTransaction({ req, res, next, authClient, transaction });
+```
+
+### 4: Display QR Code
+
+Next, using the response from `OktaAuth.idx.proceed()`, display the QR Code so the user can scan it on their mobile device using Okta Verify.
+
+#### IdxTransaction response
+
+An example `IdxTransaction` response follows:
+
+```json
+{
+  status: "PENDING",
+  nextStep: {
+    name: "enroll-poll",
+    inputs: [
+    ],
+    authenticator: {
+      contextualData: {
+        qrcode: {
+          method: "embedded",
+          href: "data:image/png;base64,iVBORw0...",
+          type: "image/png",
+        },
+        selectedChannel: "qrcode",
+      },
+      key: "okta_verify",
+      displayName: "Okta Verify",
+    },
+    poll: {
+      required: true,
+      refresh: 4000,
+    },
+  },
+}
+```
+
+```json
+{
+  status: "PENDING",
+  nextStep: {
+    name: "authenticator-verification-data",
+    type: "app",
+    authenticator: {
+      displayName: "Okta Verify",
+      methods: [
+        {
+          type: "push",
+        },
+        {
+          type: "totp",
+        },
+      ],
+    },
+    options: [
+      {
+        label: "Enter a code",
+        value: "totp",
+      },
+      {
+        label: "Get a push notification",
+        value: "push",
+      },
+    ],
+  },
+}
+```
+
+The following table describes the most important `IdxTransaction` properities for this step:
+
+| Property       | Example value | Description                                       |
+|----------------|---------------------------------------------------|---------------------------------------------------|
+| `IdxTransaction.status` | `PENDING`  | Status of transaction. A value of `PENDING` at this step indicates Okta is waiting for the user to complete the Okta Verify setup.|
+| `IdxTransaction.nextStep.name` | `enroll-poll` | Name of the next step in the sign-in. A value of `enroll-poll` indicates the app should show the QR Code and poll Okta to determine when the user has completed the Okta Verify setup.  |
+| `IdxTransaction.nextStep.authenticator.contextualData.qrcode.href` | "data:image/png;base64,..." | The QR code base64 encoded PNG image.
+
+A `IdxTransaction.status` value of `PENDING` and `IdxTransaction.nextStep.name` value of `enroll-poll` signifies that Okta is waiting for the user to add the new account to Okta Verify.  At this time, your app should start polling to determine when the user has completed the Okta Verify account setup.
+
+#### Render the QR Code
+
+The following [Mustache](https://mustache.github.io/) template snippet shows how the sample app displays the QR code.
+
+```html
+<div class="ui segment">
+    <div class="ui fluid image">
+      <img id="authenticator-qr-code" src="{{contextualData.qrcode.href}}" />
+    </div>
+</div>
+```
+
+#### Display page with QR code
+
+Display a page showing the QR code to the user. Example page from the sample app shown follows:
+
+<div class="common-image-format">
+
+![Okta Verify option shown in UI](/img/authenticators/authenticators-oktaverify-enroll-qr-code.png)
+
+</div>
+
+### 6: Poll until user completes Okta Verify account setup
+
+While the QR code is displayed, repeatedly call `OktaAuth.idx.poll()` to determine when the user has completed the Okta Verify account setup. The call looks like the following:
+
+```javascript
+const authClient = getAuthClient(req);
+const transaction = await authClient.idx.poll();
+handleTransactionWithoutRedirect({ req, res, authClient, transaction });
+```
+
+Continue the poll while `IdxTransaction.status` equals `PENDING` and `IdxTransaction.nextStep.name` equals `enroll-poll`. Example `IdxTransaction` follows:
+
+```json
+{
+  status: "PENDING",
+  nextStep: {
+    name: "enroll-poll",
+    inputs: [
+    ],
+    authenticator: {
+      contextualData: {
+        qrcode: {
+          method: "embedded",
+          href: "data:image/png;base64,iVBORw0KGgoAA...",
+          type: "image/png",
+        },
+        selectedChannel: "qrcode",
+      }
+      ...
+    },
+    poll: {
+      required: true,
+      refresh: 4000,
+    },
+  },
+}
+```
+
+#### Example client-side polling logic
+
+The sample application implements this polling by repeatedly calling the server using client-side javascript. The poll uses a call interval pulled from the `IdxTransaction.nextStep.refresh` value. The polling logic is as follows:
+
+```javascript
+poll('/poll-authenticator/okta_verify?state=86b19cae436da12fbc334060ac00bcac', 4000);
+
+function poll(url, refresh) {
+  setTimeout(function () {
+    fetch(url, {
+      method: 'POST'
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.error('Poll request failed: ', response.statusText);
+      }
+    })
+    .then(nextStep => {
+      if (nextStep.poll) {
+        poll(url, nextStep.poll.refresh);
+      } else {
+        window.location.href = nextStep.nextRoute;
+      }
+    });
+  }, refresh);
+}
+```
+
+### 7: Install and open Okta Verify
+
+Next, the user installs Okta Verify (if not already installed on their device) and opens the app. To learn how to install and use the Okta Verify app, go to the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
+
+### 8: Scan QR Code
+
+Once Okta Verify is installed and opened, the user adds the account in the app by scanning the QR code on the screen using the device's camera. After the user scans the QR code and completes adding the account, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to "enroll-poll". Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps.
+
+#### Example scenarios and responses
+
+Example scenarios which results in exiting the polling are as follows:
+
+* The user completes the OKta Verify setup and additional optional authenticators return. An example `IdxTransaction` response object of this scenario follows:
+
+```json
+{
+  status: "PENDING",
+  nextStep: {
+    name: "select-authenticator-enroll",
+    options: [
+      {
+        label: "Email",
+        value: "okta_email",
+      },
+      ...
+    ],
+    canSkip: true,
+  },
+}
+```
+
+* The user completes the Okta Verify setup, no additional authenticators return, and the sign-in is successful with returned tokens. An example `IdxTransaction` response object of this scenario follows:
+
+```json
+{
+  status: "SUCCESS",
+  tokens: {
+    accessToken: {
+      accessToken: "eyJraWQiOiJTaj...",
+      claims: {
+        ...
+      },
+      scopes: [
+        ..
+      ],
+    },
+    idToken: {
+      idToken: "eyJraWQiOiJTajV3c...",
+      claims: {
+       ...
+      },
+    },
+  },
+  interactionCode: "9Ov5tpWNYHGaGvXALFpot...",
+}
+```
+
+* The user doesn't set up their account on Okta verify fast enough, and the sign terminates. An example `IdxTransaction` response object of this scenario follows:
+
+```json
+{
+  status: "TERMINAL",
+  ...
+}
+```
+
+### 8: Complete successful sign in
+
+After the user completes the Okta Verify account setup and any additional sign-in steps, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens.
 -->

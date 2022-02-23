@@ -262,4 +262,4 @@ Example scenarios which results in exiting the polling are as follows:
 
 ### 8: Complete successful sign in
 
-After the user completes the Okta Verify account setup and any additional sign-in steps, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens.
+After the user completes the Okta Verify account setup and any additional sign-in steps, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed in user.
