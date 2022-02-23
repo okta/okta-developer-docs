@@ -3,7 +3,6 @@ title: Embedded Okta Sign-In Widget fundamentals
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 This guide explains authentication fundamentals using JavaScript and the embedded Okta Sign-In Widget, and provides a simple one-page SPA application to demonstrate a sign-in use case.
 
@@ -32,7 +31,7 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 Okta uses the Widget as part of its normal sign-in page. If you would like to fully customize the Widget, then you need to host it yourself. This guide walks you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#sign-in-widget-use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email)
+A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email).
 
 <img src="/img/okta-sign-in-javascript.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
