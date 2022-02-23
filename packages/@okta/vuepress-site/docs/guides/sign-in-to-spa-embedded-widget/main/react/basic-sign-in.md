@@ -52,7 +52,7 @@ Create a protected route that is only available to users with a valid `accessTok
 
 In this `/protected` component example, a `src/Protected.jsx` file is created to show a basic protected page:
 
-```js
+```jsx
 import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
