@@ -13,7 +13,7 @@ To create the default `/` page, edit the `src/Home.jsx` file to provide links to
 
 You need to provide a `Login` link to render the Sign-In Widget, a `Logout` link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` object (see [`authStateManager` in the Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)). The [`useOktaAuth()` method is a React hook](https://github.com/okta/okta-react#useoktaauth) that returns an object containing the `authState` and the `oktaAuth` instance. This hook triggers the page to rerender whenever `authState` is updated.
 
-```js
+```jsx
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
