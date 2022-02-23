@@ -140,7 +140,7 @@ Update `src/App.jsx` to include your project components and routes. The `<Securi
 
 > **Note:** This example uses the `react-router-dom` version 5.x module for the `useHistory` and `Route` objects.
 
-```js
+```jsx
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
