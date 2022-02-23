@@ -203,65 +203,79 @@ You can list all supported email templates (**List email templates** in Postman)
 
 This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template resources](#/docs/reference/api/brands/#email-template).
 
-#### Get email template
+#### Get an email template
 
-You can fetch a specific email template corresponding to `templateName`.
+You can fetch a specific email template corresponding to `templateName` (**Get email template** in Postman).
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
 
-This operation returns the requested [email template](#cutsomize-email-notifications) resource.
+This operation returns the requested [email template](/docs/reference/api/brands/#email-template) resource.
 
-#### Get email template default content
+#### Get the default content of an email template
 
-You can fetch the default content of a specific email template.
+You can fetch the default content of a specific email template (**Get email template default content** in Postman).
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
 
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource for the specified template.
 
+#### Preview the default content of an email template
 
+You can fetch a preview of the default content of a specific email template (**Preview email template default content** in Postman).
 
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content/preview" />
 
-#### Preview email template default content
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
 
-Fetches a preview of an email template's default content
+#### Send a test email
 
-#### Preview email template default content
+You can send a test email (**Send test email** in Postman).
 
-Fetches a preview of an email template's default content
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/test" />
 
+The following priorities determine the content of the test email:
 
+- The email customization for the language specified in the `language` query parameter
+- The default customization of the email template
+- The default content of the email template, translated to the current user's language
 
-#### Send test email
-
-Sends a test email
-
-
+On success, this operation returns a `204 No Content` message.
 
 #### List email customizations
 
-Lists all customizations for an email template
+You can list all customizations for a specific email template (**List email customizations** in Postman).
 
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email customization](/docs/reference/api/brands/#email-customization) resources.
 
 #### Create email customizations
 
-Creates a new email customization
+You can create a new email customization (**Create email customization** in Postman).
 
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
+The request body needs an [email customization](#email-customization) resource. The operation returns the created email customization.
 
-#### Delete all email customizations
+> **Note:** If this is the first customization being created for the email template, `isDefault` is set to `true`.
 
-Deletes all customizations made to a specific email template
+#### Delete the customizations of an email template
 
+You can delete all customizations made to a specific email template (**Delete all email customizations** in Postman).
 
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-#### Get email customization
+On success, this operation returns a `204 No Content` message.
 
-Fetches an email customization
+#### Get an email customization
 
+You can fetch a specific email customization (**Get email customization** in Postman).
 
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-#### Update email customization
+This operation returns the requested [email customization](/docs/reference/api/brands/#email-customization) resource.
+
+#### Update an email customization
 
 Updates an email customization
 
