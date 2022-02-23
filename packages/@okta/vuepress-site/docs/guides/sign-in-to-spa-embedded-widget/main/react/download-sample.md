@@ -9,16 +9,10 @@ cd okta-app
 
 ### Install dependencies
 
-Add the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) library to your React app. You can install it by using `npm` from your root app directory:
+Add the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) and the [latest version of the Okta Auth JS SDK](https://github.com/okta/okta-auth-js/releases) libraries to your React app. You can install them by using `npm` from your root app directory:
 
 ```bash
-npm install @okta/okta-signin-widget@latest
-```
-
-You also need the [latest version of the Okta Auth JS SDK](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) for widget dependency:
-
-```bash
-npm install @okta/okta-auth-js@latest
+npm install @okta/okta-signin-widget@latest @okta/okta-auth-js@latest
 ```
 
 Then install the [latest version of the Okta React SDK](https://github.com/okta/okta-react/releases) (`@okta/okta-react`) and `react-router-dom` to manage the routes:
