@@ -136,7 +136,7 @@ The [Okta React SDK](https://github.com/okta/okta-react) provides the [`LoginCal
 
 ### Connect the routes
 
-Update `src/App.jsx` to include your project components and routes. The `Security` component controls the authentication flows, so it requires your OpenID Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign-in page when the user isn't authenticated. In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead.
+Update `src/App.jsx` to include your project components and routes. The `<Security>` component controls the authentication flows, so it requires your OpenID Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign-in page when the user isn't authenticated. In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead.
 
 > **Note:** This example uses the `react-router-dom` version 5.x module for the `useHistory` and `Route` objects.
 
