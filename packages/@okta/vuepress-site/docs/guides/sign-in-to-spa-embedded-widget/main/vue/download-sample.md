@@ -25,7 +25,7 @@ Add the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta
 npm install @okta/okta-signin-widget@latest
 ```
 
-You also need the [latest version of the Okta Vue.js SDK](https://github.com/okta/okta-vue/releases)(`@okta/okta-vue`) for route protection and the [latest version of the Okta Auth JS SDK](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) for Widget dependencies:
+You also need the [latest version of the Okta Vue.js SDK](https://github.com/okta/okta-vue/releases)(`@okta/okta-vue`) for route protection and the [latest version of the Okta Auth JS SDK](https://github.com/okta/okta-auth-js/releases) (`@okta/okta-auth-js`) for widget dependencies:
 
 ```bash
 npm install @okta/okta-vue@latest

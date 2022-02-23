@@ -12,7 +12,7 @@ If you don't have an existing Vue.js app, you can [create a new basic Vue.js app
 Integrate the Sign-In Widget to your Vue.js app to add Okta authentication with the following steps:
 
  1. [Install dependencies](#install-dependencies): Install Okta libraries for your integration.
- 2. [Load the Sign-In Widget](#load-the-sign-in-widget): Create the Sign-In Widget instance and a wrapper for the Widget to be rendered as a Vue.js component.
+ 2. [Load the Sign-In Widget](#load-the-sign-in-widget): Create the Sign-In Widget instance and a wrapper for the widget to be rendered as a Vue.js component.
  3. [Create routes](#create-routes): Create the routes for your app.
  4. [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
  5. When you are done integrating the Sign-In Widget to your Vue.js app, [start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).

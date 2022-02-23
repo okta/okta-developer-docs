@@ -4,10 +4,10 @@ Use the required [configuration settings](#okta-org-app-integration-configuratio
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
-* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the embedded Widget.
-* `pkce`: Set this option to `true` to enable PKCE in the Widget. This is used for SPA apps that use the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
+* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the widget for embedded authentication.
+* `pkce`: Set this option to `true` to enable PKCE in the widget. This is used for SPA apps that use the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
-* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
+* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and the URI host must be in the **Trusted Origins** list.
 
 You can create a `src/config.js` file to define your configuration settings. For example:
 
