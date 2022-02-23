@@ -103,7 +103,7 @@ This route hosts the Sign-In Widget and redirects the user to the default home p
 
 For example, create a `src/Login.jsx` file with the Login route component:
 
-```js
+```jsx
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import OktaSignInWidget from './OktaSignInWidget';
