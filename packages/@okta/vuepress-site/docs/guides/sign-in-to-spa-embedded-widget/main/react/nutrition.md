@@ -19,6 +19,6 @@ This guide walks you through how to build a password-only sign-in flow React app
 
 **Sample code**
 
-* [Embedded React sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-react/tree/master/custom-login) &mdash; See [Run the sample React app](#run-the-sample-react-app).
+* [Embedded React sample app with the Okta Sign-In Widget](https://github.com/okta/samples-js-react/tree/master/custom-login) &mdash; See [Run the sample React app](#run-the-sample-application).
 
 ---
