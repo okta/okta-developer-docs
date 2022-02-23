@@ -132,7 +132,7 @@ export default Login;
 
 #### Callback route
 
-The [Okta React SDK](https://github.com/okta/okta-react) provides the [LoginCallback](https://github.com/okta/okta-react#logincallback) component for the callback route. It handles token parsing, token storage, and redirects the user to the `/` path. If a `SecureRoute` triggered the redirect, then the callback is directed to the secured route. See how the callback route component is called from the route definition file (`src/App.jsx`) in the [Connect the routes](#connect-the-routes) section.
+The [Okta React SDK](https://github.com/okta/okta-react) provides the [`LoginCallback`](https://github.com/okta/okta-react#logincallback) component for the callback route. It handles token parsing, token storage, and redirects the user to the `/` path. If a `<SecureRoute>` triggered the redirect, then the callback is directed to the secured route. See how the callback route component is called from the route definition file (`src/App.jsx`) in the [Connect the routes](#connect-the-routes) section.
 
 ### Connect the routes
 
