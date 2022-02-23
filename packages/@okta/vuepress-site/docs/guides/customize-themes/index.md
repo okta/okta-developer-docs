@@ -225,33 +225,49 @@ Fetches a preview of an email template's default content
 
 #### Send test email
 
+Sends a test email
+
 
 
 #### List email customizations
+
+Lists all customizations for an email template
 
 
 
 #### Create email customizations
 
+Creates a new email customization
+
 
 
 #### Delete all email customizations
+
+Deletes all customizations made to a specific email template
 
 
 
 #### Get email customization
 
+Fetches an email customization
+
 
 
 #### Update email customization
+
+Updates an email customization
 
 
 
 #### Delete email customization
 
+Deletes an email customization
+
 
 
 #### Preview email customization
+
+Fetches a preview of an email customization
 
 
 
