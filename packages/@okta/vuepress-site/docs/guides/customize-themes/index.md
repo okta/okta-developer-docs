@@ -150,7 +150,7 @@ You can also delete these assets using the following requests (**Delete logo**, 
 
 ## Customize email notifications
 
-Okta provides many customizable email templates. For example, the `welcome` email template allows users to activate their account. Each template has default content that is translated into any one of the [supported languages](#supported-languages).
+Okta provides many customizable **email templates**. For example, the `welcome` email template allows users to activate their account. Each template has **default content** that is translated into any one of the [supported languages](#supported-languages).
 
 The following constraints apply to email customizations:
 
@@ -197,19 +197,27 @@ Email customizations can be created for the following languages. Language values
 
 #### List email templates
 
-Lists all supported email templates
+You can list all supported email templates (**List email templates** in Postman):
 
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
 
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template resources](#/docs/reference/api/brands/#email-template).
 
 #### Get email template
 
-Fetches the email template named `templateName`
+You can fetch a specific email template corresponding to `templateName`.
 
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
 
+This operation returns the requested [email template](#cutsomize-email-notifications) resource.
 
 #### Get email template default content
 
-Fetches an email template's default content
+You can fetch the default content of a specific email template.
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
+
+
 
 
 
