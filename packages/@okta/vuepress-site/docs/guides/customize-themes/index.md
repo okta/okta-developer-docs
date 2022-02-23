@@ -150,7 +150,110 @@ You can also delete these assets using the following requests (**Delete logo**, 
 
 ## Customize email notifications
 
-### 
+Okta provides many customizable email templates. For example, the `welcome` email template allows users to activate their account. Each template has default content that is translated into any one of the [supported languages](#supported-languages).
+
+The following constraints apply to email customizations:
+
+- If an email template has any customizations, one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
+- Each email template can have only one customization for each [supported language](#supported-languages).
+
+### Supported languages
+
+Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
+
+| Language               | BCP 47 Language Tag |
+| ---------------------- | ------------------- |
+| Czech                  | `cs`                |
+| Danish                 | `da`                |
+| German                 | `de`                |
+| Greek                  | `el`                |
+| English                | `en`                |
+| Spanish                | `es`                |
+| Finnish                | `fi`                |
+| French                 | `fr`                |
+| Hungarian              | `hu`                |
+| Indonesian             | `id`                |
+| Italian                | `it`                |
+| Japanese               | `ja`                |
+| Korean                 | `ko`                |
+| Malaysian              | `ms`                |
+| Norwegian              | `nb`                |
+| Dutch                  | `nl-NL`             |
+| Polish                 | `pl`                |
+| Portuguese             | `pt-BR`             |
+| Romanian               | `ro`                |
+| Russian                | `ru`                |
+| Swedish                | `sv`                |
+| Thai                   | `th`                |
+| Turkish                | `tr`                |
+| Ukrainian              | `uk`                |
+| Vietnamese             | `vi`                |
+| Chinese (Simplified)   | `zh-CN`             |
+| Chinese (Traditional)  | `zh-TW`             |
+
+### Email template operations
+
+#### List email templates
+
+Lists all supported email templates
+
+
+
+#### Get email template
+
+Fetches the email template named `templateName`
+
+
+
+#### Get email template default content
+
+Fetches an email template's default content
+
+
+
+#### Preview email template default content
+
+Fetches a preview of an email template's default content
+
+#### Preview email template default content
+
+
+
+#### Send test email
+
+
+
+#### List email customizations
+
+
+
+#### Create email customizations
+
+
+
+#### Delete all email customizations
+
+
+
+#### Get email customization
+
+
+
+#### Update email customization
+
+
+
+#### Delete email customization
+
+
+
+#### Preview email customization
+
+
+
+### Email template resources
+
+
 
 ## See also
 

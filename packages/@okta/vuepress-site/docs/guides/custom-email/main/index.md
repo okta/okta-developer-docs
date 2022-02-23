@@ -71,7 +71,6 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 * When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
-
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Choose an email template that you've customized. The default language version appears in the **Custom Email** table.
 1. Click **Add Translation**, and then select a language from the drop-down box. If the **Add Translation** button isn't available, this template hasn't been customized. See [Edit a default email template](#edit-a-default-email-template]).
@@ -84,7 +83,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 ### Velocity Templating Language
 
-Velocity Templating Language (VTL) allows you to customize your org's email templates so that you can use:
+[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/1.7/user-guide.html) allows you to customize your org's email templates so that you can use:
 
 - enhanced conditional logic
 - all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
@@ -138,7 +137,7 @@ You can also reference these org-level attributes, such as:
 
 ## Use app context
 
-Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
+Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
 * `$app.id`
 * `$app.name`
@@ -148,7 +147,7 @@ When these properties are used with conditional logic, you can trigger branding 
 
 ### Support for conditional logic
 
-All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
+All conditional logic that is supported by VTL, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
 ### Example of using app context to brand an email
 
