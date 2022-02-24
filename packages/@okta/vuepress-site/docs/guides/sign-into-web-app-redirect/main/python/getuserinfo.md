@@ -20,7 +20,7 @@ Add a new file called `templates/profile.html` and add the following code to it:
 </html>
 ```
 
-You need to define a custom user model. Create a `user.py` file in the root of your main app folder, and add the following code to it:
+You need to define a custom user model. Create a `user.py` file in the root of your main app folder and add the following code to it:
 
 ```py
 from flask_login import UserMixin
@@ -50,7 +50,7 @@ class User(UserMixin):
     def create(user_id, name, email):
             USERS_DB[user_id] = User(user_id, name, email)
 
-``` 
+```
 
 Import the user model into the `app.py` file by adding the following code:
 

@@ -16,6 +16,7 @@ app.post('/logout', (req, res) => {
   res.redirect('/');
 });
 ```
+
 Add the following to your `routes/index.js` file to pass on the `authenticated` variable:
 
 ```js
@@ -24,7 +25,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-Add buttons to support sign-in and sign-out to the `views/layout.pug` file. Display either the sign-in or sign-out button based on the current authenticated state.
+Add buttons to support sign-in and sign-out flows to the `views/layout.pug` file. Display either the sign-in or sign-out button based on the current authenticated state.
 
 ```pug
   if authenticated

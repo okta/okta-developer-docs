@@ -2,4 +2,4 @@ Create a sample app using the Okta Spring Boot starter and Spring Initializr. Na
 
 > **Note**: This guide uses Spring Boot 2.6.3.
 
-> **Note**: If you're using the Okta CLI, you can also run `okta start spring-boot` to create an app. This command creates an OIDC app in Okta, downloads the [okta-spring-boot-sample](https://github.com/okta-samples/okta-spring-boot-sample), and configures it to work with the OIDC app. This quickstart uses the basic starter app instead, as it is easier to understand the Okta-specific additions if you work through them yourself.
+> **Note**: If you're using the Okta CLI, you can also run `okta start spring-boot` to create an app. This command creates an OIDC app in Okta, downloads the [okta-spring-boot-sample](https://github.com/okta-samples/okta-spring-boot-sample), and configures it to work with the OIDC app. This quickstart uses the basic starter app instead, as it's easier to understand the Okta-specific additions if you work through them yourself.

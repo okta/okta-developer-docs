@@ -5,7 +5,7 @@ excerpt: Quickly integrate Okta into your app to get a taste of how we work.
 
 Quickly integrate Okta into your app with our step-by-step guides to get a taste of how we work.
 
-> **Note**: If you don't see your platform listed below, or are looking for other auth options, see our [Sign users in overview](#) (WILL EVENTUALLY BE /docs/guides/sign-in-overview/). 
+> **Note**: If you don't see your platform listed below, or are looking for other auth options, see our [Sign users in overview](#) (WILL EVENTUALLY BE /docs/guides/sign-in-overview/).
 
 ## Sign users in
 
@@ -47,7 +47,7 @@ A mobile or desktop app that runs natively on a device.
 
 ## Protect back-end API
 
-An API endpoint or service protected by Okta.
+An API endpoint or service that is protected by Okta.
 
 <Cards>
   <Card href="/docs/guides/protect-your-api/aspnetcore3/main/" headerImage="/img/homepage/stackselectors/dotnet.png">ASP.NET Core 3</Card>

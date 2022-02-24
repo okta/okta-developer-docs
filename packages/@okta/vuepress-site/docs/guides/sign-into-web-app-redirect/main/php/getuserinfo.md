@@ -1,4 +1,4 @@
-Since you requested the scopes "openid profile email", Okta will also return an ID token along with the access token. You can parse out the claims in the ID token to find the user's profile information.
+Since you requested the scopes `openid profile email`, Okta also returns an ID token along with the access token. You can parse out the claims in the ID token to find the user's profile information.
 
 Note that since the ID token was received by your app in response to exchanging the authorization code, it's okay to skip the normal checks you would need to do on an ID token that your app received in a redirect.
 

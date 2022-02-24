@@ -6,7 +6,7 @@ http
     request.antMatchers("/checkout/**").authenticated())
 ```
 
-Or, you might want to only allow a specific group to access a section of your site. You will need to configure a `groups` claim in your authorization server for this to work.
+Or, you might want to only allow a specific group to access a section of your site. You need to configure a `groups` claim in your authorization server for this to work.
 
 ```java
 http

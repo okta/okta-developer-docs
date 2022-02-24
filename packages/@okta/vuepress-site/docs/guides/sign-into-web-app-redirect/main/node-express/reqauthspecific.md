@@ -1,4 +1,4 @@
-Add middleware to your app that will protect a specific route, then add it to the specific routes you want to protect:
+Add middleware to your app that protects a specific route, then add it to the specific routes that you want to protect:
 
 ```js
 function ensureLoggedIn(req, res, next) {

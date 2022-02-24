@@ -1,12 +1,12 @@
 To sign a user in, your application must redirect the browser to the Okta-hosted sign-in page. You can do this when a user visits a protected route or when the user clicks a button to sign in.
 
-You can give the user a Sign In button or link to direct the user to your login route:
+You can give the user a Sign-In button or link to direct the user to your login route:
 
 ```html
 <a href="/login">Sign In</a>
 ```
 
-Your login handler will generate the link and redirect the user to Okta’s hosted sign-in page where they can authenticate:
+Your login handler generates the link and redirects the user to Okta’s hosted sign-in page where they can authenticate:
 
 ```py
 @app.route("/login")
@@ -29,7 +29,7 @@ def login():
     return redirect(request_uri)
 ```
 
-This will provide you with a code. You need to exchange this code for an access token and ID token.
+This provides you with a code. You need to exchange this code for an access token and ID token.
 
 ```py
 @app.route("/authorization-code/callback")
@@ -82,7 +82,7 @@ def callback():
     return redirect(url_for("profile"))
 ```
 
-Add the functionality to log users out.
+Add the functionality to sign users out.
 
 ```py
 @app.route("/logout", methods=["GET", "POST"])

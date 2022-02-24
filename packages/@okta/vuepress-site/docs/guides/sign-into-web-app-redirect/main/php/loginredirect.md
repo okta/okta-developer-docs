@@ -1,4 +1,4 @@
-1. Create a route for your app's home page that will render the link to start the OAuth flow, by adding the following code inside the `index.php` file, where the "TODO: define routes here" placeholder currently is:
+1. Create a route for your app's home page that renders the link to start the OAuth flow by adding the following code inside the `index.php` file, where the "TODO: define routes here" placeholder currently is:
 
 ```php
 switch($path) {
@@ -8,7 +8,7 @@ switch($path) {
 }
 ```
 
-2. Define the function `index()`, which will check if there is an access token in the session and display the sign in link if not. This can go somewhere near the bottom of `index.php`:
+2. Define the function `index()`, which checks if there is an access token in the session and displays the sign-in link, if not. This can go somewhere near the bottom of `index.php`:
 
 ```php
 function index() {
@@ -24,7 +24,7 @@ function index() {
 }
 ```
 
-3. When the user clicks the Log In link, they'll visit the `/login` route, which we need to define now. Add the following new case inside your `switch` statement:
+3. When the user clicks the Log In link, they visit the `/login` route, which we need to define now. Add the following new case inside your `switch` statement:
 
 ```php
   ...
@@ -34,7 +34,7 @@ function index() {
   ...
 ```
 
-4. Create the function `start_oauth_flow()`, which will kick off the OAuth authorization code flow and redirect the user to Okta. Again, this can go near the bottom of `index.php`:
+4. Create the function `start_oauth_flow()`, which kicks off the OAuth Authorization Ccode flow and redirects the user to Okta. Again, this can go near the bottom of `index.php`:
 
 ```php
   // Generate a random state parameter for CSRF security

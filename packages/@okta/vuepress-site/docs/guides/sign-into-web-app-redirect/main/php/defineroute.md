@@ -1,4 +1,4 @@
-After the user signs in to Okta, Okta will return them to the redirect URL and there will be an authorization code in the query string. Your app will then exchange that authorization code for an access token and optional refresh token and ID token.
+After the user signs in to Okta, Okta returns them to the redirect URL and there is an authorization code in the query string. Your app then exchanges that authorization code for an access token and optional refresh token and ID token.
 
 1. Inside your switch statement, define a new route equal to the redirect URL:
 
@@ -10,7 +10,7 @@ After the user signs in to Okta, Okta will return them to the redirect URL and t
   ...
 ```
 
-Below that, create the function `authorization_code_callback_handler`, which will be called when the user's browser visits that URL. In that function, you'll exchange the authorization code for tokens:
+Below that, create the function `authorization_code_callback_handler`, which is called when the user's browser visits that URL. In that function, you exchange the authorization code for tokens:
 
 ```php
 function authorization_code_callback_handler() {

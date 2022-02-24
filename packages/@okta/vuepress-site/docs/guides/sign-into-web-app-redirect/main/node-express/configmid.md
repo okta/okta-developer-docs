@@ -49,4 +49,4 @@ passport.deserializeUser((obj, next) => {
 });
 ```
 
-If you use `okta start express` to create an app, it'll have an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.
+If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.

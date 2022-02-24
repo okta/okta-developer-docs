@@ -6,8 +6,8 @@ export OKTA_OAUTH2_CLIENT_ID=${clientId}
 export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
 ```
 
-Run `source ~/.okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set` and rename the file to `okta.bat`, then execute it. 
+Run `source ~/.okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set`, rename the file to `okta.bat`, and then execute it.
 
-If you use `okta start spring-boot` to create an app, it'll have an `.okta.env` file in it that looks a bit different. That's because it's configured to use [spring-dotenv](https://github.com/paulschwarz/spring-dotenv) to load its configuration from this file.
+If you use `okta start spring-boot` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [spring-dotenv](https://github.com/paulschwarz/spring-dotenv) to load its configuration from this file.
 
 > **Note**: For other ways to configure the properties, see the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config).

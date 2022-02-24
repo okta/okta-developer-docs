@@ -6,6 +6,6 @@ export OKTA_OAUTH2_CLIENT_ID=${clientId}
 export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
 ```
 
-Run `source ~/.okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set` and rename the file to `okta.bat`, then execute it. 
+Run `source ~/.okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set` and rename the file to `okta.bat`, then execute it.
 
-If you use `okta start go-gin` to create an app, it'll have an `.okta.env` file in it that looks a bit different. That's because it's configured to use [godotenv](https://github.com/joho/godotenv) to load its configuration.
+If you use `okta start go-gin` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [godotenv](https://github.com/joho/godotenv) to load its configuration.

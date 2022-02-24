@@ -1,4 +1,4 @@
-To handle auth for all routes within a group, you can use some middleware or the `@before_request` decorator. We'll use the latter — add the following to your main `app.py` file:
+To handle auth for all routes within a group, you can use some middleware or the `@before_request` decorator. We use the `@before_request` decorator. Add the following to your main `app.py` file:
 
 ```py
 @app.before_request

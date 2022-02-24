@@ -6,7 +6,7 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-3. The code samples uses features from Java 11. [Configure Android Studio to use Java 11](https://developer.android.com/studio/intro/studio-config#jdk) and update `compileOptions.sourceCompatibility` and `compileOptions.targetCompatibility` in `app/build.gradle` to the following:
+3. The code samples use features from Java 11. [Configure Android Studio to use Java 11](https://developer.android.com/studio/intro/studio-config#jdk) and update `compileOptions.sourceCompatibility` and `compileOptions.targetCompatibility` in `app/build.gradle` to the following:
 
 ```gradle
 compileOptions {

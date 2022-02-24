@@ -4,7 +4,7 @@ Create a Sign in link to direct the user to your login route:
 <a href="/login">Sign in</a>
 ```
 
-Next, create a handler for the `/login` route that will redirect the user to the Okta hosted login page. In `server/init.go`:
+Next, create a handler for the `/login` route that redirects the user to the Okta-hosted sign-in page. In `server/init.go`:
 
 ```go
 router.GET("/login", LoginHandler)

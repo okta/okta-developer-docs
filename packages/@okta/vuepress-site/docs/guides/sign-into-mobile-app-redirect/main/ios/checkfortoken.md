@@ -1,4 +1,4 @@
-Check for an existing session in 2 steps. First, initialize the authorization state mananger, `authStateManager`, from a saved session. Then check if the access token is still valid by checking the expiry. The state manager session and it's associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
+Check for an existing session in two steps. First, initialize the authorization state manager (`authStateManager`) from a saved session. Then veriy that the access token is still valid by checking the expiry. The state manager session and its associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
 
 Update the `tokenExpired` utility function to check for token expiry:
 
@@ -15,7 +15,7 @@ func configureSDK() {
 }
 ```
 
-Then add this code to the end of `configureSDK` to initialize the state manager from a saved session, and to check if the token is still valid:
+Then add this code to the end of `configureSDK` to initialize the state manager from a saved session and to check if the token is still valid:
 
 ```swift
 func configureSDK () {

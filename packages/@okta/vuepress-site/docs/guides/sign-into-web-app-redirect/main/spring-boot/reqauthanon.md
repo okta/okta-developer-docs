@@ -3,6 +3,6 @@ You can allow anonymous access for specific URLs using Spring Security's `permit
 ```java
 http
   // ...
-  .authorizeHttpRequests(authorize -> authorize           
+  .authorizeHttpRequests(authorize -> authorize
     .mvcMatchers("/", "/about").permitAll()
 ```

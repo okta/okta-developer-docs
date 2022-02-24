@@ -1,4 +1,4 @@
-Add the following code to return the user’s info upon a successful log in: 
+Add the following code to return the user’s info upon a successful sign in flow:
 
 ```go
 func getProfileData(r *http.Request) (map[string]string, error) {
@@ -39,7 +39,7 @@ func getProfileData(r *http.Request) (map[string]string, error) {
 }
 ```
 
-This code can be used from a route handler. For example, you can use the below in `server/controller.go`:
+You can use this code from a route handler. For example, you can use the below in `server/controller.go`:
 
 ```go
 func IndexHandler(c *gin.Context) {

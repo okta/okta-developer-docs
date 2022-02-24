@@ -6,7 +6,7 @@ Launch Xcode and create a new iOS app project using SwiftUI for the interface an
 
 The main view implements all of the app functionality, including initializing the Okta SDK. Note that best practice for a full app uses a singleton to manage the interaction with the SDK.
 
-Text views display the current state and any requested information, such as the access token. The available buttons depend on the sign in state of the user. Update the imported modules and replace the `ContentView` `struct` with the following code:
+Text views display the current state and any requested information, such as the access token. The available buttons depend on the sign-in state of the user. Update the imported modules and replace the `ContentView` `struct` with the following code:
 
 ```swift
 import SwiftUI
@@ -123,9 +123,9 @@ struct ContentView: View {
 }
 ```
 
-The last four functions are utilities. You'll fill out `tokenExpired` later. The two variants of `showError` configure the content,s and then show an alert (the `showingError` state variable controls the presentation of the alert.)
+The last four functions are utilities. You fill out `tokenExpired` later. The two variants of `showError` configure the contents, and then show an alert (the `showingError` state variable controls the presentation of the alert.)
 
-The last one updates the status text, the info text, and the `signedIn` state variable which controls the buttons presented at the top of the UI.
+The last one updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
 
 #### Add an extension to find the root view
 

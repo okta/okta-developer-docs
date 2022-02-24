@@ -1,4 +1,4 @@
-You can use the `@login_required` decorator provided by the `flask_login` library to achieve this. Try out thye following in your `app.py` file:
+You can use the `@login_required` decorator provided by the `flask_login` library to achieve this. Try out the following in your `app.py` file:
 
 ```py
 @app.route("/profile")

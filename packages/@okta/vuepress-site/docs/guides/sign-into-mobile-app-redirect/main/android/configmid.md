@@ -1,4 +1,4 @@
-1. Create a file called `okta_oidc_config.json` in the `res/raw` folder of your app project and add the following content. 
+1. Create a file called `okta_oidc_config.json` in the `res/raw` folder of your app project and add the following content.
 
 ```json
 {
@@ -34,4 +34,4 @@ public class AuthClient {
 }
 ```
 
-> **Note:** The sample uses only the main application activity in order to keep things simple. We recommend that production apps follow the latest [Android architecture guidelines](https://developer.android.com/topic/architecture).
+> **Note:** The sample uses only the main application activity to keep things simple. We recommend that production apps follow the latest [Android architecture guidelines](https://developer.android.com/topic/architecture).

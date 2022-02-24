@@ -54,4 +54,4 @@ config = {
 }
 ```
 
-If you use `okta start flask` to create an app, it'll have an `.okta.env` file in it that looks a bit different. That's because it's configured to use [python-dotenv](https://github.com/theskumar/python-dotenv) to load its configuration.
+If you use `okta start flask` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [python-dotenv](https://github.com/theskumar/python-dotenv) to load its configuration.

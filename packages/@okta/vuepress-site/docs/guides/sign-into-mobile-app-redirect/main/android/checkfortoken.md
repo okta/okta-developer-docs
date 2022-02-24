@@ -13,9 +13,9 @@ if (sessionClient.isAuthenticated()) {
 }
 ```
 
-2. Check if an authorized user still has access by checking that the access token is still valid. There are two ways to do this.
+2. Verify that an authorized user still has access by checking that the access token is still valid. There are two ways to do this.
 
-The simplest is by checking the expiration date of the token. To do this, add the following code after confirming a user is still authenticated:
+The simplest way is by checking the expiration date of the token. To do this, add the following code after confirming that a user is still authenticated:
 
 ```java
 if (sessionClient.isAuthenticated()) {
@@ -30,7 +30,7 @@ if (sessionClient.isAuthenticated()) {
 }
 ```
 
-Another way is to use the [introspect](/docs/reference/api/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](/docs/reference/api/oidc/#response-properties-3) and you can use that information to check for token expiration:
+Another way is to use the [introspect](/docs/reference/api/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](/docs/reference/api/oidc/#response-properties-3), and you can use that information to check for token expiration:
 
 ```java
 sessionClient.introspectToken(sessionClient.getTokens().getRefreshToken(),

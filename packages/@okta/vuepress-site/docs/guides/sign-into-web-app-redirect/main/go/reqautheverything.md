@@ -1,4 +1,4 @@
-You can add a Gin middleware to handle this. For example, add the below in `server/middleware.go`:
+You can add a Gin middleware to handle this. For example, add the following in `server/middleware.go`:
 
 ```go
 func isAuthenticated(r *http.Request) bool {
@@ -40,7 +40,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 ```
 
-Now, define a router group and add all the routes that needs to be authenticated to this group
+Now, define a router group and add all the routes that need to be authenticated to this group:
 
 ```go
 // setup public routes
@@ -56,7 +56,7 @@ authorized.GET("/profile", ProfileHandler)
 authorized.GET("/another-route", RouteHandler)
 ```
 
-The `isAuthenticated()` method can also be used to check if a user is authenticated and show additional data like below:
+You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data like below:
 
 ```go
 func IndexHandler(c *gin.Context) {
