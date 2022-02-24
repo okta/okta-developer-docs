@@ -3,4 +3,10 @@
   .authorization-layout--content .auth0-banner {
     color: cv("text", "accent");
   }
+  &--content {
+    input[type="text"],
+    select {
+      color: cv("text", "accent");
+    }
+  }
 }
