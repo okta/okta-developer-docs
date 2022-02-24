@@ -19,6 +19,7 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
+ - embedded-siw
  - enable-cors
  - event-hook-hookdeck
  - event-hook-implementation
