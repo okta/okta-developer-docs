@@ -4,6 +4,8 @@ guides:
  - add-an-external-idp
  - archive-auth-js
  - archive-configure-signon-policy
+ - archive-embedded-siw
+ - archive-sign-in-to-spa-authjs
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - client-secret-rotation-key

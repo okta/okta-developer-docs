@@ -391,6 +391,22 @@ export const guides = [
             guideName: "archive-auth-js"
           },
           {
+            title: "Embedded Sign-In Widget fundamentals",
+            guideName: "archive-embedded-siw"
+          },
+          {
+            title: "Sign in to SPA with Auth JS",
+            guideName: "archive-sign-in-to-spa-authjs"
+          },
+          {
+            title: "Guide title",
+            guideName: "guide-name-here"
+          },
+          {
+            title: "Guide title",
+            guideName: "guide-name-here"
+          },
+          {
             title: "Guide title",
             guideName: "guide-name-here"
           }
