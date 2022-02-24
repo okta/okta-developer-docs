@@ -1,1 +1,1 @@
-* [Finished quickstart code example example](https://github.com/okta-samples/okta-vue-sample)
+[Finished quickstart code example](https://github.com/okta-samples/okta-vue-sample)
