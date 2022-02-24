@@ -1,4 +1,4 @@
-### Create routes
+### Create the routes
 
 Typically, an app contain routes that require authentication in order to render. Use the `<SecureRoute>` component from [Okta React SDK](https://github.com/okta/okta-react) to define authenticated routes for your app. The following are some basic routes that you need to configure for your app:
 
@@ -188,6 +188,22 @@ const App = () => {
 };
 
 export default App;
+```
+
+Rename the `src/index.js` file to `src/index.jsx` and edit the file to call the app within the React DOM.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root'),
+);
 ```
 
 ### Start your app
