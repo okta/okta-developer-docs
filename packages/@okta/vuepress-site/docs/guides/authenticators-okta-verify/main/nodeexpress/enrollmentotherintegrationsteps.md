@@ -1,7 +1,7 @@
 
 ### 1: Initiate the sign-in choose Okta Verify as the authenticator
 
-Follow the first three steps in [Integrate enrollment using QR Code](#integrate-enrollment-using-qr-code) that guides you through the sign-in and selection of the Okta verify Authenticator.
+First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authetnicator to enroll in. These steps are described in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment).
 
 ### 2: Display QR Code and option to select other channels
 

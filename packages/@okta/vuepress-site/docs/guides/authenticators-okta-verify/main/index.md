@@ -131,4 +131,8 @@ The following summarizes ...
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
 
+## Common steps
+
+<StackSnippet snippet="commonsteps" />
+
 </div>
