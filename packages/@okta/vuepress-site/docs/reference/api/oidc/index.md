@@ -1300,6 +1300,7 @@ The payload includes the following reserved claims:
 
 | Property | Description                                                                                                            | DataType |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------- |
+| auth_time| The time when the authentication occurred, represented in Unix time (seconds).                                         | Integer  |
 | cid      | Client ID of the client that requested the access token.                                                               | String   |
 | exp      | The time the access token expires, represented in Unix time (seconds).                                                 | Integer  |
 | iat      | The time the access token was issued, represented in Unix time (seconds).                                              | Integer  |
