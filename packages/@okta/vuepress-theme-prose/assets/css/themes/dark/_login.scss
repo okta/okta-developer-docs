@@ -5,7 +5,7 @@
         }
         .goto-signup,
         .splitter {
-            color: cv('header');
+            color: cv("body", "obscure");
         }
         .goto-signup a {
             color: cv('link', 'signup');

@@ -61,9 +61,6 @@
 }
 
 .oin {
-    &--leader p a.magentaLink {
-        color: cv('link', 'signup');
-    }
     &--bg,
     &--bg:last-of-type {
         background: cv('body') url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;

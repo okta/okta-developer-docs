@@ -9,18 +9,18 @@
     &--form {
         .goto-signin,
         .splitter {
-            color: cv('header');
+            color: cv("body", "obscure");
         }
         .goto-signin a {
             color: cv('link', 'signup');
         }
         .consent--section {
             &-text p {
-                color: cv('header');
+                color: cv("body", "obscure");
             }
             &-agree {
                 label {
-                    color: cv('header');
+                    color: cv("body", "obscure");
                 }
             }
             &-agree {

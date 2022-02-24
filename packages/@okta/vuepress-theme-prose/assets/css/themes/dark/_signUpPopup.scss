@@ -36,9 +36,9 @@
     p,
     .terms-conditions-btns,
     &-text {
-        color: cv('gray', '700') !important;
+        color: cv('body', 'obscure') !important;
     }
     a {
-        color: cv('blue', '500');
+        color: cv('link', 'signup');
     }
 }
