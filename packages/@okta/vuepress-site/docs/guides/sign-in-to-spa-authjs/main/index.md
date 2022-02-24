@@ -1,5 +1,7 @@
 ---
-title: Sign in to your SPA with the embedded Okta Sign-In Widget
+title: Sign in to your SPA with Auth JS
+excerpt: Learn how to add embedded authentication to your SPA app with Okta Auth JS.
+layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
@@ -8,7 +10,7 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 <StackSnippet snippet="nutrition" />
 
-## About using the Sign-In Widget with your SPA app
+## About using Okta Auth JS with your SPA app
 
 <StackSnippet snippet="intro" />
 
@@ -20,17 +22,11 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 <StackSnippet snippet="download-sample" />
 
-## Load the Sign-In Widget
-
-<StackSnippet snippet="load-app" />
-
 ## Basic sign-in flow
 
+<StackSnippet snippet="sign-in-form" />
+
 <StackSnippet snippet="basic-sign-in" />
-
-## Run the sample application
-
-<StackSnippet snippet="run-sample" />
 
 ## Next steps
 
