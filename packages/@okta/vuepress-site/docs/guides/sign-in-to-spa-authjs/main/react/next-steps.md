@@ -1,4 +1,4 @@
-After you've completed a basic-sign flow React app with a custom sign-in experience using the SDK, you can extend your app's sign-in experience by adding features such as multifactor or social IdP authentication.
+After you complete a basic-sign flow React app with a custom sign-in experience using the SDK, you can extend your app's sign-in experience by adding features such as multifactor or social IdP authentication.
 
 For further details on using the SDK to implement these features, see the [Okta Auth JS SDK Interaction Code reference](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
 

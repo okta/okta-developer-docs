@@ -19,9 +19,9 @@ Install the dependencies in the `okta-auth-js` folder:
 yarn install
 ```
 
-#### Add  a configuration file
+#### Add a configuration file
 
-Create and add a configuration file, `testenv`, to the `okta-auth-js` root folder, which contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
+Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
 
 ```txt
 ISSUER=https://${Okta-Domain}/oauth2/default

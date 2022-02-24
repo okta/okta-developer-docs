@@ -4,11 +4,11 @@ Insert vans diagram here
 
 ### Set up the Okta configuration settings
 
-Review the `src/config.js` file that references the required [configuration settings](#configuration-settings) to initialize your Okta Auth JS instance. The `config.js`file references the values you add to the `testenv` file.
+Review the `src/config.js` file that references the required [configuration settings](#configuration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values you add to the `testenv` file.
 
 ```JavaScript
 const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '{clientId}';
-const ISSUER = process.env.ISSUER || 'https://{yourOktaDomain}.com/oauth2/default';
+const ISSUER = process.env.ISSUER || 'https://{yourOktaDomain}/oauth2/default';
 const REDIRECT_URI = `${window.location.origin}/login/callback`;
 
 // eslint-disable-next-line import/no-anonymous-default-export
