@@ -1,18 +1,18 @@
 .Button {
     &--redOutline, 
     &--redOutline:active, 
-    &--redOutline:hover,
+    &--redOutline:hover, 
+    &--redOutline:visited,
     &--red, 
     &--red:active, 
-    &--red:hover,
+    &--red:hover 
+    &--red:visited,
     &--blueDarkOutline,
     &--blueDarkOutline:active, 
-    &--blueDarkOutline:hover {
+    &--blueDarkOutline:hover,
+    &--blueDarkOutline:visited {
+        color: cv('text');
         border-color: cv('text');
-    }
-    &--blueDarkOutline,
-    &--blueDarkOutline:active, 
-    &--blueDarkOutline:hover {
         background-color: cv("body", "obscure");
     }
 }

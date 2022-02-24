@@ -1,3 +1,21 @@
+.cm-s-neat {
+    span.cm-variable {
+    color: cv('text');
+    }
+    span.cm-comment {
+    color: cv('breadcrumb', 'svg')
+    }
+    span.cm-property {
+    color: cv('code', 'property')
+    }
+    span.cm-keyword {
+    color: cv('code', 'keyword')
+    }
+    span.cm-string {
+    color: cv('code', 'define')
+    }
+}
+
 .CodeMirror {
     color: cv('text');
     background-color: cv('code');

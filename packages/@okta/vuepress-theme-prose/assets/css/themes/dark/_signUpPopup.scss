@@ -1,44 +1,50 @@
 .marketing-c .gdpr-condition {
-    input[type="checkbox"] {
-        position: relative;
-        min-width: 1rem;
-        min-height: 1rem;
-        border: 1px solid cv('border', 'checkbox');
-        background-color: cv('white');
-        border-radius: 4px;
-        appearance: none;
-        outline: 0;
-        cursor: pointer;
-        &::before {
-            position: absolute;
-            content: '';
-            display: block;
-            top: 1px;
-            left: 5px;
-            width: 5px;
-            height: 10px;
-            border-style: solid;
-            border-color: cv('action');
-            border-width: 0 1px 1px 0;
-            transform: rotate(45deg);
-            opacity: 0;
-        }
-        &:checked {
-            &::before {
-                opacity: 1;
-            }
-        }
+  input[type="checkbox"] {
+    position: relative;
+    min-width: 1rem;
+    min-height: 1rem;
+    border: 1px solid cv("border", "checkbox");
+    background-color: cv("white");
+    border-radius: 4px;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 1px;
+      left: 5px;
+      width: 5px;
+      height: 10px;
+      border-style: solid;
+      border-color: cv("action");
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+      opacity: 0;
     }
+    &:checked {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .dialog {
-    &--header,
-    p,
-    .terms-conditions-btns,
-    &-text {
-        color: cv('body', 'obscure') !important;
-    }
-    a {
-        color: cv('link', 'signup');
-    }
+  &--header,
+  p,
+  .terms-conditions-btns,
+  &-text {
+    color: cv("body", "obscure") !important;
+  }
+  a {
+    color: cv("link", "signup");
+  }
+  .tac-row {
+    color: cv("text", "accent");
+  }
+  input[value="Continue"] {
+    border: none;
+  }
 }
