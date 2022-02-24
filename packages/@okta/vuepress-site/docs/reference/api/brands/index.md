@@ -2061,11 +2061,6 @@ HTTP/1.1 200 OK
 ```json
 {
     "body": "<!DOCTYPE html><html>...</html>",
-    "created": "2022-01-27T00:23:48.000Z",
-    "id": "oel2kk1zYJBJbeaGo0g4",
-    "isDefault": false,
-    "language": "en",
-    "lastUpdated": "2022-01-27T00:23:48.000Z",
     "subject": "Welcome to Okta!",
     "_links": {
         "self": {
