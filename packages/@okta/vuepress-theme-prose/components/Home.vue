@@ -1,12 +1,23 @@
 <template>
   <div class="homepage content">
     <div class="content--container">
-       <div
-        class="sidebar-area" 
-      >
-        <Sidebar/>
-      </div> 
+      <div class="sidebar-area">
+        <Sidebar />
+      </div>
       <div class="width-adjuster">
+        <AnnouncementBanner>
+          <template v-slot:description>
+            <SmartLink :item="{ link: '/signup/' }"
+              >Developer sign ups</SmartLink
+            >
+            now utilize Okta Identity Engine beginning March 1st, 2022.
+            <SmartLink :item="{ link: '/docs/guides/oie-intro/' }"
+              >Click here</SmartLink
+            >
+            to learn more about how this impacts our developer experience &
+            documentation.
+          </template>
+        </AnnouncementBanner>
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
@@ -19,11 +30,12 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <h6>Auth for All</h6>
                   <p class="homepage--section-description">
-                    Quickly deploy auth that protects your apps,<br/> APIs, and infrastructure
+                    Quickly deploy auth that protects your apps,<br />
+                    APIs, and infrastructure
                   </p>
                 </div>
               </div>
-              
+
               <div class="row">
                 <div class="col-12 homepage--sub-heading">
                   <h2 class="homepage--color-main">
@@ -42,10 +54,10 @@
                 </div>
               </div>
             </div>
-            <div class="homepage--assurance-block-margin homepage--section-margins">
-              <div
-                class="row flex justify-content-around"
-              >
+            <div
+              class="homepage--assurance-block-margin homepage--section-margins"
+            >
+              <div class="row flex justify-content-around">
                 <div
                   class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
                   v-for="(assurance, index) in $page.frontmatter.assurances"
@@ -55,19 +67,24 @@
                 </div>
               </div>
             </div>
-            <div class="homepage--customize-your-app-margin homepage--section-margins">
-              <h2 class="homepage--main-heading homepage--color-main text-center">
+            <div
+              class="homepage--customize-your-app-margin homepage--section-margins"
+            >
+              <h2
+                class="homepage--main-heading homepage--color-main text-center"
+              >
                 Customize your sign-in
               </h2>
-              <div
-                class="flex align-items-center homepage--examples"
-              >
-                <div v-if="!pseudoAuthorizedCodeBlock" class="homepage--code-example">
+              <div class="flex align-items-center homepage--examples">
+                <div
+                  v-if="!pseudoAuthorizedCodeBlock"
+                  class="homepage--code-example"
+                >
                   <div class="homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
                   </div>
                 </div>
-                
+
                 <div v-if="!pseudoAuthorized" class="homepage--live-widget">
                   <FrontPageWidget @authLeia="togglePseudoAuth" />
                 </div>
@@ -80,9 +97,32 @@
                       class="homepage--welcome-leia--close"
                       @click="togglePseudoAuth"
                     >
-                      <svg class="close-icon" stroke="#00297A" stroke-width="2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 79.2 79.2" width="32">
-                        <line stroke-width="5" class="st1" x1="23.3" y1="55.9" x2="55.9" y2="23.3"></line>
-                        <line stroke-width="5" class="st1" x1="23.3" y1="23.3" x2="55.9" y2="55.9"></line>
+                      <svg
+                        class="close-icon"
+                        stroke="#00297A"
+                        stroke-width="2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 79.2 79.2"
+                        width="32"
+                      >
+                        <line
+                          stroke-width="5"
+                          class="st1"
+                          x1="23.3"
+                          y1="55.9"
+                          x2="55.9"
+                          y2="23.3"
+                        ></line>
+                        <line
+                          stroke-width="5"
+                          class="st1"
+                          x1="23.3"
+                          y1="23.3"
+                          x2="55.9"
+                          y2="55.9"
+                        ></line>
                       </svg>
                     </div>
                     <div class="homepage--welcome-leia--header">
@@ -90,9 +130,9 @@
                     </div>
                     <div class="homepage--welcome-leia--info">
                       Okta makes authentication straightforward. Connect your
-                      apps, choose an identity provider (or use ours), add users,
-                      configure rules, customize your login page, and then gain
-                      insights from our built in reports.
+                      apps, choose an identity provider (or use ours), add
+                      users, configure rules, customize your login page, and
+                      then gain insights from our built in reports.
                     </div>
                     <div class="homepage--welcome-leia--actions">
                       <SmartLink
@@ -102,7 +142,9 @@
                         Sign up for Okta
                       </SmartLink>
                       <SmartLink
-                        :item="{ link: '/code/javascript/okta_sign-in_widget/' }"
+                        :item="{
+                          link: '/code/javascript/okta_sign-in_widget/'
+                        }"
                         classes="homepage--welcome-leia--actions--docs act-btn"
                       >
                         View widget docs
@@ -113,7 +155,9 @@
               </div>
             </div>
 
-            <div class="homepage--partners-block-margin homepage--section-margins">
+            <div
+              class="homepage--partners-block-margin homepage--section-margins"
+            >
               <CompanyLogos />
             </div>
           </div>
@@ -136,13 +180,13 @@ export default {
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
-    DeveloperDayBanner: () => import("../global-components/DeveloperDayBanner"),
+    AnnouncementBanner: () => import("../global-components/AnnouncementBanner")
   },
 
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false,
+      pseudoAuthorizedCodeBlock: false
     };
   },
   mounted() {
@@ -160,10 +204,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  },
+  }
 };
 </script>
