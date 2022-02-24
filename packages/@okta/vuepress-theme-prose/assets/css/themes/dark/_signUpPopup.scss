@@ -44,7 +44,7 @@
   .tac-row {
     color: cv("text", "accent");
   }
-  input[value="Continue"] {
+  .terms-conditions-btns .btn-container .btn:not(.social-btn) {
     border: none;
   }
 }
