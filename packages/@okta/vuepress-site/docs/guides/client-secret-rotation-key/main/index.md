@@ -109,7 +109,7 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
     > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
 
-3. Click **Done**. The new public key is now registered with the app and appears in a table in the **Public keys** section of the **General** tab.
+3. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
 4. Click **Save**. A message states that the client authentication method is changing to **Public key/Private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
@@ -131,7 +131,7 @@ To add more keys, deactivate a key, and delete a key, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 
-2. Select the OpenID Connect app that you want to manage keys for, and then click **Add** in the **Public Keys** section to add another public key.
+2. Select the OpenID Connect app that you want to manage keys for, and then click **Add** in the **PUBLIC KEYS** section to add another public key.
 
 3. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
 

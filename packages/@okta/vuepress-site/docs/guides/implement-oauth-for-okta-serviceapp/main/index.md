@@ -84,7 +84,7 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
      > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
 
-1. Click **Done**. The new public key is now registered with the app and appears in a table in the **Public keys** section of the **General** tab.
+1. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
 1. Click **Save**. A message states that the client authentication method changes to **Public key/Private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
