@@ -46,6 +46,44 @@ const Home = () => {
 export default Home;
 ```
 
+#### Login route
+
+This route hosts the Sign-In Widget and redirects the user to the default home page if the user is already signed in.
+
+For example, create a `src/Login.jsx` file with the Login route component:
+
+```jsx
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import OktaSignInWidget from './OktaSignInWidget';
+import { useOktaAuth } from '@okta/okta-react';
+
+const Login = ({ config }) => {
+  const { oktaAuth, authState } = useOktaAuth();
+  const onSuccess = (tokens) => {
+    oktaAuth.handleLoginRedirect(tokens);
+  };
+
+  const onError = (err) => {
+    console.log('Sign in error:', err);
+  };
+
+  if (!authState) {
+    return <div>Loading ... </div>;
+  }
+
+  return authState.isAuthenticated ?
+    <Redirect to={{ pathname: '/' }}/> :
+    <OktaSignInWidget config={config} onSuccess={onSuccess} onError={onError}/>;
+};
+
+export default Login;
+```
+
+#### Callback route
+
+The [Okta React SDK](https://github.com/okta/okta-react) provides the [`LoginCallback`](https://github.com/okta/okta-react#logincallback) component for the callback route. It handles token parsing, token storage, and redirects the user to the `/` path. If a `<SecureRoute>` triggered the redirect, then the callback is directed to the secured route. See how the callback route component is called from the route definition file (`src/App.jsx`) in the [Connect the routes](#connect-the-routes) section.
+
 #### Protected route
 
 Create a protected route that is only available to users with a valid `accessToken`.
@@ -96,44 +134,6 @@ const Protected = () => {
 
 export default Protected;
 ```
-
-#### Login route
-
-This route hosts the Sign-In Widget and redirects the user to the default home page if the user is already signed in.
-
-For example, create a `src/Login.jsx` file with the Login route component:
-
-```jsx
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import OktaSignInWidget from './OktaSignInWidget';
-import { useOktaAuth } from '@okta/okta-react';
-
-const Login = ({ config }) => {
-  const { oktaAuth, authState } = useOktaAuth();
-  const onSuccess = (tokens) => {
-    oktaAuth.handleLoginRedirect(tokens);
-  };
-
-  const onError = (err) => {
-    console.log('Sign in error:', err);
-  };
-
-  if (!authState) {
-    return <div>Loading ... </div>;
-  }
-
-  return authState.isAuthenticated ?
-    <Redirect to={{ pathname: '/' }}/> :
-    <OktaSignInWidget config={config} onSuccess={onSuccess} onError={onError}/>;
-};
-
-export default Login;
-```
-
-#### Callback route
-
-The [Okta React SDK](https://github.com/okta/okta-react) provides the [`LoginCallback`](https://github.com/okta/okta-react#logincallback) component for the callback route. It handles token parsing, token storage, and redirects the user to the `/` path. If a `<SecureRoute>` triggered the redirect, then the callback is directed to the secured route. See how the callback route component is called from the route definition file (`src/App.jsx`) in the [Connect the routes](#connect-the-routes) section.
 
 ### Connect the routes
 
