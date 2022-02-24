@@ -14,7 +14,10 @@ Customize email notifications.
 
 **What you need**
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+- [Okta Developer Edition organization](https://developer.okta.com/signup)
+- Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+
+> **Note:** Free trial editions of Okta can't create or send customized email templates.
 
 **Sample code**
 
@@ -59,7 +62,6 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 > **Note:** Free trial editions of Okta can't create or send customized email templates.
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
-1. Select either **Okta Identity Engine templates** or **Okta Classic templates**.
 1. Click a default email template listed in the left pane.
 1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template has already been customized. You need to make any additional edits in the default language version. Skip to Step 2 in [Add translations](#add-translations).
 1. Select a language from the dropdown menu.
