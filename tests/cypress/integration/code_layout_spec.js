@@ -1,17 +1,17 @@
 import { CodePage } from "../page-objects/CodePage";
 
-describe('code page spec (java/spring/)', () => {
-  const codePage = new CodePage();
+// describe('code page spec (java/spring/)', () => {
+//   const codePage = new CodePage();
 
-  beforeEach(() => {
-    codePage.visit('/code/java/spring/');
-    codePage.pageReload();
-  });
+//   beforeEach(() => {
+//     codePage.visit('/code/java/spring/');
+//     codePage.pageReload();
+//   });
 
-  it('has a quick start guide and sample app', () => {
-    codePage.getSampleAppLink().should('exist');
-  });
-});
+//   it('has a quick start guide and sample app', () => {
+//     codePage.getSampleAppLink().should('exist');
+//   });
+// });
 
 describe('code page spec (dotnet)', () => {
   const codePage = new CodePage();
