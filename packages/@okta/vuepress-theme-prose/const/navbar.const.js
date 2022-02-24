@@ -209,20 +209,20 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "Sign in to your SPA with Auth.js",
-                guideName: "guide-name-here"
+                title: "Auth JS fundamentals",
+                guideName: "auth-js"
               },
               {
-                title: "Sign in to your SPA with the embedded Okta Sign-In WAidget ",
-                guideName: "guide-name-here"
+                title: "Embedded Sign-In Widget fundamentals",
+                guideName: "embedded-siw"
               },
               {
-                title: "Embedded SDK use cases",
-                guideName: "guide-name-here"
+                title: "Sign in to your SPA with Auth JS",
+                guideName: "sign-into-spa-authjs"
               },
               {
-                title: "Embedded Widget use cases",
-                guideName: "guide-name-here"
+                title: "Sign in to SPA with embedded Widget",
+                guideName: "sign-into-spa-embedded-widget"
               },
               {
                 title: "Email uses cases",
@@ -387,8 +387,8 @@ export const guides = [
             guideName: "archive-configure-signon-policy"
           },
           {
-            title: "Guide title",
-            guideName: "guide-name-here"
+            title: "Auth JS fundamentals",
+            guideName: "archive-auth-js"
           },
           {
             title: "Guide title",

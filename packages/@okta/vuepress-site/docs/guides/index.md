@@ -2,6 +2,8 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - archive-auth-js
+ - archive-configure-signon-policy
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - client-secret-rotation-key
