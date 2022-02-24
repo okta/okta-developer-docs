@@ -7,7 +7,7 @@ The first step for any application is to install or embed the Widget. Best pract
 npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 ```
 
-More information, including the latest published version, is available in the [Okta Sign-In Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+More information, including the latest published version, is available in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
 
 ### Add styles
 
