@@ -36,6 +36,7 @@ export default {
 
     addHtmlClass: function() {
       const bodyClasses = document.body.classList;
+      bodyClasses.add('loaded');
       (this.isDarkMode === true) ? bodyClasses.add(darkThemeHtmlClass) : bodyClasses.remove(darkThemeHtmlClass);
     }
   }
