@@ -139,7 +139,7 @@ export default Protected;
 
 Rename the `src/App.js` file to `src/App.jsx`, and include components and routes for your app. The `<Security>` component controls the authentication flows, so it requires your OpenID Connect configuration. By default, the `@okta/okta-react` library redirects the user to Okta's sign-in page when the user isn't authenticated. In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead.
 
-> **Note:** This example uses the `react-router-dom` version 5.x module for the `useHistory` and `Route` objects.
+> **Note:** This example uses version 5.x of the `react-router-dom` module for the `useHistory` and `Route` objects.
 
 ```jsx
 import React from 'react';
