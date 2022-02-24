@@ -1,6 +1,6 @@
 ### Create the routes
 
-Typically, an app contain routes that require authentication in order to render. Use the `<SecureRoute>` component from [Okta React SDK](https://github.com/okta/okta-react) to define authenticated routes for your app. The following are some basic routes that you need to configure for your app:
+Typically, an app contains routes that require authentication in order to render. Use the `<SecureRoute>` component from [Okta React SDK](https://github.com/okta/okta-react) to define authenticated routes for your app. The following are some basic routes that you need to configure for your app:
 
 * A [default page](#default-page-route) to handle basic control of the app
 * A [login route](#login-route) to show the Sign-In Widget
