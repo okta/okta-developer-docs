@@ -1,14 +1,14 @@
 .login {
-    &--form {
-        .fa-github:before {
-            color: cv('text', 'dark');
-        }
-        .goto-signup,
-        .splitter {
-            color: cv("body", "obscure");
-        }
-        .goto-signup a {
-            color: cv('link', 'signup');
-        }
+  &--form {
+    .fa-github:before {
+      color: cv("text", "dark");
     }
+    .goto-signup,
+    .splitter {
+      color: cv("body", "obscure");
+    }
+    .goto-signup a {
+      color: cv("link", "signup");
+    }
+  }
 }
