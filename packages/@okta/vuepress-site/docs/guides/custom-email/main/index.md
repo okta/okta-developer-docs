@@ -4,8 +4,6 @@ excerpt: Learn how to customize and style the default email notifications that O
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" />
-
 This guide explains how to customize and style the default Okta email notifications.
 
 ---
@@ -40,7 +38,7 @@ Email notifications are based on templates that are generated automatically and 
 
 The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
 
-> **Note:** If you change any email code using the [Admin console](#edit-a-default-email-template), your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors in the Admin Console to the default settings.
+> **Note:** If you change any email code using the [Admin console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
 See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about emails and the Brands API.
 
@@ -138,6 +136,8 @@ You can also reference these org-level attributes, such as:
 * `$org.subDomain`
 
 ## Use app context
+
+<ApiLifecycle access="ie" />
 
 Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
