@@ -1,9 +1,11 @@
 * **Name**: Enter a name for the Identity Provider configuration.
-* **Client Id**: Paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
+* **Client ID**: Paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to the Identity Provider.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+    > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+
+* **Authorize requests**: Select **Enable signed request** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL.
 
 In the **Endpoints** section:
 
