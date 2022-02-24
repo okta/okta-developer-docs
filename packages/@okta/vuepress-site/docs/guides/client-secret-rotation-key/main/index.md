@@ -38,7 +38,7 @@ Just like periodically changing passwords, regularly rotating the client secret 
 
 Additionally, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JSON Web Key (JWK) public/private key pair may be required. Apps that use private/public key pairs for client authentication have substantially higher security because the private key can only be accessed by the client. But, private/public key pair generation can be laborious and time-consuming, and using the API can lead to errors.
 
-To make client secret rotation more seamless, you can generate an additional client secret for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in JWK format) for your app using the Admin Console.
+To make client secret rotation more seamless, you can generate an additional client secret for web apps, service apps, and native apps in the Admin Console. You can also generate a JWK public/private key pair (in JWK format) or define a JWKS URI for your app using the Admin Console.
 
 > **Note:** Using client authentication with a client secret isn’t recommended for native apps because they are public clients. The default authorization type for native apps is **Authorization Code with PKCE**. See [Recommended flow by application type](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) and [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcodepkce/main/) for more information on the type of flow to use for your app and how to implement that flow.
 
@@ -111,11 +111,11 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
 3. Click **Done**. The new public key is now registered with the app and appears in a table in the **Public keys** section of the **General** tab.
 
-4. Click **Save**. A message states that the client authentication method is changing to **Public key/private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
+4. Click **Save**. A message states that the client authentication method is changing to **Public key/Private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
 ### Use a URL to fetch keys dynamically
 
-This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
+This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time. Okta dynamically fetches the latest public key for the app, which eliminates the need to manually update the public key in the Admin Console when you’re rotating the key pair.
 
 > **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
