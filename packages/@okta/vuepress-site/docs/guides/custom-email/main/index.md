@@ -93,13 +93,13 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 Email templates use common and unique Velocity VTL variables. Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
 
-For example, reference the first name of a user by using `$user.profile.firstName`.
+For example, reference the first name of a user by using `${user.profile.firstName}`.
 
 See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
 
 ## Use all User Profile attributes
 
-You can reference any Okta User Profile attribute in your email templates. The reference notation is `$user.profile.attributeName`, where `attributeName` is an attribute from the Okta User Profile. For example, use `$user.profile.displayName` to reference the User Profile `displayName` attribute.
+You can reference any Okta User Profile attribute in your email templates. The reference notation is `${user.profile.attributeName}`, where `attributeName` is an attribute from the Okta User Profile. For example, use `${user.profile.displayName}` to reference the User Profile `displayName` attribute.
 
 Other examples include:
 
@@ -133,9 +133,9 @@ Variables used for function parameters must match the function data type. For ex
 
 You can also reference these org-level attributes, such as:
 
-* `$org.name`
-* `$org.locale`
-* `$org.subDomain`
+* `${org.name}`
+* `${org.locale}`
+* `${org.subDomain}`
 
 ## Use app context
 
@@ -143,9 +143,9 @@ You can also reference these org-level attributes, such as:
 
 Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
-* `$app.id`
-* `$app.name`
-* `$app.label`
+* `${app.id}`
+* `${app.name}`
+* `${app.label}`
 
 When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
 
@@ -163,7 +163,7 @@ All conditional logic that is supported by VTL, such as `if`, `elseif`, or `else
 <img src="https://cdn.fidgetsu.com/logo" height="37">
 <a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
 #else
-<img src="$parentLogoUrl" height="37">
+<img src="${parentLogoUrl}" height="37">
 #end
 ```
 

@@ -37,15 +37,15 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 
 ## Important: Overriding themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
+You can customize individual parts of your Okta org experience using the various code editors available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). However, when you use the Brands API, your custom brand settings won't apply to theme settings you've customized.
 
-So for example, if you make changes to the sign-in page code using the editor and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
+For example, if you update the sign-in page code using the editor and change the background image or logo setting, your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings. See [Edit email templates](/docs/guides/custom-email/main/#edit-email-templates).
 
 ## Get info about brands and themes
 
 At the top level, Your Okta org contains a brand, which contains a default theme. The default brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
-  > **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
+> **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
 
 ### Get brands
 
@@ -57,7 +57,7 @@ This returns an array of [brand response objects](/docs/reference/api/brands/#br
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
-  > **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
+> **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}" />
 
