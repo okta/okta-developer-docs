@@ -88,7 +88,7 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
 1. Click **Save**. A message states that the client authentication method changes to **Public key/Private key**. Any existing client secrets for the app are deleted. Click **Save** to continue.
 
-## Use a URL to fetch keys dynamically
+### Use a URL to fetch keys dynamically
 
 This option allows you to host your public key in a URI and paste the link to the public key in the Admin Console. This URL contains public keys that clients can use to verify the signature of client-based access tokens and OpenID Connect ID tokens. By hosting the keys in a URL, you can conveniently rotate the keys without having to update the app configuration every time.
 

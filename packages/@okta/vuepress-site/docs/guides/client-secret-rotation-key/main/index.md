@@ -90,7 +90,7 @@ To use the Admin Console to generate a JWK key pair for your app for testing, fo
 
     > **Note:** When you switch the client authentication method to **Public key/Private key**, any existing client secrets are deleted.
 
-    > **Tip:** You can try this in Postman using the **Update client auth method** request.
+    > **Note:** You can try this in Postman using the **Update client auth method** request.
 
 4. Choose how you want to store the JWK and then use the next sections to complete the steps.
     * **Save keys in Okta**: Copy your public keys into Okta
