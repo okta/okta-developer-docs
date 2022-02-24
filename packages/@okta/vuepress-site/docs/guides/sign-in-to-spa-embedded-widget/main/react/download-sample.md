@@ -21,4 +21,4 @@ Then install the [latest version of the Okta React SDK](https://github.com/okta/
 npm install @okta/okta-react@latest react-router-dom@5
 ```
 
-> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code does not exist in `react-router-dom` version 6.x.
+> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `react-router-dom` version 6.x.
