@@ -4,4 +4,4 @@ Start the Vue app by serving locally.
 npm run serve
 ```
 
-You should be able to sign-in, view your details in the `/profile` page, and sign-out. When navigating to protected routes you will automatically redirect to sign-in, and when making HTTP calls within allowed origins, you'll see the `Authorization` header.
+You should be able to sign-in, view your details at the `/profile` route, and sign-out.

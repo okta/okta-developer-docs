@@ -69,7 +69,8 @@ okta apps create spa
 At this point, you can move to the next step — [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on. 
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-1. Click the **Admin** button on the top right of the page to open the Applications configuration pane by selecting **Applications** > **Applications**.
+1. Click the **Admin** button on the top right of the page.
+1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
@@ -132,8 +133,6 @@ During sign-in, the user is redirected to the hosted sign-in page where they aut
 
 > **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
-You can also define protected routes or areas of your application that will always require authentication.
-
 ### Handle the callback from Okta
 
 After Okta authenticates a user, they're redirected back to your application via the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
@@ -148,8 +147,7 @@ The default profile items (called "claims") returned by Okta include the user's 
 
 <StackSnippet snippet="getuserinfo" />
 
-
-<br>To get user information beyond the default profile claims, you can call the [/userinfo endpoint](/docs/reference/api/oidc/#userinfo), or call the `getUser()` method in `OktaAuth`.
+> **Note**: To get user information beyond the default profile claims, you can call the [/userinfo endpoint](/docs/reference/api/oidc/#userinfo), or call the `getUser()` method in `OktaAuth`.
 
 ## Sign in a user
 

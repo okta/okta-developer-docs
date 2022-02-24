@@ -45,7 +45,7 @@ tiles:
       # - name: Blazor WebAssembly
       #   link: /docs/guides/sign-into-spa-redirect/blazor-wasm/main
       #   image: /img/homepage/stackselectors/dotnet.png
-  - name: Native App
+  - name: Mobile/native App
     link: /docs/guides/sign-into-mobile-app-redirect/
     items:
       # - name: React Native

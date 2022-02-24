@@ -1,3 +1,7 @@
+Vue documentation:
+
+[Get started with Vue](https://v3.vuejs.org/guide/introduction.html) to learn about the framework from Vue's official documentation
+
 Okta Developer Blog:
 
 * [Vue Login and Access Control the Easy Way](https://developer.okta.com/blog/2020/05/15/vue-login)

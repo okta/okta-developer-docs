@@ -1,4 +1,8 @@
-`$auth.tokenManager` contains an `idToken`, which contains the user profile claims. You can access it to display a welcome message as shown in the `Profile.vue`:
+`$auth.tokenManager` contains an `idToken`, which contains the user profile claims. You can access it to display a welcome message.
+
+1. Create a new file `src/components/Profile.vue`.
+
+2. Give it the following content:
 
 ```ts
 <template>
@@ -37,4 +41,19 @@ export default {
 </script>
 ```
 
-To get user information beyond the default profile claims, you can call the `userinfo` endpoint or call the `getUser()` method in `OktaAuth`.
+3. Go back to `src/router/index.js` and import this new component:
+
+```ts
+import ProfileComponent from '@/components/Profile'
+```
+
+4. Add a new route to the `index.js` `routes` array:
+
+```ts
+{
+  path: '/profile',
+  component: ProfileComponent,
+}
+```
+
+This component will be available at a `/profile` route and will show the user their profile info.

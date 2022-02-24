@@ -6,17 +6,20 @@ You will need recent versions of [Node](https://nodejs.org/en/) and  [npm](https
 npm install -g @vue/cli@4.5.15
 ```
 
-2. Create a Vue application named "okta-vue-quickstart" using the Vue CLI:
+2. Create a Vue application named "okta-vue-quickstart" using the following command:
 
 ```shell
 vue create okta-vue-quickstart
 ```
 
-* Manually select the following features: defaults and Router.
+3. You will be asked to pick a present, or manually select features. Choose `Manually select features`, and: 
+
+* In the `Check the features needed for your project` menu, make sure `Choose Vue version`, `Babel`, `Router`, and `Linter / Formatter` are selected using the spacebar.
 * Select 3.x for the Vue.js version.
 * Select Y for router history mode.
+* Seelct the defaults for the other options.
 
-3. Go into your root app directory to view the created files:
+4. Go into your app's root app directory to view the created files:
 
 ```shell
 cd okta-vue-quickstart

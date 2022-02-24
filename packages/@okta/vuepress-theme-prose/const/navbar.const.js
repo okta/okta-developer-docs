@@ -267,15 +267,15 @@ export const guides = [
                 title: "Build a custom sign-in UI in your mobile app",
                 guideName: "build-custom-ui-mobile"
               },
-              { title: "Sign into your mobile app with redirect auth", path: "/docs/guides/sign-into-mobile-app-redirect/" },
+              { title: "Sign into your mobile app with redirect auth", guideName: "sign-into-mobile-app-redirect" },
               {
                 title: "Share a sign-in session with native mobile apps",
                 guideName: "shared-sso-android-ios"
               }
             ]
           },
-          { title: "Sign into your SPA with redirect auth", path: "/docs/guides/sign-into-spa-redirect/" },
-          { title: "Sign into your web app with redirect auth", path: "/docs/guides/sign-into-web-app-redirect/" },
+          { title: "Sign into your SPA with redirect auth", guideName: "sign-into-spa-redirect" },
+          { title: "Sign into your web app with redirect auth", guideName: "sign-into-web-app-redirect" },
           { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Configure Okta sign-on and App sign-on policies",

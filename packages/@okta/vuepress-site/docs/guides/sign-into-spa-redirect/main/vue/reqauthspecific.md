@@ -1,11 +1,13 @@
-This snippet from the `src/router/index.js` router file provides access to the `/profile` component only if `requiresAuth` metadata is true:
+To protect a single route, you can just add the `requiresAuth: true` meta to individual routes.
+
+Revert the changes you made in the previous section and just protect the individual `/profile` route, like so:
 
 ```javascript
- {
-    path: '/profile',
-    component: ProfileComponent,
-    meta: {
-      requiresAuth: true
-    }
+{
+  path: '/profile',
+  component: ProfileComponent,
+  meta: {
+    requiresAuth: true
+  }
 },
 ```

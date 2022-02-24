@@ -1,2 +1,1 @@
-* [Vue example](https://github.com/okta-samples/okta-vue-sample) for a finished working sample of this quickstart
-* [Get started with Vue](https://v3.vuejs.org/guide/introduction.html) to learn about the framework from Vue's  official documentation
+* [Finished quickstart code example example](https://github.com/okta-samples/okta-vue-sample)

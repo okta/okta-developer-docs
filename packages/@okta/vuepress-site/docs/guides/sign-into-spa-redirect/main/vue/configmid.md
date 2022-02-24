@@ -1,4 +1,6 @@
-Create a `src/config.js` file to define your configuration settings:
+1. Create a `src/config.js` file to define your configuration settings.
+
+2. Enter the following contents into it, replacing the `clientId` and `issuer` placeholders with the values you got earlier:
 
 ```js
 export default {

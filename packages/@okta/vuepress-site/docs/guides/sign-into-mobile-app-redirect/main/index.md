@@ -67,7 +67,8 @@ okta apps create native
 At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually or find out what the CLI just did for you, read on.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-1. Click **Admin** in the upper-right corner of the page to open the Admin Console, and then open the Applications pane by selecting **Applications** > **Applications**.
+1. Click the **Admin** button on the top right of the page.
+1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.

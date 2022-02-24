@@ -3,15 +3,13 @@ Check for an existing session in two steps. First, initialize the authorization 
 Update the `tokenExpired` utility function to check for token expiry:
 
 ```swift
-func configureSDK() {
-...
-  // Check for an existing session
-  self.authStateManager = OktaOidcStateManager.readFromSecureStorage(for: config)
-  if let authStateManager = self.authStateManager,
-    let tokenString = authStateManager.accessToken,
-    !tokenExpired(tokenString) {
-      updateStatus("Signed In.", infoText: "", signedInStatus: true)
-    }
+func tokenExpired(_ tokenString: String?) -> Bool {
+  guard let accessToken = tokenString,
+  let tokenInfo = OKTIDToken.init(idTokenString: accessToken) else {
+    return false
+  }
+    
+  return Date() > tokenInfo.expiresAt
 }
 ```
 
