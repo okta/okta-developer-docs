@@ -331,19 +331,19 @@ Okta provides a number of SDKs that you might want to use the Sign-In Widget wit
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you need to embed the Sign-In Widget in an Angular app.
+The [Okta Sign-In Widget and Angular guide](/doc/guides/sign-in-to-spa-embedded-widget/main/angular) shows the code you need to embed the Sign-In Widget in an Angular app.
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
 ### React
 
-The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you need in order to embed the Sign-In Widget in a React app.
+The [Okta Sign-In Widget and React guide](/doc/guides/sign-in-to-spa-embedded-widget/main/react) shows the code you need in order to embed the Sign-In Widget in a React app.
 
 See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example using the [okta-react](https://github.com/okta/okta-react) SDK.
 
 ### Vue
 
-The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you need in order to embed the Sign-In Widget in a Vue app.
+The [Okta Sign-In Widget and Vue guide](/doc/guides/sign-in-to-spa-embedded-widget/main/vue) shows the code you need in order to embed the Sign-In Widget in a Vue app.
 
 See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example using the [okta-vue](https://github.com/okta/okta-vue) SDK.
 
@@ -356,11 +356,11 @@ For mobile apps, embedding the Sign-In Widget isn't currently supported. A possi
 See the following examples:
 
 * Android:
-    * [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    * [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+* [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
+* [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
 * iOS:
-    * [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    * [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+* [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
+* [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 
