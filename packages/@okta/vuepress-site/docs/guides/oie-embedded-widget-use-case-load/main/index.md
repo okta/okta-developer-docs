@@ -6,8 +6,6 @@ title: Load the Widget
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
 ---

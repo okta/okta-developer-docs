@@ -3,8 +3,6 @@ title: QuickStart - Signing in your first user
 excerpt: Get started with Okta authentication
 ---
 
-<StackSelector />
-
 This guide explains how to get you up and running with basic Okta authentication, quickly and effectively. This includes how to create and manage Okta orgs, register a new app, authenticate the app by using Okta, and the subsequent steps from there.
 
 ---

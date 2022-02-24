@@ -4,8 +4,6 @@ title: Upgrade your application to the Okta Identity Engine SDK
 
 <ApiLifecycle access="ie" />
 
-<StackSelector class="cleaner-selector"/>
-
 After your project is updated to the latest Okta Identity Engine SDK, and you have an enabled Identity Engine org, you can begin the incremental process of upgrading your application to use the Identity Engine SDK methods.
 
 Review the following sections to understand the concepts behind the Identity Engine SDK, and the differences between the Okta Classic Engine Authentication SDK and APIs and the Identity Engine approach to authentication. The mappings of Classic Engine Authentication SDK method calls, as well as back-end APIs, to the Identity Engine SDK methods are provided for some sample use cases.

@@ -4,8 +4,6 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
 ---

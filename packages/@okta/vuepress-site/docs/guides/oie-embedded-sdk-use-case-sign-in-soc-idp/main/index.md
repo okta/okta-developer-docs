@@ -4,8 +4,6 @@ title: Sign in with Facebook
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide covers a sequence of steps that you can follow to build an app that allows users to sign in with the Facebook social Identity Provider.
 
 ---

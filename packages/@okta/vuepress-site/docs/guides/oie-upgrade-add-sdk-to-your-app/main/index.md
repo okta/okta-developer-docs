@@ -4,8 +4,6 @@ title: Add the Identity Engine SDK to your app
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide explains how to add the Okta Identity Engine SDK to your app, which is the preceding step before upgrading your app's authentication use cases.
 
 > **Note:** After your Okta org is upgraded to the Identity Engine, your app should still work as expected with no change in functionality. If you want to take advantage of the Identity Engine features, upgrade your app to use Identity Engine SDK methods and authentication flows.

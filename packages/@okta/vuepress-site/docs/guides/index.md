@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso
@@ -41,6 +42,7 @@ guides:
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
+ - secure-oauth-between-orgs
  - build-sso-integration
  - custom-sms-messaging
  - submit-app

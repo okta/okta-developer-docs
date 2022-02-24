@@ -4,8 +4,6 @@ title: Basic sign-in flow using the password factor
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
 ---

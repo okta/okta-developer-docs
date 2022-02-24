@@ -11,9 +11,9 @@ Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.c
 
 > **Note:** This doc is designed for people who are familiar with the Classic Engine. If you are new to Okta and the Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) with the Identity Engine.
 
-### Classic Engine features not supported in the Identity Engine
+## Classic Engine features not supported in the Identity Engine
 
-#### Custom sign-in page for embedded app links
+### Custom sign-in page for embedded app links
 
 **What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
 
@@ -21,7 +21,7 @@ Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.c
 
 ***
 
-#### Event Type availability for Event Hooks
+### Event Type availability for Event Hooks
 
 **What Changed:** The following Event Types aren't available in the Identity Engine because Device Trust isn't currently supported:
 
@@ -44,13 +44,13 @@ The following Event Types are available only in the Identity Engine and can't be
 
 ***
 
-#### Help Support number
+### Help Support number
 
 **What Changed:** In the Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
 
 ***
 
-#### Personal identity verification
+### Personal identity verification
 
 **What Changed:** Not supported
 
@@ -58,7 +58,7 @@ The following Event Types are available only in the Identity Engine and can't be
 
 ***
 
-#### Reset Factor API - email enrollment
+### Reset Factor API - email enrollment
 
 **What Changed:** With the Identity Engine, a user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
 
@@ -66,7 +66,7 @@ The use of the Classic Engine Reset Factor API for resetting a user’s email en
 
 ***
 
-#### Reset Factor API - question enrollment
+### Reset Factor API - question enrollment
 
 **What Changed:** The Identity Engine steers away from the notion of separate questions for MFA and Recovery. Therefore, the GET `/factors` API now returns the Recovery Question (Forgot Password Question) in the absence of an MFA Security Question enrollment for the user.
 
@@ -76,7 +76,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ***
 
-#### Self-Service Registration
+### Self-Service Registration
 
 **What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
 
@@ -84,7 +84,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ***
 
-#### Sessions APIs
+### Sessions APIs
 
 **What Changed:** Some Sessions APIs aren't supported in the Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
 
@@ -97,7 +97,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ***
 
-#### Session Token created before an Identity Engine upgrade prompts user for password after upgrade completes
+### Session Token created before an Identity Engine upgrade prompts user for password after upgrade completes
 
 **What Changed:** If a user authenticates in the Classic Engine (which creates a `sessionToken`), and the upgrade to the Identity Engine completes during the time that the `sessionToken` is valid (five minutes), then when a user attempts to access an OpenID Connect app after the upgrade, the user is prompted for their password again.
 
@@ -105,58 +105,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ***
 
-#### Sign-In Widget customization - feature flags
-
-**What Changed:** The following feature flags aren't supported:
-
-* `features.idpDiscovery`
-* `features.autoPush`
-* `features.smsRecovery`
-* `features.emailRecovery`
-* `features.callRecovery`
-* `features.multiOptionalFactorEnroll`
-* `features.webauthn`
-* `features.selfServiceUnlock`
-* `features.registration`
-
-**Further Information:** [Okta Sign-In Widget feature flags](https://github.com/okta/okta-signin-widget#feature-flags)
-
-***
-
-#### Sign-In Widget customization - Help title link and Need help signing in string
-
-**What Changed:** The following customizations aren't supported:
-
-* **Okta-hosted Sign-In Widget:** The **Help title** link in the **Customized Help Links** section of the Customization page has been removed and isn't supported.
-* **Self-hosted Sign-In Widget:** The **Need help signing in** string has been removed and isn't supported.
-
-**Further Information:** [Okta Sign-in Widget Help](https://github.com/okta/okta-signin-widget/#help-links)
-
-***
-
-#### Sign-In Widget customization - processCreds hook
-
-**What Changed:** Developers can't subscribe to the `processCreds` hook in the Sign-In Widget.
-
-***
-
-#### Sign-In Widget customization - Registration Inline Hooks
-
-**What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to the Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
-
-In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same and can be completed in the Admin Console or by Inline Hook Management APIs.
-
-**Further Information:** [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
-
-***
-
-#### Sign-In Widget customization - Security image
-
-**What Changed:** The ability for end users to specify a security image when they first register for an account isn't supported with the Identity Engine. Additionally, existing users who may have already registered a security image, won't see that image when they sign in.
-
-***
-
-#### SMS Factors Administration lifecycle operations
+### SMS Factors Administration lifecycle operations
 
 **What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors Administrator API (`/api/v1/org/factors`).
 
@@ -164,7 +113,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-#### The ‘audience’ parameter in the Authentication API
+### The `audience` parameter in the Authentication API
 
 **What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in the Identity Engine because of the new flexible App Sign-On Policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible App Sign-On Policy.
 
@@ -172,9 +121,9 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Identity Engine features not supported with Okta Classic APIs
+## Identity Engine features not supported with Okta Classic APIs
 
-#### Factor API enrollment limitations
+### Factor API enrollment limitations
 
 The following Identity Engine features aren't supported using the Factor APIs.
 
@@ -190,8 +139,14 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 
 ***
 
-#### Password recovery limitations with the /authn API
+### Password recovery limitations with the /authn API
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in the Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
+
+***
+
+## Okta Sign-In Widget upgrade
+
+For Identity Engine, some specific objects that were previously in the Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade the Widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.

@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) Project is a collection of ASA Servers and ASA Users that have access to those Servers through ASA Groups.
 
-Explore the Projects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Projects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Projects API operations
 
-
 The Projects API has the following operations:
+
 * [List Projects for a Team](#list-projects-for-a-team)
 * [Create a Project](#create-a-project)
 * [Fetch a Project](#fetch-a-project)

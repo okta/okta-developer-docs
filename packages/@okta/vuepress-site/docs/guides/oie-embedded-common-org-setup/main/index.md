@@ -4,8 +4,6 @@ title: Get set up
 
 <ApiLifecycle access="ie" />
 
-<StackSelector />
-
 This guide covers how to create and set up your Okta org before you can run the provided sample apps or integrate the SDK or Widget into your own app.
 
 ---
