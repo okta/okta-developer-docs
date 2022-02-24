@@ -59,5 +59,8 @@ Add the [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/re
 ```bash
 npm install @okta/okta-auth-js@latest
 npm install @okta/okta-react@latest
-npm install react-router-dom@latest
+npm install react-router-dom@5
 ```
+
+> **Note:** The sample code in this use case requires `react-router-dom` version 5.x. Certain objects used in the sample code don't exist in `reactor-router-dom` version 6.x.
+

@@ -17,7 +17,6 @@ export default {
   issuer: ISSUER,
   redirectUri: REDIRECT_URI,
   scopes: ['openid', 'profile', 'email'],
-  pkce: true
 };
 ```
 
@@ -34,10 +33,9 @@ import oidcConfig from './config';
 import './App.css';
 
 function createOktaAuthInstance() {
-  const { state, recoveryToken } = urlParamsToObject(window.location.search);
+  const { state } = urlParamsToObject(window.location.search);
   return new OktaAuth(Object.assign({}, oidcConfig, {
-    state,
-    recoveryToken
+    state
   }));
 }
 
@@ -56,7 +54,7 @@ Review the `apps.js` file for details on handling a successful password authenti
 const handleSubmit = async e => {
     e.preventDefault();
 
-    const newTransaction = await oktaAuth.idx.proceed(inputValues);
+    const newTransaction = await oktaAuth.idx.proceed(inputValues); // inputValues = username, password
     console.log('Transaction:', newTransaction);
 
     setInputValues({});
