@@ -23,7 +23,7 @@ Pick your platform from the options below. These pages contain links to SDKs use
   <Card href="/code/angular/" :showHeaderIcon=true headerIcon="code-angular" cardTitle="Test">Angular</Card>
   <Card href="/code/react/" :showHeaderIcon=true headerIcon="code-react">React</Card>
   <Card href="/code/vue/" :showHeaderIcon=true headerIcon="code-vue">Vue.js</Card>
-  <Card href="/code/javascript/" :showHeaderIcon=true headerIcon="code-javascript">Vanilla JavaScript</Card>
+  <Card href="/code/javascript/" :showHeaderIcon=true headerIcon="code-javascript">JavaScript</Card>
 </Cards>
 
 ## Back-end

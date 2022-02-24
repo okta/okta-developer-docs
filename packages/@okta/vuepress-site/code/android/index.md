@@ -26,20 +26,25 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine SDKs and sample apps
+## Integrate with Okta using the hosted Okta Sign-In Widget
+
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+
+[Android redirect authentication sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
+
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+Okta Identity Engine:
 
 * [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
-* [Android redirect authentication sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
 
-## Okta Classic Android SDK
-
-The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 and OIDC providers.
+Okta Classic:
 
 * [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements)
 * [Android SDK Source](https://github.com/okta/okta-oidc-android)
-
-Supported platforms: Android 5.0 (Lollipop) and above (minSdkVersion >= 21).
 
 ## Android libraries
 
@@ -48,9 +53,16 @@ Supported platforms: Android 5.0 (Lollipop) and above (minSdkVersion >= 21).
 
 ## Recommended guides
 
+Okta-hosted Sign-In Widget guide::
+
 * [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/android/main/)
+
+Embedded SDK and Sign-In Widget sign-in guides:
+
 * [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/android/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
+
+Other guides:
+
 * [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

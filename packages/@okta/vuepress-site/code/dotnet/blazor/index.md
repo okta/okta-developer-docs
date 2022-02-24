@@ -44,18 +44,27 @@ New to Okta? Our resources will walk you through adding user authentication to y
   </li>
 </ul>
 
-## Okta Identity Engine sample apps and SDK
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
-* [Blazor redirect authentication sample app](https://github.com/okta/samples-blazor) &mdash;  see [Blazor Server-Side Okta-Hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for redirect configuration
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
-## Other .NET Libraries
+[Blazor redirect authentication sample app](https://github.com/okta/samples-blazor) &mdash;  see [Blazor Server-Side Okta-Hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for redirect configuration
 
-[Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+* [Okta Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
+* [Okta Classic Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
 
 ## Recommended guides
 
-* [Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/blazor-wasm/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/blazor-wasm/main/)
+
+Other guides:
+
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

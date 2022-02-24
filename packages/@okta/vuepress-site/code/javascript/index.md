@@ -27,21 +27,29 @@ New to Okta? Our resources will walk you through adding user authentication to y
 
 > **Note**: This set of resources is relevant to front-end JavaScript. For back-end JavaScript, see [Node.js](/code/nodejs/).
 
-## Okta JavaScript libraries
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-Use the Okta Sign-In Widget for a pre-built, best practice, customizable experience.
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
-Auth.js is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience.
+[Okta's OpenID Connect JS library](https://github.com/okta/okta-oidc-js)
 
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+* [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience. See the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine-specific instructions
 * [okta-auth-js on npm](https://www.npmjs.com/package/@okta/okta-auth-js)
-* [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine-specific instructions
-* [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
-* [Okta's OpenID Connect JS library](https://github.com/okta/okta-oidc-js)
+* Use the [Okta embedded Sign-In Widget](https://github.com/okta/okta-signin-widget) for a pre-built, best practice, customizable experience.
 
 ## Recommended Guides
 
+Embedded SDK and Sign-In Widget sign-in guide:
+
 * [Auth.js fundamentals](#) (WILL EVENTUALLY BE /docs/guides/auth-js/main/)
 * [Embedded Okta Sign-In Widget fundamentals](/code/javascript/okta_sign-in_widget/) (WILL EVENTUALLY BE /docs/guides/embedded-siw/main/)
+
+Other guides:
+
 * [Implementing the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
 * [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)

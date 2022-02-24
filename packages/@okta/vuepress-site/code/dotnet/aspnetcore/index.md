@@ -48,38 +48,44 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine sample apps and SDK
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
-* [ASP.NET Core redirect authentication sample app](https://github.com/okta/samples-aspnetcore) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for redirect configuration
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
-## Okta ASP.NET Core integration
+[ASP.NET Core redirect authentication sample app](https://github.com/okta/samples-aspnetcore) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for redirect configuration
 
-Okta's OIDC middleware integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+Okta Identity Engine:
+
+[Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
+
+Okta Classic:
+
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+* Okta's [Okta ASP.NET Core OIDC middleware integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET Core OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNetCore)
-* [Okta ASP.NET Core OIDC integration Source](https://github.com/okta/okta-aspnet)
 
-## Other .NET libraries
+## Other Classic .NET libraries
 
-The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Managemenet API to manage users, groups, apps, etc. on the fly.
-
-[Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
-
-The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
-
-[Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet)
-
-The Okta SDK for Xamarin follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
-
-[Okta Xamarin SDK (beta)](https://github.com/okta/okta-oidc-xamarin)
+* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc. on the fly.
+* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
 
 ## Recommended guides
 
-* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+
+Other guides:
+
 * [Protect your API endpoints](/docs/guides/protect-your-api/aspnetcore3/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

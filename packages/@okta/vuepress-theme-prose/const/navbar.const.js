@@ -655,7 +655,7 @@ export const languagesSdk = [
           { title: "Angular", path: "/code/angular/" },
           { title: "React", path: "/code/react/" },
           { title: "Vue", path: "/code/vue/" },
-          { title: "Vanilla JavaScript", path: "/code/javascript/" },
+          { title: "JavaScript", path: "/code/javascript/" },
         ]
       },
       {
@@ -666,8 +666,7 @@ export const languagesSdk = [
           { title: "Java", path: "/code/java/" },
           { title: "Node.js", path: "/code/nodejs/" },
           { title: "PHP", path: "/code/php/" },
-          { title: "Python", path: "/code/python/" },
-          { title: "REST", path: "/code/rest/" }
+          { title: "Python", path: "/code/python/" }
         ]
       },
       { title: "Test APIs using Postman", path: "/code/rest/" }

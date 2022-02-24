@@ -43,29 +43,37 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine sample apps and SDK
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+
+[Spring redirect authentication sample app](https://github.com/okta/samples-java-spring) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect configuration
+
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+* [Okta Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Spring embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-sign-in-widget)
-* [Spring redirect authentication sample app](https://github.com/okta/samples-java-spring) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect configuration
-
-## Okta Spring Boot Starter
-
-The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Spring Boot applications.
-
-[Spring Integration Source](https://github.com/okta/okta-spring-boot)
 
 ## Spring libraries and samples
 
-* [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
+* The [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) can be used to add OAuth 2.0 authorization to Spring Boot applications.
 * [Spring Security OAuth Sample Applications for Okta](https://github.com/okta/samples-java-spring)
 
 ## Recommended guides
 
-* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/spring-boot/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/java/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/spring-boot/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/java/main/)
+
+Other guides:
+
 * [Protect your API endpoints](/docs/guides/protect-your-api/nodeexpress/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)

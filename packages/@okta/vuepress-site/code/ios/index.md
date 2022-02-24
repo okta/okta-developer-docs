@@ -25,20 +25,27 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine SDKs and sample apps
+## Integrate with Okta using the hosted Okta Sign-In Widget
+
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+
+[iOS redirect authentication sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
+
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+Okta Identity Engine:
 
 * [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift)
 * [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs)
-* [iOS redirect authentication sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
 
-## Okta Classic OIDC for iOS (CocoaPod)
-
-Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommend using this library to integrate the OIDC login flows into your native iOS applications.
+Okta Classic OIDC library for iOS (CocoaPod):
 
 * [OktaOidc on CocoaPods](https://cocoapods.org/pods/OktaOidc)
 * [Okta iOS OIDC SDK Source](https://github.com/okta/okta-oidc-ios)
 
-## iOS libraries
+## Other Classic iOS libraries
 
 * [Okta JWT Verifier for iOS](https://github.com/okta/okta-ios-jwt): Use this library for validating Okta OAuth tokens
 * [iOS authentication SDK](https://github.com/okta/okta-auth-swift): Use this library for building custom authentication flows with Okta.
@@ -47,9 +54,16 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
 
 ## Recommended guides
 
-* [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/ios/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/ios/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
 * [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/ios/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
+
+Other guides:
+
 * [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

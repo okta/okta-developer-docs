@@ -25,22 +25,27 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine + Classic sample app
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Angular redirect authentication sample app](https://github.com/okta/samples-js-angular) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for redirect configuration
-
-## Okta Classic Angular SDK
-
-The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you create a fully-branded sign-experience.
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
 * [okta-angular on npm](https://www.npmjs.com/package/@okta/okta-angular)
 * [Angular SDK Source](https://github.com/okta/okta-angular)
+* [Angular redirect authentication sample app](https://github.com/okta/samples-js-angular) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for redirect configuration
 
 ## Recommended guides
 
-* [Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/angular/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/angular/main/)
+
+Embedded SDK and Sign-In Widget sign-in guides:
+
 * [Sign into your SPA with Auth.js](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-authjs/angular/main/)
 * [Sign into your SPA with the embedded Okta Sign-In Widget](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-embedded-widget/angular/main/ )
+
+Other guides:
+
 * [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

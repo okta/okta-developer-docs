@@ -22,25 +22,22 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine + Classic sample app
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [React Native redirect authentication sample app](https://github.com/okta/samples-js-react-native) &mdash; see [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for redirect configuration
-
-## Okta Classic React Native SDK
-
-The Okta React Native client makes it easy to add authentication to your React Native app with Okta's OpenID Connect API.
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
 * [okta-react-native on npm](https://www.npmjs.com/package/@okta/okta-react-native)
 * [React Native SDK Source](https://github.com/okta/okta-react-native)
-
-Supported platforms:
-
-* iOS 11+ [Okta OIDC iOS Supported Platforms](https://github.com/okta/okta-oidc-ios#supported-platforms)
-* Android API 21+ [Okta OIDC Android MinSDK Requirements](https://github.com/okta/okta-oidc-android#requirements)
+* [React Native redirect authentication sample app](https://github.com/okta/samples-js-react-native) &mdash; see [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for redirect configuration
 
 ## Recommended guides
 
+Okta-hosted Sign-In Widget guide:
+
 * [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/react-native/main/)
+
+Other guides:
+
 * [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

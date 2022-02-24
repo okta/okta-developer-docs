@@ -30,23 +30,28 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine + Classic sample app
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Flask redirect authentication sample app](https://github.com/okta/samples-python-flask) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for redirect configuration
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
 
-## Okta Management SDK for Python
+[Flask redirect authentication sample app](https://github.com/okta/samples-python-flask) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for redirect configuration
 
-The Okta Python SDK can be used in your server-side code to create and update users, groups, and more.
+## Okta Classic Python SDKs
+
+The [Okta Management Python SDK](https://github.com/okta/okta-sdk-python) can be used in your server-side code to create and update users, groups, and more.
 
 ```bash
 pip install okta
 ```
 
-[Okta Python SDK GitHub Project](https://github.com/okta/okta-sdk-python)
-
 ## Recommended Guides
 
-* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/python/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/python/main/)
+
+Other guides:
+
 * [Protect your API endpoints](/docs/guides/protect-your-api/python/main/)
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)

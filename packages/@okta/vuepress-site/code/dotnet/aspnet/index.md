@@ -49,41 +49,47 @@ New to Okta? Our resources will walk you through adding user authentication to y
   </li>
 </ul>
 
-## Okta Identity Engine sample apps and SDK
+## Integrate with Okta using the hosted Okta Sign-In Widget
+
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+
+* [ASP.NET redirect authentication sample app](https://github.com/okta/samples-aspnet) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for redirect configuration
+* [ASP.NET Web Forms redirect authentication sample app](https://github.com/okta/samples-aspnet-webforms) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) for redirect configuration
+
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+Okta Identity Engine:
 
 * [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
 * [ASP.NET embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
 * [ASP.NET embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-sign-in-widget)
-* [ASP.NET redirect authentication sample app](https://github.com/okta/samples-aspnet) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for redirect configuration
-* [ASP.NET Web Forms redirect authentication sample app](https://github.com/okta/samples-aspnet-webforms) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) for redirect configuration
 
-## Okta ASP.NET integration
+Okta Classic:
 
-Okta's OIDC middleware integration with ASP.NET makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
-
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+* Okta's [Okta ASP.NET OIDC middleware Integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNet)
-* [Okta ASP.NET OIDC Integration Source](https://github.com/okta/okta-aspnet)
 
-## Other .NET libraries
+## Other Classic .NET libraries
 
-The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Managemenet API to manage users, groups, apps, etc. on the fly.
-
-[Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
-
-The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
-
-[Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet)
-
-The Okta SDK for Xamarin follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
-
-[Okta Xamarin SDK (beta)](https://github.com/okta/okta-oidc-xamarin)
+* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc. on the fly.
+* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
 
 ## Recommended guides
 
-* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnet/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/) 
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnet/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+
+Other guides:
+
 * [Protect your API endpoints](/docs/guides/protect-your-api/aspnet/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

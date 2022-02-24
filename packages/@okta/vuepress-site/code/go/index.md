@@ -30,29 +30,38 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Okta Identity Engine sample apps and SDK
+## Integrate with Okta using the hosted Okta Sign-In Widget
 
-* [Identity Engine Golang SDK](https://github.com/okta/okta-idx-golang)
+These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+
+[Golang redirect authentication sample app](https://github.com/okta/samples-golang) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect configuration
+
+## Integrate with Okta using embedded Sign-In Widget and SDKs
+
+These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+
+* [Okta Identity Engine Golang SDK](https://github.com/okta/okta-idx-golang)
 * [Golang embedded authentication with SDK sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-auth-with-sdk)
 * [Golang embedded Sign-In Widget sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-sign-in-widget)
-* [Golang redirect authentication sample app](https://github.com/okta/samples-golang) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect configuration
 
-## Okta Management SDK for Go
+## Other Okta Classic SDKs
 
-The Okta Management SDK for Go can be used in your server-side code to create and update users, groups, applications, and more.
-
-[Go SDK Source](https://github.com/okta/okta-sdk-golang)
-
-## Okta JWT Verifier for Go
-
-[Okta JWT Verifier for Go](https://github.com/okta/okta-jwt-verifier-golang)
+* The [Okta Management SDK for Go](https://github.com/okta/okta-sdk-golang) can be used in your server-side code to create and update users, groups, applications, and more.
+* [Okta JWT Verifier for Go](https://github.com/okta/okta-jwt-verifier-golang)
 
 ## Recommended Guides
 
-* [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/go/main/)
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/go/main/)
+Okta-hosted Sign-In Widget guide:
+
+[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/go/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/go/main/)
+
+Other guides:
+
 * [Protect your API endpoints](/docs/guides/protect-your-api/go/main/)
-* [Authenticator guides](#) (WILL EVENTUALLY BE /docs/guides/authenticators-overview/main/)
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)
