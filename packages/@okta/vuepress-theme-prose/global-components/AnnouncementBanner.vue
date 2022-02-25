@@ -16,7 +16,7 @@
           :href="ctaHref"
           class="announcement-banner--cta"
         >
-          {{ ctaText }} &rsaquo;
+          {{ ctaText }}
         </a>
       </div>
     </div>
