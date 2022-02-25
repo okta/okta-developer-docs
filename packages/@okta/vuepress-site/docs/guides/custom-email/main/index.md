@@ -72,40 +72,39 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ### Use customizable email templates
 
-| UI name | Default subject line | API object reference | Category | Details |
+| UI name | Default subject line | API object reference | Description |
 |---------|---------|----------------------|----------|---------|
-| User Activation | Welcome to Okta! |  |  |  |
-| Active Directory User Activation | Welcome to Okta! |  |  |  |
-| LDAP User Activation | Welcome to Okta! |  |  |  |
-| Send Push Verify Activation Link | Push Verify Activation Email |  |  |  |
-| Registration - Activation | Activate Account |  |  |  |
-| Registration - Email Verification | Welcome to (`instanceDisplayName`)! |  |  |  |
-| Email Factor verification (Identity Engine)</br>Email Verification (Classic Engine) | Confirm your email address |  |  |  |
-| Forgot Password Denied | Account Password Reset |  |  |  |
-| Password Reset by Admin | Account Password Reset |  |  |  |
-| Active Directory Password Reset Denied | Forgotten Password |  |  |  |
-| LDAP Forgot Password Denied | Account password reset |  |  |  |
-| LDAP Forgot Password | Account password reset |  |  |  |
-| Forgot Password | Account password reset |  |  |  |
-| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) |  |  |  |
-| Password Changed | Password Changed |  |  |  |
-| Self-Service Unlock when Account is not Locked | Unlock Account |  |  |  |
-| Active Directory Password Unlock | Unlock Account |  |  |  |
-| Self-Service Unlock Account | Unlock Account |  |  |  |
-| LDAP Self-Service Unlock Account | Unlock Account |  |  |  |
-| Change Email Confirmation | Confirm email address change |  |  |  |
-| Email Change Notification | Notice of pending email address change |  |  |  |
-| Email Change Confirmed Notification | Notice of email address change |  |  |  |
-| Email Challenge | One-time Email Authentication Link |  |  |  |
-| Account Lockout | Account Lockout |  |  |  |
-| New Sign-On Notification | New Sign-On Notification |  |  |  |
-| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) |  |  |  |
-| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) |  |  |  |
-| Campaign Launched | Access certification campaign: (`campaignName`) |  |  |  |
-| Campaign Ended |  | Access certification campaign: (`campaignName`) |  |  |
-| Campaign Reminder | Access certification campaign: (`campaignName`) |  |  |  |
-| Reassigned Review | Access certification campaign: (`campaignName`) |  |  |  |
-
+| User Activation | Welcome to Okta! | `UserActivation` | Sent to new users who must follow the provided link to complete the Okta sign up process |
+| Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign up process |
+| LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | Sent to your new LDAP users who must follow the provided link to complete the Okta sign up process |
+| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
+| Registration - Activation | Activate Account | `RegistrationActivation` | Sent to users who must follow the provided link to complete their self-registration |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | Sent to users who must follow the provided link to verify their email address |
+| Email Factor verification (Identity Engine)</br>Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | Sent to users who must follow the provided link to verify their email address |
+| Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | Sent to users who forgot their password but only their admin can reset it |
+| Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | Sent to users who had their password reset by an Okta system administrator, and must follow the provided link to complete the password reset process |
+| Active Directory Password Reset Denied | Forgotten Password | `ADForgotPasswordDenied` | Sent to Active Directory users who tried to reset their Active Directory password reset but don't have permission |
+| LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | Sent to LDAP users who tried to reset their LDAP password reset but don't have permission |
+| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
+| Forgot Password | Account password reset | `ForgotPassword` | Sent to users who must follow the provided link to reset their forgotten password |
+| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` |  |
+| Password Changed | Password Changed | `PasswordChanged` |  |
+| Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` |  |
+| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` |  |
+| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` |  |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` |  |
+| Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` |  |
+| Email Change Notification | Notice of pending email address change | `PendingEmailChange` |  |
+| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` |  |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` |  |
+| Account Lockout | Account Lockout | `AccountLockout` |  |
+| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` |  |
+| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` |  |
+| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` |  |
+| Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` |  |
+| Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` |  |
+| Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` |  |
+| Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` |  |
 
 ## Add translations
 
