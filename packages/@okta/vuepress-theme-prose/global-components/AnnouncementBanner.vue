@@ -5,7 +5,7 @@
     </div>
     <div class="announcement-banner--content">
       <span class="announcement-banner--title">
-        <slot name="title"></slot>
+        {{ title }}
       </span>
       <div class="announcement-banner--description-wrapper">
         <p class="announcement-banner--description">
@@ -36,6 +36,7 @@
 <script>
 export default {
   props: {
+    title: String,
     ctaHref: String,
     ctaText: String
   },
