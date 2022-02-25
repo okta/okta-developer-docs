@@ -97,7 +97,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 | LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Sent to LDAP users who must follow the provided link to complete self-service unlock account process |
 | Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | Sent to users who must follow the provided link to confirm their email address change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | Sent to a user's old email address when they request to change their email address |
-| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | Sent when the request to change a user's email address has been confirmed |
+| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | Sent when the request to change a user's email address is confirmed |
 | Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
 | Account Lockout | Account Lockout | `AccountLockout` | Sent to users who have been locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user does not recognize the sign-in details of the unknown device |
