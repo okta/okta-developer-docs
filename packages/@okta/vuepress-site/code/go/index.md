@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication and Okta Resource Management to Your Go App
+title: Add user authentication and Okta Resource Management to your Go app
 language: Go
 integration: back-end
 icon: code-go
@@ -8,9 +8,9 @@ meta:
     content: Learn about user authentication with Okta and update users, groups, and applications with the Okta Management SDK for Go.
 ---
 
-## Get Started with Go + Okta
+## Get started with Go + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your Go app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Go app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -30,15 +30,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Golang redirect authentication sample app](https://github.com/okta/samples-golang) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect configuration
+[Golang redirect authentication sample app](https://github.com/okta/samples-golang): See [Okta-hosted login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 * [Okta Identity Engine Golang SDK](https://github.com/okta/okta-idx-golang)
 * [Golang embedded authentication with SDK sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-auth-with-sdk)

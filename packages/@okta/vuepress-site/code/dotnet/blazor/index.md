@@ -1,11 +1,11 @@
 ---
-title: Add user authentication and Okta Resource Management to Your Blazor app
+title: Add user authentication and Okta Resource Management to your Blazor app
 language: .NET
 integration: back-end
 icon: code-dotnet
 meta:
   - name: description
-    content: Our ASP.NET Core Blazor integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
+    content: Our ASP.NET Core Blazor integration makes it easy to add a sign-in flow to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
 <ul class='language-tabs'>
@@ -28,7 +28,7 @@ meta:
 
 ## Get started with Blazor + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your ASP.NET Core app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -44,15 +44,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
   </li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Blazor redirect authentication sample app](https://github.com/okta/samples-blazor) &mdash;  see [Blazor Server-Side Okta-Hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for redirect configuration
+[Blazor redirect authentication sample app](https://github.com/okta/samples-blazor): See [Blazor server-side Okta-hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 * [Okta Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
 * [Okta Classic Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)

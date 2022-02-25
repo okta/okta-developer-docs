@@ -5,7 +5,7 @@ integration: back-end
 icon: code-dotnet
 meta:
   - name: description
-    content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
+    content: Our ASP.NET Core integration makes it easy to add a sign-in flow to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
 <ul class='language-tabs'>
@@ -28,7 +28,7 @@ meta:
 
 ## Get started with ASP.NET Core + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your ASP.NET Core app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -48,15 +48,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[ASP.NET Core redirect authentication sample app](https://github.com/okta/samples-aspnetcore) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for redirect configuration
+[ASP.NET Core redirect authentication sample app](https://github.com/okta/samples-aspnetcore): See [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 Okta Identity Engine:
 
@@ -64,20 +64,20 @@ Okta Identity Engine:
 
 Okta Classic:
 
-* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
-* Okta's [Okta ASP.NET Core OIDC middleware integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you can't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
+* Okta's [Okta ASP.NET Core OIDC middleware integration](https://github.com/okta/okta-aspnet) makes it easy to add a sign-in flow to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET Core OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNetCore)
 
 ## Other Classic .NET libraries
 
-* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc. on the fly.
-* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
+* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and works with both .NET Framework and .NET Core. It's helpful to work with the Okta Management API to manage users, groups, apps, and so on, on the fly.
+* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC and the Authorization Code flow + PKCE.
 
 ## Recommended guides
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
+[Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

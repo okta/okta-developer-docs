@@ -10,7 +10,7 @@ meta:
 
 ## Get started with iOS + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your iOS app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your iOS app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -25,15 +25,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[iOS redirect authentication sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
+[iOS redirect authentication sample app](https://github.com/okta/samples-ios): See [Browser sign in](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 Okta Identity Engine:
 
@@ -47,7 +47,7 @@ Okta Classic OIDC library for iOS (CocoaPod):
 
 ## Other Classic iOS libraries
 
-* [Okta JWT Verifier for iOS](https://github.com/okta/okta-ios-jwt): Use this library for validating Okta OAuth tokens
+* [Okta JWT Verifier for iOS](https://github.com/okta/okta-ios-jwt): Use this library for validating Okta OAuth tokens.
 * [iOS authentication SDK](https://github.com/okta/okta-auth-swift): Use this library for building custom authentication flows with Okta.
 * [React Native app with Okta's OpenID Connect API](https://github.com/okta/okta-react-native/tree/master/ios)
 * [Okta Secure Storage Library](https://github.com/okta/okta-storage-swift)

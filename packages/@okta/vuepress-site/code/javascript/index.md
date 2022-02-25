@@ -10,7 +10,7 @@ meta:
 
 ## Get started with JavaScript + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your JavaScript app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your JavaScript app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -27,17 +27,17 @@ New to Okta? Our resources will walk you through adding user authentication to y
 
 > **Note**: This set of resources is relevant to front-end JavaScript. For back-end JavaScript, see [Node.js](/code/nodejs/).
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
 [Okta's OpenID Connect JS library](https://github.com/okta/okta-oidc-js)
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-* [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience. See the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine-specific instructions
+* [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign-in experience. See the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine-specific instructions.
 * [okta-auth-js on npm](https://www.npmjs.com/package/@okta/okta-auth-js)
 * Use the [Okta embedded Sign-In Widget](https://github.com/okta/okta-signin-widget) for a pre-built, best practice, customizable experience.
 

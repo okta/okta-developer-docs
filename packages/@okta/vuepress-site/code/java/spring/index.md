@@ -23,7 +23,7 @@ meta:
 
 ## Get started with Spring + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your Spring app in minutes.
+New to Okta? Our resources walks you through adding user authentication to your Spring app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -43,15 +43,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Spring redirect authentication sample app](https://github.com/okta/samples-java-spring) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect configuration
+[Spring redirect authentication sample app](https://github.com/okta/samples-java-spring): See [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 * [Okta Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Spring embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-sign-in-widget)

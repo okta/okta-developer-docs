@@ -11,7 +11,7 @@ meta:
 
 ## Get started with Android + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your Android app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Android app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -26,15 +26,15 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Android redirect authentication sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
+[Android redirect authentication sample app](https://github.com/okta/samples-android): See [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 Okta Identity Engine:
 
