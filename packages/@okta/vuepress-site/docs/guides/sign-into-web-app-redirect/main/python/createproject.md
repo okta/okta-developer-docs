@@ -1,6 +1,6 @@
 
 1. Make sure that you have a recent version of [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) installed.
-2. Create a project folder named `okta-flask-quickstart` with a subfolder called `venv` inside.
+2. Create a project folder named `okta-flask-quickstart` with a subfolder called `venv`.
 3. Activate the corresponding environment using the following commands:
 
 ```shell

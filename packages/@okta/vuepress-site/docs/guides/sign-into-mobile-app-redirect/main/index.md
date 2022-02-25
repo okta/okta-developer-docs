@@ -50,7 +50,7 @@ okta login
 
 ## Create an Okta integration for your app
 
-An Application Integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An application integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the CLI:
 
@@ -100,10 +100,10 @@ Our app uses information from the Okta integration that we created earlier to co
 
 #### Find your config values
 
-If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find the entry for your application integration):
+If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
 * **Client ID** &mdash; Found on the **General** tab in the **Client Credentials** section.
-* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by choosing **Security** > **API** from the left navigation pane.
+* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
 ### Define a callback route
 

@@ -33,5 +33,5 @@ Add buttons to support sign-in and sign-out flows to the `views/layout.pug` file
         button(type="submit") Logout
   else
       form(method="get", action="/login")
-        button(type="submit") Login  
+        button(type="submit") Login
 ```

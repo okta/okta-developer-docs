@@ -1,4 +1,4 @@
-Add the two routes to the application. 
+Add the two routes to the application:
 
 ```go
 // Set the router as the default one shipped with Gin

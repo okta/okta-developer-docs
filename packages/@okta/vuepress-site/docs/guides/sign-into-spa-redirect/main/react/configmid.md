@@ -1,4 +1,4 @@
-The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. You'll need to set the `clientId` and `issuer` properties. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during application load time.
+The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. You need to set the `clientId` and `issuer` properties. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during application load time.
 
 1. Update `src/App.js` to configure Okta as shown below:
 
@@ -51,9 +51,9 @@ export default RouterApp;
 npm install react-router-dom@5
 ```
 
-> **Note**: This example will only work with React Router v5. There's an [open issue](https://github.com/okta/okta-react/issues/178) to support React Router v6.
+> **Note**: This example only works with React Router v5. There's an [open issue](https://github.com/okta/okta-react/issues/178) to support React Router v6.
 
-3. Replace the `clientId` and `issuer` placeholder values with the values you got earlier.
+3. Replace the `clientId` and `issuer` placeholder values with the values that you obtained earlier.
 
 4. Add a `src/Home.js` file that renders login and logout buttons:
 

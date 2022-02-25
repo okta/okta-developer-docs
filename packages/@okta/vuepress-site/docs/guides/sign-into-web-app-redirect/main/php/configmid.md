@@ -1,4 +1,4 @@
-If you used the Okta CLI to create your app, it created an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret.
+If you use the Okta CLI to create your app, it creates an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret.
 
 1. Make a copy of `.okta.env` called `.env` in your project root and remove the `export` keywords so that the configuration is usable by the `phpdotenv` library. It should look like this:
 

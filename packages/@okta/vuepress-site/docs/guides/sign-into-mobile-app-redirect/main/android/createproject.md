@@ -15,4 +15,4 @@ compileOptions {
 }
 ```
 
-> **Note**: If you're using the Okta CLI, you can also run `okta start android-java` to create an app. This command creates an OIDC app in Okta, downloads the [okta-android-java-sample](https://github.com/okta-samples/okta-android-java-sample), and configures it to work with the OIDC app. This quickstart uses a basic Android project instead, as it is easier to understand the Okta-specific additions if you work through them yourself.
+> **Note**: If you're using the Okta CLI, you can also run `okta start android-java` to create an app. This command creates an OIDC app in Okta, downloads the [okta-android-java-sample](https://github.com/okta-samples/okta-android-java-sample), and configures it to work with the OIDC app. This quickstart uses a basic Android project instead, as it's easier to understand the Okta-specific additions if you work through them yourself.

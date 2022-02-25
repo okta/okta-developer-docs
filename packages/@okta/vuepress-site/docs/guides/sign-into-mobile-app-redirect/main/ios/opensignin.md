@@ -23,4 +23,4 @@ func signIn() {
 }
 ```
 
-After checking for a valid root view controller, the app hands sign-in to the Okta SDK which then presents the sign-in web view. After the user signs in or cancels, the completion handler updates the app state by calling `updateStatus`. That function updates the user interface by setting the `signedIn` state variable.
+After checking for a valid root view controller, the app hands the sign-in flow to the Okta SDK that then presents the sign-in web view. After the user signs in or cancels, the completion handler updates the app state by calling `updateStatus`. That function updates the user interface by setting the `signedIn` state variable.

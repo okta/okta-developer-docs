@@ -1,4 +1,4 @@
-The Okta Spring Boot starter is secure-by-default, meaning that all your routes are protected, which is the equivalent of:
+The Okta Spring Boot starter is secure-by-default, meaning that all of your routes are protected, which is the equivalent of:
 
 ```java
 @EnableWebSecurity

@@ -1,6 +1,6 @@
 React documentation:
 
-[Intro to React](https://reactjs.org/tutorial/) to learn about the framework from React's official documentation
+[Intro to React](https://reactjs.org/tutorial/) to learn about the framework from React's official documentation.
 
 Okta Developer Blog:
 

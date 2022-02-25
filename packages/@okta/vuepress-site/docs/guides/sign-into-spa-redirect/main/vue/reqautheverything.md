@@ -8,7 +8,7 @@ meta: {
 }
 ```
 
-Add the above property inside your default `Home` route inside `src/router/index.js`, and move your `/profile` route to be a child of `Home`, like so:
+Add the above property inside your default `Home` route inside `src/router/index.js` and move your `/profile` route to be a child of `Home`, like so:
 
 ```ts
 {
@@ -27,4 +27,4 @@ Add the above property inside your default `Home` route inside `src/router/index
 },
 ```
 
-You should now find that both routes are protected and require sign in to visit.
+You should now find that both routes are protected and require the user to sign in to visit.

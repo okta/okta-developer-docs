@@ -1,4 +1,4 @@
-`$auth.tokenManager` contains an `idToken`, which contains the user profile claims. You can access it to display a welcome message.
+`$auth.tokenManager` contains an `idToken` that contains the user profile claims. You can access it to display a welcome message.
 
 1. Create a new file `src/components/Profile.vue`.
 
@@ -56,4 +56,4 @@ import ProfileComponent from '@/components/Profile'
 }
 ```
 
-This component will be available at a `/profile` route and will show the user their profile info.
+This component is available at a `/profile` route and displays the user their profile info.

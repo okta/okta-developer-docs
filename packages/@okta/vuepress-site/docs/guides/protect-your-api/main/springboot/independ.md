@@ -1,6 +1,6 @@
 The Spring Initializer automatically sets up the required dependencies.
 
-If you are working on a non-Spring Initializer app, you'll need to manually add the Okta Spring Boot Starter dependency to your project:
+If you are working on a non-Spring Initializer app, you need to manually add the Okta Spring Boot Starter dependency to your project:
 
 ```xml
 <dependency>
@@ -10,4 +10,4 @@ If you are working on a non-Spring Initializer app, you'll need to manually add 
 </dependency>
 ```
 
-The Okta Spring Boot Starter will configure Spring Security to validate an access token attached to incoming requests.
+The Okta Spring Boot Starter configures Spring Security to validate an access token attached to incoming requests.

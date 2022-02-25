@@ -2,7 +2,7 @@ The Okta Angular SDK requires an instance of an `OktaAuth` object with configura
 
 Make the following changes to `src/app/app.module.ts`:
 
-1. Add the following import lines to the code, to pull in the dependencies:
+1. Add the following import lines to the code to pull in the dependencies:
 
 ```ts
 import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';

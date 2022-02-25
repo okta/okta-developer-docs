@@ -1,4 +1,4 @@
-> **Note:** The aforementioned "Issuer URI" is made up of two parts - the "base URI" and the "authorizationServerId". Using the Okta.AspNetCore library, all you will need is the base URI: `https://dev-133337.okta.com/oauth2/default`.
+> **Note:** The aforementioned **Issuer URI** is made up of two parts &mdash; the base URI and the `authorizationServerId`. Using the Okta.AspNetCore library, all you need is the base URI: `https://dev-133337.okta.com/oauth2/default`.
 
 1. Configure the Okta.AspNetCore middleware with information about your Okta Org. You can see all of the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference) repo.
 
@@ -57,7 +57,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
   app.UseRouting();
 
   // enable authentication and authorization
-  app.UseAuthentication(); 
+  app.UseAuthentication();
   app.UseAuthorization();
 
   app.UseEndpoints(endpoints =>

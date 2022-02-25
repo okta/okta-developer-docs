@@ -1,4 +1,4 @@
-1. In order to configure CORS in Spring Security, first enable it in the `WebSecurityConfigurerAdapter` you defined in the previous step:
+1. To configure CORS in Spring Security, enable it in the `WebSecurityConfigurerAdapter` that you defined in the previous step:
 
 ```java
 @Override
@@ -7,9 +7,9 @@ protected void configure(HttpSecurity http) throws Exception {
   ...
   http.cors();
 }
-``` 
+```
 
-2. Then configure individual controllers with `CrossOrigin` annotation. For example:
+2. Configure individual controllers with `CrossOrigin` annotation. For example:
 
 ```java
 …
@@ -18,4 +18,4 @@ protected void configure(HttpSecurity http) throws Exception {
 …
 ```
 
-For more details, refer to the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).
+See the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).

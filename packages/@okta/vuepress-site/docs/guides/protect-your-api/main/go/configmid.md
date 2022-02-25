@@ -1,4 +1,4 @@
-Add the issuer to an environment file, for example, `.okta.env` 
+Add the issuer to an environment file, for example, `.okta.env`:
 
 ```
 OKTA_OAUTH2_ISSUER="https://{yourOktaOrg}/oauth2/default"

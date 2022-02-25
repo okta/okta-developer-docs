@@ -10,7 +10,7 @@ After the user signs in to Okta, Okta returns them to the redirect URL and there
   ...
 ```
 
-Below that, create the function `authorization_code_callback_handler`, which is called when the user's browser visits that URL. In that function, you exchange the authorization code for tokens:
+Below that, create the function `authorization_code_callback_handler` that is called when the user's browser visits that URL. In that function, you exchange the authorization code for tokens:
 
 ```php
 function authorization_code_callback_handler() {

@@ -13,4 +13,4 @@ import { ProfileComponent } from './profile/profile.component';
 { path: 'profile', component: ProfileComponent, canActivate: [OktaAuthGuard] }
 ```
 
-This single `/profile` route will now be protected.
+This single `/profile` route is now protected.

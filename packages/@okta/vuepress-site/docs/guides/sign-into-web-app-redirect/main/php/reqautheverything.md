@@ -1,4 +1,4 @@
-The way you protect every route is different depending on the framework that you are using. In this example, with the minimal `switch` statement router, check for the ID token in the session before the router and show the login link if it's missing.
+The way that you protect every route is different depending on the framework you are using. In this example, with the minimal `switch` statement router, check for the ID token in the session before the router and show the log-in link if it's missing.
 
 This can be handled as follows:
 

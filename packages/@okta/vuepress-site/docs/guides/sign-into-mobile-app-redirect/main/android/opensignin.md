@@ -1,4 +1,4 @@
-1. Add a sign in button, sign out button, and a text view by changing the default layout file for the app. Add the following to the file `app/src/main/res/layout/activity_browser_sign_in.xml`:
+1. Add a sign-in button, sign-out button, and a text view by changing the default layout file for the app. Add the following to the file `app/src/main/res/layout/activity_browser_sign_in.xml`:
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,7 +148,7 @@ public class BrowserSignInActivity extends AppCompatActivity {
 }
 ```
 
-In the code above the authentication flow is triggered from the sign-in button by assigning an on-click listener to `browser_sign_in_btn` that calls the `signIn()` method of the Okta SDK `client`. The result of the authentication is handled by the callback registered above in the call to `client.registerCallback`. You could also call `client.signIn(this, null)` from anywhere else in the code to trigger the authentication flow. For example, when visiting a protected route.
+In the code above, the authentication flow is triggered from the sign-in button by assigning an on-click listener to `browser_sign_in_btn` that calls the `signIn()` method of the Okta SDK `client`. The result of the authentication is handled by the callback registered above in the call to `client.registerCallback`. You could also call `client.signIn(this, null)` from anywhere else in the code to trigger the authentication flow. For example, when visiting a protected route.
 
 #### Using an emulator
 

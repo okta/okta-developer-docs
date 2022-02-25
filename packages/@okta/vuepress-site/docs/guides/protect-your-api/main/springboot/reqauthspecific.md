@@ -1,4 +1,4 @@
-In Spring this can be done using a very similar `WebSecurityConfigurerAdapter` implementation to the previous one, but with a specific URL matching pattern specified in ` .antMatchers()`.
+In Spring you can do this using a `WebSecurityConfigurerAdapter` implementation that is similar to the previous one, but with a specific URL matching pattern specified in ` .antMatchers()`.
 
 For example, require authentication for all routes under `/api/private` like so:
 

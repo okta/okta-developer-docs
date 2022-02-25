@@ -1,6 +1,6 @@
 1. Create a `src/config.js` file to define your configuration settings.
 
-2. Enter the following contents into it, replacing the `clientId` and `issuer` placeholders with the values you got earlier:
+2. Enter the following contents into it, replacing the `clientId` and `issuer` placeholders with the values that you obtained earlier:
 
 ```js
 export default {

@@ -1,4 +1,4 @@
-The Okta Angular SDK has a guard to check for the authenticated state that you can add to protected routes. It is common in Angular to use feature modules and protect the route to the feature so that all child routes are also guarded.
+The Okta Angular SDK has a guard to check for the authenticated state that you can add to protected routes. It's common in Angular to use feature modules and protect the route to the feature so that all child routes are also guarded.
 
 In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessing a feature module using the `canActivate` property.
 
@@ -14,10 +14,10 @@ import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 {
   path: 'protected',
   loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule),
-  canActivate: [OktaAuthGuard] 
+  canActivate: [OktaAuthGuard]
 },
 ```
 
 3. Create a new protected module with the CLI command `ng generate module protected`.
 
-4. Make sure you are logged out, then try navigating to `/protected`. You'll be automatically redirected to the Okta sign-in page. Any child routes will be protected too.
+4. Make sure that you are signed out, and then try navigating to `/protected`. You are automatically redirected to the Okta sign-in page. Any child routes are also protected.

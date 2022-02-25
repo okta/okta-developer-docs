@@ -1,6 +1,6 @@
 To find information about the user, use the `getUserProfile()` method. The `UserInfo` object passed into the `onSuccess()` method contains information for the signed-in user.
 
-1. Add the code below to `BrowserSignInActivity` to display a welcome message that includes the users' name:
+1. Add the code below to `BrowserSignInActivity` to display a welcome message that includes the user's name:
 
 ```java
 private void showUserInfo() {

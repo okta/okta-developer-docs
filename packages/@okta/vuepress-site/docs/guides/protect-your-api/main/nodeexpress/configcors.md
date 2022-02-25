@@ -1,4 +1,4 @@
-We suggest using the [Cors Package](https://www.npmjs.com/package/cors) for enabling cors.
+We suggest using the [CORS package](https://www.npmjs.com/package/cors) for enabling CORS.
 
 Install the `cors` package by running
 

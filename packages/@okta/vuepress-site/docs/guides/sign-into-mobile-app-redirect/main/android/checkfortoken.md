@@ -1,4 +1,4 @@
-Check if the user is already signed in by checking the authentication status of the active session using the `isAuthenticated` method.
+Verify that the user is already signed in by checking the authentication status of the active session using the `isAuthenticated` method.
 
 1. Add the following code after the `SessionClient` instance is obtained from the `WebAuthClient` instance:
 
@@ -13,7 +13,7 @@ if (sessionClient.isAuthenticated()) {
 }
 ```
 
-2. Verify that an authorized user still has access by checking that the access token is still valid. There are two ways to do this.
+2. Verify that an authorized user still has access by checking that the access token is still valid. There are two ways to do this:
 
 The simplest way is by checking the expiration date of the token. To do this, add the following code after confirming that a user is still authenticated:
 

@@ -1,4 +1,4 @@
-Configure the Okta Spring Boot Starter by setting the following environment variables.
+Configure the Okta Spring Boot Starter by setting the following environment variables:
 
 ```bash
 OKTA_OAUTH2_ISSUER=${issuer-from-above}

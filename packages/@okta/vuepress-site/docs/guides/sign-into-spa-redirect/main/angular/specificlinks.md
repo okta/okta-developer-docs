@@ -1,6 +1,6 @@
 Angular documentation:
 
-See [Get started with Angular](https://angular.io/start) to learn about the framework from Angular's official documentation
+See [Get started with Angular](https://angular.io/start) to learn about the framework from Angular's official documentation.
 
 Okta Developer Blog:
 

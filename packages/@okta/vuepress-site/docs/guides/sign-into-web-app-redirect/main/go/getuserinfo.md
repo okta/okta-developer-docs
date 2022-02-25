@@ -1,4 +1,4 @@
-Add the following code to return the user’s info upon a successful sign in flow:
+Add the following code to return the user’s info upon a successful sign-in flow:
 
 ```go
 func getProfileData(r *http.Request) (map[string]string, error) {

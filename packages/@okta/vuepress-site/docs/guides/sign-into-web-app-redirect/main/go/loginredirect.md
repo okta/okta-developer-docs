@@ -1,4 +1,4 @@
-Create a Sign in link to direct the user to your login route:
+Create a sign-in link to direct the user to your login route:
 
 ```html
 <a href="/login">Sign in</a>

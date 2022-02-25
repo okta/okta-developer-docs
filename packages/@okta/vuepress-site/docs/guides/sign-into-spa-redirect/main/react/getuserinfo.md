@@ -1,4 +1,4 @@
-The `authState` contains an `idToken` which contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component. 
+The `authState` contains an `idToken` that contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component. 
 
 1. Add a new file called `src/Profile.js`.
 
