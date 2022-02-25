@@ -9,7 +9,6 @@ guides:
  - archive-sign-in-to-spa-embedded-widget
  - build-custom-ui-mobile
  - build-self-signed-jwt
- - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso
