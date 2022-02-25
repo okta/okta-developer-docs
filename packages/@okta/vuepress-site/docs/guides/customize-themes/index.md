@@ -294,7 +294,7 @@ You can delete a specific customization made to an email template (**Delete emai
 
 On success, this operation returns a `204 No Content` message.
 
-If the email customization to be deleted is the default, this operation returns a `409 Conflict` message.
+If the email customization that you want to delete is the default, this operation returns a `409 Conflict` message.
 
 #### Preview an email customization
 
