@@ -1,4 +1,4 @@
-Replace `refreshToken` in `ContentView` with the following code:
+Update `refreshToken` in `ContentView` with the following code:
 
 ```swift
 func refreshToken() {

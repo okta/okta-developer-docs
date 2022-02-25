@@ -25,4 +25,4 @@ func showUserInfo() {
 }
 ```
 
-The call to `getUser` takes a completion handler as it interacts with the your Okta org server. Your production app may present a busy cursor and status while it waits for the callback. The completion handler then shows an error if appropriate or sorts the user info keys before displaying the raw data.
+The call to `getUser` takes a completion handler as it interacts with your Okta org server. Your production app may present a busy cursor and status while it waits for the callback. The completion handler then shows an error if appropriate or sorts the user info keys before displaying the raw data.

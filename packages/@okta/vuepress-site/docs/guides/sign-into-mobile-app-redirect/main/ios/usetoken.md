@@ -5,7 +5,7 @@ func setAuthorization(_ urlRequest: URLRequest) {
   guard let authStateManager = authStateManager,
   let tokenString = authStateManager.accessToken else {
     showError(title: "Unable to Set Token",
-              message: "Could not communincate with the Okta server.")
+              message: "Could not communicate with the Okta server.")
     return
   }
 

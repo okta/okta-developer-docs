@@ -109,13 +109,13 @@ If you don't have your configuration values handy, you can find them in the Admi
 
 ### Define a callback route
 
-To sign users in, your application opens a browser and displays an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user.
+To sign users in, your application will generally open a browser and display an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user.
 
-The first thing that you need to define is how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the Sign-in and Sign-out redirect URIs when you created an app integration in the previous steps.
-
-<StackSnippet snippet="definecallback" />
+To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the Sign-in and Sign-out redirect URIs when you created an app integration in the previous steps.
 
 Your mobile app is responsible for parsing the information Okta sends to the callback route. Our SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
+
+<StackSnippet snippet="definecallback" />
 
 ## Open the sign-in page
 

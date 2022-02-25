@@ -43,4 +43,4 @@ func configureSDK () {
 }
 ```
 
-The function first creates a configuration using the plist that you created in [Configure your app](#configure-your-app), and then it initalizes the SDK using that configuration.
+The function first creates a configuration using the plist that you created above, and then it initalizes the SDK using that configuration.

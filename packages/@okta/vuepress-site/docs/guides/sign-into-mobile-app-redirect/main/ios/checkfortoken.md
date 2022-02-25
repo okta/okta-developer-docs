@@ -1,4 +1,9 @@
-Check for an existing session in two steps. First, initialize the authorization state manager (`authStateManager`) from a saved session. Then veriy that the access token is still valid by checking the expiry. The state manager session and its associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
+Check for an existing session in two steps.
+
+1. Initialize the authorization state manager (`authStateManager`) from a saved session.
+2. Verify that the access token is still valid by checking the expiry.
+
+The state manager session and its associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
 
 Update the `tokenExpired` utility function to check for token expiry:
 

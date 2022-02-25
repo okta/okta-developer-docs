@@ -1,1 +1,1 @@
-NOT SURE WHAT TO PUT IN HERE FOR THE IOS VERSION. ASK MAURICE
+In this iOS quickstart, we don't define an explicit callback view because it is required only if the system needs to launch the app or open it from the background. For this redirect case, the app is always in the foreground as the Okta SDK opens a view that's a part of the app.

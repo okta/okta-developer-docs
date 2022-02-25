@@ -1,6 +1,6 @@
-> **Note:** The sample is compatible with iOS 14 and later.
-
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
+
+> **Note:** The sample code is compatible with iOS 14 and later.
 
 #### Add the UI
 
@@ -125,7 +125,7 @@ struct ContentView: View {
 
 The last four functions are utilities. You fill out `tokenExpired` later. The two variants of `showError` configure the contents, and then show an alert (the `showingError` state variable controls the presentation of the alert.)
 
-The last one updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
+The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
 
 #### Add an extension to find the root view
 
