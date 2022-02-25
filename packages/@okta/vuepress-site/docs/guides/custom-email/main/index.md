@@ -141,7 +141,7 @@ You can also reference these org-level attributes, such as:
 
 <ApiLifecycle access="ie" />
 
-Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
+Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, the Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
 * `${app.id}`
 * `${app.name}`
