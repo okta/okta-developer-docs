@@ -91,7 +91,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 - all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
 - some of the org attributes in these macros
 
-Email templates use common and unique Velocity VTL variables. Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
+Email templates use common and unique Velocity VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
 
 For example, reference the first name of a user by using `${user.profile.firstName}`.
 
