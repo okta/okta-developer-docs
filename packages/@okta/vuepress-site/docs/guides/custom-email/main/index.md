@@ -72,6 +72,8 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ### Use customizable email templates
 
+<!--- Intro content to come --->
+
 | UI name | Default subject line | API object reference | Description |
 |---------|---------|----------------------|----------|---------|
 | User Activation | Welcome to Okta! | `UserActivation` | Sent to new users who must follow the provided link to complete the Okta sign up process |
