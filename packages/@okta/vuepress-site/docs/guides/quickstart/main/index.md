@@ -3,27 +3,25 @@ title: QuickStart - Signing in your first user
 excerpt: Get started with Okta authentication
 ---
 
-In this article we get you up and running with basic Okta authentication, quickly and effectively. This includes creating and managing Okta organizations, registering a new app and authenticating it using Okta, and next steps from there.
-
-<StackSelector />
+This guide explains how to get you up and running with basic Okta authentication, quickly and effectively. This includes how to create and manage Okta orgs, register a new app, authenticate the app by using Okta, and the subsequent steps from there.
 
 ---
 
 **Learning outcomes**
 
-* Learn what Okta organizations are, and create and manage your own organization.
-* Register a sample app with your organization.
+* Learn what Okta organizations are, and how to create and manage your own org.
+* Register a sample app with your org.
 * Authenticate the app using Okta.
 
 **Sample code**
 
-See the [Start from a sample app](#start-from-a-sample-app) section.
+[Sample app](#start-from-a-sample-app).
 
 ---
 
 ## Create your Okta organization
 
-You built an awesome app, and you want to add user authentication to it. Let’s get you set up and working with Okta.
+You built an awesome app, and you want to add user authentication to it. Let's get you set up and working with Okta.
 
 To start, you're going to need an org. An org is a private data space &mdash; provided by Okta &mdash; that holds all the resources that you create to handle user authentication. See [Okta organizations](/docs/concepts/okta-organizations).
 
@@ -35,9 +33,9 @@ You can [sign up](/signup) for an Okta developer edition org for free, which all
 
 ### After creating your org
 
-Your org is now created and usable. There's a survey you’re prompted to fill out about your role, aims, and software stack, which can help us support you.
+Your org is now created and usable. There's a survey you're prompted to fill out about your role, aims, and software stack, which can help us support you.
 
-A wizard launches to help you through basic setup for a few commons scenarios. You can choose to exit the wizard by clicking **Dashboard**. (In the next sections of this QuickStart, we won’t use the wizard, but rather the regular Dashboard menus that can be used on an ongoing basis.)
+A wizard launches to help you through basic setup for a few commons scenarios. You can choose to exit the wizard by clicking **Dashboard**. (In the next sections of this QuickStart, we won't use the wizard, but rather the regular Dashboard menus that can be used on an ongoing basis.)
 
 You now have an org. You can create additional orgs at any time, and it's often useful to do so to support separate development environments.
 
@@ -63,7 +61,7 @@ A search bar at the top of the Dashboard lets you quickly bring up information o
 
 Some of the statistics on the Dashboard are derived from the org's system logs. You can access the System Log page either by clicking the  **View all** link in the **Org Changes** widget or the suspicious activity **View** link in the **Security Monitoring** widget. You can also access the System Log by going to **Reports** > **System Log**. The System Log records actions taken by you and any other admins, as well as ongoing events that occur for each user, such as user creation and authentication attempts. You can click each event to expand it and get full details.
 
-In the global header in the upper-right corner of the page, you can view the Okta domain of the org that you’re in. This can be handy if you manage multiple orgs.
+In the global header in the upper-right corner of the page, you can view the Okta domain of the org that you're in. This can be handy if you manage multiple orgs.
 
 The footer of the dashboard displays the version of the Okta system that you're currently running, for example: "Version: 2020.06.4". It also displays the Okta cell your org is running in, for example: "OK11 Cell (US)".
 

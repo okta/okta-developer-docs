@@ -4,22 +4,22 @@ excerpt: How to use a custom SAML certificate for apps
 layout: Guides
 ---
 
-This guide teaches you how to upload your own SAML certificates to sign the assertion for Outbound SAML apps, sign the AuthN request, and decrypt the assertion for Inbound SAML.
+This guide explains how to upload your SAML certificates to sign the assertion for Outbound SAML apps, sign the AuthN request, and decrypt the assertion for Inbound SAML.
 
 ---
 
 **Learning outcomes**
 
-* List your apps using Okta APIs.
+* List your apps by using Okta APIs.
 * Generate, sign, and publish a certificate signing request (CSR).
 * Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
 ---
 
-## Outbound and Inbound SAML Applications
+## Outbound and Inbound SAML apps
 
-Okta as a SAML Service Provider is referred to as the Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as the Outbound SAML. The general procedure is the same for both. However, some of the API calls are different as described in the following sections. 
+Okta as a SAML Service Provider is referred to as Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as Outbound SAML. The general procedure is the same for both. However, some of the API calls are different as described in the following sections.
 
 > **Note:** After you update the key credential, users can't access the SAML app until you upload the new certificate to the ISV.
 

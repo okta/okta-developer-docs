@@ -6,25 +6,25 @@ meta:
 layout: Guides
 ---
 
-This article shows you how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage to allow users to self-register.
+This guide explains how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage that allows users to self-register.
 
 ---
 
 **Learning outcomes**
 
-* Use policies to govern SSR behavior
-* Enable and disable SSR recovery options
-* Configure SSR options in the Okta Sign-In Widget
+* Use policies to govern SSR behavior.
+* Enable and disable SSR recovery options.
+* Configure SSR options in the Okta Sign-In Widget.
 
 **What you need**
 
-* SSR to be enabled (this is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature — contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it)
+* The SSR to be enabled. This is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature. Contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it.
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
-* Widget version 2.9 or later if you are hosting your own [customized Widget](/code/javascript/okta_sign-in_widget/)
+* Widget version 2.9 or later if you are hosting a [customized Widget](/code/javascript/okta_sign-in_widget/)
 
 ---
 
-## Overview
+## About Okta's self-service registration
 
 A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 

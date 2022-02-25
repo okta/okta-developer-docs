@@ -21,15 +21,15 @@ The Devices API supports the following **Authorization Schemes**:
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
 > **Note:** For devices to enroll in Okta and show up in the Devices API, the following actions are required:
-> 1. Admins - Enable Okta FastPass. See [Enable FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-enable.htm)
-> 2. End users with existing mobile Okta Verify enrollments - After you upgrade your org to Okta Identity Engine, direct end users with existing Okta Verify enrollments to use [FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-main.htm).
+> 1. Admins - Enable Okta FastPass. See [Enable FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable)
+> 2. End users with existing mobile Okta Verify enrollments - After you upgrade your org to Okta Identity Engine, direct end users with existing Okta Verify enrollments to use [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=csh-fp-main).
 
 > End users with a new enrollment in Okta Verify on an Okta Identity Engine org have a device record created in the device inventory by default.
-See [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm), [Login Using Okta Verify](https://help.okta.com/eu/en-us/Content/Topics/end-user/ov-overview.htm).
+See [Device Registration](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-registration), [Login Using Okta Verify](https://help.okta.com/okta_help.htm?type=eu&id=ext-ov-user-overview).
 
 ## Get started
 
-Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-66eb3f8a-53db-4a7f-bb9b-dbaeed6a9b9e)
+Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5)
 
 ## Device operations
 
@@ -1014,18 +1014,18 @@ The device model defines several read-only properties:
    }
 }
 ```
+
 ### Device Status
 
-> More details on [Device Lifecycle](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/manage-device-lifecycle.htm)
+> More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
 ![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
 
 > **Note:**
-> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status. 
+> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status.
 > 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. The Device re-enrollment/add account flow via Okta Verify allows end users to setup new factors (sign-in methods) on the device.
 > 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
-
 
 ### Device profile object
 

@@ -1,4 +1,4 @@
-The following sequence diagrams show the sequence of steps for self-service registration:
+The following sequence diagrams show the sequence of steps for self-service registration.
 
 ### Start a new user registration with the password authenticator
 

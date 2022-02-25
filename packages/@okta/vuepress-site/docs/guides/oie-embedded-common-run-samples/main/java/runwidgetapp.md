@@ -32,3 +32,7 @@
 1. Click **My Profile** in the upper-left corner of the page to view your basic user profile information.
 
 1. Click **Logout** in the upper-right corner of the page to sign out of the sample app.
+
+### Start your work with the use cases
+
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) to start using the Widget and explore the available use cases.

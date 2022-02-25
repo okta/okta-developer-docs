@@ -111,7 +111,7 @@ You can include any of the following types of objects in the JSON payload:
 
 Lets you return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by Inline Hook type and are defined in the specific documentation for each Inline Hook type.
 
-The `commands` object is an array, allowing you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you wish to invoke. The corresponding `value` element is the operand you wish to specify for the command.
+The `commands` object is an array, which allows you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you wish to invoke. The corresponding `value` element is the operand you wish to specify for the command.
 
 The names of commands follow Java-style reverse DNS name format, beginning with `com.okta`, followed by an Okta object that the command operates on, and then an action.
 
@@ -119,12 +119,12 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 Lets you return error messages. How the error data is used varies by Inline Hook type.
 
-The `error` object should have the following structure:
+The `error` object has the following structure:
 
 | Property     | Description                             | Data Type            |
 |--------------|-----------------------------------------|----------------------|
-| errorSummary | Human-readable summary of the error(s). | String               |
-| errorCauses  | An array of ErrorCause objects.         | Array of ErrorCauses |
+| errorSummary | Human-readable summary of the error(s)  | String               |
+| errorCauses  | An array of ErrorCause objects          | Array of ErrorCauses |
 
 The `errorSummary` should be a general statement of any problem the external service encountered in handling the request from Okta. The `errorCauses` are intended to provide more detailed information and are particularly helpful if there were multiple problems.
 
@@ -133,7 +133,7 @@ An `ErrorCause` object must include the following fields:
 | Property     | Description                                                                                                                                                                                        | Data Type |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error.                                                                                                                                                               | String    |
-| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
+| reason       | A brief, enum-like string that indicates the nature of the error. For example, `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
 | locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                                                    | String    |
 | location     | The valid JSON path to the location of the error. For example, if there was an error in the user's `login` field, the `location` might be `data.userProfile.login`.                                | String    |
 | domain       | Indicates the source of the error. If the error was in the user's profile, for example, you might use `end-user`. If the error occurred in the external service, you might use `external-service`. | String    |
@@ -150,7 +150,9 @@ When Okta calls an external service, it enforces a default timeout of 3 seconds.
 
 ### Inline Hooks and concurrent rate limits
 
-The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
+
+> **Note:** Concurrent Inline Hook rate limits are based on your Okta org type.
 
 ### Inline Hook timeout behavior
 

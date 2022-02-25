@@ -1,4 +1,4 @@
-### Interaction Code
+### Interaction Code flow
 
 ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Interaction Code flow](/img/authorization/interaction-code-grant-flow-guide.png "Interaction Code flow")
 

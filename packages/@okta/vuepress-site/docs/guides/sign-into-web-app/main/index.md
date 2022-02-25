@@ -4,9 +4,7 @@ excerpt: Learn how to add authentication to your web applications and sign users
 layout: Guides
 ---
 
-<StackSelector />
-
-This guide shows you how to use Okta as the user store for your server-side web application and sign users in.
+This guide explains how to use Okta as the user store for your server-side web application and sign users in to your application.
 
 > **Note**: If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
@@ -16,13 +14,13 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 * Create an Okta app integration to represent your app in your org.
 * Add dependencies and configure your app to use Okta for authentication.
-* Sign a user in to your app.
+* Sign a user in to your app
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Knowledge of building server-side Web applications.
-* A project or application that you want to add authentication to.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Knowledge of building server-side Web applications
+* A project or application to add authentication to.
 
 **Sample code**
 
@@ -84,9 +82,6 @@ You can choose to [get a refresh token](/docs/guides/refresh-tokens/main/#get-a-
 
 The default refresh token behavior is **Use persistent token** for web apps.
 
-Rotating refresh tokens is an <ApiLifecycle access="ea"/> feature.
-You can enable an [Early Access (Self-Service)](/docs/reference/releases-at-okta/#early-access-ea) feature for your org in the **Settings** > **Features** page inside the Admin Console.
-
 To enable refresh token rotation in your app integration, do the following:
 
 1. Open the web app integration that you just created and select the **General** tab.
@@ -134,7 +129,7 @@ To sign a user in, your application must redirect the browser to the Okta-hosted
 
 The user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with information about the user.
 
-> **Note:** To customize the hosted sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+> **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 You can also define protected routes or areas of your application that will always require authentication.
 
@@ -171,5 +166,5 @@ You should now understand how to sign users in to your web applications using Ok
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)

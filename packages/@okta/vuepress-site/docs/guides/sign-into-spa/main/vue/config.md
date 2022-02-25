@@ -1,25 +1,26 @@
-First, create an [OktaAuth](https://github.com/okta/okta-auth-js) object with your configuration and pass it to the `okta-vue` plugin. You need to use `okta-vue` plugin after `vue-router`.
+First, create an [OktaAuth](https://github.com/okta/okta-auth-js) object with your configuration and pass it to the `okta-vue` plugin. You need to use the `okta-vue` plugin after adding the router to the app.
 
 ```javascript
-// router/index.js
+// main.js
 
-import Vue from 'vue'
-import OktaVue from '@okta/okta-vue'
 import { OktaAuth } from '@okta/okta-auth-js'
-import Router from 'vue-router'
-
-Vue.use(Router)
+import OktaVue from '@okta/okta-vue'
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 
 const config = {
-  // Configuration here
+  clientId: '${clientId}',
+  issuer: `https://${yourOktaDomain}/oauth2/default`,
+  redirectUri: 'http://localhost:8080/login/callback',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
 }
-const oktaAuth = new OktaAuth(config)
 
-// router configuration from previous section here
-
-Vue.use(OktaVue, { oktaAuth })
-
-export default router
+createApp(App)
+    .use(router)
+    .use(OktaVue, { oktaAuth })
+    .mount('#app')
 ```
 
 Then, create your top-level component and have it render the components of the current route.  Set an 'authenticated' property on this top-level component that lower components can read.
@@ -51,6 +52,4 @@ export default {
   }
 }
 </script>
-
-export default App;
 ```

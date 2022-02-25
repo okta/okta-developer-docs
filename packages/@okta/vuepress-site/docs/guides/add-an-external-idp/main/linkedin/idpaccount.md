@@ -1,1 +1,1 @@
-with [<StackSelector snippet="idp" noSelector inline />](https://developer.linkedin.com/)
+with [LinkedIn](https://developer.linkedin.com/)

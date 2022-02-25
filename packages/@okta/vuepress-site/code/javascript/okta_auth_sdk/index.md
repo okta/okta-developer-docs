@@ -24,7 +24,7 @@ You will need the following things for this guide:
 
 - An Okta org - If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
 - An OpenID Connect application integration. See the [instructions for creating an application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
-- At least one user [assigned to the application integration](https://help.okta.com/okta_help.htm?id=ext-apps-page-show-application-embed-links).
+- At least one user [assigned to the application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
 - An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API Security help page](https://help.okta.com/okta_help.htm?id=Security_API).
 
 ## Installation

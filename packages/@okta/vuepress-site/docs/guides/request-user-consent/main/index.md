@@ -4,7 +4,7 @@ excerpt: How to request user consent during authentication
 layout: Guides
 ---
 
-This guide shows you how to configure an Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows, which allows users to acknowledge and accept that they are giving an app access to their data. With the correct configuration, Okta displays a consent dialog box that shows which app is asking for access. The dialog box displays the app logo that you specify and also provides details about what data is shared if the user consents.
+This guide explains how to configure an Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows.
 
 ---
 
@@ -14,10 +14,14 @@ Implement an Okta-hosted user consent dialog box.
 
 **What you need**
 
-* An Okta Developer Edition org. [Create an org for free](https://developer.okta.com/signup).
-* An [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) created in your Okta org with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) created in your Okta org with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 
 ---
+
+## About the user consent dialog box
+
+When configured, the Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to their data. With the correct configuration, Okta displays a consent dialog box that shows which app is asking for access. The dialog box displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 ## User consent and tokens
 

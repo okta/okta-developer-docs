@@ -7,9 +7,6 @@ title: Sign in with password and phone factors
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-
-<StackSelector class="cleaner-selector"/>
-
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
 ---
@@ -20,17 +17,19 @@ Understand how to implement a user sign-in flow with password and phone factors.
 
 **What you need**
 
-[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* An app that uses the embedded Okta Identity Engine SDK
+* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
 ## Configuration updates
 
-This sign-in use case requires the **password** and **phone** factors.
+This sign-in use case requires the password and phone factors.
 
 ![Password and phone factors](/img/oie-embedded-sdk/factor-password-phone.png
  "Password and phone factors")
@@ -51,10 +50,10 @@ The instructions in [Set up your Okta org for a multifactor use case](/docs/guid
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

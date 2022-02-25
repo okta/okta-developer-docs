@@ -4,11 +4,9 @@ excerpt: Learn how to sign users in to your JavaScript front-end applications an
 layout: Guides
 ---
 
-This guide shows you how to use Okta as the user store for your single-page application and sign users in.
+This guide explains how to use Okta as the user store for your single-page application and sign users in.
 
 > **Note**: If you are building a web application rendered by a server, read [Sign users in to your web application](/docs/guides/sign-into-web-app/) instead.
-
-<StackSelector />
 
 ---
 
@@ -20,9 +18,9 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Basic knowledge of building JavaScript applications
-* A project or application that you want to add authentication to
+* A project or application to add authentication to
 
 **Sample code**
 
@@ -112,7 +110,7 @@ You need two values from the Okta application and the Admin Console that you wor
 
 In your application, you want to provide a button to sign the user in. When the user clicks this button, they are redirected to the Okta-hosted sign-in page so they can authenticate.
 
-> **Note:** To customize this sign-in page, see the [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
+> **Note:** To customize this sign-in page, see the [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 <StackSelector snippet="login-redirect" noSelector />
 
@@ -180,5 +178,5 @@ You should now understand how to sign users in to your single-page applications 
 From here, go on to check out these guides:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)

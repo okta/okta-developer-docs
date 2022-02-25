@@ -3,10 +3,8 @@ title: Sign users out
 excerpt: Learn how to sign users out of your applications that use Okta's APIs.
 layout: Guides
 ---
-<StackSelector />
-An important part of security is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. The most common strategies to prevent unauthorized use of a session include [setting short token lifetimes](/docs/guides/configure-access-policy/configure-token-lifetime-per-client/) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
-> **Note:** If you are building a web app that is served by a server framework, see [Sign users in to your web application](/docs/guides/sign-into-web-app/). If you are building a mobile app, see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/). If you are building a single-page app, see [Sign users in to your single-page app](https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin/).
+This guide explains an important part of security, which is to minimize the chances that a malicious actor uses an existing session to perform unauthorized actions. It explains the most common strategies to prevent unauthorized use of a session, which include [setting short token lifetimes](/docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client) and giving users the ability to sign out when they are done. This guide explains how to sign users out of Okta and out of your app.
 
 ---
 
@@ -17,9 +15,9 @@ An important part of security is to minimize the chances that a malicious actor 
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that can sign in to Okta. To create your own, see the following guides:
-  * [Sign users in to your web app](/docs/guides/sign-into-web-app/)
+  * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
   * [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/)
   * [Sign users in to your single-page app](/docs/guides/sign-into-spa/)
 
@@ -29,13 +27,13 @@ An important part of security is to minimize the chances that a malicious actor 
 
 ---
 
-## Overview
+## About signing users out of an app
 
-Signing users out of an application secured using Okta requires that you close the user's session in Okta. And in the cases where your application also has a session, you also need to close the application session.
+Signing users out of an app that is secured using Okta requires that you close the user's session in Okta. In cases where your app also has a session, you also need to close the user's app session.
 
 * **Okta Session:** Okta maintains a session for the user and stores their information inside an Okta-specific cookie. The next time that a user is redirected to the Okta sign-in page, the user's information is remembered. Sign users out of Okta by clearing the Okta browser session.
 
-* **Application Session:** Most applications have their own user sessions that you need to close in addition to an Okta user session.
+* **Application Session:** Most apps have their own user sessions that you need to close in addition to an Okta user session.
 
 ## Define the sign-out callback
 
@@ -78,4 +76,4 @@ You might want to configure self-service registration for your org:
 Read more on customizing your org:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

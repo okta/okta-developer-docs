@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-If you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
+When you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
 
 ## What is SCIM for?
 
@@ -29,7 +29,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 ## How does Okta help?
 
-[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_prov_con_okta_prov) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
+[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their applications.
@@ -110,7 +110,7 @@ Provisioning actions can be combined to solve for end-to-end use cases. Okta sup
 
 For your customers to use your SCIM provisioning integration with Okta, you need to publish it through the [Okta Integration Network](https://www.okta.com/integrations/).
 
-After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/overview/) guide.
+After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/) guide.
 
 ## Additional background
 
@@ -118,7 +118,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 
 * [Okta Lifecycle Management User Provisioning](https://help.okta.com/okta_help.htm?id=ext_prov_okta_lcm_user_provision)
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
 * [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)

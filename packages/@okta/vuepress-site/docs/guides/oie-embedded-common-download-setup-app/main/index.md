@@ -6,41 +6,31 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
-This guide covers the next step after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), which is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
 ---
 
 **Learning outcomes**
 
-* Configure the settings that you need to add to initialize the SDK and the Sign-In Widget.
-* Integrate the SDK and the Sign-In Widget into your own app after you run the sample app.
+* Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
+* Configure the settings that you require for the SDK and the Sign-In Widget.
 
 **What you need**
 
-[Software requirements](/docs/guides/oie-embedded-common-download-setup-app/android/main/#software-requirements).
-
-**Sample code**
-
-* Android &mdash; [okta-idx-android](https://github.com/okta/okta-idx-android)
-* ASP.NET &mdash; [okta-idx-dotnet](https://github.com/okta/okta-idx-dotnet)
-* Golang &mdash; [okta-idx-golang](https://github.com/okta/okta-idx-golang)
-* iOS &mdash; [okta-idx-swift](https://github.com/okta/okta-idx-swift)
-* Java &mdash; [okta-idx-java](https://github.com/okta/okta-idx-java)
-* Node.js &mdash; [okta-auth-js](https://github.com/okta/okta-auth-js)
-
+* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+* <StackSnippet snippet="samplecode" inline />
+* [Software requirements](#software-requirements)
 ---
 
 ## Software requirements
 
 Before you download the SDK, Widget, and sample apps, you need the following:
 
-<StackSelector snippet="softwarerequirements" noSelector />
+<StackSnippet snippet="softwarerequirements" />
 
 ## Download the repository
 
-<StackSelector snippet="githubinstructions" noSelector />
+<StackSnippet snippet="githubinstructions" />
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
@@ -51,6 +41,8 @@ Before you integrate either the SDK or the Widget into your app, you need to und
 #### Issuer
 
 There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
+
+<ApiAmProdWarning />
 
 The Issuer URI format depends on which authorization server that you decide to use:
 
@@ -68,13 +60,13 @@ If you're getting started with your first app or if you're running an Okta sampl
 
 For the sample app, use the client ID for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
 
-<StackSelector snippet="clientsecret" noSelector />
+<StackSnippet snippet="clientsecret" />
 
 #### Redirect URI
 
 This is the same value as the **Redirect URI** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
-<StackSelector snippet="redirecturi" noSelector /><br>
+<StackSnippet snippet="redirecturi" />
 
 #### Scopes
 
@@ -82,16 +74,16 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 ## Set the configuration values
 
-<StackSelector snippet="configlocations" noSelector />
+<StackSnippet snippet="configlocations" />
 
-<StackSelector snippet="configorder" noSelector />
+<StackSnippet snippet="configorder" />
 
 ## Set up the SDK for your own app
 
-<StackSelector snippet="sdkforyourapp" noSelector />
+<StackSnippet snippet="sdkforyourapp" />
 
 ## Set up the Sign-In Widget and SDK for your own app
 
-<StackSelector snippet="widgetforyourapp" noSelector />
+<StackSnippet snippet="widgetforyourapp" />
 
 </div>

@@ -7,24 +7,23 @@ title: Sign in with Facebook using the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
-This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
+This guide provides a sequence of steps to follow to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
 ---
 
 **Learning outcomes**
 
-Set up your app to support the sign-in flow with Facebook IdP use cases by using the Widget.
+Set up your app to support the sign-in flow with Facebook IdP use cases by using the Sign-In Widget.
 
 **What you need**
 
+* An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
 * [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
-* [SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
+* [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -36,10 +35,10 @@ After you've set up your Okta org for the social IdP use case, [download and con
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

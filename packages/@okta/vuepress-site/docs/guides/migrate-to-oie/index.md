@@ -43,7 +43,7 @@ For most authentication flows that involve redirecting to Okta, there should be 
 
 For most users of the [custom domain](/docs/guides/custom-url-domain/) feature, there are no other changes needed. The default template detects and uses the Identity Engine automatically.
 
-However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with the Identity Engine. In particular, these methods and objects won't work with the Identity Engine:
+However, if you have [modified the template](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with the Identity Engine. In particular, these methods and objects won't work with the Identity Engine:
 
 - `setCookieAndRedirect`
 - `sessionToken`

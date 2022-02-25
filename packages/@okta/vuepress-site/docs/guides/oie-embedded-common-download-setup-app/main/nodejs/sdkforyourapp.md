@@ -10,7 +10,7 @@ Download and install the SDK into your Express application. See [Getting Started
 
 Before using the SDK in your own app, you need to add the Okta Auth JS node dependency.
 
-```console
+```shell
 npm install --save @okta/okta-auth-js
 ```
 

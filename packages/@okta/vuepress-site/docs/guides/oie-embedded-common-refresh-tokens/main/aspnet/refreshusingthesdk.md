@@ -1,5 +1,1 @@
-## Option 1: Refresh tokens using the .Net SDK
-
-The [.Net SDK, Widget, and sample app](https://github.com/okta/okta-idx-dotnet)
-don't currently have built-in support for refreshing tokens. Instead use
-the direct approach with the [OAuth token endpoint](#refresh-the-token-using-the-oauth-token-endpoint).
+Currently, the [Identity Engine .Net SDK](https://github.com/okta/okta-idx-dotnet) doesn't have built-in support for refreshing tokens. Use the direct API approach in the [next section](#option-2-refresh-the-tokens-with-the-oauth-token-endpoint).

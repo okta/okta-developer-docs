@@ -4,13 +4,25 @@ excerpt: How to use the Brands API to rapidly customize the theme of your Okta o
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
+This guide explains how to use the Brands API to rapidly customize the theme of your Okta org. You can customize the colors, icons, and background images in your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard.
 
-This article explains how to use the Brands API to rapidly customize the theme of your Okta org, including colors, icons, and background images in your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard.
+---
 
-## Overview
+**Learning outcomes**
 
-Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade off is that your [customization options](/docs/guides/style-the-widget/before-you-begin/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
+Use the Brands API to customize the theme of your Okta org.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup)\
+* Access to the Brands API. Contact [Okta support](https://support.okta.com/help)
+* [Postman](https://www.postman.com/downloads/)
+
+---
+
+## About theme customization of your Okta org
+
+Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade-off is that your [customization options](/docs/guides/custom-widget/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
 
 The [Brands API](/docs/reference/api/brands/) allows you to set all of the following items across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once:
 
@@ -33,7 +45,7 @@ It is up to you how you make requests to the API to update your branding. In thi
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
-## Important: overriding themes in the code template editors
+## Important: Overriding themes in the code template editors
 
 You can customize individual parts of your Okta org experience using the various code editors we've made available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
 
@@ -41,7 +53,7 @@ So for example, if you make changes to the sign-in page code using the editor re
 
 ## Top-level overview: Brands and themes
 
-At the top level, Your Okta organization contains a brand, which contains a default theme. The default brand is applied to your organization's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
+At the top level, Your Okta org contains a brand, which contains a default theme. The default brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
   > **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
 
@@ -152,4 +164,4 @@ You can also delete these assets using the following requests (**Delete logo**, 
 * [Brands API reference](/docs/reference/api/brands/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize email notifications and email domains](/docs/guides/custom-email/)
-* [Style the Okta-hosted Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

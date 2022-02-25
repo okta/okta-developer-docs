@@ -21,7 +21,13 @@ const PATH_TO_PROTECTED_ROUTE = '/private'
 
 export default {
   name: 'home',
+  created() { this.setup },
   methods: {
+    async setup() {
+      if (this.authState && this.authState.isAuthenticated) {
+        this
+      }
+    },
     login () {
       this.$auth.signInWithRedirect({ originalUri: PATH_TO_PROTECTED_ROUTE })
     },

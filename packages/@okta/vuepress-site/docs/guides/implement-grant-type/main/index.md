@@ -4,13 +4,11 @@ excerpt: How to implement authorization flows by grant type with Okta
 layout: Guides
 ---
 
-<ApiAmProdWarning />
+<StackSnippet snippet="nutrition" />
 
-## Overview
+<StackSnippet snippet="nut-facts-samplecode" />
 
-This document guides you through implementing an OAuth 2.0 authorization flow for your application by grant type with Okta.
-
-Select the authorization grant-type flow to implement: <StackSelector />
+---
 
 <StackSnippet snippet="overview" />
 

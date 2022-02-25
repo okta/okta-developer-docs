@@ -7,13 +7,13 @@ category: management
 
 The Okta User API provides operations to manage users in your organization.
 
-## Getting Started
+## Getting started
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
 
 
-## User Operations
+## User operations
 
 ### Create User
 
@@ -32,7 +32,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User in Group](#create-user-in-group)
 - [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
@@ -44,7 +44,7 @@ Creates a new user in your Okta organization with or without credentials
 | groupIds      | Ids of groups that user will be added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
 | nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
-##### Response Parameters
+##### Response parameters
 
 
 All responses return the created [User](#user-object).  Activation of a user is an asynchronous operation.  The system performs group reconciliation during activation and assigns the user to all applications via direct or indirect relationships (group memberships).
@@ -69,7 +69,7 @@ The user is emailed a one-time activation token if activated without a password.
 
 Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to either `ACTIVE` or `STAGED` based on the `activate` query parameter since these two providers don't support a `password` or `recovery_question` credential.
 
-#### Create User without Credentials
+#### Create User without credentials
 
 
 Creates a user without a [password](#password-object) or [recovery question & answer](#recovery-question-object)
@@ -77,7 +77,7 @@ Creates a user without a [password](#password-object) or [recovery question & an
 When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
 This is the default flow for new user registration using the administrator UI.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -96,7 +96,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -133,7 +133,7 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Recovery Question
+#### Create User with recovery question
 
 
 Creates a user without a [password](#password-object)
@@ -141,7 +141,7 @@ Creates a user without a [password](#password-object)
 When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
 This flow is useful if migrating users from an existing user store.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -166,7 +166,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -206,7 +206,7 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Password
+#### Create User with password
 
 
 Creates a user without a [recovery question & answer](#recovery-question-object)
@@ -216,7 +216,7 @@ This flow is common when developing a custom user registration experience.
 
 > Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -238,7 +238,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -276,7 +276,7 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Imported Hashed Password
+#### Create User with imported hashed password
 
 
 Creates a user with a specified [hashed password](#hashed-password-object).
@@ -286,7 +286,7 @@ This flow is common when migrating users from another data store in cases where 
 
 > Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -315,7 +315,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -364,7 +364,7 @@ The new user is able to sign in after activation with the valid password. This f
 
 > Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -390,7 +390,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -435,7 +435,7 @@ This flow is common when developing a custom user-registration experience.
 
 > Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -461,7 +461,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -507,7 +507,7 @@ curl -v -X POST \
 
 Creates a new passwordless user with a `SOCIAL` or `FEDERATION` [authentication provider](#provider-object) that must be authenticated via a trusted Identity Provider
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -532,7 +532,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?provider=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -586,7 +586,7 @@ Creates a user that is added to the specified groups upon creation
 
 Use this in conjunction with other create operations for a Group Administrator that is scoped to create users only in specified groups.  The request may specify up to 20 group ids.  (This limit applies only when creating a user.  The user may later be added to more groups.)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -609,7 +609,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -646,13 +646,13 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Non-Default User Type
+#### Create User with non-default User Type
 
 Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
 The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type).
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -673,7 +673,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users?activate=false"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -729,7 +729,8 @@ Fetches a user from your Okta organization
 - [Get User with ID](#get-user-with-id)
 - [Get User with Login](#get-user-with-login)
 - [Get User with Login Shortname](#get-user-with-login-shortname)
-##### Content-Type Header Fields
+
+##### Content-Type header fields
 
 This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
 
@@ -743,7 +744,7 @@ The `okta-response` header value takes a comma-separated list of omit options (o
 
 The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
 
-###### Content-Type Header Examples
+###### Content-Type header examples
 
 **Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
 **Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
@@ -752,7 +753,7 @@ The performance optimization will only be applied when all three parameters are 
 **Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
 **Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
-##### Request Parameters
+##### Request parameters
 
 
 Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
@@ -767,7 +768,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
-##### Response Parameters
+##### Response parameters
 
 
 Fetched [User](#user-object)
@@ -787,12 +788,12 @@ Content-Type: application/json
 }
 ```
 
-#### Get Current User
+#### Get current User
 
 
 Fetches the current user linked to API token or session cookie
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -803,7 +804,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -866,7 +867,7 @@ Fetches a specific user when you know the user's `id`
 
 > Hint: If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -877,7 +878,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -933,7 +934,7 @@ curl -v -X GET \
 }
 ```
 
-#### Get User with Login
+#### Get User with login
 
 
 Fetches a specific user when you know the user's `login`
@@ -941,7 +942,7 @@ Fetches a specific user when you know the user's `login`
 When fetching a user by `login`, [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -952,7 +953,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/isaac.brock%40example.com"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1016,7 +1017,7 @@ Fetches a specific user when you know the user's `login shortname` and the short
 When fetching a user by `login shortname`, [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1027,7 +1028,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/isaac.brock"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1091,7 +1092,8 @@ curl -v -X GET \
 Lists users in your organization with pagination in most cases
 
 A subset of users can be returned that match a supported filter expression or search criteria.
-##### Content-Type Header Fields
+
+##### Content-Type header fields
 
 This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
 
@@ -1105,7 +1107,7 @@ The `okta-response` header value takes a comma-separated list of omit options (o
 
 The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
 
-###### Content-Type Header Examples
+###### Content-Type header examples
 
 **Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
 **Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
@@ -1113,7 +1115,7 @@ The performance optimization will only be applied when all three parameters are 
 **Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
 **Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
-##### Request Parameters
+##### Request parameters
 
 The first three parameters in the table below correspond to different types of lists:
 
@@ -1136,12 +1138,12 @@ The first three parameters in the table below correspond to different types of l
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of [User](#user-object)
 
-#### List All Users
+#### List all Users
 
 
 Returns a list of all users that do not have a status of `DEPROVISIONED`, up to the maximum (200 for most orgs)
@@ -1149,7 +1151,7 @@ Returns a list of all users that do not have a status of `DEPROVISIONED`, up to 
 Different results are returned depending on specified queries in the request.
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1160,7 +1162,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?limit=200"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -1249,7 +1251,7 @@ This operation:
  * Queries the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request, the change is reflected in the results.
  * Performs a startsWith match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1260,7 +1262,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?q=eric&limit=1"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1303,7 +1305,7 @@ curl -v -X GET \
 
 > **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
 
-#### List Users with a Filter
+#### List Users with a filter
 
 
 Lists all users that match the filter criteria
@@ -1338,7 +1340,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
-##### Filter Examples
+##### Filter examples
 
 List users with status of `LOCKED_OUT`
 
@@ -1357,7 +1359,7 @@ List users updated after 06/01/2013 but with a status of `LOCKED_OUT` or `RECOVE
     filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and (status eq "LOCKED_OUT" or status eq "RECOVERY")
 
 
-##### Request Example: Status
+##### Request example: status
 
 
 ```bash
@@ -1369,7 +1371,7 @@ curl -v -X GET \
 ```
 
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1410,7 +1412,7 @@ curl -v -X GET \
 ]
 ```
 
-##### Request Example: Timestamp
+##### Request example: timestamp
 
 
 Lists all users that have been updated since a specific timestamp
@@ -1425,7 +1427,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?filter=lastUpdated+gt+\"2013-07-01T00:00:00.000Z\""
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1466,7 +1468,7 @@ curl -v -X GET \
 ]
 ```
 
-#### List Users with Search
+#### List Users with search
 
 Searches for users based on the properties specified in the search parameter
 
@@ -1501,7 +1503,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
 
-##### Search Examples
+##### Search examples
 
 List users with an occupation of `Leader`
 
@@ -1511,7 +1513,7 @@ List users in the department of `Engineering` who were created before `01/01/201
 
     search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1522,7 +1524,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+\"555\"+and+status+eq+\"ACTIVE\""
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1562,15 +1564,15 @@ curl -v -X GET \
 ]
 ```
 
-##### Searching Arrays
+##### Searching arrays
 
 You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
-For examples, see [Request Example for Array](#request-example-for-array) and [Response Example for Array](#response-example-for-array).
+For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
 * We follow the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
 * Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
 
-##### Request Example for Array
+##### Request example for array
 
 
 The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
@@ -1583,7 +1585,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+\"arrayAttrVal1\" "
 ```
 
-##### Response Example for Array
+##### Response example for array
 
 
 ```json
@@ -1654,7 +1656,7 @@ in the request is deleted.
 
 >Important: Don't use `PUT` method for partial updates.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
@@ -1666,21 +1668,21 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replacement PUT operation. If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
+>**Note:** Currently, the User Type of a user can only be changed via a full replacement PUT operation. If the request parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
 
-##### Response Parameters
+##### Response parameters
 
 
 Updated [User](#user-object)
 
-#### Update Current User's Profile
+#### Update current User's Profile
 
 
 <ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
 
 Updates current user's profile with partial update semantics
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
@@ -1692,12 +1694,12 @@ End user can only update `profile` with this request. To update credentials, use
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
 use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)
 
-##### Response Parameters
+##### Response parameters
 
 
 Updated [User](#user-object)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1714,7 +1716,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1779,7 +1781,7 @@ Updates a user's profile or credentials with partial update semantics
 
 > Important: Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
@@ -1791,12 +1793,12 @@ Updates a user's profile or credentials with partial update semantics
 
 `profile` and `credentials` can be updated independently or with a single request.
 
-##### Response Parameters
+##### Response parameters
 
 
 Updated [User](#user-object)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1813,7 +1815,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1869,14 +1871,14 @@ curl -v -X POST \
 }
 ```
 
-#### Set Password
+#### Set password
 
 
 Sets passwords without validating existing user credentials
 
 This is an administrative operation.  For operations that validate credentials refer to [Reset Password](#reset-password), [Forgot Password](#forgot-password), and [Change Password](#change-password).
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1891,7 +1893,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1947,14 +1949,14 @@ curl -v -X POST \
 }
 ```
 
-#### Set Recovery Question & Answer
+#### Set recovery question and answer
 
 
 Sets recovery question and answer without validating existing user credentials
 
 This is an administrative operation. For an operation that requires validation, see [Change Recovery Question](#change-recovery-question).
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1972,7 +1974,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2028,7 +2030,7 @@ curl -v -X POST \
 }
 ```
 
-## Related Resources
+## Related resources
 
 ### Get Assigned App Links
 
@@ -2039,19 +2041,19 @@ curl -v -X POST \
 
 Fetches appLinks for all direct or indirect (via group membership) assigned applications
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of App Links
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2062,7 +2064,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/appLinks"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2125,19 +2127,19 @@ curl -v -X GET \
 
 Fetches the groups of which the user is a member
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of [Groups](/docs/reference/api/groups/)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2148,7 +2150,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/groups"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2170,7 +2172,7 @@ curl -v -X GET \
 ]
 ```
 
-## Lifecycle Operations
+## Lifecycle operations
 
 Lifecycle operations are non-idempotent operations that initiate a state transition for a user's status.
 Some operations are asynchronous while others are synchronous. The user's current status limits what operations are allowed.
@@ -2190,7 +2192,7 @@ This operation can only be performed on users with a `STAGED` or `DEPROVISIONED`
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description                                     | Param Type | DataType | Required | Default |
@@ -2198,7 +2200,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 | id        | `id` of user                                    | URL        | String   | TRUE     |         |
 | sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
-##### Response Parameters
+##### Response parameters
 
 
 * Returns empty object by default.
@@ -2213,7 +2215,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 
 If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token).
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2224,7 +2226,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate?sendEmail=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2245,7 +2247,7 @@ This operation can only be performed on users with a `PROVISIONED` status.  This
 
 Users that don't have a password must complete the flow by completing [Reset Password](#reset-password) and MFA enrollment steps to transition the user to `ACTIVE` status.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description                                                                | Param Type | DataType | Required |
@@ -2253,7 +2255,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user                                                               | URL        | String   | TRUE     |
 | sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
-##### Response Parameters
+##### Response parameters
 
 
 * Returns empty object by default.
@@ -2266,7 +2268,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 }
 ```
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2277,7 +2279,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reactivate?sendEmail=false"
 ```
 
-##### Response Example (Success)
+##### Response example (success)
 
 
 ```json
@@ -2287,7 +2289,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Unexpected user status)
+##### Response example (unexpected user status)
 
 
 ```http
@@ -2317,7 +2319,7 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 
 > Important: Deactivating a user is a **destructive** operation.  The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description                                                                           | Param Type | DataType | Required |
@@ -2328,7 +2330,7 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 > **Note:** You can also perform user deactivation asynchronously.
 > To invoke asynchronous user deactivation, pass an HTTP header `Prefer: respond-async` with the request.
 
-##### Response Parameters
+##### Response parameters
 
 
 Returns an empty object.
@@ -2337,7 +2339,7 @@ Returns an empty object.
 
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2348,7 +2350,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate?sendEmail=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2393,14 +2395,14 @@ Suspended users:
 * Can't log in to Okta. Their group and app assignments are retained.
 * Can only be unsuspended or deactivated.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id` of user | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 Returns an empty object
@@ -2408,7 +2410,7 @@ Returns an empty object
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `ACTIVE` state returns a `400 Bad Request` status code with error code `E0000001`.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2419,7 +2421,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/suspend"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2437,14 +2439,14 @@ Unsuspends a user and returns them to the `ACTIVE` state
 This operation can only be performed on users that have a `SUSPENDED` status.
 
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id` of user | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 Returns an empty object.
@@ -2452,7 +2454,7 @@ Returns an empty object.
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 Passing an `id` that is not in the `SUSPENDED` state returns a `400 Bad Request` status code with error code `E0000001`.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2463,7 +2465,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/unsuspend"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2481,7 +2483,7 @@ Deletes a user permanently.  This operation can only be performed on users that 
 This operation on a user that hasn't been deactivated causes that user to be deactivated.  A second delete operation
 is required to delete the user.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description                                                                           | Param Type | DataType | Required | Default |
@@ -2493,7 +2495,7 @@ is required to delete the user.
 > `Prefer: respond-async` with the request. This header is also supported by user deactivation, which is
 > performed if the delete endpoint is invoked on a user that hasn't been deactivated.
 
-##### Response Parameters
+##### Response parameters
 
 
 ```http
@@ -2505,7 +2507,7 @@ Passing an invalid `id` returns a `404 Not Found` status code with error code `E
 #### Delete user synchronously
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2516,7 +2518,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2538,7 +2540,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2554,19 +2556,19 @@ Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  
 
 > **Note:** This operation works with Okta-mastered users. It doesn't support directory-mastered accounts such as Active Directory.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description  | Param Type | DataType | Required | Default |
 | --------- | ------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
 
 Returns an empty object
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2577,7 +2579,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/unlock"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2585,7 +2587,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-### Reset Password
+### Reset password
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reset_password" />
@@ -2596,7 +2598,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter | Description                                      | Param Type | DataType | Required | Default |
@@ -2609,7 +2611,7 @@ To ensure a successful password recovery lookup if an email address is associate
 * Okta no longer includes deactivated users in the lookup.
 * The lookup searches login IDs first, then primary email addresses, and then secondary email addresses.
 
-##### Response Parameters
+##### Response parameters
 
 
 * Returns an empty object by default.
@@ -2621,7 +2623,7 @@ To ensure a successful password recovery lookup if an email address is associate
 }
 ```
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2632,7 +2634,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password?sendEmail=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2641,7 +2643,7 @@ curl -v -X POST \
 }
 ```
 
-##### Request Example (Convert a User to a Federated User)
+##### Request example (Convert a User to a Federated User)
 
 
 To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
@@ -2655,14 +2657,14 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password?provider=FEDERATION&sendEmail=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
 {}
 ```
 
-### Expire Password
+### Expire password
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/expire_password" />
@@ -2674,7 +2676,7 @@ If you have integrated Okta with your on-premise Active Directory (AD), then set
 When the user tries to log in to Okta, delegated authentication finds the password-expired status in the Active Directory,
 and the user is presented with the password-expired page where he or she can change the password.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter    | Description                                                        | Param Type | DataType | Required | Default |
@@ -2682,7 +2684,7 @@ and the user is presented with the password-expired page where he or she can cha
 | id           | `id` of user                                                       | URL        | String   | TRUE     |         |
 | tempPassword | Sets the user's password to a temporary password,  if `true`       | Query      | Boolean  | FALSE    | FALSE   |
 
-##### Response Parameters
+##### Response parameters
 
 
 * Returns the complete user object by default
@@ -2694,7 +2696,7 @@ and the user is presented with the password-expired page where he or she can cha
 }
 ```
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2705,7 +2707,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password?tempPassword=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2768,19 +2770,19 @@ curl -v -X POST \
 
 This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user's status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id           | `id` of user                                                 | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
 
 Returns an empty object by default.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2791,7 +2793,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -2799,7 +2801,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-### Clear Current User Sessions
+### Clear current User sessions
 
 Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
 
@@ -2808,7 +2810,7 @@ Clears Okta sessions for the currently logged in user. By default, the current s
 <ApiOperation method="post" url="/api/v1/users/me/lifecycle/delete_sessions" /> <SupportsCors />
 
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
@@ -2821,7 +2823,7 @@ Clears Okta sessions for the currently logged in user. By default, the current s
 Returns an empty object.
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2835,7 +2837,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/me/lifecycle/delete_sessions"
 ```
 
-##### Response Example
+##### Response example
 
 If the sessions were successfully cleared, a `200 OK` response will be returned.
 
@@ -2849,9 +2851,9 @@ Content-Type: application/json
 ```
 
 
-## User Sessions
+## User sessions
 
-### Clear User Sessions
+### Clear User sessions
 
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/sessions" />
@@ -2860,7 +2862,7 @@ Removes all active identity provider sessions. This forces the user to authentic
 
 >**Note:** This operation doesn't clear the sessions created for web sign in or native applications.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter    | Description                                                      | Param Type | DataType | Required | Default |
@@ -2868,14 +2870,14 @@ Removes all active identity provider sessions. This forces the user to authentic
 | userId       | `id` of a user                                                   | URL        | String   | TRUE     |         |
 | oauthTokens  | Revoke issued OpenID Connect and OAuth refresh and access tokens | Query      | Boolean  | FALSE    | FALSE   |
 
-#### Response Parameters
+#### Response parameters
 
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -2886,16 +2888,16 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/sessions"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-## Credential Operations
+## Credential operations
 
-### Forgot Password
+### Forgot password
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/forgot_password" />
@@ -2904,7 +2906,10 @@ Generates a one-time token (OTT) that can be used to reset a user's password
 
 The user will be required to validate their security question's answer when visiting the reset link.  This operation can only be performed on users with an `ACTIVE` status and a valid [recovery question credential](#recovery-question-object).
 
-##### Request Parameters
+>**Note:** If you have migrated to Okta Identity Engine, you can allow users to recover passwords with any enrolled MFA authenticator. See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
+><ApiLifecycle access="ie" />
+
+##### Request parameters
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
@@ -2917,7 +2922,7 @@ To ensure a successful password recovery lookup if an email address is associate
 * Okta no longer includes deactivated users in the lookup.
 * The lookup searches login IDs first, then primary email addresses, and then secondary email addresses.
 
-##### Response Parameters
+##### Response parameters
 
 
 * Returns an empty object by default
@@ -2931,7 +2936,7 @@ To ensure a successful password recovery lookup if an email address is associate
 
 This operation does not affect the status of the user.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2942,7 +2947,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password?sendEmail=false"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -2959,7 +2964,7 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 
 > Important: This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter         | Description                                      | Param Type | DataType                                              | Required |
@@ -2968,14 +2973,14 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 | password          | New password for user                            | Body       | [Password object](#password-object)                   | TRUE     |
 | recovery_question | Answer to user's current recovery question       | Body       | [Recovery Question object](#recovery-question-object) | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 [Credentials](#credentials-object) of the user
 
 This operation does not affect the status of the user.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -2989,7 +2994,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -3005,7 +3010,7 @@ curl -v -X POST \
 }
 ```
 
-### Change Password
+### Change password
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_password" />
@@ -3014,7 +3019,7 @@ Changes a user's password by validating the user's current password
 
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter    | Description                                             | Param Type | DataType                             | Required |
@@ -3024,14 +3029,14 @@ This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_E
 | oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
 | newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 [Credentials](#credentials-object) of the user
 
 The user transitions to `ACTIVE` status when successfully invoked in `RECOVERY` status.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -3045,7 +3050,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -3061,7 +3066,7 @@ curl -v -X POST \
 }
 ```
 
-### Change Recovery Question
+### Change recovery question
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_recovery_question" />
@@ -3070,7 +3075,7 @@ Changes a user's recovery question & answer credential by validating the user's 
 
 This operation can only be performed on users in **STAGED**, **ACTIVE** or **RECOVERY** `status` that have a valid [password credential](#password-object)
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter         | Description                             | Param Type | DataType                                              | Required |
@@ -3079,14 +3084,14 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 | password          | Current password for user               | Body       | [Password object](#password-object)                   | TRUE     |
 | recovery_question | New recovery question & answer for user | Body       | [Recovery Question object](#recovery-question-object) | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 
 [Credentials](#credentials-object) of the user
 
 > This operation does not affect the status of the user.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -3103,7 +3108,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -3119,7 +3124,7 @@ curl -v -X POST \
 }
 ```
 
-## User-Consent Grant Operations
+## User-consent Grant operations
 
 <ApiLifecycle access="ea" />
 
@@ -3139,7 +3144,7 @@ Consent grants remain valid until the user manually revokes them, or until the u
 
 Lists all grants for the specified user
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
@@ -3153,7 +3158,7 @@ Lists all grants for the specified user
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3164,7 +3169,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3222,7 +3227,7 @@ curl -v -X GET \
 
 Gets a grant for the specified user
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required |
@@ -3231,7 +3236,7 @@ Gets a grant for the specified user
 | grantId     | ID of the grant being fetched                                                                  | Query        | String     | TRUE     |
 | expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE    |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3242,7 +3247,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3289,7 +3294,7 @@ curl -v -X GET \
 }
 ```
 
-### List Grants for a User-Client Combination
+### List Grants for a User-Client combination
 
 
 <ApiLifecycle access="ea" />
@@ -3298,7 +3303,7 @@ curl -v -X GET \
 
 Lists all grants for a specified user and client
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                                                    | Parameter Type   | DataType   | Required   | Default |
@@ -3309,7 +3314,7 @@ Lists all grants for a specified user and client
 | limit       | The number of tokens to return (maximum 200)                                                   | Query            | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of tokens                                    | Query            | String     | FALSE      |         |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3320,7 +3325,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oabskvc6442nkvQO0h7/grants"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3369,7 +3374,7 @@ curl -v -X GET \
 ]
 ```
 
-### Revoke All Grants for a User
+### Revoke all Grants for a User
 
 
 <ApiLifecycle access="ea" />
@@ -3378,14 +3383,14 @@ curl -v -X GET \
 
 Revokes all grants for a specified user
 
-#### Request Paramters
+#### Request parameters
 
 
 | Parameter   | Description                                   | Parameter Type   | DataType   | Required |
 | :---------- | :-------------------------------------------- | :--------------- | :--------- | :------- |
 | userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3396,7 +3401,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/grants"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
@@ -3412,7 +3417,7 @@ HTTP/1.1 204 No Content
 
 Revokes one grant for a specified user
 
-#### Request Paramters
+#### Request parameters
 
 
 | Parameter   | Description                                   | Parameter Type   | DataType   | Required |
@@ -3420,7 +3425,7 @@ Revokes one grant for a specified user
 | userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
 | grantId     | ID of the grant being revoked                 | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3431,7 +3436,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/grants/oag3ih1zrm1cBFOiq0h6"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
@@ -3447,7 +3452,7 @@ HTTP/1.1 204 No Content
 
 Revokes all grants for the specified user and client
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
@@ -3455,7 +3460,7 @@ Revokes all grants for the specified user and client
 | userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
 | clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3466,14 +3471,14 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oabskvc6442nkvQO0h7/grants"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-## User OAuth 2.0 Token Management Operations
+## User OAuth 2.0 Token management operations
 
 * [List Refresh Tokens](#list-refresh-tokens)
 * [Get Refresh Token](#get-refresh-token)
@@ -3495,7 +3500,7 @@ Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understan
 
 Lists all refresh tokens issued for the specified User and Client.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
@@ -3509,7 +3514,7 @@ Lists all refresh tokens issued for the specified User and Client.
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3520,7 +3525,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3580,7 +3585,7 @@ curl -v -X GET \
 
 Gets a refresh token issued for the specified User and Client.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
@@ -3595,7 +3600,7 @@ Gets a refresh token issued for the specified User and Client.
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3606,7 +3611,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3?expand=scope"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3691,7 +3696,7 @@ curl -v -X GET \
 
 Revokes all refresh tokens issued for the specified User and Client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
@@ -3699,7 +3704,7 @@ Revokes all refresh tokens issued for the specified User and Client. Any access 
 | userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
 | clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3710,7 +3715,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
@@ -3726,7 +3731,7 @@ HTTP/1.1 204 No Content
 
 Revokes the specified refresh token. If an access token was issued with this refresh token, it will also be revoked.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
@@ -3735,7 +3740,7 @@ Revokes the specified refresh token. If an access token was issued with this ref
 | clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 | tokenId     | ID of the token                                                          | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3746,18 +3751,18 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-## User Client Resource Operations
+## User Client resource operations
 
 <ApiLifecycle access="ea" />
 
-### List Client Resources for a User
+### List Client resources for a User
 
 
 <ApiLifecycle access="ea" />
@@ -3766,14 +3771,14 @@ HTTP/1.1 204 No Content
 
 Lists all client resources for which the specified user has grants or tokens.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter   | Description                                       | Parameter Type   | DataType   | Required |
 | :---------- | :------------------------------------------------ | :--------------- | :--------- | :------- |
 | userId      | ID of the user                                    | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -3784,7 +3789,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -3891,7 +3896,7 @@ curl -v -X GET \
 }
 ```
 
-### User Properties
+### User properties
 
 The User object defines several read-only properties:
 
@@ -3919,13 +3924,13 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 
 The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](/docs/reference/api/user-types/#update-user-type) (but not a partial update).
 
-### User Status
+### User status
 
 The following diagram shows the state object for a user:
 
 ![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/okta-user-status.png "STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED")
 
-### Understanding User Status Values
+### Understanding User status values
 
 The status of a user changes in response to explicit events, such as admin-driven lifecycle changes, user login, or self-service password recovery.
 Okta doesn't asynchronously sweep through users and update their password expiry state, for example.
@@ -3966,7 +3971,7 @@ Specifies [standard](#default-profile-properties) and [custom](#custom-profile-p
 }
 ```
 
-#### Default Profile Properties
+#### Default Profile properties
 
 The default user profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
 
@@ -4006,7 +4011,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 
 > **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
 
-##### Okta Login
+##### Okta login
 
 Every user within your Okta organization must have a unique identifier for a login.  This constraint applies to all users you import from other systems or applications such as Active Directory.  Your organization is the top-level namespace to mix and match logins from all your connected applications or directories.  Careful consideration of naming conventions for your login identifier will make it easier to onboard new applications in the future.
 
@@ -4017,10 +4022,10 @@ Okta has a default ambiguous name resolution policy for logins that include @-si
 > Hint: Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
-##### Modifying Default Profile Properties
+##### Modifying default Profile properties
 The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](/docs/reference/api/schemas/#login-pattern-validation) for `login`.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to make schema modifications.
 
-#### Custom Profile Properties
+#### Custom Profile properties
 
 User profiles may be extended with custom properties but the property must first be added to the user profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
 
@@ -4212,7 +4217,7 @@ Specifies the authentication provider that validates the user's password credent
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
 
-#### Individual Users vs. Collection of Users
+#### Individual Users vs. collection of Users
 
 For an individual User result, the Links object contains a full set of link relations available for that User as determined by your policies. For a collection of Users, the Links object contains only the `self` link. Operations that return a collection of Users include [List Users](#list-users) and [List Group Members](/docs/reference/api/groups/#list-group-members).
 
@@ -4288,7 +4293,7 @@ Here are some links that may be available on a User, as determined by your polic
 }
 ```
 
-#### User-Consent Grant Properties
+#### User-Consent Grant properties
 
 <ApiLifecycle access="ea" />
 
@@ -4329,7 +4334,7 @@ Here are some links that may be available on a User, as determined by your polic
 }
 ```
 
-#### Client Grant Properties
+#### Client Grant properties
 
 | Property      | Description                                   | Datatype                                                          | Unique |
 | :------------ | :-------------------------------------------- | :---------------------------------------------------------------- | :----- |

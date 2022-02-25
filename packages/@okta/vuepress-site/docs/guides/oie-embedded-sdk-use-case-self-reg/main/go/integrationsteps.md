@@ -166,7 +166,7 @@ An example of the page from the sample application is shown below:
 
 ### 7: Submit the email factor for verification
 
-Assuming the user selected the email factor and clicked continue, the next step is to
+Assuming that the user selected the email factor and clicked **Continue**, the next step is to
 call the `EnrollmentResponse` object's `VerifyEmail` method.
 
 ```go
@@ -196,8 +196,8 @@ email confirmation code.
 
 ### 8: Submit the verification code
 
-After the user submits the verfication code from their email, call the `EnrollmentResponse`
-object's `ConfirmEmail` method, passing in the verification code. Assuming the verification was
+After the user submits the verification code from their email, call the `EnrollmentResponse`
+object's `ConfirmEmail` method, passing in the verification code. Assuming that the verification was
 successful, call the `WhereAmI` method on the returned `EnrollmentResponse` object.
 `WhereAmI` returns an `EnrollmentResponse` object with information about
 how to proceed.
@@ -222,11 +222,7 @@ http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 
 ### 9: Again show the list that contains the available factors to enroll
 
-The next step is to show a list of available factors using the same page created in
-Step 6. Based on how you configured the Okta org for this use case, only the phone
-factor should be displayed. The `EnrollmentResponse` object's `HasStep` method you called in
-[Step 6](#step-6-build-a-list-of-available-factors-to-display-to-user) is used to toggle the visibility of the skip button and show the avaiable factors. In this step, the skip button and phone factor option should be visible.
-
+The next step is to show a list of available factors using the same page created in Step 6. Based on the Okta org configured for this use case, only the phone factor should appear. The `EnrollmentResponse` object's `HasStep` method that you called in [Step 6](#_6-build-a-list-of-available-factors-to-display-to-the-user) is used to toggle the visibility of the **Skip** button and show the available factors. In this step, the **Skip** button and phone factor option should be visible.
 
 ```go
 if enrollResponse.HasStep(idx.EnrollmentStepSkip) {
@@ -250,7 +246,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 ### 10: Skip the phone factor
 
-Assuming the user skips the phone factor and completes the registration with only the email,
+Assuming that the user skips the phone factor and completes the registration with only the email factor,
 call the `EnrollmentResponses` object's `Skip` method.
 
 ```go
@@ -262,8 +258,8 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
   ...
 ```
 
-For more details about enrolling the phone factor see the sample application. For details on how
-to verify a sign-in with the phone factor, see
+For more details about enrolling the phone factor, see the sample application. For details on how
+to verify a sign-in flow with the phone factor, see
 [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
 ### 11: Store the tokens in a session and go to the signed-in home page
@@ -285,6 +281,4 @@ if enrollResponse.Token() != nil {
 
 ### 12 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+Optionally, you can obtain basic user information after a successful user sign-in flow by making a request to Okta's OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).

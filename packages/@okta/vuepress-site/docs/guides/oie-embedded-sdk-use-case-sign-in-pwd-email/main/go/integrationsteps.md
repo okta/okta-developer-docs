@@ -17,7 +17,7 @@ if err != nil {
 
 ### 2: Capture credentials with the sign-in page
 
-Build a sign-in page that captures the user's name and password.
+Build a sign-in page that captures the username and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
@@ -26,8 +26,8 @@ Build a sign-in page that captures the user's name and password.
 </div>
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initiate the sign-in process with Okta.  The object
-also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
+`LoginResponse` that is used to initiate the sign-in process with Okta. The object
+also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
 use case.
 
@@ -72,7 +72,7 @@ if err != nil {
 The `Identity` method returns `LoginResponse` and `error`
 objects. Use the `error` object to determine if there were errors in the
 user sign-in. If the `error` object is `nil` and `LoginResponse` object's
-`Token` property is equal to `nil`, the user needs to confirm their identity
+`Token` property is equal to `nil`, then the user needs to confirm their identity
 with additional factors. The following code from the sample application shows
 a redirect to a factors page when there are no errors or tokens in the `LoginResponse`.
 

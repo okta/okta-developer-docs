@@ -22,7 +22,7 @@ guides:
     links:
       - text: What is SCIM?
         url: /docs/concepts/scim
-    docsUrl: /docs/guides/build-provisioning-integration/overview/
+    docsUrl: /docs/guides/scim-provisioning-integration-overview
 
 developSteps:
   - name: Build

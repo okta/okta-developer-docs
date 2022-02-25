@@ -7,8 +7,6 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
 
 ---
@@ -26,10 +24,6 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 
 [Sample app](/docs/guides/oie-embedded-common-download-setup-app)
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Use case scenarios
@@ -45,7 +39,7 @@ The following scenarios are included in this guide:
 
 ## Initial set up
 
-To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
+To get started, you need to create an Okta OAuth app to represent the <StackSnippet snippet="applang" inline /> app and then install the <StackSnippet snippet="applang" inline /> sample app.
 
 <StackSnippet snippet="toolnote" />
 
@@ -56,8 +50,8 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 
    * Be sure to add the following values (or leave the defaults if they match):
 
-      **Sign-in redirect URIs** &mdash; <StackSnippet snippet="signinredirecturi" inline /><br>
-      **Sign-out redirect URIs** &mdash; <StackSnippet snippet="signoutredirecturi" inline />
+      **Sign-in redirect URIs**: <StackSnippet snippet="signinredirecturi" inline /><br>
+      **Sign-out redirect URIs**: <StackSnippet snippet="signoutredirecturi" inline />
 
    * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
 5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
@@ -194,17 +188,17 @@ When we enrolled our test user, the user was only prompted for first and last na
 3. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 4. In the Edit Rule dialog box, click **Add Another** and enter the following:
 
-    * **Fields** &mdash; `region`
-    * **Form label** &mdash; `Region`
+    * **Fields**: `region`
+    * **Form label**: `Region`
 
 5. Select the **Required** check box, and then click **Save**.
 6. From the side navigation, select **Directory** > **Profile Editor**.
 7. Under **Filters**, select **Okta**, and then click the pencil icon for the **User (default)** Profile.
 8. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click **Save** when you finish.
 
-    * **Data type** &mdash; `string`
-    * **Display name** &mdash; `Region`
-    * **Variable name** &mdash; `region`
+    * **Data type**: `string`
+    * **Display name**: `Region`
+    * **Variable name**: `region`
 
 9. Find the **Region** attribute that you just created and click the pencil icon beside it.
 10. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
@@ -249,10 +243,10 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 2. Select **Add Identity Provider** and then select **Add Facebook**.
 3. In the Add an Identity Provider dialog box, define the following:
 
-    * **Name** &mdash; Enter a name for the IdP configuration.
-    * **Client ID** &mdash; Paste the app ID that you obtained from the IdP in the previous section.
-    * **Client Secret** &mdash; Paste the secret that you obtained from the IdP in the previous section.
-    * **Scopes** &mdash; Leave the defaults.
+    * **Name**: Enter a name for the IdP configuration.
+    * **Client ID**: Paste the app ID that you obtained from the IdP in the previous section.
+    * **Client Secret**: Paste the secret that you obtained from the IdP in the previous section.
+    * **Scopes**: Leave the defaults.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 

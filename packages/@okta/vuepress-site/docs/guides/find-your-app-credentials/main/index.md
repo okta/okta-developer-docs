@@ -8,9 +8,7 @@ This guide explains how you can find your app integration credentials.
 
 <!-- I don't think this article needs nutrition facts; it is too short and simple -->
 
-## Overview
-
-If you're building an app integration using one of our software development kits or client libraries, you may run into the following message:
+If you're building an app integration by using one of our software development kits or client libraries, you may run into the following message:
 
 > **Note:** Your client ID is missing. Replace `${clientId}` with the client ID of your Application. You can copy it from the Okta Admin Console in the details for the Application that you created.
 

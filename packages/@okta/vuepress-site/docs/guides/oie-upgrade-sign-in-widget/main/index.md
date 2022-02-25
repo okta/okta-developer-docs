@@ -91,7 +91,7 @@ For Identity Engine, the Sign-In Widget is configured differently. You can remov
 
 ### Registration
 
-You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm). This process allows users to self register into your application.
+You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self register into your application.
 
 You can remove the registration objects as follows.
 
@@ -166,3 +166,30 @@ The following specific features are no longer supported, and you must remove the
 ### I18n properties
 
 After you upgrade your org to the Identity Engine, you can override existing text strings in the interface with Identity Engine i18n strings so that you can create localized Widgets. See [Updates to the Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
+
+## Changes to Sign-In Widget customization for the Identity Engine
+
+### Help title link and Need help signing in string
+
+The following customizations aren't supported:
+
+* **Okta-hosted Sign-In Widget:** The **Help title** link in the **Customized Help Links** section of the Customization page has been removed and isn't supported.
+* **Self-hosted Sign-In Widget:** The **Need help signing in** string has been removed and isn't supported.
+
+See [Okta Sign-in Widget Help](https://github.com/okta/okta-signin-widget/#help-links).
+
+### `processCreds` hook
+
+Developers can't subscribe to the `processCreds` hook in the Sign-In Widget.
+
+### Registration Inline Hooks
+
+Existing Registration Inline Hooks may experience compatibility issues after migrating to the Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
+
+In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same and can be completed in the Admin Console or by Inline Hook Management APIs.
+
+See [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+
+### Security image
+
+The ability for end users to specify a security image when they first register for an account isn't supported with the Identity Engine. Additionally, existing users who may have already registered a security image, won't see that image when they sign in.

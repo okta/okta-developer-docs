@@ -10,7 +10,7 @@ Build a sign-in page that captures the username and password, as shown in the fo
 
 When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to start the authentication process. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information. This call begins the multifactor authentication flow.
 
-If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the user is successfully signed in. The response also includes a `nextStep` field that identifies the input parameters of the next step, in this case an authenticator of type phone:
+If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the user is successfully signed in. The response also includes a `nextStep` field that identifies the input parameters of the next step, which in this case is for a phone authenticator key:
 
 ```JavaScript
 status, // IdxStatus.PENDING
@@ -24,7 +24,7 @@ After this response, you need to redirect the user to an authenticator list page
 
 ### 2: The user selects the phone factor from the authenticator list
 
-In this use case, only the **phone** factor is displayed in the list of authenticators, as shown in the following example page:
+In this use case, only the **Phone** factor appears in the list of authenticators, as shown in the following example page:
 
 <div class="common-image-format">
 
@@ -34,7 +34,7 @@ In this use case, only the **phone** factor is displayed in the list of authenti
 
 >**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
 
-When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone type, `{ authenticator: 'phone' }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method in order to send the verification code. The `nextStep` field includes the input for this method.
+When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone key, `{ authenticator: AuthenticatorKey.PHONE_NUMBER }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method to send the verification code. The `nextStep` field includes the input for this method.
 
 ```JavaScript
 status, // IdxStatus.PENDING
@@ -57,7 +57,7 @@ Build the phone verification method entry page that accepts either SMS or voice 
 
 When the user enters a phone verification method (either SMS or voice verification) and clicks **Next**, a call to `idx.authenticate` is made that passes in the following values:
 
-* Authenticator (type): `{ authenticator: 'phone' }`
+* Authenticator key: `{ authenticator: AuthenticatorKey.PHONE_NUMBER}`
 * Verification method: `{ name: 'SMS' }`
 
 If the call to `idx.authenticate` is successful, the SDK returns another status of `Idx.Status:PENDING`. When this status is returned, it indicates that Okta has sent a code to the phone number through SMS. The `nextStep` field requires the code as a verification input:

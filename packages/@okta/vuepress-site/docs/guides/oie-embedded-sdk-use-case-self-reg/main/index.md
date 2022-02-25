@@ -7,8 +7,6 @@ title: Self-service registration
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 This guide covers self-service registration, which allows users to sign up for the app themselves. In this use case, the user must register with a password, email, and/or phone factors. You must first enable the self-service registration option for your app in the Okta org and then build the self-service registration flow in your app.
 
 ---
@@ -21,11 +19,13 @@ This guide covers self-service registration, which allows users to sign up for t
 
 **What you need**
 
-[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* An app that uses the embedded Okta Identity Engine SDK
+* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+* [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -79,11 +79,11 @@ For new user registration, your app in your Okta org needs to be assigned to eve
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 ## Send a confirmation email during new user registration with only the password factor required
 
