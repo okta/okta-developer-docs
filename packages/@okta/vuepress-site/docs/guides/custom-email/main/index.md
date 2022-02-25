@@ -94,7 +94,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 | Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | Sent to users who tried to use self-service to unlock an account that isn't locked |
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Sent to Active Directory users who must follow the provided link to unlock their password |
 | Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Sent to users who must follow the provided link to complete self-service unlock account process |
-| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Sent to LDAP users who must follow the provided link to complete self-service unlock account process |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
 | Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | Sent to users who must follow the provided link to confirm their email address change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | Sent when the request to change a user's email address is confirmed |
