@@ -218,11 +218,11 @@ export const guides = [
               },
               {
                 title: "Sign in to your SPA with Auth JS",
-                guideName: "sign-into-spa-authjs"
+                guideName: "sign-in-to-spa-authjs"
               },
               {
                 title: "Sign in to SPA with embedded Widget",
-                guideName: "sign-into-spa-embedded-widget"
+                guideName: "sign-in-to-spa-embedded-widget"
               },
               {
                 title: "Email uses cases",
