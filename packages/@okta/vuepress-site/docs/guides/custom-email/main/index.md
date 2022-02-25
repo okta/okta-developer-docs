@@ -21,7 +21,7 @@ Customize email notifications.
 
 **Sample code**
 
-[Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
+[Customization example](#customization-example)
 
 ---
 
@@ -72,40 +72,39 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ### Use customizable email templates
 
-| UI name | Subject | API object reference | Category | Details |
+| UI name | Default subject line | API object reference | Category | Details |
 |---------|---------|----------------------|----------|---------|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| User Activation | Welcome to Okta! |  |  |  |
+| Active Directory User Activation | Welcome to Okta! |  |  |  |
+| LDAP User Activation | Welcome to Okta! |  |  |  |
+| Send Push Verify Activation Link | Push Verify Activation Email |  |  |  |
+| Registration - Activation | Activate Account |  |  |  |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! |  |  |  |
+| Email Factor verification (Identity Engine)</br>Email Verification (Classic Engine) | Confirm your email address |  |  |  |
+| Forgot Password Denied | Account Password Reset |  |  |  |
+| Password Reset by Admin | Account Password Reset |  |  |  |
+| Active Directory Password Reset Denied | Forgotten Password |  |  |  |
+| LDAP Forgot Password Denied | Account password reset |  |  |  |
+| LDAP Forgot Password | Account password reset |  |  |  |
+| Forgot Password | Account password reset |  |  |  |
+| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) |  |  |  |
+| Password Changed | Password Changed |  |  |  |
+| Self-Service Unlock when Account is not Locked | Unlock Account |  |  |  |
+| Active Directory Password Unlock | Unlock Account |  |  |  |
+| Self-Service Unlock Account | Unlock Account |  |  |  |
+| LDAP Self-Service Unlock Account | Unlock Account |  |  |  |
+| Change Email Confirmation | Confirm email address change |  |  |  |
+| Email Change Notification | Notice of pending email address change |  |  |  |
+| Email Change Confirmed Notification | Notice of email address change |  |  |  |
+| Email Challenge | One-time Email Authentication Link |  |  |  |
+| Account Lockout | Account Lockout |  |  |  |
+| New Sign-On Notification | New Sign-On Notification |  |  |  |
+| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) |  |  |  |
+| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) |  |  |  |
+| Campaign Launched | Access certification campaign: (`campaignName`) |  |  |  |
+| Campaign Ended |  | Access certification campaign: (`campaignName`) |  |  |
+| Campaign Reminder | Access certification campaign: (`campaignName`) |  |  |  |
+| Reassigned Review | Access certification campaign: (`campaignName`) |  |  |  |
 
 
 ## Add translations
@@ -136,7 +135,11 @@ For example, reference the first name of a user by using `${user.profile.firstNa
 
 See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
 
-### Example of using app context to brand an email
+### Use conditional logic
+
+In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
+
+### Customization example
 
 ```html
 #if(${app.name} == "Toys R' Fun")
@@ -152,7 +155,9 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 
 ### Use VTL variables
 
-<!--- insert salvaged legacy copy here --->
+You can reference any Okta User Profile attribute in your email templates.
+
+> **Note:** Some attributes are only available in Okta Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and Okta Classic Engine.
 
 | Variable       | Template availability         |
 |---------------------------------------------------------------|------------------------------------------------------------------------|
@@ -173,6 +178,9 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${user.profile.countryCode}` | Available in all templates |
 | `${user.groups.names}` | Available in all templates |
 | `${user.group.ids}` | Available in all templates |
+| `${app.id}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `${app.name}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `${app.label}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
 | `${org.name}` | Available in all templates |
 | `${org.locale}` | Available in all templates |
 | `${org.subDomain}` | Available in all templates |
@@ -202,6 +210,7 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
 | `${recoveryToken}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Reset Factor</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
 | `${request.date}` | Available in Authenticator Enrolled |
 | `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
@@ -215,8 +224,6 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
 | `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
-
-<!--- Available in these templates:</br><ul><li></li><li></li></ul> --->
 
 ## Use functions for email templates
 
