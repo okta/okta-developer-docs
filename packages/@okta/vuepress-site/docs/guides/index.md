@@ -7,6 +7,7 @@ guides:
  - archive-embedded-siw
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
+ - auth-js
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - common-hook-set-up-steps
@@ -23,6 +24,7 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
+ - embedded-siw
  - enable-cors
  - event-hook-hookdeck
  - event-hook-implementation
@@ -62,6 +64,8 @@ guides:
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
+ - sign-in-to-spa-authjs
+ - sign-in-to-spa-embedded-widget
  - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
