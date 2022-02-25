@@ -28,10 +28,6 @@ How to configure a social Identity Provider so that your users can quickly sign 
 * An account with <StackSelector snippet="idpaccount" noSelector inline />.
 * Enable **New social Identity Provider integrations**. See [Manage Early Access and Beta features](https://help.okta.com/en/prod/Content/Topics/Security/manage-EA-and-beta-features.htm?cshid=ext_Manage_Early_Access_features).
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Create an application at the Identity Provider

@@ -25,10 +25,6 @@ How to configure an external Identity Provider so that your users can quickly si
 * An application that you want to add authentication to. You can use an existing app integration or create a new one. To create a new app integration, see [Create custom app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
 * An account <StackSelector snippet="idpaccount" noSelector inline />.
 
-**Sample code**
-
-n/a
-
 ---
 
 ## Create an app at <StackSelector snippet="idp" noSelector inline />
