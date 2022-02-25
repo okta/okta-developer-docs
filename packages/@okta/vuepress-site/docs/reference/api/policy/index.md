@@ -246,7 +246,7 @@ HTTP 204:
 
 ## Policy mapping operations
 
-### Get Applications
+### Get applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
 
 ##### Request parameters
