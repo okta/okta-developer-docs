@@ -147,7 +147,7 @@ Okta Identity Engine orgs have access to app context within emails using VTL. Wh
 * `${app.name}`
 * `${app.label}`
 
-When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
+When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context isn't available on the Classic Engine since the state token doesn't exist there.
 
 ### Support for conditional logic
 
