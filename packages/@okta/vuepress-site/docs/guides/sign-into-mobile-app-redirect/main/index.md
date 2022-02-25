@@ -174,9 +174,9 @@ Your API then checks incoming requests for valid tokens. To learn how to protect
 
 This guide showed you how to sign users in with their username and password using an Okta themed sign-in page. Here are some ways to extend that functionality:
 
-* [Customize the sign-in page that's presented by Okta](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
-* [Share a sign-in session with native mobile apps](https://developer.okta.com/docs/guides/shared-sso-android-ios/ios/main/).
-* [Add a sign-in flow using biometrics](https://developer.okta.com/docs/guides/unlock-mobile-app-with-biometrics/ios/main/).
-* [Protect your servers' API endpoints](https://developer.okta.com/docs/guides/protect-your-api/).
+* [Customize the sign-in page that's presented by Okta](https://developer.okta.com/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
+* [Share a sign-in session with native mobile apps](https://developer.okta.com/docs/guides/shared-sso-android-ios/)
+* [Add a sign-in flow using biometrics](https://developer.okta.com/docs/guides/unlock-mobile-app-with-biometrics/)
+* [Protect your servers' API endpoints](https://developer.okta.com/docs/guides/protect-your-api/)
 
 <StackSnippet snippet="specificlinks" />
