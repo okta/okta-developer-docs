@@ -103,7 +103,7 @@ You can reference any Okta User Profile attribute in your email templates. The r
 
 Other examples include:
 
-- Trigger an email in your end-users' preferred language by using conditional logic and calling the `preferredLanguage` attribute.
+- Trigger an email in your end user's preferred language by using conditional logic and calling the `preferredLanguage` attribute.
 - Specify a department such as Engineering in an activation email by calling the `department` attribute.
 
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
