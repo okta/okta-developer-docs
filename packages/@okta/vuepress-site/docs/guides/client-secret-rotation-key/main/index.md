@@ -127,7 +127,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 ## JWK management
 
-To add more keys, deactivate a key, and delete a key, follow these steps:
+To add more keys, deactivate a key, or delete a key, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 
