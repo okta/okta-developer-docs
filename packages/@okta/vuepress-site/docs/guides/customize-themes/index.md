@@ -202,7 +202,7 @@ You can list all supported email templates (**List email templates** in Postman)
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
 
-This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template resources](#/docs/reference/api/brands/#email-template).
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template](#/docs/reference/api/brands/#email-template) resources.
 
 #### Get an email template
 
