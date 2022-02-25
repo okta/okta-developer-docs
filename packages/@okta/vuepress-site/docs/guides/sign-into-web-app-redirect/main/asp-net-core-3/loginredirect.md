@@ -1,4 +1,4 @@
-1. By default, the redirect to the login page happens automatically when users access a protected route. In Visual Studio, to create a universal *Sign In* link, expand **Views** > **Shared** and open your `_Layout.cshtml` file.
+1. By default, the redirect to the sign-in page happens automatically when users access a protected route. In Visual Studio, to create a universal sign-in link, expand **Views** > **Shared** and open your `_Layout.cshtml` file.
 
 2. Insert the following code directly above `<ul class="navbar-nav flex-grow-1>`:
 

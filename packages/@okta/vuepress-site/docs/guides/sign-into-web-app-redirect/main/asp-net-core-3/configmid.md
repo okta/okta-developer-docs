@@ -8,7 +8,7 @@
   }
 ```
 
-2. You also need to configure your MVC app to enable Cookies and also OpenID Connect as the default protocol for authentication. Open `Startup.cs` and add the following using statements at the top:
+2. You also need to configure your MVC app to enable cookies and OpenID Connect as the default protocol for authentication. Open `Startup.cs` and add the following using statements at the top:
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.Cookies;

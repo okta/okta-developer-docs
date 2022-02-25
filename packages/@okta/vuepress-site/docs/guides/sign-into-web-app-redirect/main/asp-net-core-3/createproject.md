@@ -1,8 +1,8 @@
-For this tutorial, we will *create a sample app from scratch* using the Visual Studio ASP.NET Core Web App project template. 
+For this tutorial, we create a sample app from scratch using the Visual Studio ASP.NET Core Web App project template.
 
-1. Launch Visual Studio 2022 and select **New project** > **ASP.NET Core Web App (Model-View-Controller)** and click **Next**. 
-2. Name your project and click **Next**. 
-3. Select **Framework** as **.NET Core 3.1**, **Authentication** as **None** (don't worry, Okta will handle this part) and check **Configure for HTTPS**.
+1. Launch Visual Studio 2022, select **New project** > **ASP.NET Core Web App (Model-View-Controller)**, and click **Next**.
+2. Name your project and click **Next**.
+3. Select **Framework** as **.NET Core 3.1**, **Authentication** as **None** (don't worry, Okta handles this part) and select **Configure for HTTPS**.
 4. Click **Create**.
 
 > **Note**: This guide uses .NET Core 3.1.
