@@ -165,10 +165,10 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${recoveryLink}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
 | `${factorDisplayName}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
 | `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
-| `${unlockAccountTokenExpirationDate}` |  |
-| `${resetPasswordLink}` |  |
-| `${recoveryToken}` |  |
-| `${resetPasswordTokenExpirationDate}` |  |
+| `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
+| `${recoveryToken}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Reset Factor</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
 | `${request.date}` |  |
 | `${request.time}` |  |
 | `${request.location}` |  |
@@ -181,6 +181,8 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${verificationToken}` |  |
 | `${emailAuthenticationLink}` |  |
 | `${email}` |  |
+
+<!--- Available in these templates:</br><ul><li></li><li></li><li></li><li></li><li></li><li></li></ul> --->
 
 ## Use functions for email templates
 
