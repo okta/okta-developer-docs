@@ -169,20 +169,20 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 | `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
 | `${recoveryToken}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Reset Factor</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
-| `${request.date}` |  |
-| `${request.time}` |  |
-| `${request.location}` |  |
-| `${request.performedBySubject}` |  |
-| `${request.factor}` |  |
-| `${request.factors}` |  |
-| `${request.ipAddress}` |  |
-| `${request.reportSuspiciousActivityToken}` |  |
-| `${request.browser}` |  |
-| `${verificationToken}` |  |
-| `${emailAuthenticationLink}` |  |
-| `${email}` |  |
+| `${request.date}` | Available in Authenticator Enrolled |
+| `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
+| `${request.location}` | Available in Authenticator Enrolled |
+| `${request.performedBySubject}` | Available in Authenticator Enrolled |
+| `${request.factor}` | Available in Factor Enrolled |
+| `${request.factors}` | Available in Factor Reset |
+| `${request.ipAddress}` | Available in Sign In From New Device |
+| `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
+| `${request.browser}` | Available in Sign In From New Device |
+| `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
+| `${emailAuthenticationLink}` | Available in Email Challenge |
+| `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
 
-<!--- Available in these templates:</br><ul><li></li><li></li><li></li><li></li><li></li><li></li></ul> --->
+<!--- Available in these templates:</br><ul><li></li><li></li></ul> --->
 
 ## Use functions for email templates
 
