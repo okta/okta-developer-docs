@@ -87,20 +87,20 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 | LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | Sent to LDAP users who tried to reset their LDAP password reset but don't have permission |
 | LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
 | Forgot Password | Account password reset | `ForgotPassword` | Sent to users who must follow the provided link to reset their forgotten password |
-| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` |  |
-| Password Changed | Password Changed | `PasswordChanged` |  |
-| Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` |  |
-| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` |  |
-| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` |  |
-| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` |  |
-| Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` |  |
-| Email Change Notification | Notice of pending email address change | `PendingEmailChange` |  |
-| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` |  |
-| Email Challenge | One-time Email Authentication Link | `EmailChallenge` |  |
-| Account Lockout | Account Lockout | `AccountLockout` |  |
-| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` |  |
-| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` |  |
-| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` |  |
+| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` | Identity Engine: Sent to users who want to reset their Active Directory account password and must follow the provided link to reset password</br>Classic Engine: Sent to users who have had their Active Directory account password reset and must follow the provided link to reset password |
+| Password Changed | Password Changed | `PasswordChanged` | Sent to users whenever their account password is changed |
+| Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | Sent to users who tried to use self-service to unlock an account that isn't locked |
+| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Sent to Active Directory users who must follow the provided link to unlock their password |
+| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Sent to users who must follow the provided link to complete self-service unlock account process |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Sent to LDAP users who must follow the provided link to complete self-service unlock account process |
+| Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | Sent to users who must follow the provided link to confirm their email address change request |
+| Email Change Notification | Notice of pending email address change | `PendingEmailChange` | Sent to a user's old email address when they request to change their email address |
+| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | Sent when the request to change a user's email address has been confirmed |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Account Lockout | Account Lockout | `AccountLockout` | Sent to users who have been locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
+| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user does not recognize the sign-in details of the unknown device |
+| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Identity Engine: Sent to users when authenticators are reset</br>Classic Engine: Sent to users when new MFA factors are enrolled |
+| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Identity Engine: Sent to users when authenticators are reset</br>Classic Engine: Sent to users when MFA factors are reset |
 | Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` |  |
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` |  |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` |  |
