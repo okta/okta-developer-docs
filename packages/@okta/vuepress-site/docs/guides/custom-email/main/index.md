@@ -63,7 +63,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Click a default email template listed in the left pane.
-1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template has already been customized. You need to make any additional edits in the default language version. Skip to Step 2 in [Add translations](#add-translations).
+1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template is already customized. You need to make any additional edits in the default language version. Skip to step 2 in [Add translations](#add-translations).
 1. Select a language from the dropdown menu.
 1. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
 
