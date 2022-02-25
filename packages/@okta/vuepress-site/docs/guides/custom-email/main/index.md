@@ -71,7 +71,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ## Add translations
 
-* When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
+* When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Choose an email template that you've customized. The default language version appears in the **Custom Email** table.
