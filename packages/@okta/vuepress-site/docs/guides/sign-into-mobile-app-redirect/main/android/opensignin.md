@@ -1,4 +1,6 @@
-1. Add a sign-in button, sign-out button, and a text view by changing the default layout file for the app. Add the following to the file `app/src/main/res/layout/activity_browser_sign_in.xml`:
+1. Rename the default layout file for the app to `app/src/main/res/layout/activity_browser_sign_in.xml`:
+
+2. Add a sign-in button, sign-out button, and a text view by updating the existing `TextView` tag to the following:
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,7 +61,19 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-2. Add the following code to `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java` to initialize the client:
+3. Fill in strings for the `text` values referenced above, in `app/src/main/res/values/strings.xml`:
+
+```xml
+<resources>
+    <string name="app_name">Browser sign in</string>
+    <string name="sign_in_btn">Sign in</string>
+    <string name="sign_out_btn">Sign out</string>
+    <string name="have_account">Have an account?</string>
+    <string name="welcome_user">Welcome </string>
+</resources>
+```
+
+4. Update the contents of `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java` to initialize the client:
 
 ```java
 public class AuthClient {
@@ -94,7 +108,9 @@ public class AuthClient {
 }
 ```
 
-3. Add the following code to `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.java` to handle client callbacks and button clicks:
+5. Create a new file called `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.java` to handle client callbacks and button clicks.
+
+6. Give the class the following content:
 
 ```java
 public class BrowserSignInActivity extends AppCompatActivity {
@@ -154,7 +170,7 @@ In the code above, the authentication flow is triggered from the sign-in button 
 
 To run your app on an Android virtual device (emulator) during development:
 
-1. Set the requirement for a hardware-backed key store to false by calling `setRequireHardwareBackedKeyStore(false)` while creating the `Okta.WebAuthBuilder()` instance (not required for real devices).
+1. Set the requirement for a hardware-backed key store to false by calling `setRequireHardwareBackedKeyStore(false)` while creating the `Okta.WebAuthBuilder()` instance inside `AuthClient.java` (not required for real devices). The code you added earlier contains a commented-out copy of the line you need, so you can uncomment it if required.
 
 2. Install a supported browser APK, such as the [Firefox APK](https://github.com/mozilla-mobile/fenix/releases) using the [Android Debug Bridge (ADB)](https://developer.android.com/studio/command-line/adb).
 

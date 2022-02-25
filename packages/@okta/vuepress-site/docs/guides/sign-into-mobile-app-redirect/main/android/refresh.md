@@ -1,4 +1,4 @@
-Use the `refreshToken()` method to get a new access token. Add the following code after checking for access token expiry:
+Use the `refreshToken()` method to get a new access token. Add the following code after checking for access token expiry, inside the `if (sessionClient.isAuthenticated())` block:
 
 ```java
 if (sessionClient.getTokens().isAccessTokenExpired()) {

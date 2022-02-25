@@ -1,6 +1,6 @@
 To find information about the user, use the `getUserProfile()` method. The `UserInfo` object passed into the `onSuccess()` method contains information for the signed-in user.
 
-1. Add the code below to `BrowserSignInActivity` to display a welcome message that includes the user's name:
+Add the code below to `BrowserSignInActivity` to display a welcome message that includes the user's name:
 
 ```java
 private void showUserInfo() {
@@ -21,7 +21,7 @@ private void showUserInfo() {
 }
 ```
 
-2. To update the User Interface, add the following code to your `onSuccess()` method inside the `client.registerCallback`:
+You've already got code to update the UI with this information; see the `onSuccess()` method inside the `client.registerCallback`:
 
 ```java
 if (status == AuthorizationStatus.AUTHORIZED) {

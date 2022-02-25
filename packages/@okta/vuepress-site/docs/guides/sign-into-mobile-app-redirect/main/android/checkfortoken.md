@@ -1,6 +1,6 @@
 Verify that the user is already signed in by checking the authentication status of the active session using the `isAuthenticated` method.
 
-1. Add the following code after the `SessionClient` instance is obtained from the `WebAuthClient` instance:
+1. Add the following code below the `client.registerCallback` block inside `BrowserSignInActivity.java` (anywhere below `sessionClient = client.getSessionClient();` would work):
 
 ```java
 if (sessionClient.isAuthenticated()) {
