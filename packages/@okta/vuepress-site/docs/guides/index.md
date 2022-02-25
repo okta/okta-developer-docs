@@ -2,13 +2,17 @@
 title: Guides overview
 guides:
  - add-an-external-idp
- - auth-js
+ - archive-auth-js
+ - archive-configure-signon-policy
+ - archive-embedded-siw
+ - archive-sign-in-to-spa-authjs
+ - archive-sign-in-to-spa-embedded-widget
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso
- - configure-signon-policy
  - create-an-api-token
  - custom-email
  - custom-error-pages
@@ -20,7 +24,6 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
- - embedded-siw
  - enable-cors
  - event-hook-hookdeck
  - event-hook-implementation
@@ -93,8 +96,6 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
- - sign-in-to-spa-embedded-widget
- - sign-in-to-spa-authjs
 
 ---
 
