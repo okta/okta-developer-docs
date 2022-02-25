@@ -193,6 +193,10 @@ export const guides = [
                     path: "/docs/guides/add-an-external-idp/apple/main/"
                   },
                   {
+                    title: "Discord",
+                    path: "/docs/guides/social-login/discord/main/"
+                  },
+                  {
                     title: "Facebook",
                     path: "/docs/guides/add-an-external-idp/facebook/main/"
                   },
