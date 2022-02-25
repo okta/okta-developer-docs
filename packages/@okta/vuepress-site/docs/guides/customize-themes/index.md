@@ -19,7 +19,7 @@ This guide explains how to use the Brands API to rapidly customize the theme of 
 * Access to the Brands API: `/api/v1/brands`. Contact [Okta support](https://support.okta.com/help) for help.
 * The Brands Postman collection allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman. See [Use Postman with the Okta REST APIs](/code/rest/#set-up-your-environment) for more details.
 
-  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
+  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
 ---
 
