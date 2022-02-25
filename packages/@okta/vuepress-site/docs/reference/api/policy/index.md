@@ -1086,7 +1086,7 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 ## Global Session Policy
 
-> **Note:** The Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
+> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
 
 Global Session Policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
 
