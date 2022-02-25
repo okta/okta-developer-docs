@@ -15,21 +15,19 @@ Below we explain what new features Identity Engine brings to the table, talk abo
 
 Identity Engine unlocks many new capabilities.
 
-### Policy-driven; app-level policies
+### App-level policies
 
-One key aspect is its policy-driven nature — if you are using Identity Engine you are able to create flexible apps that can change their authentication methods without having to alter a line of code.
-
-App-level policies are [security policy frameworks](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allow organizations to model security outcomes for an app — these policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected.
+App-level policies are [security policy frameworks](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allow organizations to model security outcomes for an app — these policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. In addition, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
 
 * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
 * [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
 * [Policies (high-level concept)](/docs/concepts/policies/)
 
-### Interaction code grant type
+### Interaction code grant type for embedded authentication
 
-To enable a more customized user authentication experience, Okta has introduced an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the [Interaction Code grant type](/docs/concepts/interaction-code/). This grant type allows native, SPA, and web apps to manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Okta Sign-In Widget).
+To enable a more customized user authentication experience, Okta has introduced an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the [Interaction Code grant type](/docs/concepts/interaction-code/). This grant type allows apps using an embedded Sign-In Widget and/or SDK to manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Okta Sign-In Widget).
 
-### App CAPTCHA
+### CAPTCHA
 
 CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine offers registration, sign-in, and account recovery integration of the two market-leading CAPTCHA services &mdash; [hCAPTCHA](https://www.hcaptcha.com/) and [reCAPTCHA](https://www.google.com/recaptcha/about/). These are usable via Okta-hosted and embedded Sign-In Widgets, but not SDKs.
 
@@ -41,13 +39,19 @@ Identity Engine makes the app context available when a user enters an authentica
 
 ## Authentication deployment models
 
-The Identity Engine user authentication deployment model can be divided into two approaches — redirect and embedded authentication. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](#) (WILL EVENTUALLY BE /docs/guides/sign-in-overview/) for practical implementation details.
+The Identity Engine user authentication deployment model can be divided into three approaches — redirect and embedded authentication. 
+
+* Okta-hosted (redirect) Sign-In Widget &mdash; Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach — most secure and fastest to implement.
+* Embedded Sign-In Widget &mdash; Embed the Okta Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
+* Embedded SDK-driven Sign-In &mdash; Use our SDKs to create a completely custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
+
+See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](#) (WILL EVENTUALLY BE /docs/guides/sign-in-overview/) for practical implementation details.
 
 ## SDKs and sample apps
 
-We have a whole host of new embedded SDKs available for integrating new OIE features into your apps, and sample apps to show them in action.
+We have a whole host of SDKs available for integrating new OIE features into your apps using the deployment models described above, and sample apps to show them in action.
 
-* [Browse our SDKs](https://developer.okta.com/code/oie/) or the SDKs along with a client-hosted Sign-In Widget
+* [Browse our SDKs and samples](https://developer.okta.com/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
 
 ## Identity Engine versus Classic documentation approach
@@ -67,8 +71,8 @@ From March 1 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) will 
 
 If you are a Classic customer who wants to upgrade their apps to use Identity Engine, bear in mind that
 
-* the existing Okta-hosted Widget continues to work after upgrading your org.
-* you should upgrade your SDK as you would normally do with other SDK updates.
+* the existing Okta-hosted Sign-In Widget works as is after upgrading your org.
+* you should upgrade your embedded Sign-In Widget or SDK as you would normally do with other updates.
 
 For help with upgrading, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
 
