@@ -1,4 +1,4 @@
-1. Open your `appsettings.json` file and add the following manually as a top-level node (unless you used the Okta CLI - these values may already be configured with your account information).
+1. Open your `appsettings.json` file and add the following manually as a top-level node (if you used the Okta CLI to create an app these values may already be configured with your account information).
 
 ```json
   "Okta": {

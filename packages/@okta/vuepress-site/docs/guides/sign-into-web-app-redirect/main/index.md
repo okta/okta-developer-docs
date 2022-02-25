@@ -60,7 +60,7 @@ okta apps create web
 2. When prompted for a name, use **Quickstart**.
 3. Specify the required Redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Make note of the application configuration printed to the terminal as you use the client id, client secret, and Okta domain to configure your mobile app.
+4. The Okta CLI creates an `okta.env` file with export statements containing the client ID, client secret, and issuer. Keep this safe as you use it later to configure your web app.
 
 At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
@@ -93,7 +93,7 @@ Add the required dependencies for using the Okta SDK with your web app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: client ID, client secret, and Okta domain.
+Our app uses information from the Okta integration that we created earlier to configure communication with the API: client ID, client secret, and issuer.
 
 <StackSnippet snippet="configmid" />
 

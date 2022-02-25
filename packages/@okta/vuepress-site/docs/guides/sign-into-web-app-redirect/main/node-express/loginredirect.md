@@ -1,4 +1,4 @@
-Add the sign-in and sign-out functionalities to the `app.js` file.
+1. Add the sign-in and sign-out functionality to the `app.js` file:
 
 ```js
 app.use('/login', passport.authenticate('oidc'));
@@ -17,7 +17,7 @@ app.post('/logout', (req, res) => {
 });
 ```
 
-Add the following to your `routes/index.js` file to pass on the `authenticated` variable:
+2. Update the existing `router.get()` call inside `routes/index.js` file to pass on the `authenticated` variable, like so:
 
 ```js
 router.get('/', function(req, res, next) {
@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-Add buttons to support sign-in and sign-out flows to the `views/layout.pug` file. Display either the sign-in or sign-out button based on the current authenticated state.
+3. Add buttons to support sign-in and sign-out flows to the `views/layout.pug` file. Display either the sign-in or sign-out button based on the current authenticated state.
 
 ```pug
   if authenticated

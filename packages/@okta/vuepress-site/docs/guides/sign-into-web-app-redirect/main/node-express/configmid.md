@@ -1,21 +1,15 @@
-The Okta CLI created an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret:
-
-```properties
-export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
-export OKTA_OAUTH2_CLIENT_ID=${clientId}
-export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
-```
-
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
-The `passport-openidconnect` package requires an instance of an `Strategy` object with configuration properties. You should set the `issuer`, `authorizationURL`, `tokenURL`,  `userInfoURL`, `clientID`, and `clientSecret` properties.
+In our quickstart, we do this via the `passport-openidconnect` package, which requires an instance of a `Strategy` object with configuration properties. You will set the `issuer`, `authorizationURL`, `tokenURL`,  `userInfoURL`, `clientID`, and `clientSecret` properties inside that object using your own values.
 
-The code changes to configure Okta are shown below. Add these into appropriate places in your main `app.js` file.
+1. The code changes to configure Okta are shown below. Add these into the appropriate places in your main `app.js` file.
 
 ```js
 const session = require('express-session');
 const passport = require('passport');
 const { Strategy } = require('passport-openidconnect');
+
+...
 
 app.use(session({
   secret: 'CanYouLookTheOtherWay',
@@ -49,4 +43,6 @@ passport.deserializeUser((obj, next) => {
 });
 ```
 
-If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.
+2. Replace the placeholders in the above code with your domain, and with your values from the `.okta.env` file.
+
+> **Note**: If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.

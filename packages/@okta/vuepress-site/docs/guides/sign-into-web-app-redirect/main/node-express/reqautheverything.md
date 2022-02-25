@@ -1,4 +1,4 @@
-Add middleware to protect all the routes in your app:
+Add middleware to `app.js` to protect all the routes in your app:
 
 ```js
 function ensureLoggedIn(req, res, next) {

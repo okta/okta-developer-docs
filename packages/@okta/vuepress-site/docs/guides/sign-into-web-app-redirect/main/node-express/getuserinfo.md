@@ -1,4 +1,4 @@
-Add the following code to handle the `/profile` route in `app.js`.
+1. Add the following code to handle the `/profile` route in `app.js`.
 
 ```js
 app.use('/profile', (req, res) => {
@@ -6,7 +6,7 @@ app.use('/profile', (req, res) => {
 });
 ```
 
-Add a new file called `layout/profile.pug` that contains the following code:
+2. Add a new template file called `views/profile.pug` that contains the following code:
 
 ```pug
 extends layout
