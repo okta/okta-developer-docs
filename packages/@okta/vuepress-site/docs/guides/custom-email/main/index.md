@@ -39,7 +39,7 @@ Email notifications are based on templates that are generated automatically and 
 
 ### Use the Brands API
 
-The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
+The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Widget, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
@@ -65,7 +65,8 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 1. Click a default email template listed in the left pane.
 1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template is already customized. You need to make any additional edits in the default language version. Skip to step 2 in [Add translations](#add-translations).
 1. Select a language from the dropdown menu.
-1. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
+1. Make your edits. See [Velocity Templating Language](#velocity-templating-language) for customization options.
+1. Click **Save**. The default language version of your edited message appears in the **Custom Email** table.
 
 Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
 
@@ -77,21 +78,28 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 1. Choose an email template that you customized. The default language version appears in the **Custom Email** table.
 1. Click **Add Translation**, and then select a language from the dropdown box. If the **Add Translation** button isn't available, this template isn't customized. See [Edit a default email template](#edit-a-default-email-template]).
 1. Make your translated edits, and then click **Add Translation**.
-1. Repease steps 3 and 4 for additional languages.
+1. Repeat steps 3 and 4 for additional languages.
 
 To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
 > **Note:** It may be more convenient to copy and paste the HTML from the message body into a text editor, compose your custom translation, then copy and paste it back into the message body.
 
-### Velocity Templating Language
+## Test custom email templates
+
+You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
+
+1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
+2. Click **Send test email**.
+
+## Velocity Templating Language
 
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/1.7/user-guide.html) allows you to customize your org's email templates so that you can use:
 
 - enhanced conditional logic
 - all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
-- some of the org attributes in these macros
+- some of the org attributes in these variables
 
-Email templates use common and unique Velocity VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
+Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
 
 For example, reference the first name of a user by using `${user.profile.firstName}`.
 
@@ -166,13 +174,6 @@ All conditional logic that is supported by VTL, such as `if`, `elseif`, or `else
 <img src="${parentLogoUrl}" height="37">
 #end
 ```
-
-## Test custom email templates
-
-You can send yourself a test email to see how a custom email template looks and functions. This can help you validate macro attributes and translations in the customized template as well as see how the template renders in different email environments. This eliminates the need to create a real end-to-end workflow to test customization. The test email is sent to the primary email address of the admin that initiates the test email.
-
-1. Click the email icon to the right of the email template that you have customized. The Send test email dialog box appears and lists who the email is sent to and from what sender the email is coming from.
-2. Click **Send test email**.
 
 ## See also
 
