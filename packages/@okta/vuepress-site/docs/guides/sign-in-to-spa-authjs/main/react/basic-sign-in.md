@@ -1,14 +1,14 @@
 This section helps you review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
-Insert vans diagram here
+![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg "Auth JS + SPA password-only sign-in flow")
 
 ### Set up the Okta configuration settings
 
 Review the `src/config.js` file that references the required [configuration settings](#configuration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values you add to the `testenv` file.
 
 ```JavaScript
-const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '{clientId}';
-const ISSUER = process.env.ISSUER || 'https://{yourOktaDomain}/oauth2/default';
+const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '${clientId}';
+const ISSUER = process.env.ISSUER || 'https://${yourOktaDomain}/oauth2/default';
 const REDIRECT_URI = `${window.location.origin}/login/callback`;
 
 // eslint-disable-next-line import/no-anonymous-default-export
