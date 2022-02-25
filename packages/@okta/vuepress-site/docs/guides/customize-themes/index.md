@@ -83,7 +83,7 @@ You can also update brand information with the following request (**Update brand
 
 <ApiOperation method="put" url="/api/v1/brands/${brandId}" />
 
-This request needs to contain a [brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
+This request needs to contain a [Brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
 
 ``` json
 {
