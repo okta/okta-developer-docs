@@ -158,7 +158,7 @@ The following constraints apply to email customizations:
 - If an email template has any customizations, one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
 - Each email template can have only one customization for each [supported language](#supported-languages).
 
-> **Note:** If you change any email code using the [Admin console](/docs/guides/custom-email/main/#edit-a-default-email-template), your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors in the Admin Console to the default settings.
+> **Note:** If you change any email code using the [Admin Console](/docs/guides/custom-email/main/#edit-a-default-email-template), your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors in the Admin Console to the default settings.
 
 ### Supported languages
 
