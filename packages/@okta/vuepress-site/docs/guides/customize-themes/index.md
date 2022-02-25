@@ -284,7 +284,7 @@ You can update a specific email customization (**Update email customization** in
 
 The request body needs an [email customization](#email-customization) resource. The operation returns the updated email customization.
 
-> **Note:** If `isDefault` is `true`, the previous default email customization will have its `isDefault` set to `false`.
+> **Note:** If `isDefault` is `true`, the previous default email customization has `isDefault` set to `false`.
 
 #### Delete an email customization
 
