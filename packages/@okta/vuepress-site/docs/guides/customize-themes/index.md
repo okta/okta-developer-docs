@@ -162,7 +162,7 @@ The following constraints apply to email customizations:
 
 ### Supported languages
 
-Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
+You can create email customizations for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
 
 | Language               | BCP 47 Language Tag |
 | ---------------------- | ------------------- |
