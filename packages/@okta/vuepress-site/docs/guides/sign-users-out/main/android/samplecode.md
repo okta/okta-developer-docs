@@ -1,1 +1,1 @@
-See our [Android samples repo](https://github.com/okta/samples-android).
+[Android samples repo](https://github.com/okta/samples-android)

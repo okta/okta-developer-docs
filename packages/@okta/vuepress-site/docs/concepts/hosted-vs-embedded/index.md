@@ -4,7 +4,7 @@ title: Okta Hosted Vs. Customer Hosted
 
 ## Okta hosted vs. customer hosted
 
-Okta offers multiple integration options for designing an authentication experience. The two most recommended options are integrating the Okta-hosted Sign-In Widget and the customer-hosted Sign-In Widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. You can customize the Okta URL domain and the Okta-hosted or customer-hosted Sign-In Widget style. See [Customize the Okta URL domain](/docs/guides/custom-url-domain/) and [Style the Widget](/docs/guides/style-the-widget/before-you-begin/).
+Okta offers multiple integration options for designing an authentication experience. The two most recommended options are integrating the Okta-hosted Sign-In Widget and the customer-hosted Sign-In Widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. You can customize the Okta URL domain and the Okta-hosted or customer-hosted Sign-In Widget style. See [Customize the Okta URL domain](/docs/guides/custom-url-domain/) and [Style the Sign-In Widget](/docs/guides/custom-widget/).
 
 The difference between the two concepts is where the Sign-In Widget itself is hosted. See [Okta-hosted widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) and [Customer-hosted widget](/docs/concepts/hosted-vs-embedded/#customer-hosted-widget) for diagrams on where the Sign-In Widget is hosted.
 

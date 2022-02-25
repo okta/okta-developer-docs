@@ -1,1 +1,1 @@
-See our [React samples repo](https://github.com/okta/samples-js-react).
+[React samples repo](https://github.com/okta/samples-js-react)

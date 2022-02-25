@@ -2,7 +2,7 @@
 title: Work with Okta session cookies
 ---
 
-Okta uses an HTTP session cookie to provide access to your Okta org and apps across web requests for interactive user-agents such as a browser. This document provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
+This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
 
 ---
 
@@ -12,9 +12,13 @@ Retrieve a session cookie and initiate SSO.
 
 **What you need**
 
-An Okta developer org. [Create an org for free](/signup).
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
+
+## About Okta session cookies
+
+Okta uses an HTTP session cookie to provide access to your Okta org and apps across web requests for interactive user-agents such as a browser.
 
 > **Note:** Some browsers have begun blocking third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 

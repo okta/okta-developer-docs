@@ -3,7 +3,7 @@ const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
-const signInWidgetMajorVersion = 5;
+const signInWidgetMajorVersion = 6;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
@@ -295,6 +295,7 @@ module.exports = ctx => ({
 
   plugins: {
     'code-copy': {},
+    'vuepress-plugin-chunkload-redirect': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
@@ -311,10 +312,6 @@ module.exports = ctx => ({
           crawlDelay: 10,
           disallow: [
               //'/docs/guides/third-party-risk-integration/', //EA release of Risk APIs and Guide 2021.08.0
-              //'/docs/guides/third-party-risk-integration/overview/',
-              //'/docs/guides/third-party-risk-integration/create-service-app/',
-              //'/docs/guides/third-party-risk-integration/update-default-provider/',
-              //'/docs/guides/third-party-risk-integration/test-integration/',
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
@@ -328,7 +325,8 @@ module.exports = ctx => ({
               '/docs/guides/oie-upgrade-sign-in-widget/',
               '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
               '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
-              '/docs/guides/oie-upgrade-sign-in-widget-styling/'
+              '/docs/guides/oie-upgrade-sign-in-widget-styling/',
+              '/docs/guides/oie-upgrade-mfa-enroll-policy/'
           ]
         }
       ]
@@ -364,6 +362,12 @@ module.exports = ctx => ({
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
+    }
+
+    // mark all generated non-root stack-enabled pages(i.e. those containing stack name in the URL)
+    // to display StackSelector for
+    if(found && !found.guide && !found.sections && found.mainFramework) {
+      $page.hasStackContent = true
     }
   },
   async ready() {

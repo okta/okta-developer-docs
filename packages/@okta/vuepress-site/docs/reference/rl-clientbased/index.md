@@ -21,7 +21,7 @@ Currently, the client-based rate limits apply to the `/login/login.htm` endpoint
 
 Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, `/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
 
-Curently, you cannot update the per client rate limit. Every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) gets 60 total requests per minute and a maximum of two concurrent requests.
+Curently, you cannot update the per client rate limit. Every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) gets 60 total requests per minute and a maximum of five concurrent requests.
 
 For example, example.com has 10 OAuth 2.0 applications running in a production environment. Bob's team is launching a new marketing portal that is a single-page OAuth 2.0 application. Unaware of the rate limits on the OAuth 2.0 `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of OAuth 2.0 `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate limit violations for the rest of the users that access the other OAuth 2.0 applications.
 
@@ -42,8 +42,8 @@ The best way to describe how client-based rate limiting works is to provide some
 
 Bob and Alice are working from home and have distinct IP addresses. Both Bob and Alice try to sign in to their company's portal application (clientID: portal123) at the same time. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota for both Bob and Alice using their IP address and the OAuth 2.0 client ID that they are trying to access.
 
-* Bob: (IP1 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-* Alice: (IP2 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
+* Bob: (IP1 + portal123) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
+* Alice: (IP2 + portal123) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
 
 Let's assume the org-wide quota for the OAuth 2.0 `/authorize` endpoint is a total of 2,000 requests per minute on Custom Authorization Servers. Bob decides to run a batch job that triggers about 2,000 OAuth 2.0 `/authorize` requests per minute.
 
@@ -65,9 +65,9 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 ![Client-based isolation for users accessing the authorize endpoint from a NAT IP](/img/clientbasedRL2.png "Displays Alice as portal123 Device1, Bob as portal123 Device2, Lisa as portal123 Device3, all making authorize requests that are a combination of the shared IP address")
 
-* Alice: (NAT IP + portal123 + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-* Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-* Lisa: (NAT IP + portal123 + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
+* Alice: (NAT IP + portal123 + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
+* Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
+* Lisa: (NAT IP + portal123 + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
 
 > **Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser when the first request is made to Okta. When the requests are made using a non-browser client, the device cookie isn't present. In that case, such requests fall under a common quota with the device identifier being null (NAT IP + portal123 + null).
 
@@ -77,9 +77,9 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 ![Client-based isolation for users accessing the /login/login.htm endpoint from a NAT IP](/img/clientbasedRL3.png "Displays Alice as Device1, Bob as Device2, Lisa as Device3, all making authorize requests that are a combination of the shared IP address")
 
-* Alice: (NAT IP + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-* Bob: (NAT IP + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-* Lisa: (NAT IP + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
+* Alice: (NAT IP + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
+* Bob: (NAT IP + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
+* Lisa: (NAT IP + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
 
 > **Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser when the first request is made to Okta. When the requests are made using a non-browser client, the device cookie isn't present. In that case, such requests fall under a common quota with the device identifier being null (NAT IP + null).
 
@@ -127,7 +127,7 @@ X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
 ```
 
-When a specific client/IP/device identifier combination or IP/device identifier combination exceeds either the 60 requests per minute request limit or the concurrent limit (two concurrent requests), then the respective OAuth 2.0 `/authorize` or `/login/login.htm`  request returns an HTTP 429 error.
+When a specific client/IP/device identifier combination or IP/device identifier combination exceeds either the 60 requests per minute limit or the concurrent limit (five concurrent requests), then the respective OAuth 2.0 `/authorize` or `/login/login.htm`  request returns an HTTP 429 error.
 
 ### How to enable this feature
 
@@ -161,7 +161,7 @@ Requests would appear to come from the same IP Address. When OAuth 2.0 `/authori
 
 **Q: Can I update the per client rate limit today?**
 
-No. Today every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) gets 60 total requests per minute and a maximum of two concurrent requests.
+No. Today every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) gets 60 total requests per minute and a maximum of five concurrent requests.
 
 **Q: Does the org-wide rate limit still apply when I enable the client-based rate limit?**
 

@@ -47,7 +47,7 @@ switch (authnResponse?.AuthenticationStatus)
 
 ### 4: Show the email factor in the authenticator list
 
-The next step is to show the email factor to the user in an authenticator list page. If not already done, this page needs to be built and display the list of authenticators from the previous step. In this use case, only the **email** factor is displayed, as shown in the following sample.
+The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
 
 <div class="common-image-format">
 

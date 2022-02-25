@@ -1339,7 +1339,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />   | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| issuer_mode                                 | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of the ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL` or `DYNAMIC` <ApiLifecycle access="ea" />                                                            | TRUE       | FALSE    | TRUE       |
+| issuer_mode                                 | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of the ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL` or `DYNAMIC`                                                            | TRUE       | FALSE    | TRUE       |
 | idp_initiated_login                         | The type of Idp-Initiated login that the client supports, if any                                                                                                                 |  [Idp-Initiated Login](#idp-initiated-login-object)                                                                     | TRUE       | FALSE    | TRUE       |
 | logo_uri                                    | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
@@ -1354,7 +1354,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * `issuer_mode` is visible if the Custom URL Domain is configured or the Dynamic Issuer Mode feature is enabled. <br>
 If you have [configured a custom URL domain](/docs/guides/custom-url-domain/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
-<ApiLifecycle access="ea" />If the Dynamic Issuer Mode feature is enabled, you can set `issuer_mode` to `DYNAMIC`. When you use `DYNAMIC`, the request for the ID token made from the custom domain has the custom URL as the issuer. The request for the ID token made from an Okta org has the Org URL as the issuer. When this feature is enabled, the default value for new apps is `DYNAMIC`.<br>
+If the Dynamic Issuer Mode feature is enabled, you can set `issuer_mode` to `DYNAMIC`. When you use `DYNAMIC`, the request for the ID token made from the custom domain has the custom URL as the issuer. The request for the ID token made from an Okta org has the Org URL as the issuer. When this feature is enabled, the default value for new apps is `DYNAMIC`.<br>
 You can change the `issuer_mode` value using the API or the Admin Console. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
@@ -1615,7 +1615,6 @@ The following link expansions are supported to embed additional resources into t
 
 > **Note:** The `user/:uid` expansion can currently only be used in conjunction with the `user.id eq ":uid"` filter. See [List applications assigned to a user](#list-applications-assigned-to-a-user).
 
-
 ##### Response parameters
 
 Array of [Applications](#application-object)
@@ -1836,7 +1835,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+\"00ucw2RPGIUNTDQOYPOF\"&expand=user/00ucw2RPGIUNTDQOYPOF"
+"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+%2200ucw2RPGIUNTDQOYPOF%22&expand=user/00ucw2RPGIUNTDQOYPOF"
 ```
 
 > **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-object) information in the response body's `_embedded` property.
@@ -2077,7 +2076,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+\"00gckgEHZXOUDGDJLYLG\""
+"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+%2200gckgEHZXOUDGDJLYLG%22"
 ```
 
 ##### Response example
@@ -2158,7 +2157,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+\"SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4\""
+"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+%22SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4%22"
 ```
 
 ##### Response example
@@ -2288,7 +2287,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
 ```
 
 ##### Response example
@@ -3642,7 +3641,7 @@ Removes an inactive application
 
 ##### Response parameters
 
-An empty JSON object `{}`
+Empty response
 
 ##### Request example
 
@@ -5132,6 +5131,981 @@ curl -v -X GET \
   }
 }
 ```
+
+## Application client secret management operations
+
+### Add new client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+
+Adds a new secret to the client's collection of secrets
+
+> **Note:** This API lets you bring your own secret. If no secret is specified in the request, it adds a new system-generated secret.
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
+| metadata | Client secret request object [Client Secret Metadata](#client-secret-request-object)   | Body      | Client Secret Metadata                     | FALSE    |         |
+
+##### Response parameters
+
+Returns the generated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "client_secret" : "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp"
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If `client_secret` in the request is more than 100 characters long, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' cannot be more than '100' characters long."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request is less than 14 characters long, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' must be at least '14' characters long."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request is less than 32 characters long, and the `token_endpoint_auth_method` of the app is `client_secret_jwt`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' must be at least '32' characters long when 'token_endpoint_auth_method' is 'client_secret_jwt'."
+    }
+  ]
+}
+```
+
+If `token_endpoint_auth_method` for the app is `private_key_jwt`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "'client_secret' cannot be used when 'token_endpoint_auth_method' is 'private_key_jwt'."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request contains non ASCII characters, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: ''client_secret'' must only contain printable ASCII: [x20-x7E]+"
+    }
+  ]
+}
+```
+
+If the number of client secrets per application exceeds 2, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You have reached the maximum number of client secrets per client."
+    }
+  ]
+}
+```
+
+### List client secrets
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+
+Enumerates the client's collection of secrets
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
+
+##### Response parameters
+
+Returns the list of [Client Secrets](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "ocsap6nz61rKdsoyOY0h7",
+    "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+    "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+    "created": "2022-01-01T04:22:27.000Z",
+    "status": "ACTIVE",
+    "_links" : {
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "ocsap6nz61rKdsoyOY0j8",
+    "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+    "secret_hash": "0ybeefbeefbeefbeefbeefbeef",
+    "created": "2022-01-01T04:22:27.000Z",
+    "status": "ACTIVE",
+    "_links" : {
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0j8/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  }
+]
+```
+
+### Get client secret
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}" />
+
+Gets a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)                 | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Activate a client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/activate"/>
+
+Activates a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns an activated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Deactivate a client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/deactivate"/>
+
+Deactivates a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the deactivated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links": {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the application has only one active client secret, and if a deactivate request is sent for that client secret, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't deactivate the only active client secret."
+    }
+  ]
+}
+```
+
+### Delete a client secret
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}"/>
+
+Deletes a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
+```
+
+##### Response example
+```http
+HTTP/1.1 204 No Content
+```
+
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the delete request is received for an active secret, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't delete an active client secret. Deactivate the secret before deleting it."
+    }
+  ]
+}
+```
+
+## Application client JSON Web Key management operations
+
+### Add new JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks" />
+
+Adds a new JSON Web Key to the client’s JSON Web Keys.
+
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
+| metadata      | JSON Web Key Request Object [JSON Web Key Metadata](#json-web-key-request-object)   | Body      | JSON Web Key Metadata             | TRUE     |         |
+
+##### Response parameters
+
+Returns the generated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If there is more than one JSON Web Key, each key must have unique non-null `kid` or you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "Each key should have a unique kid when adding multiple keys. Use the Apps API to update the JWKS to add a kid for the existing key, or delete the existing key and re-add the key with a kid using the JWKS APIs."
+    }
+  ]
+}
+```
+
+If the JSON Web Key has a duplicate `kid`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "All keys in the 'jwks' must have a unique kid."
+    }
+  ]
+}
+```
+
+If the RSA JSON Web Key length is less than `2048` bits, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "RSA key length in the 'jwks' is less than '2,048' bits for the given key."
+    }
+  ]
+}
+```
+
+If the number of JSON Web Keys per application exceeds the set limit (currently 50), you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't create a new key. You have reached the maximum number of keys allowed (50). To add another key, you must first delete an existing one."
+    }
+  ]
+}
+```
+
+### List JSON Web Keys
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks"/>
+
+Enumerates the client's collection of JSON Web Keys
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
+
+##### Response parameters
+
+Returns the list of [JSON Web Keys](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
+```
+
+##### Response example
+
+```json
+{
+  "jwks": {
+    "keys": [
+      {
+        "id": "pks055raeabcdef5rpg6",
+        "kid": "key1",
+        "kty": "RSA",
+        "alg": "RS256",
+        "use": "sig",
+        "e":"AQAB",
+        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+        "status": "ACTIVE",
+        "created": "2022-01-01 21:51:14.0",
+        "_links" : {
+          "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "pks055raeabcdef5ruuu",
+        "kid": "key2",
+        "kty": "RSA",
+        "alg": "RS256",
+        "use": "sig",
+        "e":"AQAB",
+        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+        "status": "ACTIVE",
+        "created": "2022-01-01 21:51:14.0",
+        "_links" : {
+          "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5ruuu/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+### Get JSON Web Key
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}" />
+
+Gets a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If the JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: xyz (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Activate a JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/activate"/>
+
+Activates a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns an activated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+If the JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 2345 (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Deactivate a JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/deactivate"/>
+
+Deactivates a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns a deactivated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "INACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/delete",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+If a JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 2345 (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the application has only one active JSON Web Key, the `token_endpoint_auth_method` is `private_key_jwt`, and a deactivate request is received for the JSON Web Key, then you will receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "Can't deactivate the only active JSON Web Key when the value for ''token_endpoint_auth_method'' is ''private_key_jwt''."
+    }
+  ]
+}
+```
+
+If the application has only one active JSON Web Key that matches `request_object_signature_algorithm` and a deactivate request is received for the JSON Web Key, then you will receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "The ''jwks'' must contain at least one key with an algorithm matching the ''request_object_signature_algorithm''."
+    }
+  ]
+}
+```
+
+### Delete a JSON Web Key
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}"/>
+
+Deletes a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
+```
+
+##### Response example
+```http
+HTTP/1.1 204 No Content
+```
+
+If a JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: xyz (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the delete request is received for an active JSON Web Key, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't delete an active JSON Web key. Deactivate the key before deleting it."
+    }
+  ]
+}
+```
+
 
 ## Application OAuth 2.0 scope consent grant operations
 
@@ -7289,11 +8263,11 @@ The application key credential object defines a [JSON Web Key](https://tools.iet
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | created          | timestamp when certificate was created                       | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
-| e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | expiresAt        | timestamp when certificate expires                           | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | kid              | unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the certificate's keypair | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
-| n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | use              | acceptable usage of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |           |            |
 | x5c              | X.509 certificate chain                                      | Array                                                                       | TRUE     | TRUE   | TRUE     |           |           |            |
 | x5t#S256         | X.509 certificate SHA-256 thumbprint                         | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
@@ -7447,7 +8421,7 @@ The provisioning connection object is a read only object that displays the metho
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| authScheme              | Defines the method of authentication    | `TOKEN`, `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
+| authScheme              | Defines the method of authentication    | `TOKEN`, `OAUTH2` <ApiLifecycle access="ea" /> , `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
 | status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
@@ -7455,9 +8429,9 @@ If the authScheme is `UNKNOWN`, then either the authentication scheme used by th
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, only token based authentication is supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication <ApiLifecycle access="ea" /> are supported.
 
-#### Token based Provisioning Connection Profile example
+#### Token-based Provisioning Connection Profile example
 ```json
 {
     "profile": {
@@ -7467,12 +8441,29 @@ The application provisioning connection profile is used to configure the method 
 }
 ```
 
-#### Token based Provisioning Connection Profile properties
+#### Token-based Provisioning Connection Profile properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+
+#### OAuth 2.0-based Provisioning Connection Profile example
+```json
+{
+    "profile": {
+        "authScheme": "OAUTH2",
+        "clientId": "${clientId}"
+    }
+}
+```
+
+#### OAuth 2.0-based Provisioning Connection Profile properties
+
+| Property                                | Description                                                   | DataType                               | Nullable | Unique | Readonly |
+| --------------------------------------- | ------------------------------------------------------------- | -------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme                              | Defines the method of authentication                          | `OAUTH2` <ApiLifecycle access="ea" />  | FALSE    | FALSE  | FALSE    |
+| clientId <ApiLifecycle access="ea" />   | Unique client identifier for the OAuth 2.0 service app from the target org | String                                 | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
@@ -7622,3 +8613,153 @@ Okta updates a user's attributes in the application when the application is assi
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
 | status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+
+### Client Secret Request object
+
+#### Example
+
+```json
+{
+  "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO"
+}
+```
+
+#### Client Secret Request object properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14  |   100     |
+
+> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then MinLength of `client_secret` should be 32.
+
+### Client Secret Response object
+
+#### Example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T03:22:27.000Z",
+  "lastUpdated": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links" : {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Client Secret Response object properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | ------- |
+| id               | Unique key of the group                                      | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| client_secret    | Client secret                                                | String                                                                      | FALSE     | TRUE   | FALSE   |         |
+| secret_hash      | Hash of the client secret                                    | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| created          | Timestamp when the secret was created                        | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| lastUpdated      | Timestamp when the secret was last updated                   | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| status           | Status of the Client Secret                                  | `ACTIVE`, `INACTIVE`                                                        | FALSE     | FALSE  | FALSE   |`ACTIVE` |
+| _links           | Discoverable resources related to client secrets             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE     | FALSE  | TRUE    |         |
+
+
+### JSON Web Key Request object
+
+The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
+
+#### Example
+
+```json
+{
+  "e": "AQAB",
+  "alg": "RS256",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d-YK5qHFt-mXSsbjWKKs4EfNm-BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL_q7n0f_SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH-bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQ",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "kty": "RSA",
+  "use": "sig",
+  "status": "ACTIVE"
+}
+```
+
+#### Application JSON Web Key Request properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| kid              | Unique identifier for the certificate                        | String                                                                      | TRUE     | TRUE   | TRUE     |           |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | TRUE     | FALSE  | FALSE    | `ACTIVE`  |
+
+
+### JSON Web Key Response object
+
+The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
+
+#### Example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "e": "AQAB",
+  "alg": "RS256",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d-YK5qHFt-mXSsbjWKKs4EfNm-BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL_q7n0f_SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH-bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQ",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "kty": "RSA",
+  "use": "sig",
+  "created": "2022-01-01T03:22:27.000Z",
+  "lastUpdated": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links" : {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Application JSON Web Key Response properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| id               | Unique key of group                                          | String                                                                      | FALSE    | TRUE   | TRUE     |           |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| kid              | Unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| created          | Timestamp when the JSON Web Key was created                  | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| lastUpdated      | Timestamp when the JSON Web Key was last updated             | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | FALSE    | FALSE  | FALSE    | `ACTIVE`  |
+| _links           | Discoverable resources related to JSON Web Keys              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE    | FALSE  | TRUE     |           |

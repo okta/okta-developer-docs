@@ -1,10 +1,107 @@
 ---
-title: Okta API Products Release Notes 2021
+title: Okta API Products release notes 2021
 ---
+## December
+
+### Weekly release 2021.12.1
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.1](#okta-sign-in-widget-version-5-14-1) | December 15, 2021 |
+
+#### Okta Sign-In Widget, version 5.14.1
+
+See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-452958-->
+
+
+### Monthly release 2021.12.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.14.0](#okta-sign-in-widget-version-5-14-0) | December 8, 2021 |
+| [Browser-like devices can now use the Device Authorization Grant flow](#browser-like-devices-can-now-use-the-device-authorization-grant-flow) | December 8, 2021 |
+| [Custom domains with Okta-managed certificates](#custom-domains-with-okta-managed-certificates) | December 8, 2021 |
+| [Device Authorization grant type is now GA in Production](#device-authorization-grant-type-is-now-ga-in-production) | November 3, 2021 |
+| [Dynamic Issuer Mode is GA in Preview](#dynamic-issuer-mode-is-ga-in-preview) | December 8, 2021 |
+| [Error response updated for malicious IP address sign-in requests](#error-response-updated-for-malicious-ip-address-sign-in-requests) | December 8, 2021 |
+| [IdP discovery supported for Device Authorization Grant flow](#idp-discovery-supported-for-device-authorization-grant-flow) | December 8, 2021 |
+| [List Schemas operation for the Log Streaming API now available](#list-schemas-operation-for-the-log-streaming-api-now-available) | December 8, 2021 |
+| [The word "source" is now allowed with custom application username formats](#the-word-source-is-now-allowed-with-custom-application-username-formats) | December 8, 2021 |
+| [Upload Logo for Org deprecated](#upload-logo-for-org-deprecated) | December 8, 2021          |
+| [User Types API and Mappings API support OAuth 2.0](#user-types-api-and-mappings-api-support-oauth-2-0) | December 8, 2021 |
+| [Bugs fixed in 2021.12.0](#bugs-fixed-in-2021-12-0)               | December 8, 2021          |
+
+#### Okta Sign-In Widget, version 5.14.0
+
+See the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0) for more information about this release. See the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the Widget. <!--OKTA-449551-->
+
+#### Browser-like devices can now use the Device Authorization Grant flow
+
+Browser-like devices such as Smart TV applications that run on WebOS, Samsung, and Tesla can now use the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/). <!--OKTA-444993-->
+
+#### Custom domains with Okta-managed certificates
+
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-444104-->
+
+#### Device Authorization grant type is now GA in Production
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-450432-->
+
+#### Dynamic Issuer Mode is GA in Preview
+
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+
+When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
+
+#### Error response updated for malicious IP address sign-in requests
+
+If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+
+#### IdP Discovery supported for Device Authorization Grant flow
+
+The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) now supports routing rules and IdP Discovery. <!--OKTA-425256-->
+
+#### List Schemas operation for the Log Streaming API now available
+
+API users can now [discover available log stream schemas](/docs/reference/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects. <!--OKTA-439999-->
+
+#### The word "source" is now allowed with custom application username formats
+
+Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443206-->
+
+#### Upload Logo for Org deprecated
+
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+
+#### User Types API and Mappings API support OAuth 2.0
+
+The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+
+#### Bugs fixed in 2021.12.0
+
+* Sometimes, changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the `id` of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
+
+* The [org admin role](/docs/reference/api/roles/#role-types) didn't have permission to manage Identity Providers. (OKTA-372730)
+
+* When the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) was used, token inline hooks weren't called. (OKTA-445422)
 
 ## November
 
-### Weekly Release 2021.11.2
+### Weekly release 2021.11.3
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.11.3](#bug-fixed-in-2021-11-3) | December 02, 2021 |
+
+#### Bug fixed in 2021.11.3
+
+When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
+
+### Weekly release 2021.11.2
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -57,7 +154,7 @@ The Device Authorization grant feature is an OAuth 2.0 grant type that allows us
 
 #### Key pair additions to JWKS limited to 50 per client
 
-The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
+The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair) can't exceed 50 per client.<!--OKTA-435434-->
 
 #### Authentication API returns UD User Profile locale is now GA in Production
 
@@ -95,7 +192,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 ## October
 
-### Weekly Release 2021.10.2
+### Weekly release 2021.10.2
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -111,7 +208,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 * When a [List Groups](/docs/reference/api/groups/#list-groups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
 
-### Weekly Release 2021.10.1
+### Weekly release 2021.10.1
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -121,7 +218,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
 
-### Monthly Release 2021.10.0
+### Monthly release 2021.10.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -153,7 +250,7 @@ Read-only admins were unable to [list key credentials for an application](/docs/
 
 ## September
 
-### Weekly Release 2021.09.2
+### Weekly release 2021.09.2
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -163,7 +260,7 @@ Read-only admins were unable to [list key credentials for an application](/docs/
 
 The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#primary-authentication) has been deprecated. <!--OKTA-385098-->
 
-### Monthly Release 2021.09.0
+### Monthly release 2021.09.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -202,7 +299,7 @@ The default rate limit has increased for the [`/login/login.htm`](/docs/referenc
 
 ## August
 
-### Weekly Release 2021.08.3
+### Weekly release 2021.08.3
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
@@ -214,7 +311,7 @@ The default rate limit has increased for the [`/login/login.htm`](/docs/referenc
 
 * Admins sometimes encountered an HTTP 500 `Internal Server` error after modifying an OIDC app in a Preview org. (OKTA-423145)
 
-### Weekly Release 2021.08.2
+### Weekly release 2021.08.2
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
@@ -231,7 +328,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
 
-### Weekly Release 2021.08.1
+### Weekly release 2021.08.1
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
@@ -243,7 +340,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
 
-### Monthly Release 2021.08.0
+### Monthly release 2021.08.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -257,7 +354,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Okta Sign-In Widget, version 5.9.1
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
 
 #### Brands API is Self-Service EA
 
@@ -265,7 +362,7 @@ The Okta [Brands API](/docs/reference/api/brands/) allows customization of the l
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/overview/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
@@ -289,7 +386,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 ## July
 
-### Weekly Release 2021.07.2
+### Weekly release 2021.07.2
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -299,7 +396,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 Authentication responses didn't include the Provider ID (`IdP.id`) or Provider Type (`IdP.type`) properties for some Okta-sourced users. (OKTA-410677)
 
-### Weekly Release 2021.07.1
+### Weekly release 2021.07.1
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -309,7 +406,7 @@ Authentication responses didn't include the Provider ID (`IdP.id`) or Provider T
 
 When factor sequencing was enabled for passwordless authentication flows, requests to the `/authn` endpoint returned personal user information prior to primary authentication. (OKTA-407199)
 
-### Monthly Release 2021.07.0
+### Monthly release 2021.07.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
@@ -331,7 +428,7 @@ Developers can use the `pushStatus` parameter to handle a username update to an 
 
 Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
 
-Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
+Additionally, you can set or update the Logo or notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
 
 #### New Domains API response properties available
 
@@ -363,7 +460,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 ## June
 
-### Weekly Release 2021.06.4
+### Weekly release 2021.06.4
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -375,7 +472,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 * To follow cryptographic standards, the default client secret length has been increased for public applications. (OKTA-303734)
 
-### Weekly Release 2021.06.3
+### Weekly release 2021.06.3
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -387,7 +484,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 * If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/main/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 
-### Weekly Release 2021.06.2
+### Weekly release 2021.06.2
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -397,7 +494,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn't toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
 
-### Weekly Release 2021.06.1
+### Weekly release 2021.06.1
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -411,7 +508,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 * Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
 
-### Monthly Release 2021.06.0
+### Monthly release 2021.06.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -426,7 +523,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Okta Sign-In Widget, version 5.7.0
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
 
 #### Domains API is GA in Production
 
@@ -466,7 +563,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) is now General
 
 ## May
 
-### Weekly Release 2021.05.3
+### Weekly release 2021.05.3
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
@@ -475,7 +572,7 @@ The [Subscriptions API](/docs/reference/api/admin-notifications/) is now General
 
 #### Okta Sign-In Widget, version 5.6.4
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
 
 #### Bugs fixed in 2021.05.3
 
@@ -483,7 +580,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * SAML requests and responses weren't logged in the [System Log](/docs/reference/api/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
 
-### Weekly Release 2021.05.2
+### Weekly release 2021.05.2
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -497,7 +594,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * The [Client Credentials Flow](/docs/guides/implement-grant-type/clientcreds/main/) could not implement a custom claim named `scope`. (OKTA-389874)
 
-### Weekly Release 2021.05.1
+### Weekly release 2021.05.1
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -506,7 +603,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Okta Sign-In Widget, version 5.6.1
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
 
 #### Bugs fixed in 2021.05.1
 
@@ -521,7 +618,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * When using the [Factor lifecycle operations endpoints](/docs/reference/api/factors/#factor-lifecycle-operations) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
 
-### Monthly Release 2021.05.0
+### Monthly release 2021.05.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -567,7 +664,7 @@ The [Domains API](/docs/reference/api/domains/) has been updated to support OAut
 
 #### Okta Sign-In Widget, version 5.6.0
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
 
 #### Refresh Token Rotation is GA in Preview
 
@@ -588,7 +685,7 @@ The [System Log API](/docs/reference/api/system-log/) has been updated to return
 
 ## April
 
-### Weekly Release 2021.04.2
+### Weekly release 2021.04.2
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -597,7 +694,7 @@ The [System Log API](/docs/reference/api/system-log/) has been updated to return
 
 #### Okta Sign-In Widget, version 5.5.4
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
 
 #### Bugs fixed in 2021.04.2
 
@@ -605,7 +702,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * When the [Users API](/docs/reference/api/users) was used to create a user with an address containing a 4-byte UTF-8 encoded character, an incorrect 500 system error was returned. (OKTA-382882)
 
-### Weekly Release 2021.04.1
+### Weekly release 2021.04.1
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -615,7 +712,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Okta Sign-In Widget, version 5.5.2
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-385739-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-385739-->
 
 #### Increased authorization code lifetime
 
@@ -627,7 +724,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 * When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
-### Monthly Release 2021.04.0
+### Monthly release 2021.04.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -638,7 +735,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 #### Okta Sign-In Widget, version 5.5.0
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/).
 
 #### Domains API is now in EA in Preview
 
@@ -654,7 +751,7 @@ The Groups API support for [extended search](/docs/reference/api/groups/#list-gr
 
 ## March
 
-### Weekly Release 2021.03.3
+### Weekly release 2021.03.3
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
@@ -664,7 +761,7 @@ The Groups API support for [extended search](/docs/reference/api/groups/#list-gr
 
 When an OAuth2 request was made with an access token instead of a required ID token, the error message didn't clarify that the request was made with the wrong token.
 
-### Weekly Release 2021.03.2
+### Weekly release 2021.03.2
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
@@ -676,7 +773,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 * When creating a User with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
 
-### Weekly Release 2021.03.1
+### Weekly release 2021.03.1
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
@@ -684,11 +781,11 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### Bugs fixed in 2021.03.1
 
-* When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/build-provisioning-integration/-/attribute-mapping/), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
+* When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
 
 * When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the sign-in request for an Okta Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
 
-### Monthly Release 2021.03.0
+### Monthly release 2021.03.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -722,7 +819,7 @@ The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](
 
 ## February
 
-### Monthly Release 2021.02.0
+### Monthly release 2021.02.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
@@ -765,7 +862,7 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 
 ## January
 
-### Weekly Release 2021.01.1
+### Weekly release 2021.01.1
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
@@ -778,7 +875,7 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 * In the SmartSheet provisioning profile, admins were unable to change the **Group Priority** setting to **Combine values across groups** for the `smartsheet.userPermissions` variable. The error message "Not allowed to modify property userPermissions from the base schema" was returned. (OKTA-325187)
 
 
-### Monthly Release 2021.01.0
+### Monthly release 2021.01.0
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|

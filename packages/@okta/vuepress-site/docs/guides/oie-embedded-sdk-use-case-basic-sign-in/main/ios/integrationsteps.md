@@ -1,16 +1,11 @@
 ### Sample application and SDK integration
 
-Much like the Okta API it calls, the SDK uses a generic interface to handle
-each step of the user sign-in flow. This interface enables calling applications
+Similar to the Okta APIs, the SDK uses a generic interface to handle
+each step of the user sign-in flow. This interface enables applications
 to use a dynamic model when responding to policy changes within Okta. Specifically,
 it enables a pure policy-driven design that accepts new functionality,
 such as adding additional sign-in factors, without the need to update your
-application's code. Such a feature becomes important for mobile devices where
-keeping applications updated is a challenge. The
-[sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/),
-provided in the Identity Engine Swift SDK's Git repository, uses the SDK to implement such dynamic policy-driven
-behavior. See this sample application for more details on how to design
-a dynamic application using the SDK.
+application's code. This feature is important for mobile devices due to the challenges in updating applications. See how the [sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/) uses the SDK to implement this dynamic policy-driven behavior.
 
 ### Integrate the SDK with the sample code
 
@@ -19,7 +14,7 @@ In contrast to the sample application, the
 provided in this step-by-step guide wraps the SDK with a more prescriptive and explicit interface
 that is purposely built to help facilitate understanding of how to use the SDK.
 It's meant to be a learning tool and although you can implement similar code in your
-app, you're advised to stick to the same best practice dynamic approach implemented
+app, you're advised to use the same best practice dynamic approach implemented
 in the sample application.
 
 The following steps document how to integrate the sample code into your

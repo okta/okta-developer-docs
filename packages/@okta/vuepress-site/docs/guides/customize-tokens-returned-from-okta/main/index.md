@@ -3,21 +3,25 @@ title: Customize tokens returned from Okta with custom claims
 excerpt: Define custom claims and Groups claims for tokens returned from Okta.
 ---
 
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+This guide explains how you can add custom claims to ID tokens and access tokens.
 
 ---
 
 **Learning outcomes**
 
-How to create your own custom claims for tokens.
+Create custom claims for tokens.
 
 **What you need**
 
-* An Okta developer org. [Create an org for free](/signup).
-* An [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
-* A [group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
+
+## About tokens with custom claims
+
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 

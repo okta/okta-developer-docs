@@ -1,0 +1,2 @@
+* [ASP.NET Web API quickstart](https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) to build a Web API project
+* [ASP.NET example repo](https://github.com/okta/samples-aspnet/tree/master/resource-server) for a finished sample app that you can download

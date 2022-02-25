@@ -15,8 +15,7 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 
 1. Click **Login**.
 1. On the sign-in page, enter the username (email) and password that you've used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/go/main/#create-your-okta-account).
-1. If you've successfully signed in, the following screen is displayed
-   with the user name:
+1. If you successfully sign in, the following screen appears with the user name:
 
    <div class="common-image-format">
 
@@ -24,6 +23,10 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 
    </div>
 
-## Troubleshoot
+### Troubleshoot
 
-* If the "There was an unexpected internal error. Please try again." message is displayed instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/go/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+* If the "There was an unexpected internal error. Please try again." message appears instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/go/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+
+### Start your work with the use cases
+
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) to start using the Widget and explore the available use cases.

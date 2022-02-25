@@ -612,10 +612,10 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 Like Policies, Rules have a priority that govern the order that they are considered during evaluation. The highest priority Rule has a `priority` of 1. For example, if a particular Policy had two Rules:
 
-- Rule A has priority 1 and applies to RADIUS VPN scenarios.
+- Rule A has priority 1 and applies to LDAP API scenarios.
 - Rule B has priority 2 and applies to ANYWHERE (network connection) scenarios.
 
-If a request came in from the Radius endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
+If a request came in from the LDAP endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
 
 ### Rules message example (Password Policy)
 
@@ -787,7 +787,7 @@ Specifies an authentication entry point
 
 | Parameter | Description                              | Data Type                             | Required | Default |
 | --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
-| `authType`  | Specifies how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+| `authType`  | Specifies how the user is authenticated | `ANY` or `LDAP_INTERFACE` | No       |  `ANY`  |
 
 > **Note:** The `LDAP_INTERFACE` data type option is an <ApiLifecycle access="ea" /> feature.
 

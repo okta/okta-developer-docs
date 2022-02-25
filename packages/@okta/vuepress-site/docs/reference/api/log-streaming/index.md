@@ -55,8 +55,8 @@ curl -v -X POST \
   "name": "Example AWS EventBridge",
   "settings": {
     "eventSourceName": "your-event-source-name",
-    "accountId": "123456789012"
-    "region": "us-east-2",
+    "accountId": "123456789012",
+    "region": "us-east-2"
   }
 }
 ' "https://${yourOktaDomain}/api/v1/logStreams"
@@ -357,7 +357,7 @@ curl -v -X PUT \
 -d '{
     "id": "0oa1orzg0CHSgPcjZ0g4",
     "type": "aws_eventbridge",
-    "name": "Updated example AWS EventBridge",
+    "name": "Updated example AWS EventBridge"
 }' "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4"
 ```
 

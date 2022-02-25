@@ -1,1 +1,1 @@
-See our [Angular samples repo](https://github.com/okta/samples-js-angular).
+[Angular samples repo](https://github.com/okta/samples-js-angular)

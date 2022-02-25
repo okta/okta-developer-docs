@@ -6,23 +6,27 @@ layout: Guides
 
 <ApiAmProdWarning />
 
-This article shows you how to set up a Custom OAuth 2.0 Authorization Server in Okta. Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each Authorization Server you can define your own OAuth 2.0 scopes, claims, and access policies.
-
-If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a Custom Authorization Server created for you, called `default`. For simple use cases this default Custom Authorization Server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional Authorization Servers with different scopes and claims, then this guide is for you.
-
-See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
+This guide explains the Custom OAuth 2.0 Authorization Server in Okta and how to set it up.
 
 ---
 
 **Learning outcomes**
 
-* Set up and test your Authorization Server.
+Set up and test your Authorization Server.
 
 **What you need**
 
-An [Okta Developer Edition](https://developer.okta.com/signup/) account.
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
+
+## About the authorization server
+
+Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each Authorization Server you can define your own OAuth 2.0 scopes, claims, and access policies.
+
+If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a Custom Authorization Server created for you, called `default`. For simple use cases this default Custom Authorization Server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional Authorization Servers with different scopes and claims, then this guide is for you.
+
+See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
 
 ## Create an authorization server
 
@@ -38,7 +42,7 @@ When you finish, the Authorization Server's **Settings** tab displays the inform
 
 ## Create access policies
 
-Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/overview/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
+Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server.

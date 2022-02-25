@@ -322,7 +322,7 @@ redirects:
   - from: /use_cases/integrate_with_okta/promotion/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /use_cases/integrate_with_okta/provisioning/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
     to: /docs/guides/build-sso-integration/
   - from: /use_cases/isv/embedded-occ/index.html
@@ -934,15 +934,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
+    to: /docs/guides/custom-widget/main/#see-also
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
+    to: /docs/guides/custom-widget/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/main/#enable-the-custom-domain
   - from: /guides/custom-url-domain/-/gather-information/index.html
@@ -1050,35 +1050,35 @@ redirects:
   - from: /docs/guides/mfa/add-factor/index.html
     to: /docs/guides/mfa/-/main/#enable-mfa-in-your-okta-org
   - from: /guides/protect-your-api/-/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/-/before-you-begin/
+    to: /docs/guides/protect-your-api/
   - from: /guides/protect-your-api/-/configure-cors/index.html
-    to: /docs/guides/protect-your-api/-/configure-cors/
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
   - from: /guides/protect-your-api/-/configure-packages/index.html
-    to: /docs/guides/protect-your-api/-/configure-packages/
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
   - from: /guides/protect-your-api/-/next-steps/index.html
-    to: /docs/guides/protect-your-api/-/next-steps/
+    to: /docs/guides/protect-your-api/-/main/#next-steps
   - from: /guides/protect-your-api/-/require-authentication/index.html
-    to: /docs/guides/protect-your-api/-/require-authentication/
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
   - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
+    to: /docs/guides/protect-your-api/aspnet/main/
   - from: /guides/protect-your-api/aspnet/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-cors/
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
   - from: /guides/protect-your-api/aspnet/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-packages/
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
   - from: /guides/protect-your-api/aspnet/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnet/next-steps/
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnet/require-authentication/
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/springboot/before-you-begin/
+    to: /docs/guides/protect-your-api/springboot/main/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-cors/
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
   - from: /guides/protect-your-api/springboot/configure-packages/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-packages/
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
   - from: /guides/protect-your-api/springboot/next-steps/index.html
-    to: /docs/guides/protect-your-api/springboot/next-steps/
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
   - from: /guides/protect-your-api/springboot/require-authentication/index.html
-    to: /docs/guides/protect-your-api/springboot/require-authentication/
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
   - from: /guides/refresh-tokens/-/get-refresh-token/index.html
     to: /docs/guides/refresh-tokens/main/#get-a-refresh-token
   - from: /guides/refresh-tokens/-/overview/index.html
@@ -1281,36 +1281,6 @@ redirects:
     to: /docs/guides/custom-hosted-signin/overview/
   - from: /guides/custom-hosted-signin/use-macros-and-request-context/index.html
     to: /docs/guides/custom-hosted-signin/use-macros-and-request-context/
-  - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
-  - from: /guides/protect-your-api/springboot/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/springboot/before-you-begin/
-  - from: /guides/protect-your-api/-/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/-/before-you-begin/
-  - from: /guides/protect-your-api/aspnet/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-cors/
-  - from: /guides/protect-your-api/springboot/configure-cors/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-cors/
-  - from: /guides/protect-your-api/-/configure-cors/index.html
-    to: /docs/guides/protect-your-api/-/configure-cors/
-  - from: /guides/protect-your-api/aspnet/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnet/configure-packages/
-  - from: /guides/protect-your-api/springboot/configure-packages/index.html
-    to: /docs/guides/protect-your-api/springboot/configure-packages/
-  - from: /guides/protect-your-api/-/configure-packages/index.html
-    to: /docs/guides/protect-your-api/-/configure-packages/
-  - from: /guides/protect-your-api/aspnet/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnet/next-steps/
-  - from: /guides/protect-your-api/springboot/next-steps/index.html
-    to: /docs/guides/protect-your-api/springboot/next-steps/
-  - from: /guides/protect-your-api/-/next-steps/index.html
-    to: /docs/guides/protect-your-api/-/next-steps/
-  - from: /guides/protect-your-api/aspnet/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/springboot/require-authentication/index.html
-    to: /docs/guides/protect-your-api/springboot/require-authentication/
-  - from: /guides/protect-your-api/-/require-authentication/index.html
-    to: /docs/guides/protect-your-api/-/require-authentication/
   - from: /guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/before-you-begin/
   - from: /guides/sign-users-out/-/next-steps/index.html
@@ -1766,23 +1736,23 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
   - from: /docs/guides/oin-build-provisioning-integration/index.html
-    to: /docs/guides/build-provisioning-integration/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
-    to: /docs/guides/build-provisioning-integration/faqs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/build-provisioning-integration/okta-verification/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/overview/index.html
-    to: /docs/guides/build-provisioning-integration/overview/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/publish/index.html
-    to: /docs/guides/build-provisioning-integration/publish/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/review-scim-docs/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/index.html
-    to: /docs/guides/build-provisioning-integration/SCIMFiles/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/index.html
-    to: /docs/guides/build-provisioning-integration/submit-for-review/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-server/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-sso-integration/index.html
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/oin-build-sso-integration/get-help/index.html
@@ -1799,6 +1769,10 @@ redirects:
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
     to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/implement-oauth-for-okta/create-oauth-app
@@ -1806,7 +1780,7 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/use-client-credentials-grant-flow/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/overview/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
   - from: /docs/guides/oauth-for-okta/define-allowed-scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/implement-oauth-for-okta/define-allowed-scopes
@@ -1820,9 +1794,9 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta/request-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/implement-oauth-for-okta/save-access-token/index.html
@@ -1844,11 +1818,31 @@ redirects:
   - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/get-access-token-using-service-app/index.html
-    to: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/overview
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-public-private-key-pair
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
+  - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
@@ -1884,17 +1878,17 @@ redirects:
   - from: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xls
     to: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx
   - from: /docs/guides/build-provisioning-integration/faqs/index.html
-    to: /docs/guides/submit-app/faqs/
-  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
-    to: /docs/guides/submit-app/submit/
-  - from: /docs/guides/build-provisioning-integration/publish/index.html
-    to: /docs/guides/submit-app/submit/
-  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
-    to: /docs/guides/build-provisioning-integration/prepare-api/
-  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
     to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/publish/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
-    to: /docs/guides/build-provisioning-integration/test-scim-api/
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
   - from: /docs/guides/build-sso-integration/integrate/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#create-your-integration
   - from: /docs/guides/build-sso-integration/get-help/index.html
@@ -1918,9 +1912,9 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
   - from: /docs/guides/submit-app/prepare-for-submission/index.html
-    to: /docs/guides/submit-app/overview/
+    to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/submit/index.html
-    to: /docs/guides/submit-app/submission1-general/
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
@@ -1930,7 +1924,7 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#next-steps
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
-    to: /docs/guides/build-provisioning-integration/next-steps/
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
@@ -2080,13 +2074,13 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
     to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
   - from: /docs/guides/custom-hosted-signin/customization-examples
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
-    to: /docs/guides/style-the-widget/customization-examples/
+    to: /docs/guides/custom-widget/main/#customization-examples
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
   - from: /contact-sales-enterprise/index.html
@@ -2507,6 +2501,70 @@ redirects:
     to: /docs/guides/mfa/-/main/#next-steps
   - from: /docs/guides/mfa/-/next-steps
     to: /docs/guides/mfa/-/main/#next-steps
+  - from: /docs/guides/mfa/ga/prerequisites/index.html
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/prerequisites
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/index.html
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-org
+    to: /docs/guides/mfa/ga/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/ga/set-up-postman/index.html
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/set-up-postman
+    to: /docs/guides/mfa/ga/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/ga/create-test-user/index.html
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/create-test-user
+    to: /docs/guides/mfa/ga/main/#create-a-test-user
+  - from: /docs/guides/mfa/ga/enroll-factor/index.html
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/enroll-factor
+    to: /docs/guides/mfa/ga/main/#enroll-a-factor
+  - from: /docs/guides/mfa/ga/activate-factor/index.html
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/activate-factor
+    to: /docs/guides/mfa/ga/main/#activate-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor/index.html
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/verify-factor
+    to: /docs/guides/mfa/ga/main/#verify-the-factor
+  - from: /docs/guides/mfa/ga/next-steps/index.html
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/ga/next-steps
+    to: /docs/guides/mfa/ga/main/#next-steps
+  - from: /docs/guides/mfa/sms/prerequisites/index.html
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/prerequisites
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/index.html
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-org
+    to: /docs/guides/mfa/sms/main/#set-up-your-okta-org-for-mfa
+  - from: /docs/guides/mfa/sms/set-up-postman/index.html
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/set-up-postman
+    to: /docs/guides/mfa/sms/main/#test-the-postman-setup
+  - from: /docs/guides/mfa/sms/create-test-user/index.html
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/create-test-user
+    to: /docs/guides/mfa/sms/main/#create-a-test-user
+  - from: /docs/guides/mfa/sms/enroll-factor/index.html
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/enroll-factor
+    to: /docs/guides/mfa/sms/main/#enroll-a-factor
+  - from: /docs/guides/mfa/sms/activate-factor/index.html
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/activate-factor
+    to: /docs/guides/mfa/sms/main/#activate-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor/index.html
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/verify-factor
+    to: /docs/guides/mfa/sms/main/#verify-the-factor
+  - from: /docs/guides/mfa/sms/next-steps/index.html
+    to: /docs/guides/mfa/sms/main/#next-steps
+  - from: /docs/guides/mfa/sms/next-steps
+    to: /docs/guides/mfa/sms/main/#next-steps
   - from: /docs/guides/sign-your-own-saml-csr/overview
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/sign-your-own-saml-csr/list-your-apps
@@ -4080,13 +4138,49 @@ redirects:
   - from: /docs/guides/email-customization/customize-email-templates/index.html
     to: /docs/guides/custom-email/main/#customize-email-templates
   - from: /docs/guides/email-customization/configure-custom-email-domain
-    to: /docs/guides/custom-email/main/#configure-a-custom-email-domain
+    to: /docs/guides/custom-url-domain/main/#configure-a-custom-email-domain
   - from: /docs/guides/email-customization/configure-custom-email-domain/index.html
-    to: /docs/guides/custom-email/main/#configure-a-custom-email-domain
+    to: /docs/guides/custom-url-domain/main/#configure-a-custom-email-domain
   - from: /docs/guides/email-customization/next-steps
     to: /docs/guides/custom-email/main/#see-also
   - from: /docs/guides/email-customization/next-steps/index.html
     to: /docs/guides/custom-email/main/#see-also
+  - from: /docs/guides/build-provisioning-integration/overview
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
+  - from: /docs/guides/build-provisioning-integration/overview/index.html
+    to: /docs/guides/scim-provisioning-integration-overview/
+  - from: /docs/guides/build-provisioning-integration/prepare-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
+  - from: /docs/guides/build-provisioning-integration/test-scim-api/index.html
+    to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/prepare-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/
+  - from: /docs/guides/build-provisioning-integration/configure-app/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#configure-your-okta-integration
+  - from: /docs/guides/build-provisioning-integration/attribute-mapping/index.html
+    to: /docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings
+  - from: /docs/guides/build-provisioning-integration/test-scim-app/index.html
+    to: /docs/guides/scim-provisioning-integration-test/
+  - from: /docs/guides/build-provisioning-integration/test-qa/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests
+  - from: /docs/guides/build-provisioning-integration/next-steps/index.html
+    to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/guides/build-sso-integration/-/overview
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/-/before-you-begin
@@ -4203,3 +4297,435 @@ redirects:
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /docs/guides/submit-app/-/overview
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/submit-app/-/create-guide
+    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/-/submission1-general
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
+  - from: /docs/guides/submit-app/-/submission2-specific
+    to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/-/submission3-process
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/-/update-submission
+    to: /docs/guides/submit-app/-/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/-/overview/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/submit-app/-/create-guide/index.html
+    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/-/submission1-general/index.html
+    to: /docs/guides/submit-app/-/main/#configure-general-settings
+  - from: /docs/guides/submit-app/-/submission2-specific/index.html
+    to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/-/submission3-process/index.html
+    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/-/update-submission/index.html
+    to: /docs/guides/submit-app/-/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/openidconnect/overview
+    to: /docs/guides/submit-app/openidconnect/main
+  - from: /docs/guides/submit-app/openidconnect/create-guide
+    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/openidconnect/submission1-general
+    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+  - from: /docs/guides/submit-app/openidconnect/submission2-specific
+    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/openidconnect/submission3-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/openidconnect/update-submission
+    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/faqs
+    to: /docs/guides/submit-app/openidconnect/main/#see-also
+  - from: /docs/guides/submit-app/openidconnect/overview/index.html
+    to: /docs/guides/submit-app/openidconnect/main
+  - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+  - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/faqs/index.html
+    to: /docs/guides/submit-app/openidconnect/main/#see-also
+  - from: /docs/guides/submit-app/saml2/overview
+    to: /docs/guides/submit-app/saml2/main
+  - from: /docs/guides/submit-app/saml2/create-guide
+    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/saml2/submission1-general
+    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+  - from: /docs/guides/submit-app/saml2/submission2-specific
+    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/saml2/submission3-process
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/saml2/update-submission
+    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/saml2/overview/index.html
+    to: /docs/guides/submit-app/saml2/main
+  - from: /docs/guides/submit-app/saml2/create-guide/index.html
+    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/saml2/submission1-general/index.html
+    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+  - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
+    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/saml2/submission3-process/index.html
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/saml2/update-submission/index.html
+    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/scim/overview
+    to: /docs/guides/submit-app/scim/main
+  - from: /docs/guides/submit-app/scim/create-guide
+    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/scim/submission1-general
+    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+  - from: /docs/guides/submit-app/scim/submission2-specific
+    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/scim/submission3-process
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/scim/update-submission
+    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/scim/overview/index.html
+    to: /docs/guides/submit-app/scim/main
+  - from: /docs/guides/submit-app/scim/create-guide/index.html
+    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+  - from: /docs/guides/submit-app/scim/submission1-general/index.html
+    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+  - from: /docs/guides/submit-app/scim/submission2-specific/index.html
+    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+  - from: /docs/guides/submit-app/scim/submission3-process/index.html
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+  - from: /docs/guides/submit-app/scim/update-submission/index.html
+    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/deploy-your-app/overview
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile
+    to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/deploy-your-app/overview/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/java/index.html
+    to: /docs/guides/deploy-your-app/java/main/
+  - from: /docs/guides/deploy-your-app/javascript/index.html
+    to: /docs/guides/deploy-your-app/javascript/main/
+  - from: /docs/guides/deploy-your-app/mobile/index.html
+    to: /docs/guides/deploy-your-app/reactnative/main/
+  - from: /docs/guides/protect-your-api/-/before-you-begin
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/-/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/
+  - from: /docs/guides/protect-your-api/-/configure-packages/index.html
+    to: /docs/guides/protect-your-api/-/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/-/require-authentication/index.html
+    to: /docs/guides/protect-your-api/-/main/#require-authentication
+  - from: /docs/guides/protect-your-api/-/configure-cors/index.html
+    to: /docs/guides/protect-your-api/-/main/#configure-cors
+  - from: /docs/guides/protect-your-api/-/next-steps/index.html
+    to: /docs/guides/protect-your-api/-/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnet/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/
+  - from: /docs/guides/protect-your-api/aspnet/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnet/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnet/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnet/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnet/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/aspnetcore3/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/aspnetcore3/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#require-authentication
+  - from: /docs/guides/protect-your-api/aspnetcore3/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#configure-cors
+  - from: /docs/guides/protect-your-api/aspnetcore3/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnetcore3/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/go/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/go/main/
+  - from: /docs/guides/protect-your-api/go/configure-packages/index.html
+    to: /docs/guides/protect-your-api/go/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/go/require-authentication/index.html
+    to: /docs/guides/protect-your-api/go/main/#require-authentication
+  - from: /docs/guides/protect-your-api/go/configure-cors/index.html
+    to: /docs/guides/protect-your-api/go/main/#configure-cors
+  - from: /docs/guides/protect-your-api/go/next-steps/index.html
+    to: /docs/guides/protect-your-api/go/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/nodeexpress/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-packages/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/nodeexpress/require-authentication/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#require-authentication
+  - from: /docs/guides/protect-your-api/nodeexpress/configure-cors/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
+  - from: /docs/guides/protect-your-api/nodeexpress/next-steps/index.html
+    to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/php/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/php/main/
+  - from: /docs/guides/protect-your-api/php/configure-packages/index.html
+    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/php/require-authentication/index.html
+    to: /docs/guides/protect-your-api/php/main/#require-authentication
+  - from: /docs/guides/protect-your-api/php/configure-cors/index.html
+    to: /docs/guides/protect-your-api/php/main/#configure-cors
+  - from: /docs/guides/protect-your-api/php/next-steps/index.html
+    to: /docs/guides/protect-your-api/php/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/python/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/python/main/
+  - from: /docs/guides/protect-your-api/python/configure-packages/index.html
+    to: /docs/guides/protect-your-api/python/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/python/require-authentication/index.html
+    to: /docs/guides/protect-your-api/python/main/#require-authentication
+  - from: /docs/guides/protect-your-api/python/configure-cors/index.html
+    to: /docs/guides/protect-your-api/python/main/#configure-cors
+  - from: /docs/guides/protect-your-api/python/next-steps/index.html
+    to: /docs/guides/protect-your-api/python/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
+  - from: /docs/guides/protect-your-api/springboot/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/springboot/main/
+  - from: /docs/guides/protect-your-api/springboot/configure-packages/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#add-and-configure-packages
+  - from: /docs/guides/protect-your-api/springboot/require-authentication/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#require-authentication
+  - from: /docs/guides/protect-your-api/springboot/configure-cors/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#configure-cors
+  - from: /docs/guides/protect-your-api/springboot/next-steps/index.html
+    to: /docs/guides/protect-your-api/springboot/main/#next-steps
+  - from: /docs/guides/token-inline-hook/-/test
+    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/test/index.html
+    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/test
+    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/test/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/extend-express
+    to: /docs/guides/token-inline-hook/-/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/extend-express/index.html
+    to: /docs/guides/token-inline-hook/-/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/extend-express
+    to: /docs/guides/token-inline-hook/nodejs/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/extend-express/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#extend-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/activate-and-enable
+    to: /docs/guides/token-inline-hook/-/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/activate-and-enable/index.html
+    to: /docs/guides/token-inline-hook/-/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/activate-and-enable
+    to: /docs/guides/token-inline-hook/nodejs/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/nodejs/activate-and-enable/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#activate-and-enable-the-token-inline-hook
+  - from: /docs/guides/token-inline-hook/-/send-response
+    to: /docs/guides/token-inline-hook/-/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/-/send-response/index.html
+    to: /docs/guides/token-inline-hook/-/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/nodejs/send-response
+    to: /docs/guides/token-inline-hook/nodejs/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/nodejs/send-response/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#send-a-response-to-okta
+  - from: /docs/guides/token-inline-hook/-/check-against-store
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/-/check-against-store/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/nodejs/check-against-store
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/nodejs/check-against-store/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#check-against-the-data-store
+  - from: /docs/guides/token-inline-hook/-/parse-hook
+    to: /docs/guides/token-inline-hook/-/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/-/parse-hook/index.html
+    to: /docs/guides/token-inline-hook/-/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/nodejs/parse-hook
+    to: /docs/guides/token-inline-hook/nodejs/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/nodejs/parse-hook/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#parse-the-token-inline-hook-request
+  - from: /docs/guides/token-inline-hook/-/setup-express
+    to: /docs/guides/token-inline-hook/-/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/setup-express/index.html
+    to: /docs/guides/token-inline-hook/-/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/setup-express
+    to: /docs/guides/token-inline-hook/nodejs/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/nodejs/setup-express/index.html
+    to: /docs/guides/token-inline-hook/nodejs/main/#set-up-the-sample-express-application
+  - from: /docs/guides/token-inline-hook/-/overview
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/-/overview/index.html
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/nodejs/overview
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/token-inline-hook/nodejs/overview/index.html
+    to: /docs/guides/token-inline-hook/
+  - from: /docs/guides/style-the-widget/before-you-begin
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/before-you-begin/index.html
+    to: /docs/guides/custom-widget/
+  - from: /docs/guides/style-the-widget/style-self-hosted
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-self-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/style-okta-hosted/index.html
+    to: /docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget
+  - from: /docs/guides/style-the-widget/customization-examples
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/customization-examples/index.html
+    to: /docs/guides/custom-widget/main/#customization-examples
+  - from: /docs/guides/style-the-widget/next-steps
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/style-the-widget/next-steps/index.html
+    to: /docs/guides/custom-widget/main/#see-also
+  - from: /docs/guides/oin-oidc-guide/overview
+    to: /docs/guides/oin-oidc-overview/main/
+  - from: /docs/guides/oin-oidc-guide/background
+    to: /docs/guides/oin-oidc-overview/main/#overview
+  - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
+    to: /docs/guides/oin-oidc-protocols/main/
+  - from: /docs/guides/oin-oidc-guide/multi-tenancy
+    to: /docs/guides/oin-oidc-multi-tenancy/main/
+  - from: /docs/guides/oin-oidc-guide/integration-best-practices
+    to: /docs/guides/oin-oidc-best-practices/main/
+  - from: /docs/guides/oin-oidc-guide/next-steps
+    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+  - from: /docs/guides/oin-oidc-guide/overview/index.html
+    to: /docs/guides/oin-oidc-overview/main/
+  - from: /docs/guides/oin-oidc-guide/background/index.html
+    to: /docs/guides/oin-oidc-overview/main/#overview
+  - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
+    to: /docs/guides/oin-oidc-protocols/main/
+  - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
+    to: /docs/guides/oin-oidc-multi-tenancy/main/
+  - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
+    to: /docs/guides/oin-oidc-best-practices/main/
+  - from: /docs/guides/oin-oidc-guide/next-steps/index.html
+    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+  - from: /docs/guides/third-party-risk-integration/overview
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/overview/index.html
+    to: /docs/guides/third-party-risk-integration/
+  - from: /docs/guides/third-party-risk-integration/create-service-app
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/create-service-app/index.html
+    to: /docs/guides/third-party-risk-integration/main/#create-a-service-app-for-a-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/update-default-provider/index.html
+    to: /docs/guides/third-party-risk-integration/main/#update-the-default-third-party-risk-provider
+  - from: /docs/guides/third-party-risk-integration/test-integration
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/third-party-risk-integration/test-integration/index.html
+    to: /docs/guides/third-party-risk-integration/main/#test-the-integration
+  - from: /docs/guides/configure-access-policy/overview
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/overview/index.html
+    to: /docs/guides/configure-access-policy/
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/limit-scopes-clients-can-access/index.html
+    to: /docs/guides/configure-access-policy/main/#limit-which-scopes-some-clients-can-access
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/configure-token-lifetime-per-client/index.html
+    to: /docs/guides/configure-access-policy/main/#configure-a-custom-access-token-lifetime-per-client
+  - from: /docs/guides/configure-access-policy/next-steps
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/configure-access-policy/next-steps/index.html
+    to: /docs/guides/configure-access-policy/main/#next-steps
+  - from: /docs/guides/migrate-to-okta/prerequisites
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/migrate-to-okta/prerequisites/index.html
+    to: /docs/guides/migrate-to-okta-prerequisites/main/
+  - from: /docs/guides/migrate-to-okta/bulk-migration-with-credentials/index.html
+    to: /docs/guides/migrate-to-okta-bulk/main/
+  - from: /docs/guides/migrate-to-okta/migrate-users-password-hooks/index.html
+    to: /docs/guides/migrate-to-okta-password-hooks/main/
+  - from: /docs/guides/production-deployment/deployment-checklist
+    to: /docs/guides/deployment-checklist/
+  - from: /docs/guides/production-deployment/deployment-checklist/index.html
+    to: /docs/guides/deployment-checklist/

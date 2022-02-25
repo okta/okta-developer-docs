@@ -4,7 +4,7 @@ excerpt: Enable Cross-Origin Resource Sharing for your app
 layout: Guides
 ---
 
-This article explains what Cross-Origin Resource Sharing (CORS) is and why it is useful, shows you how it is relevant to your Okta apps, and how to enable and test it.
+This guide explains Cross-Origin Resource Sharing (CORS), why it is useful, how it is relevant to your Okta apps, and how to enable and test it.
 
 ---
 
@@ -15,7 +15,7 @@ This article explains what Cross-Origin Resource Sharing (CORS) is and why it is
 
 ---
 
-## Overview
+## About CORS
 
 [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](https://xhr.spec.whatwg.org/) to a domain that is different than the domain where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers as indicated by the [same origin security policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
 

@@ -4,15 +4,34 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-## Overview
+This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
-Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications.
+---
 
-This guide provides a high-level overview of the Native SSO feature in Okta and provides a use case example of how to configure your org to use this feature. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
+**Learning outcomes**
+
+* Understand the Native SSO flow.
+* Set up your native application.
+* Update the authorization server policy rule to allow the token exchange grant.
+* Understand the device secret and refresh token idle lifetimes.
+* Verify that the device secret is valid.
+* End a desktop session by revoking the device secret.
+* Use the `/logout` request to revoke the device secret.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Native SSO feature enabled for your org](#before-you-begin)
+
+---
+
+## About the Native SSO feature
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
-# Before you begin
+## Before you begin
 
 This guide assumes that you:
 

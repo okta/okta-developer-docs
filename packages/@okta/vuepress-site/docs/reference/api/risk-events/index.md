@@ -11,7 +11,7 @@ The Okta Risk Events API provides the ability for third-party Risk Providers to 
 ## Get Started
 Explore the Risk Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
 
-See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/overview/) for guidance on integrating third-party risk providers with Okta.
+See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/) for guidance on integrating third-party risk providers with Okta.
 
 ## Risk Events Operations
 The Risk Events API has the following operations:

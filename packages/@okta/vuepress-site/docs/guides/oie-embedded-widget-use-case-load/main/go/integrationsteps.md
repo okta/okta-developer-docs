@@ -1,18 +1,17 @@
 ### 1: The user clicks the sign-in page link
 
-The first step occurs when the user selects on the sign-in link. This link
-directs the user to the sign-in page where the Widget is embedded. On the sample application's
-landing page, this link is labelled **Login** and located on the top right corner of the page.
+The first step occurs when the user clicks the sign-in link. This link
+directs the user to the sign-in page where the Widget is embedded. On the sample application's landing page, this link is labelled **Login** and located in the upper-right corner of the page.
 
 ### 2: Get the data to initialize the Widget
 
 Obtain the parameters required to display the Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
 
-* **Client ID, issuer, scopes:** source from the [configuration](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
-* **Interaction Handle**: obtain from the `/interact` endpoint
-* **PCKE parameters, state and nonce:** generate values
-* **Base URL:** derive from issuer URL
+* Client ID, issuer, scopes &mdash; sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
+* Interaction Handle &mdash; obtained from the `/interact` endpoint
+* PKCE parameters, state, and nonce &mdash; generated values
+* Base URL &mdash; derived from the issuer URL
 
 These parameter are passed to the Widget during page load. The sample application sets most
 of these values in the `LoginHandler` method.
@@ -71,20 +70,20 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 ### 3: Display the Widget using initialization data
 
-Add the the following Okta javascript and css files to the page with the embedded Widget.
+Add the the following Okta JavaScript and CSS files to the page with the embedded Widget.
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.1/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/5.8.1/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-Next, add a div tag that's the container for the Widget.
+Next, add a container `div` element for the Widget.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-Finally, add the javascript that loads the Widget into the `div` tag. The parameters set in
+Finally, add the JavaScript that loads the Widget into the `div` element. The parameters set in
 [step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
@@ -114,7 +113,7 @@ Finally, add the javascript that loads the Widget into the `div` tag. The parame
 </script>
 ```
 
-### 4: Complete the loading of the sign-in page
+### 4: Complete the sign-in page load
 
 After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 

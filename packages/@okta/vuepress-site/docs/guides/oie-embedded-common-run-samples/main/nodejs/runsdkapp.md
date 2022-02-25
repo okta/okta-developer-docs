@@ -14,8 +14,12 @@
 
    ![Example user profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png)
 
-## Troubleshooting
+### Troubleshoot
 
 * If the Widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
 
-* If the "There was an unexpected internal error. Please try again." message is displayed instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+* If the "There was an unexpected internal error. Please try again." message appears instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
+
+### Work with the use cases
+
+After you successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/) use case.

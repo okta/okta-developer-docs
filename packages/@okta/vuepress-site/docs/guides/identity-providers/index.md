@@ -15,7 +15,7 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
   <Card href="/docs/guides/add-an-external-idp/oktatookta/main/" headerImage="/img/idp-logos/okta.svg">Okta to Okta</Card>
   <Card href="/docs/guides/add-an-external-idp/azure/main/" headerImage="/img/idp-logos/azure.svg">Azure AD</Card>
   <!-- Need to figure out a way to link externally -->
-  <!-- <Card href="https://help.okta.com/en/prod/Content/Topics/Security/idp-enable-smart-card.htm" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
+  <!-- <Card href="https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-expression" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
 </Cards>
 
 ## Social Logins
@@ -23,6 +23,7 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
 <Cards>
   <Card href="/docs/guides/social-login/amazon/main" headerImage="/img/idp-logos/amazon.png">Amazon</Card>
   <Card href="/docs/guides/add-an-external-idp/apple/main/" headerImage="/img/idp-logos/apple.png">Apple</Card>
+  <Card href="/docs/guides/social-login/discord/main/" headerImage="/img/idp-logos/discord.svg">Discord</Card>
   <Card href="/docs/guides/add-an-external-idp/facebook/main/" headerImage="/img/idp-logos/facebook.png">Facebook</Card>
   <Card href="/docs/guides/social-login/github/main" headerImage="/img/idp-logos/github.png">GitHub</Card>
   <Card href="/docs/guides/social-login/gitlab/main" headerImage="/img/idp-logos/gitlab.svg">GitLab</Card>
@@ -33,6 +34,7 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
   <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
   <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>
   <Card href="/docs/guides/social-login/spotify/main" headerImage="/img/idp-logos/spotify.png">Spotify</Card>
+  <Card href="/docs/guides/social-login/xero/main" headerImage="/img/idp-logos/xero.png">Xero</Card>
   <Card href="/docs/guides/social-login/yahoo/main" headerImage="/img/idp-logos/yahoo.png">Yahoo</Card>
   <Card href="/docs/guides/social-login/yahoojp/main" headerImage="/img/idp-logos/yahoojp.svg">Yahoo Japan</Card>
 </Cards>

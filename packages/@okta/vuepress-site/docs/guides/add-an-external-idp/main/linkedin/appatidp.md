@@ -1,4 +1,4 @@
-1. Create an app in the [<StackSelector snippet="idp" noSelector inline /> Developer portal](https://www.linkedin.com/developers/apps/new).
+1. Create an app in the [LinkedIn Developer portal](https://www.linkedin.com/developers/apps/new).
 
 2. From your app, click the **Auth** tab and make note of the **Client ID** and **Client Secret** values so that you can add them to the Okta configuration in the next section.
 
@@ -13,7 +13,7 @@
 
 5. Click **Update**.
 
-6. From the **Products** tab, in the **Sign In with <StackSelector snippet="idp" noSelector inline />** box, click **Select**.
+6. From the **Products** tab, in the **Sign In with LinkedIn** box, click **Select**.
 
 7. In the resulting dialog box, select **I have read and agree to these terms**, and then click **Add Product**.
 
@@ -21,4 +21,4 @@
 
 Example: `scope=r_liteprofile r_emailaddress w_member_social`
 
-> **Note:** The steps in this guide address the quickest route to setting up <StackSelector snippet="idp" noSelector inline /> as an Identity Provider with Okta. See the [<StackSelector snippet="idp" noSelector inline /> documentation](https://docs.microsoft.com/en-us/linkedin/shared/authentication/authentication?context=linkedin/consumer/context) for more information on additional configuration settings.
+> **Note:** The steps in this guide address the quickest route to setting up LinkedIn as an Identity Provider with Okta. See the [LinkedIn documentation](https://docs.microsoft.com/en-us/linkedin/shared/authentication/authentication?context=linkedin/consumer/context) for more information on additional configuration settings.

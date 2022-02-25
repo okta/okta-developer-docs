@@ -1,4 +1,4 @@
-The sequence of steps to sign into the widget is illustrated below:
+The sequence of steps to sign in to the Widget is illustrated below:
 
 <div class="common-image-format">
 

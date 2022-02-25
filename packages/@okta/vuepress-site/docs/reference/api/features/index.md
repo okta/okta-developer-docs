@@ -185,7 +185,7 @@ Content-Type: application/json
      },
      "_links":{
         "helpDoc":{
-           "href":"https://help.okta.com/en/prod/Content/index.htm"
+           "href":"https://help.okta.com/"
         },
         "self":{
            "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
@@ -509,7 +509,7 @@ curl -v -X GET \
     },
     "_links": {
       "helpDoc": {
-        "href": "https://help.okta.com/en/prod/Content/index.htm"
+        "href": "https://help.okta.com/"
       },
       "self": {
         "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"

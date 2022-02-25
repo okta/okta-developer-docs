@@ -7,23 +7,23 @@ title: Load the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
 ---
 
 **Learning outcomes**
 
-Understand the sequence of steps to load the Widget.
+Understand the sequence of steps to load the Sign-In Widget.
 
 **What you need**
 
-[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
+* An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
+* [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
+* [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
 
 **Sample code**
 
-n/a
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -33,10 +33,10 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 
 ## Summary of steps
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" />
 
 ## Integration steps
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" />
 
 </div>

@@ -8,3 +8,7 @@
 1. Open the `okta.properties` file in the project root directory and [configure it](/docs/guides/oie-embedded-common-download-setup-app/android/main/#set-the-configuration-values) with the settings from your org.
 1. Click **Run** to launch the application in the Android emulator.
 1. Tap **LOGIN** to start the authentication flow.
+
+### Work with the use cases
+
+After you successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) use case.

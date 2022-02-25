@@ -59,7 +59,7 @@ The Java SDK sends this selection to Okta. Okta sends a code to the user's email
 
 </div>
 
-> **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
+> **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [SDK limitations and workarounds: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
 ### 4: The user submits the email verification code
 

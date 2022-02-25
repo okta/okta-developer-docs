@@ -5,7 +5,7 @@ category: management
 
 # ThreatInsight configuration API
 
-[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IPs that exhibit suspicious behaviors suggestive of malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm?cshid=ext_Reports_SysLog) and blocked. The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
+[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IPs that exhibit suspicious behaviors suggestive of malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
 In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial editions. Please contact Okta support if fully functional Okta ThreatInsight is required.
 
@@ -44,8 +44,8 @@ curl -X POST \
 {
     "action": "audit",
     "excludeZones": ["nzo1q7jEOsoCnoKcj0g4"],
-    "created": "2020-08-05 22:18:30",
-    "lastUpdated": "2020-10-13 21:23:10",
+    "created": "2020-08-05T22:18:30.629Z",
+    "lastUpdated": "2020-10-13T21:23:10.178Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/api/v1/threats/configuration",
@@ -81,8 +81,8 @@ curl -X GET \
 {
     "action": "audit",
     "excludeZones": [],
-    "created": "2020-08-05 22:18:30",
-    "lastUpdated": "2020-09-08 20:53:20",
+    "created": "2020-08-05T22:18:30.629Z",
+    "lastUpdated": "2020-09-08T20:53:20.882Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/api/v1/threats/configuration",

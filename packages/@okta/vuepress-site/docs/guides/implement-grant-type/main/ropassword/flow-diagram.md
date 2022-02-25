@@ -1,4 +1,4 @@
-### Resource Owner Password
+### Resource Owner Password flow
 
 ![Sequence diagram that shows the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-password-grant-flow.png "Resource Owner Password flow")
 
