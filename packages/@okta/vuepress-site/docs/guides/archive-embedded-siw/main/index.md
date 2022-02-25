@@ -1,8 +1,8 @@
 ---
-title: Okta Sign-In Widget Guide
+title: Embedded Okta Sign-In Widget fundamentals
 language: JavaScript
 icon: code-javascript
-excerpt: A drop-in widget with custom UI capabilities to power sign-in with Okta.
+excerpt: A drop-in widget with custom UI capabilities to power sign-in with Okta. Formerly titled "Okta Sign-In Widget Guide"
 layout: Guides
 ---
 
