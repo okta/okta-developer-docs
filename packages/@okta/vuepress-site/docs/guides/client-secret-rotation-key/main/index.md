@@ -70,7 +70,7 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
 7. Revalidate that your app works after changing the old client secret status to rule out any possibility that your app is using older credentials. Should there be any issues with your app, you can change the status of the old client secret back to **Active** and troubleshoot.
 
-8. After validation is successful, you can then delete the old secret using the Admin Console by changing the status of the old secret from **Inactive** to **Delete**. This ensures that the older secret isn’t used by mistake.
+8. After revalidation is successful, you can then delete the old secret using the Admin Console by changing the status of the old secret from **Inactive** to **Delete**. This ensures that the older secret isn’t used by mistake.
 
     > **Note:** You can try this in Postman using the **Delete a client secret** request.
 
