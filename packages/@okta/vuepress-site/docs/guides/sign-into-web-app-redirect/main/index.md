@@ -68,11 +68,12 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click the **Admin** button on the top right of the page.
 1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
+1. Select a **Sign-in method** of **OIDC - OpenID Connect**, then click **Next**.
 1. Select an **Application type** of **Web Application**, then click **Next**.
     > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
-1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/oauth2/code/okta`, and for production, such as `http://app.example.com/login/oauth2/code/okta`. For more information on callback URIs, see [Define a callback route](#define-a-callback-route).
+1. Enter the **Sign-in redirect URIs** for local development, such as `http://localhost:8080/authorization-code/callback.
+1. Enter the **Sign-out redirect URIs** for both local development, such as `http://localhost:8080/signout/callback. For more information on callback URIs, see [Define  callback route](#define-a-callback-route).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select the **Everyone** group for now. For more information, see [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you copy some values when configuring your app.
 
@@ -92,7 +93,7 @@ Add the required dependencies for using the Okta SDK with your web app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: client id, client secret, and Okta domain.
+Our app uses information from the Okta integration that we created earlier to configure communication with the API: client ID, client secret, and Okta domain.
 
 <StackSnippet snippet="configmid" />
 
@@ -158,6 +159,10 @@ Your website may enable anonymous access for some content but require a user to 
 
 ## Next steps
 
-* To support multi-tenancy, see [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/)
+* [Protect your API endpoints](/docs/guides/protect-your-api/).
+* [Customize the Okta URL and email notification domains](https://developer.okta.com/docs/guides/custom-url-domain/main/)
+* [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+* [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
+* [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/)
 
 <StackSnippet snippet="specificlinks" />

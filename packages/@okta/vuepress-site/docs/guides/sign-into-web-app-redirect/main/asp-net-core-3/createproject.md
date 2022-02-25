@@ -1,0 +1,10 @@
+For this tutorial, we will *create a sample app from scratch* using the Visual Studio ASP.NET Core Web App project template. 
+
+1. Launch Visual Studio 2022 and select **New project** > **ASP.NET Core Web App (Model-View-Controller)** and click **Next**. 
+2. Name your project and click **Next**. 
+3. Select **Framework** as **.NET Core 3.1**, **Authentication** as **None** (don't worry, Okta will handle this part) and check **Configure for HTTPS**.
+4. Click **Create**.
+
+> **Note**: This guide uses .NET Core 3.1.
+
+> **Note**: If you're using the Okta CLI, you can also run `okta start okta-aspnet-core3-sample` to create an app. This command creates an OIDC app in Okta, downloads the [okta-aspnet-core3-sample](https://github.com/okta-samples/okta-aspnet-core3-sample) sample, and configures it to work with the OIDC app. This quickstart uses a basic .NET Core starter app instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
