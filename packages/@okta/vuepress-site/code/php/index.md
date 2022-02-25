@@ -10,7 +10,7 @@ meta:
 
 ## Get started with PHP + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your PHP app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your PHP app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -30,16 +30,16 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[PHP redirect authentication sample app](https://github.com/okta/samples-php) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for redirect configuration
+[PHP redirect authentication sample app](https://github.com/okta/samples-php): See [Okta-hosted login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a redirect configuration.
 
 ## Okta Classic PHP SDKs
 
 * The [Okta PHP Management SDK](https://github.com/okta/okta-sdk-php) can be used in your server-side code to create and update users.
-  * [okta/sdk on Packagist](http://packagist.org/packages/okta/sdk)
+* [okta/sdk on Packagist](http://packagist.org/packages/okta/sdk)
 * [Okta JWT Verifier for PHP](https://github.com/okta/okta-jwt-verifier-php)
 
 ## Recommended guides

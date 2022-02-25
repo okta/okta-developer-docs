@@ -174,7 +174,7 @@ if (authClient.isLoginRedirect()) {
 
 ## Part 2: Get an Okta session cookie
 
-In the code example above, the ID token is retrieved using a redirect to the Okta sign-in page. It is also possible to take a user-inputted `username` and `password` pair and pass them to the `signIn` method. This method then initiates an authentication process which returns an [Okta session cookie](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). This Okta session cookie can then be used, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
+In the code example above, the ID token is retrieved using a redirect to the Okta sign-in page. It's also possible to take a `username` and `password` pair input by the user and pass them to the `signIn` method. This method then initiates an authentication process that returns an [Okta session cookie](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). You can then use this Okta session cookie, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
 
 [Read more about signIn in the Auth SDK Reference][authjs-reference-signin].
 
@@ -196,9 +196,9 @@ else {
 }
 ```
 
-> **Note:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
+> **Note:** This example, like everything else on this page, is for illustrative purposess only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
 
-#### Complete Okta Session and OIDC Token Example
+#### Complete Okta Session and OIDC token example
 
 ``` js
 // Bootstrap the AuthJS Client
@@ -246,10 +246,10 @@ if (authClient.isLoginRedirect()) {
 }
 ```
 
-[authjs-reference]: https://github.com/okta/okta-auth-js
-[authjs-reference-client-configuration]: https://github.com/okta/okta-auth-js#configuration-reference
-[authjs-reference-token-getwithredirect]: https://github.com/okta/okta-auth-js#tokengetwithredirectoptions
-[authjs-reference-token-parsefromurl]: https://github.com/okta/okta-auth-js#tokenparsefromurloptions
-[authjs-reference-tokenmanager-add]: https://github.com/okta/okta-auth-js#tokenmanageraddkey-token
-[authjs-reference-tokenmanager-get]: https://github.com/okta/okta-auth-js#tokenmanagergetkey
-[authjs-reference-signin]: https://github.com/okta/okta-auth-js#signinoptions
+[authjs-reference](https://github.com/okta/okta-auth-js)
+[authjs-reference-client-configuration](https://github.com/okta/okta-auth-js#configuration-reference)
+[authjs-reference-token-getwithredirect](https://github.com/okta/okta-auth-js#tokengetwithredirectoptions)
+[authjs-reference-token-parsefromurl](https://github.com/okta/okta-auth-js#tokenparsefromurloptions)
+[authjs-reference-tokenmanager-add](https://github.com/okta/okta-auth-js#tokenmanageraddkey-token)
+[authjs-reference-tokenmanager-get](https://github.com/okta/okta-auth-js#tokenmanagergetkey)
+[authjs-reference-signin](https://github.com/okta/okta-auth-js#signinoptions)

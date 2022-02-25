@@ -10,7 +10,7 @@ meta:
 
 ## Get started with Node.js Express + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your Node.js Express app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Node.js Express app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -30,17 +30,17 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Express JS redirect authentication sample app](https://github.com/okta/samples-nodejs-express-4) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for redirect configuration
+[Express JS redirect authentication sample app](https://github.com/okta/samples-nodejs-express-4): See [Okta-hosted login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-These SDKs will help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine specific instructions
+* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js): See the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for the Identity Engine specific instructions.
 * [Express JS embedded authentication with SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk)
 * [Express JS embedded Sign-In Widget sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget)
 
@@ -56,7 +56,7 @@ These SDKs will help you integrate with Okta to build your own fully-branded aut
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
+[Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

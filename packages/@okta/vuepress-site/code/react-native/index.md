@@ -7,7 +7,7 @@ integration: mobile
 
 ## Get started with React Native + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your React Native app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -22,13 +22,13 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
 * [okta-react-native on npm](https://www.npmjs.com/package/@okta/okta-react-native)
 * [React Native SDK Source](https://github.com/okta/okta-react-native)
-* [React Native redirect authentication sample app](https://github.com/okta/samples-js-react-native) &mdash; see [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for redirect configuration
+* [React Native redirect authentication sample app](https://github.com/okta/samples-js-react-native): See [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for a redirect configuration.
 
 ## Recommended guides
 

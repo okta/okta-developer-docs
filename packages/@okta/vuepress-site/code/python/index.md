@@ -10,7 +10,7 @@ meta:
 
 ## Get started with Python Flask + Okta
 
-New to Okta? Our resources will walk you through adding user authentication to your Python Flask app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Python Flask app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -30,11 +30,11 @@ New to Okta? Our resources will walk you through adding user authentication to y
 	</li>
 </ul>
 
-## Integrate with Okta using the hosted Okta Sign-In Widget
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-These SDKs will help you integrate with Okta by redirecting to the Okta Sign In Widget using OpenID Connect (OIDC) client libraries.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Flask redirect authentication sample app](https://github.com/okta/samples-python-flask) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for redirect configuration
+[Flask redirect authentication sample app](https://github.com/okta/samples-python-flask): See [Okta-hosted login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a redirect configuration.
 
 ## Okta Classic Python SDKs
 
