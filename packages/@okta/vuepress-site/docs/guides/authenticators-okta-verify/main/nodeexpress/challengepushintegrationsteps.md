@@ -1,8 +1,9 @@
-### 1: Initiate the sign-in and choose Okta Verify method type
+### 1: Initiate the sign-in and choose Okta Verify push option
 
-First, the user initiates the user sign-in with username and password and chooses Okta Verify method type. The user chooses a method type (for example push notification or TOTP) which is passed to `IdxTransaction.idx.proceed()`. These first several steps are common across the challange flows and described in [Initiate sign in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication).
+First, the user initiates the user sign-in with username and password. If the user is enrolled in Okta Verify, they are shown options to either verify by push notification or TOTP. In this flow, they choose push notification and a value of `push` is sent to
+`IdxTransaction.idx.proceed()`. These first steps are common across the challenge flows (with the exception of the challenge option value) and are described in detail in [Initiate sign in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication).
 
-For this flow, the use chooses the push notification method type and the value of `push` is sent to `IdxTransaction.idx.proceed()`.
+When the user submits the push notification, display a page that notifies the user the push has been sent.
 
 <div class="common-image-format">
 
@@ -10,9 +11,11 @@ For this flow, the use chooses the push notification method type and the value o
 
 </div>
 
-### 2: Start polling for Okta Verify challenge completion
+### 2: Poll until user completes challege
 
-`IdxTransaction.idx.proceed()` returns a `status` of `PENDING` and `nextStep.name` equal to `challenge-poll`, which indicates that the user needs to complete the challenge in Okta Verify and your application should begin to poll the SDK to determine when the challenge is completed.  An example `IdxTransaction` response follows:
+The `IdxTransaction` response from the last step in [Initiate sign in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication) indicates that polling should start. Specifically, `IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `challenge-poll`, identifies that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
+
+An example of the `IdxTransaction` response follows:
 
 ```json
 {
@@ -38,11 +41,9 @@ For this flow, the use chooses the push notification method type and the value o
 }
 ```
 
-The polling logic is common across the different flows and the steps involving polling are described in detail in the [Poll the SDK](#poll-the-sdk) section.
+### 3: Exit polling
 
-### 3. Exit polling when user completes Okta Verify challenge
-
-Once the user completes the Okta Verify challenge, your application should exit the polling. Detail on how to exit the poll is decribed in [Poll the SDK](#poll-the-sdk).
+After the user completes the Okta Verify challenge, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `challenge-poll`. Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `challenge-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in [Polling Okta](#polling-okta).
 
 ### 4: Complete successful sign in
 

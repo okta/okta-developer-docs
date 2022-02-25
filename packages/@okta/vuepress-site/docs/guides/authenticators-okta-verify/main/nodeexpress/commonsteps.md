@@ -1,6 +1,6 @@
 ### Initiate sign in for Okta Verify enrollment
 
-The enrollment flows start with idential steps. These steps are as follows
+Enrolling Okta Verify with QR Code or another channel (for example, email or sms), start with identical steps. These are as follows:
 
 #### 1: Initiate use case requiring authentication
 
@@ -66,6 +66,8 @@ When the user selects and submits the Okta Verify option, call `OktaAuth.idx.pro
 
 ### Initiate sign in for Okta Verify challenge
 
+Signing in and being challenged by Okta Verify with a push notification or TOTOP, start with idential steps. These are as follows:
+
 #### 1: Initiate use case requiring authentication
 
 The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, starting with a call to `OktaAuth.idx.authenticate()`.
@@ -119,9 +121,9 @@ When the user selects and submits a verify method, call `IdxTransaction.idx.proc
   const transaction = await authClient.idx.proceed({ methodType });
 ```
 
-### Poll the SDK
+### Polling Okta
 
-During Okta Verify enrollment and challenge, the flow continues outside your app as the user uses Okta Verify to complete their account setup or verify their identity. While your app waits, it should poll the SDK to determine when the user completes these flows.
+During Okta Verify enrollment and challenge, the flow steps outside your app as the user performs actions within Okta Verify. While your app waits, it should poll the SDK to determine when the user finishes their tasks within Okta Verify.
 
 #### Reasons to poll
 

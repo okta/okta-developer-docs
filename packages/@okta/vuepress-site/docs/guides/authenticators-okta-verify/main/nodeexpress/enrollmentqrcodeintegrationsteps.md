@@ -1,10 +1,10 @@
 ### 1: Initiate the sign-in choose Okta Verify as the authenticator
 
-First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authetnicator to enroll in. These steps are described in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment).
+First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authenticator to enroll in. Follow the steps in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), to learn more about how to integrate these steps.
 
 ### 2: Display QR Code
 
-Next, using the response from `OktaAuth.idx.proceed()`, display the QR Code so the user can scan it on their mobile device using Okta Verify.
+After the user chooses Okta Verify (which is the last step in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), display the QR Code on your page using the `IdxTransaction` response from `OktaAuth.idx.proceed()`.  In future steps, the user will scan this QR Code on their mobile device using Okta Verify.
 
 #### IdxTransaction response
 
@@ -37,7 +37,7 @@ An example `IdxTransaction` response follows:
 }
 ```
 
-The following table describes the most important `IdxTransaction` properities for this step:
+The following table describes the most important `IdxTransaction` properties for this step:
 
 | Property       | Example value | Description                                       |
 |----------------|---------------------------------------------------|---------------------------------------------------|
@@ -45,7 +45,7 @@ The following table describes the most important `IdxTransaction` properities fo
 | `IdxTransaction.nextStep.name` | `enroll-poll` | Name of the next step in the sign-in. A value of `enroll-poll` indicates the app should show the QR Code and poll Okta to determine when the user has completed the Okta Verify setup.  |
 | `IdxTransaction.nextStep.authenticator.contextualData.qrcode.href` | "data:image/png;base64,..." | The QR code base64 encoded PNG image.
 
-A `IdxTransaction.status` value of `PENDING` and `IdxTransaction.nextStep.name` value of `enroll-poll` signifies that Okta is waiting for the user to add the new account to Okta Verify.  At this time, your app should start polling to determine when the user has completed the Okta Verify account setup.
+A `IdxTransaction.status` value of `PENDING` and `IdxTransaction.nextStep.name` value of `enroll-poll` signifies that Okta is waiting for the user to add their account to Okta Verify. At this time, your app should start polling to determine when the user has completed the Okta Verify account setup.
 
 #### Render the QR Code
 
@@ -71,7 +71,7 @@ Display a page showing the QR code to the user. Example page from the sample app
 
 ### 3: Poll until user completes Okta Verify account setup
 
-`IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `challenge-poll`, indicates that the user needs to complete the challenge in Okta Verify and your application should begin to poll the SDK to determine when the challenge is completed.  The polling logic is common across the different flows and the steps involving polling are described in detail in the [Poll the SDK](#poll-the-sdk) section.
+`IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `enroll-poll`, indicates that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
 
 ### 4: Install and open Okta Verify
 
@@ -83,7 +83,7 @@ Once Okta Verify is installed and opened, the user adds the account in the app b
 
 ### 6: Exit polling
 
-After the user scans the QR code and completes adding the account, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `enroll-poll`. Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in the [Poll the SDK](#poll-the-sdk) section.
+After the user scans the QR code and completes adding the account, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `enroll-poll`. Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in [Polling Okta](#polling-okta).
 
 ### 6: Complete successful sign in
 
