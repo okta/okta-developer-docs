@@ -86,7 +86,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | Sent to users who forgot their password but only their admin can reset it |
 | Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | Sent to users who had their password reset by an Okta system administrator, and must follow the provided link to complete the password reset process |
 | Active Directory Password Reset Denied | Forgotten Password | `ADForgotPasswordDenied` | Sent to Active Directory users who tried to reset their Active Directory password reset but don't have permission |
-| LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | Sent to LDAP users who tried to reset their LDAP password reset but don't have permission |
+| LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | Sent to LDAP users who tried to reset their LDAP password but don't have permission |
 | LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
 | Forgot Password | Account password reset | `ForgotPassword` | Sent to users who must follow the provided link to reset their forgotten password |
 | Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` | Identity Engine: Sent to users who want to reset their Active Directory account password and must follow the provided link to reset password</br>Classic Engine: Sent to users who have had their Active Directory account password reset and must follow the provided link to reset password |
