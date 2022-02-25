@@ -90,7 +90,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 | LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
 | Forgot Password | Account password reset | `ForgotPassword` | Sent to users who must follow the provided link to reset their forgotten password |
 | Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` | Identity Engine: Sent to users who want to reset their Active Directory account password and must follow the provided link to reset their password</br>Classic Engine: Sent to users who have had their Active Directory account password reset and must follow the provided link to reset their password |
-| Password Changed | Password Changed | `PasswordChanged` | Sent to users whenever their account password is changed |
+| Password Changed | Password Changed | `PasswordChanged` | Sent to users whenever their account password changes |
 | Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | Sent to users who tried to use self-service to unlock an account that isn't locked |
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Sent to Active Directory users who must follow the provided link to unlock their password |
 | Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Sent to users who must follow the provided link to complete self-service unlock account process |
