@@ -91,7 +91,7 @@ You can send yourself a test email to see how a custom email template looks and 
 1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
-## Velocity Templating Language
+## Use Velocity Templating Language
 
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/1.7/user-guide.html) allows you to customize your org's email templates so that you can use:
 
@@ -105,16 +105,38 @@ For example, reference the first name of a user by using `${user.profile.firstNa
 
 See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
 
-## Use all User Profile attributes
+### Example of using app context to brand an email
 
-You can reference any Okta User Profile attribute in your email templates. The reference notation is `${user.profile.attributeName}`, where `attributeName` is an attribute from the Okta User Profile. For example, use `${user.profile.displayName}` to reference the User Profile `displayName` attribute.
+```html
+#if(${app.name} == "Toys R' Fun")
+<img src="https://cdn.toysrfun.com/logo" height="37">
+<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+#elseif(${app.name} == "Fidget Spinners Unlimited")
+<img src="https://cdn.fidgetsu.com/logo" height="37">
+<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
+#else
+<img src="${parentLogoUrl}" height="37">
+#end
+```
 
-Other examples include:
+### Use VTL variables
 
-- Trigger an email in your end user's preferred language by using conditional logic and calling the `preferredLanguage` attribute.
-- Specify a department such as Engineering in an activation email by calling the `department` attribute.
+<!--- insert salvaged legacy copy here --->
 
-See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
+| Variable                                                    | Template availability                                                                                                          |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
+| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
+| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
+| toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
+| toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
+| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
+| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string from the current time to the given number of hours                                                 |
+| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours                                       |
+| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date                                                            |
+| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
+| escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
+| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
 ## Use functions for email templates
 
@@ -136,44 +158,6 @@ Variables used for function parameters must match the function data type. For ex
 | formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
-
-## Use org attributes
-
-You can also reference these org-level attributes, such as:
-
-* `${org.name}`
-* `${org.locale}`
-* `${org.subDomain}`
-
-## Use app context
-
-<ApiLifecycle access="ie" />
-
-Okta Identity Engine orgs have access to app context within emails using VTL. When an end user enters an authentication flow, the Identity Engine stores the app context in the state token. The following properties are available in the app context:
-
-* `${app.id}`
-* `${app.name}`
-* `${app.label}`
-
-When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context isn't available on the Classic Engine since the state token doesn't exist there.
-
-### Support for conditional logic
-
-All conditional logic that is supported by VTL, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
-
-### Example of using app context to brand an email
-
-```html
-#if(${app.name} == "Toys R' Fun")
-<img src="https://cdn.toysrfun.com/logo" height="37">
-<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#elseif(${app.name} == "Fidget Spinners Unlimited")
-<img src="https://cdn.fidgetsu.com/logo" height="37">
-<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
-#else
-<img src="${parentLogoUrl}" height="37">
-#end
-```
 
 ## See also
 
