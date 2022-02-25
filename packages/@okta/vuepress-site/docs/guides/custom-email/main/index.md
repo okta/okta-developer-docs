@@ -70,6 +70,10 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
 
+### Use customizable email templates
+
+
+
 ## Add translations
 
 * When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
@@ -83,13 +87,6 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
 > **Note:** It may be more convenient to copy and paste the HTML from the message body into a text editor, compose your custom translation, then copy and paste it back into the message body.
-
-## Test custom email templates
-
-You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
-
-1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
-2. Click **Send test email**.
 
 ## Use Velocity Templating Language
 
@@ -123,20 +120,67 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 
 <!--- insert salvaged legacy copy here --->
 
-| Variable                                                    | Template availability                                                                                                          |
-|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
-| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
-| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
-| toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
-| toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
-| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
-| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string from the current time to the given number of hours                                                 |
-| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours                                       |
-| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date                                                            |
-| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
-| escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
-| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
+| Variable       | Template availability         |
+|---------------------------------------------------------------|------------------------------------------------------------------------|
+| `${user.profile.login}` | Available in all templates |
+| `${user.profile.email}` | Available in all templates |
+| `${user.profile.secondEmail}` | Available in all templates |
+| `${user.profile.firstName}` | Available in all templates |
+| `${user.profile.lastName}` | Available in all templates |
+| `${user.profile.locale}` | Available in all templates |
+| `${user.profile.mobilePhone}` | Available in all templates |
+| `${user.profile.primaryPhone}` | Available in all templates |
+| `${user.profile.username}` | Available in all templates |
+| `${user.profile.fullName}` | Available in all templates |
+| `${user.profile.city}` | Available in all templates |
+| `${user.profile.state}` | Available in all templates |
+| `${user.profile.streetAddress}` | Available in all templates |
+| `${user.profile.zipCode}` | Available in all templates |
+| `${user.profile.countryCode}` | Available in all templates |
+| `${user.groups.names}` | Available in all templates |
+| `${user.group.ids}` | Available in all templates |
+| `${org.name}` | Available in all templates |
+| `${org.locale}` | Available in all templates |
+| `${org.subDomain}` | Available in all templates |
+| `${org.activationTokenExpirationHours}` | Available in all templates |
+| `${baseURL}` | Available in all templates |
+| `${oktaLogoUrl}` | Available in all templates |
+| `${activationLink}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `${activationToken}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `${samAccountName}` | Available in these templates:</br><ul><li>Active Directory User Activation</li><li>Active Directory Password Reset</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>Active Directory Self-Service Unlock Account</li></ul> |
+| `${technicalContact.login}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.email}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.secondEmail}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.firstName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.lastName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.locale}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.fullName}` | Available in Password Reset by Admin |
+| `${pushVerifyActivationLink}` | Available in Send Push Verify Activation Link |
+| `${androidOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `${iosOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `${registrationEmailVerificationLink}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${registrationEmailVerificationToken}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${instanceDisplayName}` | Available in these templates:</br><ul><li>Email Factor Verification</li><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${unlockAccountLink}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${recoveryLink}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${factorDisplayName}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${unlockAccountTokenExpirationDate}` |  |
+| `${resetPasswordLink}` |  |
+| `${recoveryToken}` |  |
+| `${resetPasswordTokenExpirationDate}` |  |
+| `${request.date}` |  |
+| `${request.time}` |  |
+| `${request.location}` |  |
+| `${request.performedBySubject}` |  |
+| `${request.factor}` |  |
+| `${request.factors}` |  |
+| `${request.ipAddress}` |  |
+| `${request.reportSuspiciousActivityToken}` |  |
+| `${request.browser}` |  |
+| `${verificationToken}` |  |
+| `${emailAuthenticationLink}` |  |
+| `${email}` |  |
 
 ## Use functions for email templates
 
@@ -158,6 +202,13 @@ Variables used for function parameters must match the function data type. For ex
 | formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
+
+## Test custom email templates
+
+You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
+
+1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
+2. Click **Send test email**.
 
 ## See also
 
