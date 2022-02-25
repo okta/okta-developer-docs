@@ -399,8 +399,8 @@ export const guides = [
             guideName: "archive-sign-in-to-spa-authjs"
           },
           {
-            title: "Guide title",
-            guideName: "guide-name-here"
+            title: "Sign in to SPA with embedded Widget",
+            guideName: "archive-sign-in-to-spa-embedded-widget"
           },
           {
             title: "Guide title",

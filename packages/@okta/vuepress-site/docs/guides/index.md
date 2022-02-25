@@ -6,6 +6,7 @@ guides:
  - archive-configure-signon-policy
  - archive-embedded-siw
  - archive-sign-in-to-spa-authjs
+ - archive-sign-in-to-spa-embedded-widget
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - client-secret-rotation-key
