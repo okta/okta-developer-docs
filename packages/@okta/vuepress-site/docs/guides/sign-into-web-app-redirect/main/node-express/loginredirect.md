@@ -1,4 +1,4 @@
-1. Add the sign-in and sign-out functionality to the `app.js` file:
+1. Add the sign-in and sign-out functionality to the `app.js` file, just below the `app.use('/users', usersRouter);` line:
 
 ```js
 app.use('/login', passport.authenticate('oidc'));

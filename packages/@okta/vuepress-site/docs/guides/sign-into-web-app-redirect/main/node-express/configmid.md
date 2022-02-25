@@ -2,15 +2,19 @@ You can configure the properties of your application with configuration files, e
 
 In our quickstart, we do this via the `passport-openidconnect` package, which requires an instance of a `Strategy` object with configuration properties. You will set the `issuer`, `authorizationURL`, `tokenURL`,  `userInfoURL`, `clientID`, and `clientSecret` properties inside that object using your own values.
 
-1. The code changes to configure Okta are shown below. Add these into the appropriate places in your main `app.js` file.
+The code changes to configure Okta are shown below.
+
+1. Add the necessary `require` calls into your main `app.js` file, just below the existing `require` calls.
 
 ```js
 const session = require('express-session');
 const passport = require('passport');
 const { Strategy } = require('passport-openidconnect');
+```
 
-...
+2. Add the OIDC `passport` setup just below the existing view engine setup lines (just below `app.use(express.static(path.join(__dirname, 'public')));`, for example):
 
+```js
 app.use(session({
   secret: 'CanYouLookTheOtherWay',
   resave: false,
@@ -43,6 +47,6 @@ passport.deserializeUser((obj, next) => {
 });
 ```
 
-2. Replace the placeholders in the above code with your domain, and with your values from the `.okta.env` file.
+3. Replace the placeholders in the above code with your domain, and with your values from the `.okta.env` file.
 
 > **Note**: If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.

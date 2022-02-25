@@ -1,4 +1,4 @@
-1. Add the following code to handle the `/profile` route in `app.js`.
+1. Add the following code to handle the `/profile` route in `app.js`, just below the previous code you added:
 
 ```js
 app.use('/profile', (req, res) => {
