@@ -18,9 +18,9 @@ tiles:
       - name: Java
         link: /docs/guides/sign-into-web-app-redirect/spring-boot/main/
         image: /img/homepage/stackselectors/java.png
-      # - name: .NET
-      #   link: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
-      #   image: /img/homepage/stackselectors/dotnet.png
+      - name: .NET
+        link: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
+        image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
         link: /docs/guides/sign-into-web-app-redirect/node-express/main/
         image: /img/homepage/stackselectors/nodejs.png
@@ -33,9 +33,9 @@ tiles:
   - name: Single-page App
     link: /docs/guides/sign-into-spa-redirect/
     items:
-      # - name: React
-      #   link: /docs/guides/sign-into-spa-redirect/react/main
-      #   image: /img/homepage/stackselectors/react.png
+      - name: React
+        link: /docs/guides/sign-into-spa-redirect/react/main
+        image: /img/homepage/stackselectors/react.png
       - name: Angular
         link: /docs/guides/sign-into-spa-redirect/angular/main
         image: /img/homepage/stackselectors/angular.png
