@@ -15,7 +15,7 @@ Create the Okta configuration file and add the keys and values for your applicat
 
 This sample app configures the SDK only once, when the view appears.
 
-Import the Okta SDK and add state variables for the authorization session and state manager to `ContentView.swift`:
+1. Import the Okta SDK and add state variables for the authorization session and state manager to `ContentView.swift`:
 
 ```swift
 ...
@@ -28,7 +28,7 @@ struct ContentView: View {
   ...
 ```
 
-Then configure the SDK by updatating the `configureSDK` function:
+2. Configure the SDK by updatating the `configureSDK` function:
 
 ```swift
 func configureSDK () {
