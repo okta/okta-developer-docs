@@ -1,12 +1,22 @@
-To sign a user in, your application must redirect the browser to the Okta-hosted sign-in page. You can do this when a user visits a protected route or when the user clicks a button to sign in.
+1. Create a new template file in `templates/login.html`.
 
-You can give the user a Sign-In button or link to direct the user to your login route:
+1. Inside it, provide sign-in and sign-out controls to direct the user to your sign-in/sign-out routes. For a complete example, see [template.html](https://github.com/okta-samples/okta-flask-sample/blob/3f965a50fa04dccf9d2648a802dc86f762c12a1a/templates/template.html) in our okta-flask-sample code:
 
 ```html
-<a href="/login">Sign In</a>
+{% if current_user.is_authenticated %}
+<form method="post" action="{{ url_for("logout") }}">
+    <button id="logout-button" type="submit">Logout</button>
+</form>
+{% else %}
+<form method="get" action="login">
+    <button id="login-button" type="submit">Login</button>
+</form>
+{% endif %}
 ```
 
-Your login handler generates the link and redirects the user to Okta’s hosted sign-in page where they can authenticate:
+The sign-out button will only display if the user is signed in, and vice versa.
+
+2. Add the following near the bottom of `app.py`:
 
 ```py
 @app.route("/login")
@@ -29,7 +39,9 @@ def login():
     return redirect(request_uri)
 ```
 
-This provides you with a code. You need to exchange this code for an access token and ID token.
+Your login handler generates the link URI and redirects the user to Okta's hosted sign-in page where they can authenticate, after which they are redirected back to your app.
+
+3. Add the following callback handler below your previous code block to handle the callback redirect:
 
 ```py
 @app.route("/authorization-code/callback")
@@ -56,12 +68,6 @@ def callback():
     access_token = exchange["access_token"]
     id_token = exchange["id_token"]
 
-    if not is_access_token_valid(access_token, config["issuer"], config["client_id"]):
-            return "Access token is invalid", 403
-
-    if not is_id_token_valid(id_token, config["issuer"], config["client_id"], NONCE):
-            return "ID token is invalid", 403
-
     # Authorization flow successful, get userinfo and login user
     userinfo_response = requests.get(config["userinfo_uri"],
                                      headers={'Authorization': f'Bearer {access_token}'}).json()
@@ -82,12 +88,12 @@ def callback():
     return redirect(url_for("profile"))
 ```
 
-Add the functionality to sign users out.
+4. Add the functionality to sign users out.
 
 ```py
 @app.route("/logout", methods=["GET", "POST"])
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("home"))
+    return redirect(url_for("login"))
 ```

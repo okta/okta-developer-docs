@@ -1,8 +1,12 @@
-Run the following commands to start your app:
+1. Run the following commands to start your app:
 
 ```shell
 export FLASK_APP=app
 flask run
 ```
 
-Open a browser and navigate to `http://localhost:8080`. You are redirected to Okta to sign in. When you return to the `/profile` page, it should display your user information.
+2. Open a browser and navigate to `http://localhost:5000`.
+
+3. Click the sign in button. You are redirected to Okta to sign in.
+
+4. Navigate to the `/profile` page, and it should display your user name.

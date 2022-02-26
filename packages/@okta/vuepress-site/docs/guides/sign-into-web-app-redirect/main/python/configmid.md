@@ -8,7 +8,7 @@ export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
-Create an `app.py` file to import the installed packages and configure the Flask app.
+1. Create an `app.py` file to import the installed packages and configure the Flask app.
 
 ```py
 import requests
@@ -33,24 +33,23 @@ NONCE = 'SampleNonce'
 
 @app.route("/")
 def home():
-    return render_template("home.html")
-
+    return render_template("login.html")
 
 if __name__ == '__main__':
     app.run(host="localhost", port=8080, debug=True)
 ```
 
-Add the following Okta config dictionary. You should set the correct values that you obtained from the Okta CLI.
+2. Add the following Okta config dictionary to the bottom of `app.py`. Replace the placeholders with the values you obtained earlier (fromt `okta.env`, and from your org admin).
 
 ```py
 config = {
-  "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
-  "client_id": "${CLIENT_ID}",
-  "client_secret": "${clientSecret}",
-  "redirect_uri": "http://localhost:8080/authorization-code/callback",
-  "issuer": "https://${yourOktaDomain}/oauth2/default",
-  "token_uri": "https://${yourOktaDomain}/oauth2/default/v1/token",
-  "userinfo_uri": "https://${yourOktaDomain}/oauth2/default/v1/userinfo"
+    "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
+    "client_id": "${CLIENT_ID}",
+    "client_secret": "${clientSecret}",
+    "redirect_uri": "http://localhost:5000/authorization-code/callback",
+    "issuer": "https://${yourOktaDomain}/oauth2/default",
+    "token_uri": "https://${yourOktaDomain}/oauth2/default/v1/token",
+    "userinfo_uri": "https://${yourOktaDomain}/oauth2/default/v1/userinfo"
 }
 ```
 
