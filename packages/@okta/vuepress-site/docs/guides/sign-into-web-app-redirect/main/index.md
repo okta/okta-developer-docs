@@ -72,8 +72,8 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Select an **Application type** of **Web Application**, then click **Next**.
     > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
-1. Enter the **Sign-in redirect URIs** for local development, such as `http://localhost:8080/authorization-code/callback.
-1. Enter the **Sign-out redirect URIs** for both local development, such as `http://localhost:8080/signout/callback. For more information on callback URIs, see [Define  callback route](#define-a-callback-route).
+1. Enter the **Sign-in redirect URIs** for local development, such as `http://localhost:xxxx/authorization-code/callback`.
+1. Enter the **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/signout/callback`. For more information on callback URIs, see [Define  callback route](#define-a-callback-route).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select the **Everyone** group for now. For more information, see [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you copy some values when configuring your app.
 
@@ -123,7 +123,7 @@ After successful authentication Okta redirects back to the app with an authoriza
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6). One use of this information is updating your user interface, such as displaying the customer's name.
+After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6). One use of this information is updating your user interface, for example to display the customer's name.
 
 The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on the scopes requested by your app. See [Configure your app](#configure-your-app).
 

@@ -1,1 +1,1 @@
-* [Okta CLI Node Express Sample](https://github.com/okta-samples/okta-express-sample)
+[Okta CLI Node Express Sample](https://github.com/okta-samples/okta-express-sample)

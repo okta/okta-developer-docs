@@ -1,1 +1,1 @@
-* [Okta CLI Python Flask Sample](https://github.com/okta-samples/okta-flask-sample)
+[Okta CLI Python Flask Sample](https://github.com/okta-samples/okta-flask-sample)
