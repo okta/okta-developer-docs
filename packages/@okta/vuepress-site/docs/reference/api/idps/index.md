@@ -5132,7 +5132,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) | TRUE    | FALSE    |
+|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) <ApiLifecycle access="ea" /> | TRUE    | FALSE    |
 |credentials  | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
@@ -5186,6 +5186,8 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 ```
 ##### OIDC Algorithms object
 
+<ApiLifecycle access="ea" />
+
 The `OIDC` protocol supports the `request` algorithm and verification settings.
 
 | Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
@@ -5209,6 +5211,8 @@ The `OIDC` protocol supports the `request` algorithm and verification settings.
 ```
 
 ###### OIDC Request Algorithm object
+
+<ApiLifecycle access="ea" />
 
 Algorithm settings for signing authorization requests sent to the IdP:
 
