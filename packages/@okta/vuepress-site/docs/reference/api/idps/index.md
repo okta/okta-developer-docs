@@ -5238,6 +5238,8 @@ Algorithm settings for signing authorization requests sent to the IdP:
 
 ###### OIDC request Signature Algorithm object
 
+<ApiLifecycle access="ea" />
+
 HMAC Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
