@@ -1,4 +1,4 @@
-1. Define a new function (`require_login()`) and move the code that checks for the ID token in the session into that function.
+1. Define a new function (`require_login()`) and move the code that checks for the ID token in the session into that function:
 
 ```php
 function require_login() {
@@ -19,5 +19,3 @@ function index() {
   ...
 }
 ```
-
-AGAIN, NOT REALLY SURE WHERE TO ADD THIS.

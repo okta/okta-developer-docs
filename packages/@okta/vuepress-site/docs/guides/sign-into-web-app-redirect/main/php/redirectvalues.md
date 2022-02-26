@@ -1,2 +1,2 @@
-* **Login Redirect**: `http://localhost:8080/login/oauth2/code/okta`
-* **Logout Redirect**: `http://localhost:8080`
+* **Redirect URI**: `http://localhost:8080/authorization-code/callback`
+* **Post Logout Redirect URI**: `http://localhost:8080`

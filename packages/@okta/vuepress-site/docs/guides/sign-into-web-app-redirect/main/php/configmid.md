@@ -1,18 +1,13 @@
-If you use the Okta CLI to create your app, it creates an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret.
+If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret.
 
-1. Make a copy of `.okta.env` called `.env` in your project root and remove the `export` keywords so that the configuration is usable by the `phpdotenv` library. It should look like this:
+1. Make a copy of `.okta.env` called `.env` inside your project root.
+
+2. Remove the `export` keywords so that the configuration is usable by the `phpdotenv` library. It should look like this:
 
 ```properties
 OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
 OKTA_OAUTH2_CLIENT_ID=${clientId}
 OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
-```
-
-2. Create a new folder called `public` with an empty file called `index.php` inside:
-
-```bash
-mkdir public
-touch public/index.php
 ```
 
 3. Set up a basic router and load the environment variables by adding the following code to the `index.php` file:

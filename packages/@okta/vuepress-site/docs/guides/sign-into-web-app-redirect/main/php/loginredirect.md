@@ -1,4 +1,4 @@
-1. Create a route for your app's home page that renders the link to start the OAuth flow by adding the following code inside the `index.php` file, where the "TODO: define routes here" placeholder currently is:
+1. Create a route for your app's home page that renders the link to start the OAuth flow by adding the following code inside the `index.php` file in place of the `TODO: define routes here` placeholder:
 
 ```php
 switch($path) {
@@ -8,7 +8,7 @@ switch($path) {
 }
 ```
 
-2. Define the function `index()` that checks if there is an access token in the session and displays the sign-in link, if not. This can go somewhere near the bottom of `index.php`:
+2. Define the function `index()` that checks if there is an access token in the session and displays the sign-in link if not. This can go somewhere near the bottom of `index.php`:
 
 ```php
 function index() {

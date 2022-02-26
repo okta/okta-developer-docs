@@ -1,4 +1,4 @@
-The Okta CLI created an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret:
+If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret:
 
 ```properties
 export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}

@@ -13,5 +13,3 @@ if(empty($_SESSION['okta_id_token'])) {
 $path = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 switch($path) {
 ```
-
-NOT SURE WHERE TO ADD THIS. NEED TO INVESTIGATE
