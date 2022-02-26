@@ -11,7 +11,7 @@ Below we explain what new features the Identity Engine brings to the table, we d
 
 > **Note**: If you are an admin, or are looking for product docs related to the Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-get-started.htm?cshid=ext-get-started-oie) over in the Okta Help Center.
 
-## Thee Identity Engine new features
+## The Identity Engine new features
 
 The Identity Engine unlocks many new capabilities.
 
