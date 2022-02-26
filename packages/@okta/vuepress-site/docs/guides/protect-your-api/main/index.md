@@ -61,7 +61,7 @@ For this example, create a new application with a simple API endpoint to add aut
 
 You need to configure the application with some information about your Okta organization. You need the following values:
 
-* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane. Use the [Authorization Server](/docs/guides/customize-authz-server/) named `default` for this tutorial, but you can use other custom auth servers as well.
+* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane. Use the [Authorization Server](/docs/guides/customize-authz-server/) named `default` for this tutorial, but you can use custom auth servers as well.
 * **Audience** &mdash; A string that represents the intended recipient of the token. The default value is `api://default`.
 
 <ApiAmProdWarning />
@@ -77,7 +77,7 @@ Create new REST endpoints in your application that cover two different use cases
 
 <StackSnippet snippet="createroute" />
 
-## Require authorization
+## Configure required authentication
 
 In many APIs, all of the endpoints require authorization. In others, there may be a mix of protected and unprotected (anonymous) endpoints. These examples show you how to do both.
 
@@ -95,7 +95,7 @@ If you have endpoints that need to be accessed without any authorization, instea
 
 ### Configure CORS if necessary
 
-Configuring Cross-Origin Resource Sharing (CORS) is only required if the API is being called from a browser app hosted on a different domain. For example, if your single-page JavaScript app is on `example.com`, but your API is hosted on `api.example.com`, you need to enable CORS.
+Configuring Cross-Origin Resource Sharing (CORS) is only required if the API is being called from a browser app hosted on a different domain. For example, if you are hosting a single-page JavaScript app at `example.com`, which consumes an API endpoint hosted on `api.example.com`, you need to enable CORS.
 
 <StackSnippet snippet="configcors" />
 
@@ -111,7 +111,7 @@ If your API is consumed from another machine or service (instead of users), you 
 
 The information contained within an access token varies depending on the type of flow used to create it. For example, the Client Credentials flow doesn't contain any claims with user information such as a user ID or email. See [Sign users in to your single-page app using the redirect model](/docs/guides/sign-into-spa-redirect/) or [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/) for instructions on how to retrieve an access token in those types of app.
 
-If you are using [Postman](https://www.postman.com/downloads/) and the Client Credentials flow, your POST response should look like this:
+If you are using [Postman](https://www.postman.com/downloads/) and the Client Credentials flow, you can use an API call of the form `https://{yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, and you will get a response containing an access token.
 
 ![Postman showing a token request post response including an access token](/img/postman-post-response.png)
 
@@ -119,7 +119,7 @@ Copy the value in the `access_token` object field and use it for testing your AP
 
 ### Run your API
 
-Next, start your server and try out sending requests with an access token to the API that you just built.
+Next, start your server.
 
 <StackSnippet snippet="testapp" />
 
@@ -131,7 +131,7 @@ After your API is running locally, you need to test it. Using a tool like Postma
 
 <StackSnippet snippet="request" />
 
-Expected results:
+The expected results are as follows, provided you followed the instructions in the [Allow anonymous access for specific routes](#allow-anonymous-access-for-specific-routes) section:
 
 * `api/whoami` &mdash; 401 response without a valid token, 200 response with token claims listed inside the JSON with a valid token.
 * `api/hello` &mdash; response with or without a valid token, due to anonymous access.

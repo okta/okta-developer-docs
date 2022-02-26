@@ -1,5 +1,6 @@
 Node.js-specific resources:
 
+* [Getting started with Express](https://expressjs.com/en/starter/installing.html).
 * Explore [Auth JS fundamentals](#) for front-end auth (WILL EVENTUALLY BE /docs/guides/auth-js/main/)
 * [Everything You Ever Wanted to Know About Session Management in Node.js](https://developer.okta.com/blog/2021/06/07/session-mgmt-node)
 * [Build A Secure Node.js API with KoaJS](https://developer.okta.com/blog/2020/07/17/secure-node-api-with-koa)

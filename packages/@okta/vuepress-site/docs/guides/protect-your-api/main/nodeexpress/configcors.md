@@ -1,12 +1,12 @@
-We suggest using the [CORS package](https://www.npmjs.com/package/cors) for enabling CORS.
+We suggest using the [CORS package](https://www.npmjs.com/package/cors) for enabling CORS in Node.js apps.
 
-Install the `cors` package by running
+1. Install the `cors` package by running the following command:
 
 ```shell
 npm install cors@2.8 –save
 ```
 
-Add `cors` to the express app instance inside `server.js`.
+2. Add `cors` to the express app instance inside `server.js`:
 
 ```js
   ...

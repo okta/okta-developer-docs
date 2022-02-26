@@ -1,4 +1,4 @@
-Add the following two routes to the application at the bottom of `server.js`:
+Add the following two routes near the bottom of `server.js`:
 
 ```js
 app.get('/api/hello', (req, res) => {

@@ -1,4 +1,4 @@
-Create a middleware method inside `server.js` to verify the token in the `Authorization` header. The JWT is added to the `req` object.
+1. Create a middleware method inside `server.js` to verify the token in the `Authorization` header. The JWT is added to the `req` object:
 
 ```js
 const authenticationRequired = async (req, res, next) => {
@@ -21,7 +21,7 @@ const authenticationRequired = async (req, res, next) => {
 };
 ```
 
-Register the middleware for all routes to the app instance.
+2. Register the middleware for all routes to the app instance:
 
 ```js
 app.all('*', authenticationRequired); // Require authentication for all routes
