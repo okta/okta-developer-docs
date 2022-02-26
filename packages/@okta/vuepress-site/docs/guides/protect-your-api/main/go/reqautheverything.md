@@ -1,4 +1,4 @@
-1. Create a middleware method to verify the token in the `Authorization` header. The JWT is added to the `http.Request` object.
+1. Add a utility function to the bottom of `main.go`. This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
 
 ```go
 func isAuthenticated(r *http.Request) bool {
@@ -27,7 +27,11 @@ func isAuthenticated(r *http.Request) bool {
   }
   return true
 }
+```
 
+2. Create a middleware function that uses the above utility function to verify the token in the `Authorization` header. 
+
+```go
 func AuthMiddleware() gin.HandlerFunc {
   return func(c *gin.Context) {
     if !isAuthenticated(c.Request) {
@@ -41,7 +45,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 ```
 
-2. Register the middleware for all routes to the app instance.
+3. Register the middleware for all routes to the app instance inside the `main()` function.
 
 ```go
 router.Use(AuthMiddleware())

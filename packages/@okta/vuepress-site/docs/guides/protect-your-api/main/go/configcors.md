@@ -1,22 +1,18 @@
-To configure CORS in Go, you can set some headers on your response in the route handler:
+To configure CORS in Go, there are a couple of main options. You can set some headers on your response in the route handler:
 
 ```go
 func RouteHandler(c *gin.Context) {
   c.Header("Access-Control-Allow-Origin", "*")
 
-  // do rest of your handler here
+  // add rest of your handler here
 }
 ```
 
 You can also do this with the [gin-cors](https://github.com/itsjamie/gin-cors) middleware. We recommend this for a more practical approach.
 
-1. Add `gin-cors` as a dependency to xxxxxxxxx (FILL IN):
+1. Add `gin-cors` as a dependency like you did with the others.
 
-```go
-xxx
-```
-
-2. Add the following code to xxxxxx (FILL IN):
+2. Add the following code inside your `main()` function:
 
 ```go
 // Apply the middleware to the router (works with groups too)
