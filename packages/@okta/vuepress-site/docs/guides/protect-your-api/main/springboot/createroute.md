@@ -1,4 +1,4 @@
-1. Create a new REST Controller at `src/main/java/com/example/SampleController.java.
+1. Create a new REST Controller at `src/main/java/com/example/SampleController.java`.
 
 2. Enter the following code into it:
 

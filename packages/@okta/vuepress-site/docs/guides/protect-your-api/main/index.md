@@ -72,7 +72,7 @@ You need to configure the application with some information about your Okta orga
 
 Create new REST endpoints in your application that cover two different use cases:
 
-* `api/whoami` &mdash; An endpoint that uses information within the token (access-restricted API)
+* `api/whoami` &mdash; An endpoint that returns information within the token (access-restricted API)
 * `api/hello` &mdash; An endpoint that anonymous users can access (unsecured API)
 
 <StackSnippet snippet="createroute" />
@@ -82,8 +82,6 @@ Create new REST endpoints in your application that cover two different use cases
 In many APIs, all of the endpoints require authorization. In others, there may be a mix of protected and unprotected (anonymous) endpoints. These examples show you how to do both.
 
 ### Require authorization for everything
-
-For most applications, you want to require the user to be authorized for all routes.
 
 <StackSnippet snippet="reqautheverything" />
 
@@ -119,7 +117,7 @@ Copy the value in the `access_token` object field and use it for testing your AP
 
 ### Run your API
 
-Next, start your server.
+Start your server to get your API running.
 
 <StackSnippet snippet="testapp" />
 

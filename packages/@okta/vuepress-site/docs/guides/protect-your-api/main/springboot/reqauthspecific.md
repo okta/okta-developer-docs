@@ -1,6 +1,6 @@
-In Spring you can do this using a `WebSecurityConfigurerAdapter` implementation that is similar to the previous one, but with a specific URL matching pattern specified in ` .antMatchers()`.
+In Spring you can do this using a `WebSecurityConfigurerAdapter` implementation that is similar to the previous one, but with a URL matching pattern specified in ` .antMatchers()`.
 
-For example, require authentication for all routes under `/api/private` like so:
+For example, require authentication for the `/api/whoami` route like so:
 
 ```java
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
       // Require authentication for all requests under /api/private
-      .antMatchers("/api/private/**").authenticated()
+      .antMatchers("/api/whoami").authenticated()
     .and()
       .oauth2ResourceServer().jwt();
   }
