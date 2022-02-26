@@ -5,8 +5,8 @@
 
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
-* **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL.
-* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list.
+* **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL. <ApiLifecycle access="ea" />
+* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. <ApiLifecycle access="ea" />
 
 In the **Endpoints** section:
 
