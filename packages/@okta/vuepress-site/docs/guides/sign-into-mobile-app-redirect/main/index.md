@@ -61,6 +61,8 @@ okta apps create native
 ```
 
 2. When prompted for a name, use **Quickstart**.
+3. Specify the required redirect URI values:
+<StackSnippet snippet="redirectvalues" />
 3. Press **Enter** to accept the default values for the redirect URI and post-logout redirect URI.
 4. Make note of the redirect URI, post-logout redirect URI, and the application configuration printed to the terminal. You'll need these to configure your mobile app.
 

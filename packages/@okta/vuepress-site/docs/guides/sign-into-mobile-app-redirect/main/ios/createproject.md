@@ -131,7 +131,7 @@ The last utility updates the status text, the info text, and the `signedIn` stat
 
 Redirect sign-in is designed for apps using view controllers and storyboards. Some of the calls include a parameter for the current view controller, something that doesn't exist in SwiftUI. This sample uses the root view controller for the first key window of the active app for the parameter.
 
-Add a new Swift file to your project called `UIApplication+rootViewController` and add the following code:
+To find the root view controller, add a new Swift file to your project called `UIApplication+rootViewController` and add the following code:
 
 ```swift
 import UIKit

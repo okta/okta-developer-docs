@@ -5,7 +5,7 @@ Check for an existing session in two steps.
 
 The state manager session and its associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
 
-1. Update the `tokenExpired` utility function to check for token expiry:
+1. Check for an expired token by updating the `tokenExpired` utility function:
 
 ```swift
 func tokenExpired(_ tokenString: String?) -> Bool {
@@ -18,7 +18,7 @@ func tokenExpired(_ tokenString: String?) -> Bool {
 }
 ```
 
-2. Add this code to the end of `configureSDK` to initialize the state manager from a saved session and to check if the token is still valid:
+2. Initialize the state manager from a saved session if the token is valid by adding this code to the end of `configureSDK`.
 
 ```swift
 func configureSDK () {

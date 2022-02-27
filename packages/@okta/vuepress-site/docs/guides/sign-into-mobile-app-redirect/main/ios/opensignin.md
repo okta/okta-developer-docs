@@ -1,4 +1,4 @@
-Update the `signIn` function of `ContentView.swift` to sign the user in:
+Sign the user in by updating the `signIn` function of `ContentView.swift`:
 
 ```swift
 func signIn() {
