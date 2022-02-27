@@ -1,1 +1,1 @@
-[Okta PHP Sample](https://github.com/oktadev/okta-php-example)
+[Quickstart sample app](https://github.com/oktadev/okta-php-example)

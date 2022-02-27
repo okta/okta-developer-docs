@@ -1,1 +1,1 @@
-[Okta CLI Python Flask Sample](https://github.com/okta-samples/okta-flask-sample)
+[Quickstart sample app](https://github.com/okta-samples/okta-flask-sample)

@@ -1,1 +1,1 @@
-[Finished sample project](https://github.com/okta-samples/okta-go-api-sample)
+[Quickstart sample app](https://github.com/okta-samples/okta-go-api-sample)

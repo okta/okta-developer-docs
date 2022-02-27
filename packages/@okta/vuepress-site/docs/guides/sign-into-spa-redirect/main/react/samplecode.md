@@ -1,1 +1,1 @@
-[Finished quickstart code example](https://github.com/okta-samples/okta-react-sample)
+[Quickstart sample app](https://github.com/okta-samples/okta-react-sample)
