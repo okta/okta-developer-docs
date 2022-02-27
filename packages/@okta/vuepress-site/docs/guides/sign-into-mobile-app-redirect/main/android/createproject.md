@@ -1,4 +1,4 @@
-1. Create a new Java Android project with an empty activity using Android Studio (we called it `browser_sign_in`). For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
+1. Create a new Java Android project with an **Empty Activity** using Android Studio (we called it `browser_sign_in`). For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
 
 2. Add the following permissions to your `AndroidManifest.xml`:
 

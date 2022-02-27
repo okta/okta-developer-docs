@@ -2,7 +2,7 @@
 
 2. Create a new directory to store your project inside, and then `cd` inside it.
 
-3. Initialize your module using `mod init`, for example:
+3. Initialize your module using `go mod init`, for example:
 
 ```shell
 go mod init okta/go-quickstart

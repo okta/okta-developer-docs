@@ -23,3 +23,5 @@ func main() {
 ```
 
 > **Note**: This guide uses Golang version 1.17.6 and Gin 1.7.7.
+
+> **Note**: If you're using the Okta CLI, you can also run `okta start go-api` to create a sample app. This command creates an OIDC app in Okta, downloads the [okta-go-api-sample](https://github.com/okta-samples/okta-go-api-sample), and configures it to work with the OIDC app.

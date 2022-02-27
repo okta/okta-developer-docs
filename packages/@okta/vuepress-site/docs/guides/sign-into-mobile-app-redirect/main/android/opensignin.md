@@ -1,6 +1,4 @@
-1. Rename the default layout file for the app to `app/src/main/res/layout/activity_browser_sign_in.xml`:
-
-2. Add a sign-in button, sign-out button, and a text view by updating the existing `TextView` tag to the following:
+1. Update the default layout file for the app to add a sign-in button, sign-out button, and a text view:
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +59,7 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-3. Fill in strings for the `text` values referenced above, in `app/src/main/res/values/strings.xml`:
+2. Fill in strings for the `text` values referenced above, in `app/src/main/res/values/strings.xml`:
 
 ```xml
 <resources>
@@ -73,7 +71,7 @@
 </resources>
 ```
 
-4. Update the contents of `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java` to initialize the client:
+3. Update the contents of `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java` to initialize the client:
 
 ```java
 public class AuthClient {
@@ -108,9 +106,7 @@ public class AuthClient {
 }
 ```
 
-5. Create a new file called `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.java` to handle client callbacks and button clicks.
-
-6. Give the class the following content:
+4. Add the following content to your activity (for example `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.java`) to handle client callbacks and button clicks:
 
 ```java
 public class BrowserSignInActivity extends AppCompatActivity {
