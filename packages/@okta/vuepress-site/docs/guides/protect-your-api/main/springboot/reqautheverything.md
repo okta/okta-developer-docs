@@ -1,4 +1,4 @@
-By default, Spring Security requires authentication for all routes with an equivalent `WebSecurityConfigurerAdapter` implementation. This is equivalent to the following code:
+By default, Spring Security requires authentication for all routes. This is equivalent to the following `WebSecurityConfigurerAdapter` implementation:
 
 ```java
 import org.springframework.context.annotation.Configuration;

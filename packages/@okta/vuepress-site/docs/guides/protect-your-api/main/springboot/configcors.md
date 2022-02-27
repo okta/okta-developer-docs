@@ -18,4 +18,4 @@ protected void configure(HttpSecurity http) throws Exception {
 …
 ```
 
-> **Note**: See the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).
+> **Note**: For more detailed information, see the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).

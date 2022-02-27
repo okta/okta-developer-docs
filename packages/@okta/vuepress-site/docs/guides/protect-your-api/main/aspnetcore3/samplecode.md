@@ -1,1 +1,1 @@
-[Finished sample project](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/resource-server).
+[Finished sample project](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/resource-server)
