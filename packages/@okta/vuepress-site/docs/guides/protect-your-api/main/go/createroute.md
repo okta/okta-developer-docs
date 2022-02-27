@@ -1,4 +1,4 @@
-Add the two routes to `main.go`:
+Add the two routes to the `main` method of `main.go`:
 
 ```go
 // Set the router as the default one shipped with Gin
@@ -11,9 +11,10 @@ api := router.Group("/api")
 api.GET("/hello", HelloHandler)
 
 // setup private routes
-authorized := router.Group("/api", AuthMiddleware())
+authorized := router.Group("/api")
 authorized.GET("/whoami", WhoAmIHandler)
 
-router.Run("localhost:8080")
+router.Run(":8080")
 ```
-> **Note**: For examples of what the handlers could look like, see our [finished sample contrroller file](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/controller.go).
+
+> **Note**: For examples of what the handlers could look like, see our [finished sample controller file](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/controller.go).

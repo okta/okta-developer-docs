@@ -4,7 +4,7 @@
 OKTA_OAUTH2_ISSUER="https://{yourOktaOrg}/oauth2/default"
 ```
 
-2. Load this configuration into `main.go`:
+2. Load this configuration into the `main` method of `main.go`:
 
 ```go
 godotenv.Load("./.okta.env")

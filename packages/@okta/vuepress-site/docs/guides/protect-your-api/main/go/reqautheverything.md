@@ -1,4 +1,4 @@
-1. Add a utility function to the bottom of `main.go`. This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
+1. Add a utility function to `main.go`. This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
 
 ```go
 func isAuthenticated(r *http.Request) bool {
