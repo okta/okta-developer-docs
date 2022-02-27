@@ -1,10 +1,10 @@
-To set up the callback route, you need to define a handler, in the okta-sample created by the CLI, this is defined in `server/init.go`:
+1. To set up the callback route you need to define a handler (this is defined in [`server/init.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/init.go) in our sample):
 
 ```go
 router.GET("/authorization-code/callback", AuthCodeCallbackHandler)
 ```
 
-Now, define the handler function, session store, and helper methods. For example, in `server/controller.go`:
+2. Define the handler function, session store, and helper methods (see [`server/controller.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/controller.go)):
 
 ```go
 var (

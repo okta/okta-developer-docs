@@ -1,16 +1,18 @@
-Create a sign-in link to direct the user to your login route:
+1. Create a simple index template that includes a sign-in control to direct the user to your sign in route. Our example [index.gohtml](https://github.com/okta-samples/okta-go-gin-sample/blob/main/templates/index.gohtml) template includes a simple form:
 
 ```html
-<a href="/login">Sign in</a>
+<form method="get" action="login">
+  <button id="login-button" class="btn btn-primary" type="submit">Login</button>
+</form>
 ```
 
-Next, create a handler for the `/login` route that redirects the user to the Okta-hosted sign-in page. In `server/init.go`:
+2. Create a handler for the `/login` route that redirects the user to the Okta-hosted sign-in page (see [`server/init.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/init.go)):
 
 ```go
 router.GET("/login", LoginHandler)
 ```
 
-In `server/controller.go`:
+3. Create the handler function that performs the redirect (see [`server/controller.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/controller.go)):
 
 ```go
 func LoginHandler(c *gin.Context) {

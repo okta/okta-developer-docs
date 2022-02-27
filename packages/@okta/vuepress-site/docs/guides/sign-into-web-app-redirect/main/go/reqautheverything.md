@@ -1,4 +1,6 @@
-You can add a Gin middleware to handle this. For example, add the following in `server/middleware.go`:
+You can add a Gin middleware to handle this.
+
+1. For example, add the following in [`server/middleware.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/middleware.go):
 
 ```go
 func isAuthenticated(r *http.Request) bool {
@@ -40,7 +42,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 ```
 
-Now, define a router group and add all the routes that need to be authenticated to this group:
+2. Define a router group and add all the routes that need to be authenticated to this group:
 
 ```go
 // setup public routes
@@ -56,7 +58,7 @@ authorized.GET("/profile", ProfileHandler)
 authorized.GET("/another-route", RouteHandler)
 ```
 
-You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data like below:
+You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data:
 
 ```go
 func IndexHandler(c *gin.Context) {

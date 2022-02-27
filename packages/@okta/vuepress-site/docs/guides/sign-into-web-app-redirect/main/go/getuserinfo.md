@@ -1,4 +1,4 @@
-Add the following code to return the user’s info upon a successful sign-in flow:
+1. Add the following code to return the user's info upon a successful sign-in flow (again, see [`server/controller.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/controller.go)):
 
 ```go
 func getProfileData(r *http.Request) (map[string]string, error) {
@@ -39,7 +39,7 @@ func getProfileData(r *http.Request) (map[string]string, error) {
 }
 ```
 
-You can use this code from a route handler. For example, you can use the below in `server/controller.go`:
+2. You can use this code from a route handler. For example:
 
 ```go
 func IndexHandler(c *gin.Context) {
