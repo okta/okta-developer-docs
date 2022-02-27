@@ -1,1 +1,1 @@
-[Finished sample project](https://github.com/okta/samples-golang/tree/master/resource-server)
+[Finished sample project](https://github.com/okta-samples/okta-go-api-sample)

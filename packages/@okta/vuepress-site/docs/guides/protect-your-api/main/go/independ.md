@@ -3,7 +3,7 @@ You need [okta-jwt-verifier-golang](https://github.com/okta/okta-jwt-verifier-go
 1. Add the required dependencies using `go get`:
 
 ```shell
-go get -u github.com/gin-gonic/gin
+go get github.com/gin-gonic/gin
 go get github.com/okta/okta-jwt-verifier-golang
 go get github.com/joho/godotenv
 ```
@@ -18,8 +18,8 @@ import (
 	"fmt"
 	"net/http"
 
-	gin "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 	jwtverifier "github.com/okta/okta-jwt-verifier-golang"
-	godotenv "github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 )
 ```

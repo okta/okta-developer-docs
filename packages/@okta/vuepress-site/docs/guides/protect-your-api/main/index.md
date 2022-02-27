@@ -72,7 +72,7 @@ You need to configure the application with some information about your Okta orga
 
 Create new REST endpoints in your application that cover two different use cases:
 
-* `api/whoami` &mdash; An endpoint that returns information within the token (access-restricted API)
+* `api/whoami` &mdash; A protected endpoint (access-restricted API)
 * `api/hello` &mdash; An endpoint that anonymous users can access (unsecured API)
 
 <StackSnippet snippet="createroute" />
@@ -131,10 +131,10 @@ After your API is running locally, you need to test it. Using a tool like Postma
 
 The expected results are as follows, provided you followed the instructions in the [Allow anonymous access for specific routes](#allow-anonymous-access-for-specific-routes) section:
 
-* `api/whoami` &mdash; 401 response without a valid token, 200 response with token claims listed inside the JSON with a valid token.
+* `api/whoami` &mdash; 401 response without a valid token, 200 response with a valid token.
 * `api/hello` &mdash; response with or without a valid token, due to anonymous access.
 
-If you are using Postman, your GET call and response should look like this:
+If you are using Postman, your GET call and response should look something like this:
 
 ![Postman showing a get request to the protected endpoint with a token, and a resulting 200 response](/img/postman-get-response.png)
 
