@@ -13,13 +13,12 @@ go get github.com/joho/godotenv
 ```go
 import (
   "log"
-	"os"
-	"strings"
-	"fmt"
-	"net/http"
+  "os"
+  "strings"
+  "net/http"
 
-	"github.com/gin-gonic/gin"
-	jwtverifier "github.com/okta/okta-jwt-verifier-golang"
-	"github.com/joho/godotenv"
+  "github.com/gin-gonic/gin"
+  jwtverifier "github.com/okta/okta-jwt-verifier-golang"
+  "github.com/joho/godotenv"
 )
 ```
