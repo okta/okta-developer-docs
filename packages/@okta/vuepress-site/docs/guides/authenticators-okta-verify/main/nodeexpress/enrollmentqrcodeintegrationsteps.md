@@ -1,4 +1,4 @@
-### 1: Initiate the sign-in choose Okta Verify as the authenticator
+### 1: Initiate the sign-in and choose Okta Verify as the authenticator
 
 First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authenticator to enroll in. Follow the steps in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), to learn more about how to integrate these steps.
 
@@ -69,11 +69,11 @@ Display a page showing the QR code to the user. Example page from the sample app
 
 </div>
 
-### 3: Poll until user completes Okta Verify account setup
+### 3: Poll SDK while enrollment is ongoing
 
 `IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `enroll-poll`, indicates that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
 
-### 4: Install and open Okta Verify
+### 4: Open Okta Verify
 
 Next, the user installs Okta Verify (if not already installed on their device) and opens the app. To learn how to install and use the Okta Verify app, go to the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
 

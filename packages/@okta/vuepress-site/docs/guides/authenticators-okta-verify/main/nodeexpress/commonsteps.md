@@ -151,15 +151,11 @@ When the user selects and submits a verify option, call `IdxTransaction.idx.proc
 
 ### Polling Okta
 
-During Okta Verify enrollment and challenge, the flow steps outside your app as the user performs actions within Okta Verify. While your app waits, it should poll the SDK to determine when the user finishes their tasks within Okta Verify.
+During Okta Verify enrollment and challenge, the flow steps outside your app as the user performs actions within Okta Verify. While your app waits, it should poll the SDK to determine when the user finishes their tasks within Okta Verify. This polling logic is explained with step-by-step instructions for the Okta Verify challenge flow as an example, although with slight modifications the steps can also apply to the enrollment flow.
 
-#### Polling for Okta Verify Challenge
+#### Summary of steps
 
 The following summarizes the polling logic for the Okta Verify challenge flow with a push notification.
-
-##### Summary of steps
-
-The following summarizes the challenge flow polling for a sign-in:
 
 <div class="common-image-format">
 
@@ -167,26 +163,26 @@ The following summarizes the challenge flow polling for a sign-in:
 
 </div>
 
-##### 1. Initiate sign-in
+#### 1. Initiate sign-in
 
 First, the user initiates the user sign-in with username and password.
 
-##### 2: Poll Okta to determine when user has completed challenge
+#### 2: Poll Okta to determine when user has completed challenge
 
-After the call to `OktaAuth.idx.authenticate`, the responding `IdxTransaction` object returns a `status` of `PENDING` and `nextStep.name` equal to `enroll-poll`. `enroll-poll` indicates that your app should begin polling the SDK to determine when the user has completed the Okta Verify challenge. Although this example is showing the polling for the Okta Verify challenge with push notification, there are other scenarios where your app is directed to poll. These included the following:  your app should poll. The
+After the call to `OktaAuth.idx.authenticate`, the responding `IdxTransaction` object returns a `status` of `PENDING` and `nextStep.name` equal to `enroll-poll`. `enroll-poll` indicates that your app should begin polling the SDK to determine when the user has completed the Okta Verify challenge. Although this example is showing the polling for the Okta Verify challenge with push notification, there are other scenarios where your app is directed to poll. These included the following:
 
-###### Other scenarios where your app polls
+##### Other scenarios where your app polls
 
 * During enrollment to determine when the user has completed account setup in the Okta Verify app by scanning the QR code.
 * During enrollment to determine when the user has completed account setup in the Okta Verify app using the email or SMS activation link.
 * During challenge to determine when the user confirms they are trying to sign in using the Okta Verify app.
 
-Specifically, your app is notified to start polling when the `IdxTransaction` response's properties have the following values:
+Specifically, your app is notified to start polling when `IdxTransaction` has the following property values:
 
 * **For enrollment flow:** `IdxTransaction.status` equals `PENDING` and `IdxTransaction.nextStep.name` equals `enroll-poll`.
 * **For challenge flow:**  `IdxTransaction.status` equals `PENDING` and `IdxTransaction.nextStep.name` equals `challenge-poll`.
 
-###### IdxTransaction response
+##### IdxTransaction response
 
 For this example, `IdxTransaction` response for indicating a poll for an Okta Verify challenge follows:
 
@@ -214,7 +210,7 @@ For this example, `IdxTransaction` response for indicating a poll for an Okta Ve
 }
 ```
 
-And enrollment flow example follows:
+For an enrollment flow, `IdxTranaction` looks like the following:
 
 ```json
 {
@@ -242,7 +238,7 @@ And enrollment flow example follows:
 }
 ```
 
-###### SDK method to poll
+##### SDK method to poll
 
 Use `OktaAuth.idx.poll()` to poll Okta to determine the when the user has completed the flows in Okta Verify.
 
@@ -252,7 +248,9 @@ const transaction = await authClient.idx.poll();
 handleTransactionWithoutRedirect({ req, res, authClient, transaction });
 ```
 
-#### Polling mechanism
+This method is the same for challenge and enrollment flows.
+
+##### Polling mechanism
 
 There are many ways to implement polling in your application. The sample application implements it by repeatedly calling the server using client-side javascript. Your poll interval should be pulled from `IdxTransaction.nextStep.refresh` value.
 
@@ -282,7 +280,7 @@ function poll(url, refresh) {
 ```
 
 
-##### 3: Complete challenge in Okta Verify
+#### 3: Complete challenge in Okta Verify
 
 Next, the user completes the challenge in Okta Verify. For the push notification that tap on the "Yes, its me" prompt. For the enrollment flow, the user needs to add their account to Okta Verify using a QR code or other channel such as email or SMS.
 
