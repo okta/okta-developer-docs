@@ -142,7 +142,7 @@ export const guides = [
     title: "Guides",
     subLinks: [
       { title: "Guides overview", path: "/docs/guides/" },
-      { title: "Quickstart", path: "/docs/guides/quickstart/" },
+      { title: "Quickstart", guideName: "quickstart" },
       {
         title: "Sign users in",
         subLinks: [
@@ -654,14 +654,6 @@ export const guides = [
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget"
-          },
-          {
-            title: "Guide title",
-            guideName: "guide-name-here"
-          },
-          {
-            title: "Guide title",
-            guideName: "guide-name-here"
           }
         ]
       }

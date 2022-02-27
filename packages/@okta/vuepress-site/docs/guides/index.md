@@ -5,6 +5,7 @@ guides:
  - archive-auth-js
  - archive-configure-signon-policy
  - archive-embedded-siw
+ - archive-overview
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - auth-js
