@@ -1,7 +1,7 @@
 ### 1: Initiate the sign-in and choose Okta Verify push option
 
 First, the user initiates the user sign-in with username and password. If the user is enrolled in Okta Verify, they are shown options to either verify by push notification or TOTP. In this flow, they choose push notification and a value of `push` is sent to
-`IdxTransaction.idx.proceed()`. These first steps are common across the challenge flows (with the exception of the challenge option value) and are described in detail in [Initiate sign in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication).
+`IdxTransaction.idx.proceed()`. These first steps are common across the challenge flows (with the exception of the challenge option value) and are described in detail in [Initiate sign-in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication).
 
 When the user submits the push notification, display a page that notifies the user the push has been sent.
 
@@ -13,7 +13,7 @@ When the user submits the push notification, display a page that notifies the us
 
 ### 2: Poll until user completes challege
 
-The `IdxTransaction` response from the last step in [Initiate sign in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication) indicates that polling should start. Specifically, `IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `challenge-poll`, identifies that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
+The `IdxTransaction` response from the last step in [Initiate sign-in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication) indicates that polling should start. Specifically, `IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `challenge-poll`, identifies that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
 
 An example of the `IdxTransaction` response follows:
 

@@ -150,7 +150,7 @@ The following summarizes the Okta Verify enrollment flow with TOTP using a sign-
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
 
-## Common steps
+## Common steps between enrollment and challenge flows
 
 <StackSnippet snippet="commonsteps" />
 
