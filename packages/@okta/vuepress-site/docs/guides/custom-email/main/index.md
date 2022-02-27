@@ -114,7 +114,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Choose an email template that you customized. The default language version appears in the **Custom Email** table.
-1. Click **Add Translation**, and then select a language from the dropdown box. If the **Add Translation** button isn't available, this template isn't customized. See [Edit a default email template](#edit-a-default-email-template]).
+1. Click **Add Translation**, and then select a language from the dropdown box. If the **Add Translation** button isn't available, this template isn't customized. See [Edit a default email template](#edit-a-default-email-template).
 1. Make your translated edits, and then click **Add Translation**.
 1. Repeat steps 3 and 4 for additional languages.
 
