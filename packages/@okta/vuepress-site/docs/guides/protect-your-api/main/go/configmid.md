@@ -4,13 +4,13 @@
 OKTA_OAUTH2_ISSUER="https://{yourOktaOrg}/oauth2/default"
 ```
 
-2. Load this configuration into the `main` method of `main.go`:
+2. Load this configuration (for example we handle it in [`server/init.go`](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/init.go)):
 
 ```go
 godotenv.Load("./.okta.env")
 ```
 
-3. Create a verifier instance bound to the issuer and set the audience.
+3. Create a verifier instance bound to the issuer and set the audience. We handle this inside a function called `isAuthenticated`; see the full listing in [Require authorization for everything](#require-authorization-for-everything).
 
 ```go
 toValidate := map[string]string{}

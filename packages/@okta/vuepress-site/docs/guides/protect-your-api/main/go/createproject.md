@@ -5,23 +5,9 @@
 3. Initialize your module using `go mod init`, for example:
 
 ```shell
-go mod init okta/go-api-quickstart
+go mod init okta/go-quickstart
 ```
 
-4. Create a simple starter file called `main.go` in your project root:
-
-```go
-package main
-
-import (
-
-)
-
-func main() {
-
-}
-```
+4. Create a simple starter structure for your project. Have a look at our [sample structure](https://github.com/okta-samples/okta-go-api-sample).
 
 > **Note**: This guide uses Golang version 1.17.6 and Gin 1.7.7.
-
-> **Note**: If you're using the Okta CLI, you can also run `okta start go-api` to create a sample app. This command creates an OIDC app in Okta, downloads the [okta-go-api-sample](https://github.com/okta-samples/okta-go-api-sample), and configures it to work with the OIDC app.

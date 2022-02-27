@@ -12,7 +12,7 @@ You can also do this with the [gin-cors](https://github.com/itsjamie/gin-cors) m
 
 1. Add `gin-cors` as a dependency like you did with the others.
 
-2. Add the following code inside your `main()` function:
+2. Add the following to your routing code:
 
 ```go
 // Apply the middleware to the router (works with groups too)

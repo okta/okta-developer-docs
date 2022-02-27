@@ -1,4 +1,4 @@
-1. Add a utility function to `main.go`. This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
+1. Add a utility function to handle this (see [`server/middleware.go`](https://github.com/okta-samples/okta-go-api-sample/blob/02c9c1daef0a59bdbf531c0d67f086c99f4a1090/server/middleware.go)). This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
 
 ```go
 func isAuthenticated(r *http.Request) bool {
@@ -45,7 +45,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 ```
 
-3. Register the middleware for all routes to the app instance inside the `main()` function.
+3. Inside your routing code, register the middleware for all routes to the app instance.
 
 ```go
 router.Use(AuthMiddleware())
