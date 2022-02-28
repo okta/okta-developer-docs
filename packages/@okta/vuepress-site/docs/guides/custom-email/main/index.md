@@ -17,7 +17,7 @@ Customize email notifications.
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
 
-> **Note:** Free trial editions of Okta can't create or send customized email templates.
+> **Note:** With a free trial edition of an Okta org, you can customize emails but your org expires after 30 days. With a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help) for access to customize emails.
 
 **Sample code**
 
@@ -59,7 +59,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** Free trial editions of Okta can't create or send customized email templates.
+> **Note:** With a free trial edition of an Okta org, you can customize emails but your org expires after 30 days. With a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help) for access to customize emails.
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Click a default email template listed in the left pane.
