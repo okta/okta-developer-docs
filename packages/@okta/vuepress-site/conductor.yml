@@ -5497,3 +5497,35 @@ redirects:
     to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
+  - from: /code/angular/okta_angular_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_auth_js/index.html
+    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_auth_js
+    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/
+  - from:  /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/embedded-siw
+  - from:  /code/javascript/okta_sign-in_widget
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_auth_sdk/index.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk
+    to:  /docs/guides/auth-js
+  - from:  /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+  - from:  /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+  - from:  /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/
+  - from:  /code/react/okta_react
+    to:  /docs/guides/sign-in-to-spa-authjs/react/
+  - from:  /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/
+  - from:  /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/
+  - from:  /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/
+  - from:  /code/vue/okta_vue
+    to:  /docs/guides/sign-in-to-spa-authjs/vue/
