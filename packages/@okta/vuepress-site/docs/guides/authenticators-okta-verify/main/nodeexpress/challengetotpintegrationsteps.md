@@ -33,8 +33,11 @@ Using the `IdxTransaction` response display a page to input the TOTP.
 
 </div>
 
+### 3. Open Okta Verify and find TOTP
 
-### 3. Submit the TOTP
+The user opens Okta Verify and finds the TOTP for the corresponding account.
+
+### 4. Submit the TOTP
 
 After the user enters and submits the TOTP, call `IdxTransaction.idx.proceed()` passing in the verification code.
 
@@ -44,6 +47,6 @@ After the user enters and submits the TOTP, call `IdxTransaction.idx.proceed()` 
   const transaction = await authClient.idx.proceed({ verificationCode });
 ```
 
-### 4: Complete successful sign-in
+### 5: Complete successful sign-in
 
 Once the verification code is validated, `IdxTransaction.idx.proceed()` returns a `IdxTransaction` object with a status of `SUCCESS` along with access and ID tokens. The user is redirected to the default home page.

@@ -143,8 +143,6 @@ Example page follows:
 
 </div>
 
-
-
 ### 6: Submit email address
 
 After the user enters and submits their email address, call `IdxTransaction.idx.proceed()` passing in an object-key-value pair with `email` as the key and the email address as the value.
