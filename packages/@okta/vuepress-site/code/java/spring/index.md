@@ -27,14 +27,14 @@ New to Okta? Our resources walks you through adding user authentication to your 
 
 <ul class='language-ctas'>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app-redirect/spring-boot/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
 	</li>
 	<li>
-    <a href='/docs/guides/protect-your-api/springboot/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-      <span>Protect your API quickstart</span>
-    </a>
+        <a href='/docs/guides/protect-your-api/springboot/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+            <span>Protect your API quickstart</span>
+        </a>
   </li>
 	<li>
 		<a href='https://github.com/okta-samples/okta-spring-boot-sample' class='Button--blueDarkOutline' data-proofer-ignore>
@@ -67,7 +67,15 @@ Okta-hosted Sign-In Widget guide:
 
 [Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/spring-boot/main/)
 
+<<<<<<< HEAD
 Embedded SDK and Sign-In Widget sign-in guide:
+=======
+- [Okta Authentication How To Guide](/docs/guides/sign-into-web-app-redirect/spring-boot/main/)
+- [Social login](/docs/concepts/identity-providers/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
+- [Spring Security SAML](/code/java/spring_security_saml/)
+>>>>>>> 7053642f62ce8d5fee7d8298376eaef2bc649bd9
 
 [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/java/main/)
 

@@ -14,14 +14,14 @@ New to Okta? Our resources walk you through adding user authentication to your N
 
 <ul class='language-ctas'>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app-redirect/node-express/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
 	</li>
-	  <li>
-    <a href='/docs/guides/protect-your-api/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-      <span>Protect your API quickstart</span>
-    </a>
+	<li>
+        <a href='/docs/guides/protect-your-api/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+            <span>Protect your API quickstart</span>
+        </a>
   </li>
 	<li>
 		<a href='https://github.com/okta/samples-nodejs-express-4' class='Button--blueDarkOutline' data-proofer-ignore>
@@ -54,12 +54,20 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 ## Recommended guides
 
+<<<<<<< HEAD
 Okta-hosted Sign-In Widget guide:
 
 [Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
+=======
+- [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+- [Social login](/docs/concepts/identity-providers/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
+>>>>>>> 7053642f62ce8d5fee7d8298376eaef2bc649bd9
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
+<<<<<<< HEAD
 [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/nodejs/main/)
 
 Other guides:
@@ -71,3 +79,13 @@ Other guides:
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 > **Note**: Browse our [Node.js Developer Blog posts](/search/#q=node&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+=======
+- [Build a Basic CRUD App with Vue.js and Node](/blog/2018/02/15/build-crud-app-vuejs-node)
+- [Build a Simple REST API with Node and OAuth 2.0](/blog/2018/08/21/build-secure-rest-api-with-node)
+- [Tutorial: Build a Basic CRUD App with Node.js](/blog/2018/06/28/tutorial-build-a-basic-crud-app-with-node)
+- [Build a Basic CRUD App with Node and React](/blog/2018/07/10/build-a-basic-crud-app-with-node-and-react)
+- [Build User Registration with Node, React, and Okta](/blog/2018/02/06/build-user-registration-with-node-react-and-okta)
+- [Build Secure Node Authentication with Passport.js and OpenID Connect](/blog/2018/05/18/node-authentication-with-passport-and-oidc)
+- [How to Securely Manage Users in Your Node App](/blog/2018/06/26/securely-manage-users-node-app)
+- [Simple Multi-Factor Authentication in Node](/blog/2018/05/22/simple-multifactor-authentication-in-node)
+>>>>>>> 7053642f62ce8d5fee7d8298376eaef2bc649bd9

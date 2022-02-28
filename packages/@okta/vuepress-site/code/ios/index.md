@@ -14,7 +14,7 @@ New to Okta? Our resources walk you through adding user authentication to your i
 
 <ul class='language-ctas'>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-mobile-app-redirect/ios/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
 	</li>

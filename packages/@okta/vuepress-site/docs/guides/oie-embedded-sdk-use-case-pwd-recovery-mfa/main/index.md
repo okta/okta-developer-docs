@@ -2,10 +2,7 @@
 title: User password recovery
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This use case describes how to integrate a password recovery flow into your app using an Okta SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
@@ -60,5 +57,3 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 ## Troubleshooting tips
 
 Ensure that the password recovery user is valid with an active user status in your Okta org.
-
-</div>

@@ -10,11 +10,11 @@ integration: mobile
 New to Okta? Our resources walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+	<!-- <li>
+		<a href='/docs/guides/sign-into-mobile-app-redirect/react-native/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
-	</li>
+	</li> -->
 	<li>
 		<a href='https://github.com/okta/samples-js-react-native' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sample app</span>

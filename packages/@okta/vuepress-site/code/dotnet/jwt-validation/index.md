@@ -15,8 +15,8 @@ If you are writing low-level code that retrieves or uses these tokens, it's impo
 
 You don't need to validate tokens manually if:
 
-* You are using <a href='/docs/guides/sign-into-web-app/aspnet/main/' data-proofer-ignore>ASP.NET</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/main/' data-proofer-ignore>ASP.NET Core</a> &mdash; follow our how to guide instead!
-* You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect)).
+* You are using <a href='/code/dotnet/aspnet/' data-proofer-ignore>ASP.NET</a> or <a href='/code/dotnet/aspnetcore/' data-proofer-ignore>ASP.NET Core</a>
+* You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect))
 
 If you need to validate a token manually, and don't want to make a network call to Okta, this guide helps you validate tokens locally.
 
@@ -206,5 +206,3 @@ foreach (var claim in validatedToken.Claims)
 ## Conclusion
 
 This guide provides the basic steps required to locally verify an access or ID token signed by Okta. It uses packages from Microsoft for key parsing and token validation, but the general principles should apply to any JWT validation library.
-
-Most applications don't need to follow this guide. If you are using our <a href='/docs/guides/sign-into-web-app/aspnet/main/' data-proofer-ignore>ASP.NET how to guide</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/main/' data-proofer-ignore>ASP.NET Core how to guide</a> to connect your application to Okta, all of these validation steps are done automatically for you.

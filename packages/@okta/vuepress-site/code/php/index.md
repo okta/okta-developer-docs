@@ -14,15 +14,15 @@ New to Okta? Our resources walk you through adding user authentication to your P
 
 <ul class='language-ctas'>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app-redirect/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
 	</li>
-	<li>
+	<!-- <li>
     <a href='/docs/guides/protect-your-api/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Protect your API quickstart</span>
     </a>
-  </li>
+  </li> -->
 	<li>
 		<a href='https://github.com/okta/samples-php' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sample app</span>

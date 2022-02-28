@@ -10,54 +10,54 @@ showBreadcrumb: False
 
 tiles:
   - name: Web App
-    link: /docs/guides/sign-into-web-app/
+    link: /docs/guides/sign-into-web-app-redirect/
     items:
       - name: Go
-        link: /docs/guides/sign-into-web-app/go/main/
+        link: /docs/guides/sign-into-web-app-redirect/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/sign-into-web-app/springboot/main/
+        link: /docs/guides/sign-into-web-app-redirect/spring-boot/main/
         image: /img/homepage/stackselectors/java.png
       - name: .NET
-        link: /docs/guides/sign-into-web-app/aspnet/main/
+        link: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/sign-into-web-app/nodeexpress/main/
+        link: /docs/guides/sign-into-web-app-redirect/node-express/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/sign-into-web-app/php/main/
+        link: /docs/guides/sign-into-web-app-redirect/php/main/
         image: /img/homepage/stackselectors/php.png
       - name: Python
-        link: /docs/guides/sign-into-web-app/python/main/
+        link: /docs/guides/sign-into-web-app-redirect/python/main/
         image: /img/homepage/stackselectors/python.png
   - name: Single-page App
-    link: /docs/guides/sign-into-spa/
+    link: /docs/guides/sign-into-spa-redirect/
     items:
       - name: React
-        link: /docs/guides/sign-into-spa/react/main
+        link: /docs/guides/sign-into-spa-redirect/react/main
         image: /img/homepage/stackselectors/react.png
       - name: Angular
-        link: /docs/guides/sign-into-spa/angular/main
+        link: /docs/guides/sign-into-spa-redirect/angular/main
         image: /img/homepage/stackselectors/angular.png
       - name: Vue.js
-        link: /docs/guides/sign-into-spa/vue/main
+        link: /docs/guides/sign-into-spa-redirect/vue/main
         image: /img/homepage/stackselectors/vue.png
-      - name: Blazor WebAssembly
-        link: /docs/guides/sign-into-spa/blazorwebasm/main
-        image: /img/homepage/stackselectors/dotnet.png
-  - name: Native App
-    link: /docs/guides/sign-into-mobile-app/
+      # - name: Blazor WebAssembly
+      #   link: /docs/guides/sign-into-spa-redirect/blazor-wasm/main
+      #   image: /img/homepage/stackselectors/dotnet.png
+  - name: Mobile/native App
+    link: /docs/guides/sign-into-mobile-app-redirect/
     items:
-      - name: React Native
-        link: /docs/guides/sign-into-mobile-app/react-native/main/
-        image: /img/homepage/stackselectors/react.png
+      # - name: React Native
+      #   link: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
+      #   image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /docs/guides/sign-into-mobile-app/android/main/
+        link: /docs/guides/sign-into-mobile-app-redirect/android/main/
         image: /img/homepage/stackselectors/android.png
-      - name: IOS
-        link: /docs/guides/sign-into-mobile-app/ios/main/
+      - name: iOS
+        link: /docs/guides/sign-into-mobile-app-redirect/ios/main/
         image: /img/homepage/stackselectors/ios.png
-  - name: API Services
+  - name: Protect your API
     link: /docs/guides/protect-your-api/
     items:
       - name: Go
@@ -67,17 +67,17 @@ tiles:
         link: /docs/guides/protect-your-api/springboot/main/
         image: /img/homepage/stackselectors/java.png
       - name: .NET
-        link: /docs/guides/protect-your-api/aspnet/main/
+        link: /docs/guides/protect-your-api/aspnetcore3/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
         link: /docs/guides/protect-your-api/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
-      - name: PHP
-        link: /docs/guides/protect-your-api/php/main/
-        image: /img/homepage/stackselectors/php.png
-      - name: Python
-        link: /docs/guides/protect-your-api/python/main/
-        image: /img/homepage/stackselectors/python.png
+      # - name: PHP
+      #   link: /docs/guides/protect-your-api/php/main/
+      #   image: /img/homepage/stackselectors/php.png
+      # - name: Python
+      #   link: /docs/guides/protect-your-api/python/main/
+      #   image: /img/homepage/stackselectors/python.png
 
 assurances:
   - title: Compliant Out of the Box

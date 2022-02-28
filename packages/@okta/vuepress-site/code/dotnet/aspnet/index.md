@@ -31,8 +31,8 @@ meta:
 New to Okta? Our resources walk you through adding user authentication to your ASP.NET app in minutes.
 
 <ul class='language-ctas'>
-  <li>
-    <a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+  <!-- <li>
+    <a href='/docs/guides/sign-into-web-app-redirect/aspnet/main/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Sign users in quickstart</span>
     </a>
   </li>
@@ -40,7 +40,7 @@ New to Okta? Our resources walk you through adding user authentication to your A
     <a href='/docs/guides/protect-your-api/aspnet/main/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Protect your API quickstart</span>
     </a>
-  </li>
+  </li>-->
   <li>
     <DropdownButton caption="Sample app">
       <DropdownButtonOption href='https://github.com/okta/samples-aspnet'>MVC & Web API</DropdownButtonOption>
