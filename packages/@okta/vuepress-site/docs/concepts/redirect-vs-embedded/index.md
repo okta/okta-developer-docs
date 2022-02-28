@@ -7,8 +7,7 @@ meta:
 
 # Okta authentication models — redirect vs. embedded
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 When you develop applications that require the customer to sign-in and authenticate, the user authentication deployment model is a critical design consideration. In this article we look at the authentication options that Okta provides and what the differences are between them.
 

@@ -19,9 +19,9 @@ This guide explains an important part of security, which is to minimize the chan
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that can sign in to Okta. To create your own, see the following guides:
-  * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
-  * [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/)
-  * [Sign users in to your single-page app](/docs/guides/sign-into-spa/)
+  * [Sign users in to your web application using the redirect model](/docs/guides/sign-into-web-app-redirect/)
+  * [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
+  * [Sign users in to your single-page app using the redirect model](/docs/guides/sign-into-spa-redirect/)
 
 **Sample code**
 

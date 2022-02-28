@@ -253,7 +253,7 @@ A dashboard used to access applications and products
 
 #### Admin console
 
-A [console](/docs/guides/quickstart/cli/main/#using-the-admin-console)
+A [console](/docs/concepts/okta-organizations/#admin-console)
 used to manage user authentication settings and application access.
 Although you can manage users and groups through the Admin Console,
 it isn't recommended when using okta-dac due to the project's specific

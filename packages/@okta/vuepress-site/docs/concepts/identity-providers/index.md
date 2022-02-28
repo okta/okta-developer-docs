@@ -16,7 +16,7 @@ What is an Identity Provider? It is a service that creates and maintains identit
 
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users.
 
--   When you use Okta as the [user store](/docs/concepts/user-profiles/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
+-   When you use Okta as the [user store](/docs/concepts/user-profiles/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app-redirect/), [mobile](/docs/guides/sign-into-mobile-app-redirect/), and [single-page](/docs/guides/sign-into-spa-redirect/) apps.
 
 -   You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
 

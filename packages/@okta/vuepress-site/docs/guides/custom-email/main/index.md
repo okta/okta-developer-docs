@@ -196,4 +196,4 @@ Read more on customizing and styling various Okta assets to match your company's
 
 - [Customize the Okta URL and email notification domains](/docs/guides/custom-url-domain/)
 - [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-- [Style the Widget](/docs/guides/style-the-widget/)
+- [Style the Okta Sign-In Widget](/docs/guides/custom-widget/)

@@ -2,10 +2,7 @@
 title: Self-service registration
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers self-service registration, which allows users to sign up for the app themselves. In this use case, the user must register with a password, email, and/or phone factors. You must first enable the self-service registration option for your app in the Okta org and then build the self-service registration flow in your app.
 
@@ -107,5 +104,3 @@ During new user registration, there are no factors required other than the passw
 the following email template: **Registration - Activation**.
 
 The user clicks the link in the activation email and is redirected to the sample app's home page.
-
-</div>

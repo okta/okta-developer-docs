@@ -4,8 +4,7 @@ title: Okta Identity Engine SDKs & Samples
 
 # Okta Identity Engine SDKs & Samples
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 ## What's new
 

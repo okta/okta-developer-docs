@@ -295,6 +295,7 @@ module.exports = ctx => ({
 
   plugins: {
     'code-copy': {},
+    'vuepress-plugin-chunkload-redirect': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
