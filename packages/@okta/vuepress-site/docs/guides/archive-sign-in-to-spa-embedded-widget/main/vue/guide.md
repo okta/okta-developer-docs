@@ -5,6 +5,8 @@ icon: code-vue
 excerpt: Integrate Okta with a Vue app using the Sign-In Widget.
 ---
 
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Sign in to SPA with embedded Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
+
 This guide will walk you through integrating authentication into a Vue app with Okta by performing these steps:
 
 - [Prerequisites](#prerequisites)

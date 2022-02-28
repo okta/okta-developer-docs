@@ -5,6 +5,8 @@ excerpt: Integrate Okta with an Angular application using the Sign-In Widget.
 icon: code-angular
 ---
 
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Sign in to SPA with embedded Widget](/docs/guides/sign-in-to-spa-embedded-widget/angular/main). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
+
 This guide will walk you through integrating authentication into an Angular application with Okta by performing these steps:
 
 - [Prerequisites](#prerequisites)

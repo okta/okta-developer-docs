@@ -1,3 +1,5 @@
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Sign in to SPA with embedded Widget](/docs/guides/archive-sign-into-spa-embedded-widget/angular/main). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+
 This guide explains how to sign in to an Angular framework single-page application (SPA) with the embedded Okta Sign-In Widget.
 
 ---

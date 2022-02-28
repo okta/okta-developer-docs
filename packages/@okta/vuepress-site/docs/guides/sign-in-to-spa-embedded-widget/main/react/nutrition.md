@@ -1,3 +1,5 @@
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Sign in to SPA with embedded Widget](/docs/guides/archive-sign-into-spa-embedded-widget/react/main). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+
 This guide walks you through how to build a password-only sign-in flow React app that uses the Okta Sign-In Widget for Okta embedded authentication.
 
 ---
