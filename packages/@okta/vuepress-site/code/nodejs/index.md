@@ -12,7 +12,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app-redirect/node-express/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -62,14 +62,12 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 
 ## Recommended Guides
 
-
 - [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 - [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 ## Related Blog Posts
-
 
 - [Build a Basic CRUD App with Vue.js and Node](/blog/2018/02/15/build-crud-app-vuejs-node)
 - [Build a Simple REST API with Node and OAuth 2.0](/blog/2018/08/21/build-secure-rest-api-with-node)
@@ -79,5 +77,3 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 - [Build Secure Node Authentication with Passport.js and OpenID Connect](/blog/2018/05/18/node-authentication-with-passport-and-oidc)
 - [How to Securely Manage Users in Your Node App](/blog/2018/06/26/securely-manage-users-node-app)
 - [Simple Multi-Factor Authentication in Node](/blog/2018/05/22/simple-multifactor-authentication-in-node)
-
-

@@ -27,7 +27,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/springboot/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app-redirect/spring-boot/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -66,7 +66,7 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 ## Recommended Guides
 
 
-- [Okta Authentication How To Guide](/docs/guides/sign-into-web-app/springboot/main/)
+- [Okta Authentication How To Guide](/docs/guides/sign-into-web-app-redirect/spring-boot/main/)
 - [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

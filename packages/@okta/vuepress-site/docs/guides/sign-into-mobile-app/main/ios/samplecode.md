@@ -1,1 +1,0 @@
-See our [iOS browser sign-in example](https://github.com/okta/samples-ios/tree/master/browser-sign-in).
