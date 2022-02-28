@@ -1,4 +1,4 @@
-1. Create a simple index template that includes a sign-in control to direct the user to your sign in route. Our example [index.gohtml](https://github.com/okta-samples/okta-go-gin-sample/blob/main/templates/index.gohtml) template includes a simple form:
+1. Create a simple index template that includes a sign-in control to direct the user to your sign in route. Our example [`index.gohtml`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/templates/index.gohtml) template includes a simple form:
 
 ```html
 <form method="get" action="login">
