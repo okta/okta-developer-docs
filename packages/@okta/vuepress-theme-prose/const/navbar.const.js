@@ -175,6 +175,10 @@ export const guides = [
         title: "Sign Users In",
         subLinks: [
           {
+            title: "Overview",
+            guideName: "sign-in-overview",
+          },
+          {
             title: "Add an Identity Provider",
             subLinks: [
               {
