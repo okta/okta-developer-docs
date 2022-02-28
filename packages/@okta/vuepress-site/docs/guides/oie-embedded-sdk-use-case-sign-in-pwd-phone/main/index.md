@@ -2,10 +2,7 @@
 title: Sign in with password and phone factors
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
@@ -55,5 +52,3 @@ The instructions in [Set up your Okta org for a multifactor use case](/docs/guid
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>
