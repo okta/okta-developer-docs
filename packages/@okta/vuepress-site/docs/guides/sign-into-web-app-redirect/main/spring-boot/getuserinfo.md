@@ -1,6 +1,6 @@
 Add the following code to return the user's name upon a successful sign-in flow:
 
-```
+```java
 @GetMapping("/")
 public String hello(@AuthenticationPrincipal OidcUser user) {
   return "Hello, " + user.getName();
