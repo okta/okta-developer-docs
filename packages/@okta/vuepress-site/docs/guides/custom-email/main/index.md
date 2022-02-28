@@ -70,9 +70,13 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ### Use customizable email templates
 
-<!--- Intro content to come --->
+The following table provides a list of all available email templates in an Okta org, along with:
 
-| UI name | Default subject line | API object reference | Description |
+- the default subject line for the email template
+- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations)
+- a description of the template
+
+| UI name | Default subject line | API object reference</br>`${templateName}` | Description |
 |---------|---------|----------------------|----------|---------|
 | User Activation | Welcome to Okta! | `UserActivation` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
 | Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process |
