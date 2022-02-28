@@ -1,10 +1,10 @@
 ### 1: Initiate the sign-in and choose Okta Verify as the authenticator
 
-First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authenticator to enroll in. Follow the steps in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), to learn more about how to integrate these steps.
+First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authenticator to enroll in. These steps are common between enrollment flows and described in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment).
 
 ### 2: Display QR Code
 
-After the user chooses Okta Verify (which is the last step in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), display the QR Code on your page using the `IdxTransaction` response from `OktaAuth.idx.proceed()`.  In future steps, the user will scan this QR Code on their mobile device using Okta Verify.
+After the user chooses Okta Verify (which is the last step in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment)), display the QR Code using the `IdxTransaction` response from `OktaAuth.idx.proceed()`.  In future steps, the user will scan this QR Code on their mobile device using Okta Verify.
 
 #### IdxTransaction response
 
@@ -61,7 +61,7 @@ The following [Mustache](https://mustache.github.io/) template snippet shows how
 
 #### Display page with QR code
 
-Display a page showing the QR code to the user. Example page from the sample app shown follows:
+Display a page showing the QR code to the user.
 
 <div class="common-image-format">
 
@@ -71,7 +71,7 @@ Display a page showing the QR code to the user. Example page from the sample app
 
 ### 3: Poll SDK while enrollment is ongoing
 
-`IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `enroll-poll`, indicates that the user needs to complete the challenge in Okta Verify and your application should begin polling the SDK to determine when the identity challenge is completed.  The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
+`IdxTransaction.status` of `PENDING` and `nextStep.name` equal to `enroll-poll`, indicates that the user needs to complete the challenge in Okta Verify and your application should begin polling. The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
 
 ### 4: Open Okta Verify
 
@@ -79,12 +79,12 @@ Next, the user installs Okta Verify (if not already installed on their device) a
 
 ### 5: Scan QR Code
 
-Once Okta Verify is installed and opened, the user adds the account in the app by scanning the QR code on the screen using the device's camera.
+After the user opens Okta Verify, they the account in the app by scanning the QR code on the screen using the device's camera.
 
 ### 6: Exit polling
 
-After the user scans the QR code and completes adding the account, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `enroll-poll`. Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in [Polling Okta](#polling-okta).
+After the user scans the QR code and completes adding the account, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `enroll-poll`. Depending on how the policies are configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in [Polling Okta](#polling-okta).
 
 ### 6: Complete successful sign in
 
-After the user completes the Okta Verify account setup and any additional sign-in steps, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed in user.
+Eventually, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed in user.

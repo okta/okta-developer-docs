@@ -9,13 +9,13 @@ title: Okta Verify (Push/OTP) integration guide
 
 <StackSelector />
 
-This guide shows you how to integrate Okta Verify into your app using the embedded SDK.
+Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---
 **Learning outcomes**
 
 * Understand the Okta Verify enrollment and challenge flows
-* Learn step-by-step how to integrate Okta Verify into your authentication use case
+* Learn step-by-step how to integrate Okta Verify into your app
 
 **What you need**
 
@@ -36,12 +36,12 @@ This guide shows you how to integrate Okta Verify into your app using the embedd
 
 Okta Verify is a software-based authenticator created by Okta that supports identity verification through the use of Time-based One-Time passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store depending on your mobile device. For more information on Okta Verify see the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
 
-Okta Verify is highly customizable and offers different ways to enroll and challenge a user. Your app's integration with the embedded SDK depends on which features your app will support. This guide details step-by-step how to integrate four flows supported by the embedded SDK and Okta Verify. They are:
+Okta Verify is highly customizable and offers different ways to enroll and challenge a user. Your app's integration with the embedded SDK depends on which features you want to support. This guide details step-by-step how to integrate four flows supported by the embedded SDK and Okta Verify. They are:
 
-* Enrollment using QR Code
-* Enrollment using other channels such as email or SMS
-* Challenge using push notification
-* Challenge using TOTP
+* [Enrollment using QR Code](#integrate-enrollment-using-qr-code)
+* [Enrollment using other channels such as email or SMS](#integrate-enrollment-using-other-channels)
+* [Challenge using push notification](#integrate-challenge-using-push-notification-option)
+* [Challenge using TOTP](#integrate-challenge-using-totp-option)
 
 ### Enrollment flows
 
@@ -67,26 +67,26 @@ The following high-level diagram illustrates the supported challenge flows:
 
 ## Update configurations
 
-Before you can start using Okta Verify create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Next, configure your org to enable Okta verify for the following challenge flows:
+Configure your Okta org to enable Okta Verify for the following challenge flows:
 
 * **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
 * **Time-based one time password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
 
 ### Add Okta Verify
 
-The following steps add and configure Okta Verify in your org:
+Add and configure Okta Verify in your org:
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, click **Add Authenticator**.
 1. On the **Add Authenticator** dialog, click **Add** under **Okta Verify**.
-1. Note that **TOTP (on by default)(Android and iOS only)** is disabled and checked by default.
+1. Note that **TOTP (on by default) (Android and iOS only)** is disabled and checked by default.
 1. Check the box for **Push notification (Android and iOS only)**.
 1. Since it's currently not supported, keep **Number challenge for Okta Verify push** set to **Never**.
 1. Click **Add** to save your changes.
 
 ### Configure your org application
 
-The following steps setup your application integration to use Okta Verify:
+Setup your application to use Okta Verify:
 
 1. In the Admin Console, go to **Applications** and **Applications**.
 1. On the **Applications** page, click on the application you've previously created.
@@ -101,14 +101,11 @@ The following steps setup your application integration to use Okta Verify:
 
 ### You're ready to start integrating
 
-After you've configured your org, start integrating the enrollment and challenge flows into your app. The following are the list of supported flows:
+After you've configured your org, your ready to start integrating the Okta Verify flows into your app.
 
-The authenticator enrollment and challenge flows for this setup are:
+## Shared steps between flows
 
-* [Integrate enrollment using QR Code](#integrate-enrollment-using-qr-code)
-* [Integrate enrollment using other channels](#integrate-enrollment-using-other-channels)
-* [Integrate challenge using push notification option](#integrate-challenge-using-push-notification-option)
-* [Integrate challenge using TOTP option](#integrate-challenge-using-totp-option)
+<StackSnippet snippet="commonsteps" />
 
 ## Integrate enrollment using QR Code
 
@@ -149,9 +146,5 @@ The following summarizes the Okta Verify enrollment flow with TOTP using a sign-
 <StackSnippet snippet="challengetotpintegrationsummary" />
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
-
-## Common steps between enrollment and challenge flows
-
-<StackSnippet snippet="commonsteps" />
 
 </div>
