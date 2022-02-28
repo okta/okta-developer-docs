@@ -48,7 +48,7 @@ pip install okta
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/python/main/)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/python/main/)
 
 Other guides:
 

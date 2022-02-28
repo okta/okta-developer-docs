@@ -56,7 +56,7 @@ Okta Classic OIDC library for iOS (CocoaPod):
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/ios/main/)
+[Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

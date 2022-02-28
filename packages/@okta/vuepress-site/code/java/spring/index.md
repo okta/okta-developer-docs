@@ -65,7 +65,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/spring-boot/main/)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/spring-boot/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

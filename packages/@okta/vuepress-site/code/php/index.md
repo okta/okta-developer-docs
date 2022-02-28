@@ -46,7 +46,7 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/php/main/)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/php/main/)
 
 Other guides:
 

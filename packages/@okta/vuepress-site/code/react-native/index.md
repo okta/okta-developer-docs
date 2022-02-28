@@ -34,7 +34,7 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 
 Okta-hosted Sign-In Widget guide:
 
-* [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/react-native/main/)
+* [Sign users in to your mobile app using the redirect model](#) (coming soon)
 
 Other guides:
 

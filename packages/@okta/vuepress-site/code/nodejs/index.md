@@ -56,7 +56,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/node-express/main/)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/node-express/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

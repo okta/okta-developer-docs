@@ -61,7 +61,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/blazor-wasm/main/)
+[Sign users in to your SPA using the redirect model](#) (coming soon)
 
 Other guides:
 

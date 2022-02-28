@@ -37,12 +37,12 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/react/main/)
+[Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/react/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
-* [Sign into your SPA with Auth.js](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-authjs/react/main/)
-* [Sign into your SPA with the embedded Okta Sign-In Widget](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-embedded-widget/react/main/ )
+* [Sign into your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/react/main/)
+* [Sign into your SPA with the embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
 
 Other guides:
 

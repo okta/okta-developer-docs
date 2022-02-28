@@ -76,7 +76,7 @@ Okta Classic:
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
+[Sign users in to your web app using the redirect model ](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

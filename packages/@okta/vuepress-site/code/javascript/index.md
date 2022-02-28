@@ -45,8 +45,8 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
-* [Auth.js fundamentals](#) (WILL EVENTUALLY BE /docs/guides/auth-js/main/)
-* [Embedded Okta Sign-In Widget fundamentals](/code/javascript/okta_sign-in_widget/) (WILL EVENTUALLY BE /docs/guides/embedded-siw/main/)
+* [Auth.js fundamentals](/docs/guides/auth-js/main/)
+* [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw/main/)
 
 Other guides:
 
