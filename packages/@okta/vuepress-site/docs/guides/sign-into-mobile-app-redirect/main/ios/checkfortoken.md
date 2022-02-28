@@ -22,7 +22,7 @@ func tokenExpired(_ tokenString: String?) -> Bool {
 
 ```swift
 func configureSDK () {
-...
+  ...
   // Check for an existing session
   self.authStateManager = OktaOidcStateManager.readFromSecureStorage(for: config)
   if let authStateManager = self.authStateManager,

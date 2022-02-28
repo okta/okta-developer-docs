@@ -26,12 +26,12 @@ app.use(passport.session());
 
 // set up passport
 passport.use('oidc', new Strategy({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  authorizationURL: 'https://{yourOktaDomain}/oauth2/default/v1/authorize',
-  tokenURL: 'https://{yourOktaDomain}/oauth2/default/v1/token',
-  userInfoURL: 'https://{yourOktaDomain}/oauth2/default/v1/userinfo',
-  clientID: '{yourClientID}',
-  clientSecret: '{yourClientSecret}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  authorizationURL: 'https://${yourOktaDomain}/oauth2/default/v1/authorize',
+  tokenURL: 'https://${yourOktaDomain}/oauth2/default/v1/token',
+  userInfoURL: 'https://${yourOktaDomain}/oauth2/default/v1/userinfo',
+  clientID: '${yourClientID}',
+  clientSecret: '${yourClientSecret}',
   callbackURL: 'http://localhost:3000/authorization-code/callback',
   scope: 'openid profile'
 }, (issuer, profile, done) => {

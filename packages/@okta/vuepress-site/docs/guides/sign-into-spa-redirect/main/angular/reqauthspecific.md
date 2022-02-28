@@ -1,7 +1,7 @@
 The `OktaAuthGuard` can protect a route to a single component as well.
 
 
-1. Import the `profile` component into `app-routing.module.ts`:
+1. Import the `ProfileComponent` component into `app-routing.module.ts`:
 
 ```ts
 import { ProfileComponent } from './profile/profile.component';

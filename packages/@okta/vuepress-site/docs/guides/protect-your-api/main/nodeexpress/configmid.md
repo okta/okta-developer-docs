@@ -3,7 +3,7 @@
 ```js
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 const oktaJwtVerifier = new OktaJwtVerifier({
-    issuer: 'https://{yourOktaDomain}/oauth2/default'
+    issuer: 'https://${yourOktaDomain}/oauth2/default'
 });
 const audience = 'api://default';
 ```

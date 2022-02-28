@@ -60,7 +60,7 @@ To create your app integration in Okta using the CLI:
 okta apps create native
 ```
 
-2. When prompted for a name, use **Quickstart**.
+2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
 4. Make note of the redirect URI, post-logout redirect URI, and the application configuration printed to the terminal. You'll need these to configure your mobile app.

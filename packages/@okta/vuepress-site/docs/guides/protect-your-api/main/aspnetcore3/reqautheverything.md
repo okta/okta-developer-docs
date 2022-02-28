@@ -1,4 +1,4 @@
-In the `ConfigureServices` method of `Startup.cs`, create an authorization policy to be used everywhere:
+To require authentication for all actions, create an authorization policy in the `Startup.cs` class that you can use everywhere:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -9,8 +9,8 @@ public void ConfigureServices(IServiceCollection services)
   services.AddMvc(o =>
   {
     var policy = new AuthorizationPolicyBuilder()
-    .RequireAuthenticatedUser()
-    .Build();
+      .RequireAuthenticatedUser()
+      .Build();
     o.Filters.Add(new AuthorizeFilter(policy));
   });
 }

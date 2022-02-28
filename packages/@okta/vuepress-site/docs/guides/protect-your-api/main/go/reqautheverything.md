@@ -1,4 +1,4 @@
-1. Add a utility function to handle this (see [`server/middleware.go`](https://github.com/okta-samples/okta-go-api-sample/blob/02c9c1daef0a59bdbf531c0d67f086c99f4a1090/server/middleware.go)). This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
+1. Add a utility function to handle this (see [`server/middleware.go`](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/middleware.go)). This checks whether a request is authenticated. Note that the JWT is added to the `http.Request` object.
 
 ```go
 func isAuthenticated(r *http.Request) bool {

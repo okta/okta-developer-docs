@@ -47,7 +47,7 @@ okta login
 
 ## Create a REST API
 
-For this example, create a new application with a simple API endpoint to add authorization to.
+Create a new application with a simple API endpoint to add authorization to.
 
 ### Create a new API project
 
@@ -59,12 +59,24 @@ For this example, create a new application with a simple API endpoint to add aut
 
 ### Configure your API
 
-You need to configure the application with some information about your Okta organization. You need the following values:
+You need to configure the API with some information about the [authorization server](/docs/guides/customize-authz-server/) used by your Okta organization.
 
-* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane. Use the [Authorization Server](/docs/guides/customize-authz-server/) named `default` for this tutorial, but you can use custom auth servers as well.
-* **Audience** &mdash; A string that represents the intended recipient of the token. The default value is `api://default`.
+> **Note:** You can create custom authorization servers for your Okta org, however you use the **default** authorization server for this tutorial.
 
 <ApiAmProdWarning />
+
+#### Things you need
+
+Our project uses information from the Okta organization we created earlier to configure communication with the API. You can find these values in the API section of the Admin Console: Select **Security** > **API** from the main menu.
+
+There are three pieces of information you may need, depending on the platform you are using:
+
+* **Audience**: `api://default` by default
+* **Authorization Server Name**: `default`
+* **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
+
+> **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
+
 
 <StackSnippet snippet="configmid" />
 
@@ -105,11 +117,11 @@ Test your APIs with an access token that is sent to your endpoint for validation
 
 In order for someone to make a request to your API, they need an access token. How an access token is obtained depends on the client making the request.
 
-If your API is consumed from another machine or service (instead of users), you can follow the [Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/) to create an access token.
+If your API is consumed from another machine or service (instead of users), you can follow the [Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/) to create an access token. See [Sign users in to your single-page app using the redirect model](/docs/guides/sign-into-spa-redirect/) or [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/) for instructions on how to retrieve an access token in those types of app.
 
-The information contained within an access token varies depending on the type of flow used to create it. For example, the Client Credentials flow doesn't contain any claims with user information such as a user ID or email. See [Sign users in to your single-page app using the redirect model](/docs/guides/sign-into-spa-redirect/) or [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/) for instructions on how to retrieve an access token in those types of app.
+> **Note**: The information contained within an access token varies depending on the type of flow used to create it. For example, the Client Credentials flow doesn't contain any claims with user information such as a user ID or email.
 
-If you are using [Postman](https://www.postman.com/downloads/) and the Client Credentials flow, you can use an API call of the form `https://{yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, and you will get a response containing an access token.
+If you are using [Postman](/code/rest/) and the Client Credentials flow, you can use an API call of the form `https://${yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, and you will get a response containing an access token.
 
 ![Postman showing a token request post response including an access token](/img/postman-post-response.png)
 

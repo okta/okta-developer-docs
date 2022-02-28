@@ -61,7 +61,7 @@ To create your app integration in Okta using the CLI:
 okta apps create spa
 ```
 
-2. When prompted for a name, use **Quickstart**.
+2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
 4. Make note of the application configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.

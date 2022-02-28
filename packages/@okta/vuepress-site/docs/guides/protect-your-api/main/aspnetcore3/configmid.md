@@ -1,22 +1,16 @@
-> **Note:** The aforementioned **Issuer URI** is made up of two parts &mdash; the base URI and the `authorizationServerId`. Using the Okta.AspNetCore library, all you need is the base URI: `https://dev-133337.okta.com/oauth2/default`.
-
-1. Configure the Okta.AspNetCore middleware with information about your Okta Org. You can see all of the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference) repo.
-
-2. Update the `appsettings.json` file to include a top-level Okta object:
+1. Open your `appsettings.json` file and add the following manually as a top-level node (if you used the Okta CLI to create an app these values may already be configured with your account information).
 
 ```json
 {
   "Okta": {
-    "OktaDomain": "https://dev-133337.okta.com",
-    "AuthorizationServerId": "default",
-    "Audience": "api://default"
+    "OktaDomain": "https://${yourOktaDomain}",
+    "AuthorizationServerId": "${yourAuthServerName}",
+    "Audience": "${yourAudience}"
   }
 }
 ```
 
-Alternatively, you can use [another configuration option](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1) to handle this as well.
-
-3. Next, update your `Startup` class and update your `using` statements to import `Okta.AspNetCore`:
+2. Configure your API to use Okta for authorization and authentication. Open `Startup.cs` and add the following `using` statements at the top:
 
 ```csharp
 using Okta.AspNetCore;
@@ -24,7 +18,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 ```
 
-4. Change the `ConfigureServices` method to include the Okta middleware configuration:
+3. Replace the existing `ConfigureServices` method with the following to include the Okta middleware configuration:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -48,21 +42,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-5. Modify the `Configure` method to include `app.UseAuthentication()` and `app.UseAuthorization()`:
+4. In the `Configure` method, add the following line immediately above `app.UseAuthorization();`:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-  //...
-  app.UseRouting();
-
-  // enable authentication and authorization
-  app.UseAuthentication();
-  app.UseAuthorization();
-
-  app.UseEndpoints(endpoints =>
-  {
-    endpoints.MapControllers();
-  });
-}
+app.UseAuthentication();
 ```

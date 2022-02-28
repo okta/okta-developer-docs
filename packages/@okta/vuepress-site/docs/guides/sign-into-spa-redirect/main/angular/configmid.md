@@ -11,12 +11,12 @@ import { OktaAuth } from '@okta/okta-auth-js';
 
 2. Add `OktaAuthModule` to the `@NgModule` `imports` array.
 
-3. Add a new `OktaAuth` object like the one below, replacing the `issuer` and `clientId` values with your own values:
+3. Add a new `OktaAuth` object like the one below, replacing the placeholder values with your own values:
 
 ```ts
 const oktaAuth = new OktaAuth({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  clientId: '{yourClientID}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '${yourClientID}',
   redirectUri: window.location.origin + '/login/callback'
 });
 ```

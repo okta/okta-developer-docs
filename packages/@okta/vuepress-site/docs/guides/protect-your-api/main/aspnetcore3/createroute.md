@@ -1,6 +1,5 @@
-1. Add a new empty API Controller class to the `Controller` folder named `InfoController`.
-
-2. Add the follow `using` statements to it:
+1. Add a new empty API Controller class to the Controller folder named `InfoController`.
+2. Add the following `using` statements to the top of the file:
 
 ```csharp
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 ```
 
-3. Create your secure and anonymous access API routes in the same file:
+2. Create your secure and anonymous access API routes by replacing the existing `InfoController` class with the following:
 
 ```csharp
 [ApiController]
@@ -26,14 +25,14 @@ public class InfoController : ControllerBase
   {
     var principal = HttpContext.User.Identity as ClaimsIdentity;
     return principal.Claims
-    .GroupBy(claim => claim.Type)
-    .ToDictionary(claim => claim.Key, claim => claim.First().Value);
+        .GroupBy(claim => claim.Type)
+        .ToDictionary(claim => claim.Key, claim => claim.First().Value);
   }
 
   // GET: api/hello
   [HttpGet]
   [Route("hello")]
-  public string GetAnnonymous()
+  public string GetAnonymous()
   {
     return "You are anonymous";
   }

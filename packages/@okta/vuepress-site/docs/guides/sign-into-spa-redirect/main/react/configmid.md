@@ -1,6 +1,6 @@
 The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. You need to set the `clientId` and `issuer` properties. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during application load time.
 
-1. Update `src/App.js` to configure Okta as shown below:
+1. Update `src/App.js` to configure Okta as shown below, replacing the placeholder values with your own values:
 
 ```jsx
 import React, { Component } from 'react';
@@ -10,8 +10,8 @@ import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
 import Home from './Home';
 
 const oktaAuth = new OktaAuth({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  clientId: '{yourClientID}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '${yourClientID}',
   redirectUri: window.location.origin + '/login/callback'
 });
 

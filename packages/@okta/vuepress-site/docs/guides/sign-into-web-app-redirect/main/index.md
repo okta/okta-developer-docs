@@ -57,7 +57,7 @@ To create your app integration in Okta using the CLI:
 okta apps create web
 ```
 
-2. When prompted for a name, use **Quickstart**.
+2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required Redirect URI values:
 <StackSnippet snippet="redirectvalues" />
 4. The Okta CLI creates an `okta.env` file with export statements containing the client ID, client secret, and issuer. Keep this safe as you use it later to configure your web app.

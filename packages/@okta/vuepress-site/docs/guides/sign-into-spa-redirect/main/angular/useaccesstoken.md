@@ -41,7 +41,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private addAuthHeaderToAllowedOrigins(request: HttpRequest<unknown>): HttpRequest<unknown> {
     let req = request;
     const allowedOrigins = ['http://localhost'];
-    if(!!allowedOrigins.find(origin => request.url.includes(origin))) {
+    if (!!allowedOrigins.find(origin => request.url.includes(origin))) {
       const authToken = this._oktaAuth.getAccessToken();
       req = request.clone({ setHeaders: { 'Authorization': `Bearer ${authToken}` } });
     }

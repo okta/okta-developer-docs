@@ -1,4 +1,4 @@
-1. Update the default layout file for the app to add a sign-in button, sign-out button, and a text view:
+1. Update the default layout file for the app (found in `app/src/main/res/layout/`) to add a sign-in button, sign-out button, and a text view:
 
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout

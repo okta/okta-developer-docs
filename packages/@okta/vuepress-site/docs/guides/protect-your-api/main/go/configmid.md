@@ -1,7 +1,7 @@
 1. Add your issuer value to an environment file inside your project root, for example, `.okta.env`, remembering to replace the placeholder with your own value:
 
 ```
-OKTA_OAUTH2_ISSUER="https://{yourOktaOrg}/oauth2/default"
+OKTA_OAUTH2_ISSUER="https://${yourOktaDomain}/oauth2/default"
 ```
 
 2. Load this configuration (for example we handle it in [`server/init.go`](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/init.go)):
