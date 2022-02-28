@@ -74,7 +74,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Enter an **App integration name**.
 1. Enter the **Sign-in redirect URIs** for local development, such as `http://localhost:xxxx/authorization-code/callback`.
 1. Enter the **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/signout/callback`. For more information on callback URIs, see [Define  callback route](#define-a-callback-route).
-1. In the **Assignments** section, define the type of **Controlled access** for your app. Select the **Everyone** group for now. For more information, see [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
+1. In the **Assignments** section, define the type of **Controlled access** for your app. Select the **Everyone** group for now. For more information, see the [Assign app integrations](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-user-app-assign.htm) topic in the Okta product documentation.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you copy some values when configuring your app.
 
 ## Create app

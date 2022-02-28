@@ -78,7 +78,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Enter an **App integration name**.
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
-1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
+1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/oie/en-us/Content/Topics/Provisioning/lcm/lcm-user-app-assign.htm) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
 1. Verify that **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, [refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is automatically set as the default refresh token behavior.
