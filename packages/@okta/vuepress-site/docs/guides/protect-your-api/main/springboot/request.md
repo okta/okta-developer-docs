@@ -1,7 +1,8 @@
 ```http
-https://localhost:8080/api/whoami Bearer: ${TOKEN}
+http://localhost:8080/api/whoami
+Authorization: Bearer ${TOKEN}
 ```
 
 ```http
-https://localhost:8080/api/hello
+http://localhost:8080/api/hello
 ```

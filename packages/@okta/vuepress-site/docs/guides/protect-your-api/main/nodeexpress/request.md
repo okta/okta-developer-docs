@@ -1,5 +1,6 @@
 ```http
-https://localhost:3000/api/whoami Bearer: ${TOKEN}
+https://localhost:3000/api/whoami
+Authorization: Bearer ${TOKEN}
 ```
 
 ```http
