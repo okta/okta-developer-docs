@@ -30,7 +30,7 @@ After you have an idea of the above considerations, you can integrate Okta authe
 
 ## Choose your auth
 
-| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget | Embedded SDK-driven Sign-In |
+| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget | Embedded SDK-driven Sign-In flow|
 | ------ | -------------------------- | ----------------------- | ------------------------- |
 | &nbsp; | Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach &mdash; most secure and fastest to implement. | Embed the Okta Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization. | Use our SDKs to create a completely custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control. |
 | **Effort** | <span style="width: 50%;display:block">![Low](/img/ratings/low.png)</span> | <span style="width: 50%;display:block">![Medium](/img/ratings/medium.png)</span> | <span style="width: 50%;display:block">![High](/img/ratings/high.png)</span> |

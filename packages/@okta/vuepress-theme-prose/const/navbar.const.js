@@ -546,10 +546,6 @@ export const guides = [
             guideName: "protect-your-api"
           },
           {
-            title: "Configure an access policy",
-            guideName: "configure-access-policy"
-          },
-          {
             title: "Integrate Third-Party Risk",
             guideName: "third-party-risk-integration"
           },
