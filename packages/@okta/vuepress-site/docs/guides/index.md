@@ -3,7 +3,6 @@ title: Guides overview
 guides:
  - add-an-external-idp
  - archive-auth-js
- - archive-configure-signon-policy
  - archive-embedded-siw
  - archive-overview
  - archive-sign-in-to-spa-authjs
@@ -15,6 +14,7 @@ guides:
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso
+ - configure-signon-policy
  - create-an-api-token
  - custom-email
  - custom-error-pages

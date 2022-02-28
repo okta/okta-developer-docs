@@ -370,6 +370,7 @@ export const guides = [
           },
           { title: "Sign users out", guideName: "sign-users-out" },
           { title: "Add multifactor authentication", guideName: "mfa" },
+          { title: "Configure Okta Sign-On and App Sign-On Policies", guideName: "configure-signon-policy" },
           {
             title: "Basics",
             subLinks: [
