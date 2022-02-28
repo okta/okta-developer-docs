@@ -1,13 +1,13 @@
 ### 1: Initiate the sign-in and choose Okta Verify TOTP option
 
-First, the user initiates the user sign-in with username and password. If the user is enrolled in Okta Verify, they are shown options to either verify by push notification or TOTP. In this flow, they choose TOTP and a value of `totp` is sent to
+First, the user initiates the user sign-in with username and password. If enrolled in Okta Verify, show options to verify by push notification or TOTP. In this flow, they choose TOTP, and a value of `totp` is sent to
 `IdxTransaction.idx.proceed()`. These first steps are common across the challenge flows and are described in [Initiate sign-in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication).
 
-For this flow, the user chooses the push notification method type and the value of `totp` is sent to `IdxTransaction.idx.proceed()`.
+The user chooses TOTP type and the value of `totp` is sent to `IdxTransaction.idx.proceed()`.
 
 ### 2: Display page with TOTP input field
 
-The `IdxTransaction` response from the last step in [Initiate sign-in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication) indicates that the user needs to enter a TOTP code in your app. Specifically, `IdxTransaction.idx.proceed()` returns a `status` of `PENDING` and `nextStep.name` equal to `challenge-authenticator`, which indicates that the user needs to lookup the TOTP in Okta Verify and enter the value in your app.  An example `IdxTransaction` response follows:
+The `IdxTransaction` response from the last step in [Initiate sign-in for Okta Verify challenge](#_1-initiate-use-case-requiring-authentication) indicates that the user must enter a TOTP code in your app. Specifically, `IdxTransaction.idx.proceed()` returns a `status` of `PENDING` and `nextStep.name` equal to `challenge-authenticator`, which indicates that the user needs to look up the TOTP in Okta Verify and enter the value in your app. An example `IdxTransaction` response follows:
 
 ```json
 {
@@ -25,7 +25,7 @@ The `IdxTransaction` response from the last step in [Initiate sign-in for Okta V
 }
 ```
 
-Using the `IdxTransaction` response display a page to input the TOTP.
+Using the `IdxTransaction` response, display a page to input the TOTP.
 
 <div class="common-image-format">
 
