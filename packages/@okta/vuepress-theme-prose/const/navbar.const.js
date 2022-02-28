@@ -152,15 +152,15 @@ export const guides = [
             subLinks: [
               {
                 title: "Sign users in to your single-page application",
-                guideName: "sign-into-spa"
+                guideName: "sign-into-spa-redirect"
               },
               {
                 title: "Sign users in to your web application",
-                guideName: "sign-into-web-app"
+                guideName: "sign-into-web-app-redirect"
               },
               {
                 title: "Sign users in to your mobile app",
-                guideName: "sign-into-mobile-app"
+                guideName: "sign-into-mobile-app-redirect"
               },
               {
                 title: "Use redirect auth with the sample apps",
