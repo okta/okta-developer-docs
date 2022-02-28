@@ -1,6 +1,6 @@
 1. Create a `src/config.js` file to define your configuration settings.
 
-2. Enter the following contents into it, replacing the placeholder values with the values that you obtained earlier:
+2. Enter the following contents into it, replacing the placeholder values with the values that you obtained earlier from the CLI:
 
 ```js
 export default {

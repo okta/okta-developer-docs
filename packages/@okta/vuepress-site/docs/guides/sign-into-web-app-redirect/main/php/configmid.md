@@ -1,4 +1,4 @@
-If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory. This file includes your Okta domain, client ID, and client secret.
+If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory containing these values.
 
 1. Make a copy of `.okta.env` called `.env` inside your project root.
 

@@ -15,7 +15,7 @@ class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
     http.authorizeRequests()
       // Require authentication for all requests under /api/private
       .antMatchers("/api/whoami").authenticated()
-    .and()
+      .and()
       .oauth2ResourceServer().jwt();
   }
 }

@@ -60,7 +60,7 @@ okta apps create web
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required Redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. The Okta CLI creates an `okta.env` file with export statements containing the client ID, client secret, and issuer. Keep this safe as you use it later to configure your web app.
+4. The Okta CLI creates an `okta.env` file with export statements containing the Client ID, Client Secret, and Issuer. Keep this safe as you use it later to configure your web app.
 
 At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
@@ -93,7 +93,7 @@ Add the required dependencies for using the Okta SDK with your web app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: client ID, client secret, and issuer.
+Our app uses information from the Okta integration that we created earlier to configure communication with the API: Client ID, Client Secret, and Issuer.
 
 <StackSnippet snippet="configmid" />
 
@@ -101,9 +101,9 @@ Our app uses information from the Okta integration that we created earlier to co
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find the application integration that you created earlier):
 
-* **Client ID** &mdash; Found on the **General** tab in the **Client Credentials** section.
-* **Client Secret** &mdash; Found on the **General** tab in the **Client Credentials** section.
-* **Okta Domain** &mdash; Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
+* **Client ID**: Found on the **General** tab in the **Client Credentials** section.
+* **Client Secret**: Found on the **General** tab in the **Client Credentials** section.
+* **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
 
 > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
 

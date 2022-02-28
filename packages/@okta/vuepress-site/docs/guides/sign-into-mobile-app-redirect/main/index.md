@@ -63,7 +63,7 @@ okta apps create native
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Make note of the redirect URI, post-logout redirect URI, and the application configuration printed to the terminal. You'll need these to configure your mobile app.
+4. Make note of the Redirect URI, Post Logout Redirect URI, and the application configuration printed to the terminal. You'll need these to configure your mobile app.
 
 At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually or find out what the CLI just did for you, read on.
 
@@ -95,7 +95,7 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: redirect URI, post-logout redirect URI, Client ID and Issuer.
+Our app uses information from the Okta integration that we created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID and Issuer.
 
 <StackSnippet snippet="configmid" />
 
@@ -103,10 +103,10 @@ Our app uses information from the Okta integration that we created earlier to co
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
-* **Redirect URI** &mdash; Found on the **General** tab in the **Login** section.
-* **Post-logout redirect URI** &mdash; Found on the **General** tab in the **Login** section.
-* **Client ID** &mdash; Found on the **General** tab in the **Client Credentials** section.
-* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
+* **Redirect URI**: Found on the **General** tab in the **Login** section.
+* **Post Logout Redirect URI**: Found on the **General** tab in the **Login** section.
+* **Client ID**: Found on the **General** tab in the **Client Credentials** section.
+* **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
 ### Define a callback route
 

@@ -1,4 +1,4 @@
-You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
+You can configure the properties of your application with configuration files, environment variables, or other framework-specific techniques.
 
 In our quickstart, we do this via the `passport-openidconnect` package, which requires an instance of a `Strategy` object with configuration properties. You will set the `issuer`, `authorizationURL`, `tokenURL`,  `userInfoURL`, `clientID`, and `clientSecret` properties inside that object using your own values.
 

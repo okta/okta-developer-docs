@@ -12,7 +12,7 @@ class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
       .anyRequest().authenticated() // All requests require authentication
-    .and()
+      .and()
       .oauth2ResourceServer().jwt(); // validates access tokens as JWTs
   }
 }

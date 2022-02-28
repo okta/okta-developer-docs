@@ -5,8 +5,8 @@
 ```json
 {
   "client_id": "${clientId}",
-  "redirect_uri": "${signinRedirectUri}",
-  "end_session_redirect_uri": "${signoutRedirectUri}",
+  "redirect_uri": "${redirectUri}",
+  "end_session_redirect_uri": "${logoutRedirectUri}",
   "scopes": [
     "openid",
     "profile",

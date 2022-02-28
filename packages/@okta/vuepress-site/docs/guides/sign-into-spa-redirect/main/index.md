@@ -118,8 +118,8 @@ Our app uses information from the app integration that we created earlier to con
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
-* **Client ID** &mdash; Found on the **General** tab in the **Client Credentials** section.
-* **Issuer** &mdash; Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
+* **Client ID**: Found on the **General** tab in the **Client Credentials** section.
+* **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
 ### Redirect to the sign-in page
 
