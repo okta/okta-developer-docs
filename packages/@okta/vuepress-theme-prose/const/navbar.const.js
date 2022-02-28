@@ -80,6 +80,10 @@ export const concepts = [
         path: "/docs/concepts/okta-data-model/"
       },
       {
+        title: "Okta Identity Engine Overview",
+        path: "/docs/guides/oie-intro/"
+      },
+      {
         title: "Okta Organizations",
         path: "/docs/concepts/okta-organizations/"
       },
@@ -140,37 +144,147 @@ export const guides = [
       { title: "Guides overview", path: "/docs/guides/" },
       { title: "Quickstart", guideName: "quickstart" },
       {
-        title: "Basics",
+        title: "Sign users in",
         subLinks: [
-          { title: "Create an API token", guideName: "create-an-api-token" },
-          { title: "Enable CORS", guideName: "enable-cors" },
-          { title: "Find your Okta domain", guideName: "find-your-domain" },
+          { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Find your application credentials",
-            guideName: "find-your-app-credentials"
+            title: "Set up to run Identity Engine use cases",
+            subLinks: [
+              {
+                title: "Get set up",
+                guideName: "oie-embedded-common-org-setup",
+              },
+              {
+                title: "Download and set up the sample app",
+                guideName: "oie-embedded-common-download-setup-app",
+              },
+              {
+                title: "Run the sample apps",
+                guideName: "oie-embedded-common-run-samples",
+              },
+            ]
           },
           {
-            title: "Share Application Key Credentials for IdPs across Apps",
-            guideName: "sharing-cert"
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Sign users in to your single-page application",
+                guideName: "sign-into-spa"
+              },
+              {
+                title: "Sign users in to your web application",
+                guideName: "sign-into-web-app"
+              },
+              {
+                title: "Sign users in to your mobile app",
+                guideName: "sign-into-mobile-app"
+              },
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              }
+            ]
           },
-          { title: "Set up SAML Tracer", guideName: "saml-tracer" },
           {
-            title: "Upgrade SAML Apps to SHA256",
-            guideName: "updating-saml-cert"
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Auth JS fundamentals",
+                guideName: "auth-js"
+              },
+              {
+                title: "Embedded Sign-In Widget fundamentals",
+                guideName: "embedded-siw"
+              },
+              {
+                title: "Sign in to your SPA with Auth JS",
+                guideName: "sign-in-to-spa-authjs"
+              },
+              {
+                title: "Sign in to SPA with embedded Widget",
+                guideName: "sign-in-to-spa-embedded-widget"
+              },
+              {
+                title: "Embedded SDK use cases",
+                subLinks: [
+                  {
+                    title: "Basic sign-in flow using the password factor",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
+                  },
+                  {
+                    title: "User password recovery",
+                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
+                  },
+                  {
+                    title: "Self-registration",
+                    guideName: "oie-embedded-sdk-use-case-self-reg",
+                  },
+                  {
+                    title: "Sign in with password and email factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
+                  },
+                  {
+                    title: "Sign in with password and phone factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
+                  },
+                  {
+                    title: "User sign out (local app)",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
+                  },
+                  {
+                    title: "SDK limitations and workarounds",
+                    guideName: "oie-embedded-sdk-limitations",
+                  }
+                ]
+              },
+              {
+                title: "Embedded Sign-In Widget use cases",
+                subLinks: [
+                  {
+                    title: "Load the Widget",
+                    guideName: "oie-embedded-widget-use-case-load",
+                  },
+                  {
+                    title: "Basic sign-in flow using the Widget",
+                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook using the Widget",
+                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
+                  }
+                ]
+              }
+            ]
           },
           {
-            title: "Sign the Okta certificate with your own CA",
-            guideName: "sign-your-own-saml-csr"
+            title: "Mobile techniques",
+            subLinks: [
+              {
+                title: "Unlock a mobile app with biometrics",
+                guideName: "unlock-mobile-app-with-biometrics"
+              },
+              {
+                title: "Build a custom sign-in UI in your mobile app",
+                guideName: "build-custom-ui-mobile"
+              },
+              {
+                title: "Share a sign-in session with native mobile apps",
+                guideName: "shared-sso-android-ios"
+              }
+            ]
           },
           {
-            title: "Set up self-service registration",
-            guideName: "set-up-self-service-registration"
-          }
-        ]
-      },
-      {
-        title: "Sign Users In",
-        subLinks: [
+            title: "Configure an access policy",
+            guideName: "configure-access-policy"
+          },
           {
             title: "Add an Identity Provider",
             subLinks: [
@@ -254,32 +368,36 @@ export const guides = [
               },
             ]
           },
-
+          { title: "Sign users out", guideName: "sign-users-out" },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
-            title: "Mobile App",
+            title: "Basics",
             subLinks: [
+              { title: "Create an API token", guideName: "create-an-api-token" },
+              { title: "Enable CORS", guideName: "enable-cors" },
+              { title: "Find your Okta domain", guideName: "find-your-domain" },
               {
-                title: "Unlock a mobile app with biometrics",
-                guideName: "unlock-mobile-app-with-biometrics"
+                title: "Find your application credentials",
+                guideName: "find-your-app-credentials"
               },
               {
-                title: "Build a custom sign-in UI in your mobile app",
-                guideName: "build-custom-ui-mobile"
+                title: "Share Application Key Credentials for IdPs across Apps",
+                guideName: "sharing-cert"
               },
-              { title: "Sign into your mobile app with redirect auth", guideName: "sign-into-mobile-app-redirect" },
+              { title: "Set up SAML Tracer", guideName: "saml-tracer" },
               {
-                title: "Share a sign-in session with native mobile apps",
-                guideName: "shared-sso-android-ios"
+                title: "Upgrade SAML Apps to SHA256",
+                guideName: "updating-saml-cert"
+              },
+              {
+                title: "Sign the Okta certificate with your own CA",
+                guideName: "sign-your-own-saml-csr"
+              },
+              {
+                title: "Set up self-service registration",
+                guideName: "set-up-self-service-registration"
               }
             ]
-          },
-          { title: "Sign into your SPA with redirect auth", guideName: "sign-into-spa-redirect" },
-          { title: "Sign into your web app with redirect auth", guideName: "sign-into-web-app-redirect" },
-          { title: "Sign users out", guideName: "sign-users-out" },
-          {
-            title: "Configure Okta sign-on and App sign-on policies",
-            guideName: "configure-signon-policy"
           }
         ]
       },
@@ -515,117 +633,36 @@ export const guides = [
         ]
       },
       {
-        title: "Identity Engine",
+        title: "Classic archive",
         subLinks: [
           {
-            title: "Okta Identity Engine Overview",
-            path: "/docs/guides/oie-intro/"
+            title: "Overview",
+            guideName: "archive-overview"
           },
           {
-            title: "Redirect authentication",
-            subLinks: [
-              {
-                title: "Use redirect auth with the sample apps",
-                guideName: "sampleapp-oie-redirectauth",
-              },
-            ]
+            title: "Configure Okta Sign-On and App Sign-On Policies",
+            guideName: "archive-configure-signon-policy"
           },
           {
-            title: "Embedded authentication",
-            subLinks: [
-              {
-                title: "Get set up",
-                guideName: "oie-embedded-common-org-setup",
-              },
-              {
-                title: "Download and set up the sample app",
-                guideName: "oie-embedded-common-download-setup-app",
-              },
-              {
-                title: "Run the sample apps",
-                guideName: "oie-embedded-common-run-samples",
-              },
-              {
-                title: "Build a use case with the embedded SDK",
-                subLinks: [
-                  {
-                    title: "Basic sign-in flow using the password factor",
-                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
-                  },
-                  {
-                    title: "Sign in with Facebook",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
-                  },
-                  {
-                    title: "User password recovery",
-                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
-                  },
-                  {
-                    title: "Self-registration",
-                    guideName: "oie-embedded-sdk-use-case-self-reg",
-                  },
-                  {
-                    title: "Sign in with password and email factors",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
-                  },
-                  {
-                    title: "Sign in with password and phone factors",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
-                  },
-                  {
-                    title: "User sign out (local app)",
-                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
-                  },
-                  {
-                    title: "SDK limitations and workarounds",
-                    guideName: "oie-embedded-sdk-limitations",
-                  }
-                ]
-              },
-              {
-                title: "Build a use case with the embedded Widget",
-                subLinks: [
-                  {
-                    title: "Load the Widget",
-                    guideName: "oie-embedded-widget-use-case-load",
-                  },
-                  {
-                    title: "Basic sign-in flow using the Widget",
-                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
-                  },
-                  {
-                    title: "Sign in with Facebook using the Widget",
-                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
-                  }
-                ]
-              },
-              {
-                title: "Refresh access and ID tokens",
-                guideName: "oie-embedded-common-refresh-tokens",
-              },
-            ]
-            },
-            {
-              title: "Okta Sign-In Widget",
-              subLinks: [
-                {
-                  title: "Upgrade your Okta Sign-In Widget",
-                  guideName: "oie-upgrade-sign-in-widget",
-                },
-                {
-                  title: "Updates to the Sign-In Widget i18n properties",
-                  guideName: "oie-upgrade-sign-in-widget-i18n",
-                },
-              ]
-            },
-                {
-            title: "Okta Identity Engine Limitations",
-            path: "/docs/guides/ie-limitations/"
+            title: "Auth JS fundamentals",
+            guideName: "archive-auth-js"
           },
+          {
+            title: "Embedded Sign-In Widget fundamentals",
+            guideName: "archive-embedded-siw"
+          },
+          {
+            title: "Sign in to SPA with Auth JS",
+            guideName: "archive-sign-in-to-spa-authjs"
+          },
+          {
+            title: "Sign in to SPA with embedded Widget",
+            guideName: "archive-sign-in-to-spa-embedded-widget"
+          }
         ]
-      },
+      }
     ]
-  },
+  }
 ];
 
 export const languagesSdk = [
