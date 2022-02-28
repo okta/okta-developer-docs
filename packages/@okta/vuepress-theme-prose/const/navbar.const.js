@@ -51,7 +51,7 @@ export const concepts = [
           },
           {
             title: "Redirect vs. embedded authentication",
-            path: "/docs/concepts/redirect-vs-embedded"
+            path: "/docs/concepts/redirect-vs-embedded/"
           },
         ]
       },
@@ -568,6 +568,10 @@ export const guides = [
           {
             title: "Integrate Third-Party Risk",
             guideName: "third-party-risk-integration"
+          },
+          {
+            title: "Secure OAuth API connection between orgs",
+            guideName: "secure-oauth-between-orgs"
           }
         ]
       },

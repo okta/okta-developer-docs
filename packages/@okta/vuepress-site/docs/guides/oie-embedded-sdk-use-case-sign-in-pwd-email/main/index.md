@@ -7,8 +7,6 @@ title: Sign in with password and email factors
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide covers the use case for a user sign-in flow with password and email factors, and provides a flow diagram and a sequence of integration steps.
 
 ---

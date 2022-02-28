@@ -6,8 +6,6 @@ title: Refresh the access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to refresh access and ID tokens by using either the Identity Engine SDK or the OIDC & OAuth 2.0 API.
 
 ---

@@ -7,8 +7,6 @@ title: Load the Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
 ---

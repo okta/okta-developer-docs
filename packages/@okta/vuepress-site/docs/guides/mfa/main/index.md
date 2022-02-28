@@ -6,8 +6,6 @@ meta:
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
 
 ---

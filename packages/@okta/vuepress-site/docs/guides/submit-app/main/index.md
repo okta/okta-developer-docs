@@ -173,7 +173,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App website**:  Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
 
-* **App category**: Specify one or more categories that Okta uses to categorize your integration in the OIN catalog. Click **Add Another** to choose up to three categories.
+* **App use case**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **Add Another** to choose up to five use cases.
 
 * **App description**: Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
 
