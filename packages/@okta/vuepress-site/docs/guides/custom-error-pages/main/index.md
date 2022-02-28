@@ -27,7 +27,7 @@ Customize error pages as part of the sign-in flow.
 
 When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
-However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the embedded HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page.
+However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using an embedded HTML editor.
 
 > **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
 
@@ -35,7 +35,7 @@ However, if an error occurs during sign-in, Okta may need to display an error pa
 
 **In what situations does Okta serve error pages to the user?**
 
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta-hosted flows](/docs/concepts/okta-hosted-flows/) for more information on Okta-hosted functionality.
+The error page appears when a critical error occurs or an application is misconfigured. See [Okta authentication models — redirect vs. embedded authentication](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
 **What can I customize on the error page?**
 
@@ -43,7 +43,7 @@ You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Edit the error page
 
@@ -51,6 +51,7 @@ The HTML editor that is provided on the **Custom Error Pages** tab of the **Cust
 
 1. In the Admin Console, select **Settings** and then **Customizations**.
 1. Click the **Custom Error Pages** tab.
+> **Note**: In Okta Identity Engine, select **Customizations** and then **Error pages code editor** to find the error pages editor.
 1. Make changes directly in the embedded **Custom Error Pages** editor.
 1. Click **Preview** to preview your changes before you publish.
 1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.

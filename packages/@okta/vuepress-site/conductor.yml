@@ -412,7 +412,7 @@ redirects:
   - from: /use_cases/api_access_management/index.html
     to: /docs/concepts/api-access-management/
   - from: /use_cases/authentication/index.html
-    to: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
   - from: /use_cases/authentication/session_cookie/index.html
     to: /docs/guides/session-cookie/
   - from: /use_cases/event_hooks/index.html
@@ -730,7 +730,7 @@ redirects:
   - from: /use_cases/api_access_management
     to: /docs/concepts/api-access-management/
   - from: /use_cases/authentication
-    to: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
   - from: /use_cases/authentication/session_cookie
     to: /docs/guides/session-cookie/
   - from: /use_cases/event_hooks
@@ -4729,6 +4729,18 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
+  - from: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
+  - from: /docs/concepts/authentication/index.html
+    to: /docs/guides/sign-in-overview/
+  - from: /docs/concepts/hosted-vs-embedded/
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/hosted-vs-embedded/index.html
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/okta-hosted-flows/
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/okta-hosted-flows/index.html
+    to: /docs/concepts/redirect-vs-embedded/
   - from: /docs/guides/sign-into-web-app/
     to: /docs/guides/sign-into-web-app-redirect/
   - from: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route

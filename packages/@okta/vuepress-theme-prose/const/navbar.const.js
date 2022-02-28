@@ -11,10 +11,6 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/"
       },
       {
-        title: "Authentication",
-        path: "/docs/concepts/authentication/"
-      },
-      {
         title: "Authorization Servers",
         path: "/docs/concepts/auth-servers/"
       },
@@ -43,21 +39,12 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity Engine",
-        subLinks: [
-          {
-            title: "Interaction Code grant type",
-            path: "/docs/concepts/interaction-code/"
-          },
-          {
-            title: "Redirect vs. embedded authentication",
-            path: "/docs/concepts/redirect-vs-embedded/"
-          },
-        ]
-      },
-      {
         title: "Inline Hooks",
         path: "/docs/concepts/inline-hooks/"
+      },
+      {
+        title: "Interaction Code grant type",
+        path: "/docs/concepts/interaction-code/"
       },
       {
         title: "Key Rotation",
@@ -76,6 +63,10 @@ export const concepts = [
         path: "/docs/concepts/oauth-openid/"
       },
       {
+        title: "Okta authentication models — redirect vs. embedded",
+        path: "/docs/concepts/redirect-vs-embedded/"
+      },
+      {
         title: "Okta Data Model",
         path: "/docs/concepts/okta-data-model/"
       },
@@ -86,14 +77,6 @@ export const concepts = [
       {
         title: "Okta Organizations",
         path: "/docs/concepts/okta-organizations/"
-      },
-      {
-        title: "Okta-Hosted Flows",
-        path: "/docs/concepts/okta-hosted-flows/"
-      },
-      {
-        title: "Hosted Vs. Embedded",
-        path: "/docs/concepts/hosted-vs-embedded/"
       },
       {
         title: "Policies",

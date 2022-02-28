@@ -11,6 +11,10 @@ the Okta multi-tenant solution. This doc provides an overview of the
 solution, identifies reasons why organizations may want to consider it, and
 lists the different multi-tenant configurations available.
 
+> **Important**: When implementing a multi-tenant solution, ensure that
+ all tenants are on the same version of Okta, either Okta Classic or Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your
+ tenant's Okta version.
+
 ## Acme Bank example
 
 Acme Bank, a fictitious bank, is used throughout this doc to explain the
@@ -20,6 +24,7 @@ To meet the needs and demands of their employees, customers, and partners,
 they built their solution with a multi-tenant configuration.
 
 ## What is a tenant?
+
 A tenant is a single instance of software and supporting infrastructure that
 supports a group of users. Tenant's can represent any entity that
 interfaces with the organization such as its employees, customers, or partners.
@@ -28,6 +33,7 @@ A tenant supports both a business-to-customer (B2C) and business-to-business
 organization's customers.
 
 ### A tenant within Identity Access Management
+
 A tenant can also be considered as an isolated island of data that is separate
 and private from other tenants. In the context of identity management, each
 tenant has its own security policies, user registration settings, user groups,
