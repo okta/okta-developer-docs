@@ -333,19 +333,19 @@ Okta provides a number of SDKs that you might want to use the Sign-In Widget wit
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/doc/guides/sign-in-to-spa-embedded-widget/angular/main) shows the code you need to embed the Sign-In Widget in an Angular app.
+The [Okta Sign-In Widget and Angular guide](/docs/guides/sign-in-to-spa-embedded-widget/angular/main) shows the code you need to embed the Sign-In Widget in an Angular app.
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
 ### React
 
-The [Okta Sign-In Widget and React guide](/doc/guides/sign-in-to-spa-embedded-widget/react/main) shows the code you need in order to embed the Sign-In Widget in a React app.
+The [Okta Sign-In Widget and React guide](/docs/guides/sign-in-to-spa-embedded-widget/react/main) shows the code you need in order to embed the Sign-In Widget in a React app.
 
 See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example using the [okta-react](https://github.com/okta/okta-react) SDK.
 
 ### Vue
 
-The [Okta Sign-In Widget and Vue guide](/doc/guides/sign-in-to-spa-embedded-widget/vue/main) shows the code you need in order to embed the Sign-In Widget in a Vue app.
+The [Okta Sign-In Widget and Vue guide](/docs/guides/sign-in-to-spa-embedded-widget/vue/main) shows the code you need in order to embed the Sign-In Widget in a Vue app.
 
 See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example using the [okta-vue](https://github.com/okta/okta-vue) SDK.
 
