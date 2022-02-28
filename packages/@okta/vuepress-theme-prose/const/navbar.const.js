@@ -259,7 +259,7 @@ export const guides = [
             title: "Sign-in policies",
             subLinks: [
               {
-                title: "Configure a Global Session Policy and app sign-on policies",
+                title: "Configure Okta Sign-On and App Sign-On Policies",
                 guideName: "configure-signon-policy"
               },
               {
@@ -368,11 +368,7 @@ export const guides = [
             title: "Sign users in to your web application",
             guideName: "sign-into-web-app"
           },
-          { title: "Sign users out", guideName: "sign-users-out" },
-          {
-            title: "Configure a Global Session Policy and app sign-on policies",
-            guideName: "configure-signon-policy"
-          }
+          { title: "Sign users out", guideName: "sign-users-out" }
         ]
       },
       {
@@ -382,11 +378,7 @@ export const guides = [
             title: "Overview",
             guideName: "archive-overview"
           },
-          {
-            title: "Configure Okta Sign-On and App Sign-On Policies",
-            guideName: "archive-configure-signon-policy"
-          },
-          {
+           {
             title: "Auth JS fundamentals",
             guideName: "archive-auth-js"
           },
