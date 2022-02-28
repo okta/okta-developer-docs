@@ -87,6 +87,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   go: 'code-go-32',
   ios: 'code-ios-32',
   java: 'code-java-32',
+  javascript: 'code-javascript-32',
   netcore: 'code-dotnet-32',
   nodejs: 'code-nodejs-32',
   'node-express': 'code-nodejs-32',
