@@ -2,6 +2,7 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - client-secret-rotation-key
