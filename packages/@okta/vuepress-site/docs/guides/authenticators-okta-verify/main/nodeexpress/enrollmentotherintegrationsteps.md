@@ -1,5 +1,5 @@
 
-### 1: Initiate the sign-in choose Okta Verify as the authenticator
+### 1: Initiate the sign-in and choose Okta Verify as the authenticator
 
 First, the user initiates the user sign-in with username and password and chooses Okta Verify as the authenticator to enroll in. Follow the steps in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment), to learn more about how to integrate these steps.
 
@@ -49,7 +49,9 @@ Using this response build a page to display the QR code and link to alternative 
 
 </div>
 
-### 3: Select enroll with another method
+There is polling on this page to determine whether the user scans the QR Code, however, it will be terminated in subsequent steps when the user selects a different enrollment channel.
+
+### 3: Select enroll with another chennel
 
 The user selects the enroll with another method option. Using the  `select-enrollment-channel` value from `IdxTransaction.availableSteps[n].name` in the previous step, pass it to `IdxTransaction.idx.proceed()`.
 
@@ -103,7 +105,7 @@ Using this response build a page to display the available alternative channels. 
 
 </div>
 
-### 5: Select email as alternative channel
+### 5: Select email
 
 The user selects and submits an alternative channel (in this case email). Call `IdxTransaction.idx.proceed()` passing in the channel name. For email the value is `email`.
 
@@ -143,7 +145,7 @@ Example page follows:
 
 
 
-### 7: Submit email address
+### 6: Submit email address
 
 After the user enters and submits their email address, call `IdxTransaction.idx.proceed()` passing in an object-key-value pair with `email` as the key and the email address as the value.
 
@@ -165,11 +167,11 @@ Example of the `proceed` call:
   });
 ```
 
-### 8: Send email with Okta Verify activation link
+### 7: Send email with Okta Verify activation link
 
 After the user submits their email, Okta sends an email with an activation link.
 
-### 9: Display page and poll for completion of Okta Verify setup
+### 8: Display page and poll for Okta Verify setup completion
 
 Display a page informing the user an email has been sent to the provided email address. The page also polls the SDK to determine when the user has click on the email link and completed the setup in Okta Verify. The polling logic is common across the different flows and the steps are described in detail in [Polling Okta](#polling-okta).
 
@@ -179,7 +181,7 @@ Display a page informing the user an email has been sent to the provided email a
 
 </div>
 
-### 10: Click on the link in the email
+### 9: Click on the link in the email and complete Okta Verify setup
 
 On their mobile device, the user opens the email and clicks the **Activate Okta Verify Push** email, which sends them to Okta Verify to complete the account setup.
 
@@ -189,10 +191,10 @@ On their mobile device, the user opens the email and clicks the **Activate Okta 
 
 </div>
 
-### 11: Exit polling
+### 10: Exit polling
 
 After the user completes the setup in Okta Verify, the next call to `OktaAuth.idx.poll()` returns `IdxTransaction` with `nextStep.name` no longer set to `enroll-poll`. Depending on how the policy is configured, `status` equals `PENDING` or `SUCCESS` with tokens. Exit the polling when `nextStep.name` is no longer set to `enroll-poll` and continue handling the sign-in steps. Exiting the polling is described in detail in the [Polling Okta](#polling-okta).
 
-### 12: Complete successful sign in
+### 11: Complete successful sign in
 
 After the user completes the Okta Verify account setup and any additional sign-in steps, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. The page exits the polling and redirects the user to the default home page.

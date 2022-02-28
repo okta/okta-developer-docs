@@ -1,1 +1,5 @@
-TODO: Sequence diagram showing the enrollment flow with email channel
+<div class="common-image-format">
+
+![Sequence diagram for Okta Verify enrollment using email channel](/img/authenticators/authenticators-oktaverify-summary-enrollment-other-channels.png)
+
+</div>
