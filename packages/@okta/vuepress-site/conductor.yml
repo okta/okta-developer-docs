@@ -4729,6 +4729,10 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
+  - from: /code/oie/
+    to: /code/
+  - from: /code/oie/index.html
+    to: /code/
   - from: /docs/concepts/authentication/
     to: /docs/guides/sign-in-overview/
   - from: /docs/concepts/authentication/index.html

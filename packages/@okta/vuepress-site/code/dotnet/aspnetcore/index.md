@@ -1,11 +1,11 @@
 ---
-title: Add User Authentication and Okta Resource Management to Your ASP.NET Core App
+title: Add user authentication and Okta Resource Management to your ASP.NET Core app
 language: .NET
 integration: back-end
 icon: code-dotnet
 meta:
   - name: description
-    content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
+    content: Our ASP.NET Core integration makes it easy to add a sign-in flow to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
 <ul class='language-tabs'>
@@ -26,84 +26,68 @@ meta:
 	</li>
 </ul>
 
-## Get Started with ASP.NET Core + Okta
+## Get started with ASP.NET Core + Okta
 
-New to Okta? Our how to guide will walk you through adding user authentication to your ASP.NET Core app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
-	<!-- <li>
+	<li>
 		<a href='/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+			<span>Sign users in quickstart</span>
 		</a>
-	</li> -->
+	</li>
+	<li>
+		<a href='/docs/guides/protect-your-api/aspnetcore3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Protect your API quickstart</span>
+	</li>
 	<li>
 		<a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta ASP.NET Core Integration
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-Okta's OIDC middleware integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://www.nuget.org/packages/Okta.AspNetCore' class="language-reference">
-	<span class='icon download-16'></span>
-	<span>Okta ASP.NET Core OIDC integration on NuGet</span>
-</a>
+[ASP.NET Core redirect authentication sample app](https://github.com/okta/samples-aspnetcore): See [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-aspnet'>
-	<span class='fa fa-github'></span> <span>Okta ASP.NET Core OIDC integration Source</span>
-</a>
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-## Other .NET Libraries
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc on the fly.
+Okta Identity Engine:
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-sdk-dotnet">
-			 <span>Okta Management SDK for .NET</span>
-		</a>
-	</li>
-</ul>
+[Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
 
-The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+Okta Classic:
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-auth-dotnet">
-			 <span>Okta .NET Authentication SDK</span>
-		</a>
-	</li>
-</ul>
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you can't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
+* Okta's [Okta ASP.NET Core OIDC middleware integration](https://github.com/okta/okta-aspnet) makes it easy to add a sign-in flow to your ASP.NET Core applications and protect your Web APIs.
+* [Okta ASP.NET Core OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNetCore)
 
-The Okta SDK for Xamarin follows current best practice for native apps using OIDC, the Authorization Code flow + PKCE.
+## Other Classic .NET libraries
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-xamarin">
-			 <span>Okta Xamarin SDK (beta)</span>
-		</a>
-	</li>
-</ul>
+* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and works with both .NET Framework and .NET Core. It's helpful to work with the Okta Management API to manage users, groups, apps, and so on, on the fly.
+* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC and the Authorization Code flow + PKCE.
 
-## Recommended Guides
+## Recommended guides
 
+Okta-hosted Sign-In Widget guide:
 
-- [Manual JWT Validation in .NET](/code/dotnet/jwt-validation/)
+[Sign in to your web app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/)
 
-## Related Blog Posts
+Embedded SDK and Sign-In Widget sign-in guide:
 
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 
-- [Build a CRUD App with ASP.NET Core and Angular](/blog/2018/04/26/build-crud-app-aspnetcore-angular)
-- [How to Secure Your .NET Web API with Token Authentication](/blog/2018/02/01/secure-aspnetcore-webapi-token-auth)
-- [Token Authentication in ASP.NET Core 2.0 - A Complete Guide](/blog/2018/03/23/token-authentication-aspnetcore-complete-guide)
-- [Policy-Based Authorization in ASP.NET Core](/blog/2018/05/11/policy-based-authorization-in-aspnet-core)
-- [Build a Secure CRUD App with ASP.NET Core and React](/blog/2018/07/02/build-a-secure-crud-app-with-aspnetcore-and-react)
-- [OpenID Connect for User Authentication in ASP.NET Core](/blog/2017/06/29/oidc-user-auth-aspnet-core)
-- [User Authorization in ASP.NET Core with Okta](/blog/2017/10/04/aspnet-authorization)
+Other guides:
 
+* [Protect your API endpoints](/docs/guides/protect-your-api/aspnetcore3/main/)
+* [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our [ASP.NET Developer Blog posts](/search/#q=asp%20net&f:@commonoktasource=[Developer%20blog]) for further useful topics.

@@ -1,52 +1,46 @@
 ---
-title: Add User Authentication to Your React Native App
+title: Add user authentication to your React Native app
 language: React Native
 icon: code-react
 integration: mobile
 ---
 
-New to Okta? Our how to guide will walk you through adding user authentication to your React Native app in minutes.
+## Get started with React Native + Okta
+
+New to Okta? Our resources walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
 	<!-- <li>
 		<a href='/docs/guides/sign-into-mobile-app-redirect/react-native/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li> -->
 	<li>
 		<a href='https://github.com/okta/samples-js-react-native' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta React Native SDK
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta React Native client makes it easy to add authentication to your React Native app with Okta's OpenID Connect API.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://www.npmjs.com/package/@okta/okta-react-native' class="language-reference">
-	<span class='icon download-16'></span> <span>okta-react-native on npm</span>
-</a>
+* [okta-react-native on npm](https://www.npmjs.com/package/@okta/okta-react-native)
+* [React Native SDK Source](https://github.com/okta/okta-react-native)
+* [React Native redirect authentication sample app](https://github.com/okta/samples-js-react-native): See [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-react-native'>
-	<span class='fa fa-github'></span> <span>React Native SDK Source</span>
-</a>
+## Recommended guides
 
-### Supported Platforms
-- iOS 11+ [Okta OIDC iOS Supported Platforms](https://github.com/okta/okta-oidc-ios#supported-platforms)
-- Android API 21+ [Okta OIDC Android MinSDK Requirements](https://github.com/okta/okta-oidc-android#requirements)
+Okta-hosted Sign-In Widget guide:
 
-## Recommended Guides
+* [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/react-native/main/)
 
+Other guides:
 
-- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+* [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-## Related Blog Posts
-
-
-- [Build a React Native Application and Authenticate with OAuth 2.0](/blog/2018/03/16/build-react-native-authentication-oauth-2)
-- [Build a React Application with User Authentication in 15 Minutes](/blog/2017/03/30/react-okta-sign-in-widget)
-
+> **Note**: Browse our [React Native Developer Blog posts](/search/#q=react%20native&f:@commonoktasource=[Developer%20blog]) for further useful topics.

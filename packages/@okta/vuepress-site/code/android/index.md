@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your Android App
+title: Add user authentication to your Android app
 language: Android
 integration: mobile
 icon: code-android
@@ -9,65 +9,63 @@ meta:
 
 ---
 
-## Get Started with Android + Okta
+## Get started with Android + Okta
 
-New to Okta? Our how to guide will walk you through adding user authentication to your Android app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Android app in minutes.
 
 <ul class='language-ctas'>
 	<li>
 		<a href='/docs/guides/sign-into-mobile-app-redirect/android/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
 	<li>
 		<a href='https://github.com/okta/samples-android' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta Android SDK
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 and OIDC providers.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements) supports Android 5.0 (Lollipop) and above (minSdkVersion >= 21).
+[Android redirect authentication sample app](https://github.com/okta/samples-android): See [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-oidc-android'>
-	<span class='fa fa-github'></span> <span>Android SDK Source</span>
-</a>
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-## Android Libraries
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-jwt-verifier-java">
-			<span>Okta JWT Verifier for Java</span>
-		</a>
-	</li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-react-native#android-setup">
-			<span>React Native app with Okta's OpenID Connect API</span>
-		</a>
-	</li>
-</ul>
+Okta Identity Engine:
 
-## Recommended Guides
+* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
+* [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
 
-- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+Okta Classic:
 
-## Related Blog Posts
+* [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements)
+* [Android SDK Source](https://github.com/okta/okta-oidc-android)
 
+## Android libraries
 
-- [Build an Android Application (Kotlin) with Authentication](/blog/2020/04/20/android-authentication)
-- [Create a Basic Android App without an IDE](/blog/2018/08/10/basic-android-without-an-ide)
-- [Tutorial: Develop a Mobile App With Ionic and Spring Boot](/blog/2017/05/17/develop-a-mobile-app-with-ionic-and-spring-boot)
-- [Build an Ionic App with User Authentication](/blog/2017/08/22/build-an-ionic-app-with-user-authentication)
-- [Build a React Native Application and Authenticate with OAuth 2.0](/blog/2018/03/16/build-react-native-authentication-oauth-2)
-- [Build an App for iOS and Android with Xamarin](/blog/2018/01/10/build-app-for-ios-android-with-xamarin)
-- [Add Authentication to Your Xamarin App with OpenID Connect](/blog/2018/05/01/add-authentication-xamarin-openid-connect)
+* [Okta JWT Verifier for Java](https://github.com/okta/okta-jwt-verifier-java)
+* [React Native app with Okta's OpenID Connect API, Android setup](https://github.com/okta/okta-react-native#android-setup)
 
+## Recommended guides
+
+Okta-hosted Sign-In Widget guide::
+
+* [Sign into your mobile app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-mobile-app-redirect/android/main/)
+
+Embedded SDK and Sign-In Widget sign-in guides:
+
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/android/main/)
+
+Other guides:
+
+* [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our [Android Developer Blog posts](/search/#q=android&f:@commonoktasource=[Developer%20blog]) for further useful topics.

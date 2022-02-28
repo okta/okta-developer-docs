@@ -21,7 +21,7 @@ describe('code page spec (nodejs)', () => {
     codePage.pageReload();
   });
 
-  it("has 'How-to Guide' and 'Sample App' buttons", () => {
+  it("has 'Sign users in quickstart' and 'Sample App' buttons", () => {
     codePage.getSimpleAppButton().should('exist');
     codePage.getHowToGuide().should('exist');
   });
