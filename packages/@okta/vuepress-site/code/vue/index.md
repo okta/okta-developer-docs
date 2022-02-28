@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your Vue.js App
+title: Add user authentication to your Vue.js app
 language: Vue
 integration: front-end
 icon: code-vue
@@ -8,12 +8,14 @@ meta:
     content: Our guide helps you to add user authentication to your Vue app, integrate with Vue Router, and suggests related content.
 ---
 
-New to Okta? Our how to guide will walk you through adding user authentication to your Vue.js app in minutes.
+## Get started with Vue + Okta
+
+New to Okta? Our resources walk you through adding user authentication to your Vue.js app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-spa/vue/main' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='/docs/guides/sign-into-spa-redirect/vue/main' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
 	<li>
@@ -23,35 +25,30 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 	</li>
 </ul>
 
-## Okta Vue SDK
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connect API to authenticate your users.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://www.npmjs.com/package/@okta/okta-vue' class="language-reference">
-	<span class='icon download-16'></span>
-	<span>okta-vue on npm</span>
-</a>
+* [okta-vue on npm](https://www.npmjs.com/package/@okta/okta-vue)
+* [Vue.js SDK Source](https://github.com/okta/okta-vue)
+* [Vue redirect authentication sample app](https://github.com/okta/samples-js-vue): See [Okta-Hosted Login](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-vue'>
-	<span class='fa fa-github'></span> <span>Vue.js SDK Source</span>
-</a>
+## Recommended guides
 
-## Recommended Guides
+Okta-hosted Sign-In Widget guide:
 
-- [Okta Sign-In Widget and Vue](/code/vue/okta_vue_sign-in_widget/)
-- [Okta Auth JS and Vue](/code/vue/okta_vue/)
-- [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+* [Sign into your single-page app with redirect auth](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-redirect/vue/main/)
 
-## Related Blog Posts
+Embedded SDK and Sign-In Widget sign-in guide:
 
-- [Build a CRUD App with Vue.js, Spring Boot, and Kotlin](https://developer.okta.com/blog/2020/06/26/spring-boot-vue-kotlin)
-- [The Lazy Developer's Guide to Authentication with Vue.js](https://developer.okta.com/blog/2017/09/14/lazy-developers-guide-to-auth-with-vue)
-- [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](https://developer.okta.com/blog/2018/06/14/php-crud-app-symfony-vue)
-- [Deploy Your Secure Vue.js App to AWS](https://developer.okta.com/blog/2018/07/03/deploy-vue-app-aws)
-- [Build a Basic CRUD App with Vue.js and Node](https://developer.okta.com/blog/2018/02/15/build-crud-app-vuejs-node)
-- [Build a Cryptocurrency Comparison Site with Vue.js](https://developer.okta.com/blog/2017/09/06/build-a-cryptocurrency-comparison-site-with-vuejs)
-- [The Ultimate Guide to Progressive Web Applications](https://developer.okta.com/blog/2017/07/20/the-ultimate-guide-to-progressive-web-applications)
+* [Sign into your SPA with Auth.js](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-authjs/vue/main/)
+* [Sign into your SPA with the embedded Okta Sign-In Widget](#) (WILL EVENTUALLY BE /docs/guides/sign-into-spa-embedded-widget/vue/main/ )
 
+Other guides:
+
+* [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our [Vue Developer Blog posts](/search/#q=vue&f:@commonoktasource=[Developer%20blog]) for further useful topics.

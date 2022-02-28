@@ -14,6 +14,9 @@ The following org-based System Log events record system events related to your o
 * [`system.org.rate_limit.warning`](/docs/reference/api/event-types/?q=system.org.rate_limit.warning)<br>
 This event is sent when an endpoint is nearing its rate limit.
 
+* [`system.org.rate_limit.burst`](/docs/reference/api/event-types/?q=system.org.rate_limit.burst)<br>
+This event is sent when an API has exceeded its default rate limit, and Okta applies an increase in the rate limit to minimize customer impact. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+
 * [`system.org.rate_limit.violation`](/docs/reference/api/event-types/?q=system.org.rate_limit.violation)<br>
 This event is sent when an endpoint is exceeding its rate limit.
 

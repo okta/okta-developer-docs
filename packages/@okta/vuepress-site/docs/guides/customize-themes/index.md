@@ -15,14 +15,13 @@ Use the Brands API to customize the theme of your Okta org.
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)\
-* Access to the Brands API. Contact [Okta support](https://support.okta.com/help)
 * [Postman](https://www.postman.com/downloads/)
 
 ---
 
 ## About theme customization of your Okta org
 
-Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade-off is that your [customization options](/docs/guides/custom-widget/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
+Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/redirect-vs-embedded/#redirect-authentication) gets you up and running quickly without having to write much custom code or host the sign-in functionality yourself. However, the trade-off is that your [customization options](/docs/guides/custom-widget/) are more limited and potentially tricky to administer, since the existing functionality that you typically need to set are colors, icons, and so on in multiple places.
 
 The [Brands API](/docs/reference/api/brands/) allows you to set all of the following items across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once:
 
@@ -34,9 +33,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 
 ## Before you begin
 
-You need to make sure that you have an [Okta organization](/docs/guides/quickstart/cli/main/#create-your-okta-organization) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
-
-It is up to you how you make requests to the API to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
+It is up to you to decide how to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
 
 1. [Create an API token](/docs/guides/create-an-api-token/) to use when accessing the API.
 1. [Download](https://www.postman.com/downloads/) and install Postman.
@@ -45,9 +42,11 @@ It is up to you how you make requests to the API to update your branding. In thi
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
+> **Note**: To make branding updates using the Admin Console, see [Branding](https://help.okta.com/en/prod/Content/Topics/Settings/branding.htm?cshid=csh-branding).
+
 ## Important: Overriding themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors we've made available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
+You can customize individual parts of your Okta org experience using the various code editors we've made available in the Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
 
 So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
 

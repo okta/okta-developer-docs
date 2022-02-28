@@ -219,6 +219,14 @@
     p > code {
       overflow-wrap: break-word;
     }
+
+    .stack-selector {
+      display: none;
+
+      @include media("<=desktop-xl") {
+        display: block;
+      }
+    }
   }
 
   .on-this-page {

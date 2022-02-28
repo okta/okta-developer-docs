@@ -1,1 +1,0 @@
-See our [Android browser sign-in example](https://github.com/okta/samples-android/tree/master/browser-sign-in).
