@@ -16,6 +16,6 @@ Integrate the Sign-In Widget to your React app to add Okta authentication with t
  2. [Load the Sign-In Widget](#load-the-sign-in-widget): Create the Sign-In Widget wrapper for the widget to be rendered as a React component.
  3. [Create the routes](#create-the-routes): Create the route components for your app.
  4. [Connect the routes](#connect-the-routes): Connect your routes to the appropriate components.
- 5. When you are done integrating the Sign-In Widget to your React app, [start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
+ 5. When you are done integrating the Sign-In Widget to your React app, [start your app](#start-your-app) to test your creation. Sign in with an existing user from your Okta org.
 
 See [Run the sample React app](#run-the-sample-react-app) for an example of a simple embedded authentication React app that uses the Okta Sign-In Widget and libraries.

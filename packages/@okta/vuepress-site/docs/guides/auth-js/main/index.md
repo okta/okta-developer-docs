@@ -297,5 +297,5 @@ var config = {
 ## See also
 
 * [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main)
-* [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/main/react)
-* [Okta Auth JS and Vue](/docs/guides/sign-int-to-spa-authjs/main/vue)
+* [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main)
+* [Okta Auth JS and Vue](/docs/guides/sign-in-to-spa-authjs/vue/main)

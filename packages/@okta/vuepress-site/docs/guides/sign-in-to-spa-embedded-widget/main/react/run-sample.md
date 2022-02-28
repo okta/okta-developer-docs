@@ -22,4 +22,4 @@ You can run the [sample embedded SIW React app](https://github.com/okta/samples-
 
 6. Run the app server: `npm start`
 
-7. Open a browser window and navigate to the app's home page: `http://localhost:8080`. Try to sign in to the sample app with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
+7. Open a browser window and navigate to the app's home page: `http://localhost:8080`. Try to sign in to the sample app with an existing user from your Okta org.

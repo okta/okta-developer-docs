@@ -1,4 +1,4 @@
-Before integrating Okta authentication into your React app, obtain the OpenID Connect client ID from your Okta org by creating an app integration. You can create an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](/docs/reference/api/apps/), or through the [Admin Console](/docs/guides/quickstart/website/main/#using-the-admin-console).
+Before integrating Okta authentication into your React app, obtain the OpenID Connect client ID from your Okta org by creating an app integration. You can create an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](/docs/reference/api/apps/), or through the [Admin Console](/docs/concepts/okta-organizations/#admin-console).
 
 1. To create an Okta app integration that represents your React app, sign in to [your Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
