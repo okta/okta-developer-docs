@@ -1,6 +1,6 @@
 1. Create a new template file in `templates/login.html`.
 
-1. Inside it, provide sign-in and sign-out controls to direct the user to your sign-in/sign-out routes. For a complete example, see [template.html](https://github.com/okta-samples/okta-flask-sample/blob/3f965a50fa04dccf9d2648a802dc86f762c12a1a/templates/template.html) in our okta-flask-sample code:
+2. Inside it, provide sign-in and sign-out controls to direct the user to your sign-in/sign-out routes. For a complete example, see [template.html](https://github.com/okta-samples/okta-flask-sample/blob/3f965a50fa04dccf9d2648a802dc86f762c12a1a/templates/template.html) in our okta-flask-sample code:
 
 ```html
 {% if current_user.is_authenticated %}
@@ -14,9 +14,9 @@
 {% endif %}
 ```
 
-The sign-out button will only display if the user is signed in, and vice versa.
+The sign-out button only displays if the user is signed in and vice versa.
 
-2. Add the following near the bottom of `app.py`:
+3. Add the following near the bottom of `app.py`:
 
 ```py
 @app.route("/login")
@@ -41,7 +41,7 @@ def login():
 
 Your login handler generates the link URI and redirects the user to Okta's hosted sign-in page where they can authenticate, after which they are redirected back to your app.
 
-3. Add the following callback handler below your previous code block to handle the callback redirect:
+4. Add the following callback handler below your previous code block to handle the callback redirect:
 
 ```py
 @app.route("/authorization-code/callback")
@@ -88,7 +88,7 @@ def callback():
     return redirect(url_for("profile"))
 ```
 
-4. Add the functionality to sign users out.
+5. Add the functionality to sign users out.
 
 ```py
 @app.route("/logout", methods=["GET", "POST"])
