@@ -89,7 +89,6 @@ Embedded SDK and Sign-In Widget sign-in guide:
 
 Other guides:
 
-* [Protect your API endpoints](/docs/guides/protect-your-api/aspnet/main/)
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

@@ -52,7 +52,6 @@ Okta-hosted Sign-In Widget guide:
 
 Other guides:
 
-* [Protect your API endpoints](/docs/guides/protect-your-api/python/main/)
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)
