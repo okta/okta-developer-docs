@@ -6,7 +6,7 @@ excerpt: A drop-in widget with custom UI capabilities to power sign-in with Okta
 layout: Guides
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable login experience which can be used to authenticate users on any website.
 

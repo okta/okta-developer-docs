@@ -4,7 +4,7 @@ title: Auth JS fundamentals
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Auth JS fundamentals](/docs/guide/archive-auth-js/). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Auth JS fundamentals](/docs/guides/archive-auth-js/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple, single-page application (SPA) to demonstrate a sign-in use case.
 

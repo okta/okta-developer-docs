@@ -6,7 +6,7 @@ excerpt: A JavaScript wrapper for Okta's Authentication APIs. Formerly titled "O
 layout: Guides
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Auth JS fundamentals](/docs/guides/auth-js). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Auth JS fundamentals](/docs/guides/auth-js). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
 
