@@ -52,6 +52,7 @@
   --c-body: #ffffff;
   --c-tile-gray: #8c8c96;
   --c-form-gray: #c1c1c8;
+  --c-black: #000;
 
   // VARIABLES COLORS FOR LIGHT THEME
   --c-cerise: var(--c-cerise-red);
@@ -92,8 +93,8 @@
   --c-checkbox-border: #c1c1c8;
   --c-cyan-base: #30c0bc;
   --c-lightgray: #212125;
+  --c-silvery: #212126;
   --c-light: #d7d7dc;
-  --c-black: #000;
   --c-blue-300: #92bcff;
   --c-blue-800: #234f97;
   --c-blue-darker: #5976a6;
@@ -105,12 +106,15 @@
   --c-code-green: #00b478;
   --c-warning-base: #b35909;
   --c-success-base: #0d7855;
+  --c-light-gray: #aaaab4;
+  --c-leaden: #39393d;
+  --c-coal: #2e2e35;
 
   // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
-  --c-header-base: var(--c-gray-600);
-  --c-footer-base: var(--c-gray-600);
+  --c-header-base: var(--c-gray-700);
+  --c-footer-base: var(--c-gray-700);
   --c-text-darker: var(--c-gray-100);
   --c-text-base: var(--c-gray-100);
   --c-text-lighter: var(--c-gray-100);
@@ -127,8 +131,11 @@
   --c-code-greenstring: var(--c-code-green);
   --c-breadcrumb-link: var(--c-gray-400);
   --c-breadcrumb-svg: var(--c-gray-500);
+  --c-footer-gray: var(--c-gray-500);
+  --c-footer-light: var(--c-light-gray);
   --c-border: var(--c-gray-300);
   --c-border-light: var(--c-gray-200);
+  --c-search: var(--c-silvery);
 }
 
 $colors: (
@@ -136,7 +143,9 @@ $colors: (
     "base": var(--c-cerise)
   ),
   "header": (
-    "base": var(--c-header-base)
+    "base": var(--c-header-base),
+    "search": var(--c-search),
+    "gray": var(--c-coal)
   ),
   "breadcrumb": (
     "link": var(--c-breadcrumb-link),
@@ -153,8 +162,12 @@ $colors: (
     "border": var(--c-body-border),
     "white": var(--c-body-white),
     "homepage-lighter-block": var(--c-lightgray),
-    "footer": var(--c-footer-base),
     "obscure": var(--c-auth-link)
+  ),
+  "footer": (
+    "base": var(--c-footer-base),
+    "gray": var(--c-footer-gray),
+    "light": var(--c-footer-light)
   ),
   "text": (
     "darker": var(--c-text-darker),
@@ -176,7 +189,8 @@ $colors: (
     "footer": var(--c-link-footer),
     "signup": var(--c-link-signup),
     "faq": var(--c-white),
-    "light": var(--c-light)
+    "light": var(--c-light),
+    "gray": var(--c-leaden)
   ),
   "code": (
     "base": var(--c-code-base),

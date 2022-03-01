@@ -4,7 +4,7 @@
     min-width: 1rem;
     min-height: 1rem;
     border: 1px solid cv("border", "checkbox");
-    background-color: cv("white");
+    background-color: cv("code");
     border-radius: 4px;
     appearance: none;
     outline: 0;
@@ -32,19 +32,36 @@
 }
 
 .dialog {
+  background-color: cv("body");
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
   &--header,
   p,
   .terms-conditions-btns,
   &-text {
-    color: cv("body", "obscure") !important;
+    color: cv("text") !important;
+  }
+  &-backdrop {
+    background-color: rgba(29, 29, 33, 0.95);
   }
   a {
-    color: cv("link", "signup");
+    color: cv("text");
   }
   select {
-    color: cv("text", "accent");
+    color: cv("text");
+    background-color: cv("code");
+    border-color: cv("body", "obscure");
   }
-  .terms-conditions-btns .btn-container .btn:not(.social-btn) {
-    border: none;
+  .terms-conditions-btns .btn-container {
+    .btn:not(.social-btn) {
+      border-color: transparent;
+      color: cv("text");
+    }
+    .btn {
+      border-color: cv("link");
+      color: cv("link");
+    }
+  }
+  &-text .marketing-c .gdpr-condition {
+    background-color: cv("body");
   }
 }

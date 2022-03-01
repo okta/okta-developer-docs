@@ -19,7 +19,7 @@
 .CodeMirror {
   color: cv("text");
   background-color: cv("code");
-  border: none;
+  border-color: transparent;
   &-gutters {
     background-color: cv("code");
   }
@@ -60,10 +60,10 @@ pre[class*="language-"] {
 
 .homepage--code-example {
   background-color: cv("body");
-  border: none;
+  border-color: transparent;
   &--cm-wrapper .CodeMirror {
     background-color: cv("body");
-    border: none;
+    border-color: transparent;
   }
 }
 

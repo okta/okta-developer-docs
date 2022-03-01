@@ -9,7 +9,7 @@
 
 .search--wrapper {
   background-color: cv("body");
-  border: none;
+  border-color: transparent;
   .SearchBox {
     .CoveoOmnibox.magic-box .magic-box-input {
       input {
@@ -30,27 +30,34 @@
 }
 
 .magic-box-suggestions {
-  overflow: hidden;
-  border-radius: 4px;
   background-color: transparent !important;
-}
-
-.magic-box .magic-box-input {
-  background: cv("body");
+  border-color: cv("header", "search") !important;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .coveo-magicbox-suggestions {
-  border: none !important;
+  border-color: cv("header", "search") !important;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.magic-box .magic-box-input {
+  background: cv("header", "search");
 }
 
 .magic-box-suggestion {
-  background: cv("body", "obscure") !important;
-  border-color: cv("border", "gray") !important;
+  background: cv("header", "search") !important;
+  border-color: cv("text", "accent") !important;
   span {
     color: cv("text") !important;
     div {
       color: cv("text") !important;
     }
+  }
+  &:hover {
+    background: cv("header", "gray") !important;
   }
 }
 

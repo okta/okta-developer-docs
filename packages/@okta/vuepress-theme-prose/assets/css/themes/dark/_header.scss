@@ -50,18 +50,18 @@ ul.menu--items > li.expandable {
     background-image: url(/img/icons/chevron-down-white.svg) !important;
   }
   & > ul.submenu--items {
-    background: cv("text", "accent");
+    background: cv("header", "search");
     .menu--divider {
-      border-color: cv("text");
+      border-color: cv("text", "accent");
     }
     &:before {
-      border-bottom-color: cv("text", "accent");
+      border-bottom-color: cv("header", "search");
     }
     li a {
       color: cv("text");
     }
     .menu--icons .menu--icon svg path {
-      fill: cv("text");
+      fill: cv("link");
     }
   }
 }
