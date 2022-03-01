@@ -4,6 +4,8 @@ excerpt: How to configure an Okta Sign-On policy and an App Sign-On Policy.
 layout: Guides
 ---
 
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version)  to determine your Okta version.”
+
 This guide explains how to add and configure Okta Sign-On Policies and App Sign-On Policies to your [Okta organization](/docs/concepts/okta-organizations/), and what the Policies are used for.
 
 ---
