@@ -317,12 +317,12 @@ N/A
 
 #### Request body
 
-This API requires the `method` property as its request body. An optional boolean `retry` property can be used to signal resend challenge when its value is set to `true`.
+This API requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `method`  | String | The method with which the challenge should be sent |
-| `retry`  | Boolean | Whether this is a normal challenge or retry |
+| `method`  | String | The method with which the challenge should be sent, valid values are `SMS` and `CALL` |
+| `retry`  | Boolean | An optional property that indicates whether this is a normal challenge or retry |
 
 #### Response body
 
@@ -345,7 +345,7 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Auth
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
 
-Verify the phone number with the verification code that the user received via `SMS` or `CALL`. The phone number will be active upon a successful verification.
+Verify the phone number with the verification code that the user received via `SMS` or `CALL`. The phone number would be active upon a successful verification.
 
 #### Request path parameters
 
@@ -361,7 +361,7 @@ This API requires the `verificationCode` property as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `verificationCode`  | String | The verification code that the user receives via `SMS` or `CALL` |
+| `verificationCode`  | String | A 6-digit verification code that the user receives via `SMS` or `CALL` |
 
 #### Response body
 
