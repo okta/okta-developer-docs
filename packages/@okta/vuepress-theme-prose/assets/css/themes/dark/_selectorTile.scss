@@ -19,7 +19,7 @@
   }
   &--data {
     &--item {
-      border-bottom: none;
+      border-bottom-color: transparent;
       &:hover {
         color: cv("text");
         background: cv("text", "accent");

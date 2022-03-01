@@ -7,15 +7,15 @@
     :not([class*="language-"]) > code {
       background-color: cv("text", "accent");
       color: cv("text");
-      border: none;
+      border-color: transparent;
     }
     .edit-on-github .fa {
       color: cv("text");
     }
     blockquote {
-      border-right: none;
-      border-bottom: none;
-      border-top: none;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
       background-color: cv("body", "obscure");
     }
     .vs__selected {
@@ -24,11 +24,11 @@
     .vs__dropdown-menu {
       border-color: cv("text", "accent") !important;
       .vs__dropdown-option {
-        border: none !important;
+        border-color: transparent !important;
         background-color: cv("code");
         color: cv("text");
         &--highlight {
-          border: none !important;
+          border-color: transparent !important;
         }
       }
     }

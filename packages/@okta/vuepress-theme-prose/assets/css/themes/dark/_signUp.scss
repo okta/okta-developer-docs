@@ -1,35 +1,26 @@
 .signup {
-  &--form .fa-github:before {
-    color: cv("text", "dark");
-  }
-  a {
-    color: cv("link", "signup");
-  }
-
-  &--form {
-    .goto-signin,
-    .splitter {
-      color: cv("body", "obscure");
+  .signup--content {
+    .signup--form {
+      background-color: cv("body", "obscure");
+      box-shadow: 0px 24px 54px rgba(0, 0, 0, 0.21);
+      border-radius: 4px;
     }
-    .goto-signin a {
-      color: cv("link", "signup");
+  }
+  &--description p {
+    color: cv("text", "darker");
+  }
+  &--form {
+    .fa-github:before {
+      color: cv("text");
     }
     .consent--section {
-      &-text p {
-        color: cv("body", "obscure");
-      }
-      &-agree {
-        label {
-          color: cv("body", "obscure");
-        }
-      }
       &-agree {
         input[type="checkbox"] {
           position: relative;
           min-width: 1rem;
           min-height: 1rem;
           border: 1px solid cv("border", "checkbox");
-          background-color: cv("white");
+          background-color: cv("code");
           border-radius: 4px;
           appearance: none;
           outline: 0;

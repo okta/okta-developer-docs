@@ -1,7 +1,43 @@
 .authorization-layout {
-  .row .field-wrapper,
-  .authorization-layout--content .auth0-banner {
-    color: cv("text", "accent");
+  .row .field-wrapper {
+    color: cv("text", "darker");
+  }
+  .authorization-layout--content {
+    input[type="text"],
+    input[type="button"],
+    select {
+      background-color: cv("code");
+      border-color: cv("text", "accent");
+      color: cv("text");
+    }
+    input[type="submit"] {
+      background-color: cv("link");
+      border-color: cv("link");
+      color: cv("body");
+    }
+    a.social-btn,
+    button.social-btn {
+      color: cv("text");
+      background-color: cv("link", "gray");
+    }
+    .auth0-banner {
+      color: cv("text", "accent");
+      background-color: cv("code");
+      a:link,
+      a:visited {
+        color: cv("link");
+      }
+      &--logo {
+        &:after {
+          background-image: none !important;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          background-color: cv("white") !important;
+          -webkit-mask-image: url(/img/logos/auth0-inc-logo.svg);
+          mask-image: url(/img/logos/auth0-inc-logo.svg);
+        }
+      }
+    }
   }
   &--content {
     input[type="text"],

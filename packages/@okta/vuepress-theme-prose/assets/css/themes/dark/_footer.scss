@@ -1,6 +1,31 @@
 .app-footer {
   z-index: 2;
-  background-color: cv("body", "footer");
+  background-color: cv("footer");
+  .social {
+    a.link {
+      color: cv("white");
+    }
+  }
+  .footer--columns {
+    .websites {
+      .website {
+        align-items: flex-start;
+      }
+      a.link {
+        background: url(/img/footer-arrow.svg) no-repeat;
+        padding-right: 19px;
+        background-position: 100% 4px;
+      }
+      span.description {
+        color: cv("footer", "light");
+      }
+    }
+    .footer--column {
+      .column--header {
+        color: cv("footer", "gray");
+      }
+    }
+  }
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
