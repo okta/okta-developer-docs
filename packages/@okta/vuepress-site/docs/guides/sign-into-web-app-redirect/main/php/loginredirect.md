@@ -8,7 +8,7 @@ switch($path) {
 }
 ```
 
-2. Define the function `index()` that checks if there is an access token in the session and displays the sign-in link if not. This can go somewhere near the bottom of `index.php`:
+2. Define the function `index()` that checks if there is an ID token in the session and displays the sign-in link if not. This can go somewhere near the bottom of `index.php`:
 
 ```php
 function index() {
@@ -37,6 +37,7 @@ function index() {
 4. Create the function `start_oauth_flow()` that kicks off the OAuth Authorization Code flow and redirects the user to Okta. Again, this can go near the bottom of `index.php`:
 
 ```php
+function start_oauth_flow() {
   // Generate a random state parameter for CSRF security
   $_SESSION['oauth_state'] = bin2hex(random_bytes(10));
 
@@ -58,4 +59,5 @@ function index() {
   ]);
 
   header('Location: '.$authorize_url);
+}
 ```
