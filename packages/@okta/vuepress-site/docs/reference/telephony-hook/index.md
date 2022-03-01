@@ -217,7 +217,7 @@ This section covers what happens when a telephony inline hook flow fails either 
 
   **Who can see this error?** Administrators, developers, and end users
 
-- When a hook response is malformed or couldn't be mappeed to the expected API response, the inline hook operation is skipped.
+- When a hook response is malformed or couldn't be mapped to the expected API response, the inline hook operation is skipped.
 
   **Who can see this error?** Administrators
 
