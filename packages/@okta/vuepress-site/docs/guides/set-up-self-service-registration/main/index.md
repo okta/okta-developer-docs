@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-> **Note**: This document is written for Okta Classic Engine. If you’re using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.html) to determine your Okta version.
+> **Note**: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
 
 This guide explains how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage that allows users to self-register.
 
