@@ -165,4 +165,4 @@ To run and test your app, execute:
 npm run serve
 ```
 
-Open a browser and navigate to your app URL. Try to sign in to your app with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
+Open a browser and navigate to your app URL. Try to sign in to your app with an existing user from your Okta org.

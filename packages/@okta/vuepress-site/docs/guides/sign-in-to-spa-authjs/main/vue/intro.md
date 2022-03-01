@@ -25,4 +25,4 @@ Add Okta authentication to your Vue.js app with the following steps:
     * [Create the Vue.js app and instantiate the Okta Auth JS client](#create-the-vue-js-app-and-instantiate-the-okta-auth-js-client).
     * [Create routes](#create-routes) for your app.
     * [Connect the routes](#connect-the-routes) to the appropriate components.
- 3. When you're done building your Vue.js app, [start your app](#start-your-app) to test your creation. Sign in with an [existing user from your Okta org](/docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console).
+ 3. When you're done building your Vue.js app, [start your app](#start-your-app) to test your creation. Sign in with an existing user from your Okta org.
