@@ -6,6 +6,7 @@ guides:
  - archive-embedded-siw
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
+ - archive-configure-signon-policy
  - auth-js
  - archive-overview
  - build-custom-ui-mobile
