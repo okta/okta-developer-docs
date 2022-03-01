@@ -302,12 +302,14 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
 
 Send a phone challenge via one of the two methods: `SMS` or `CALL`. This API handles resend challenge (retry) as well.
-Upon a successful chalenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone by <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>. The verification code expires in 5 minutes.
+
+Upon a successful challenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone by calling `POST /idp/myaccount/phones/{id}/verify` endpoint. The verification code expires in 5 minutes.
+
 This endpoint is supposed to be called no more than once every 30 seconds.
 
 #### Request path parameters
 
-`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (<ApiOperation method="post" url="/idp/myaccount/phones"/>) or phone(s) is retrieved (<ApiOperation method="get" url="/idp/myaccount/phones"/>).
+`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
 
 #### Request query parameters
 
@@ -330,7 +332,7 @@ Returns an empty response with http status code of 200.
 
 ##### Request
 
-This request would update the user profile of the caller to have exactly the values specified.
+This request would result in a verification code to be sent to the phone number represended by the `id` via SMS. This is a normal phone challenge, not a retry.
 
 ```bash
 curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
@@ -347,7 +349,7 @@ Verify the phone with the verification code that the user received via phone `SM
 
 #### Request path parameters
 
-`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (<ApiOperation method="post" url="/idp/myaccount/phones"/>) or phone(s) is retrieved (<ApiOperation method="get" url="/idp/myaccount/phones"/>).
+`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
 
 #### Request query parameters
 
@@ -369,7 +371,7 @@ Returns an empty response with http status code of 204.
 
 ##### Request
 
-This request would update the user profile of the caller to have exactly the values specified.
+This request would verify the phone number represented by the `id` with the verification code of 796672.
 
 ```bash
 curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
