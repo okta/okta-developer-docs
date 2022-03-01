@@ -60,7 +60,7 @@ When you are ready to rotate a client secret for an app, follow these steps:
 
     When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any requests for a secret return the newly generated client secret, but any requests that are sent using the previous secret still work until the status of that client secret is set to **Inactive**.
 
-4. [Update your web app](/docs/guides/sign-into-web-app/-/main/#configure-the-package) to start using the newly generated client secret.
+4. [Update your web app](/docs/guides/sign-into-web-app-redirect/-/main/#configure-your-app) to start using the newly generated client secret.
 
 5. Test your app and ensure that all functionality works with the newly generated client secret.
 

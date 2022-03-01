@@ -2,8 +2,7 @@
 title: Upgrade your application to the Okta Identity Engine SDK
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 After your project is updated to the latest Okta Identity Engine SDK, and you have an enabled Identity Engine org, you can begin the incremental process of upgrading your application to use the Identity Engine SDK methods.
 

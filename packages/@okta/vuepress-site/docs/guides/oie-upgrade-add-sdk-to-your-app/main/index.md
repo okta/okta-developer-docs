@@ -2,8 +2,7 @@
 title: Add the Identity Engine SDK to your app
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide explains how to add the Okta Identity Engine SDK to your app, which is the preceding step before upgrading your app's authentication use cases.
 

@@ -80,11 +80,11 @@ describe('Sign up page check spec', () => {
     });
 
     it('github signup button text verification', () => {
-      signUpPage.getGithubButtonInput().should('have.text', ' Continue with GitHub\n            ');
+      signUpPage.getGithubButtonInput().should('have.text', ' Continue with GitHub\n          ');
     });
 
     it('google signup button text verification', () => {
-      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n            ');
+      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n          ');
     });
   })
 

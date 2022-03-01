@@ -30,7 +30,7 @@ Okta manages the connection to the IdP for your application. The connection sits
 
 > **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
-## Create an app at <StackSnippet snippet="idp" inline />
+## Create an app at the Identity Provider
 
 At <StackSnippet snippet="idp" inline />, create the client application that you want to use for authenticating and authorizing your users.
 
