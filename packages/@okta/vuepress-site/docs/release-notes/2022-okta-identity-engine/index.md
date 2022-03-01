@@ -34,7 +34,7 @@ Admins can now manage authentication policies using a centralized view. While au
 
 On the new Authentication Policies page, admins can create new policies, apply those policies to multiple applications, and assess what application access decisions are impacted by each policy.
 
-Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed Global Session Policy. See [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-asop).
+Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed Global Session Policy. See [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 
