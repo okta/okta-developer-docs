@@ -45,7 +45,7 @@ The Identity Engine user authentication deployment model can be divided into thr
 * **Embedded Sign-In Widget**: Embed the Okta Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
 * **Embedded SDK-driven Sign-In**: Use our SDKs to create a completely custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
 
-See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for practical implementation details.
+See [Okta authentication models — redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for practical implementation details.
 
 ## SDKs and sample apps
 

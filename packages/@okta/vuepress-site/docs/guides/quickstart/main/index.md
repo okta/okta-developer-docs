@@ -18,7 +18,7 @@ A traditional web app that runs on the server.
 <Cards>
   <Card href="/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/" headerImage="/img/homepage/stackselectors/dotnet.png">ASP.NET Core 3</Card>
   <Card href="/docs/guides/sign-into-web-app-redirect/node-express/main/" headerImage="/img/homepage/stackselectors/nodejs.png">Node.js Express</Card>
-  <Card href="/docs/guides/sign-into-web-app-redirect/spring-boot/main/" headerImage="/img/homepage/stackselectors/java.png">Java Spring Boot</Card>
+  <Card href="/docs/guides/sign-into-web-app-redirect/spring-boot/main/" headerImage="/img/homepage/stackselectors/spring.png">Java Spring Boot</Card>
 </Cards>
 
 <Cards>
@@ -55,7 +55,7 @@ An API endpoint or service that is protected by Okta.
 <Cards>
   <Card href="/docs/guides/protect-your-api/aspnetcore3/main/" headerImage="/img/homepage/stackselectors/dotnet.png">ASP.NET Core 3</Card>
   <Card href="/docs/guides/protect-your-api/nodeexpress/main/" headerImage="/img/homepage/stackselectors/nodejs.png">Node.js Express</Card>
-  <Card href="/docs/guides/protect-your-api/springboot/main/" headerImage="/img/homepage/stackselectors/java.png">Java Spring Boot</Card>
+  <Card href="/docs/guides/protect-your-api/springboot/main/" headerImage="/img/homepage/stackselectors/spring.png">Java Spring Boot</Card>
 </Cards>
 
 <Cards>

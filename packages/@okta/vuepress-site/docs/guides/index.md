@@ -108,7 +108,7 @@ guides:
 
 Learn how to accomplish a task with step-by-step instructions.
 
-## Embed authentication into your app
+## Intergrate authentication into your app
 
 The following links outline what developers need to know step-by-step to successfully deploy a single app. For custom app developers, it covers planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
 
@@ -123,8 +123,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 2. Sign users in
 
-    * [Sign users in to your single-page application](/docs/guides/sign-into-spa-redirect/)
-    * [Sign users in to your web application](/docs/guides/sign-into-web-app-redirect/)
+    * [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/)
+    * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
