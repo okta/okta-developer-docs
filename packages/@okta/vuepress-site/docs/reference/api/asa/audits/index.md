@@ -13,15 +13,13 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Audit Events provide log data of ASA User actions such as accessing ASA Servers, enrolling ASA Clients, and creating resources.
 
-Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Audit Events API operation
 
-
 The Audit Events API has the following operation:
-* [List the Audits for a Team](#list-the-audits-for-a-team)
 
+* [List the Audits for a Team](#list-the-audits-for-a-team)
 
 ### List the Audits for a Team
 

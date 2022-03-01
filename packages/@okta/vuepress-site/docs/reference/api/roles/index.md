@@ -516,7 +516,7 @@ Creates a new Resource Set with a custom collection of resources
 | :---------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
 | `label`       | Unique name given to the new Resource Set                                      | Body         | String       | TRUE     |
 | `description` | A description of the new Resource Set                                          | Body         | String       | TRUE     |
-| `resources`   | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
+| `resources`   | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | TRUE    |
 
 #### Response parameters
 
@@ -1041,7 +1041,7 @@ curl -v -X POST \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members" />
+<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
 Adds more Members to a Role Binding that is already created in a Resource Set
 
@@ -1050,7 +1050,7 @@ Adds more Members to a Role Binding that is already created in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to grant                                         | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to grant                                         | URL          | String         | TRUE     |
 | `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
 
 #### Response parameters
@@ -1098,7 +1098,7 @@ curl -v -X PATCH \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
 Gets a paginated list of Members that are assigned to a Role in a Resource Set
 
@@ -1107,7 +1107,7 @@ Gets a paginated list of Members that are assigned to a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                          | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                          | URL          | String         | TRUE     |
 
 #### Response parameters
 
@@ -1162,7 +1162,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Gets a Member of a Role in a Resource Set
 
@@ -1171,7 +1171,7 @@ Gets a Member of a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member within the Binding                                 | URL          | String         | TRUE     |
 
 
@@ -1225,7 +1225,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Deletes a Member of a Role in a Resource Set
 
@@ -1234,7 +1234,7 @@ Deletes a Member of a Role in a Resource Set
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
 | `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member in the Binding                                 | URL          | String         | TRUE     |
 
 
@@ -1279,11 +1279,11 @@ HTTP/1.1 204 No Content
 
 <ApiLifecycle access="ea" />
 
-#### Get a Binding by Role ID
+#### Get a Binding by Role ID or label
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
 Gets a Binding from a Resource Set by its Role ID
 
@@ -1292,7 +1292,7 @@ Gets a Binding from a Resource Set by its Role ID
 | Parameter      | Description              | Param Type   | DataType     | Required |
 | :------------- | :----------------------- | :----------- | :----------- | :------- |
 | `resourceSetId`  | ID of the Resource Set | URL          | String       | TRUE     |
-| `roleId`         | ID of the Role         | URL          | String       | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role         | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -1394,7 +1394,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
 Deletes a Binding of a Role from a Resource Set
 
@@ -1403,7 +1403,7 @@ Deletes a Binding of a Role from a Resource Set
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
 | `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
-| `roleId`         | ID of the Role          | URL          | String       | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role          | URL          | String       | TRUE     |
 
 #### Response parameters
 

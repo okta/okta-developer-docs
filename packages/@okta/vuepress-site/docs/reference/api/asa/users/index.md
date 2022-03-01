@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) User corresponds to a human or Service User in the ASA ecosystem.
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Users API operations
 
-
 The Users API has the following operations:
+
 * [List the ASA Users for a team](#list-the-asa-users-for-a-team)
 * [Fetch an ASA User](#fetch-an-asa-user)
 * [Update an ASA User](#update-an-asa-user)
