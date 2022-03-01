@@ -93,6 +93,14 @@
           border-bottom: 0;
         }
       }
+
+      @include media("<tablet") {
+        flex-direction: column-reverse;
+
+        &--logo {
+          padding: 0 20px;
+        }
+      }
     }
   }
 

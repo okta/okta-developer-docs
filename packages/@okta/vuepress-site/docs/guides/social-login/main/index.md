@@ -3,6 +3,7 @@ title: Add a social Identity Provider
 meta:
   - name: description
     content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the setup instructions.
+showStackSelector: False
 ---
 
 <StackSnippet snippet="ea-icon" inline/>
@@ -30,7 +31,7 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
 ---
 
-## Create an application at the Identity Provider
+## Create an app at the Identity Provider
 
 1. <StackSnippet snippet="create-app" inline />
 

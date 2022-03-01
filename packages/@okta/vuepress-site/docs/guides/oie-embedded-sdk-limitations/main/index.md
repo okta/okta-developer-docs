@@ -4,10 +4,7 @@ excerpt: Current SDK Limitations
 layout: Guides
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 ## Passwordless sign-in with magic links
 
@@ -119,5 +116,3 @@ Contact Okta support if the **Edit** button is disabled.
 #### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link and continue the activation through the code flow.
-
-</div>

@@ -2,10 +2,7 @@
 title: Get set up
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers how to create and set up your Okta org before you can run the provided sample apps or integrate the SDK or Widget into your own app.
 
@@ -55,13 +52,13 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
    After you sign up, Okta sends a verification email to the email address that you provide.
 
-1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console) of your new Identity Engine org.
+1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
 ### Update the default Custom Authorization Server
 
 You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
 
-1. From your Okta org's [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console), select **Security** > **API**.
+1. From your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
@@ -235,5 +232,3 @@ The final step is to add the [created Facebook IdP](#_4-create-the-facebook-iden
 1. Click **Create Rule**.
 1. At the prompt, click **Activate**.
 1. Your new rule appears above the **Default Rule** in the routing rule list. This top position signifies that the setting in your new rule overrides the **Default Rule**.
-
-</div>

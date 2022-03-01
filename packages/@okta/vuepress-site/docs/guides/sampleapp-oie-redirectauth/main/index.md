@@ -1,11 +1,10 @@
 ---
-title: Use redirect auth with the sample apps
+title: Use redirect auth with the Identity Engine sample apps
 excerpt: Learn how to test some of the features of Okta Identity Engine with our sample apps
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
 
