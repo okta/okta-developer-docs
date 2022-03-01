@@ -108,7 +108,7 @@ guides:
 
 Learn how to accomplish a task with step-by-step instructions.
 
-## Intergrate authentication into your app
+## Integrate authentication into your app
 
 The following links outline what developers need to know step-by-step to successfully deploy a single app. For custom app developers, it covers planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
 

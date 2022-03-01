@@ -49,5 +49,5 @@ For more background on the different auth models, including basic flows and help
 
 * [Add an external identity provider](/docs/guides/identity-providers/)
 * [Configure an access policy](/docs/guides/configure-access-policy/main/)
-* [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/)
+* [Configure Okta Sign-On and App Sign-On Policies](/docs/guides/configure-signon-policy/main/)
 * [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)
