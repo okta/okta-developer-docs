@@ -297,6 +297,85 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 }
 ```
 
+### Send Phone Challenge
+
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
+
+Send a phone challenge via one of the two methods: `SMS` or `CALL`. This API handles resend challenge (retry) as well.
+Upon a successful chalenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone by <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>. The verification code expires in 5 minutes.
+This endpoint is supposed to be called no more than once every 30 seconds.
+
+#### Request path parameters
+
+`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (<ApiOperation method="post" url="/idp/myaccount/phones"/>) or phone(s) is retrieved (<ApiOperation method="get" url="/idp/myaccount/phones"/>).
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This API requires the `method` property as its request body. An optional boolean `retry` property can be used to signal resend challenge when its value is set to `true`.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `method`  | String | The method with which the challenge should be sent |
+| `retry`  | Boolean | Whether this is a normal challenge or retry |
+
+#### Response body
+
+Returns an empty response with http status code of 200.
+
+#### Usage example
+
+##### Request
+
+This request would update the user profile of the caller to have exactly the values specified.
+
+```bash
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
+     "method": "SMS",
+     "retry": false
+ }'
+```
+
+### Verify Phone Challenge
+
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
+
+Verify the phone with the verification code that the user received via phone `SMS` or `CALL`. The phone will be active upon successful verification.
+
+#### Request path parameters
+
+`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (<ApiOperation method="post" url="/idp/myaccount/phones"/>) or phone(s) is retrieved (<ApiOperation method="get" url="/idp/myaccount/phones"/>).
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This API requires the `verificationCode` property as its request body.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `verificationCode`  | String | The verification code that the user receives via SMS or CALL |
+
+#### Response body
+
+Returns an empty response with http status code of 204.
+
+#### Usage example
+
+##### Request
+
+This request would update the user profile of the caller to have exactly the values specified.
+
+```bash
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
+     "verificationCode": "796672"
+ }'
+```
 
 
 
