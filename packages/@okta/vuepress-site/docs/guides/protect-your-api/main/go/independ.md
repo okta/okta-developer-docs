@@ -1,9 +1,9 @@
-All of our Okta packages for Golang use [go get](https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them). Install the following dependencies in your project:
+You need [gin](https://github.com/gin-gonic/gin) to handle routing capabilities and [okta-jwt-verifier-golang](https://github.com/okta/okta-jwt-verifier-golang) to validate Okta access tokens. Additionally, install [godotenv](https://github.com/joho/godotenv) to handle loading environment variables.
 
-- `go get github.com/okta/okta-jwt-verifier-golang`
+Add the required dependencies using `go get`, then include the imports in your project as required:
 
-You can then import them into your project:
-
-```go
-import github.com/okta/okta-jwt-verifier-golang
+```shell
+go get github.com/gin-gonic/gin
+go get github.com/okta/okta-jwt-verifier-golang
+go get github.com/joho/godotenv
 ```

@@ -4,6 +4,8 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
 ---
