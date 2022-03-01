@@ -1,6 +1,7 @@
 ---
 title: Okta API Products release notes 2022
 ---
+
 ## March
 
 ### Monthly release 2022.03.0
@@ -8,19 +9,15 @@ title: Okta API Products release notes 2022
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Authentication timestamp is added as an access token claim](#authentication-timestamp-is-added-as-an-access-token-claim) | March 2, 2022 |
-| [Enhanced email macros for email template customization](#enhanced-email-macros-for-email-template-customization) | March 2, 2022 |
 | [Custom Administrator Roles is GA in Production](#custom-administrator-roles-is-ga-in-production) | February 3, 2022 |
 | [Email Address Bounces API is EA in Preview](#email-address-bounces-api-is-ea-in-preview) | March 2, 2022 |
+| [Enhanced email macros for email template customization](#enhanced-email-macros-for-email-template-customization) | March 2, 2022 |
 | [Signed request support for generic OIDC IdP is EA in Preview](#signed-request-support-for-generic-oidc-idp-is-ea-in-preview) | March 2, 2022 |
 | [Bugs fixed in 2022.03.0](#bugs-fixed-in-2022-03-0)         | March 2, 2022           |
 
 #### Authentication timestamp is added as an access token claim
 
-The user authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
-
-#### Enhanced email macros for email template customization
-
-Enhanced Email Macros updates the email templating engine to use Velocity Templating Language (VTL). This feature unlocks new syntax that provides enhanced conditional logic and access to all attributes in the Okta User Profile object. This allows developers and admins more customizations in their user-facing emails. See [Customize email notifications](/docs/guides/custom-email/main/#expression-language-variables) and [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email).
+The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
 
 #### Custom Administrator Roles is GA in Production
 
@@ -28,7 +25,11 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides o
 
 #### Email Address Bounces API is EA in Preview
 
-Okta admin users can now control the bounced email address list through the Email Address Bounces API. For Okta sent emails that are blocked from an email service (the bounced email list), this API allows admins to remove email addresses for an org that are blocked.
+Okta admins can now control the bounced email address list through the Email Address Bounces API. When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
+
+#### Enhanced email macros for email template customization
+
+Enhanced Email Macros updates the email templating engine to use Velocity Templating Language (VTL). This feature unlocks new syntax that provides enhanced conditional logic and access to all attributes in the Okta User Profile object. This allows developers and admins more customizations in their user-facing emails. See [Customize email notifications](/docs/guides/custom-email/main/#expression-language-variables) and [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email).
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 
