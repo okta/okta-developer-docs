@@ -136,7 +136,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
 
-For example, reference the first name of a user by using `${user.profile.firstName}`.
+For example, reference the first name of a user with `${user.profile.firstName}`.
 
 See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
 
