@@ -1,0 +1,7 @@
+.announcement-banner {
+  background-color: cv("code");
+  color: cv("text");
+  &--description {
+    color: cv("text");
+  }
+}
