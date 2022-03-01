@@ -4,7 +4,7 @@ title: Auth JS fundamentals
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Auth JS fundamentals](/docs/guides/archive-auth-js/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Auth JS fundamentals](/docs/guides/archive-auth-js/main/). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
 
 This guide explains authentication fundamentals using Auth JS, known more formally as the Okta Auth JavaScript SDK, and provides a simple, single-page application (SPA) to demonstrate a sign-in use case.
 
@@ -48,7 +48,7 @@ To use the CDN, include this script in your target HTML page:
 
 ```html
 <!-- Latest CDN production Auth JS SDK-->
-<script src="https://global.oktacdn.com/okta-auth-js/6.0.0/okta-auth-js.polyfill.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-auth-js/6.1.0/okta-auth-js.polyfill.js" type="text/javascript"></script>
 ```
 
 More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
@@ -72,7 +72,7 @@ The following sections display basic code snippets you use when accessing Auth J
 
 ### Initialize the SDK
 
-To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps.js` file of the static-spa sample ues the function `createAuthClient()`:
+To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps.js` file of the static-spa sample uses the function `createAuthClient()`:
 
 ```JavaScript
  function createAuthClient() {
@@ -83,6 +83,7 @@ To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps
       clientId: config.clientId,
       redirectUri: config.redirectUri,
       scopes: config.scopes,
+      useInteractionCodeFlow: true,
       tokenManager: {
         storage: config.storage
       },
