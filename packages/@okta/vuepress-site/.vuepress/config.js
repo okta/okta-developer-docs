@@ -245,7 +245,7 @@ module.exports = ctx => ({
     ],
 
     forum_url: 'https://devforum.okta.com/',
-    copyright_text: 'Copyright © 2022 Okta.'
+    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta.`
   },
 
   chainWebpack(config) {
