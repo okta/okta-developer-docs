@@ -15,12 +15,13 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 **Learning outcomes**
 
 * Understand the Okta Verify enrollment and challenge flows
-* Learn step-by-step how to integrate Okta Verify into your app
+* Understand how to integrate Okta Verify into your app step-by-step
 
 **What you need**
 
 * <StackSnippet snippet="whatyouneedsdk" />
 * <StackSnippet snippet="whatyouneedorg" />
+* Okta Verify installed on a mobile device
 
 **Sample code**
 
@@ -34,7 +35,7 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ## Overview
 
-Okta Verify is a software-based authenticator created by Okta that supports identity verification through Time-based One-Time passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
+Okta Verify is a software-based authenticator created by Okta that supports identity verification through Time-based One-Time Passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
 
 Okta Verify is highly customizable and offers different ways to enroll and challenge users. Your app's integration with the embedded SDK depends on which features you support. This guide details step-by-step how to integrate four flows supported by the embedded SDK and Okta Verify. They are:
 
@@ -67,37 +68,41 @@ The following high-level diagram illustrates the supported challenge flows:
 
 ## Update configurations
 
-Configure your Okta org to enable Okta Verify for the following challenge flows:
+First, you'll need to configure your Okta org to enable Okta Verify for the following challenge flows:
 
 * **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
 * **Time-based one-time password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
+
+This is a simple two-step process. First, you add Okta Verify to the list of enabled authenticators in your org, and then you add it to the list of allowed authenticators in your app, as shown next.
 
 ### Add Okta Verify
 
 Add and configure Okta Verify in your org:
 
-1. In the Admin Console, go to **Security > Authenticators**.
-1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog, click **Add** under **Okta Verify**.
-1. Note that **TOTP (on by default) (Android and iOS only)** is disabled and checked by default.
-1. Check the box for **Push notification (Android and iOS only)**.
-1. Keep **Number challenge for Okta Verify push** set to **Never** since it's currently not supported.
+1. Open the Admin Console for your Okta org.
+1. Choose **Security > Authenticators** to show the available authenticators.
+1. Click **Add Authenticator**.
+1. Click **Add** under Okta Verify in the **Add Authenticator** dialog.
+1. Note that **TOTP (on by default) (Android and iOS only)** is checked by default.
+1. Check the box for **Push notification (Android and iOS only)**
+1. Check **Never** for **Number challenge for Okta Verify push** if it is not already checked. This option is not currently supported in the embedded SDK.
 1. Click **Add** to save your changes.
 
 ### Configure your org application
 
 Setup your application to use Okta Verify:
 
-1. In the Admin Console, go to **Applications** and **Applications**.
-1. On the **Applications** page, click on the application you've previously created.
-1. On the **General** tab, ensure that **Interaction Code** and **Refresh Token** are selected.
-1. On the **Sign-On** tab, scroll down to the **Sign-On Policy** section and click **Add Rule**.
-1. On the **Add Rule** dialog box, do the following:
-   1. Enter a name for the new rule (for example, "2FA Rule").
-   1. Set **User must authenticate with** to **Password+Another Factor**.
-   1. Select **Device Bound**.
-   1. Confirm **Your org's authenticators that satisfy this requirement** is set to **Password AND Okta Verify or ...**.
-   1. Click **Save** to save your changes.
+1. Open the Admin Console for your Okta org.
+1. Choose **Applications > Applications** to show the app integrations you have already created.
+1. Click on the application you’ve previously created on the **Applications** page.
+1. Ensure that **Interaction Code** and **Refresh Token** are selected.
+1. Switch to the **Sign-On** tab
+1. Scroll down to the **Sign-On Policy** section and click **Add Rule**.
+1. Enter a name for the new rule (for example "2FA Rule") in the **Add Rule** dialog.
+1. Set **User must authenticate with** to **Password+Another Factor**.
+1. Select **Device Bound**.
+1. Confirm **Your org's authenticators that satisfy this requirement** is set to **Password AND Okta Verify or ...**
+1. Click **Save**.
 
 ### You're ready to start integrating
 

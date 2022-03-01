@@ -5,7 +5,7 @@ First, the user initiates the user sign-in with username and password and choose
 
 ### 2: Display QR Code and option to select other channels
 
-After the user chooses Okta Verify (which is the last step in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment)), display the QR Code using the `IdxTransaction` response from `OktaAuth.idx.proceed()`. In addition, to the QR Code also display a link to choose an alternative enrollment channel (for example, email or SMS). The option to select a different enrollment channel is indicated by the `select-enrollment-channel` value under `Idxtransaction.availableSteps[n].name`.
+Display the QR Code using the `IdxTransaction` response from `OktaAuth.idx.proceed()`. In addition, to the QR Code also display a link to choose an alternative enrollment channel (for example, email or SMS). The option to select a different enrollment channel is indicated by the `select-enrollment-channel` value under `Idxtransaction.availableSteps[n].name`.
 
 #### IdxTransaction response
 

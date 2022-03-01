@@ -4,7 +4,7 @@ First, the user initiates the user sign-in with username and password and choose
 
 ### 2: Display QR Code
 
-After the user chooses Okta Verify (which is the last step in [Initiate sign in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment)), display the QR Code using the `IdxTransaction` response from `OktaAuth.idx.proceed()`.  In future steps, the user will scan this QR Code on their mobile device using Okta Verify.
+Display the QR Code using the `IdxTransaction` response from `OktaAuth.idx.proceed()`.  In future steps, the user will scan this QR Code on their mobile device using Okta Verify.
 
 #### IdxTransaction response
 

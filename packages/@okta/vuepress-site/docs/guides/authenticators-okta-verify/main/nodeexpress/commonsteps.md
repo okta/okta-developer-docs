@@ -8,11 +8,7 @@ A description and step-by-step integration for each of these common steps follow
 
 ### Initiate sign-in for Okta Verify enrollment
 
-The [enrollment with the QR Code](#integrate-enrollment-using-qr-code) and [enrollment with another channel](#integrate-enrollment-using-other-channels) both start with identical steps. These steps are as follows:
-
-#### Summary of steps
-
-The following summarizes the sign-in initiation for the Okta Verify enrollment flow:
+The [enrollment with the QR Code](#integrate-enrollment-using-qr-code) and [enrollment with another channel](#integrate-enrollment-using-other-channels) flows both start with the same three steps that enable a user to sign in and start to enroll Okta Verify. The following diagram shows this common flow:
 
 <div class="common-image-format">
 
@@ -33,7 +29,7 @@ The first step is to initiate a use case requiring authentication. This guide us
 
 #### 2: Display Okta Verify option
 
-If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with Okta Verify in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Okta Verify is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
+If you've configured your Okta org as detailed in [Update Configurations](#update-configurations), `authenticate()` returns a response with Okta Verify in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Okta Verify is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
 
 ```json
 {
@@ -82,13 +78,11 @@ When the user selects and submits the Okta Verify option, call `OktaAuth.idx.pro
     handleTransaction({ req, res, next, authClient, transaction });
 ```
 
+At this point, the next steps differ between [enrolling with a QR code](#integrate-enrollment-using-qr-code) and with [other channels](#integrate-enrollment-using-other-channels). Go to the specific flows to understand how.
+
 ### Initiate sign-in for Okta Verify challenge
 
-The [challenge with push notification](#integrate-challenge-using-push-notification-option) and [challenge with TOTP](#integrate-challenge-using-totp-option) both start with identical steps. These steps are as follows:
-
-#### Summary of steps
-
-The following summarizes the sign-in initiation for the Okta Verify challenge flow:
+The [challenge with push notification](#integrate-challenge-using-push-notification-option) and [challenge with TOTP](#integrate-challenge-using-totp-option) flows both start with the same three steps that enable a user to entere their username and password and then authenticate themselves with Okta Verify. The following diagram shows this common flow:
 
 <div class="common-image-format">
 
@@ -148,6 +142,8 @@ When the user selects and submits a verify option, call `IdxTransaction.idx.proc
   const authClient = getAuthClient(req);
   const transaction = await authClient.idx.proceed({ methodType });
 ```
+
+At this point, the next steps differ between challenging a user using [push notifications](#integrate-challenge-using-push-notification-option) and using a [TOTP](#integrate-challenge-using-totp-option) option. Go to the specific flows to understand how.
 
 ### Polling Okta
 
