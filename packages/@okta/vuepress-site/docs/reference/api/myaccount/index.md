@@ -303,7 +303,7 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 
 Send a phone challenge via one of the two methods: `SMS` or `CALL`. This API handles resend challenge (retry) as well.
 
-Upon a successful challenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone by calling `POST /idp/myaccount/phones/{id}/verify` endpoint. The verification code expires in 5 minutes.
+Upon a successful challenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone number by calling `POST /idp/myaccount/phones/{id}/verify` endpoint. The verification code would expire in 5 minutes.
 
 This endpoint is supposed to be called no more than once every 30 seconds.
 
@@ -345,11 +345,11 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Auth
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
 
-Verify the phone with the verification code that the user received via phone `SMS` or `CALL`. The phone will be active upon successful verification.
+Verify the phone number with the verification code that the user received via `SMS` or `CALL`. The phone number will be active upon a successful verification.
 
 #### Request path parameters
 
-`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
+`id`: the id of the phone factor, which can be found in the response when a new phone number is added successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
 
 #### Request query parameters
 
@@ -361,7 +361,7 @@ This API requires the `verificationCode` property as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `verificationCode`  | String | The verification code that the user receives via SMS or CALL |
+| `verificationCode`  | String | The verification code that the user receives via `SMS` or `CALL` |
 
 #### Response body
 
