@@ -18,9 +18,9 @@ There are two main types of authentication that you can perform with Okta:
 
 The OAuth 2.0 protocol provides API security through scoped access tokens. OAuth 2.0 enables you to delegate authorization, while OIDC enables you to retrieve and store authentication information about your end users. OIDC extends OAuth 2.0 by providing user authentication and single sign-on (SSO) functionality.
 
-For most of your app auth requirements, we recommend that you use the OAuth 2.0 and OIDC protocols through the different solutions Okta provides, as outlined in [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/). To get started with auth implementation and find sample apps, see [Sign users in](#) (UPDATE TO /docs/guides/sign-in-overview/ IN FINAL VERSION).
+For most of your app auth requirements, we recommend that you use the OAuth 2.0 and OIDC protocols through the different solutions Okta provides, as outlined in [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/). To get started with auth implementation and find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 
-> **Note**: If you require a completely custom app setup and workflow with direct access control to your Okta org and app integrations, then you can use the [Authentication API](/docs/reference/api/authn/). This API underpins both the Okta [Redirect](#) (UPDATE TO /docs/guides/sign-into-web-app-redirect/ IN FINAL VERSION) and [Embedded](#) (UPDATE TO /docs/guides/embedded-siw/ IN FINAL VERSION) Sign-In Widget, and [Auth JS](#) (UPDATE TO /docs/guides/auth-js/ IN FINAL VERSION) SDKs.
+> **Note**: If you require a completely custom app setup and workflow with direct access control to your Okta org and app integrations, then you can use the [Authentication API](/docs/reference/api/authn/). This API underpins both the Okta [Redirect](/docs/guides/sign-into-web-app-redirect/) and [Embedded](/docs/guides/embedded-siw/) Sign-In Widget, and [Auth JS](/docs/guides/auth-js/) SDKs.
 
 ### OAuth 2.0
 

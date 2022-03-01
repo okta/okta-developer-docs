@@ -125,9 +125,9 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Sign users in to your single-page application](/docs/guides/sign-into-spa-redirect/)
     * [Sign users in to your web application](/docs/guides/sign-into-web-app-redirect/)
-    * [Sign users in using the Okta Sign-In Widget](/docs/guides/auth-js)
+    * [Auth JS fundamentals](/docs/guides/auth-js)
+    * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
-    * [Sign users out](/docs/guides/sign-users-out/)
 
 3. Authorize
 

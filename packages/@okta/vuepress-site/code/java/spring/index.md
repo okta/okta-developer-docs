@@ -69,11 +69,6 @@ Okta-hosted Sign-In Widget guide:
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
-- [Okta Authentication How To Guide](/docs/guides/sign-into-web-app-redirect/spring-boot/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
-- [Spring Security SAML](/code/java/spring_security_saml/)
 - [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/java/main/)
 
 Other guides:
