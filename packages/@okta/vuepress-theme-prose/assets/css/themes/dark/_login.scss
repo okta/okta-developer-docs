@@ -1,6 +1,7 @@
 .login {
   .login--form {
     background-color: cv("code");
+    box-shadow: cv("body");
     .fa-github:before {
       color: cv("text");
     }
