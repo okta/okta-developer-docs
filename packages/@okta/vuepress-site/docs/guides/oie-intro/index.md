@@ -51,7 +51,7 @@ See [Okta authentication models — redirect vs. embedded](/docs/concepts/redire
 
 We have a whole host of SDKs available for integrating new Identity Engine features into your apps using the deployment models described above and sample apps to show them in action.
 
-* [Browse our SDKs and samples](https://developer.okta.com/code/)
+* [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
 
 ## Identity Engine versus Classic documentation approach
