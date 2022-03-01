@@ -131,7 +131,7 @@ export const guides = [
         subLinks: [
           { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Set up to run Identity Engine use cases",
+            title: "Set up to run Identity Engine sample apps",
             subLinks: [
               {
                 title: "Get set up",
