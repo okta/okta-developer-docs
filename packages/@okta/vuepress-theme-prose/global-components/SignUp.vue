@@ -150,6 +150,7 @@
                 @verify="onCaptchaVerified"
                 @expired="onCaptchaExpired"
                 :sitekey="captchaSiteKey"
+                :theme="getTheme()"
               >
               </vue-recaptcha>
               <span
@@ -266,7 +267,7 @@
             </p>
           </div>
           <div class="auth0-banner--logo">
-            <img src="/img/logos/auth0-inc-logo.svg" alt="auth0 logo" />
+            <img src="/img/logos/auth0-shield.svg" />
           </div>
         </div>
       </div>
@@ -373,6 +374,9 @@ export default {
     }
   },
   methods: {
+    getTheme: function() {
+      return JSON.parse(localStorage["is_dark_mode"]) === true ? "dark" : "light";
+    },
     async submitForm(e) {
       e.preventDefault();
       this.validationService.checkFormInput("firstName");
