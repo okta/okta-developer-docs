@@ -320,6 +320,10 @@ export const guides = [
               {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
               }
             ]
           },
