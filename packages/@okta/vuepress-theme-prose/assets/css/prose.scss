@@ -22,6 +22,7 @@
 @import "layouts/darktheme.scss";
 
 // Components
+@import "components/announcementBanner";
 @import "components/apiLifecycle";
 @import "components/apiOperation";
 @import "components/breadcrumb";
@@ -66,7 +67,6 @@
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
-@import "components/developerDayBanner";
 
 //Pages
 @import "okta/pages/multi-tenancy";

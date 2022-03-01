@@ -31,7 +31,7 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
 ---
 
-## Create an application at the Identity Provider
+## Create an app at the Identity Provider
 
 1. <StackSnippet snippet="create-app" inline />
 
