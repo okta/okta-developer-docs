@@ -39,6 +39,7 @@ New to Okta? Our resources walk you through adding user authentication to your A
 	<li>
 		<a href='/docs/guides/protect-your-api/aspnetcore3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Protect your API quickstart</span>
+		</a>
 	</li>
 	<li>
 		<a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
