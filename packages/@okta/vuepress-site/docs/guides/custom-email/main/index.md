@@ -57,7 +57,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** With a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help) to access email customization.
+> **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Click a default email template listed in the left pane.
@@ -73,7 +73,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 The following table provides a list of all available email templates in an Okta org, along with:
 
 - the default subject line for the email template
-- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations)
+- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
 - a description of the template
 
 | UI name | Default subject line | API object reference</br>`${templateName}` | Description |
@@ -112,7 +112,9 @@ The following table provides a list of all available email templates in an Okta 
 
 ## Add translations
 
-* When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
+When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically.
+
+You can edit the templates through the pencil icon, but you can't delete the default language template.
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 1. Choose an email template that you customized. The default language version appears in the **Custom Email** table.
@@ -143,6 +145,8 @@ See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&
 In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
 ### Customization example
+
+The following example uses the `${app.name} variable, which is only available in Okta Identity Engine.
 
 ```html
 #if(${app.name} == "Toys R' Fun")
