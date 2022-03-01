@@ -19,9 +19,9 @@ To verify the current release for an org, check the footer of the Admin Console.
 > **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/okta_help.htm?id=ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/okta_help.htm?type=oie&id=csh-oie-rn) for changes to the Identity Engine that are unrelated to Identity Engine API Products.
 
 <div class="next-section">
-  <RouterLink to='/docs/release-notes/2021'>
+  <RouterLink to='/docs/release-notes/2022'>
     <button class="button is-button-cerise is-button-small">
-      <span>Next: view 2021 release notes</span>
+      <span>Next: view 2022 release notes</span>
     </button>
   </RouterLink>
 </div>
