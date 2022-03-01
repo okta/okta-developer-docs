@@ -147,7 +147,7 @@
                 @verify="onCaptchaVerified"
                 @expired="onCaptchaExpired"
                 :sitekey="captchaSiteKey"
-                :theme="getTheme()"
+                :theme="theme"
               >
               </vue-recaptcha>
               <span
@@ -320,7 +320,8 @@ export default {
       },
       isPending: false,
       error: null,
-      captchaSitekey: null
+      captchaSitekey: null,
+      theme: 'light',
     };
   },
   computed: {
@@ -488,6 +489,8 @@ export default {
     } else {
       this.captchaSiteKey = captcha.test;
     }
+
+    this.theme = this.getTheme();
   },
   mounted() {
     this.analyticsValues = getAnalyticsValues();
