@@ -14,12 +14,12 @@ New to Okta? Our resources walk you through adding user authentication to your J
 
 <ul class='language-ctas'>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Auth.js fundamentals</span>
+		<a href='/docs/guides/auth-js' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Auth JS fundamentals</span>
 		</a>
 	</li>
 	<li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/embedded-siw' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign-In Widget fundamentals</span>
 		</a>
 	</li>
@@ -45,7 +45,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
-* [Auth.js fundamentals](/docs/guides/auth-js/main/)
+* [Auth JS fundamentals](/docs/guides/auth-js/main/)
 * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw/main/)
 
 Other guides:
