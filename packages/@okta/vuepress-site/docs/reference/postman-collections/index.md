@@ -24,7 +24,7 @@ Import any Okta API collection for Postman from the following list:
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
 | Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5) |
 | Domains                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/96fbe3dea3ccd0602186) |
-| Dynamic Client Registration       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b673d146d0974f451e39) |
+| Dynamic Client Registration       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4be32c4049f823619397) |
 | Event Hooks                       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73) |
 | Factors                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/283a99e4b49ce7f5f54d) |
 | Features                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e5d2bf83976120cb4546) |

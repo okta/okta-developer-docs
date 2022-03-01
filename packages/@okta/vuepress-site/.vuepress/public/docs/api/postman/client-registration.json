@@ -1,376 +1,414 @@
 {
-	"info": {
-		"_postman_id": "2a0b311e-23da-4fab-9cdc-f55fc0fcc15b",
-		"name": "Dynamic Client Registration (Okta API)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Apps API",
-			"item": [
-				{
-					"name": "Create App",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "SSWS {{apikey}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"oidc_client\",\n    \"label\": \"Sample Client\",\n    \"signOnMode\": \"OPENID_CONNECT\",\n    \"credentials\": {\n      \"oauthClient\": {\n        \"token_endpoint_auth_method\": \"client_secret_post\"\n      }\n    },\n    \"settings\": {\n      \"oauthClient\": {\n        \"client_uri\": \"http://localhost:8080\",\n        \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n        \"redirect_uris\": [\n          \"https://example.com/oauth2/callback\",\n          \"myapp://callback\"\n        ],\n        \"response_types\": [\n          \"token\",\n          \"id_token\",\n          \"code\"\n        ],\n        \"grant_types\": [\n          \"implicit\",\n          \"authorization_code\"\n        ],\n        \"application_type\": \"native\"\n      }\n    }\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/v1/apps",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"apps"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List Apps",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "SSWS {{apikey}}"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/v1/apps",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"apps"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update App",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "SSWS {{apikey}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"id\": \"{{appId}}\",\n  \"name\": \"oidc_client\",\n  \"label\": \"Sample Client\",\n  \"signOnMode\": \"OPENID_CONNECT\",\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"cg4-_A_ifCK7fsKIKjHP27P0JGeuhnHHKEID1yXy42M\"\n    },\n    \"oauthClient\": {\n      \"client_id\": \"0oa1hm4POxgJM6CPu0g4\",\n      \"client_secret\": \"5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z\",\n      \"token_endpoint_auth_method\": \"client_secret_post\"\n    }\n  },\n  \"settings\": {\n    \"oauthClient\": {\n      \"client_uri\": \"http://localhost:8080\",\n      \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n      \"redirect_uris\": [\n        \"https://example.com/oauth2/callback\",\n        \"myapp://callback\"\n      ],\n      \"response_types\": [\n        \"token\",\n        \"id_token\",\n        \"code\"\n      ],\n      \"grant_types\": [\n        \"implicit\",\n        \"authorization_code\"\n      ],\n      \"application_type\": \"native\"\n    }\n  },\n  \"profile\": {\n    \"whitelist\": [\n      \"{{groupId}}\"\n    ]\n  }\n}"
-						},
-						"url": {
-							"raw": "{{url}}/api/v1/apps/{{appId}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"apps",
-								"{{appId}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Get Logo",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/.well-known/logo",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						".well-known",
-						"logo"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Clients",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Client",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\n    \"client_name\": \"Web client\",\n    \"redirect_uris\": [\n      \"https://httpbin.org/get\"\n    ],\n    \"response_types\": [\n      \"code\",\n      \"token\",\n      \"id_token\"\n    ],\n    \"grant_types\": [\n      \"refresh_token\",\n      \"authorization_code\",\n      \"implicit\"\n    ],\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"application_type\": \"web\"\n  }"
-				},
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Client",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients",
-						"{{clientId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Client",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"client_id\": \"{{clientId}}\",\n\t\"client_name\": \"Web client\",\n\t\"redirect_uris\": [\n\t\t\"https://httpbin.org/get\"\n\t],\n\t\"response_types\": [\n\t\t\"code\",\n\t\t\"token\",\n\t\t\"id_token\"\n\t],\n\t\"grant_types\": [\n\t\t\"refresh_token\",\n\t\t\"authorization_code\",\n\t\t\"implicit\"\n\t],\n\t\"token_endpoint_auth_method\": \"client_secret_basic\",\n\t\"application_type\": \"web\"\n}"
-				},
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients",
-						"{{clientId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Client",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients",
-						"{{clientId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Generate New Client Secret",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}/lifecycle/newSecret",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"oauth2",
-						"v1",
-						"clients",
-						"{{clientId}}",
-						"lifecycle",
-						"newSecret"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	]
+  "info": {
+    "_postman_id": "a3696493-e7a2-4d0e-b38d-bf8f6d3d2391",
+    "name": "Dynamic Client Registration (Okta API)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Apps API",
+      "item": [
+        {
+          "name": "Create App",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"oidc_client\",\n    \"label\": \"Sample Client\",\n    \"signOnMode\": \"OPENID_CONNECT\",\n    \"credentials\": {\n      \"oauthClient\": {\n        \"token_endpoint_auth_method\": \"client_secret_post\"\n      }\n    },\n    \"settings\": {\n      \"oauthClient\": {\n        \"client_uri\": \"http://localhost:8080\",\n        \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n        \"redirect_uris\": [\n          \"https://example.com/oauth2/callback\",\n          \"myapp://callback\"\n        ],\n        \"response_types\": [\n          \"token\",\n          \"id_token\",\n          \"code\"\n        ],\n        \"grant_types\": [\n          \"implicit\",\n          \"authorization_code\"\n        ],\n        \"application_type\": \"native\"\n      }\n    }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/v1/apps",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Apps",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/api/v1/apps",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "apps"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update App",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{appId}}\",\n  \"name\": \"oidc_client\",\n  \"label\": \"Sample Client\",\n  \"signOnMode\": \"OPENID_CONNECT\",\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"cg4-_A_ifCK7fsKIKjHP27P0JGeuhnHHKEID1yXy42M\"\n    },\n    \"oauthClient\": {\n      \"client_id\": \"0oa1hm4POxgJM6CPu0g4\",\n      \"client_secret\": \"5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z\",\n      \"token_endpoint_auth_method\": \"client_secret_post\"\n    }\n  },\n  \"settings\": {\n    \"oauthClient\": {\n      \"client_uri\": \"http://localhost:8080\",\n      \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n      \"redirect_uris\": [\n        \"https://example.com/oauth2/callback\",\n        \"myapp://callback\"\n      ],\n      \"response_types\": [\n        \"token\",\n        \"id_token\",\n        \"code\"\n      ],\n      \"grant_types\": [\n        \"implicit\",\n        \"authorization_code\"\n      ],\n      \"application_type\": \"native\"\n    }\n  },\n  \"profile\": {\n    \"whitelist\": [\n      \"{{groupId}}\"\n    ]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{url}}/api/v1/apps/{{appId}}",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "apps",
+                "{{appId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Get Logo",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{url}}/.well-known/logo",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            ".well-known",
+            "logo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Clients",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Client",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "  {\n    \"client_name\": \"Web client\",\n    \"redirect_uris\": [\n      \"https://httpbin.org/get\"\n    ],\n    \"response_types\": [\n      \"code\",\n      \"token\",\n      \"id_token\"\n    ],\n    \"grant_types\": [\n      \"refresh_token\",\n      \"authorization_code\",\n      \"implicit\"\n    ],\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"application_type\": \"web\"\n  }"
+        },
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Client",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients",
+            "{{clientId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Client",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"client_id\": \"{{clientId}}\",\n\t\"client_name\": \"Web client\",\n\t\"redirect_uris\": [\n\t\t\"https://httpbin.org/get\"\n\t],\n\t\"response_types\": [\n\t\t\"code\",\n\t\t\"token\",\n\t\t\"id_token\"\n\t],\n\t\"grant_types\": [\n\t\t\"refresh_token\",\n\t\t\"authorization_code\",\n\t\t\"implicit\"\n\t],\n\t\"token_endpoint_auth_method\": \"client_secret_basic\",\n\t\"application_type\": \"web\"\n}"
+        },
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients",
+            "{{clientId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Client",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients",
+            "{{clientId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Generate New Client Secret",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{url}}/oauth2/v1/clients/{{clientId}}/lifecycle/newSecret",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "oauth2",
+            "v1",
+            "clients",
+            "{{clientId}}",
+            "lifecycle",
+            "newSecret"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Grant Scope to Client",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "SSWS {{apikey}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"scopeId\": \"okta.users.manage\",\n    \"issuer\": \"http://localhost:8080\"\n}"
+        },
+        "url": {
+          "raw": "{{url}}/api/v1/apps/{{clientId}}/grants",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "apps",
+            "{{clientId}}",
+            "grants"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
 }
