@@ -2,10 +2,7 @@
 title: Sign in with Facebook
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers a sequence of steps that you can follow to build an app that allows users to sign in with the Facebook social Identity Provider.
 
@@ -38,5 +35,3 @@ Before you build the Facebook IdP sign-in flow, ensure that you've [set up your 
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>
