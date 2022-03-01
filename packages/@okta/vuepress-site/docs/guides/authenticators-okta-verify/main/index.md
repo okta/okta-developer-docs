@@ -71,7 +71,7 @@ The following high-level diagram illustrates the supported challenge flows:
 First, you'll need to configure your Okta org to enable Okta Verify for the following challenge flows:
 
 * **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
-* **Time-based one-time password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
+* **Time-based One-time Password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
 
 This is a simple two-step process. First, you add Okta Verify to the list of enabled authenticators in your org, and then you add it to the list of allowed authenticators in your app, as shown next.
 
