@@ -61,7 +61,7 @@ In our documentation we have started to move towards supporting the Identity Eng
 * Pages and page sections covering features that only work in the Identity Engine have a blue Identity Engine banner at the top.
 * Content that works in both the Identity Engine and the Classic Engine have no banner. Any slight differences is covered in the page text.
 * Content written for the Classic Engine, that won't work in the Identity Engine, has a note at the top that explains what the issue is, and, if appropriate, where the Identity Engine users can go to find support.
-* For guides that have been extensively updated to support the Identity Engine, we keep the Classic Engine version in our [Classic archive](ADD LINK), so it's still accessible if needed.
+* For guides that have been extensively updated to support the Identity Engine, we keep the Classic Engine version in our [Classic archive](/docs/guides/archive-overview/), so it's still accessible if needed.
 
 > **Note**: See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
 

@@ -1,6 +1,6 @@
 1. Make sure you have a PHP development environment installed on your machine.
 
-1. In a folder for this project, create a directory called `public`.
+1. Create a directory called `public` to put your project files inside.
 
 1. Create an empty file inside it called `index.php`.
 
@@ -11,4 +11,4 @@ mkdir public
 touch public/index.php
 ```
 
-> **Note**: This guide was written with PHP 7.4.
+> **Note**: This guide was written using PHP 7.4.

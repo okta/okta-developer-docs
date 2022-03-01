@@ -17,7 +17,7 @@ createApp(App)
   .mount('#app')
 ```
 
-2. Add buttons to support sign-in and sign-out actions inside the `src/components/HelloWorld.vue` component <template> element. Display either the sign-in or sign-out button based on the current authenticated state.
+2. Add buttons to support sign-in and sign-out actions inside the `src/components/HelloWorld.vue` component `<template>` element. Display either the sign-in or sign-out button based on the current authenticated state.
 
 ```html
 <div>
@@ -26,8 +26,7 @@ createApp(App)
 </div>
 ```
 
-3. Update the template to support sign-in and sign-out actions by updating the <script> element as follows:
-
+3. Update the template to support sign-in and sign-out actions by updating the `<script>` element as follows:
 
 ```js
 <script>

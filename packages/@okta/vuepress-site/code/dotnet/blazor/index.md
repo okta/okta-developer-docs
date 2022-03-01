@@ -31,11 +31,11 @@ meta:
 New to Okta? Our resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
-	<li>
+	<!-- <li>
 		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sign users in quickstart</span>
 		</a>
-	</li>
+	</li> -->
   <li>
     <DropdownButton caption="Sample app">
       <DropdownButtonOption href='https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login'>Blazor Server-Side</DropdownButtonOption>
