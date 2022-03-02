@@ -4,7 +4,7 @@ title: Embedded Okta Sign-In Widget fundamentals
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/). See [Identify your Okta solution](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-verify-version.htm) to determine your Okta version.
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide explains authentication fundamentals using JavaScript and the embedded Okta Sign-In Widget, and provides a simple one-page SPA application to demonstrate a sign-in use case.
 
