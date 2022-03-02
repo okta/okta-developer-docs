@@ -16,8 +16,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 39px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
     right: 0;
     top: 0;
     cursor: pointer;
@@ -27,7 +27,7 @@
     }
 
     @include media("<=desktop") {
-      background-color: cv("blue", "000");
+      background-color: cv("body", "orange");
     }
   }
 
@@ -80,7 +80,7 @@
     }
   }
   
-  &--cta  {
+    &--cta  {
     font-size: 18px;
     font-weight: 500;
     color: cv('blue', '500');

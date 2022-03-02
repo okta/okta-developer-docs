@@ -109,6 +109,7 @@
   --c-light-gray: #aaaab4;
   --c-leaden: #39393d;
   --c-coal: #2e2e35;
+  --c-carrot: #f29b56;
 
   // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-800);
@@ -136,6 +137,7 @@
   --c-border: var(--c-gray-300);
   --c-border-light: var(--c-gray-200);
   --c-search: var(--c-silvery);
+  --c-banner-close: var(--c-carrot);
 }
 
 $colors: (
@@ -162,7 +164,8 @@ $colors: (
     "border": var(--c-body-border),
     "white": var(--c-body-white),
     "homepage-lighter-block": var(--c-lightgray),
-    "obscure": var(--c-auth-link)
+    "obscure": var(--c-auth-link),
+    "orange": var(--c-banner-close)
   ),
   "footer": (
     "base": var(--c-footer-base),
