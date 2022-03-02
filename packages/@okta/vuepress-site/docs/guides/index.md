@@ -6,6 +6,7 @@ guides:
  - archive-embedded-siw
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
+ - archive-configure-signon-policy
  - auth-js
  - archive-overview
  - build-custom-ui-mobile
@@ -127,7 +128,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
-    * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
+    * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
 
 3. Authorize
 

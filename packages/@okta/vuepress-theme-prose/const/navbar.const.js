@@ -268,7 +268,8 @@ export const guides = [
             title: "Configure an access policy",
             guideName: "configure-access-policy"
           },
-          { title: "Configure Okta Sign-On and App Sign-On Policies", guideName: "configure-signon-policy" },
+          { title: "Configure a Global Session Policy and authentication policies",
+            guideName: "configure-signon-policy" },
           {
             title: "Add an Identity Provider",
             subLinks: [
@@ -623,6 +624,8 @@ export const guides = [
             title: "Auth JS fundamentals",
             guideName: "archive-auth-js"
           },
+          { title: "Configure Okta Sign-On and App Sign-On Policies",
+            guideName: "archive-configure-signon-policy" },
           {
             title: "Embedded Sign-In Widget fundamentals",
             guideName: "archive-embedded-siw"
