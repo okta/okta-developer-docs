@@ -11,7 +11,7 @@ This guide walks you through how to build a password-only sign-in flow Vue.js ap
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+* [Okta Developer Edition organization](/signup)
 * [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)
 * [Okta Vue.js SDK](https://github.com/okta/okta-vue) (`@okta/okta-vue`)
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) (`@okta/okta-signin-widget`) &mdash; See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/).

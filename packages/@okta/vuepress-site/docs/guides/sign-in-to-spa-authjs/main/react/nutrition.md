@@ -10,7 +10,7 @@ This guide walks you through building a password sign-in React app that uses the
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+* [Okta Developer Edition organization](/signup)
 * [Okta Auth SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)
 * [Okta React SDK](https://github.com/okta/okta-react) (`@okta/okta-react`)
 
