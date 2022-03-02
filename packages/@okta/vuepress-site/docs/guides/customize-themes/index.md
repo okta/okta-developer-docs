@@ -10,12 +10,16 @@ This guide explains how to use the Brands API to rapidly customize the theme of 
 
 **Learning outcomes**
 
-Use the Brands API to customize the theme of your Okta org.
+- Use the Brands API to customize the theme of your Okta org.
+- Customize the email templates of your Okta org.
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)\
-* [Postman](https://www.postman.com/downloads/)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Access to the Brands API: `/api/v1/brands`. Contact [Okta support](https://support.okta.com/help) for help.
+* The Brands Postman collection allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman. See [Use Postman with the Okta REST APIs](/code/rest/#set-up-your-environment) for more details.
+
+  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
 ---
 
@@ -31,30 +35,17 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 * Favicon
 * Background image
 
-## Before you begin
-
-It is up to you to decide how to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
-
-1. [Create an API token](/docs/guides/create-an-api-token/) to use when accessing the API.
-1. [Download](https://www.postman.com/downloads/) and install Postman.
-1. After you install Postman, import the Okta environment and add your Okta domain and API token to Postman, as explained in [Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment).
-1. Click **Run in Postman** to add the Brands collection to Postman, which allows you to test the API calls that are described below.
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
-
-> **Note**: To make branding updates using the Admin Console, see [Branding](https://help.okta.com/en/prod/Content/Topics/Settings/branding.htm?cshid=csh-branding).
-
 ## Important: Overriding themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors we've made available in the Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
+You can customize individual parts of your Okta org experience using the various code editors available in the Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). However, if you use the Brands API to delete or augment any of the [branding variables](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-variables), the API calls override any changes you make using the Admin Console.
 
-So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
+For example, if you update the sign-in page code using the editor and change the background image or logo setting, your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings. See [Edit email templates](/docs/guides/custom-email/main/#edit-email-templates).
 
-## Top-level overview: Brands and themes
+## Get info about brands and themes
 
 At the top level, Your Okta org contains a brand, which contains a default theme. The default brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
-  > **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
+> **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
 
 ### Get brands
 
@@ -66,26 +57,11 @@ This returns an array of [brand response objects](/docs/reference/api/brands/#br
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
-  > **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
+> **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}" />
 
 This returns a single brand response object.
-
-### Get brands
-
-You can also update brand information with the following request (**Update brand** in Postman):
-
-<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
-
-This request needs to contain a [brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
-
-``` json
-{
-  "agreeToCustomPrivacyPolicy": true,
-  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}
-```
 
 ### Get themes
 
@@ -100,6 +76,21 @@ Once you've set the `themeId` variable to a specific theme ID, you can return a 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
+
+## Update your brand
+
+You can also update brand information with the following request (**Update brand** in Postman):
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
+
+This request needs to contain a [Brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
+
+``` json
+{
+  "agreeToCustomPrivacyPolicy": true,
+  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
+}
+```
 
 ## Update your theme
 
@@ -157,6 +148,161 @@ You can also delete these assets using the following requests (**Delete logo**, 
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 <ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
+
+## Customize email notifications
+
+Okta provides many customizable **email templates**. For example, the `welcome` email template allows users to activate their account. Each template has **default content** that is translated into any one of the [supported languages](#supported-languages).
+
+The following constraints apply to email customizations:
+
+- If an email template has any customizations, one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
+- Each email template can have only one customization for each [supported language](#supported-languages).
+
+> **Note:** If you change any email code using the [Admin Console](/docs/guides/custom-email/main/#edit-a-default-email-template), your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors in the Admin Console to the default settings.
+
+### Supported languages
+
+You can create email customizations for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
+
+| Language               | BCP 47 Language Tag |
+| ---------------------- | ------------------- |
+| Czech                  | `cs`                |
+| Danish                 | `da`                |
+| German                 | `de`                |
+| Greek                  | `el`                |
+| English                | `en`                |
+| Spanish                | `es`                |
+| Finnish                | `fi`                |
+| French                 | `fr`                |
+| Hungarian              | `hu`                |
+| Indonesian             | `id`                |
+| Italian                | `it`                |
+| Japanese               | `ja`                |
+| Korean                 | `ko`                |
+| Malaysian              | `ms`                |
+| Norwegian              | `nb`                |
+| Dutch                  | `nl-NL`             |
+| Polish                 | `pl`                |
+| Portuguese             | `pt-BR`             |
+| Romanian               | `ro`                |
+| Russian                | `ru`                |
+| Swedish                | `sv`                |
+| Thai                   | `th`                |
+| Turkish                | `tr`                |
+| Ukrainian              | `uk`                |
+| Vietnamese             | `vi`                |
+| Chinese (Simplified)   | `zh-CN`             |
+| Chinese (Traditional)  | `zh-TW`             |
+
+### Email template operations
+
+#### List email templates
+
+You can list all supported email templates (**List email templates** in Postman):
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
+
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template](#/docs/reference/api/brands/#email-template) resources.
+
+#### Get an email template
+
+You can fetch a specific email template corresponding to `templateName` (**Get email template** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
+
+This operation returns the requested [email template](/docs/reference/api/brands/#email-template) resource.
+
+#### Get the default content of an email template
+
+You can fetch the default content of a specific email template (**Get email template default content** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
+
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource for the specified template.
+
+#### Preview the default content of an email template
+
+You can fetch a preview of the default content of a specific email template (**Preview email template default content** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content/preview" />
+
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
+
+#### Send a test email
+
+You can send a test email (**Send test email** in Postman).
+
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/test" />
+
+The following priorities determine the content of the test email:
+
+- The email customization for the language specified in the `language` query parameter
+- The default customization of the email template
+- The default content of the email template, translated to the current user's language
+
+On success, this operation returns a `204 No Content` message.
+
+#### List email customizations
+
+You can list all customizations for a specific email template (**List email customizations** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email customization](/docs/reference/api/brands/#email-customization) resources.
+
+#### Create email customizations
+
+You can create a new email customization (**Create email customization** in Postman).
+
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+The request body needs an [email customization](#email-customization) resource. The operation returns the created email customization.
+
+> **Note:** If this is the first customization being created for the email template, `isDefault` is set to `true`.
+
+#### Delete the customizations of an email template
+
+You can delete all customizations made to a specific email template (**Delete all email customizations** in Postman).
+
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
+
+On success, this operation returns a `204 No Content` message.
+
+#### Get an email customization
+
+You can fetch a specific email customization (**Get email customization** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+This operation returns the requested [email customization](/docs/reference/api/brands/#email-customization) resource.
+
+#### Update an email customization
+
+You can update a specific email customization (**Update email customization** in Postman).
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+The request body needs an [email customization](#email-customization) resource. The operation returns the updated email customization.
+
+> **Note:** If `isDefault` is `true`, the previous default email customization has `isDefault` set to `false`.
+
+#### Delete an email customization
+
+You can delete a specific customization made to an email template (**Delete email customization** in Postman).
+
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
+
+On success, this operation returns a `204 No Content` message.
+
+If the email customization that you want to delete is the default, this operation returns a `409 Conflict` message.
+
+#### Preview an email customization
+
+You can fetch a preview of the customizations of an email template (**Preview email customization** in Postman).
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}/preview" />
+
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
 
 ## See also
 
