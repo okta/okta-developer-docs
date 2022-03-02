@@ -18,13 +18,9 @@ Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/bu
 
 ## Custom Role operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the creation and manipulation of Custom Roles as custom collections of [permissions](#permission-types).
 
 ### Create Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/roles" />
 
@@ -83,8 +79,6 @@ curl -v -X POST \
 
 ### Get Role
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
 Gets a Custom Role by its ID or label
@@ -130,8 +124,6 @@ curl -v -X GET \
 ```
 
 ### Update Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
@@ -184,8 +176,6 @@ curl -v -X PUT \
 ```
 
 ### List roles
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles" />
 
@@ -250,8 +240,6 @@ curl -v -X GET \
 ```
 
 ### List permissions
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
@@ -340,8 +328,6 @@ curl -v -X GET \
 
 ### Add permission
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
 Adds a new permission to an existing Role
@@ -376,8 +362,6 @@ HTTP/1.1 204 No Content
 ```
 
 ### Get permission
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
@@ -425,8 +409,6 @@ curl -v -X GET \
 
 ### Delete permission
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
 Deletes a permission from an existing Role
@@ -462,8 +444,6 @@ HTTP/1.1 204 No Content
 
 ### Delete Role
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
 Deletes a Custom Role
@@ -498,13 +478,9 @@ HTTP/1.1 204 No Content
 
 ## Resource Set operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the creation and manipulation of Resource Sets as custom collections of resources. You can use Resource Sets to assign [Custom Roles](#custom-role-operations) to administrators who are scoped to the designated resources.
 
 ### Create Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets" />
 
@@ -565,8 +541,6 @@ curl -v -X POST \
 
 ### Get Resource Set
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
 Gets a Resource Set by its ID
@@ -615,8 +589,6 @@ curl -v -X GET \
 ```
 
 ### List Resource Sets
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets" />
 
@@ -688,8 +660,6 @@ curl -v -X GET \
 
 ### Update Resource Set
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
 Updates the label and description of a Resource Set
@@ -744,8 +714,6 @@ curl -v -X PUT \
 
 ### Delete Resource Set
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
 Deletes a Resource Set and all its associated Bindings
@@ -783,8 +751,6 @@ HTTP/1.1 204 No Content
 These operations add, remove, and list the resources within a Resource Set.
 
 #### Add more resources
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
@@ -842,8 +808,6 @@ curl -v -X PATCH \
 ```
 
 #### List resources
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
@@ -921,8 +885,6 @@ curl -v -X GET \
 
 #### Delete a resource
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/resources/${resourceId}" />
 
 Removes a resource from a Resource Set
@@ -975,14 +937,10 @@ HTTP/1.1 204 No Content
 
 ## Custom Role assignment operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the assignment and unassignment of Custom Roles. This is done by creating a Binding.
 A Binding represents an association of a principal, Role, and Resource Set that is uniquely identified by the `bindingId`.
 
 ### Create a new Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
@@ -1039,8 +997,6 @@ curl -v -X POST \
 
 ### Add more Members to a Binding
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
 Adds more Members to a Role Binding that is already created in a Resource Set
@@ -1095,8 +1051,6 @@ curl -v -X PATCH \
 ```
 
 ### List Members in a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
@@ -1160,8 +1114,6 @@ curl -v -X GET \
 ```
 ### Get a Member from a Binding
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Gets a Member of a Role in a Resource Set
@@ -1223,8 +1175,6 @@ curl -v -X GET \
 
 ### Delete a Member from a Binding
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Deletes a Member of a Role in a Resource Set
@@ -1277,11 +1227,7 @@ HTTP/1.1 204 No Content
 
 ### Retrieve Bindings
 
-<ApiLifecycle access="ea" />
-
 #### Get a Binding by Role ID or label
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
@@ -1332,8 +1278,6 @@ curl -v -X GET \
 ```
 
 #### Get all Bindings in a Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
@@ -1391,8 +1335,6 @@ curl -v -X GET \
 ```
 
 ### Delete a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
@@ -1538,8 +1480,6 @@ curl -v -X GET \
 ]
 ```
 ##### Response example with Custom Roles
-
-<ApiLifecycle access="ea" />
 
 ```json
 [
@@ -1805,8 +1745,6 @@ curl -v -X POST \
 
 #### Assign a Custom Role to a User or Group
 
-<ApiLifecycle access="ea" />
-
 The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also assign a Custom Role using the following method:
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles" />
@@ -1948,8 +1886,6 @@ HTTP/1.1 204 No Content
 
 #### Unassign a Custom Role from a User or Group
 
-<ApiLifecycle access="ea" />
-
 The recommended way to unassign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${bindingId}" />
@@ -1984,7 +1920,7 @@ Role targets are a way of defining permissions for admin roles into a smaller su
 * **App targets:** Grant an admin permission to manage all instances of the specified Apps. Target Apps are Okta catalog Apps. For example, you can have multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of those Apps and create new instances of them.
 * **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, you can assign an admin to manage only two instances of the configured Salesforce Apps and then also to manage an instance of another configured App such as Workday.
 
-> **Note:**<ApiLifecycle access="ea" /> Don't use these operations with a Custom Role ID. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
+> **Note:** Don't use these operations with a Custom Role ID. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
 
 ### Group administrator role group targets
 
@@ -2997,11 +2933,9 @@ The Role object defines several **read-only** properties:
 | `lastUpdated`      | Timestamp when the Role was last updated                    | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
 | `status`           | Status of the Role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
 | `type`             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
-| `resource-set` <ApiLifecycle access="ea" />    | The Resource Set ID in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
+| `resource-set`     | The Resource Set ID in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
 
 #### Role links
-
-<ApiLifecycle access="ea" />
 
 The following `_links` are returned:
 
@@ -3029,7 +2963,7 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
-| `CUSTOM` <ApiLifecycle access="ea" /> | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
+| `CUSTOM`  | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
@@ -3043,8 +2977,6 @@ A Role could either be assigned to the User directly or be assigned to a Group o
 | `USER`              | Role is assigned to the User directly                             |
 
 ## Custom Role object
-
-<ApiLifecycle access="ea" />
 
 A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role is uniquely identified within your org by its ID or label.
 
@@ -3078,8 +3010,6 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
 }
 ```
 ### Permission types
-
-<ApiLifecycle access="ea" />
 
 Permissions can be added to, or removed from, Custom Roles.  Permissions to manage a resource also grant the viewing privileges for the same resource so that you won't need to assign them separately.
 
@@ -3142,8 +3072,6 @@ User permissions are only effective with respect to the Group(s) to which the ad
 ```
 
 ## Resource Set object
-
-<ApiLifecycle access="ea" />
 
 A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
 
