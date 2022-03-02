@@ -3,6 +3,47 @@ title: Okta Identity Engine API Products release notes 2022
 ---
 <ApiLifecycle access="ie" />
 
+## March
+
+### Monthly release 2022.03.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Authentication timestamp is added as an access token claim](#authentication-timestamp-is-added-as-an-access-token-claim) | March 2, 2022 |
+| [Custom Administrator Roles is GA in Production](#custom-administrator-roles-is-ga-in-production) | February 3, 2022 |
+| [Email Address Bounces API is EA in Preview](#email-address-bounces-api-is-ea-in-preview) | March 2, 2022 |
+| [Shareable Authentication Policies](#shareable-authentication-policies) | March 2, 2022 |
+| [Signed request support for generic OIDC IdP is EA in Preview](#signed-request-support-for-generic-oidc-idp-is-ea-in-preview) | March 2, 2022 |
+| [Bug fixed in 2022.03.0](#bug-fixed-in-2022-03-0)         | March 2, 2022           |
+
+#### Authentication timestamp is added as an access token claim
+
+The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
+
+#### Custom Administrator Roles is GA in Production
+
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides operations that you can use to create customized roles and assign them to a user or a group.
+
+#### Email Address Bounces API is EA in Preview
+
+Okta admins can now control the bounced email address list through the Email Address Bounces API. When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
+
+#### Shareable Authentication Policies
+
+Admins can now manage authentication policies using a centralized view. While authentication policies allowed admins the ability to make application access decisions using user, device, and other contextual information, managing these policies across hundreds of applications became challenging and error-prone.
+
+On the new Authentication Policies page, admins can create new policies, apply those policies to multiple applications, and assess what application access decisions are impacted by each policy.
+
+Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed Global Session Policy. See [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+
+#### Signed request support for generic OIDC IdP is EA in Preview
+
+When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new [Signed Request Object](/docs/reference/api/idps/#oidc-algorithms-object) allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
+
+#### Bug fixed in 2022.03.0
+
+When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as threatLevel=UNKNOWN in the System Log. (OKTA-471299)
+
 ## February
 
 ### Weekly release 2022.02.2
