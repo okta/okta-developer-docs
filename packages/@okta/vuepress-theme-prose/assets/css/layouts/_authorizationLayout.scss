@@ -91,6 +91,10 @@
           height: 30px;
           max-width: 63px;
         }
+        @include media("<tablet") {
+          min-width: 118px;
+          margin: 30px 0 50px 0;
+        }
       }
       a {
         font-size: 18px;
