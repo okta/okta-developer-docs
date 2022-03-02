@@ -46,7 +46,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. Select **Add Identity Provider** and then select **<StackSnippet snippet="idp" inline />**.
 
-1. In the **Add an Identity Provider** dialog box, define the following:
+1. In the **Add an Identity Provider** dialog, define the following:
 
     <StackSnippet snippet="appidpinokta" />
 
