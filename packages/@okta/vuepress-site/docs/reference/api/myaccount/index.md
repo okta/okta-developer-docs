@@ -301,15 +301,25 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
 
-Send a phone challenge via one of the two methods: `SMS` or `CALL`. This API handles resend challenge (retry) as well.
+Sends a phone challenge using one of two methods: `SMS` or `CALL`. This request can also handle a resend challenge (retry).
 
-Upon a successful challenge, the user will receive a verification code via either `SMS` or `CALL`. The verification code can be used to verify the phone number by calling `POST /idp/myaccount/phones/{id}/verify` endpoint. The verification code would expire in 5 minutes.
+Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in 5 minutes.
 
-This endpoint is supposed to be called no more than once every 30 seconds.
+> **Note:** Do not call the `/idp/myaccount/phones/{id}/challenge` endpoint more often than once every 30 seconds.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
+
+#### Required scope and role
 
 #### Request path parameters
 
-`id`: the id of the phone factor, which can be found in the response when a new phone is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
 
 #### Request query parameters
 
@@ -317,7 +327,7 @@ N/A
 
 #### Request body
 
-This API requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
+This request requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
@@ -326,13 +336,13 @@ This API requires the `method` property as its request body. An optional boolean
 
 #### Response body
 
-Returns an empty response with http status code of 200.
+Returns an empty response with an HTTP 200 status code.
 
 #### Usage example
 
 ##### Request
 
-This request would result in a verification code to be sent to the phone number represended by the `id` via SMS. This is a normal phone challenge, not a retry.
+This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
 
 ```bash
 curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
@@ -345,11 +355,21 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Auth
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
 
-Verify the phone number with the verification code that the user received via `SMS` or `CALL`. The phone number would be active upon a successful verification.
+Verify the phone number with the verification code that the user receives via `SMS` or `CALL`. The phone number is active upon a successful verification.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
+
+#### Required scope and role
 
 #### Request path parameters
 
-`id`: the id of the phone factor, which can be found in the response when a new phone number is added successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
 
 #### Request query parameters
 
@@ -357,7 +377,7 @@ N/A
 
 #### Request body
 
-This API requires the `verificationCode` property as its request body.
+This request requires the `verificationCode` property as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
@@ -365,13 +385,13 @@ This API requires the `verificationCode` property as its request body.
 
 #### Response body
 
-Returns an empty response with http status code of 204.
+Returns an empty response with an HTTP 204 status code.
 
 #### Usage example
 
 ##### Request
 
-This request would verify the phone number represented by the `id` with the verification code of 796672.
+The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
 
 ```bash
 curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
