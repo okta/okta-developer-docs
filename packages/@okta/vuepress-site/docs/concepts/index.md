@@ -5,7 +5,7 @@ title: Concepts
 
 # Concepts
 
-Understand the basics of Okta's APIs and architecture.
+Understand the basics of Okta APIs and architecture.
 
 ## Featured concepts
 
@@ -16,7 +16,7 @@ Understand the basics of Okta's APIs and architecture.
 </Cards>
 <br>
 <Cards>
-  <Card href="/docs/concepts/interaction-code/" cardTitle="Interaction Code grant type">An explanation of the Interaction Code grant type, which allows apps to manage user interactions with the authorization server directly.</Card>
+  <Card href="/docs/concepts/interaction-code/" cardTitle="Interaction Code grant type">An explanation of the Interaction Code grant type, which allows apps to directly manage user interactions with the authorization server.</Card>
   <Card href="/docs/concepts/policies/" cardTitle="What are policies?">An introduction to policies, which you can set up to manage access to your apps and APIs.</Card>
-  <Card href="/docs/concepts/multi-tenancy/" cardTitle="Multi-tenant solutions">An overview of Okta's multi-tenant solution, including reasons why organizations may want to consider it, and the different multi-tenant configurations available.</Card>
+  <Card href="/docs/concepts/multi-tenancy/" cardTitle="Multi-tenant solutions">An overview of the Okta multi-tenant solution, including reasons why organizations may want to consider it, and the different multi-tenant configurations available.</Card>
 </Cards>
