@@ -14,7 +14,7 @@ Get a new org set up and ready for various use cases.
 
 **What you need**
 
-[Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+[Okta Developer Edition organization](/signup)
 
 ---
 
