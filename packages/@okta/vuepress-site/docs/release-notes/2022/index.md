@@ -29,7 +29,7 @@ Okta admins can now control the bounced email address list through the Email Add
 
 #### Enhanced email macros for email template customization
 
-Enhanced Email Macros updates the email templating engine to use Velocity Templating Language (VTL). This feature unlocks new syntax that provides enhanced conditional logic and access to all attributes in the Okta User Profile object. This allows developers and admins more customizations in their user-facing emails. See [Customize email notifications](/docs/guides/custom-email/main/#expression-language-variables) and [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email).
+Enhanced Email Macros updates the email templating engine to use Velocity Templating Language (VTL). This feature unlocks new syntax that provides enhanced conditional logic and access to all attributes in the Okta User Profile object. This allows developers and admins more customizations in their user-facing emails. See [Customize email notifications > Use Velocity Templating Language](/docs/guides/custom-email/main/#use-velocity-templating-language) and [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email).
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 
@@ -37,7 +37,7 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 #### Bugs fixed in 2022.03.0
 
-* When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as threatLevel=UNKNOWN in the System Log. (OKTA-471299)
+* When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
 * The admin app assignment event wasn't triggered for an individual admin role assignment. (OKTA-460521)
 
