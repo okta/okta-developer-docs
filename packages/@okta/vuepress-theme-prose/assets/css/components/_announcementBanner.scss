@@ -16,8 +16,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 34px;
-    height: 34px;
+    width: 39px;
+    height: 35px;
     right: 0;
     top: 0;
     cursor: pointer;
@@ -27,7 +27,7 @@
     }
 
     @include media("<=desktop") {
-      background-color: cv("body", "orange");
+      background-color: cv("blue", "000");
     }
   }
 

@@ -13,7 +13,7 @@
     img {
       display: none;
     }
-    @include media("<=desktop") {
+    @include media("<=tablet") {
       max-width: 74px;
       right: 0;
       background: url(/img/homepage/announcement-small--dark.png) 50% 50%
@@ -25,9 +25,9 @@
     }
   }
   &--close {
+    background-color: transparent;
     @include media("<=tablet") {
-      width: 38px;
-      height: 36px;
+      background-color: cv("body", "orange");
     }
   }
 }
