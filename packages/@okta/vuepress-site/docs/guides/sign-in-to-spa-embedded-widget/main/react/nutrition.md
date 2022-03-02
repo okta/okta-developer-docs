@@ -11,7 +11,7 @@ This guide walks you through how to build a password-only sign-in flow React app
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+* [Okta Developer Edition organization](/signup)
 * [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js)
 * [Okta React SDK](https://github.com/okta/okta-react)
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
