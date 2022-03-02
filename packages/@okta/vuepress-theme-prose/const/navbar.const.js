@@ -63,7 +63,7 @@ export const concepts = [
         path: "/docs/concepts/oauth-openid/"
       },
       {
-        title: "Okta authentication models — redirect vs. embedded",
+        title: "Okta deployment models — redirect vs. embedded",
         path: "/docs/concepts/redirect-vs-embedded/"
       },
       {
