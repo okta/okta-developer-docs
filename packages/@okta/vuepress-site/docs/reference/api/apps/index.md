@@ -3679,6 +3679,40 @@ Content-Type: application/json
 }
 ```
 
+### Update application policy
+
+<ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
+
+Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
+
+##### Request parameters
+
+| Parameter     | Description      | Param Type | DataType | Required | Default |
+| ---------     | ---------------- | ---------- | -------- | -------- | ------- |
+| applicationId | `id` of an app   | URL        | String   | TRUE     |         |
+| policyId      | `id` of a policy | URL        | String   | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/policies/rst179qp7umwdoEWQ0g5"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
 ## Application lifecycle operations
 
 ### Activate application
