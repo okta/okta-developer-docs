@@ -24,6 +24,20 @@ export default {
     Header: () => import("../components/Header"),
     SmartLink: () => import("../components/SmartLink"),
   },
+  data() {
+    return {
+      appContext: {
+        isTreeNavMobileOpen: false,
+        isInMobileViewport: false,
+        treeNavDocs: []
+      }
+    };
+  },
+  provide() {
+    return {
+      appContext: this.appContext,
+    };
+  },
   mounted: function() {
     import("../util/pendo");
   },
