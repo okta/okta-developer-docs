@@ -1242,7 +1242,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
 {
   "ver": 1,
   "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://${yourOktaDomain}/oauth2/0oacqf8qaJw56czJi0g4",
+  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
   "aud": "https://api.example.com",
   "sub": "00ujmkLgagxeRrAg20g3",
   "iat": 1467145094,
@@ -1255,6 +1255,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
     "flights",
     "custom"
   ],
+  "auth_time": 1467142021,
   "custom_claim": "CustomValue"
 }
 ```
@@ -1300,6 +1301,7 @@ The payload includes the following reserved claims:
 
 | Property | Description                                                                                                            | DataType |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------- |
+| auth_time| The time the end user was authenticated, represented in Unix time (seconds).                                           | Integer  |
 | cid      | Client ID of the client that requested the access token.                                                               | String   |
 | exp      | The time the access token expires, represented in Unix time (seconds).                                                 | Integer  |
 | iat      | The time the access token was issued, represented in Unix time (seconds).                                              | Integer  |
