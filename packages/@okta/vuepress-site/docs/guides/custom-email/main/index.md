@@ -138,7 +138,7 @@ Email templates use common and unique VTL variables. When you interpolate variab
 
 For example, reference the first name of a user with `${user.profile.firstName}`.
 
-See [Velocity Templating Language](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) for available template variables.
+See [Use VTL variables](#use-vtl-variables) for available email template variables.
 
 ### Use conditional logic
 
