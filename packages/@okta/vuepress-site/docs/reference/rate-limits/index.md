@@ -34,9 +34,9 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 ## Rate Limit Monitoring widget
 
-The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget available on the Admin Dashboard. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the drop-down menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the Widget, you can directly access details on the affected API by clicking the API link, which takes you to details on the API usage in the Rate Limits Dashboard.
+The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget available on the Admin Dashboard. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the drop-down menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
 
-![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rl_monitoring-widget.png)
+![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rl-monitoring-widget.png)
 
 ## Burst rate limits
 

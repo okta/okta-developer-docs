@@ -84,7 +84,7 @@ You can enable per-client rate limiting to prevent a single client from blocking
 
 #### Warning notification
 
-Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, and issue email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
+Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications. If you customize the threshold to a higher percentage, such as 90%, the warning notifications wouldn't start until the API's rate limit is at 90%.
 
