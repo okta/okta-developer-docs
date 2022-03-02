@@ -1,8 +1,7 @@
 ---
 title: Okta Identity Engine API Products release notes 2022
 ---
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 ## February
 

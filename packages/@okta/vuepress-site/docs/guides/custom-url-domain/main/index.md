@@ -83,7 +83,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Create a DNS TXT  and CNAME record
+### Create a DNS TXT and CNAME record
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
@@ -126,6 +126,7 @@ If you receive the previous error, consult with the person in your organization 
 
 1. In the Admin Console, select **Settings**, and then **Customization**.
 2. In the **Custom URL Domain** box, click **Edit**.
+> **Note**: In Okta Identity Engine, select **Customizations** and then **Domain** to find the Domain editor.
 3. Click **Get Started** to start the configuration wizard.
     * The **Continue** button appears if the configuration is incomplete.
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.

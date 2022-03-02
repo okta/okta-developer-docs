@@ -245,7 +245,7 @@ module.exports = ctx => ({
     ],
 
     forum_url: 'https://devforum.okta.com/',
-    copyright_text: 'Copyright © 2021 Okta.'
+    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta.`
   },
 
   chainWebpack(config) {
@@ -326,7 +326,8 @@ module.exports = ctx => ({
               '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
               '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
               '/docs/guides/oie-upgrade-sign-in-widget-styling/',
-              '/docs/guides/oie-upgrade-mfa-enroll-policy/'
+              '/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              '/docs/reference/telephony-hook/'
           ]
         }
       ]

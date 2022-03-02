@@ -2,6 +2,12 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - archive-auth-js
+ - archive-embedded-siw
+ - archive-sign-in-to-spa-authjs
+ - archive-sign-in-to-spa-embedded-widget
+ - auth-js
+ - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - client-secret-rotation-key
@@ -20,6 +26,7 @@ guides:
  - customize-tokens-static
  - customize-tokens-groups-claim
  - device-authorization-grant
+ - embedded-siw
  - enable-cors
  - event-hook-hookdeck
  - event-hook-implementation
@@ -42,6 +49,7 @@ guides:
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
+ - sign-in-overview
  - secure-oauth-between-orgs
  - build-sso-integration
  - custom-sms-messaging
@@ -60,9 +68,11 @@ guides:
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
- - sign-into-mobile-app
- - sign-into-spa
- - sign-into-web-app
+ - sign-in-to-spa-authjs
+ - sign-in-to-spa-embedded-widget
+ - sign-into-mobile-app-redirect
+ - sign-into-spa-redirect
+ - sign-into-web-app-redirect
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
@@ -98,7 +108,7 @@ guides:
 
 Learn how to accomplish a task with step-by-step instructions.
 
-## Embed authentication into your app
+## Integrate authentication into your app
 
 The following links outline what developers need to know step-by-step to successfully deploy a single app. For custom app developers, it covers planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
 
@@ -109,16 +119,15 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 
-    * [Sign users in to your single-page application](/docs/guides/sign-into-spa/)
-    * [Sign users in to your web application](/docs/guides/sign-into-web-app/)
-    * [Sign users in using the Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
+    * [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/)
+    * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
+    * [Auth JS fundamentals](/docs/guides/auth-js)
+    * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
-    * [Sign users out](/docs/guides/sign-users-out/)
 
 3. Authorize
 
