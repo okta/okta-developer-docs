@@ -5,7 +5,7 @@ title: Concepts
 
 # Concepts
 
-Understand the basics of Okta's APIs and architecture.
+Understand the basics of Okta APIs and architecture.
 
 ## Featured concepts
 
