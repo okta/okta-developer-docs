@@ -22,7 +22,7 @@ Every app you add authentication to has slightly different requirements, but the
 
 | Authentication methods | Assurance levels | Policies | Deployment models |
 | ---------------------- | ---------------- | -------- | ----------------- |
-| There are many different methods that you could choose to authenticate users &mdash; ranging from a simple challenge based on something they know like a password, to something more sophisticated involving a device they own (like an SMS or call) or a personal attribute (like biometrics). | To guarantee that the user is who they say they are, you can combine different authentication methods for higher security requirements. Furthermore, you can also require device context (such as known, on company network, managed) to increase the assurance level. | Create policies in your Okta org to govern who needs to authenticate with which methods, and in which apps. If you are using Okta Identity Engine, you are able to create flexible apps that can change their authentication methods without having to alter a line of code. See [Configure Okta Sign-On and App Sign-On Policies](/docs/guides/configure-signon-policy/main/) for basic information. Our use cases contain information on what policies are required for each. | Okta has multiple authentication solutions that provide trade-offs in terms of implementation complexity, maintenance, security, and degrees of customization. See [Choose your auth](#choose-your-auth). |
+| There are many different methods that you could choose to authenticate users &mdash; ranging from a simple challenge based on something they know like a password, to something more sophisticated involving a device they own (like an SMS or call) or a personal attribute (like biometrics). | To guarantee that the user is who they say they are, you can combine different authentication methods for higher security requirements. Furthermore, you can also require device context (such as known, on company network, managed) to increase the assurance level. | Create policies in your Okta org to govern who needs to authenticate with which methods, and in which apps. If you are using Okta Identity Engine, you are able to create flexible apps that can change their authentication methods without having to alter a line of code. See [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) for basic information. Our use cases contain information on what policies are required for each. | Okta has multiple authentication solutions that provide trade-offs in terms of implementation complexity, maintenance, security, and degrees of customization. See [Choose your auth](#choose-your-auth). |
 
 After you have an idea of the above considerations, you can integrate Okta authentication with your app(s). Typically, you create an [Okta org](/docs/concepts/okta-organizations/) and an app integration to represent your app inside Okta, inside which you configure your policies. Then, connect your app to Okta using whatever mechanism makes sense for the deployment model that you choose.
 
@@ -30,7 +30,7 @@ After you have an idea of the above considerations, you can integrate Okta authe
 
 ## Choose your auth
 
-| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget | Embedded SDK-driven Sign-In flow|
+| &nbsp; | Okta-hosted Sign-In Widget | Embedded Sign-In Widget | Embedded SDK-driven sign-in flow|
 | ------ | -------------------------- | ----------------------- | ------------------------- |
 | &nbsp; | Use the Okta-hosted Sign-in Widget to redirect your users to authenticate, then redirect back to your app. This is the recommended approach &mdash; most secure and fastest to implement. | Embed the Okta Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization. | Use our SDKs to create a completely custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control. |
 | **Effort** | <span style="width: 50%;display:block">![Low](/img/ratings/low.png)</span> | <span style="width: 50%;display:block">![Medium](/img/ratings/medium.png)</span> | <span style="width: 50%;display:block">![High](/img/ratings/high.png)</span> |
@@ -39,7 +39,7 @@ After you have an idea of the above considerations, you can integrate Okta authe
 | **Customization** | Managed branding and customization options for domains, emails, sign-in page, and more. | Most substantial customization options | Full customization |
 | **Learn more** | Redirect auth for [web apps](/docs/guides/sign-into-web-app-redirect/), [mobile apps](/docs/guides/sign-into-mobile-app-redirect/), and [single-page apps](/docs/guides/sign-into-spa-redirect/).<br>[Redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/android/main/)<br>[Customize the hosted widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) | [Embedded widget fundamentals](/docs/guides/embedded-siw/)<br>[Sample app setup process](/docs/guides/oie-embedded-common-org-setup/android/main/)<br>[Embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-load/)<br>[Customize the embedded widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget) | [Auth JS fundamentals](/docs/guides/auth-js/)<br>[Sample app setup process](/docs/guides/oie-embedded-common-org-setup/android/main/)<br>[Embedded SDK use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/)<br>[Okta SDKs reference](/code/)|
 
-For more background on the different auth models, including basic flows and help with choosing between auth models, see [Okta authentication models — redirect vs. embedded](/docs/concepts/redirect-vs-embedded/).
+For more background on the different auth models, including basic flows and help with choosing between auth models, see [Okta authentication models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/).
 
 > **Note**: Direct calls to the Identity Engine APIs that underpin much of the Identity Engine authentication pipeline aren't supported &mdash; use the Embedded SDKs instead.
 
@@ -49,5 +49,5 @@ For more background on the different auth models, including basic flows and help
 
 * [Add an external identity provider](/docs/guides/identity-providers/)
 * [Configure an access policy](/docs/guides/configure-access-policy/main/)
-* [Configure Okta Sign-On and App Sign-On Policies](/docs/guides/configure-signon-policy/main/)
+* [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/)
 * [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/openidconnect/main/)

@@ -77,7 +77,7 @@ This section walks you through enrolling a user and authenticating that user.
 <StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) is configured.
+    > **Note:** Which authenticators appear during sign-in depends on how your [authentication policy](/docs/guides/configure-signon-policy/main/#authentication-policies) is configured.
 5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment

@@ -36,16 +36,16 @@ The following image shows an example of the sign-in email's content.
 
 Use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta Sign-On Policy rule
+## Primary factor for the Global Session Policy rule
 
 ### Description
 
-The primary factor for the Org's global sign-in policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
+The primary factor for the org's Global Session Policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
 
 To identify the current value for this field:
 
-1. In the Admin Console for the Okta org that you set up, select **Security** > **Okta Sign-on Policy** from the left-hand navigation pane.
-1. In the **Default Policy** pane, check the configured policies. The Default Rule is automatically created when the org is created with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Rule** by clicking the information icon to the right of the rule.
+1. In the Admin Console for the Okta org that you set up, select **Security** > **Global Session Policy** from the left-hand navigation pane.
+1. In the left pane, select **Default Policy**. The Default Rule for this policy is automatically created when the org is created with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Rule** by clicking the information icon to the right of the rule.
 1. If other rules are defined in the **Default Policy** pane, ensure that the **Primary factor** field is set to **Password / IDP** for the other rules.
 
 ### Workaround

@@ -37,7 +37,6 @@ Note that the entities involved in standard Role assignment are:
 * (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a Group
 
 ## Custom Role assignment
-<ApiLifecycle access="ea" />
 
 Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
 
@@ -54,7 +53,6 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 * A Resource Set: Identified by its `id`
 
 ### Resource sets
-<ApiLifecycle access="ea" />
 
 A Resource Set is simply a collection of resources. The following resources are currently supported:
 
@@ -67,7 +65,6 @@ A Resource Set is simply a collection of resources. The following resources are 
 * A specific App
 
 ### Identifiers
-<ApiLifecycle access="ea" />
 
 #### Resource identifiers
 
@@ -142,10 +139,9 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
     * Custom Roles granted through group membership
 
     As a result, if an admin was granted a standard Role that is limited to a single Group, and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
-2. <ApiLifecycle access="ea" />You can't assign a Custom Role without a Resource Set. The Custom Role is applicable only to a subset of resources. Standard Roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+2. You can't assign a Custom Role without a Resource Set. The Custom Role is applicable only to a subset of resources. Standard Roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
 
 ### Permission types
-<ApiLifecycle access="ea" />
 
 | Permission type                         | Description                                                                                                                                           | Applicable resource types                    |
 | :-------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |

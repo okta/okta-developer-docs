@@ -13,6 +13,7 @@ The Policy API supports the following **Policy operations**:
 
 * Get all policies of a specific type
 * Create, read, update, and delete a Policy
+* Get all apps assigned to a specific policy
 * Activate and deactivate a Policy
 
 The Policy API supports the following **Rule operations**:
@@ -23,7 +24,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38f9ae7828efad654acd)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0)
 
 ## Policy API operations
 
@@ -242,6 +243,29 @@ curl -v -X POST \
 
 HTTP 204:
 *No Content is returned when the deactivation is successful.*
+
+## Policy mapping operations
+
+### Get applications
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+##### Request parameters
+
+The Policy ID described in the [Policy object](#policy-object) is required.
+
+##### Request example
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/app"
+```
+
+##### Response types
+
+HTTP 200:
+Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Rules operations
 
@@ -467,7 +491,7 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Okta Sign On Policy](#okta-sign-on-policy)
+[Global Session Policy](#global-session-policy)
 
 [Okta MFA Policy](#multifactor-mfa-enrollment-policy)
 
@@ -477,7 +501,7 @@ Different Policy types control settings for different operations. All Policy typ
 
 [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
-[App Sign-On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
+[Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
@@ -485,9 +509,10 @@ Different Policy types control settings for different operations. All Policy typ
 
 ### Default Policies
 
-There is always a default Policy created for each type of Policy. The default Policy applies to any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
+There is always a default Policy created for each type of Policy. The default Policy applies to new applications by default or any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
 
  - A default Policy is required and can't be deleted.
+ - New applications (other than Office365, Radius, and MFA) are assigned to the default Policy.
  - The default Policy is always the last Policy in the priority order. Any added Policies of this type have higher priority than the default Policy.
  - The default Policy always has one default Rule that can't be deleted. It is always the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule. For information on default Rules, see [Rules object and defaults](#rules-object).
  - The `system` attribute determines whether a Policy is created by a system or by a user.
@@ -503,7 +528,7 @@ For example, assume the following Policies exist.
 
 When a Policy is evaluated for a user, Policy "A" is evaluated first. If the user is a member of the "Administrators" group, then the Rules associated with Policy "A" are evaluated. If a match is found, then the Policy settings are applied. If the user isn't a member of the "Administrators" group, then Policy B is evaluated.
 
-### Policy JSON example (Okta Sign On Policy)
+### Policy JSON example (Global Session Policy)
 
 ```json
   {
@@ -687,7 +712,7 @@ The Rules object defines several attributes:
 | system        | This is set to `true` on system Rules, which you can't delete.    | Boolean                                        | No         | false                  |
 | created       | Timestamp when the Rule was created                                | Date                                           | No         | Assigned               |
 | lastUpdated   | Timestamp when the Rule was last modified                          | Date                                           | No         | Assigned               |
-| conditions    | Conditions for Rule                                                | [Conditions object](#conditions-object-2)      | No         |                        |
+| conditions    | Conditions for a Rule                                                | [Conditions object](#conditions-object-2)      | No         |                        |
 | actions       | Actions for Rule                                                   | [Rules Actions Objects](#actions-objects)      | No         |                        |
 | _links        | Hyperlinks                                                         | [Links object](#links-object-2)                | No         |                        |
 
@@ -1055,23 +1080,25 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 ## Type-Specific Policy data structures
 
-## Okta Sign On Policy
+## Global Session Policy
 
-Okta Sign On Policy controls the manner in which a user is allowed to sign on to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
 
-> **Note:** Okta Sign On Policy is different from an application sign-on Policy, which determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked. An application sign-on Policy can't be configured through the API.
+Global Session Policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+
+> **Note:** Global Session Policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
 
 ### Policy Settings data
 
-The Okta Sign On Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
+The Global Session Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
 
 ### Policy conditions
 
-The following conditions may be applied to the Okta Sign On Policy.
+The following conditions may be applied to the Global Session Policy.
 
 [People Condition](#people-condition-object)
 
-### Okta Sign On Rules action data
+### Global Session Policy Rules action data
 
 #### Signon Action example
 
@@ -1114,15 +1141,15 @@ The following conditions may be applied to the Okta Sign On Policy.
 
 ### Rules conditions
 
-The following conditions may be applied to the Rules associated with Okta Sign On Policy:
+You can apply the following conditions to the Rules associated with a Global Session Policy:
 
-* [People Condition](#people-condition-object)
+* [People condition](#people-condition-object)
 
-* [Network Condition](#network-condition-object)
+* [Network condition](#network-condition-object)
 
-* [AuthContext Condition](#authcontext-condition-object)
+* [AuthContext condition](#authcontext-condition-object)
 
-* [Risk Score Condition](#risk-score-condition-object)
+* [Risk Score condition](#risk-score-condition-object)
 
 ## Multifactor (MFA) Enrollment Policy
 
@@ -1763,22 +1790,25 @@ You can define multiple IdP instances in a single Policy Action. This allows use
   }
 ```
 
-## App sign-on policy
+## Authentication policy
 
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
+> **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
-When you create a new application, it's created with a new app sign-on policy by default. You can't create a new app sign-on policy and assign it to the application. Instead, consider editing the default one to meet your needs.
+An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 
-> **Note:** You can have a maximum of 5000 app sign-on policies in an org.
+When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
+
+> **Note:** You can have a maximum of 5000 authentication policies in an org.
 > There is a max limit of 100 rules allowed per policy.
-> When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
-> The highest priority that an app sign-on policy rule can be set to is `0`.
+> When you create an authentication policy, you automatically also create a default policy rule with the lowest priority of `99`.
+> The highest priority that an authentication policy rule can be set to is `0`.
 
-#### App sign-on policy example
+
+#### Authentication policy example
 
 ```json
     {
@@ -1790,7 +1820,7 @@ When you create a new application, it's created with a new app sign-on policy by
 
 Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
-#### App sign-on policy reference in HAL link in Application API Object example
+#### Authentication policy reference in HAL link in Application API Object example
 
 ```json
     {
@@ -1806,7 +1836,7 @@ Policy conditions aren't supported. Conditions are applied at the rule level for
 
 ### Policy Rules conditions
 
-You can apply the following conditions to the rules associated with an app sign-on policy:
+You can apply the following conditions to the rules associated with an authentication policy:
 
 * [People Condition](#people-condition-object)
 

@@ -1349,6 +1349,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
+| jwks_uri <ApiLifecycle access="ea" />       | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                                                                                      | String                                                                                        | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -3676,6 +3677,40 @@ Content-Type: application/json
     }
   ]
 }
+```
+
+### Update application policy
+
+<ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
+
+Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
+
+##### Request parameters
+
+| Parameter     | Description      | Param Type | DataType | Required | Default |
+| ---------     | ---------------- | ---------- | -------- | -------- | ------- |
+| applicationId | `id` of an app   | URL        | String   | TRUE     |         |
+| policyId      | `id` of a policy | URL        | String   | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/policies/rst179qp7umwdoEWQ0g5"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
 ```
 
 ## Application lifecycle operations
@@ -7366,6 +7401,146 @@ curl -X POST \
                     }
                 ]
             },
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL",
+	    "idp_initiated_login": {
+              "mode": "DISABLED"
+            }
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
+
+#### Request example
+
+The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property using `jwks_uri`.
+
+```bash
+curl -X POST \
+  -H "Accept: application/json" \
+  -H "Authorization: key" \
+  -H "Content-Type: application/json" \
+  -H "cache-control: no-cache" \
+  -d '{
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "oauthClient": {
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "oauthClient": {
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri"
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oaktvoa8bGDHDmby0h7",
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2019-05-13T22:16:50.000Z",
+    "created": "2019-05-13T22:16:50.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oaktvoa8bGDHEmby0h7",
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri",
             "client_uri": null,
             "logo_uri": null,
             "redirect_uris": [
