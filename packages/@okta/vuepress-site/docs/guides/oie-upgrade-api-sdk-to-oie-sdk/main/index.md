@@ -185,7 +185,7 @@ If your application uses direct APIs for a multifactor authentication flow, your
 - `/api/authn/factors/${emailFactorId}/verify` to send the user an email with a sign-in code
 - `/api/authn/factors/${$emailFactorId}/verify` again with the sign-in code from the email challenge
 
->**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use the Identity Engine policies. See [App sign-on policy](/docs/reference/api/policy/#app-sign-on-policy) and [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
+>**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use the Identity Engine policies. See [Authentication policy](/docs/reference/api/policy/#authentication-policy) and [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
 
 See the following sample calls and responses for the MFA authentication flow using the email factor:
 

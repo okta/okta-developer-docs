@@ -115,7 +115,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ### The `audience` parameter in the Authentication API
 
-**What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in the Identity Engine because of the new flexible App Sign-On Policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible App Sign-On Policy.
+**What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in the Identity Engine because of the new flexible authentication policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible authentication policy.
 
 **Further information:** [IDP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
 

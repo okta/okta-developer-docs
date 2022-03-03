@@ -67,13 +67,13 @@ curl -v -X POST \
     "algorithms": {
       "request": {
         "signature": {
-          "algorithm": "SHA-256",
+          "algorithm": "HS256",
           "scope": "REQUEST"
         }
       },
       "response": {
         "signature": {
-          "algorithm": "SHA-256",
+          "algorithm": "HS256",
           "scope": "ANY"
         }
       }
@@ -175,6 +175,14 @@ curl -v -X POST \
                 "url": "https://idp.example.com/keys",
                 "binding": "HTTP-REDIRECT"
             }
+        },
+        "algorithms": {
+          "request": {
+            "signature": {
+              "algorithm": "HS256",
+              "scope": "REQUEST"
+            }
+          }
         },
         "scopes": [
             "openid"
@@ -4959,7 +4967,7 @@ XML digital Signature Algorithm settings for signing `<AuthnRequest>` messages s
 | algorithm   | The XML digital Signature Algorithm used when signing an `<AuthnRequest>` message  | `SHA-1` or `SHA-256` | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign `<AuthnRequest>` messages to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
-> **Note:** The `algorithm` property is ignored when disabling request signatures (`scope` set as `NONE`).
+> **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
 
 ###### SAML 2.0 response Algorithm object
 
@@ -5083,8 +5091,8 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code flo
 
 | Property    | Description                                                                                                                     | DataType                                                                     | Nullable | Readonly | MinLength |
 | ----------- | ---------------------                                                                                                           | ---------------------------------------------------------                    | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
+| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
@@ -5124,8 +5132,9 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
+|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) <ApiLifecycle access="ea" /> | TRUE    | FALSE    |
+|credentials  | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
@@ -5153,6 +5162,14 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
         "binding": "HTTP-REDIRECT"
       }
     },
+    "algorithms": {
+      "request": {
+        "signature": {
+          "algorithm": "HS256",
+          "scope": "REQUEST"
+        }
+      }
+    },
     "scopes": [
       "profile",
       "email",
@@ -5167,6 +5184,70 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
   }
 }
 ```
+##### OIDC Algorithms object
+
+<ApiLifecycle access="ea" />
+
+The `OIDC` protocol supports the `request` algorithm and verification settings.
+
+| Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
+| -------- | ------------------------------------------------------------- | ------------------------------------------------------------------------ | -------- | ------   |
+| request  | Algorithm settings used to sign an authorization request | [OIDC Request Algorithm object](#OIDC-request-algorithm-object)   | FALSE    | FALSE    |
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "algorithms": {
+      "request": {
+        "signature": {
+          "algorithm": "HS256",
+          "scope": "REQUEST"
+        }
+      }
+    }
+  }
+}
+```
+
+###### OIDC Request Algorithm object
+
+<ApiLifecycle access="ea" />
+
+Algorithm settings for signing authorization requests sent to the IdP:
+
+| Property  | Description                                                 | DataType                                                                                   | Nullable | Readonly |
+| --------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------- | -------- |
+| signature | Algorithm settings used to sign an authorization request | [OIDC Signature Algorithm object](#oidc-request-signature-algorithm-object) | FALSE    | FALSE    |
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "algorithms": {
+      "request": {
+        "signature": {
+          "algorithm": "HS256",
+          "scope": "REQUEST"
+        }
+      }
+    }
+  }
+}
+```
+
+###### OIDC request Signature Algorithm object
+
+<ApiLifecycle access="ea" />
+
+HMAC Signature Algorithm settings for signing authorization requests sent to the IdP:
+
+| Property    | Description                                                                        | DataType             | Nullable | Readonly |
+| ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
+| algorithm   | The HMAC Signature Algorithm used when signing an authorization request  | `HS256`, `HS384` or `HS512` | FALSE    | FALSE    |
+| scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
+
+> **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
 
 ##### OAuth 2.0 and OpenID Connect endpoints object
 
