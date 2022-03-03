@@ -84,7 +84,7 @@ You can enable per-client rate limiting to prevent a single client from blocking
 
 #### Warning notification
 
-Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, and issue banner and email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
+Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications. If you customize the threshold to a higher percentage, such as 90%, the warning notifications wouldn't start until the API's rate limit is at 90%.
 
@@ -104,9 +104,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard1.png)
 
-* You've hit a rate limit when you're in the Admin Console and a banner appears to inform you. Click **usage** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
-
-![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard2.png)
+* You've hit a rate limit when you're in the Admin Console and the Rate Limit Monitoring widget informs you. Click **View** in the widget to open the rate limits dashboard or select the particular API in the widget, which opens to the rate limits dashboard with usage details for that API.
 
 * You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Utilization** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
 

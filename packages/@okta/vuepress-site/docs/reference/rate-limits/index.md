@@ -22,7 +22,7 @@ To access the individual API limits, visit a category page by clicking the appro
 | [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 5,200            | 5,200   | 5,200      | 7,000                 |
 | [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 6,000            | 6,000   | 6,000      | 10,000                |
 
-If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Additionally, if you have a One App or Enterprise organization, the Admin Console displays a banner, and you are sent an email notification when your org approaches its rate limit.
+If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Additionally, you are sent an email notification when your org approaches its rate limit.
 
 > **Notes:**
 >
@@ -31,6 +31,12 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 > * Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
+
+## Rate Limit Monitoring widget
+
+The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget available on the Admin Dashboard. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
+
+![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rl-monitoring-widget.png)
 
 ## Burst rate limits
 
