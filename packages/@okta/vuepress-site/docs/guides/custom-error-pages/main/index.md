@@ -102,22 +102,22 @@ Inserts the logo image that has been configured for your application. You can ch
 If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
 
 Example:
+
 ```html
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-### <span v-pre>`{{{errorSummary}}}`</span>
-
 ### <span v-pre>`{{{errorDescription}}}`</span>
 
-Inserts a title and detailed description of the error.
+Inserts a detailed description of the error.
 
 Example:
 
 ```html
-<h2 class="o-form-title">{{errorSummary}}</h2>
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
+
+> **Note:** Macros with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
 
 ### <span v-pre>`{{back}}`</span>
 
