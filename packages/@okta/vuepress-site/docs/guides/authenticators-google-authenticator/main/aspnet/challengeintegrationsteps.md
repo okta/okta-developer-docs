@@ -23,7 +23,7 @@ selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync
     selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`, and the Challenge page should be displayed.
+If the call is successful, the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`, and the Challenge page should appear.
 
 ```csharp
 Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
