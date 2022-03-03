@@ -78,7 +78,10 @@ curl -v -X GET \
 
 ### Get My User Profile Schema
 
-<ApiOperation method="get" url="/api/v1/myaccount/profile/schema" />
+| Endpoint | Lifecycle Status |
+|---|---|
+| <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" /> | <ApiLifecycle access="deprecated" /> |
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
 
@@ -166,7 +169,10 @@ curl -v -X GET \
 
 ### Get My User Profile
 
-<ApiOperation method="get" url="/api/v1/myaccount/directoryProfile" />
+| Endpoint | Lifecycle Status |
+|---|---|
+| <ApiOperation method="get" url="/idp/myaccount/profile" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="get" url="/api/v1/myaccount/directoryProfile" /> | <ApiLifecycle access="deprecated" /> |
 
 Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get My User Profile Schema](#get-my-user-profile-schema)
 
@@ -226,11 +232,14 @@ curl -v -X GET \
 
 ### Update My User Profile
 
-<ApiOperation method="put" url="/api/v1/myaccount/directoryProfile" />
+| Endpoint | Lifecycle Status |
+|---|---|
+| <ApiOperation method="put" url="/idp/myaccount/profile" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="put" url="/api/v1/myaccount/directoryProfile" /> | <ApiLifecycle access="deprecated" /> |
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update (PATCH request).  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Request path parameters
 
