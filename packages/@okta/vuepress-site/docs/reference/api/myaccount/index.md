@@ -26,6 +26,8 @@ The MyAccount API has the following operations:
 * [Get my User Profile Schema](#get-my-user-profile-schema)
 * [Get my User Profile](#get-my-user-profile)
 * [Update my User Profile](#update-my-user-profile)
+* [Send Phone Challenge](#send-phone-challenge)
+* [Verify Phone Challenge](#verify-phone-challenge)
 
 ### Get Me
 
@@ -345,7 +347,7 @@ Returns an empty response with an HTTP 200 status code.
 This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
 
 ```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
      "method": "SMS",
      "retry": false
  }'
@@ -394,7 +396,7 @@ Returns an empty response with an HTTP 204 status code.
 The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
 
 ```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
      "verificationCode": "796672"
  }'
 ```
