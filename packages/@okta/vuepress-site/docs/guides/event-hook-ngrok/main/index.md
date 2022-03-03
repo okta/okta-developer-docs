@@ -4,13 +4,9 @@ excerpt: How to demonstrate Event Hooks using ngrok to expose a local app to the
 layout: Guides
 ---
 
-<<<<<<< HEAD
-<StackSelector class="cleaner-selector"/>
+<StackSelector />
 
 This guide provides a working example of an Okta Event Hook that uses the ngrok utility.
-=======
-This guide provides a working example of an Okta Event Hook. It uses the ngrok utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The ngrok utility enables the testing of Okta Event Hooks locally, rather than implementing an internet-based production or test external service.
->>>>>>> master
 
 ---
 
@@ -88,7 +84,7 @@ See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) 
 
 The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhost:4040`.
 
-Each call to your local application appears in the interface and includes the response body, header, and other details:
+Each call to your local application appears in the interface and includes the response body, header, replay functionality, and other details:
 
 ![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
 
@@ -118,7 +114,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 8. Click **Save & Continue**.
 
-9. With your ngrok session and local application running, complete the one-time verification Okta call at this time or verify the Event Hook later.
+9. With your ngrok session and local application running, complete the one-time verification Okta call at this time. You can also verify the Event Hook later.
 
 ### Verify the Event Hook
 
@@ -130,7 +126,7 @@ To complete the one-time verification of the Event Hook:
 
 or
 
-* After making sure that your  ngrok session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of your **UNVERIFIED** Event Hook, and select **Verify**.
+* After making sure that your  ngrok session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** dropdown menu of your **UNVERIFIED** Event Hook, and select **Verify**.
 
 The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
@@ -140,7 +136,7 @@ The Event Hook is now set up with a status of **VERIFIED** and is ready to send 
 
 With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok inspection interface. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
 
-### Preview
+### Preview the Event Hook
 
 To run a preview call of your Event Hook:
 
@@ -165,11 +161,11 @@ To run a preview call of your Event Hook:
 
      `The user john.doe@example.com has been added to the Okta org!`
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details.
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the response body, header, and other details. Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development.
 
     ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
 
-### Test
+### Test the Event Hook
 
 To run a test of your Event Hook:
 
@@ -187,6 +183,22 @@ To run a test of your Event Hook:
 1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details.
 
     ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+
+### Replay the Event Hook
+
+The ngrok inspection interface provides a replay functionality that you can use to test your code without reproducing test conditions in Okta, saving you development time. To use the replay:
+
+1. In ngrok’s inspection interface (http://localhost:4040), select an event hook from Okta.
+
+1. Click **Replay** > **Replay with modifications:**
+
+1. Optionally, modify the request body with a different content. For example, `"target": [{ "alternateId": "jane.doe@example.com"}]`.
+
+1. Click **Replay**.
+
+1. Your local application receives the modified request to process and provide a response.
+
+See also [ngrok Documentation](https://ngrok.com/docs#inspect-replay).
 
 ## See also
 
