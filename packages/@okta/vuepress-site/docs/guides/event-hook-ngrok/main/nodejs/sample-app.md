@@ -50,7 +50,9 @@ The Event Hook use case is a simple local application response to the addition o
     ```
 
 2. Add the server page, `server.js`, that contains the simple application code and an
-   endpoint for the Okta Event Hook:
+   endpoint for the Okta Event Hook.
+
+   The endpoint you call from Okta is `/userCreated`.
 
     ```JavaScript
     var express = require('express');
@@ -85,11 +87,17 @@ The Event Hook use case is a simple local application response to the addition o
     //userCreated Event request, POST from Okta
 
     app.post("/userCreated", (request, response) => {
+
+        var newUser = request.body.data.events[0].target[0]["alternateId"];
         console.log(" ");
-        console.log('The user ' + request.body.data.events[0].target[0]["alternateId"] +
-        " has been added to the Okta org!");
-        response.sendStatus(200);
+        if (newUser == null){
+            console.log("No user in request! Update the JSON target field with a value.");
+        } else {
+            console.log('The user ' + newUser +
+            " has been added to the Okta org!");
         }
+        response.sendStatus(200);
+       }
     );
 
     var server = app.listen(8082, function () {

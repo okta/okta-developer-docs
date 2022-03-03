@@ -84,7 +84,7 @@ See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) 
 
 The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhost:4040`.
 
-Each call to your local application appears in the interface and includes the response body, header, replay functionality, and other details:
+Each call to your local application appears in the interface and includes the response body, header, replay functionality, and other details. Proceed to the following sections to see an example request.
 
 ![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
 
@@ -102,7 +102,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
 
-5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userCreated` from `server.js` with the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
+5. In the **URL** field, add your external service URL. For this example, add the code endpoint, `/userCreated` from `server.js` to the end of the `https://` URL from the [ngrok session](#run-ngrok). For example, your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
 6. Include the **Authentication field** and **Authentication secret** values. In this example, our `server.js` code uses Basic Authentication:
 
@@ -132,38 +132,9 @@ The Event Hook is now set up with a status of **VERIFIED** and is ready to send 
 
 >**Note:** A successful Event Hook verification also indicates your local application is working with the ngrok session! Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
 
-## Preview, test, and review the Event Hook
+## Test, preview, and review the Event Hook
 
-With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok inspection interface. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
-
-### Preview the Event Hook
-
-To run a preview call of your Event Hook:
-
-1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
-    * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user John Doe with the following fields:
-        * **First Name:** John
-        * **Last Name:** Doe
-        * **User Name:** john.doe@example.com
-1. In the Admin Console, go to **Workflow** > **Event Hooks**.
-1. Locate the Event Hook you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
-1. Click the **Actions** menu for this hook, and select **Preview**.
-1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
-1. The most recent event (in this case, user John Doe created above) populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook. You can also select an older event from the **System Log Event** drop-down menu. If no event is available, the JSON body populates with sample data.
-
-    > **Note:** If you are using the preview sample data, you must edit the preview to add a `target` value, including an email using the `alternateId` property. For example, `"target": [{ "alternateId": "john.doe@example.com"}]`. Otherwise, the sample application code throws an error if the value in `target` property is `null`.
-
-1. Ensure that both your ngrok session and local sample application are running.
-
-    >**Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
-
-1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message appears if successful:
-
-     `The user john.doe@example.com has been added to the Okta org!`
-
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the response body, header, and other details. Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development.
-
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+With your local application now exposed externally through an ngrok session, you can test and preview Okta Event Hook calls, as well as review details of the calls using the ngrok inspection interface. The Okta org is also set up to call your local application when an event is triggered. In this example, the event triggers when a user is added to your Okta org.
 
 ### Test the Event Hook
 
@@ -172,21 +143,48 @@ To run a test of your Event Hook:
 1. Ensure that both your ngrok session and local sample application are running.
 1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user Jane Doe with the following fields:
-        * **First Name:** Jane
+        * **First Name:** John
         * **Last Name:** Doe
-        * **User Name:** jane.doe@example.com
+        * **User Name:** john.doe@example.com
 
 1. Navigate back to your local application's console. The following message appears if successful:
 
-    `The user jane.doe@example.com has been added to the Okta org!`
+    `The user john.doe@example.com has been added to the Okta org!`
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details.
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details. Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development. See [Replay the Event Hook](#replay-the-event-hook).
+
+    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+
+### Preview the Event Hook
+
+To run a preview call of your Event Hook:
+
+1. In the Admin Console, go to **Workflow** > **Event Hooks**.
+1. Locate the Event Hook you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the Event Hook.
+1. Click the **Actions** menu for this hook, and select **Preview**.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there is only one: `User Created (user.lifecycle.create)`.
+1. The most recent event (in this case, user John Doe created previously) populates the **Preview & Deliver Event Hook** section with the JSON body of the Event Hook. You can also select an older event from the **System Log Event** dropdown menu. If no event is available, the JSON body populates with sample data.
+
+    > **Note:**
+    >
+    > * The preview Event Hook JSON body can be modified for testing or development purposes. Click **Edit** to update the `"target"` field, for example.
+    > * If you are using the preview sample data, you must edit the preview to add a `target` value, including an email using the `alternateId` property. For example, `"target": [{ "alternateId": "john.doe@example.com"}]`. Otherwise, the sample application code throws an error if the value in `target` property is `null`.
+
+1. Ensure that both your ngrok session and local sample application are running.
+
+    > **Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
+
+1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message appears if successful:
+
+     `The user john.doe@example.com has been added to the Okta org!`
+
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the response body, header, and other details.
 
     ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
 
 ### Replay the Event Hook
 
-The ngrok inspection interface provides a replay functionality that you can use to test your code without reproducing test conditions in Okta, saving you development time. To use the replay:
+The ngrok inspection interface provides a replay functionality that you can use to test your code without reproducing test conditions in Okta. To use the replay:
 
 1. In ngrok’s inspection interface (http://localhost:4040), select an event hook from Okta.
 
