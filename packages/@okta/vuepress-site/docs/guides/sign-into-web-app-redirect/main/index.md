@@ -60,7 +60,7 @@ okta apps create web
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required Redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. The Okta CLI creates an `okta.env` file with export statements containing the Client ID, Client Secret, and Issuer. Keep this safe as you use it later to configure your web app.
+4. The Okta CLI creates an `.okta.env` file with export statements containing the Client ID, Client Secret, and Issuer. Keep this safe as you use it later to configure your web app.
 
 At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 

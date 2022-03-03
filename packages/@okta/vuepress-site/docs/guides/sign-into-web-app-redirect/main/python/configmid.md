@@ -39,7 +39,7 @@ if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug=True)
 ```
 
-2. Add the following Okta config dictionary to the bottom of `app.py`. Replace the placeholders with the values you obtained earlier (fromt `okta.env`, and from your org admin).
+2. Add the following Okta config dictionary to the bottom of `app.py`. Replace the placeholders with the values you obtained earlier (from `.okta.env`, and from your org admin).
 
 ```py
 config = {
