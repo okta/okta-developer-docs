@@ -1,11 +1,11 @@
 ---
-title: Add User Authentication and Okta Resource Management to Your Java App
+title: Add user authentication and Okta Resource Management to your Java app
 language: Java
 integration: back-end
 icon: code-java
 meta:
   - name: description
-    content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project.
+    content: Read our guide to add user authentication to your Java app and see related guides to help complete your project.
 ---
 
 <ul class='language-tabs'>
@@ -21,86 +21,48 @@ meta:
 	</li>
 </ul>
 
-## Get Started with Java + Okta
+## Get started with Java + Okta
 
-New to Okta? Our Java resources will help you add user authentication to your Java app.
+New to Okta? Our resources help you add user authentication to your Java app.
 
-## Okta Management SDK for Java
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta Java SDK can be used in your server-side code to create and update users, groups, and more.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://github.com/okta/okta-sdk-java'>
-	<span class='fa fa-github'></span> <span>Okta Java SDK GitHub Project</span>
-</a>
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-sdk-java/apidocs/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>Okta Java SDK Reference (Javadoc)</span>
-	</a>
-</p>
+[Micronaut redirect authentication sample app](https://github.com/okta/samples-java-micronaut): See [Okta-Hosted Login](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login) for a redirect configuration.
 
-## Okta Hooks SDK for Java
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-The Okta Hooks SDK can be used to respond to [Okta's Inline Hooks](https://developer.okta.com/docs/concepts/inline-hooks/) from custom applications.
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-<a href='https://github.com/okta/okta-hooks-sdk-java'>
-	<span class='fa fa-github'></span> <span>Okta Hooks SDK GitHub Project</span>
-</a>
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-hooks-sdk-java/apidocs/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>Okta Hooks SDK Reference (Javadoc)</span>
-	</a>
-</p>
+Okta Identity Engine:
 
-## Okta JWT Verifier for Java
+* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
+* [Java embedded authentication with SDK sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-auth-with-sdk)
 
-The Okta JWT Verifier can be used in products that do not have existing OAuth 2.0 support.  This library supports validating Okta's OAuth access tokens and ID tokens.
+Okta Classic:
 
-<a href='https://github.com/okta/okta-jwt-verifier-java'>
-	<span class='fa fa-github'></span> <span>Okta JWT Verifier GitHub Project</span>
-</a>
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-jwt-verifier-java/apidocs/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>Okta JWT Verifier Reference (Javadoc)</span>
-	</a>
-</p>
+* The [Okta Authentication SDK](https://github.com/okta/okta-auth-java) can be used in scenarios where using OAuth 2.0 isn't possible.
+* [Okta Authentication SDK reference (Javadoc)](https://developer.okta.com/okta-auth-java/apidocs/)
 
-## Okta Authentication SDK for Java
+## Other Classic SDKs
 
-The Okta Authentication SDK can be used in scenarios where using OAuth 2.0 is not possible.
+* The [Okta Java Management SDK](https://github.com/okta/okta-sdk-java) can be used in your server-side code to create and update users, groups, and more.
+  * [Okta Java Management SDK Reference (Javadoc)](https://developer.okta.com/okta-sdk-java/apidocs/)
+* The [Okta Hooks SDK](https://github.com/okta/okta-hooks-sdk-java) can be used to respond to [Okta's Inline Hooks](https://developer.okta.com/docs/concepts/inline-hooks/) from custom applications.
+  * [Okta Hooks reference (Javadoc)](https://developer.okta.com/okta-hooks-sdk-java/apidocs/)
+* The [Okta JWT Verifier](https://github.com/okta/okta-jwt-verifier-java) can be used in products that don't have existing OAuth 2.0 support. This library supports validating Okta's OAuth access tokens and ID tokens.
+  * [Okta JWT Verifier reference (Javadoc)](https://developer.okta.com/okta-jwt-verifier-java/apidocs/)
 
-<a href='https://github.com/okta/okta-auth-java'>
-	<span class='fa fa-github'></span> <span>Okta Authentication SDK GitHub Project</span>
-</a>
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-auth-java/apidocs/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>Okta Authentication SDK Reference (Javadoc)</span>
-	</a>
-</p>
+## Java Servlet sample
 
-## Java Servlet Sample
-
-<a href='https://github.com/okta/samples-java-servlet'>
-	<span class='fa fa-github'></span> <span>Java Servlet Sample</span>
-</a>
+[Java Servlet Sample](https://github.com/okta/samples-java-servlet)
 
 ## Recommended Guides
 
+* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-- [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
-
-## Related Blog Posts
-
-
-- [5 Tips for Building your Java API](/blog/2017/08/23/five-java-tips)
-- [NoSQL Options for Java Developers](/blog/2017/09/08/nosql-options-for-java-developers)
-- [TLS Client Authentication for Internal Services](/blog/2015/12/02/tls-client-authentication-for-services)
-- [Add Authentication to Play Framework with OIDC and Okta](/blog/2017/10/31/add-authentication-to-play-framework-with-oidc)
-- [Build Server Side Authentication in Grails with OAuth 2.0 and Okta](/blog/2018/04/19/okta-with-grails)
-
+> **Note**: Browse our [Java Developer Blog posts](/search/#q=java&f:@commonoktasource=[Developer%20blog]) for further useful topics.

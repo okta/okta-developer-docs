@@ -4,13 +4,15 @@ excerpt: Provides documentation on configuring an Okta org to receive risk event
 layout: Guides
 ---
 
-This guide shows you how to configure an Okta org to receive risk events from a third-party provider.
+<ApiLifecycle access="ea" />
+
+This guide explains how to configure an Okta org to receive risk events from a third-party provider.
 
 ---
-<!-- Nutrition facts bullets -->
+
 **Learning outcomes**
 
-* Learn how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
+* Understand how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
 
 **What you need**
 
@@ -21,7 +23,7 @@ This guide shows you how to configure an Okta org to receive risk events from a 
 
 ---
 
-<ApiLifecycle access="ea" />
+## About third-party risk provider integration with the Okta Risk Engine
 
 The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party risk providers can integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk provider can send risk events that you can use when calculating the authentication risk based on the risk policy configured in the Okta org. The risk events are additionally logged as part of the System Log.
 

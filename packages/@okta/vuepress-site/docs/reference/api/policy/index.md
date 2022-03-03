@@ -612,10 +612,10 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 Like Policies, Rules have a priority that govern the order that they are considered during evaluation. The highest priority Rule has a `priority` of 1. For example, if a particular Policy had two Rules:
 
-- Rule A has priority 1 and applies to RADIUS VPN scenarios.
+- Rule A has priority 1 and applies to LDAP API scenarios.
 - Rule B has priority 2 and applies to ANYWHERE (network connection) scenarios.
 
-If a request came in from the Radius endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
+If a request came in from the LDAP endpoint, the action in Rule A is taken, and Rule B isn't evaluated. This occurs because even though requests coming from anywhere  match the ANYWHERE location condition of Rule B, Rule A has higher priority and is evaluated first.
 
 ### Rules message example (Password Policy)
 
@@ -756,10 +756,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 ```
 #### UserType Condition object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-> **Note:** This feature is only available as a part of the Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+<ApiLifecycle access="ie" />
 
 Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
 
@@ -787,7 +784,7 @@ Specifies an authentication entry point
 
 | Parameter | Description                              | Data Type                             | Required | Default |
 | --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
-| `authType`  | Specifies how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+| `authType`  | Specifies how the user is authenticated | `ANY` or `LDAP_INTERFACE` | No       |  `ANY`  |
 
 > **Note:** The `LDAP_INTERFACE` data type option is an <ApiLifecycle access="ea" /> feature.
 
@@ -996,8 +993,7 @@ Specifies a particular platform or device to match on
 
 #### Device Condition object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -1163,8 +1159,7 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 #### Policy Authenticators Settings example
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** Policy Settings are included only for those Authenticators that are enabled.
 
@@ -1193,9 +1188,9 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
+| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />           | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
 > **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
@@ -1254,8 +1249,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 
 #### Policy Authenticator object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 | Parameter | Description                                   | Data Type                                                                   | Required |
 | ---       | ---                                           | ---                                                                         | ---      |
@@ -1264,8 +1258,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 
 #### Policy Authenticator Enroll object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 | Parameter | Description                                    | Data Type                                | Required | Default       |
 | ---       | ---                                            | ---                                      | ---      | ---           |
@@ -1540,8 +1533,7 @@ The following conditions may be applied to Password Policy:
   },
 ```
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 With the Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery Factors for the rule are defined inside the `selfServicePasswordReset` Action.
 
@@ -1724,7 +1716,6 @@ You can apply the following conditions to the IdP Discovery Policy:
 #### Policy Action with multiple IdP instances
 
 <ApiLifecycle access="ie" />
-<ApiLifecycle access="Limited GA" /><br>
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -1774,8 +1765,7 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 
 ## App sign-on policy
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -2020,10 +2010,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 ## Profile Enrollment policy
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+<ApiLifecycle access="ie" />
 
 Profile Enrollment policies specify which profile attributes are required for creating new Users through self-service registration and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 

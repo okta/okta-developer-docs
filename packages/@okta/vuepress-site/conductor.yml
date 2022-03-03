@@ -52,7 +52,7 @@ redirects:
   - from: /code/php/jwt-validation/index.html
     to: https://github.com/okta/okta-jwt-verifier-php
   - from: /code/php/quickstart-signin-widget/index.html
-    to: /quickstart/#/okta-sign-in-page/php/generic
+    to: /docs/guides/quickstart/
   - from: /docs/guides/simplesamlphp.html
     to: /code/php/simplesamlphp/index.html
   - from: /docs/examples/pysaml2.html
@@ -412,7 +412,7 @@ redirects:
   - from: /use_cases/api_access_management/index.html
     to: /docs/concepts/api-access-management/
   - from: /use_cases/authentication/index.html
-    to: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
   - from: /use_cases/authentication/session_cookie/index.html
     to: /docs/guides/session-cookie/
   - from: /use_cases/event_hooks/index.html
@@ -730,7 +730,7 @@ redirects:
   - from: /use_cases/api_access_management
     to: /docs/concepts/api-access-management/
   - from: /use_cases/authentication
-    to: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
   - from: /use_cases/authentication/session_cookie
     to: /docs/guides/session-cookie/
   - from: /use_cases/event_hooks
@@ -1148,43 +1148,43 @@ redirects:
   - from: /guides/sign-in-with-microsoft/-/using-microsoft-login/index.html
     to: /docs/guides/sign-in-with-microsoft/-/using-microsoft-login/
   - from: /guides/sign-into-spa/-/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /guides/sign-into-spa/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-spa/-/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-your-app
   - from: /guides/sign-into-spa/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /guides/sign-into-spa/-/define-callback/index.html
-    to: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /guides/sign-into-spa/-/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /guides/sign-into-spa/-/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#add-packages
   - from: /guides/sign-into-spa/-/next-steps/index.html
-    to: /docs/guides/sign-into-spa/-/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/-/main/#next-steps
   - from: /guides/sign-into-spa/-/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/-/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-required-authentication
   - from: /guides/sign-into-spa/-/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token
   - from: /guides/sign-into-spa/-/user-info/index.html
-    to: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user
   - from: /guides/sign-into-web-app/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
   - from: /guides/sign-into-web-app/-/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#add-packages
   - from: /guides/sign-into-web-app/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /guides/sign-into-web-app/-/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#define-a-callback-route
   - from: /guides/sign-into-web-app/-/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#get-info-about-the-user
   - from: /guides/sign-into-web-app/-/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#next-steps
   - from: /guides/sign-into-web-app/-/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /guides/sign-into-web-app/-/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#configure-required-authentication
   - from: /guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/before-you-begin/
   - from: /guides/sign-users-out/-/next-steps/index.html
@@ -1362,11 +1362,11 @@ redirects:
   - from: /guides/sign-in-with-microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
-    to: /docs/guides/sign-into-mobile-app/
+    to: /docs/guides/sign-into-mobile-app-redirect/
   - from: /guides/sign-into-spa/index.html
-    to: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
-    to: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
   - from: /guides/sign-users-out/index.html
     to: /docs/guides/sign-users-out/
   - from: /guides/updating-saml-cert/index.html
@@ -1768,6 +1768,10 @@ redirects:
   - from: /docs/guides/oauth-for-okta/overview
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/implement-oauth-for-okta/overview/index.html
     to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
@@ -2344,7 +2348,9 @@ redirects:
   - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-sign-in-soc-idp
     to: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/-/main/
   - from: /signup/oie.html
-    to: /signup/oie-preview.html
+    to: /signup/
+  - from: /signup/oie-preview.html
+    to: /signup/
   - from: /docs/reference/api-overview
     to: /docs/reference/core-okta-api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
@@ -2710,165 +2716,165 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/react-native/next-steps/index.html
     to: /docs/guides/build-custom-ui-mobile/react-native/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/-/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback
-    to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/-/create-okta-application
-    to: /docs/guides/sign-into-mobile-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/-/configure-packages
-    to: /docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/-/sign-in-page
-    to: /docs/guides/sign-into-mobile-app/-/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/-/get-user-info
-    to: /docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/-/check-on-startup
-    to: /docs/guides/sign-into-mobile-app/-/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/-/stay-signed-in
-    to: /docs/guides/sign-into-mobile-app/-/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/-/use-access-token
-    to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/-/next-steps
-    to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/
   - from: /docs/guides/sign-into-mobile-app/-/define-callback/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/-/configure-packages/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/-/sign-in-page/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/-/get-user-info/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/-/check-on-startup/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/-/stay-signed-in/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/-/use-access-token/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/-/next-steps/index.html
-    to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/android/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/android/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
   - from: /docs/guides/sign-into-mobile-app/android/define-callback
-    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
-    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/android/configure-packages
-    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/android/sign-in-page
-    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/android/get-user-info
-    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/android/check-on-startup
-    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in
-    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/android/use-access-token
-    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/android/next-steps
-    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/android/before-you-begin/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
   - from: /docs/guides/sign-into-mobile-app/android/define-callback/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/android/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/android/configure-packages/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/android/sign-in-page/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/android/get-user-info/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/android/check-on-startup/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/android/stay-signed-in/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/android/use-access-token/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/android/next-steps/index.html
-    to: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/ios/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/
   - from: /docs/guides/sign-into-mobile-app/ios/define-callback
-    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
-    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/ios/configure-packages
-    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page
-    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/ios/get-user-info
-    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup
-    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in
-    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/ios/use-access-token
-    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/ios/next-steps
-    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/ios/before-you-begin/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/
   - from: /docs/guides/sign-into-mobile-app/ios/define-callback/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/ios/configure-packages/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/ios/sign-in-page/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/ios/get-user-info/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/ios/check-on-startup/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/ios/stay-signed-in/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/ios/use-access-token/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/ios/next-steps/index.html
-    to: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin
-    to: /docs/guides/sign-into-mobile-app/react-native/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/react-native/next-steps
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#next-steps
   - from: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
   - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#open-the-sign-in-page
   - from: /docs/guides/sign-into-mobile-app/react-native/get-user-info/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-mobile-app/react-native/check-on-startup/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#check-for-a-session-at-startup
   - from: /docs/guides/sign-into-mobile-app/react-native/stay-signed-in/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#keep-the-user-signed-in
   - from: /docs/guides/sign-into-mobile-app/react-native/use-access-token/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#use-the-access-token
   - from: /docs/guides/sign-into-mobile-app/react-native/next-steps/index.html
-    to: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#next-steps
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
@@ -3246,225 +3252,225 @@ redirects:
   - from: /docs/guides/shared-sso-android-ios/ios/next-steps/index.html
     to: /docs/guides/shared-sso-android-ios/ios/main/#next-steps
   - from: /docs/guides/sign-into-spa/-/before-you-begin
-    to: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
   - from: /docs/guides/sign-into-spa/-/define-callback
-    to: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/-/create-okta-application
-    to: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/-/install-sdk
-    to: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-spa/-/configure-the-sdk
-    to: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/-/add-signin-button
-    to: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/-/handle-callback
-    to: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/-/require-authentication
-    to: /docs/guides/sign-into-spa/-/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/-/user-info
-    to: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/-/use-the-access-token
-    to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/-/next-steps
-    to: /docs/guides/sign-into-spa/-/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-spa/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
   - from: /docs/guides/sign-into-spa/-/define-callback/index.html
-    to: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/-/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-spa/-/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/-/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/-/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/-/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/-/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/-/user-info/index.html
-    to: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/-/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/-/next-steps/index.html
-    to: /docs/guides/sign-into-spa/-/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-spa/angular/before-you-begin
-    to: /docs/guides/sign-into-spa/angular/main/
+    to: /docs/guides/sign-into-spa-redirect/angular/main/
   - from: /docs/guides/sign-into-spa/angular/define-callback
-    to: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/angular/create-okta-application
-    to: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/angular/install-sdk
-    to: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
   - from: /docs/guides/sign-into-spa/angular/configure-the-sdk
-    to: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/angular/add-signin-button
-    to: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/angular/handle-callback
-    to: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/angular/require-authentication
-    to: /docs/guides/sign-into-spa/angular/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/angular/user-info
-    to: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/angular/use-the-access-token
-    to: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/angular/next-steps
-    to: /docs/guides/sign-into-spa/angular/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
   - from: /docs/guides/sign-into-spa/angular/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/angular/main/
+    to: /docs/guides/sign-into-spa-redirect/angular/main/
   - from: /docs/guides/sign-into-spa/angular/define-callback/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/angular/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/angular/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
   - from: /docs/guides/sign-into-spa/angular/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/angular/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/angular/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/angular/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/angular/user-info/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/angular/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/angular/next-steps/index.html
-    to: /docs/guides/sign-into-spa/angular/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
   - from: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/
   - from: /docs/guides/sign-into-spa/blazorwebasm/define-callback
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/blazorwebasm/create-okta-application
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/blazorwebasm/install-sdk
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#add-packages
   - from: /docs/guides/sign-into-spa/blazorwebasm/configure-the-sdk
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/blazorwebasm/add-signin-button
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/blazorwebasm/handle-callback
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/blazorwebasm/require-authentication
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/blazorwebasm/user-info
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/blazorwebasm/use-the-access-token
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/blazorwebasm/next-steps
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#next-steps
   - from: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/
   - from: /docs/guides/sign-into-spa/blazorwebasm/define-callback/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/blazorwebasm/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/blazorwebasm/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#add-packages
   - from: /docs/guides/sign-into-spa/blazorwebasm/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/blazorwebasm/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/blazorwebasm/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/blazorwebasm/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/blazorwebasm/user-info/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/blazorwebasm/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/blazorwebasm/next-steps/index.html
-    to: /docs/guides/sign-into-spa/blazorwebasm/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#next-steps
   - from: /docs/guides/sign-into-spa/react/before-you-begin
-    to: /docs/guides/sign-into-spa/react/main/
+    to: /docs/guides/sign-into-spa-redirect/react/main/
   - from: /docs/guides/sign-into-spa/react/define-callback
-    to: /docs/guides/sign-into-spa/react/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/react/create-okta-application
-    to: /docs/guides/sign-into-spa/react/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/react/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/react/install-sdk
-    to: /docs/guides/sign-into-spa/react/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#add-packages
   - from: /docs/guides/sign-into-spa/react/configure-the-sdk
-    to: /docs/guides/sign-into-spa/react/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/react/add-signin-button
-    to: /docs/guides/sign-into-spa/react/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/react/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/react/handle-callback
-    to: /docs/guides/sign-into-spa/react/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/react/require-authentication
-    to: /docs/guides/sign-into-spa/react/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/react/user-info
-    to: /docs/guides/sign-into-spa/react/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/react/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/react/use-the-access-token
-    to: /docs/guides/sign-into-spa/react/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/react/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/react/next-steps
-    to: /docs/guides/sign-into-spa/react/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/react/main/#next-steps
   - from: /docs/guides/sign-into-spa/react/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/react/main/
+    to: /docs/guides/sign-into-spa-redirect/react/main/
   - from: /docs/guides/sign-into-spa/react/define-callback/index.html
-    to: /docs/guides/sign-into-spa/react/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/react/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/react/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/react/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/react/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/react/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#add-packages
   - from: /docs/guides/sign-into-spa/react/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/react/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/react/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/react/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/react/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/react/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/react/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/react/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/react/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/react/user-info/index.html
-    to: /docs/guides/sign-into-spa/react/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/react/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/react/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/react/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/react/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/react/next-steps/index.html
-    to: /docs/guides/sign-into-spa/react/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/react/main/#next-steps
   - from: /docs/guides/sign-into-spa/vue/before-you-begin
-    to: /docs/guides/sign-into-spa/vue/main/
+    to: /docs/guides/sign-into-spa-redirect/vue/main/
   - from: /docs/guides/sign-into-spa/vue/define-callback
-    to: /docs/guides/sign-into-spa/vue/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/vue/create-okta-application
-    to: /docs/guides/sign-into-spa/vue/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/vue/install-sdk
-    to: /docs/guides/sign-into-spa/vue/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#add-packages
   - from: /docs/guides/sign-into-spa/vue/configure-the-sdk
-    to: /docs/guides/sign-into-spa/vue/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/vue/add-signin-button
-    to: /docs/guides/sign-into-spa/vue/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/vue/handle-callback
-    to: /docs/guides/sign-into-spa/vue/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/vue/require-authentication
-    to: /docs/guides/sign-into-spa/vue/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/vue/user-info
-    to: /docs/guides/sign-into-spa/vue/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/vue/use-the-access-token
-    to: /docs/guides/sign-into-spa/vue/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/vue/next-steps
-    to: /docs/guides/sign-into-spa/vue/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#next-steps
   - from: /docs/guides/sign-into-spa/vue/before-you-begin/index.html
-    to: /docs/guides/sign-into-spa/vue/main/
+    to: /docs/guides/sign-into-spa-redirect/vue/main/
   - from: /docs/guides/sign-into-spa/vue/define-callback/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/vue/create-okta-application/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-spa/vue/install-sdk/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#add-packages
   - from: /docs/guides/sign-into-spa/vue/configure-the-sdk/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-your-app
   - from: /docs/guides/sign-into-spa/vue/add-signin-button/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-spa/vue/handle-callback/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
   - from: /docs/guides/sign-into-spa/vue/require-authentication/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-required-authentication
   - from: /docs/guides/sign-into-spa/vue/user-info/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-spa/vue/use-the-access-token/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#use-the-access-token
   - from: /docs/guides/sign-into-spa/vue/next-steps/index.html
-    to: /docs/guides/sign-into-spa/vue/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#next-steps
   - from: /docs/guides/configure-signon-policy/before-you-begin
     to: /docs/guides/configure-signon-policy/
   - from: /docs/guides/configure-signon-policy/prompt-factor-group
@@ -3482,333 +3488,333 @@ redirects:
   - from: /docs/guides/configure-signon-policy/next-steps/index.html
     to: /docs/guides/configure-signon-policy/main/#next-steps
   - from: /docs/guides/sign-into-web-app/-/before-you-begin
-    to: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
   - from: /docs/guides/sign-into-web-app/-/define-callback
-    to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/-/create-okta-application
-    to: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/-/configure-packages
-    to: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-web-app/-/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/-/require-authentication
-    to: /docs/guides/sign-into-web-app/-/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/-/get-user-info
-    to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/-/next-steps
-    to: /docs/guides/sign-into-web-app/-/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-web-app/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
   - from: /docs/guides/sign-into-web-app/-/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/-/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#add-packages
   - from: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/-/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/-/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/-/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/-/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#next-steps
   - from: /docs/guides/sign-into-web-app/aspnet/before-you-begin
-    to: /docs/guides/sign-into-web-app/aspnet/main/
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/
   - from: /docs/guides/sign-into-web-app/aspnet/define-callback
-    to: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/aspnet/create-okta-application
-    to: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/aspnet/configure-packages
-    to: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#add-packages
   - from: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/aspnet/require-authentication
-    to: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/aspnet/get-user-info
-    to: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/aspnet/next-steps
-    to: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#next-steps
   - from: /docs/guides/sign-into-web-app/aspnet/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/
   - from: /docs/guides/sign-into-web-app/aspnet/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/aspnet/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/aspnet/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#add-packages
   - from: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/aspnet/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/aspnet/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/aspnet/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#next-steps
   - from: /docs/guides/sign-into-web-app/aspnetcore3/before-you-begin
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
   - from: /docs/guides/sign-into-web-app/aspnetcore3/define-callback
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/aspnetcore3/create-okta-application
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/aspnetcore3/configure-packages
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#add-packages
   - from: /docs/guides/sign-into-web-app/aspnetcore3/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/aspnetcore3/require-authentication
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/aspnetcore3/get-user-info
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/aspnetcore3/next-steps
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#next-steps
   - from: /docs/guides/sign-into-web-app/aspnetcore3/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
   - from: /docs/guides/sign-into-web-app/aspnetcore3/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/aspnetcore3/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/aspnetcore3/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#add-packages
   - from: /docs/guides/sign-into-web-app/aspnetcore3/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/aspnetcore3/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/aspnetcore3/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/aspnetcore3/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore3/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#next-steps
   - from: /docs/guides/sign-into-web-app/go/before-you-begin
-    to: /docs/guides/sign-into-web-app/go/main/
+    to: /docs/guides/sign-into-web-app-redirect/go/main/
   - from: /docs/guides/sign-into-web-app/go/define-callback
-    to: /docs/guides/sign-into-web-app/go/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/go/create-okta-application
-    to: /docs/guides/sign-into-web-app/go/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/go/configure-packages
-    to: /docs/guides/sign-into-web-app/go/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#add-packages
   - from: /docs/guides/sign-into-web-app/go/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/go/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/go/require-authentication
-    to: /docs/guides/sign-into-web-app/go/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/go/get-user-info
-    to: /docs/guides/sign-into-web-app/go/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/go/next-steps
-    to: /docs/guides/sign-into-web-app/go/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#next-steps
   - from: /docs/guides/sign-into-web-app/go/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/go/main/
+    to: /docs/guides/sign-into-web-app-redirect/go/main/
   - from: /docs/guides/sign-into-web-app/go/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/go/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/go/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#add-packages
   - from: /docs/guides/sign-into-web-app/go/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/go/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/go/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/go/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/go/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#next-steps
   - from: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/
   - from: /docs/guides/sign-into-web-app/nodeexpress/define-callback
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/nodeexpress/create-okta-application
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/nodeexpress/configure-packages
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#add-packages
   - from: /docs/guides/sign-into-web-app/nodeexpress/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/nodeexpress/require-authentication
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/nodeexpress/get-user-info
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/nodeexpress/next-steps
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#next-steps
   - from: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/
   - from: /docs/guides/sign-into-web-app/nodeexpress/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/nodeexpress/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/nodeexpress/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#add-packages
   - from: /docs/guides/sign-into-web-app/nodeexpress/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/nodeexpress/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/nodeexpress/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/nodeexpress/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/nodeexpress/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#next-steps
   - from: /docs/guides/sign-into-web-app/php/before-you-begin
-    to: /docs/guides/sign-into-web-app/php/main/
+    to: /docs/guides/sign-into-web-app-redirect/php/main/
   - from: /docs/guides/sign-into-web-app/php/define-callback
-    to: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/php/create-okta-application
-    to: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/php/configure-packages
-    to: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
   - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/php/require-authentication
-    to: /docs/guides/sign-into-web-app/php/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/php/get-user-info
-    to: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/php/next-steps
-    to: /docs/guides/sign-into-web-app/php/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
   - from: /docs/guides/sign-into-web-app/php/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/php/main/
+    to: /docs/guides/sign-into-web-app-redirect/php/main/
   - from: /docs/guides/sign-into-web-app/php/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/php/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/php/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
   - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/php/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/php/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/php/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/php/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
   - from: /docs/guides/sign-into-web-app/python/before-you-begin
-    to: /docs/guides/sign-into-web-app/python/main/
+    to: /docs/guides/sign-into-web-app-redirect/python/main/
   - from: /docs/guides/sign-into-web-app/python/define-callback
-    to: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/python/create-okta-application
-    to: /docs/guides/sign-into-web-app/python/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/python/configure-packages
-    to: /docs/guides/sign-into-web-app/python/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#add-packages
   - from: /docs/guides/sign-into-web-app/python/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/python/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/python/require-authentication
-    to: /docs/guides/sign-into-web-app/python/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/python/get-user-info
-    to: /docs/guides/sign-into-web-app/python/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/python/next-steps
-    to: /docs/guides/sign-into-web-app/python/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#next-steps
   - from: /docs/guides/sign-into-web-app/python/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/python/main/
+    to: /docs/guides/sign-into-web-app-redirect/python/main/
   - from: /docs/guides/sign-into-web-app/python/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/python/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/python/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#add-packages
   - from: /docs/guides/sign-into-web-app/python/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/python/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/python/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/python/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/python/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#next-steps
   - from: /docs/guides/sign-into-web-app/springboot/before-you-begin
-    to: /docs/guides/sign-into-web-app/springboot/main/
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/
   - from: /docs/guides/sign-into-web-app/springboot/define-callback
-    to: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/springboot/create-okta-application
-    to: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/springboot/configure-packages
-    to: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#add-packages
   - from: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/springboot/require-authentication
-    to: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/springboot/get-user-info
-    to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/springboot/next-steps
-    to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#next-steps
   - from: /docs/guides/sign-into-web-app/springboot/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/
   - from: /docs/guides/sign-into-web-app/springboot/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#define-a-callback-route
   - from: /docs/guides/sign-into-web-app/springboot/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-web-app/springboot/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#add-packages
   - from: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#redirect-to-the-sign-in-page
   - from: /docs/guides/sign-into-web-app/springboot/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#configure-required-authentication
   - from: /docs/guides/sign-into-web-app/springboot/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/springboot/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#next-steps
   - from: /docs/guides/quickstart/-/create-org/
-    to: /docs/guides/quickstart/-/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/using-console
-    to: /docs/guides/quickstart/-/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/add-user
-    to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/register-app
-    to: /docs/guides/quickstart/-/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/sign-in
-    to: /docs/guides/quickstart/-/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/try-api
-    to: /docs/guides/quickstart/-/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/create-org/index.html
-    to: /docs/guides/quickstart/-/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/using-console/index.html
-    to: /docs/guides/quickstart/-/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/add-user/index.html
-    to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/register-app/index.html
-    to: /docs/guides/quickstart/-/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/sign-in/index.html
-    to: /docs/guides/quickstart/-/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/-/try-api/index.html
-    to: /docs/guides/quickstart/-/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/create-org/
-    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/using-console
-    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/add-user
-    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/register-app
-    to: /docs/guides/quickstart/cli/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/sign-in
-    to: /docs/guides/quickstart/cli/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/try-api
-    to: /docs/guides/quickstart/cli/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/create-org/index.html
-    to: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/using-console/index.html
-    to: /docs/guides/quickstart/cli/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/add-user/index.html
-    to: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/register-app/index.html
-    to: /docs/guides/quickstart/cli/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/sign-in/index.html
-    to: /docs/guides/quickstart/cli/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/try-api/index.html
-    to: /docs/guides/quickstart/cli/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/create-org/
-    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/using-console
-    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/add-user
-    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/register-app
-    to: /docs/guides/quickstart/website/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/sign-in
-    to: /docs/guides/quickstart/website/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/try-api
-    to: /docs/guides/quickstart/website/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/create-org/index.html
-    to: /docs/guides/quickstart/website/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/using-console/index.html
-    to: /docs/guides/quickstart/website/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/add-user/index.html
-    to: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/register-app/index.html
-    to: /docs/guides/quickstart/website/main/#register-your-app
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/sign-in/index.html
-    to: /docs/guides/quickstart/website/main/#try-signing-in
+    to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/website/try-api/index.html
-    to: /docs/guides/quickstart/website/main/#next-steps
+    to: /docs/guides/quickstart/
   - from: /docs/guides/build-self-signed-jwt/-/overview
     to: /docs/guides/build-self-signed-jwt/
   - from: /docs/guides/build-self-signed-jwt/-/gather-information
@@ -4725,3 +4731,803 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
+  - from: /code/oie/
+    to: /code/
+  - from: /code/oie/index.html
+    to: /code/
+  - from: /docs/concepts/authentication/
+    to: /docs/guides/sign-in-overview/
+  - from: /docs/concepts/authentication/index.html
+    to: /docs/guides/sign-in-overview/
+  - from: /docs/concepts/hosted-vs-embedded/
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/hosted-vs-embedded/index.html
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/okta-hosted-flows/
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/concepts/okta-hosted-flows/index.html
+    to: /docs/concepts/redirect-vs-embedded/
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/-/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/-/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/-/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/-/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/-/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnet/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/aspnetcore3/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/go/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/go/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/go/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/go/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/go/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/go/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/go/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/go/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/go/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/go/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/nodeexpress/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/php/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/php/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/php/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/python/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/python/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/python/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/python/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/python/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/python/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/python/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/python/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/python/main/index.html#next-steps
+  - from: /docs/guides/sign-into-web-app/
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#add-packages
+  - from: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/springboot/main/#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/index.html
+    to: /docs/guides/sign-into-web-app-redirect/
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#understand-the-callback-route
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#define-a-callback-route
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#add-packages
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#redirect-to-the-sign-in-page
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#require-authentication
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#configure-required-authentication
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/springboot/main/index.html#next-steps
+    to: /docs/guides/sign-into-web-app-redirect/spring-boot/main/index.html#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/-/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#add-packages
+  - from: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/-/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/-/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/-/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/-/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/-/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/-/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#add-packages
+  - from: /docs/guides/sign-into-spa/-/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/-/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/-/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/-/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/-/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/-/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/-/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/-/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/-/main/#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
+  - from: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/angular/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
+  - from: /docs/guides/sign-into-spa/angular/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/angular/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/angular/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#add-packages
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/angular/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/angular/main/#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/react/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/react/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/react/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#add-packages
+  - from: /docs/guides/sign-into-spa/react/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/react/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/react/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/react/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/react/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/react/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/react/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/react/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/react/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/react/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/react/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/react/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/react/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#add-packages
+  - from: /docs/guides/sign-into-spa/react/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/react/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/react/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/react/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/react/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/react/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/react/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/react/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/react/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/react/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/react/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/react/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/react/main/#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/vue/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/vue/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#add-packages
+  - from: /docs/guides/sign-into-spa/vue/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/vue/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/vue/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/vue/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/vue/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/vue/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#add-packages
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/vue/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/vue/main/#next-steps
+  - from: /docs/guides/sign-into-spa/
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#add-packages
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/#next-steps
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#next-steps
+  - from: /docs/guides/sign-into-spa/index.html
+    to: /docs/guides/sign-into-spa-redirect/
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#install-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#add-packages
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#configure-the-sdk
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-your-app
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#add-a-button-to-sign-in
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#handle-the-callback-from-okta
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#require-authentication
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#configure-required-authentication
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/blazorwebasm/main/index.html#next-steps
+    to: /docs/guides/sign-into-spa-redirect/blazor-wasm/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/-/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/-/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/-/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/-/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/-/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/-/main/index.html#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/-/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/ios/main/index.html#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/ios/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/android/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/android/main/index.html#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#define-a-callback-route
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#create-an-okta-app-integration
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#add-and-configure-packages
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#open-the-sign-in-page
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#get-info-about-the-user
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#check-for-a-session-at-startup
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#keep-the-user-signed-in
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#use-the-access-token
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/react-native/main/index.html#next-steps
+    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#next-steps
+  - from: /docs/guides/quickstart/-/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/-/main/index.html/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/website/main/index.html/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#create-your-okta-organization
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#add-a-user-using-the-admin-console
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#register-your-app
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#try-signing-in
+    to: /docs/guides/quickstart/
+  - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
+    to: /docs/guides/quickstart/
+  - from: /code/angular/okta_angular_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_auth_js/index.html
+    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/
+  - from: /code/angular/okta_angular_auth_js
+    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/
+  - from:  /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/embedded-siw
+  - from:  /code/javascript/okta_sign-in_widget
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_auth_sdk/index.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk
+    to:  /docs/guides/auth-js
+  - from:  /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+  - from:  /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+  - from:  /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/
+  - from:  /code/react/okta_react
+    to:  /docs/guides/sign-in-to-spa-authjs/react/
+  - from:  /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/
+  - from:  /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/
+  - from:  /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/
+  - from:  /code/vue/okta_vue
+    to:  /docs/guides/sign-in-to-spa-authjs/vue/

@@ -4,7 +4,7 @@ excerpt: Learn how to customize and style the default email notifications that O
 layout: Guides
 ---
 
-This guide teaches you how to customize and style the default Okta email notifications.
+This guide explains how to customize and style the default Okta email notifications.
 
 ---
 
@@ -14,11 +14,11 @@ Customize email notifications.
 
 **What you need**
 
-An [Okta Developer Edition organization](https://developer.okta.com/signup)
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 **Sample code**
 
-See the [Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email) section.
+[Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
 
 ---
 
@@ -53,6 +53,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 > **Note:** Free trial editions of Okta can't create or send customized email templates.
 
 1. In the Admin Console, go to **Settings** and then **Emails & SMS**. The **Email** tab is selected by default.
+> **Note**: In Okta Identity Engine, select **Customizations** and then **Emails** to find the email template editor.
 2. From the left pane, select the email template that you want to edit or for which you want to add a new translation. A text version of the default message appears.
 3. Click **Edit** to open the message in HTML.
 4. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
@@ -76,11 +77,9 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 ## Enhanced Email Macros
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ea" /> <ApiLifecycle access="ie" />
 
 > **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
-
-> **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
 
 The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
 
@@ -160,6 +159,8 @@ All conditional logic that is supported by the Velocity Templating Engine, such 
 
 ## Use app context
 
+<ApiLifecycle access="ie" />
+
 Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
 
 * `$app.id`
@@ -195,4 +196,4 @@ Read more on customizing and styling various Okta assets to match your company's
 
 - [Customize the Okta URL and email notification domains](/docs/guides/custom-url-domain/)
 - [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-- [Style the Widget](/docs/guides/style-the-widget/)
+- [Style the Okta Sign-In Widget](/docs/guides/custom-widget/)

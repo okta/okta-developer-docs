@@ -3,15 +3,16 @@ title: Add a social Identity Provider
 meta:
   - name: description
     content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the setup instructions.
+showStackSelector: False
 ---
 
-<StackSelector snippet="ea-icon" noSelector inline/>
+<StackSnippet snippet="ea-icon" inline/>
 
-## <StackSelector snippet="idp" noSelector inline />
+## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSnippet snippet="idp" inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
 > **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
@@ -25,14 +26,14 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
-* An account with <StackSelector snippet="idpaccount" noSelector inline />
+* An account with <StackSnippet snippet="idpaccount" inline />
 * **New social Identity Provider integrations** set to enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
 
-## Create an application at the Identity Provider
+## Create an app at the Identity Provider
 
-1. <StackSelector snippet="create-app" noSelector inline />
+1. <StackSnippet snippet="create-app" inline />
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 
@@ -40,14 +41,14 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 
     For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
+1. Save the generated <StackSnippet snippet="idp" inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
 
 ## Create the Identity Provider in Okta
 
-To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider in Okta:
+To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
-1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline /> IdP**. <StackSelector snippet="alt-idp" noSelector inline />
+1. Click **Add Identity Provider**, and then select **<StackSnippet snippet="idp" inline /> IdP**. <StackSnippet snippet="alt-idp" inline />
 1. Click **Next**.
 1. In the **General Settings** section, define the following:
 
@@ -60,7 +61,7 @@ To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider
 
 ## Test the integration
 
-You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSelector snippet="idp" noSelector inline /> as the Identity Provider.
+You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSnippet snippet="idp" inline /> as the Identity Provider.
 
 Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 

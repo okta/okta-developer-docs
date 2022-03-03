@@ -4,9 +4,13 @@ excerpt: How to demonstrate Event Hooks using ngrok to expose a local app to the
 layout: Guides
 ---
 
+<<<<<<< HEAD
 <StackSelector class="cleaner-selector"/>
 
 This guide provides a working example of an Okta Event Hook that uses the ngrok utility.
+=======
+This guide provides a working example of an Okta Event Hook. It uses the ngrok utility to expose a local application to the internet and receive and respond to Event Hook calls. Event Hooks are outbound calls from Okta that can notify your own software systems of events occurring in your Okta org. The ngrok utility enables the testing of Okta Event Hooks locally, rather than implementing an internet-based production or test external service.
+>>>>>>> master
 
 ---
 
@@ -56,19 +60,19 @@ Some installation notes:
 
 After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, sample-app, run the following command in your terminal:
 
-```terminal
+```shell
 sample-app > ./ngrok http 8082
 ```
 
 or if you installed in your system path:
 
-```terminal
+```shell
 sample-app > ngrok http 8082
 ```
 
 or if you used your favorite folder:
 
-```terminal
+```shell
 sample-app > ~/applications/ngrok http 8082
 ```
 

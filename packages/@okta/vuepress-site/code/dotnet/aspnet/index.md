@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication and Okta Resource Management to Your ASP.NET App
+title: Add user authentication and Okta Resource Management to your ASP.NET app
 language: .NET
 integration: back-end
 icon: code-dotnet
@@ -26,85 +26,72 @@ meta:
 	</li>
 </ul>
 
-## Get Started with ASP.NET + Okta
+## Get started with ASP.NET + Okta
 
-New to Okta? Our how to guide will walk you through adding user authentication to your ASP.NET app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your ASP.NET app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app/aspnet/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
-		</a>
-	</li>
+  <!-- <li>
+    <a href='/docs/guides/sign-into-web-app-redirect/aspnet/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <span>Sign users in quickstart</span>
+    </a>
+  </li>
   <li>
-    <DropdownButton caption="Sample App">
+    <a href='/docs/guides/protect-your-api/aspnet/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <span>Protect your API quickstart</span>
+    </a>
+  </li>-->
+  <li>
+    <DropdownButton caption="Sample app">
       <DropdownButtonOption href='https://github.com/okta/samples-aspnet'>MVC & Web API</DropdownButtonOption>
       <DropdownButtonOption href='https://github.com/okta/samples-aspnet-webforms'>Web Forms</DropdownButtonOption>
     </DropdownButton>
   </li>
 </ul>
 
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-## Okta ASP.NET Integration
+* [ASP.NET redirect authentication sample app](https://github.com/okta/samples-aspnet): See [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for a redirect configuration.
+* [ASP.NET Web Forms redirect authentication sample app](https://github.com/okta/samples-aspnet-webforms): See [Okta-Hosted Login](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) for a redirect configuration.
 
-Okta's OIDC middleware integration with ASP.NET makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-<a href='https://www.nuget.org/packages/Okta.AspNet' class="language-reference">
-	<span class='icon download-16'></span>
-	<span>Okta ASP.NET OIDC integration on NuGet</span>
-</a>
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-<a href='https://github.com/okta/okta-aspnet'>
-  <span class='fa fa-github'></span> <span>Okta ASP.NET OIDC Integration Source</span>
-</a>
+Okta Identity Engine:
 
-## Other .NET Libraries
+* [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
+* [ASP.NET embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
+* [ASP.NET embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-sign-in-widget)
 
-The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Managemenet API to manage users, groups, apps, etc on the fly.
+Okta Classic:
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-sdk-dotnet">
-			 <span>Okta Management SDK for .NET</span>
-		</a>
-	</li>
-</ul>
-</br>
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cann't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
+* Okta's [Okta ASP.NET OIDC middleware Integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
+* [Okta ASP.NET OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNet)
 
-The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+## Other Classic .NET libraries
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-auth-dotnet">
-			 <span>Okta .NET Authentication SDK</span>
-		</a>
-	</li>
-</ul>
-</br>
+* The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and works with both .NET Framework and .NET Core. It's helpful to work with the Okta Management API to manage users, groups, apps, and so on, on the fly.
+* The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC and the Authorization Code flow + PKCE.
 
-The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code flow + PKCE.
+## Recommended guides
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-xamarin">
-			 <span>Okta Xamarin SDK (beta)</span>
-		</a>
-	</li>
-</ul>
+Okta-hosted Sign-In Widget guide:
 
+[Sign into your web app with redirect auth](#) (coming soon)
 
-## Recommended Guides
+Embedded SDK and Sign-In Widget sign-in guide:
 
+[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 
-- [Manual JWT Validation in .NET](/code/dotnet/jwt-validation/)
+Other guides:
 
-## Related Blog Posts
+* [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-
-- [Build a CRUD App with ASP.NET Framework 4.x Web API and Angular](/blog/2018/07/27/build-crud-app-in-aspnet-framework-webapi-and-angular)
-- [Use OpenID Connect for Authorization in Your ASP.NET MVC Framework 4.x App](/blog/2018/04/18/authorization-in-your-aspnet-mvc-4-application)
-
+> **Note**: Browse our [ASP.NET Developer Blog posts](/search/#q=asp%20net&f:@commonoktasource=[Developer%20blog]) for further useful topics.

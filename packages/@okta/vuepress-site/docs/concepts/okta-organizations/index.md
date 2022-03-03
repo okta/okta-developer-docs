@@ -3,7 +3,7 @@ title: Okta organizations
 ---
 
 # Okta organizations
-An Okta organization (org) is a root object and a container for all other Okta objects. It contains resources such as users, groups, and applications, as well as policy and configurations for your Okta environment. See [Create your Okta organization](/docs/guides/quickstart/cli/main/#create-your-okta-organization).
+An Okta organization (org) is a root object and a container for all other Okta objects. It contains resources such as users, groups, and applications, as well as policy and configurations for your Okta environment. See [Set up Okta](/docs/guides/sign-into-web-app-redirect/-/main/#set-up-okta).
 
 Within every org, there are users and applications. These are the only mandatory items that must be configured for your org to use Okta. Users can be created in Okta, imported through directory integrations, or imported through application integrations. Applications are connections to public apps (such as Office 365) or proprietary applications (such as your own apps).
 
@@ -35,7 +35,7 @@ Production orgs are always a known-stable release, covered by our Software Licen
 The Admin Console is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the **Dashboard** tab. This landing page provides a summary of activity in Okta and in your apps. The page also lists notifications of any problems or outstanding work that you need to complete. The Admin Console also provides you with quick access to your application configuration and API Access Management features.
 
 ## Cells
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and of feature redundancy to ensure availability.
+Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and feature redundancy to ensure availability.
 
 > **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin.
 
@@ -51,7 +51,7 @@ In most cases, your company or project has only one Okta organization. Single or
 
 However, in more complex situations, you might need multiple orgs. For example, an organization has external, non-transient workers that require access to Active Directory (AD). The org also has some internal, transient workers who don't require access to AD. Their accounts are created directly in Okta, and they are sent an activation email to set up their password. This activation email would be the same email that external users receive if using a single org. This presents challenges around wording and the branding of the email template.
 
-Multiple orgs allow for complete segregation of internal and external users, and applications and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage.
+Multiple orgs allow for the complete segregation of internal and external users, and applications and changes made to the internal or external org have no impact on one another. However, multiple orgs add complexity in terms of the number of environments to manage. See [Multi-tenant solutions](/docs/concepts/multi-tenancy/).
 
 ## Org features
 Okta orgs have different features depending on your contract.

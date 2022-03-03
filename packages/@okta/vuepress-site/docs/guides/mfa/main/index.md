@@ -6,9 +6,10 @@ meta:
 layout: Guides
 ---
 
-<StackSelector />
+> **Note**: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, you can find multiple guides and use cases to help you add MFA to your apps: for example, explore our [Embedded SDK use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) documentation. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-Thie guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
+This guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
+
 ---
 
 **Learning outcomes**

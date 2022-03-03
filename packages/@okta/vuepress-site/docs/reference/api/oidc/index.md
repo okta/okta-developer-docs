@@ -346,18 +346,18 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 300 seconds.                                                                                                                                                             | String |
 | code_verifier           | Required if `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization request.     | String |
-| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`<ApiLifecycle access="ea" />, `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
+| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`<ApiLifecycle access="ea" />, `urn:ietf:params:oauth:grant-type:token-exchange`, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
 | password                | Required if the `grant_type` is `password`.                                                                                                                                                                                                                                                                                          | String |
 | redirect_uri            | Required if `grant_type` is `authorization_code`. Specifies the callback location where the authorization was sent. This value must match the `redirect_uri` used to generate the original `authorization_code`.                                                                                                                   | String |
 | refresh_token           | Required if `grant_type` is `refresh_token`. The value is a valid refresh token that was returned from this endpoint previously.                                                                                                                                                                                                   | String |
 | scope                   | Required if `password` is the `grant_type`. This is a list of scopes that the client wants to be included in the access token. For the `refresh_token` grant type, these scopes have to be a subset of the scopes used to generate the refresh token in the first place.                                                             | String |
 | username                | Required if the `grant_type` is `password`.                                                                                                                                                                                                                                                                                          | String |
 | assertion               | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. | String |
-| audience                | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
-| subject_token_type      | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
-| subject_token           | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
-| actor_token_type        | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
-| actor_token             | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
+| audience                | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
+| subject_token_type      | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
+| subject_token           | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
+| actor_token_type        | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
+| actor_token             | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
 
 #### Response properties
 
@@ -371,7 +371,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | scope           | The scopes contained in the access token.                                               | String  |
 | refresh_token   | An opaque refresh token. This is returned if the `offline_access` scope is granted.     | String  |
 | id_token        | An [ID token](#id-token). This is returned if the `openid` scope is granted.            | String  |
-| device_secret   | An opaque device secret. This is returned if the `device_sso`<ApiLifecycle access="ea" /> scope is granted.         | String  |
+| device_secret   | An opaque device secret. This is returned if the `device_sso` scope is granted.         | String  |
 
 #### Possible errors
 
@@ -436,7 +436,7 @@ Content-Type: application/json;charset=UTF-8
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
-This endpoint takes an access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" /> and returns a boolean that indicates whether it is active.
+This endpoint takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether it is active.
 If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.
 
 Be sure that you are using the `/introspect` endpoint of the same authorization server that you used to create the token.
@@ -452,8 +452,8 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
-| token                   | An access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" />.                                                                   | String        |
-| token_type_hint         | Indicates the type of `token` being passed. Valid values: `access_token`, `id_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />.   | String (Enum) |
+| token                   | An access token, ID token, refresh token, or device secret.                                                                   | String        |
+| token_type_hint         | Indicates the type of `token` being passed. Valid values: `access_token`, `id_token`, `refresh_token`, and `device_secret`.   | String (Enum) |
 
 #### Response properties
 
@@ -553,7 +553,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
 | token                   | An access or refresh token.                                                                       | String        |
-| token_type_hint         | A hint of the type of `token`. Valid values: `access_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />               | String (Enum) |
+| token_type_hint         | A hint of the type of `token`. Valid values: `access_token`, `refresh_token`, and `device_secret`               | String (Enum) |
 
 #### Response properties
 
@@ -1004,7 +1004,6 @@ curl -X GET \
 
 #### Response example (success)
 
-> **Note:** The scope `device_sso` is [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
 
 ```json
 {
@@ -1142,7 +1141,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
-| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/configure-native-sso/main/)  | No             |
+| device_sso       | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/configure-native-sso/main/)  | No             |
 
 ### Scope values
 
@@ -1152,7 +1151,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. 
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
-* For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/configure-native-sso/main/).
+* For more information about `device_sso`, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
 ### Scope properties
 
@@ -1284,7 +1283,7 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
 
-Additionally, we reserved the scope `device_sso`<ApiLifecycle access="ea" /> as it has a particular meaning in the Native SSO flow.
+Additionally, we reserved the scope `device_sso` as it has a particular meaning in the Native SSO flow.
 
 ###### Reserved claims in the header section
 

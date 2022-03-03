@@ -16,12 +16,13 @@ Import any Okta API collection for Postman from the following list:
 | API Access Management (OAuth 2.0) | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6bb2f73c314171914eac) |
 | Apps                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cb0940c81c4d8a9afd73) |
 | Authentication                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a) |
-| Authenticators <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e) |
+| Authenticators <ApiLifecycle access="ie" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e) |
 | Authorization Servers             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a) |
 | Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb) |
-| CAPTCHAs <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101)|
+| CAPTCHAs <ApiLifecycle access="ie" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101)|
+| Client secret rotation and key management | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7) |
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
-| Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-66eb3f8a-53db-4a7f-bb9b-dbaeed6a9b9e) |
+| Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5) |
 | Domains                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/96fbe3dea3ccd0602186) |
 | Dynamic Client Registration       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b673d146d0974f451e39) |
 | Event Hooks                       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73) |

@@ -1,48 +1,49 @@
-Open your `Startup` class and modify the `ConfigureServices` method to include the Okta middleware configuration. Replace the placeholders with your Okta configuration:
+1. Open your `appsettings.json` file and add the following manually as a top-level node (if you used the Okta CLI to create an app these values may already be configured with your account information).
+
+```json
+{
+  "Okta": {
+    "OktaDomain": "https://${yourOktaDomain}",
+    "AuthorizationServerId": "${yourAuthServerName}",
+    "Audience": "${yourAudience}"
+  }
+}
+```
+
+2. Configure your API to use Okta for authorization and authentication. Open `Startup.cs` and add the following `using` statements at the top:
+
+```csharp
+using Okta.AspNetCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+```
+
+3. Replace the existing `ConfigureServices` method with the following to include the Okta middleware configuration:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
-        options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
-        options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
-    })
-    .AddOktaWebApi(new OktaWebApiOptions()
-    {
-        OktaDomain = Configuration["Okta:OktaDomain"],
-    });
+  services.AddAuthentication(options =>
+  {
+    options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
+    options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
+    options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
+  })
+  .AddOktaWebApi(new OktaWebApiOptions()
+  {
+    OktaDomain = Configuration["Okta:OktaDomain"],
+    AuthorizationServerId = Configuration["Okta:AuthorizationServerId"],
+    Audience = Configuration["Okta:Audience"]
+  });
 
-    services.AddAuthorization();
-    
-    services.AddControllers();
+  services.AddAuthorization();
+
+  services.AddControllers();
 }
 ```
 
-Modify the `Configure` method to have the `app.UseAuthentication()` and `app.UseAuthorization()` lines:
+4. In the `Configure` method, add the following line immediately above `app.UseAuthorization();`:
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    //...
-    app.UseRouting();
-
-    app.UseAuthentication();
-
-    app.UseAuthorization();
-
-    app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapControllers();
-    });
-}
+app.UseAuthentication();
 ```
-
-Update your `using` statements to import `Okta.AspNetCore`:
-
-```csharp
-using Okta.AspNetCore;
-```
-
-The `OktaWebApiOptions` class configures the Okta middleware. You can see all of the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference) repo.

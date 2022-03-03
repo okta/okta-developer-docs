@@ -1,1 +1,1 @@
-with [<StackSelector snippet="idp" noSelector inline />](https://developer.apple.com/)
+with [Apple](https://developer.apple.com/)

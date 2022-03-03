@@ -4,21 +4,21 @@ excerpt: Learn how to customize the SMS messages sent to your users.
 layout: Guides
 ---
 
-This guide teaches you how to customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification.
+This guide explains how to customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification.
 
 ---
 
 **Learning outcomes**
 
-Customize SMS messages
+Customize SMS messages.
 
 **What you need**
 
-An [Okta Developer Edition organization](/signup)
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
 
-## Overview
+## About SMS customization
 
 You can customize the text of the SMS messages that Okta sends to an end user for multifactor authentication verification. SMS messages are sent to a user's mobile device along with a verification code when the user is signing in to their org. The user enters that code to authenticate and finish the sign-in process.
 
@@ -43,6 +43,8 @@ When crafting a translation or creating a custom SMS message, keep the following
 1. In the Admin Console, go to **Settings**, and then **Emails & SMS**.
 
 2. Select the **SMS** tab.
+
+> **Note**: In Okta Identity Engine, select **Customizations** and then **SMS** to find the SMS editor.
 
 > **Note:** In the **Custom Language** section of the page, you can view Okta's default SMS message by clicking the **Default** arrow to expand it.
 

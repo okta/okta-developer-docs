@@ -1,1 +1,1 @@
-See the [Golang getting started guide](https://golang.org/doc/install) to get started with Golang and create an app to follow the guide with, or download a finished sample app from our [Go samples repo](https://github.com/okta/samples-golang/tree/master/resource-server).
+[Quickstart sample app](https://github.com/okta-samples/okta-go-api-sample)
