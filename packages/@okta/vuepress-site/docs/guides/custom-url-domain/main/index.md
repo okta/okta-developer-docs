@@ -84,7 +84,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Create a DNS TXT and CNAME record
+### Update your DNS
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
@@ -127,7 +127,7 @@ Okta performs validation checks on the certificate that you upload. If your TLS 
 
 If you receive the previous error, consult with the person in your organization responsible for generating certificates to determine whether your TLS certificate is a wildcard certificate.
 
-### Use the configuration wizard to customize your Okta URL domain
+### Use the configuration wizard
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
@@ -140,7 +140,7 @@ If you receive the previous error, consult with the person in your organization 
 
 On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Create a DNS TXT record
+### Update your DNS
 
 You need to add a DNS TXT record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
 
@@ -219,7 +219,7 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 After you add your custom URL, some features or APIs require additional configuration to reflect that change.
 
-### Authorization Server issuer
+### Update Custom Authorization Server
 
 After you customize your Okta domain URL, existing [Custom Authorization Servers](/docs/concepts/auth-servers/) continue to use the Okta organization URL until you change it. All new Custom Authorization Servers use the custom URL by default.
 
@@ -229,6 +229,8 @@ You need to update existing Custom Authorization Servers to return the custom do
 1. On the **Authorization Servers** tab, select the Custom Authorization Server that you want to update.
 1. Click **Edit** on the Custom Authorization Server that you selected.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
+
+### Update issuer for OpenID Connect apps
 
 Additionally, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
 
@@ -289,7 +291,7 @@ You need to update your Authorization Server to use your custom domain to fix th
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
-## About custom email notification domain configuration
+## About custom email notification domains
 
 A custom email domain allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
 
