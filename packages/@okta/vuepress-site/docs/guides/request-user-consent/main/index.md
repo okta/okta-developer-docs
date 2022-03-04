@@ -4,6 +4,8 @@ excerpt: How to request user consent during authentication
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 This guide explains how to configure an Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows.
 
 ---

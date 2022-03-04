@@ -7,8 +7,7 @@ meta:
 
 # Okta Expression Language in Okta Identity Engine
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Overview
 
@@ -55,7 +54,7 @@ See [Integrate with Endpoint Detection and Response solutions
 
 ### Security Context
 
-You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [app sign-on policies](/docs/reference/api/policy/#app-sign-on-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
+You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |

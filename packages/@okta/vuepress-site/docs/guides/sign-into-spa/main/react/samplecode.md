@@ -1,2 +1,0 @@
-* [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a working React sample
-* [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to work with in this guide

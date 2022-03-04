@@ -4,8 +4,6 @@ excerpt: Learn how to easily implement a Token Inline hook
 layout: Guides
 ---
 
-<StackSelector />
-
 This guide provides a working example of an Okta Token Inline Hook. It uses the website [Glitch.com](https://glitch.com) to act as an external service to receive and respond to Token Inline Hook calls.
 
 ---

@@ -1,23 +1,15 @@
-Use the `[Authorize]` attribute on controllers or actions to require a signed-in user:
+Add the `[Authorize]` and `[AllowAnonymous]` attributes to the REST endpoints [created earlier](#create-your-rest-endpoints).
 
 ```csharp
-[Route("api/[controller]")]
-[ApiController]
-public class MessagesController : ControllerBase
-{
-    [HttpGet]
-    [Route("~/api/messages")]
-    [Authorize]
-    public JsonResult Get()
-    {
-        return Json(new
-        {
-            messages = new dynamic[]
-            {
-                new { Date = DateTime.Now, Text = "This endpoint is protected." },
-                new { Date = DateTime.Now, Text = "Hello, world!" },
-            },
-        });
-    }
-}
+// GET: api/whoami with authorization required
+[Authorize]
+[HttpGet]
+[Route("whoami")]
+public Dictionary<string, string> GetAuthorized()...
+
+// GET: api/hello with anonymous access allowed
+[AllowAnonymous]
+[HttpGet]
+[Route("hello")]
+public string GetAnonymous()...
 ```

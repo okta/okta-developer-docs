@@ -1,6 +1,6 @@
 ---
-title: QuickStart - Signing in your first user
-excerpt: Get started with Okta authentication
+title: Quickstart
+excerpt: Quickly integrate Okta into your app to get a taste of how we work.
 sections:
  - main
 ---

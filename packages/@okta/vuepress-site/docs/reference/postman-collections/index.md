@@ -14,12 +14,13 @@ Import any Okta API collection for Postman from the following list:
 | Administrator Roles               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/276a9ad500a92c942865) |
 | Advanced Server Access            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3) |
 | API Access Management (OAuth 2.0) | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6bb2f73c314171914eac) |
-| Apps                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cb0940c81c4d8a9afd73) |
+| Apps                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/febec0ced153d9cd3db1) |
 | Authentication                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a) |
-| Authenticators <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e) |
+| Authenticators <ApiLifecycle access="ie" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e) |
 | Authorization Servers             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a) |
-| Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb) |
+| Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb) |
 | CAPTCHAs <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101)|
+| Client secret rotation and key management | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7) |
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
 | Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5) |
 | Domains                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/96fbe3dea3ccd0602186) |
@@ -35,7 +36,7 @@ Import any Okta API collection for Postman from the following list:
 | Mappings                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/42f528e8de2085ef2c97) |
 | OpenID Connect                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0) |
 | Org                               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b85f2faf4e0bdb7baa3b) |
-| Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38f9ae7828efad654acd) |
+| Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0) |
 | Risk Integration                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6) |
 | Schemas                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae) |
 | Sessions                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff723148292df05bb58b) |

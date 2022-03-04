@@ -6,7 +6,7 @@ meta:
     content: Use this guide to learn how to build federated Single Sign-On into your Okta integration. 
 layout: Guides
 ---
-<StackSelector />
+
 This guide teaches you how to build federated Single Sign-On into your Okta-integrated application.
 
 ---
@@ -19,7 +19,7 @@ This guide teaches you how to build federated Single Sign-On into your Okta-inte
 **What you need**
 
 * An Okta developer account. Sign up for one at <https://developer.okta.com/signup/>.
-* A suitable app to be integrated with Okta, such as [an SPA](/docs/guides/sign-into-spa/) or [server-side web app](/docs/guides/sign-into-web-app/).
+* A suitable app to be integrated with Okta, such as [an SPA](/docs/guides/sign-into-spa-redirect/) or [server-side web app](/docs/guides/sign-into-web-app-redirect/).
 
 **Sample code**
 

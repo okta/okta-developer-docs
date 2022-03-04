@@ -33,7 +33,7 @@ For configuring a custom email notification domain:
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
 > **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
 
@@ -43,7 +43,9 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 ### Caveats
 
-* Most custom domains are configured using one of your [subdomains](https://en.wikipedia.org/wiki/Subdomain). However, there are no restrictions on using any other domain such as your root domain, if that fits your use case for your sign-in page taking over your main website.
+* You must provide a subdomain for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
+
+* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind.isc.org/doc/arm/9.11/man.dig.html).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
@@ -51,7 +53,7 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
 * When an Admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
 
@@ -82,7 +84,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Create a DNS TXT  and CNAME record
+### Create a DNS TXT and CNAME record
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
@@ -265,7 +267,7 @@ After transferring your domain, you need to create an origin CA certificate:
     > **Note:** On a Mac you can use `cat tls.cert | pbcopy` in a terminal to copy the file to your clipboard.
 
 11. Paste the contents of `private.key` in the **Private key** box. Click **Next**.
-12. You are prompted to add a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). Add this to your Cloudflare DNS, and then click **Finish**.
+12. You are prompted to add a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2). Add this to your Cloudflare DNS, and then click **Finish**.
 13. Wait until `https://<id.domain.name>` resolves in your browser before you continue.
 
 > **Note:** When you first try this, it's possible that your network caches DNS entries, and you won't be able to get to `id.example.com`. As a workaround, you can tether with your phone, then graph the IP address and add it as an entry to your `hosts`.
