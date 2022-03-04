@@ -91,10 +91,10 @@ The Event Hook use case is a simple local application response to the addition o
         var newUser = request.body.data.events[0].target[0]["alternateId"];
         console.log(" ");
         if (newUser == null){
-            console.log("No user in request! Update the JSON target field with a value.");
+            console.log('No user in request! Update the JSON target field with a value.');
         } else {
             console.log('The user ' + newUser +
-            " has been added to the Okta org!");
+            ' has been added to the Okta org!');
         }
         response.sendStatus(200);
        }
