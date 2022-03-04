@@ -9,7 +9,7 @@ The Okta Org API provides operations to manage your org account settings such as
 
 ## Getting Started
 
-Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b85f2faf4e0bdb7baa3b)
+Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/2a73f5511943d1bd6611)
 
 ## Org operations
 
@@ -1026,6 +1026,122 @@ curl -v -X POST \
 }
 ```
 
+## Email Address Bounces operations
+
+The Email Address Bounces API has the following CRUD operations:
+
+* [Create Remove List](#create-remove-list%)
+
+### Create Remove List
+
+<ApiOperation method="post" url="/api/v1/org/email/bounces/remove-list" />
+
+Creates a Remove List object that specifies a list of email addresses to be removed from the set of email addresses that are bounced. Email addresses in this list will be removed from the bounce list by an asynchronous job. Any email addresses that do not fail validation will be accepted and processed for removal even if other email addresses in the request fail validation. If all email addresses encounter an error, 200 OK is still returned.
+
+#### Request body
+
+A [Remove List](#remove-list-object)
+
+#### Response body
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `errors` | List of Object | A list errors encountered when adding the email addresses to the set of bounced email addresses.|
+| `emailAddress` | String | An email address that encountered an error.|
+| `reason` | String | The reason the email address encountered an error.|
+
+
+#### Use example
+
+This request creates a Remove List object:
+
+##### Request
+
+```bash
+curl --request POST \
+  --url https://${yourOktaDomain}/api/v1/org/email/bounces/remove-list \
+  --header 'Authorization: ' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "emailAddresses": [
+    "name@company.com"
+  ]
+}'
+```
+
+##### Response
+```http
+HTTP/1.1 200 OK
+```
+```json
+{
+  "errors": []
+}
+```
+
+#### Use example with errors
+
+##### Request
+
+```bash
+curl --request POST \
+  --url https://${yourOktaDomain}/api/v1/org/email/bounces/remove-list \
+  --header 'Authorization: ' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "emailAddresses": [
+    "name@company.com",
+    "unknown.email@okta.com",
+    "name@okta@com"
+  ]
+}'
+```
+
+##### Error response example
+```http
+HTTP/1.1 200 OK
+```
+```json
+{
+  "errors": [
+    {
+      "emailAddress": "unknown.email@okta.com",
+      "reason": "This email address does not belong to any user in your organization."
+    },
+    {
+      "emailAddress": "name@okta@com",
+      "reason": "Invalid email address. The provided email address failed validation against RFC 3696."
+    }
+  ]
+}
+```
+
+##### Error response example
+
+```http
+HTTP/1.1 429 Too Many Requests
+Retry-After: 600
+```
+
+##### Error response example
+```http
+HTTP/1.1 503 Service Unavailable
+Retry-After: 600
+```
+
+##### Error response example
+```http
+HTTP/1.1 400 Bad Request
+```
+```json
+{
+    "errorSummary": "Invalid request data format",
+    "errorLink": "E0000001",
+    "errorId": "invalid_request",
+    "errorCauses": ["emailAddresses: The field cannot have more than 1,000 elements"]
+}
+```
+
 ## Org API objects
 
 ### Org Setting object
@@ -1245,5 +1361,26 @@ The Org Preferences object defines several properties:
             }
         }
     }
+}
+```
+
+### Remove List object
+
+#### Remove List properties
+
+The Remove List object has one property:
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `emailAddresses` | List of String | A list of email addresses to be removed from the set of email addresses that are bounced.|
+
+
+#### Remove List example2
+
+```json
+{
+  "emailAddresses": [
+    "name@company.com"
+  ]
 }
 ```
