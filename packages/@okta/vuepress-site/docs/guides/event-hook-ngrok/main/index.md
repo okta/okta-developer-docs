@@ -186,7 +186,7 @@ To run a preview call of your Event Hook:
 
 The ngrok inspection interface provides a replay function that you can use to test your code without reproducing test conditions in Okta. To replay your call:
 
-1. In ngrok’s inspection interface (http://localhost:4040), select an Event Hook from Okta.
+1. In the ngrok inspection interface (`http://localhost:4040`), select an Event Hook from Okta.
 
 1. Click **Replay** > **Replay with modifications:**
 
