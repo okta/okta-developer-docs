@@ -69,7 +69,7 @@ No. You can only set up one custom domain per Okta org.
 
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
-## Configure a custom domain through Okta-managed certificates
+## Use an Okta-managed certificate
 
 <ApiLifecycle access="ea" />
 
@@ -115,7 +115,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 >   * There may be a copy and paste issue with the values.
 >   * There may be an operational issue with Let's Encrypt which can be checked with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
 
-## Configure a custom domain through your own certificate
+## Use your own certificate
 
 ### Validate your TLS certificate
 
