@@ -150,17 +150,19 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 
-> **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+> **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, the verification fails and your custom URL domain configuration is incomplete.
 >
 > You can perform a DNS lookup of your `_oktaverification` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_oktaverification.login.example.com` DNS record.
 
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 
-5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
+5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer).
+
+6. hen return to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
 
 > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
-6. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
+7. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
 
     Uploading your TLS certificate is the next step in the configuration wizard.
 
@@ -334,12 +336,12 @@ Okta sends your super admins a confirmation email after your custom domain is co
     Add the host to the existing record to configure a combined SPF record similar to this:
 
     ```plain
-    example.com TXT    v=spf1 include:oktamail.example.com include:spf.protection.outlook.com -all
+    example.com TXT    v=spf1 include:oktaemail.example.com include:spf.protection.outlook.com -all
     ```
 
 ### Known Issues
 
-- You can't configure Okta to send emails through a domain that uses SendGrid. Instead, configure a subdomain with your DNS provider for custom Okta emails.
+- You can't configure Okta to send emails through a domain that uses [SendGrid](https://sendgrid.com/). Instead, configure a subdomain with your DNS provider for custom Okta emails.
 
 - You can't have more than 10 DNS lookups in your SPF record.
 
