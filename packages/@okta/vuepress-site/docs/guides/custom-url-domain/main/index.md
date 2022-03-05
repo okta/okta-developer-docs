@@ -113,7 +113,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 > **Note:** If an error occurs, the cause may be one of the following:
 >   * The TXT or CNAME record may not have propagated yet.
 >   * There may be a copy and paste issue with the values.
->   * There may be an operational issue with Let's Encrypt which can be checked with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). If you configure your DNS records and click **Next** to verify the records too quickly, Okta detects the DNS records, but Let's Encrypt hasn't detected them yet, which causes a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.` Okta generates a new TXT record for you to paste into your domain provider. Wait a few minutes, and then retry the **Next** button.
+>   * There may be an operational issue with Let's Encrypt which you can check with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). After you configure your DNS records you might click **Next** too quickly to verify the records. In that case, it's possible that the DNS records are verifiable by Okta but not yet by Let's Encrypt. The result is a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.`
 
 ## Use your own certificate
 
@@ -156,11 +156,11 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 
-5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer).
+5. Wait for the DNS record to propagate (typically 10 to 15 minutes, but it may take longer).
 
 > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
-6. Teturn to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
+6. Return to Okta and click **Verify** to prove to Okta that you have ownership of the domain name.
 
 7. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
 
@@ -184,23 +184,21 @@ Uploading your TLS certificate is the next step in the configuration wizard.
 
 ### Provide a TLS certificate
 
-Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to enter your TLS certificate, private key, and, if applicable, a certificate chain.
+Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to enter your TLS certificate, private key, and a certificate chain.
 
 1. On the **Certificate** page of the configuration wizard, paste your PEM-encoded public certificate for your subdomain in the **Certificate** field. Be sure to include the `----BEGIN CERTIFICATE----` and the `----END CERTIFICATE----` lines.
 2. Paste your PEM-encoded private key for your subdomain in the **Private key** field. Be sure to include the `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` lines.
-3. Enter a PEM-encoded certificate chain (if you have one) in the **Certificate chain** field. Certificate chain files can contain keys that are up to 4096 bits. The order in which the root and intermediary certificates appear in the file matters. The intermediate CA certificate should be at the top and then the root CA certificate at the bottom.
-
-    > **Note:** Android devices require a certificate chain. You must provide a certificate chain if you want your custom domain to work with apps on Android. See [Security with HTTPS and SSL](https://developer.android.com/training/articles/security-ssl) for more details.
+3. Enter a PEM-encoded certificate chain in the **Certificate chain** field. Certificate chain files can contain keys that are up to 4096 bits. The order in which the root and intermediary certificates appear in the file matters. The intermediate CA certificate should be at the top and then the root CA certificate at the bottom.
 
 4. Click **Finish**.
 
-> **Note:** After you click **Finish**, it may take several minutes before your custom domain is ready.
-
-After you provide the TLS certificate, private key, and certificate chain (if applicable), you have set up a custom domain name for your Okta org. Okta begins to serve traffic over your custom domain.
+> **Note:** After you click **Finish**, it can take up to 15 minutes for the domain and certificate to be ready and testable.
 
 ## Confirm that your custom URL works
 
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
+
+> **Note:** It can take up to 15 minutes for the domain and certificate to be ready and testable.
 
 1. Click the link, for example, `https://login.example.com`. The Okta Sign-In page should appear.
 2. Back at the CNAME step, click **Finish**.
