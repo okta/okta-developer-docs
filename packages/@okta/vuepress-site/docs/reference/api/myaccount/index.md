@@ -341,8 +341,11 @@ This request requires the `method` property as its request body. An optional boo
 Returns an empty response with an HTTP 200 status code.
 
 Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
+
 Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
 Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
 Call providers failing to send the out of band OTP challenge returns 500 with error code E0000138.
 
 #### Usage example
@@ -397,11 +400,17 @@ This request requires the `verificationCode` property as its request body.
 Returns an empty response with an HTTP 204 status code.
 
 Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
 Disabling the IDP_MY_ACCOUNT_API feature flag returns a 401 UNAUTHORIZED with error code E0000015.
+
 Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
 Passing an invalid `verificationCode` returns a 400 BAD REQUEST with error code E0000001.
+
 Passing a valid `verificationCode` again (verifying a phone number that has been verified) results a no-op. In an extremely rare case, verifying a phone number that has been verified returns a 409 BAD CONFLICT with error code E0000157.
+
 Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
 Failing to answer the challenge (possibly due to invalid `verificationCode`) returns a 401 UNAUTHORIZED with error code E0000004.
 
 #### Usage example
