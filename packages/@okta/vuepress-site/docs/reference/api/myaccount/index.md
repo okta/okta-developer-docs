@@ -26,6 +26,286 @@ The MyAccount API has the following operations:
 * [Get my User Profile Schema](#get-my-user-profile-schema)
 * [Get my User Profile](#get-my-user-profile)
 * [Update my User Profile](#update-my-user-profile)
+* [Add My Email](#add-my-email)
+* [Get My Email](#get-my-email)
+* [Get My Emails](#get-my-emails)
+* [Delete My Email](#delete-my-email)
+
+
+### Add My Email
+
+<ApiOperation method="post" url="/idp/myaccount/emails" />
+
+Create an UNVERIFIED status, PRIMARY or SECONDARY email to user's MyAccount setting.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
+
+#### Request path parameters
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+This API requires a [My Email Request object](#my-email-request-object) as its request body.
+
+#### Response body
+
+The requested [My Email object](#my-email-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to create their email.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails"
+```
+
+##### Response
+
+```json
+{
+    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
+    "status": "UNVERIFIED",
+    "profile": {
+        "email": "primary.email@okta.com"
+    },
+    "roles": [
+        "PRIMARY"
+    ],
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Get My Email
+
+<ApiOperation method="get" url="/idp/myaccount/emails/{id}" />
+
+Fetches the current user's email information by id, a collection of links describing the operations can be performed to the email.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+The requested [My Email object](#my-email-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their email.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}"
+```
+
+##### Response
+
+```json
+{
+    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
+    "status": "VERIFIED",
+    "profile": {
+        "email": "primary.email@okta.com"
+    },
+    "roles": [
+        "PRIMARY"
+    ],
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Get My Emails
+
+<ApiOperation method="get" url="/idp/myaccount/emails" />
+
+Fetches the current user's all email information, a collection of links for each email describing the operations can be performed.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
+
+#### Request path parameters
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+A list of the requested [My Email object](#my-email-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their email addresses.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails"
+```
+
+##### Response
+
+```json
+[
+    {
+        "id": "0dd9a31e3aacb7181de720d15d1ef247",
+        "status": "VERIFIED",
+        "profile": {
+            "email": "some.primary.email1@okta.com"
+        },
+        "roles": [
+            "PRIMARY"
+        ],
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/emails/0dd9a31e3aacb7181de720d15d1ef247",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/emails/0dd9a31e3aacb7181de720d15d1ef247/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "edf645ca14c3ebaf5aa69346de6afbf5",
+        "status": "VERIFIED",
+        "profile": {
+            "email": "add.test.email@okta.com"
+        },
+        "roles": [
+            "SECONDARY"
+        ],
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/emails/edf645ca14c3ebaf5aa69346de6afbf5",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/emails/edf645ca14c3ebaf5aa69346de6afbf5/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Delete My Email
+
+<ApiOperation method="delete" url="/idp/myaccount/emails/{id}" />
+
+Delete the current user's email information by id, only UNVERIFIED primary and secondary emails can be deleted.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+N/A
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to delete their UNVERIFIED emails.
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}"
+```
+
+##### Response
+Returns an empty HTTP 204 status code response.
 
 ### Get Me
 
@@ -302,6 +582,73 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 
 ## MyAccount API objects
 
+### My Email object
+
+#### My Email properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `id`               | String                                                            | The caller's email ID|
+| `status`           | String                                                            | The caller's email status, VERIFIED, OR UNVERIFIED|
+| `roles`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
+| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+| `_links`           | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
+
+#### My Email example
+
+```json
+{
+    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
+    "status": "VERIFIED",
+    "profile": {
+        "email": "some.primary.email@okta.com"
+    },
+    "roles": [
+        "PRIMARY"
+    ],
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### My Email Request object
+
+#### My Email Request properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+| `roles`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
+| `sendEmail`        | Boolean                                                           | send challenge to the newly added email, the default is true | `state` | String | (Optional) The state parameter, the state of the client |
+
+#### My Email Request example
+
+```json
+{
+  "profile": {
+      "email" : "some.primary.email@okta.com"
+  },
+   "role": "PRIMARY",
+   "sendEmail": true
+}
+```
+
 ### Me object
 
 #### Me properties
@@ -444,5 +791,3 @@ The User Profile object has several properties:
     }
 }
 ```
-
-
