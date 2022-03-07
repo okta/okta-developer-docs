@@ -96,7 +96,7 @@
   --c-silvery: #212126;
   --c-light: #d7d7dc;
   --c-blue-300: #92bcff;
-  --c-blue-500: #CFE4F6;
+  --c-blue-400: #CFE4F6;
   --c-blue-800: #234f97;
   --c-blue-darker: #5976a6;
   --c-checkbox-border: #c1c1c8;
@@ -122,6 +122,7 @@
   --c-text-lighter: var(--c-gray-100);
   --c-text-gray: var(--c-gray-600);
   --c-link-base: var(--c-blue-300);
+  --c-link-lightblue: var(--c-blue-400);
   --c-link-signup: var(--c-blue-500);
   --c-code-base: var(--c-gray-900);
   --c-auth-link: var(--c-gray-700);
@@ -195,7 +196,7 @@ $colors: (
     "faq": var(--c-white),
     "light": var(--c-light),
     "gray": var(--c-leaden),
-    "blue": var(--c-blue-500)
+    "github": var(--c-link-lightblue)
   ),
   "code": (
     "base": var(--c-code-base),
