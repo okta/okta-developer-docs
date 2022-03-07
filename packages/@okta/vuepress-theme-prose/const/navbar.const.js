@@ -289,6 +289,10 @@ export const guides = [
                     path: "/docs/guides/add-an-external-idp/apple/main/"
                   },
                   {
+                    title: "Discord",
+                    path: "/docs/guides/social-login/discord/main/"
+                  },
+                  {
                     title: "Facebook",
                     path: "/docs/guides/add-an-external-idp/facebook/main/"
                   },
@@ -319,6 +323,14 @@ export const guides = [
                   {
                     title: "Salesforce",
                     path: "/docs/guides/social-login/salesforce/main/"
+                  },
+                  {
+                    title: "Spotify",
+                    path: "/docs/guides/social-login/spotify/main/"
+                  },
+                  {
+                    title: "Xero",
+                    path: "/docs/guides/social-login/xero/main/"
                   },
                   {
                     title: "Yahoo",
