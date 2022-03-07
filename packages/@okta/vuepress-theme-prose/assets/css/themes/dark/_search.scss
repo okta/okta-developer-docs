@@ -1,6 +1,9 @@
 #SearchPage {
+  .coveo-facet-value .coveo-facet-value-checkbox {
+    background-color: cv("code");
+  }
   .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
-    background-color: cv("text");
+    background-color: cv("code");
     svg .coveo-hook-svg {
       fill: cv("link");
     }
