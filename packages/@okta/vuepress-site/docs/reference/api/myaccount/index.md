@@ -44,6 +44,13 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
 
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 N/A
 
@@ -113,6 +120,13 @@ Fetches the current user's email information by id, a collection of links descri
 
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
@@ -180,6 +194,13 @@ Fetches the current user's all email information, a collection of links for each
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
+
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
 
 #### Request path parameters
 N/A
@@ -278,6 +299,13 @@ Delete the current user's email information by id, only UNVERIFIED primary and s
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
+
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
