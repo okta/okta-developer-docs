@@ -9,12 +9,12 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2022.03.1](#bug-fixed-in-2022-03-1) | March 09, 2022 |
+| [Bugs fixed in 2022.03.1](#bugs-fixed-in-2022-03-1) | March 09, 2022 |
 
 #### Bugs fixed in 2022.03.1
 
 * When performing a GET request on the `/policies/` [endpoint](/docs/reference/api/policy/), the returned page sometimes included the wrong number of items. (OKTA-455164)
-* When the [List email template](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header was `-admin` instead of the requested base address. (OKTA-465356)
+* When the [List email templates](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header was `-admin` instead of the requested base address. (OKTA-465356)
 * When modifying the [custom email activation template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `verificationLink` or `verificationToken` elements. (OKTA-472895)
 * When modifying the [custom email challenge template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `emailAuthenticationLink` or `verificationToken` elements. (OKTA-472928)
 
@@ -27,7 +27,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Email Address Bounces API is EA in Preview](#email-address-bounces-api-is-ea-in-preview) | March 2, 2022 |
 | [Shareable Authentication Policies](#shareable-authentication-policies) | March 2, 2022 |
 | [Signed request support for generic OIDC IdP is EA in Preview](#signed-request-support-for-generic-oidc-idp-is-ea-in-preview) | March 2, 2022 |
-| [Bug fixed in 2022.03.0](#bug-fixed-in-2022-03-0)         | March 2, 2022           |
+| [Bugs fixed in 2022.03.0](#bugs-fixed-in-2022-03-0)         | March 2, 2022           |
 
 #### Authentication timestamp is added as an access token claim
 
@@ -53,7 +53,7 @@ Two policy name changes are included in this release: app sign-on policy is rena
 
 When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new [signed request object](/docs/reference/api/idps/#oidc-algorithms-object) allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
 
-#### Bug fixed in 2022.03.0
+#### Bugs fixed in 2022.03.0
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 

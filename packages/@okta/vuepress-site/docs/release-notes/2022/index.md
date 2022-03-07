@@ -10,9 +10,9 @@ title: Okta API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Bug fixed in 2022.03.1](#bug-fixed-in-2022-03-1) | March 09, 2022 |
 
-#### Bugs fixed in 2022.03.1
+#### Bug fixed in 2022.03.1
 
-When the [List email template](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header was `-admin` instead of the requested base address. (OKTA-465356)
+When the [List email templates](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header was `-admin` instead of the requested base address. (OKTA-465356)
 
 ### Monthly release 2022.03.0
 
