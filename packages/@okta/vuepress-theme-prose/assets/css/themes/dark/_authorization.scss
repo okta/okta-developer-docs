@@ -10,10 +10,14 @@
       border-color: cv("text", "accent");
       color: cv("text");
     }
+    a.btn {
+      font-weight: 500;
+    }
     input[type="submit"] {
       background-color: cv("link");
       border-color: cv("link");
       color: cv("body");
+      font-weight: 500;
     }
     a.social-btn,
     button.social-btn {
