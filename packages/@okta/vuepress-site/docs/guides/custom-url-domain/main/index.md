@@ -15,10 +15,13 @@ This guide explains how to customize your Okta org with your URL domain name and
 
 **What you need**
 
-For customizing your Okta URL domain:
+For customizing an Okta-managed domain or your own domain:
 
 * A domain that you own, for example, `example.com`
 * A subdomain that you want to use, for example, `login.example.com`
+
+For customizing your own domain only:
+
 * A valid TLS certificate (PEM-encoded) for your subdomain
 * A 2048-bit private key (PEM-encoded)
 
@@ -71,14 +74,12 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 ## Use an Okta-managed certificate
 
-<ApiLifecycle access="ea" />
-
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own certificate.
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
 3. Click **Get started** to start the configuration wizard.
-4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed**.
+4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
 ### Add your subdomain information
 
@@ -94,7 +95,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 
-> **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+> **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge.login` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
 >
 > You can perform a DNS lookup of your `_acme-challenge` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_acme-challenge.login.example.com` DNS record.
 
@@ -132,7 +133,7 @@ If you receive the previous error, consult with the person in your organization 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
 3. Click **Get started** to start the configuration wizard.
-4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Bring your own certificate**.
+4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Bring your own certificate (advanced)**.
     * The **Next** button appears if the configuration is incomplete.
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
 
@@ -140,7 +141,11 @@ If you receive the previous error, consult with the person in your organization 
 
 On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Update your DNS
+### Update your DNS TXT and CNAME record
+
+If you use your own certificate, you need to both add a DNS TXT record and create a CNAME record.
+
+#### Update your DNS TXT
 
 You need to add a DNS TXT record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
 
