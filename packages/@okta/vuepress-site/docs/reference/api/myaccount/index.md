@@ -45,6 +45,13 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
 
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
@@ -121,6 +128,13 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
 
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
@@ -165,6 +179,13 @@ Fetches the email challenge's status
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.read` is required to use this endpoint.
+
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
