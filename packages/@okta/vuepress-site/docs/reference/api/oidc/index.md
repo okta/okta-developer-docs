@@ -24,6 +24,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | Endpoint                                                                          | Use                                                                                     |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
+| [/par](#par)                                                                      | TBD                     |
 | [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
@@ -95,6 +96,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
 | response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
 | response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
+| request_uri                      | TBD.                                                                                                                                                                                                                                                                                                             | Query       | JWT       | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
@@ -175,7 +177,7 @@ Irrespective of the response type, the contents of the response are as described
 | code                | An opaque value that can be used to redeem tokens from the [token endpoint](#token). `code` is returned if the `response_type` includes `code`. The code has a lifetime of 300 seconds.   | String   |
 | error               | The error code, if something went wrong.                                                                                                                                                 | String   |
 | error_description   | Additional error information (if any).                                                                                                                                                   | String   |
-| expires_in          | Number of seconds until the `access_token` expires. This is only returned if the response included an `access_token`.                                                                    | String   |
+| expires_in          | Number of seconds until the `access_token` expires. This is only returned if the response included an `access_token`.                                                                    | Number   |
 | id_token            | An [ID token](#id-token).  This is returned if the `response_type` included `id_token`.                                                                                                  | String   |
 | scope               | Scopes specified in the `access_token`. Returned only if the response includes an `access_token`.                                                                                        | String   |
 | state               | The unmodified `state` value from the request.                                                                                                                                           | String   |
@@ -253,6 +255,81 @@ The requested scope is invalid:
 
 ```bash
 https://www.example.com/#error=invalid_scope&error_description=The+requested+scope+is+invalid%2C+unknown%2C+or+malformed
+```
+
+### /par
+
+<ApiOperation method="post" url="${baseUrl}/v1/par" />
+
+> **Note:** This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing your base URL](#composing-your-base-url).
+
+Description: TBD
+
+#### Request Parameters
+
+The same request parameters as accepted in /authorize, except `request_uri`, that cannot be passed as a parameter to this endpoint.
+
+#### Response properties
+
+| Property            | Description                                                                                                          | DataType |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------- | :------- |
+| request_uri         | TBD                                                                                                                  | String   |
+| expires_in          | Number of seconds until the `request_uri` expires.                                                                   | Number   |
+
+##### Possible errors
+
+These APIs are compliant with the OpenID Connect and OAuth 2.0 spec with some Okta specific extensions.
+
+[OAuth 2.0 spec error codes](https://tools.ietf.org/html/rfc6749#section-4.1.2.1)
+
+| Error Id                    | Details                                                                                                                                                                                                            |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| access_denied               | The server denied the request.                                                                                                                                                                                     |
+| invalid_client              | The specified client ID is invalid.                                                                                                                                                                                |
+| invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.                                                                                            |
+| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                                                                                                                                |
+| invalid_scope               | The scopes list contains an invalid or unsupported value.                                                                                                                                                          |
+| invalid_token               | The provided access token is invalid.                                                                                                                                                                              |
+| server_error                | The server encountered an internal error.                                                                                                                                                                          |
+| temporarily_unavailable     | The server is temporarily unavailable, but should be able to process the request at a later time.                                                                                                                  |
+| unsupported_response_type   | The specified response type is invalid or unsupported.                                                                                                                                                             |
+| unsupported_response_mode   | The specified response mode is invalid or unsupported. This error is also thrown for disallowed response modes. For example, if the query response mode is specified for a response type that includes `id_token`. |
+
+[OpenID Connect spec error codes](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
+
+| Error Id             | Details                                                                                           |
+| :------------------- | :------------------------------------------------------------------------------------------------ |
+| insufficient_scope   | The access token provided doesn't contain the necessary scopes to access the resource.           |
+
+#### Request examples
+
+This pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorize request.
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+"https://${yourOktaDomain}/oauth2/default/v1/par" \
+-d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
+```
+
+#### Response example (success)
+
+```json
+{
+  "request_uri": "urn:okta:Y1hIQ3ZqYjFodEZMOVJ3TUF4ZHRPZjJuNFZRV2ZWQ044MmFoX2VIT2oyNDo",
+  "expires_in": 3600
+}
+```
+
+#### Response example (error)
+
+The requested scope is invalid:
+
+```json
+{
+  "error_description": "One or more scopes are not configured for the authorization server resource.",
+  "error": "invalid_scope"
+}
 ```
 
 ### /device/authorize
@@ -1149,7 +1226,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 * `openid` is required for any OpenID request connect flow. If the `openid` scope value isn't present, the request may be a valid OAuth 2.0 request, but it's not an OpenID Connect request.
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
-* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. 
+* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
 * For more information about `device_sso`, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
