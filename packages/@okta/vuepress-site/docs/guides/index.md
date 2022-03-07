@@ -97,6 +97,7 @@ guides:
  - device-context
  - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
  - authenticators-okta-verify
+ - authenticators-okta-email
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
