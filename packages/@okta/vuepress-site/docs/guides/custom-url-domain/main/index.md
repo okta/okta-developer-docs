@@ -6,6 +6,8 @@ layout: Guides
 
 This guide explains how to customize your Okta org with your URL domain name and how to configure a custom email domain so that you can present a branded experience to your end users.
 
+> **Note:** You can't log in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom URL domain (Okta-managed or your own). You must log in through your default [Okta domain](/docs/guides/find-your-domain/main/).
+
 ---
 
 **Learning outcomes**
