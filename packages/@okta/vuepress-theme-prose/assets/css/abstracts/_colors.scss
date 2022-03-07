@@ -96,6 +96,7 @@
   --c-silvery: #212126;
   --c-light: #d7d7dc;
   --c-blue-300: #92bcff;
+  --c-blue-500: #CFE4F6;
   --c-blue-800: #234f97;
   --c-blue-darker: #5976a6;
   --c-checkbox-border: #c1c1c8;
@@ -193,7 +194,8 @@ $colors: (
     "signup": var(--c-link-signup),
     "faq": var(--c-white),
     "light": var(--c-light),
-    "gray": var(--c-leaden)
+    "gray": var(--c-leaden),
+    "blue": var(--c-blue-500)
   ),
   "code": (
     "base": var(--c-code-base),

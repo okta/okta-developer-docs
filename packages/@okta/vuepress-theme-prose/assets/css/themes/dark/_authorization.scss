@@ -19,6 +19,7 @@
     button.social-btn {
       color: cv("text");
       background-color: cv("link", "gray");
+      font-weight: 500;
     }
     .auth0-banner {
       color: cv("text", "accent");
