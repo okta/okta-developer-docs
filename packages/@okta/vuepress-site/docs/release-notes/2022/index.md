@@ -47,9 +47,11 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 #### Bugs fixed in 2022.03.0
 
+* The admin app assignment event wasn't triggered for an individual admin role assignment. (OKTA-460521)
+
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The admin app assignment event wasn't triggered for an individual admin role assignment. (OKTA-460521)
+* The [OAuth token endpoint](/docs/reference/api/oidc/#token) accepted requests that included the `resource` parameter.
 
 ## February
 

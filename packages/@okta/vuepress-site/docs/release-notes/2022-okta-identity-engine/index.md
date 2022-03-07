@@ -55,7 +55,9 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 #### Bug fixed in 2022.03.0
 
-When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
+* When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
+
+* The [OAuth token endpoint](/docs/reference/api/oidc/#token) accepted requests that included the `resource` parameter.
 
 ## February
 
