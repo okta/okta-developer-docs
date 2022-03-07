@@ -112,7 +112,7 @@ Every API response includes headers related to rate limiting:
 * `X-RateLimit-Limit`: Describes the total number of operations permitted per rate limit period.
 * `X-RateLimit-Remaining`: Describes the total number of remaining operations permitted during the current rate limit period.
 * `X-RateLimit-Reset`: Contains a unix timestamp that indicates when the number of rate limit requests fully replenishes.
-* `X-RateLimit-Retry-At`: Sent after exceeding the rate limit and contains a unix timestamp indicating when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
+* `X-RateLimit-Retry-At`: Sent after exceeding the rate limit and contains a unix timestamp that indicates when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
 
 Requests that exceed a rate limit receive an `HTTP 429 - Too Many Requests`
 error response.
