@@ -109,15 +109,21 @@ Rate limits control access to Advanced Server Access APIs by measuring the rate 
 
 Every API response includes headers related to rate limiting:
 
-* `X-RateLimit-Limit` - Describes the total number of operations permitted per rate limit period.
-* `X-RateLimit-Remaining` - Describes the total number of remaining operations permitted during the current rate limit period.
-* `X-RateLimit-Reset` - Contains a unix timestamp indicating when the number of rate limit requests fully replenishes.
-* `X-RateLimit-Retry-At` - Sent after exceeding the rate limit and contains a unix timestamp indicating when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
+* `X-RateLimit-Limit`: Describes the total number of operations permitted per rate limit period.
+* `X-RateLimit-Remaining`: Describes the total number of remaining operations permitted during the current rate limit period.
+* `X-RateLimit-Reset`: Contains a unix timestamp indicating when the number of rate limit requests fully replenishes.
+* `X-RateLimit-Retry-At`: Sent after exceeding the rate limit and contains a unix timestamp indicating when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
 
 Requests that exceed a rate limit receive an `HTTP 429 - Too Many Requests`
 error response.
 
 To request a rate limit increase [contact support](https://support.okta.com/help/s/opencase).
+
+### Concurrency limits
+
+Concurrency limits control the number of simultaneous requests available to a user through the Advanced Server Access API. After reaching the concurrency limit, new requests are held and processed after an existing request completes. If an excessive number of requests are already being held for processing, any additional requests receive an `HTTP 429 - Too Many Requests` error response.
+
+To request a concurrency limit increase, [contact support](https://support.okta.com/help/s/opencase).
 
 ## Errors
 
