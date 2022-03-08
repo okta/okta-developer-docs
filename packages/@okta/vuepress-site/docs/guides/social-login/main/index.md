@@ -6,8 +6,6 @@ meta:
 showStackSelector: False
 ---
 
-<StackSnippet snippet="ea-icon" inline/>
-
 ## <StackSnippet snippet="idp" inline />
 
 This document explains how to configure <StackSnippet snippet="idp" inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
