@@ -1,0 +1,1 @@
+[Scopes for OAuth Apps](https://developers.line.biz/en/docs/line-login/integrate-line-login/#scopes)

@@ -28,6 +28,7 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
   <Card href="/docs/guides/social-login/github/main" headerImage="/img/idp-logos/github.png">GitHub</Card>
   <Card href="/docs/guides/social-login/gitlab/main" headerImage="/img/idp-logos/gitlab.svg">GitLab</Card>
   <Card href="/docs/guides/add-an-external-idp/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
+  <Card href="/docs/guides/social-login/line/main/" headerImage="/img/idp-logos/line.png">LINE</Card>
   <Card href="/docs/guides/add-an-external-idp/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
   <Card href="/docs/guides/add-an-external-idp/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>

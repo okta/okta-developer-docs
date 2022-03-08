@@ -309,6 +309,10 @@ export const guides = [
                     path: "/docs/guides/add-an-external-idp/google/main/"
                   },
                   {
+                    title: "LINE",
+                    path: "/docs/guides/social-login/line/main/"
+                  },
+                  {
                     title: "LinkedIn",
                     path: "/docs/guides/add-an-external-idp/linkedin/main/"
                   },
