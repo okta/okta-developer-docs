@@ -51,4 +51,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [React Developer Blog posts](/search/#q=react&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our [React Developer Blog posts](/blog/tags/react/) for further useful topics.

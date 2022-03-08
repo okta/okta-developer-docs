@@ -65,4 +65,4 @@ Okta Classic:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Java Developer Blog posts](/search/#q=java&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our [Java Developer Blog posts](/blog/tags/java/) for further useful topics.

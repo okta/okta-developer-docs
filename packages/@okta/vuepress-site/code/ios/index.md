@@ -69,4 +69,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [iOS Developer Blog posts](/search/#q=ios&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our [iOS Developer Blog posts](/blog/tags/ios/) for further useful topics.

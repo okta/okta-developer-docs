@@ -70,4 +70,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Blazor Developer Blog posts](/search/#q=blazor&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our [Blazor Developer Blog posts](/blog/tags/blazor/) for further useful topics.

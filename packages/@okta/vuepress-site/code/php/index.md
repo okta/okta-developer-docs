@@ -56,4 +56,4 @@ Other guides:
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 * [OAuth 2.0 from the Command Line](/blog/2018/07/16/oauth-2-command-line)
 
-> **Note**: Browse our [PHP Developer Blog posts](/search/#q=php&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our [PHP Developer Blog posts](/blog/tags/php/) for further useful topics.
