@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## March
 
+### Weekly release 2022.03.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.03.1](#bug-fixed-in-2022-03-1) | March 09, 2022 |
+
+#### Bug fixed in 2022.03.1
+
+When the [List email templates](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header was `-admin` instead of the requested base address. (OKTA-465356)
+
 ### Monthly release 2022.03.0
 
 | Change                                                                   | Expected in Preview Orgs |
@@ -37,9 +47,11 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 #### Bugs fixed in 2022.03.0
 
+* The admin app assignment event wasn't triggered for an individual admin role assignment. (OKTA-460521)
+
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The admin app assignment event wasn't triggered for an individual admin role assignment. (OKTA-460521)
+* The [OAuth token endpoint](/docs/reference/api/oidc/#token) accepted requests that included the `resource` parameter.
 
 ## February
 
