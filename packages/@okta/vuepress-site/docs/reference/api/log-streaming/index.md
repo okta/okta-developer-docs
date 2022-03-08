@@ -587,7 +587,7 @@ All Log Streams have the following properties:
 | name          | Unique name for the Log Stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | status        | Status of the Log Stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
 | type          | Type of Log Stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object) or [Splunk Cloud Settings](#splunk-cloud-settings-object) (<ApiLifecycle access="beta" /> )           | FALSE    | FALSE  | TRUE    |           |           |
+| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object) or [Splunk Cloud Settings](#splunk-cloud-settings-object)      | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
@@ -656,8 +656,6 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 
 
 ### Splunk Cloud Settings object
-
-<ApiLifecycle access="beta" />
 
 The Splunk Cloud Settings object specifies the configuration for the `splunk_cloud_logstreaming` Log Stream type.
 

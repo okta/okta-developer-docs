@@ -1551,7 +1551,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
-Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which can be the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema.
+Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which can be `aws_eventbridge`, literal to retrieve the AWS EventBridge type schema or `splunk_cloud`, literal to retrieve the Splunk Cloud type schema.
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
 
@@ -1810,6 +1810,59 @@ For brevity, the following response doesn't include all available properties.
           "properties": {
             "accountId": "Account number must be 12 digits.",
             "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+          }
+        }
+      },
+      "name": {
+        "title": "Name",
+        "description": "A name for this log stream in Okta",
+        "type": "string",
+        "writeOnce": false,
+        "pattern": "^.{1,100}$"
+      }
+    },
+    "required": [
+      "name",
+      "settings"
+    ],
+    "errorMessage": {
+      "properties": {
+        "name": "Name can't exceed 100 characters."
+      }
+    }
+  },
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/splunk_cloud_logstreaming",
+    "title": "Splunk Cloud",
+    "type": "object",
+    "properties": {
+      "settings": {
+        "description": "Configuration properties specific to Splunk Cloud",
+        "type": "object",
+        "properties": {
+          "host": {
+            "title": "Host",
+            "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
+            "type": "string",
+            "writeOnce": false,
+            "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud\\.com$"
+          },
+          "token": {
+            "title": "HEC Token",
+            "description": "The token from your Splunk Cloud HTTP Event Collector (HEC).",
+            "type": "string",
+            "writeOnce": false,
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+          }
+        },
+        "required": [
+          "host",
+          "token"
+        ],
+        "errorMessage": {
+          "properties": {
+            "host": "Host should be a domain without http or https. For example: acme.splunkcloud.com"
           }
         }
       },
