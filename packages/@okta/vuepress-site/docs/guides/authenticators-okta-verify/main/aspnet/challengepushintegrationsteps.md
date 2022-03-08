@@ -18,7 +18,7 @@ selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync
    selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, the returned `selectAuthenticatorResponse` object has a `CurrentAuthenticator` property containing a list of the different methods for the user to authenticate themselves with. This needs to be passed to a page for display.
+If the call is successful, the returned `selectAuthenticatorResponse` object has a `CurrentAuthenticator` property that contains a list of the different methods for the user to authenticate themselves with. This needs to be passed to a page for display.
 
 ```csharp
 var viewModel = new OktaVerifySelectAuthenticatorMethodModel
@@ -81,7 +81,7 @@ The available challenge methods are listed, as shown in the following screenshot
 
 <div class="common-image-format">
 
-![A list showing Okta Verify challenge methods available for use](/img/authenticators/dotnet-authenticators-okta-verify-challenge-list-of-challenge-methods.png)
+![A list showing Okta Verify challenge methods available for use](/img/authenticators/dotnet-authenticators-okta-verify-challenge-list-of-challenge-methods.png "A list of available Okta Verify challenge methods")
 
 </div>
 
@@ -149,7 +149,7 @@ This page is shown in the following screenshot.
 
 <div class="common-image-format">
 
-![A page telling the user the push prompt has been sent to their Okta Verify app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-push-sent.png)
+![A page telling the user the push prompt has been sent to their Okta Verify app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-push-sent.png "Notification that the push prompt is available in Okta Verify")
 
 </div>
 
@@ -175,7 +175,7 @@ Second, the JavaScript `poll()` function that will continue to poll an endpoint 
 
 The polling logic and code is common across all the flows that use it and is covered [here](#polling-okta).
 
-#### 6. Click on the “Yes It Me” button and complete challenge
+#### 6. Click on “Yes It Me” and complete challenge
 
 The user opens Okta Verify on their device and clicks **Yes it's me** to complete the challenge and finish authenticating themselves.
 

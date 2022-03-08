@@ -11,7 +11,7 @@ All four flows start with the same steps that enable a user to sign-in with a us
 
 <div class="common-image-format">
 
-![High level diagram showing the shared sign-in initiation flow for Okta Verify challenge and enrollment](/img/authenticators/dotnet-authenticators-okta-verify-shared-code-initiate-signin.png)
+![Sequence diagram showing the shared sign-in initiation flow for Okta Verify challenge and enrollment](/img/authenticators/dotnet-authenticators-okta-verify-shared-code-initiate-signin.png "All steps in the shared sign-in flow")
 
 </div>
 
@@ -152,7 +152,7 @@ The available authenticators are listed along with Okta Verify, as shown in the 
 
 <div class="common-image-format">
 
-![An authenticator list showing Okta Verify available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-authenticators.png)
+![An authenticator list showing Okta Verify available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-authenticators.png "A list of available authenticators for enrollment")
 
 </div>
 
@@ -166,7 +166,7 @@ The user steps out of your app during these flows to complete actions within Okt
 
 <div class="common-image-format">
 
-![A flow diagram showing the steps in the shared polling loop](/img/authenticators/dotnet-authenticators-okta-verify-shared-code-polling.png)
+![A sequence diagram showing the steps in the shared polling loop](/img/authenticators/dotnet-authenticators-okta-verify-shared-code-polling.png "All steps in the shared polling loop")
 
 </div>
 
@@ -227,7 +227,7 @@ If `ContinuePolling` is true, it simply returns that and the refresh value to th
 
 If `ContinuePolling` is false, you can query the response's `AuthenticationStatus` property for the final state of the enrollment flow. You should expect one of the following statuses
 
-* **Success** : the user has logged in successfully
+* **Success** : the user has signed in successfully
 * **PasswordExpired** : the user needs to change their password
 * **AwaitingAuthenticatorEnrollment** : Okta Verify has been enrolled successfully but there are other authenticators that the user could enrol.
 * **AwaitingChallengeAuthenticatorSelection** : Okta Verify and all authenticators have been enrolled successfully. The user now needs to select an authenticator to log in with.

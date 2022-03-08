@@ -72,7 +72,7 @@ The available channels are listed, as shown in the following screenshot.
 
 <div class="common-image-format">
 
-![A list showing Okta Verify enrollment channels available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-other-enrollment-options.png)
+![A list showing Okta Verify enrollment channels available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-other-enrollment-options.png "A list of the available Okta Verify enrollment channels")
 
 </div>
 
@@ -142,7 +142,7 @@ This prompt is rendered as shown in the following screenshot:
 
 <div class="common-image-format">
 
-![A prompt for a user to enter and submit their email address to Okta Verify](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-for-address.png)
+![A prompt for a user to enter and submit their email address to Okta Verify](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-for-address.png "A prompt for an email address")
 
 </div>
 
@@ -177,7 +177,7 @@ After the user submits their email, Okta sends an activation link to that addres
 
 <div class="common-image-format">
 
-![An email containing the Okta Verify Push activation link](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-text.png)
+![An email that contains the Okta Verify Push activation link](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-text.png "An email containing the activation link")
 
 </div>
 
@@ -185,7 +185,7 @@ After the user submits their email, Okta sends an activation link to that addres
 
 Build a page to display the prompt for the user to check their email while starting to poll Okta for completion.  In the sample application, a new `OktaVerifyEnrollPollModel` is populated in the previous step containing a message to the user to look in their email for the next step.
 
-This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form containing the QR code and drop-down of other enrollment options.
+This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form that contains the QR code and drop-down of other enrollment options.
 
 ```razor
 <div>
@@ -226,7 +226,7 @@ The user opens the email on their mobile device and clicks Activate Okta Verify 
 
 <div class="common-image-format">
 
-![A prompt for a user to install Okta Verify and activate it](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-user-to-check-email.png)
+![A prompt for a user to install Okta Verify and activate it](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-user-to-check-email.png "An activation prompt for Okta Verify")
 
 </div>
 

@@ -45,7 +45,7 @@ The user sees the following:
 
 <div class="common-image-format">
 
-![A page asking the user to enter a Time-base One-Time Password from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png)
+![A page asking the user to enter a Time-based One-Time Password from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
 
 </div>
 
@@ -71,7 +71,7 @@ try
 
 Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the current status of the authentication process. You should expect one of the following statuses
 
-* **Success** : The user has logged in successfully
+* **Success** : The user has signed in successfully
 * **PasswordExpired** : The user needs to change their password
 * **AwaitingChallengeAuthenticatorSelection** : The user has been authenticated successfully with Okta Verify and must now authenticate themselves with a different factor.
 

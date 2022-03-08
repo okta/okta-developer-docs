@@ -72,7 +72,7 @@ public OktaVerifyEnrollPollModel(
 }
 ```
 
-This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form containing the QR code and drop-down of other enrollment options.
+This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form that contains the QR code and drop-down of other enrollment options.
 
 ```razor
 <div>
@@ -89,7 +89,7 @@ The instructions and QR code appear, as shown in the following screenshot
 
 <div class="common-image-format">
 
-![A QR code is displayed to be used within Okta Verify to complete enrollment](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-scan-qr-code.png)
+![A QR code to be scanned into Okta Verify to complete enrollment](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-scan-qr-code.png "A sample QR code to be scanned in Okta Verify")
 
 </div>
 
