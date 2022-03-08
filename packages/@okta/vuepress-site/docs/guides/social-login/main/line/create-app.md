@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create an application service at LINE, also known as a [Channel](https://developers.line.biz/en/docs/line-developers-console/overview/#channel).
