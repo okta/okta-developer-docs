@@ -2,15 +2,15 @@
 
 To begin the password recovery flow, the user must
 
-1. Click the **Forgot Password?** link on the login page.
-2. Enter their **Email or Username** in the textbox and click **Next**.
-3. Choose **Email** as the authenticator to be used for password recovery and click **Submit**
+1. Click the **Forgot Password?** link on the sign-in page.
+2. Enter their **Email or Username** in the box and click **Next**.
+3. Choose **Email** as the authenticator they want to use for password recovery and click **Submit**.
 
 Okta then tells the user to either click the link in the email or enter the code to continue and sends an email to their email address matching the Forgot Password template that was altered earlier.
 
 <div class="common-image-format">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
+![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password Recovery Email")
 
 </div>
 
@@ -18,9 +18,9 @@ The **Reset Password** link in the email includes the `OTP` and `request.relaySt
 
 `https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
-### 2: Handle the otp and state parameters
+### 2: Handle the OTP and state parameters
 
-Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as session parameters to a page containing the Sign-In Widget.
+Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as session parameters to a page that contains the Sign-In Widget.
 
 ```csharp
 public async Task<ActionResult> Callback(string state, string otp, string error = null, string error_description = null)
@@ -40,16 +40,16 @@ public async Task<ActionResult> Callback(string state, string otp, string error 
     }
 ```
 
-If the otp and state values are not valid or the user is in a different browser after clicking the link, you should advise the user to return to the original tab in the browser where they requested a password reset and enter the otp value there to proceed.
+If the OTP and state values aren't valid or the user is in a different browser after clicking the link, you should advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP value to proceed.
 
 ```csharp
     return View(new MagicLinkCallbackModel { Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow." });
 }
 ```
 
-### 3: Setup and render Widget with otp and State
+### 3: Set up and render Widget with OTP and state
 
-Consume the session `state` and `otp` variables in a Razor page containing the Sign-In Widget.
+Consume the session `state` and `otp` values  in a Razor page that contains the Sign-In Widget.
 
 ```razor
 @model SignInWidgetConfiguration
@@ -81,10 +81,10 @@ Consume the session `state` and `otp` variables in a Razor page containing the S
 
 ### 4: Display password reset page and continue the password recovery flow
 
-Once the widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page is displayed, or a prompt is made for the OTP code to be entered. Once the OTP code is entered, the reset page is then displayed. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
+After the widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
 <div class="common-image-format">
 
-![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png)
+![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
 
 </div>
