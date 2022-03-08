@@ -1,5 +1,8 @@
 ## Handle users without email addresses
+### The user has an email address in LINE, but it's not showing up in Okta
+Before you proceed to the next section, test your integration with a user who has an email in LINE. If you don't see their email in Okta, check that you have [email address permission](https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission) in the channel you are using. If you have confirmed that you have this permission and are still not able to see their emails in Okta, contact support.
 
+### The user doesn't have an email address in LINE
 LINE doesn’t always provide email addresses for users that it authenticates, but Okta requires an email address for its users to be able to sign in. You can support users who don't have email addresses by using information from LINE to generate email addresses for them.
 
 For example, you might generate email addresses using the `example.com` domain. This ensures that your LINE users have email addresses that Okta can use, but can be easily identified as invalid should you ever want to replace them with valid email addresses. They're guaranteed to be invalid as `example.com` is a reserved domain. See [Reserved Top Level DNS Names (RFC2606)](https://datatracker.ietf.org/doc/html/rfc2606) for more information on reserved domains.
