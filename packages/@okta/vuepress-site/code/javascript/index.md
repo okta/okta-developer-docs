@@ -56,4 +56,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [JavaScript Developer Blog posts](/blog/tags/javascript/) for further useful topics.
+> **Note**: Browse our recent [JavaScript Developer Blog posts](https://developer.okta.com/blog/tags/javascript/) for further useful topics.

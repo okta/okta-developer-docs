@@ -79,4 +79,4 @@ Other guides:
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 * [Spring Security SAML](/code/java/spring_security_saml/)
 
-> **Note**: Browse our [Spring Developer Blog posts](/blog/tags/spring-boot/) for further useful topics.
+> **Note**: Browse our recent [Spring Developer Blog posts](https://developer.okta.com/blog/tags/spring-boot/) for further useful topics.

@@ -43,4 +43,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [React Native Developer Blog posts](/blog/tags/react-native/) for further useful topics.
+> **Note**: Browse our recent [React Native Developer Blog posts](https://developer.okta.com/blog/tags/react-native/) for further useful topics.

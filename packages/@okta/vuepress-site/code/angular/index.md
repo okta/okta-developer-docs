@@ -51,4 +51,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Angular Developer Blog posts](/blog/tags/angular/) for further useful topics.
+> **Note**: Browse our recent [Angular Developer Blog posts](https://developer.okta.com/blog/tags/angular/) for further useful topics.

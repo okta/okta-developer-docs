@@ -68,4 +68,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Android Developer Blog posts](/blog/tags/android/) for further useful topics.
+> **Note**: Browse our recent [Android Developer Blog posts](https://developer.okta.com/blog/tags/android/) for further useful topics.
