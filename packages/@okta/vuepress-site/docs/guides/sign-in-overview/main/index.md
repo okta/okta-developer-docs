@@ -8,11 +8,11 @@ Okta provides authentication solutions that integrate seamlessly into your apps 
 
 ## Never used Okta before?
 
-Choose your app type and get started with our quickstarts.
+Choose your app type and get started with signing users in.
 
 <Cards>
   <Card href="/docs/guides/quickstart/main/#server-side-web-app" headerImage="/img/app-types/icon-server.png">Server-side web app</Card>
-  <Card href="/docs/guides/quickstart/main/#single-page-app" headerImage="/img/app-types/icon-spa.png">Single-page app</Card>
+  <Card href="/docs/guides/quickstart/main/#front-end-web-app" headerImage="/img/app-types/icon-spa.png">Front-end web app</Card>
   <Card href="/docs/guides/quickstart/main/#mobile-native-app" headerImage="/img/app-types/icon-mobile-app.png">Mobile/native app</Card>
 </Cards>
 

@@ -53,10 +53,11 @@ To use the CDN, include this script in your target HTML page:
 
 More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
 
-### npm
+### Package manager
+
+Run the appropriate installation command for your package manager in your project root folder:
 
 ```shell
-# Run this command in your project root folder.
 # yarn
 yarn add @okta/okta-auth-js
 
@@ -255,9 +256,13 @@ git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/static-spa
 ```
 
-2. Install the dependencies with a package manager, `npm` for example:
+2. Install the dependencies with a package manager:
 
 ```shell
+# yarn
+yarn
+
+# npm
 npm install
 ```
 
@@ -286,6 +291,10 @@ var config = {
 1. In the `static-spa` directory, run the sample application:
 
     ```shell
+    # yarn
+    yarn dev
+
+    # npm
     npm start
     ```
 
