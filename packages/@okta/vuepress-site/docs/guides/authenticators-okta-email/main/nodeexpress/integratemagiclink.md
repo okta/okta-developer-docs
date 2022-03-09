@@ -8,7 +8,15 @@ Initiate sign in, display email otp screen, and send email
 
 </div>
 
-### 2. Click on magic link
+### 2. Click on email magic link
+
+User clicks on the magic link.
+
+<div class="common-image-format">
+
+![Screenshot of different device or browser error](/img/authenticators/authenticators-email-magic-link-in-email.png)
+
+</div>
 
 Create a route to handle the call back with OTP and state
 
@@ -20,10 +28,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ```
 
-ADD SCREENSHOT HERE
-
-
-### 3 Determine whether it's coming from an email
+### 3. Determine whether it's coming from an email
 
 Check for OTP and ste
 
