@@ -19,8 +19,8 @@ This guide provides a working example of an Okta Event Hook that uses the ngrok 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
-* A local application. Or see [Create a local application](#create-a-local-application) in this guide for a simple example.
-* The ngrok utility. See [Install ngrok](#install-ngrok).
+* A local application. See [Create a local application](#create-a-local-application) in this guide for a simple example.
+* [ngrok](#install-ngrok)
 
 **Sample code**
 
