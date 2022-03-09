@@ -56,11 +56,11 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
-* If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
+* If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
 * When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
-* When an Admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
+* When an admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
 
@@ -87,9 +87,9 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Update your DNS
+### Update your DNS TXT
 
-You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records includes the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
+You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
 1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
 
@@ -170,8 +170,6 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 6. Return to Okta and click **Verify** to prove to Okta that you have ownership of the domain name.
 
 7. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
-
-Next, make your custom domain an alias for your Okta domain.
 
 ### Create a CNAME record for your subdomain
 
@@ -310,7 +308,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
 ## Configure a custom email notification domain
 
-1. In the Admin Console, go to **Settings** and then **Emails & SMS**.
+1. In the Admin Console, go to **Customizations** > **Emails**.
 
 2. Click the **Sender:** link (**Okta <noreply@okta.com>**) near the top of the page.
 
