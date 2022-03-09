@@ -1472,7 +1472,7 @@ This operation:
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Use an ID lookup for records that you update to ensure your results contain the latest data.
-* Special characters included in a search must also use URL encoding. For example, searching for `Smith"`, must be escaped, `Smith\"`, and then encoded: `Smith%5c%22`. The full encoded search appears as: `api/v1/users?search=profile.lastName%20eq%20%22Smith%5C%22%22`.
+    > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
 * Searches many properties:
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
