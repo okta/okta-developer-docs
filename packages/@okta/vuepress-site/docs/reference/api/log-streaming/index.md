@@ -176,7 +176,7 @@ The following filters are supported with the `filter` query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
-| `type eq "${typeId}"`        | Filter Log Streams of type [`${typeId}`](#log-stream-type), such as `aws_eventbridge` |
+| `type eq "${typeId}"`        | Filter Log Streams of type [`${typeId}`](#log-stream-type), such as `aws_eventbridge` or `splunk_cloud_logstreaming` |
 | `status eq "ACTIVE"`                | Filter Log Streams with an `ACTIVE` status                                             |
 | `status eq "INACTIVE"`              | Filter Log Streams with an `INACTIVE` status                                           |
 
@@ -225,6 +225,28 @@ curl -v -X GET \
       },
       "deactivate": {
         "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "method": "POST"
+      }
+    }
+  },
+  {
+    "id": "0oa129gzYyV6oWs1D0g4",
+    "type": "splunk_cloud_logstreaming",
+    "name": "Example Splunk Cloud",
+    "lastUpdated": "2021-11-30T15:16:09.000Z",
+    "created": "2021-11-30T15:16:09.000Z",
+    "status": "ACTIVE",
+    "settings": {
+      "host": "acme.splunkcloud.com",
+      "token": "1e652bb8-3ef8-427b-9f00-222e1bbe3832"
+    },
+    "_links": {
+      "self": {
+        "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4",
+        "method": "GET"
+      },
+      "deactivate": {
+        "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -610,7 +632,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
-| `splunk_cloud_logstreaming`      | [Splunk Cloud](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
+| `splunk_cloud_logstreaming`      | [Splunk Cloud](https://www.splunk.com/en_us/software/splunk-cloud-platform.html) Log Stream type                                                                      |
 
 
 ### AWS EventBridge Settings object
