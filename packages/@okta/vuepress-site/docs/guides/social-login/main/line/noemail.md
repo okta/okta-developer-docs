@@ -2,7 +2,7 @@
 
 ### The user has an email address in LINE, but it's not in Okta
 
-Before you proceed to the next section, test your integration with a user who has an email in LINE. If you don't see their email in Okta, verify that you have [email address permission](https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission) in your LINE channel. If you've confirmed that your channel has email permission and you're still unable to see user emails in Okta, [contact support](https://support.okta.com/help/s/opencase).
+Before you proceed to the next section, test your integration with a user who has an email in LINE. If you don't see their email in Okta, verify that you have permission to [access the user's email address](https://developers.line.biz/en/docs/line-login/integrate-line-login/#applying-for-email-permission) in your LINE channel. If you confirm that your channel has email permission and you're still unable to see user emails in Okta, [contact support](https://support.okta.com/help/s/opencase).
 
 ### The user doesn't have an email address in LINE
 
