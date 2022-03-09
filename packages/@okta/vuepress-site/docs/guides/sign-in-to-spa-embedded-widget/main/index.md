@@ -16,6 +16,8 @@ title: Sign in to your SPA with the embedded Okta Sign-In Widget
 
 <StackSnippet snippet="create-app-integration" />
 
+> **Note:** New apps are automatically assigned the shared default authentication policy that has a catch-all rule that allows a user access to the app using one factor. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Polices** and then select **Default Policy**.
+
 ## Install the SDK
 
 <StackSnippet snippet="download-sample" />
