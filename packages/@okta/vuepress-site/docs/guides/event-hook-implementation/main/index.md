@@ -16,14 +16,16 @@ This guide provides a working example of an Okta Event Hook. It uses the website
 
 **What you need**
 
-* [Glitch.com](https://glitch.com) project or account
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 **Sample code**
 
 * [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook)
 
 ---
+
+## About Event Hook implementation
 
 Event Hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview.
 

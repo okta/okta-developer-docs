@@ -18,7 +18,7 @@ This guide provides a working example of an Okta Event Hook that uses the Hookde
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
-* The Hookdeck utility. See [Install Hookdeck](#install-hookdeck).
+* [Hookdeck](#install-hookdeck)
 
 **Sample code**
 
@@ -26,7 +26,7 @@ This guide provides a working example of an Okta Event Hook that uses the Hookde
 
 ---
 
-## Overview
+## About Event Hooks with Hookdeck
 
  Event Hooks are outbound calls from Okta that can notify your own software systems of events that occur in your Okta org. The Hookdeck utility exposes a local application to the internet and receives and responds to Event Hook calls. The Hookdeck utility enables the testing of Event Hooks locally, rather than implementing an internet-based production or test external service.
 

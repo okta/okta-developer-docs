@@ -16,14 +16,16 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **What you need**
 
-* [Glitch.com](https://glitch.com) project or account
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 **Sample code**
 
 [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
 
 ---
+
+## About Registration Inline Hook implementation
 
 In the following example, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
 

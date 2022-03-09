@@ -16,14 +16,16 @@ This guide provides a working example of an Okta Password Import Hook. It uses t
 
 **What you need**
 
-* [Glitch.com](https://glitch.com) project or account
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 **Sample code**
 
 * [Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
 
 ---
+
+## About Password Import Inline Hook implementation
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's credentials are valid. If the credentials are valid, the password is imported into the Okta org.
 
