@@ -14,10 +14,9 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 ---
 **Learning outcomes**
 
-* Configure your OKta org to use Okta email
-* Enroll and challenge a user with Okta email
-* Use OTP or email to complete the Okta email verification
-* Disable magic links if you don't intend to use them
+* Configure your Okta org to use the email authenticator
+* Enroll and challenge a user with email and magic links
+* Enable OTP only for the email authenticator
 
 **What you need**
 
@@ -36,15 +35,13 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 
 ## Overview
 
-Your app can verify a user's identity using email as the authenticator. The Embedded SDK supports email enrollment and challenge flows, and the ability to complete these flows with magic links or an OTP. use this guide to learn how to integrate this email functionality into your app.
+With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app, and complete those flows using magic links and OTP Use this guide to learn how to integrate this authenticator into your app.
 
 ## Update configurations
 
-Before you can start using the email authenticatior, set it up in your Okta org.
+Before you can start using the email authenticatior, you need to enable it in your Okta org.
 
-### Add and configure the email authenticator
-
-Add the email authenticator to your org:
+### Add the email authenticator to your org
 
 1. Open the Admin Console for your org.
 1. Choose **Security > Authenticators** to show the available authenticators.
@@ -54,9 +51,7 @@ Add the email authenticator to your org:
 1. Select **Authentication and recovery** for **This authenticator can be used for**. Changing the value to **Authentication and recovery**  allows email to be used in the sign-in example used in this guide.
 1. Click **Save** to save your changes.
 
-### Configure your org application
-
-Setup your application to use the email authenticator:
+### Setup your application to use the email authenticator
 
 1. Open the Admin Console for your Okta org.
 1. Choose **Applications > Applications** to show the app integrations you have already created.
@@ -70,25 +65,21 @@ Setup your application to use the email authenticator:
 
 ### Set up magic links
 
-Enable magic links in your org.
-
 1. Open the Admin Console for your Okta org.
 1. Choose **Applications > Applications** to show the app integrations you have already created.
 1. Click on the application you’ve previously created on the **Applications** page.
 1. In the **General Settings** tab under the **General** tab, click **Edit**
-1. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your application. The sample application uses <StackSnippet snippet="callbackuri" inline />.
+1. Under **EMAIL VERIFICATION EXPERIENCE** enter a **Callback URI** for your application. This value should be a URL to your application that accepts OTP and state. The sample application uses <StackSnippet snippet="callbackuri" inline />.
 1. Click **Save** to save your changes.
 
 ### You're ready to integrate
 
-After configuring your org, you're ready to start integrating the enrollment and challange flows into your app. The enrollment and challenge flows can be iniitated several different ways. The following instructions use the sign-in use case to walk you through out to integrate these flows in your app:
+After configuring your org, you're ready to start integrating the email authenticator into your app. Start by integrating the enrollment and challenge flows with these step-by-step instructions:
 
 * [Integrate enrollment flow](#integrate-enrollment-flow)
 * [Integrate challenge flow](#integrate-challenge-flow)
 
-These instructinons detail how to integrate these flows using OTP. With OTP, the user copies an automatically generated numeric string of characters from their email to your application.
-
-With OTP, Okta sends an email to the user during these flows. The user copies an automatically generated numeric string of characters from the email to your application to complete the verfication. This flow is illustrated in the following high-level diagram:
+These instructions use OTP to verify the email. With OTP, the user copies an automatically generated numeric string from their email to your application to verify their identity. This flow is illustrated in the following diagram:
 
 <div class="common-image-format">
 
@@ -96,9 +87,9 @@ With OTP, Okta sends an email to the user during these flows. The user copies an
 
 </div>
 
-### Discover the convenience of magic links
+#### Discover the convenience of magic links
 
-As an alternative to OTP, give your users the option to use magic links to complete the email verfication. Magic links is a more convienent because it reduces the number of steps a user needs to take to verify their identity down to a single click. For more information about magic links, including how to integrate the feature in your app, see [Integrate magic links](#integrate-magic-links)
+As an alternative to OTP, give your users the option to use magic links to complete the email verfication. Magic links is a more convienent method because it reduces emai verification down to a single step - click of an email link. See [Integrate magic links](#integrate-magic-links) for step-by-step instructions on how to integrate magic links into your app.
 
 ## Integrate enrollment flow
 
@@ -122,7 +113,15 @@ The following step-by-step instructions detail how to integrate the email challe
 
 With Okta's email magic links, a user performs one action - a click on an email link - to complete the email verification. When compared to OTP, magic links is a balance of security and convenience and provides a frictionless experioence for your users.
 
-Magic links is made with security in mind and only works when there is a complete assurance that the person who started the request is the same one who clicked on the link. For example, a user must click the magic link in the same device and browser - although different tab - from which they intiated your app's sign-in. If the browser or device is different, they'll be required to use an OTP to complete the verification. This OTP fallback is illustrated in the following flowchart.
+<div class="common-image-format">
+
+![Simple diagram illustrating magic links](/img/authenticators/authenticators-email-magic-link-summary-simple-overview.png)
+
+</div>
+
+### Same browser same device
+
+Magic links is made with security in mind and only works when there is a complete assurance that the person who started the request in your app is the same one who clicked on the link. For example, a user must click the magic link in the same device and browser - although different tab - from which they intiated your app's sign-in. If the browser or device is different, they can optionally use an OTP to complete the verification in the original tab. This restirction and OTP fallback is illustrated in the following flowchart.
 
 <div class="common-image-format">
 
@@ -130,19 +129,19 @@ Magic links is made with security in mind and only works when there is a complet
 
 </div>
 
-The same browser and device restriction is to ensure that the user who started the sign-in in your app is the same one that clicked on the magic link.
-
-The following step-by-step instructions detail how to integrate magic links into your app.
-
 ### Same browser and device flow
 
+The following step-by-step instructions detail how to integrate magic links into your app for the same device and browser scenario.
+
 <StackSnippet snippet="integratemagiclinksummarysame"/>
+
+<StackSnippet snippet="integratemagiclinksame" />
 
 ### Different browser and device flow
 
 <StackSnippet snippet="integratemagiclinksummarydiff"/>
 
-<StackSnippet snippet="integratemagiclink" />
+<StackSnippet snippet="integratemagiclinkdiff" />
 
 ### Disabling magic links
 
@@ -165,3 +164,11 @@ To learn more about customizing email templates and using the velocity template 
 
 
 </div>
+
+## TODO
+
+1. Add bhagya's comments from my notes
+2. Add comments from last meeting with Jeff
+3. Understand what happens if callback URI is empty
+4. Update sign on policy configurations
+5. Look at Bhagya's doc: https://docs.google.com/document/d/1t1HDUkXMDDEb7H1ip5WaBacDlu_j5XEy8GJHZZ5PIaE/edit and give feedback
