@@ -9,7 +9,7 @@ The Okta Org API provides operations to manage your org account settings such as
 
 ## Getting Started
 
-Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/2a73f5511943d1bd6611)
+Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2a73f5511943d1bd6611)
 
 ## Org operations
 
@@ -1036,7 +1036,7 @@ The Email Address Bounces API has the following CRUD operations:
 
 <ApiOperation method="post" url="/api/v1/org/email/bounces/remove-list" />
 
-Creates a Remove List object that specifies a list of email addresses to be removed from the set of email addresses that are bounced. Email addresses in this list will be removed from the bounce list by an asynchronous job. Any email addresses that do not fail validation will be accepted and processed for removal even if other email addresses in the request fail validation. If all email addresses encounter an error, 200 OK is still returned.
+Creates a Remove List object that specifies a list of email addresses to be removed from the set of email addresses that are bounced from an email service. Email addresses in this list will be removed from the bounce list by an asynchronous job. Any email address that pass validation is accepted for the removal process, even if there are other email addresses in the request that failed validation. If there are validation errors for all email addresses, a `200 OK` HTTP status is still returned.
 
 #### Request body
 
@@ -1046,9 +1046,9 @@ A [Remove List](#remove-list-object)
 
 | Property | Type | Description |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `errors` | List of Object | A list errors encountered when adding the email addresses to the set of bounced email addresses.|
-| `emailAddress` | String | An email address that encountered an error.|
-| `reason` | String | The reason the email address encountered an error.|
+| `errors` | List of Object | A list of errors encountered when adding the email addresses to the set of bounced email addresses|
+| `emailAddress` | String | An email address that encountered an error|
+| `reason` | String | The reason the email address encountered an error|
 
 
 #### Use example
@@ -1372,7 +1372,7 @@ The Remove List object has one property:
 
 | Property | Type | Description |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `emailAddresses` | List of String | A list of email addresses to be removed from the set of email addresses that are bounced.|
+| `emailAddresses` | List of Strings | A list of email addresses to be removed from the set of email addresses that are bounced|
 
 
 #### Remove List example2
