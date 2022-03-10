@@ -305,7 +305,7 @@ These APIs are compliant with the OpenID Connect and OAuth 2.0 specification wit
 
 #### Request examples
 
-The following pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorize request.
+The following pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorization request.
 
 ```bash
 curl -v -X POST \
