@@ -92,7 +92,7 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by navigating to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](#enable-trusted-origins).
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by navigating to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
 
 ## Create app
 
