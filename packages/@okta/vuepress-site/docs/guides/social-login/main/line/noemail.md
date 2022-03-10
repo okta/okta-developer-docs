@@ -18,7 +18,7 @@ To generate user login values and email addresses for LINE users, do the followi
 
 1. Click **Identity Providers**.
 
-1. Locate LINE in the list of providers, then click **Configure** > **Edit Profile and Mappings**.
+1. Locate LINE in the list of providers, and then click **Configure** > **Edit Profile and Mappings**.
 
 1. Click **Mappings**.
 
