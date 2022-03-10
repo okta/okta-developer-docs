@@ -276,11 +276,11 @@ If the refresh token is valid, then you get back a new access and the refresh to
 
 Read more about the SDKs that support refresh token rotation and reuse detection:
 
-* [Okta Auth SDK Guide - JavaScript](https://developer.okta.com/code/javascript/okta_auth_sdk/)
-* [Okta Sign-in Widget Guide - JavaScript](https://developer.okta.com/code/javascript/okta_sign-in_widget/)
-* [Okta Sign-in Widget and Angular](https://developer.okta.com/code/angular/okta_angular_sign-in_widget/)
-* [Okta Auth JS and Angular](https://developer.okta.com/code/angular/okta_angular_auth_js/)
-* [Okta Sign-in Widget and React](https://developer.okta.com/code/react/okta_react_sign-in_widget/)
-* [Okta Auth JS and React](https://developer.okta.com/code/react/okta_react/)
-* [Okta Sign-in Widget and Vue](https://developer.okta.com/code/vue/okta_vue_sign-in_widget/)
-* [Okta Auth JS and Vue](https://developer.okta.com/code/vue/okta_vue/)
+* [Okta Auth SDK Guide - JavaScript](/docs/guides/auth-js/main/)
+* [Okta Sign-in Widget Guide - JavaScript](/docs/guides/embedded-siw/main/)
+* [Okta Sign-in Widget and Angular](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
+* [Okta Auth JS and Angular](/#)  (coming soon)
+* [Okta Sign-in Widget and React](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
+* [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main/)
+* [Okta Sign-in Widget and Vue](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/)
+* [Okta Auth JS and Vue](/docs/guides/sign-in-to-spa-authjs/vue/main/)
