@@ -1028,7 +1028,7 @@ curl -v -X POST \
 
 ## Email Address Bounces operations
 
-The Email Address Bounces API has the following CRUD operations:
+The Email Address Bounces API has the following CRUD operation:
 
 * [Create Remove List](#create-remove-list%)
 
