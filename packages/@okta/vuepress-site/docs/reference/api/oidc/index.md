@@ -269,7 +269,7 @@ The `/par` endpoint allows an OAuth 2.0 client to push the payload of an authori
 
 #### Request Parameters
 
-The same request parameters are accepted as the [/authorize](#authorize) endpoint except for the `request_uri` parameter, which you can't pass as a parameter to this endpoint.
+The endpoint accepts the same request parameters as the [/authorize](#authorize) endpoint, except for the `request_uri` parameter.
 
 #### Response properties
 
