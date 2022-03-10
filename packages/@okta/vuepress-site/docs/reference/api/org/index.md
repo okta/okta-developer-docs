@@ -1046,7 +1046,7 @@ A [Remove List](#remove-list-object)
 
 | Property | Type | Description |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `errors` | List of Object | A list of errors encountered when adding the email addresses to the set of bounced email addresses|
+| `errors` | List of Objects | A list of `emailAddress` that wasn't added to the email bounced Remove List and the error `reason`|
 | `emailAddress` | String | An email address that encountered an error|
 | `reason` | String | The reason the email address encountered an error|
 
