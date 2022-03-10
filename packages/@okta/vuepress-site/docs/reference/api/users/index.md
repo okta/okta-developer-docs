@@ -764,7 +764,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
->Hint: you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
+>**Hint:** you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
@@ -862,10 +862,9 @@ curl -v -X GET \
 
 #### Get User with ID
 
-
 Fetches a specific user when you know the user's `id`
 
-> Hint: If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
+> **Hint:** If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
 
 ##### Request example
 
@@ -1085,7 +1084,6 @@ curl -v -X GET \
 ```
 
 ### List Users
-
 
 <ApiOperation method="get" url="/api/v1/users" />
 
@@ -1307,7 +1305,6 @@ curl -v -X GET \
 
 #### List Users with a filter
 
-
 Lists all users that match the filter criteria
 
 This operation:
@@ -1315,7 +1312,6 @@ This operation:
 * Filters against the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request,
 the changes are reflected in your results.
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 * Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 
 | Filter                                          | Description                                      |
@@ -1336,7 +1332,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 | `profile.firstName eq "John"`                   | Users with a specified `firstName`*              |
 | `profile.lastName eq "Smith" `                  | Users with a specified `lastName`*               |
 
-> Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
+> **Hint:** If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
@@ -1358,21 +1354,17 @@ List users updated after 06/01/2013 but with a status of `LOCKED_OUT` or `RECOVE
 
     filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and (status eq "LOCKED_OUT" or status eq "RECOVERY")
 
-
 ##### Request example: status
-
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?filter=status+eq+\"ACTIVE\"+or+status+eq+\"RECOVERY\""
+"https://${yourOktaDomain}/api/v1/users?filter=status+eq+%22ACTIVE%22+or+status+eq+%22RECOVERY%22"
 ```
 
-
 ##### Response example
-
 
 ```json
 [
@@ -1414,7 +1406,6 @@ curl -v -X GET \
 
 ##### Request example: timestamp
 
-
 Lists all users that have been updated since a specific timestamp
 
 Use this operation when implementing a background synchronization job and you want to poll for changes.
@@ -1424,11 +1415,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?filter=lastUpdated+gt+\"2013-07-01T00:00:00.000Z\""
+"https://${yourOktaDomain}/api/v1/users?filter=lastUpdated+gt+%222021-07-01T00:00:00.000Z%22"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1481,12 +1471,12 @@ This operation:
 * Supports [pagination](/docs/reference/core-okta-api/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 Use an ID lookup for records that you update to ensure your results contain the latest data.
+    > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
 * Searches many properties:
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
-   - The [User Type](/docs/reference/api/user-types), accessed as `type.id`
+   - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
 * Accepts `sortBy` and `sortOrder` parameters.
    - `sortBy` can be any single property, for example `sortBy=profile.lastName`
    - `sortOrder` is optional and defaults to ascending
@@ -1521,11 +1511,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+\"555\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+%22555%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1574,7 +1563,6 @@ For examples, see [Request example for array](#request-example-for-array) and [R
 
 ##### Request example for array
 
-
 The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
 
 ```bash
@@ -1582,7 +1570,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+\"arrayAttrVal1\" "
+"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+%22arrayAttrVal1%22"
 ```
 
 ##### Response example for array
@@ -3131,7 +3119,7 @@ curl -v -X POST \
 A consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent. When an application comes back and needs to get a new access token, it may not need to prompt the user for consent if they have already consented to the specified scopes.
 Consent grants remain valid until the user manually revokes them, or until the user, application, authorization server or scope is deactivated or deleted.
 
-> Hint: For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
+> **Hint:** For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
@@ -4019,7 +4007,7 @@ Logins are not considered unique if they differ only in case and/or diacritical 
 
 Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/reference/api/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login `isaac.brock@example.com`) as long as the short name is still unique within the organization.
 
-> Hint: Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
+> **Hint:** Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
 ##### Modifying default Profile properties
