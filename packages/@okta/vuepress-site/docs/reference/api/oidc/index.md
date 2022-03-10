@@ -24,7 +24,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | Endpoint                                                                          | Use                                                                                     |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
-| [/par](#par)                                                                      | TBD                     |
+| [/par](#par)                                                                      | Push an authorization request payload directly to the authorization server and obtain a request URI value in response for use in a subsequent authorize request to the `/authorize` endpoint.                     |
 | [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
@@ -96,7 +96,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
 | response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
 | response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
-| request_uri                      | TBD.                                                                                                                                                                                                                                                                                                             | Query       | JWT       | FALSE      |
+| request_uri                      | Location where the authorization request payload data is referenced in an authorize request to the `/authorize` endpoint.         | Query       | JWT       | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
@@ -263,36 +263,38 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing your base URL](#composing-your-base-url).
 
-Description: TBD
+The pushed authorization request endpoint (`/par`) promotes OAuth security by allowing the authorization server to authenticate the client before any user interaction happens. The increased confidence in the client's identity during the authorization process allows the authorization server to refuse illegitimate requests much earlier in the process. This prevents attempts to spoof clients or otherwise tamper with or misuse an authorization request and provides a simple way to make a confidential and integrity-protected authorization request.
+
+The `/par` endpoint allows an OAuth 2.0 client to push the payload of an authorize request directly to the authorization server. The authorization server provides a request URI value in the response. The request URI is used as a reference to the authorization request payload data in a subsequent call to the `/authorize` endpoint through a user agent.
 
 #### Request Parameters
 
-The same request parameters as accepted in /authorize, except `request_uri`, that cannot be passed as a parameter to this endpoint.
+The same request parameters are accepted as the [/authorize](#authorize) endpoint except for the `request_uri` parameter, which you can't pass as a parameter to this endpoint.
 
 #### Response properties
 
 | Property            | Description                                                                                                          | DataType |
 | :------------------ | :------------------------------------------------------------------------------------------------------------------- | :------- |
-| request_uri         | TBD                                                                                                                  | String   |
-| expires_in          | Number of seconds until the `request_uri` expires.                                                                   | Number   |
+| request_uri         | Location where the authorization request payload data is referenced in authorization requests to the `/authorize` endpoint                                                                                                                  | String   |
+| expires_in          | Number of seconds until the `request_uri` expires                                                                  | Number   |
 
 ##### Possible errors
 
-These APIs are compliant with the OpenID Connect and OAuth 2.0 spec with some Okta specific extensions.
+These APIs are compliant with the OpenID Connect and OAuth 2.0 specification with some Okta-specific extensions.
 
 [OAuth 2.0 spec error codes](https://tools.ietf.org/html/rfc6749#section-4.1.2.1)
 
 | Error Id                    | Details                                                                                                                                                                                                            |
 | :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| access_denied               | The server denied the request.                                                                                                                                                                                     |
-| invalid_client              | The specified client ID is invalid.                                                                                                                                                                                |
-| invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.                                                                                            |
-| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                                                                                                                                |
-| invalid_scope               | The scopes list contains an invalid or unsupported value.                                                                                                                                                          |
-| invalid_token               | The provided access token is invalid.                                                                                                                                                                              |
-| server_error                | The server encountered an internal error.                                                                                                                                                                          |
-| temporarily_unavailable     | The server is temporarily unavailable, but should be able to process the request at a later time.                                                                                                                  |
-| unsupported_response_type   | The specified response type is invalid or unsupported.                                                                                                                                                             |
+| access_denied               | The server denied the request.    |
+| invalid_client              | The specified client ID is invalid.                                               |
+| invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.       |
+| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                 |
+| invalid_scope               | The scopes list contains an invalid or unsupported value.                                                 |
+| invalid_token               | The provided access token is invalid.                                                                                   |
+| server_error                | The server encountered an internal error.                                                                          |
+| temporarily_unavailable     | The server is temporarily unavailable, but should be able to process the request at a later time.                          |
+| unsupported_response_type   | The specified response type is invalid or unsupported.                                                                                     |
 | unsupported_response_mode   | The specified response mode is invalid or unsupported. This error is also thrown for disallowed response modes. For example, if the query response mode is specified for a response type that includes `id_token`. |
 
 [OpenID Connect spec error codes](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
@@ -303,7 +305,7 @@ These APIs are compliant with the OpenID Connect and OAuth 2.0 spec with some Ok
 
 #### Request examples
 
-This pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorize request.
+The following pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorize request.
 
 ```bash
 curl -v -X POST \
