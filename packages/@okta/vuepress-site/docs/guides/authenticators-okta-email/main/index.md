@@ -81,19 +81,14 @@ Enable magic links in your org.
 
 ### You're ready to integrate
 
-After configuring your org, you're ready to start integrating the email authenticator flows into your app. The enrollment and challenge flows support OTP and magic link to complete the user verification. See the following sections to learn more about these methods:
-
-* [Integrate OTP](#integrate-otp)
-* [Integrate magic links](#integrate-magic-links)
-
-After learning about OTP and magic link, your ready to start integrating the enrollment and challenge flows. See the following sections for more information:
+After configuring your org, you're ready to start integrating the enrollment and challange flows into your app. Integrate these flows using the following step-by-step instructions:
 
 * [Integrate enrollment flow](#integrate-enrollment-flow)
 * [Integrate challenge flow](#integrate-challenge-flow)
 
-## Integrate OTP
+These instructinons detail how to integrate these flows using OTP. With OTP, the user copies an automatically generated numeric string of characters from their email to your application.
 
-With OTP, Okta sends an email to the user during the [enrollment](#integrate-enrollment-flow) and [challenge](#integrate-challenge-flow) flows. The user copies an OTP from the email and inputs it into your app to complete the verfication. This flow is illustrated in the following high-level diagram:
+With OTP, Okta sends an email to the user during these flows. The user copies an automatically generated numeric string of characters from the email to your application to complete the verfication. This flow is illustrated in the following high-level diagram:
 
 <div class="common-image-format">
 
@@ -101,61 +96,13 @@ With OTP, Okta sends an email to the user during the [enrollment](#integrate-enr
 
 </div>
 
-Step-by-step instructions to integrate OTP into your application follows:
+### Discover the convenience of magic links
 
-### Summary of steps
-
-The following sequence diagram summarizes messaging between each component in the OTP flow.
-
-<StackSnippet snippet="integrateotpsummary"/>
-
-<StackSnippet snippet="integrateotp" />
-
-## Integrate magic links
-
-### Overview
-
-With Okta's email magic links, a user performs one action - a click on an email link - to complete the email verification and, depending on the use case, to also complete your app sign-in. When compared to OTP, magic links is a balance of security and convenience and provides a frictionless experioence for your users.
-
-### Magic links availablity
-
-Magic links is made with security in mind and only works when there is a complete assurance that the person who started the request is the same one who clicked on the link. For example, a user must click on the magic link in the same device and browser - although different tab - from which they intiated your app's sign-in. If the browser or device is different, they'll be required to use an OTP to complete the verificaiton. This OTP fallback is illustrated in the following flowchart.
-
-<div class="common-image-format">
-
-![Diagram showing nagic link flow](/img/authenticators/authenticators-email-magic-link-flowchart.png)
-
-</div>
-
-This OTP fallback is to ensure that magic links only works when the user who started the authentication or password recovery is the same person that clicked on the magic link.
-
-### When to use OTP over magic links
-
-Although magic links is a secure way to verify user's emails, if you want to provideda higher level of sensitivity that positively proves that the person who initiated the request is the same person that clicked on the magic link, than OTP may be a more ideal solution. For example, if you have a banking app, which shows account information and allows for money transfers, magic links may be to convenient and OTP may provide a better solution. you may not want to use magic links because it's too convienent and OTP may be a better option.
-
-### Summary of steps
-
-The following diagram summarizes the magic link flow.
-
-<StackSnippet snippet="integratemagiclinksummary"/>
-
-<StackSnippet snippet="integratemagiclink" />
-
-### Disabling magic links
-
-If you don't want to include magic links in your email authenticaton solution, you can remove its functionality by removing the link from the following email templates:
-
-* Email Challenge
-* Email Factor Verfificaiton
-* Ask Bhagya for more
-
-TBD: Show an example of modified an email template
-
-To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm) in the Okta Help Center.
-
-TBD: Provide link to velocity templates that describe the email temp;lates
+As an alternative to OTP, give your users the option to use magic links to complete the email verfication. Magic links is a more convienent because it reduces the number of steps a user needs to take to verify their identity down to a single click. For more information about magic links, including how to integrate the feature in your app, see [Integrate magic links](#integrate-magic-links)
 
 ## Integrate enrollment flow
+
+The following step-by-step instructions detail how to integrate the email enrollment into your app.
 
 <StackSnippet snippet="integrateenrollsummary"/>
 
@@ -163,10 +110,52 @@ TBD: Provide link to velocity templates that describe the email temp;lates
 
 ## Integrate challenge flow
 
+The following step-by-step instructions detail how to integrate the email challenge into your app.
+
 <StackSnippet snippet="integratechallengesummary"/>
 
 <StackSnippet snippet="integratechallenge" />
 
-## Email customization implications with forgot password
+## Integrate magic links
+
+### Overview
+
+With Okta's email magic links, a user performs one action - a click on an email link - to complete the email verification. When compared to OTP, magic links is a balance of security and convenience and provides a frictionless experioence for your users.
+
+Magic links is made with security in mind and only works when there is a complete assurance that the person who started the request is the same one who clicked on the link. For example, a user must click the magic link in the same device and browser - although different tab - from which they intiated your app's sign-in. If the browser or device is different, they'll be required to use an OTP to complete the verification. This OTP fallback is illustrated in the following flowchart.
+
+<div class="common-image-format">
+
+![Diagram showing nagic link flow](/img/authenticators/authenticators-email-magic-link-flowchart.png)
+
+</div>
+
+The same browser and device restriction is to ensure that the user who started the sign-in in your app is the same one that clicked on the magic link.
+
+The following step-by-step instructions detail how to integrate magic links into your app.
+
+<StackSnippet snippet="integratemagiclinksummary"/>
+
+<StackSnippet snippet="integratemagiclink" />
+
+### Disabling magic links
+
+Although magic links is a secure way to verify user's emails, if you want to provide a higher level of sensitivity that positively proves that the person who initiated the request is the same person that is reading the email, than OTP may be a more ideal solution. For example, if you have a banking app, which shows account information and allows for money transfers, magic links may be to convenient and OTP may provide a better solution.
+
+To disable magic link functionality, remove the links from following email templates:
+
+* Email Challenge
+* Email Factor Verification
+
+In each of the templates, find the anchor tag and remove it from the template HTML. The following screenshot identifies the magic link anchor tag (identified by `email-authentication-button` id) for the **Email Challenge** template.
+
+<div class="common-image-format">
+
+![Diagram showing email template with magic link](/img/authenticators/authenticators-email-magic-link-modify-template.png)
+
+</div>
+
+To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm) in the Okta Help Center.
+
 
 </div>
