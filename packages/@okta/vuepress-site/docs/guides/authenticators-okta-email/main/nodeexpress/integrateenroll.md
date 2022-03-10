@@ -1,6 +1,6 @@
 ### 1. Initiate sign in
 
-First, the user initiates the sign-in with username and optionally password by making a call to `OktaAuth.idx.authenticate()`.
+First, the user initiates the sign-in with username and password by making a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -44,7 +44,11 @@ When the user selects the email authenticator from the list, call `OktaAuth.idx.
     const transaction = await authClient.idx.proceed({ authenticator });
 ```
 
-### 4. Display OTP input page
+### 4. Send email to user's email address
+
+Calling `OktaAuth.idx.proceed()` in the previus step iniitates the sending of an email to the user's email address. The email is based off of the **Email Factor Verification** template, which contains a placeholder for the OTP.
+
+### 5. Display OTP input page
 
 The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status` of `PENDING`, `nextStep.name` equal to `enroll-authenticator`, and `availableSteps[n].authenticator.key` set to `okta_email`.
 
@@ -83,7 +87,7 @@ Using this response display a page to input the OTP.
 
 </div>
 
-### 4. Open email and copy OTP
+### 6. Open email and copy OTP
 
 Next, the user opens the email sent by Okta and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
@@ -93,7 +97,7 @@ Next, the user opens the email sent by Okta and copies the OTP. The following sc
 
 </div>
 
-### 5. Submit OTP
+### 7. Submit OTP
 
 When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing in the OTP.
 
@@ -103,7 +107,7 @@ When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing
   const transaction = await authClient.idx.proceed({ verificationCode });
 ```
 
-### 5: Complete successful sign-in
+### 8: Complete successful sign-in
 
 If your configuration is setup with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
 

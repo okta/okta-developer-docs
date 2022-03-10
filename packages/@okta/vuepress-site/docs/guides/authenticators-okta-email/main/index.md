@@ -81,7 +81,7 @@ Enable magic links in your org.
 
 ### You're ready to integrate
 
-After configuring your org, you're ready to start integrating the enrollment and challange flows into your app. Integrate these flows using the following step-by-step instructions:
+After configuring your org, you're ready to start integrating the enrollment and challange flows into your app. The enrollment and challenge flows can be iniitated several different ways. The following instructions use the sign-in use case to walk you through out to integrate these flows in your app:
 
 * [Integrate enrollment flow](#integrate-enrollment-flow)
 * [Integrate challenge flow](#integrate-challenge-flow)
@@ -134,7 +134,13 @@ The same browser and device restriction is to ensure that the user who started t
 
 The following step-by-step instructions detail how to integrate magic links into your app.
 
-<StackSnippet snippet="integratemagiclinksummary"/>
+### Same browser and device flow
+
+<StackSnippet snippet="integratemagiclinksummarysame"/>
+
+### Different browser and device flow
+
+<StackSnippet snippet="integratemagiclinksummarydiff"/>
 
 <StackSnippet snippet="integratemagiclink" />
 

@@ -1,6 +1,6 @@
 ### 1. Initiate sign-in and send email
 
-For this example, the user signs in and initiates either the email [enrollment]() or [challenge]() flow. At some point in both flows, Okta send san email to the user's address to verify their identity.
+For this example, the user signs in and initiates the email[challenge]() flow. During sign-in Okta send san email to the user's address to verify their identity.
 
 ### 2. Click on email magic link
 
@@ -14,11 +14,11 @@ Next, the user opens their email and clicks on the magic link. The following scr
 
 The link is points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-### 3. Redirect to Okta
+### 3. Send request to Okta
 
 When the user clicks on the magic link, the request is first routed to you Okta org, which forwards the request to your application including the `OTP` and `state` parameters. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and adds the OTP and state query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
-### 4: Handle second redirect in your app
+### 4: Handle redirect in your app
 
 Create a route to handle When the magic link redirect request.
 
@@ -61,7 +61,6 @@ Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query paramt
 #### Different browser or device scenarios
 
 `OktaAuth.idx.handleEmailVerifyCallback()` throws a  `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. If this error is thrown, inform the user to use the OTP.
-
 
 <div class="common-image-format">
 
