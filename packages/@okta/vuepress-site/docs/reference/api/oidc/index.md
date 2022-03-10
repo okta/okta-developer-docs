@@ -265,7 +265,7 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 
 The pushed authorization request endpoint (`/par`) promotes OAuth security by allowing the authorization server to authenticate the client before any user interaction happens. The increased confidence in the client's identity during the authorization process means the authorization server can refuse illegitimate requests much earlier in the process. This process prevents attempts to spoof clients or otherwise tamper with or misuse an authorization request and provides a simple way to make a confidential and integrity-protected authorization request.
 
-The `/par` endpoint allows an OAuth 2.0 client to push the payload of an authorize request directly to the authorization server. The authorization server provides a request URI value in the response. The request URI is used as a reference to the authorization request payload data in a subsequent call to the `/authorize` endpoint through a user agent.
+The `/par` endpoint allows an OAuth 2.0 client to push the payload of an authorization request directly to the authorization server. The authorization server provides a request URI value in the response. The request URI is a reference to the authorization request payload data in a subsequent call to the `/authorize` endpoint through a user agent.
 
 #### Request Parameters
 
