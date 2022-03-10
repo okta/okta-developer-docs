@@ -80,7 +80,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
-3. Click **Get started** to start the configuration wizard.
+3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
 ### Add your subdomain information
