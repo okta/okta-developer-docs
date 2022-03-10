@@ -134,7 +134,7 @@ If you receive the previous error, consult with the person in your organization 
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
-3. Click **Get started** to start the configuration wizard.
+3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Bring your own certificate (advanced)**.
     * The **Next** button appears if the configuration is incomplete.
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
