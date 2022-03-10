@@ -1036,7 +1036,7 @@ The Email Address Bounces API has the following CRUD operation:
 
 <ApiOperation method="post" url="/api/v1/org/email/bounces/remove-list" />
 
-Creates a Remove List object that specifies a list of email addresses to be removed from the set of email addresses that are bounced from an email service. Email addresses in this list will be removed from the bounce list by an asynchronous job. Any email address that pass validation is accepted for the removal process, even if there are other email addresses in the request that failed validation. If there are validation errors for all email addresses, a `200 OK` HTTP status is still returned.
+Creates a Remove List object that specifies a list of email addresses to be removed from the set of email addresses that are bounced from an email service. Email addresses in this list are later removed from the bounce list by an asynchronous job. Any email address that passes validation is accepted for the removal process, even if there are other email addresses in the request that failed validation. If there are validation errors for all email addresses, a `200 OK` HTTP status is still returned.
 
 #### Request body
 
