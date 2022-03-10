@@ -116,7 +116,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 > **Note:** If an error occurs, the cause may be one of the following:
 >   * The TXT or CNAME record may not have propagated yet.
 >   * There may be a copy and paste issue with the values.
->   * There may be an operational issue with Let's Encrypt which you can check with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). After you configure your DNS records you might click **Next** too quickly to verify the records. In that case, it's possible that the DNS records are verifiable by Okta but not yet by Let's Encrypt. The result is a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.`
+>   * There may be an operational issue with Let's Encrypt that you can check with [https://letsencrypt.status.io/](https://letsencrypt.status.io/). After you configure your DNS records you might click **Next** too quickly to verify the records. In that case, it's possible that the DNS records are verifiable by Okta but not yet by Let's Encrypt. The result is a failed authorization. A warning notification appears: `A new TXT value has been generated. Update your DNS record with the new TXT value, wait for it to propagate, and then return here to verify.`
 
 ## Use your own TLS certificate
 
