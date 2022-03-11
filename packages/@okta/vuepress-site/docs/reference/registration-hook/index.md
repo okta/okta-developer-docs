@@ -214,7 +214,6 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 ## Sample JSON payload of response
 
 ```json
-{ "commands":[
 {
   "commands": [
     {
@@ -237,21 +236,6 @@ If there is a response timeout after receiving the Okta request, the Okta proces
     ]
   }
 }
-                            "value":{ "registration": "DENY"} }
-                                   ],
-                         "error": {
-                          "errorSummary":"Incorrect email address. Please contact your admin.",
-                          "errorCauses":[
-                             {
-                                "errorSummary":"Only example.com emails can register.",
-                                "reason":"INVALID_EMAIL_DOMAIN",
-                                "locationType":"body",
-                                "location":"data.userProfile.login",
-                                "domain":"end-user"
-                             }
-                                        ]
-                         }
-      }
 ```
 
 ## Enable a Registration Inline Hook for Profile Enrollment in Okta Identity Engine
