@@ -94,4 +94,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [ASP.NET Developer Blog posts](/search/#q=asp%20net&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [ASP.NET Developer Blog posts](https://developer.okta.com/blog/tags/dotnet/) for further useful topics.

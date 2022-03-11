@@ -10,20 +10,22 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Learning outcomes**
 
-* Understand the Okta Registration Inline Hook calls and responses
-* Implement a simple working example of a Registration Inline Hook with a Glitch.com project, which acts as an external service
-* Preview and test a Registration Inline Hook
+* Understand the Okta Registration Inline Hook calls and responses.
+* Implement a simple working example of a Registration Inline Hook with a Glitch.com project.
+* Preview and test a Registration Inline Hook.
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account.
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 **Sample code**
 
 [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
 
 ---
+
+## About Registration Inline Hook implementation
 
 In the following example, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
 

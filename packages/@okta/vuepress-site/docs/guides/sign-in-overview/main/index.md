@@ -8,11 +8,11 @@ Okta provides authentication solutions that integrate seamlessly into your apps 
 
 ## Never used Okta before?
 
-Choose your app type and get started with our quickstarts.
+Choose your app type and get started with signing users in.
 
 <Cards>
   <Card href="/docs/guides/quickstart/main/#server-side-web-app" headerImage="/img/app-types/icon-server.png">Server-side web app</Card>
-  <Card href="/docs/guides/quickstart/main/#single-page-app" headerImage="/img/app-types/icon-spa.png">Single-page app</Card>
+  <Card href="/docs/guides/quickstart/main/#front-end-web-app" headerImage="/img/app-types/icon-spa.png">Front-end web app</Card>
   <Card href="/docs/guides/quickstart/main/#mobile-native-app" headerImage="/img/app-types/icon-mobile-app.png">Mobile/native app</Card>
 </Cards>
 
@@ -39,7 +39,7 @@ After you have an idea of the above considerations, you can integrate Okta authe
 | **Customization** | Managed branding and customization options for domains, emails, sign-in page, and more. | Most substantial customization options | Full customization |
 | **Learn more** | <ul><li>Redirect auth for [web apps](/docs/guides/sign-into-web-app-redirect/), [mobile apps](/docs/guides/sign-into-mobile-app-redirect/), and [single-page apps](/docs/guides/sign-into-spa-redirect/)</li><li>[Redirect auth use cases](/docs/guides/sampleapp-oie-redirectauth/android/main/)</li><li>[Customize the hosted widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)</li></ul> | <ul><li>[Embedded widget fundamentals](/docs/guides/embedded-siw/)</li><li>[Sample app setup process](/docs/guides/oie-embedded-common-org-setup/android/main/)</li><li>[Embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-load/)</li><li>[Customize the embedded widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget)</li></ul> | <ul><li>[Auth JS fundamentals](/docs/guides/auth-js/)</li><li>[Sample app setup process](/docs/guides/oie-embedded-common-org-setup/android/main/)</li><li>[Embedded SDK use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/)</li><li>[Okta SDKs reference](/code/)</li></ul>|
 
-For more background on the different auth models, including basic flows and help with choosing between auth models, see [Okta authentication models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/).
+For more background on the different deployment models, including basic flows and help with choosing between models, see [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/).
 
 > **Note**: Direct calls to the Identity Engine APIs that underpin much of the Identity Engine authentication pipeline aren't supported &mdash; use the Embedded SDKs instead.
 

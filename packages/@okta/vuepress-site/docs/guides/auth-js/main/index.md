@@ -53,10 +53,11 @@ To use the CDN, include this script in your target HTML page:
 
 More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
 
-### npm
+### Package manager
+
+Run the appropriate installation command for your package manager in your project root folder:
 
 ```shell
-# Run this command in your project root folder.
 # yarn
 yarn add @okta/okta-auth-js
 
@@ -237,12 +238,12 @@ Create an app integration in the Okta org that represents the application you wa
 
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
-1. Select the **Sign On** tab.
-1. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For this use case, ensure that the **1 factor type** authenticator is **Password / IdP**.
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI (`http://localhost:8080`). See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
+
+> **Note:** New apps are automatically assigned the shared default authentication policy that has a catch-all rule that allows a user access to the app using one factor. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Polices** and then select **Default Policy**.
 
 ### Download and install the sample app
 
@@ -255,9 +256,13 @@ git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/static-spa
 ```
 
-2. Install the dependencies with a package manager, `npm` for example:
+2. Install the dependencies with a package manager:
 
 ```shell
+# yarn
+yarn
+
+# npm
 npm install
 ```
 
@@ -286,6 +291,10 @@ var config = {
 1. In the `static-spa` directory, run the sample application:
 
     ```shell
+    # yarn
+    yarn dev
+
+    # npm
     npm start
     ```
 
