@@ -215,7 +215,28 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ```json
 { "commands":[
-                          { "type":"com.okta.action.update",
+{
+  "commands": [
+    {
+      "type": "com.okta.action.update",
+      "value": {
+        "registration": "DENY"
+      }
+    }
+  ],
+  "error": {
+    "errorSummary": "Incorrect email address. Please contact your admin.",
+    "errorCauses": [
+      {
+        "errorSummary": "Only example.com emails can register.",
+        "reason": "INVALID_EMAIL_DOMAIN",
+        "locationType": "body",
+        "location": "data.userProfile.login",
+        "domain": "end-user"
+      }
+    ]
+  }
+}
                             "value":{ "registration": "DENY"} }
                                    ],
                          "error": {
