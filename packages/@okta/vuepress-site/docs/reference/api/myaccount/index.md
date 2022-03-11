@@ -28,8 +28,307 @@ The MyAccount API has the following operations:
 * [Get my User Profile Schema](#get-my-user-profile-schema)
 * [Get my User Profile](#get-my-user-profile)
 * [Update my User Profile](#update-my-user-profile)
-* [Send Phone Challenge](#send-phone-challenge)
-* [Verify Phone Challenge](#verify-phone-challenge)
+* [Add My Phone](#add-my-phone)
+* [Get My Phone](#get-my-phone)
+* [Get My Phones](#get-my-phones)
+* [Delete My Phone](#delete-my-phone)
+
+### Add My Phone
+
+<ApiOperation method="post" url="/idp/myaccount/phones" />
+
+Create an UNVERIFIED status phone for either `SMS` or `CALL` method to user's MyAccount setting.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones` POST endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This API requires a [My Phone Request object](#my-phone-request-object) as its request body.
+
+#### Response body
+
+The requested [My Phone object](#my-phone-object)
+
+#### Error Responses
+
+If an invalid phone number is passed to `profile` in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+
+If an invalid `method` is passed in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+
+If the phone authenticator is not enabled for `method` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+
+If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response will return a 500 INTERNAL SERVER ERROR with error code E0000009.
+
+If the phone number already exists for the current user, the response will return a 409 CONFLICT with error code E0000157.
+
+If the call providers fails to send challenge when `sendCode` is true,  the response will return 500 with error code E0000138.
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to create their phone.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones"
+```
+
+##### Response
+Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header.
+```json
+{
+    "id": "sms1bueyI0w0HHwro0g4",
+    "status": "UNVERIFIED",
+    "profile": {
+        "phoneNumber": "+15555555555"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "verify": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Get My Phone
+
+<ApiOperation method="get" url="/idp/myaccount/phones/{id}" />
+
+Fetches the current user's phone information by id, along with a collection of links describing the operations can be performed to the phone. 
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+
+#### Request path parameters
+
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+The requested [My Phone object](#my-phone-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their phone.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones/{id}"
+```
+
+##### Response
+
+```json
+{
+    "id": "sms1bueyI0w0HHwro0g4",
+    "status": "UNVERIFIED",
+    "profile": {
+        "phoneNumber": "+15555555555"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Get My Phones
+
+<ApiOperation method="get" url="/idp/myaccount/phones" />
+
+Fetches the current user's all phone information, along with a collection of links for each phone describing the operations can be performed.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+A list of the requested [My Phone object](#my-phone-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their phones.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones"
+```
+
+##### Response
+
+```json
+[
+    {
+        "id": "sms1bueyI0w0HHwro0g4",
+        "status": "UNVERIFIED",
+        "profile": {
+            "phoneNumber": "+15555555555"
+        },
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE",
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "clf1639iP89ovYrhQ0g4",
+        "status": "VERIFIED",
+        "profile": {
+            "phoneNumber": "+15555555556"
+        },
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Delete My Phone
+
+<ApiOperation method="delete" url="/idp/myaccount/phones/{id}" />
+
+Delete the current user's phone information by id.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/` DELETE endpoint.
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+N/A
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to delete their phone.
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones/{id}"
+```
+
+##### Response
+
+Returns an empty HTTP 204 status code response.
+
+#### Error Responses
+
+If the phone authenticator is not enabled for `method` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
 
 ### Get Me
 
@@ -431,6 +730,78 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authori
 
 
 ## MyAccount API objects
+
+### My Phone object
+
+#### My Phone properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `id`               | String                                                          | The caller's phone ID|
+| `status`           | String                                                          | The caller's phone status, VERIFIED, OR UNVERIFIED|
+| `profile`          | Object                                                          | The profile object defines the phone number on the profile.|
+| `_links`           | Object                                                          | Discoverable resources related to the caller's phone |
+
+#### My Phone example
+
+```json
+{
+    "id": "sms1bueyI0w0HHwro0g4",
+    "status": "UNVERIFIED",
+    "profile": {
+        "phoneNumber": "+15555555555"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "verify": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### My Phone Request object
+
+#### My Phone Request properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `profile`          | Object                                                            | The profile object defines the phone number on the profile.|
+| `sendCode`         | Boolean                                                           | Whether to send challenge to the newly added phone, the default is true.|
+| `method`           | String                                                            | The method of the challenge sent to the newly added phone, either "SMS" or "CALL", applicable when `sendCode` is true.|
+|
+
+#### My Phone Request example
+```json
+{
+  "profile": {
+      "phoneNumber" : "+15555555555"
+  },
+   "sendCode": true,
+   "method": "SMS"
+}
+```
 
 ### Me object
 
