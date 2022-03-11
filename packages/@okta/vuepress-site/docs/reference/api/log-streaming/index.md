@@ -242,7 +242,7 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4",
+        "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4",
         "method": "GET"
       },
       "deactivate": {
