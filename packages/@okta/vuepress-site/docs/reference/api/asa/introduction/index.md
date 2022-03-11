@@ -51,6 +51,7 @@ ASA provides information about pagination in `Link` headers:
 * A Link header that contains `rel="prev"` indicates that a previous page is
   available and contains the URL that should be used to fetch it.
 
+
 To fetch a full list of resources, Clients should use the following approach
 when retrieving lists:
 
@@ -60,6 +61,14 @@ when retrieving lists:
    `list`.
 3. Check for a Link header value with `rel="next"`. If such a value exists,
    fetch it and repeat steps two and three.
+
+For resources that support pagination, specify the `offset` query parameter to fetch the list from a specific page cursor. Use the UUID string of the page cursor from the `Link` header. For example:
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.com/v1/teams/${team_name}/projects?offset=${page_offset_uuid}
+```
 
 Clients that want to fetch pages of less than 100 items (for testing
 pagination, for example) may pass a `count` parameter to the initial list call.

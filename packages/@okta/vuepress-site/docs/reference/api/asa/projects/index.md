@@ -72,7 +72,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination. See [Pagination](/docs/reference/api/asa/introduction/#pagination) for details. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `self`   |  boolean | (Optional) If `true`, only lists the Projects that the ASA User making this request has been assigned. |
 
