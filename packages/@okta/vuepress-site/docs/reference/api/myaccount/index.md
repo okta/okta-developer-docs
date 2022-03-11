@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-> **Note:** The MyAccount API is being enhanced, accessible at `/api/v1/idp/myaccount`. Use this endpoint if you plan to use the MyAccount API. The existing endpoint (`/api/v1/myaccount`) is deprecated.
+> **Note:** The MyAccount API is being enhanced, accessible at `/api/idp/myaccount`. Use this endpoint if you plan to use the MyAccount API. The existing endpoint (`/api/v1/myaccount`) is deprecated.
 >
 >Also, to use the new endpoint, move the `version` from the path to the `Accept` header. Use a value of `application/json; okta-version=1.0.0`.
 
