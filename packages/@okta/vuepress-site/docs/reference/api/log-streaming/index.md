@@ -246,7 +246,7 @@ curl -v -X GET \
         "method": "GET"
       },
       "deactivate": {
-        "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4/lifecycle/deactivate",
+        "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
