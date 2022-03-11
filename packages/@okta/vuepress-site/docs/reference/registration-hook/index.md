@@ -169,8 +169,10 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
    * You don't customize the error handling behavior of the Widget.
    * The attributes are in the correct location of the `errorCauses` object.
 
-* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user (with no inline error messages): "We found some errors. Please review the form and make corrections."
-* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user: "Registration denied."
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user (with no inline error messages):</br>
+      `We found some errors. Please review the form and make corrections.`
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
+      `Registration denied.`
 
 ## Timeout behavior
 
