@@ -1,6 +1,6 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that capture's the user's name and password, as shown in the following example.
+Build a sign-in page that captures the user's name and password, as shown in the following example.
 
 ![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
 
