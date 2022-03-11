@@ -168,7 +168,10 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
    * The `errorSummary` attributes are in the correct location of the `errorCauses` object. See [Sample JSON payload of the response](#sample-json-payload-of-response).
 
 * If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user (with no inline error messages):</br>
-      `We found some errors. Please review the form and make corrections.`
+      `We found some errors. Please review the form and make corrections.`</br>
+      `Registration cannot be completed at this time.`
+      <ApiLifecycle access="ie" />
+
 * If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
       `Registration denied.`
 
