@@ -42,7 +42,8 @@ If the user is already enrolled in Okta email, calling `OktaAuth.idx.authenticat
 }
 ```
 
-Use this response to display a page with an OTP input field.
+Using this response display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for a OTP verification fallback in cases where OTP maybe required or simply more convienent.  For example, a user checking their email from a different device from where they are signing into your app, is required to use OTP. Different browser and device scenarios are covered in [Integrate different browser and device scenario][#integrate-different-browser-and-device-scenario]
+
 
 <div class="common-image-format">
 
@@ -50,30 +51,65 @@ Use this response to display a page with an OTP input field.
 
 </div>
 
-### 4. Open email and copy OTP
+### 4. Click on email magic link
 
-Next, the user opens the email sent by Okta and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Challenge** template.
+Next, the user opens their email and clicks on the magic link. The following screenshots shows the magic link in the email.
 
 <div class="common-image-format">
 
-![Screenshot of OTP in challenge page](/img/authenticators/authenticators-email-challenge-otp.png)
+![Magic link in email](/img/authenticators/authenticators-email-challenge-magic-link-in-email.png)
 
 </div>
 
-### 5. Submit OTP
+The link is points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing in the OTP.
+### 5. Send request to Okta
+
+When the user clicks on the magic link, the request is first routed to you Okta org, which forwards the request to your application including the `OTP` and `state` parameters. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and adds the OTP and state query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+
+### 6: Handle redirect in your app
+
+Create a route to handle When the magic link redirect request.
 
 ```javascript
-  const { verificationCode } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx.proceed({ verificationCode });
+router.get('/login/callback', async (req, res, next) => {
+  const { protocol, originalUrl } = req;
+  const parsedUrl = new URL(protocol + '://' + req.get('host') + originalUrl);
+});
+
 ```
 
-### 5: Complete successful sign-in
+### 7. Validate request is from a verification email
+
+Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parmaeter section of the URL. This method validates that the OTP and state query parameters are present. `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039` is an example of the method's input parmaeter.
+
+```javascript
+    if (authClient.idx.isEmailVerifyCallback(search)) {
+      //continue
+    }
+```
+
+### 8. Verify the email and location of magic link click
+
+Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query paramter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
+
+* Ensures that the user clicked the magic link in the same browser (but different tab) as your application.
+* Validates that the OTP and state parameters originate from a non expired verification email
+
+
+```javascript
+  try {
+      const transaction = await authClient.idx.handleEmailVerifyCallback(search);
+      handleTransaction({ req, res, next, authClient, transaction });
+  } catch (err) {
+    next(err);
+  }
+
+```
+
+### 9: Complete successful sign-in
 
 If your configuration is setup with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
-
 
 ```json
 {

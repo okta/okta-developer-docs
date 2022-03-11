@@ -58,16 +58,6 @@ Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query paramt
 
 ```
 
-#### Different browser or device scenarios
-
-`OktaAuth.idx.handleEmailVerifyCallback()` throws a  `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. If this error is thrown, inform the user to use the OTP.
-
-<div class="common-image-format">
-
-![Screenshot of different device or browser error](/img/authenticators/authenticators-email-magic-link-error.png)
-
-</div>
-
 ### 7: Complete successful sign-in
 
 If your configuration is setup with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
