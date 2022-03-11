@@ -695,6 +695,6 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | host            | The domain name for your Splunk Cloud instance. Don't include `http` or `https` in the string. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
-| token     | The HEC token for your Splunk Cloud HTTP Event Collector.              | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector             | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
 
 
