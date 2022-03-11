@@ -32,6 +32,8 @@ The MyAccount API has the following operations:
 * [Get My Phone](#get-my-phone)
 * [Get My Phones](#get-my-phones)
 * [Delete My Phone](#delete-my-phone)
+* [Send Phone challenge](#send-phone-challenge)
+* [Verify Phone challenge](#verify-phone-challenge)
 
 ### Add My Phone
 
