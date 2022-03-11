@@ -167,7 +167,7 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
 * If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
    * You don't customize the error handling behavior of the Widget.
-   * The attributes are in the correct location of the `errorCauses` object.
+   * The attributes are in the correct location of the `errorCauses` object. See the [sample JSON payload of the request](#sample-json-payload-of-request).
 
 * If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user (with no inline error messages):</br>
       `We found some errors. Please review the form and make corrections.`
@@ -214,31 +214,23 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 ## Sample JSON payload of response
 
 ```json
-{
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY"
-         }
+{ "commands":[
+                          { "type":"com.okta.action.update",
+                            "value":{ "registration": "DENY"} } 
+                                   ],
+                         "error": {
+                          "errorSummary":"Incorrect email address. Please contact your admin.",
+                          "errorCauses":[
+                             {
+                                "errorSummary":"Only example.com emails can register.",
+                                "reason":"INVALID_EMAIL_DOMAIN",
+                                "locationType":"body",
+                                "location":"data.userProfile.login",
+                                "domain":"end-user"
+                             }
+                                        ]
+                         }
       }
-   ]
-}
-
-{
-   "error":{
-      "errorSummary":"Errors were found in the user profile",
-      "errorCauses":[
-         {
-            "errorSummary":"You specified an invalid email domain",
-            "reason":"INVALID_EMAIL_DOMAIN",
-            "locationType":"body",
-            "location":"data.userProfile.login",
-            "domain":"end-user"
-         }
-      ]
-   }
-}
 ```
 
 ## Enable a Registration Inline Hook for Profile Enrollment in Okta Identity Engine
