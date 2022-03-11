@@ -160,19 +160,19 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-> **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
-
 For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register.
 
 * If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
    * You don't customize the error handling behavior of the Widget.
-   * The attributes are in the correct location of the `errorCauses` object. See the [sample JSON payload of the request](#sample-json-payload-of-request).
+   * The `errorSummary` attributes are in the correct location of the `errorCauses` object. See [Sample JSON payload of the response](#sample-json-payload-of-response).
 
 * If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user (with no inline error messages):</br>
       `We found some errors. Please review the form and make corrections.`
 * If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
       `Registration denied.`
+
+> **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
