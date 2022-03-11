@@ -1833,7 +1833,7 @@ For brevity, the following response doesn't include all available properties.
   },
   {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/splunk_cloud_logstreaming",
+    "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/splunk_cloud_logstreaming",
     "title": "Splunk Cloud",
     "type": "object",
     "properties": {
