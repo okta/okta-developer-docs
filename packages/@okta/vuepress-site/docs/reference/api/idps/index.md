@@ -4677,8 +4677,8 @@ All Identity Providers have the following properties:
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| _embedded   | Embedded resources related to the IdP                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
-| _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _embedded   | Embedded resources related to the IdP                      | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | created     | Timestamp when the IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | id            | Unique key for the IdP                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
 | issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL` | FALSE | FALSE | FALSE |   |
@@ -6137,8 +6137,8 @@ All IdP Transactions have the following properties:
 
 | Property      | Description                                                                            | DataType                                                        | Nullable  | Unique   | Readonly |
 | ------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------- | --------  | ------   | -------- |
-| _embedded     | Embedded resources related to the Transaction                                          | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
-| _links        | [Discoverable resources](#links-object) related to the Transaction                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
+| _embedded     | Embedded resources related to the Transaction                                          | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
+| _links        | [Discoverable resources](#links-object) related to the Transaction                     | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
 | context       | Optional authentication context for the Transaction                                        | [Context object](#identity-provider-transaction-context-object) | FALSE     | FALSE    | TRUE     |
 | created       | Timestamp when the Transaction was created                                                 | Date                                                            | FALSE     | FALSE    | TRUE     |
 | expiresAt     | Timestamp when the Transaction expires                                                     | Date                                                            | FALSE     | FALSE    | TRUE     |
@@ -6309,8 +6309,8 @@ All linked IdP Users have the following properties:
 
 | Property         | Description                                               | DataType                                                                        | Nullable | Unique | Readonly | MaxLength |
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------                | -------- | ------ | -------- | --------- |
-| _embedded        | Embedded resources related to the IdP User                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
-| _links           | Discoverable resources related to the IdP User            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
+| _embedded        | Embedded resources related to the IdP User                | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
+| _links           | Discoverable resources related to the IdP User            | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
 | created          | Timestamp when IdP User was created                       | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
 | externalId       | Unique IdP-specific identifier for the User                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
 | id               | Unique key of the [User](/docs/reference/api/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |

@@ -1,11 +1,11 @@
 ---
-title: Okta authentication models — redirect vs. embedded
+title: Okta deployment models — redirect vs. embedded
 meta:
   - name: description
-    content: A high-level overview of the the redirect and embedded authentication models Okta provides.
+    content: A high-level overview of the the redirect and embedded deployment models Okta provides.
 ---
 
-# Okta authentication models — redirect vs. embedded
+# Okta deployment models — redirect vs. embedded
 
 When you develop applications that require the customer to sign-in and authenticate, the user authentication deployment model is a critical design consideration. In this article we look at the authentication options that Okta provides and what the differences are between them.
 
@@ -81,7 +81,7 @@ is -> cl: Return assertion to client
 * The user is redirected out of the application to Okta, and then back to the application.
 * Handles most client deployment requirements
 
-### Deploy the redirect authentication model when
+### Use the redirect deployment model when
 
 - you have multiple applications or use third-party applications and need SSO.
 - you want Okta to control the authentication flows through policy configuration.

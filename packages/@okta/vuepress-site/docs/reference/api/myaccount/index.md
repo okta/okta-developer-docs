@@ -7,6 +7,8 @@ category: management
 
 <ApiLifecycle access="ea" />
 
+> **Note:** The MyAccount API is being enhanced, accessible at `/api/v1/idp/myaccount`. Use this endpoint if you plan to use the MyAccount API. The existing endpoint (`/api/v1/myaccount`) is deprecated.
+
 The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
@@ -338,6 +340,7 @@ Returns an empty HTTP 204 status code response.
 ### Get Me
 
 <ApiOperation method="get" url="/api/v1/myaccount" />
+<ApiLifecycle access="deprecated" />
 
 Fetches the current user's Me object, a collection of links to information describing the user.
 
@@ -605,6 +608,131 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 }
 ```
 
+### Send Phone Challenge
+
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
+
+Sends a phone challenge using one of two methods: `SMS` or `CALL`. This request can also handle a resend challenge (retry).
+
+Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in 5 minutes.
+
+> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/challenge` endpoint more often than once very 30 seconds, or at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
+
+#### Required scope and role
+
+#### Request path parameters
+
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This request requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `method`  | String | The method with which the challenge should be sent, valid values are `SMS` and `CALL` |
+| `retry`  | Boolean | An optional property that indicates whether this is a normal challenge or retry |
+
+#### Response body
+
+Returns an empty response with an HTTP 200 status code.
+
+Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
+
+Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
+Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
+Call providers failing to send the out of band OTP challenge returns 500 with error code E0000138.
+
+#### Usage example
+
+##### Request
+
+This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
+
+```bash
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+     "method": "SMS",
+     "retry": false
+ }'
+```
+
+### Verify Phone Challenge
+
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
+
+Verify the phone number with the verification code that the user receives via `SMS` or `CALL`. The phone number is active upon a successful verification.
+
+> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/verify` endpoint at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
+
+#### Required scope and role
+
+#### Request path parameters
+
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This request requires the `verificationCode` property as its request body.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `verificationCode`  | String | A 6-digit verification code that the user receives via `SMS` or `CALL` |
+
+#### Response body
+
+Returns an empty response with an HTTP 204 status code.
+
+Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
+Disabling the `IDP_MY_ACCOUNT_API` feature flag on the org returns a 401 UNAUTHORIZED with error code E0000015.
+
+Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
+Passing an invalid `verificationCode` returns a 400 BAD REQUEST with error code E0000001.
+
+Passing a valid `verificationCode` again (verifying a phone number that has been verified) results a no-op.
+
+In an extremely rare case, verifying a phone number when the challenge is about to expire returns a 409 CONFLICT with error code E0000157.
+
+Failing to answer the challenge (possibly due to invalid `verificationCode`) returns a 401 UNAUTHORIZED with error code E0000004.
+
+#### Usage example
+
+##### Request
+
+The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
+
+```bash
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+     "verificationCode": "796672"
+ }'
+```
 
 
 

@@ -51,4 +51,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Vue Developer Blog posts](/search/#q=vue&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [Vue Developer Blog posts](https://developer.okta.com/blog/tags/vue/) for further useful topics.

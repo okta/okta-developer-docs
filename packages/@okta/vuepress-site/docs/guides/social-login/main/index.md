@@ -6,8 +6,6 @@ meta:
 showStackSelector: False
 ---
 
-<StackSnippet snippet="ea-icon" inline/>
-
 ## <StackSnippet snippet="idp" inline />
 
 This document explains how to configure <StackSnippet snippet="idp" inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
@@ -27,7 +25,6 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
 * An account with <StackSnippet snippet="idpaccount" inline />
-* **New social Identity Provider integrations** set to enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ---
 
@@ -91,7 +88,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_i
 
 <StackSnippet snippet="noemail" />
 
-## Add <StackSnippet snippet="idp" inline /> to the Okta Sign-In Widget
+## Add the Identity Provider to the Okta Sign-In Widget
 
 The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
 
