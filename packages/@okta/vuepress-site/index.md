@@ -9,7 +9,7 @@ showBreadcrumb: False
 
 
 tiles:
-  - name: Web App
+  - name: Server-side web app
     link: /docs/guides/sign-into-web-app-redirect/
     items:
       - name: Go
@@ -30,7 +30,7 @@ tiles:
       - name: Python
         link: /docs/guides/sign-into-web-app-redirect/python/main/
         image: /img/homepage/stackselectors/python.png
-  - name: Single-page App
+  - name: Front-end web app
     link: /docs/guides/sign-into-spa-redirect/
     items:
       - name: React
@@ -45,7 +45,7 @@ tiles:
       # - name: Blazor WebAssembly
       #   link: /docs/guides/sign-into-spa-redirect/blazor-wasm/main
       #   image: /img/homepage/stackselectors/dotnet.png
-  - name: Mobile/native App
+  - name: Mobile/native app
     link: /docs/guides/sign-into-mobile-app-redirect/
     items:
       # - name: React Native

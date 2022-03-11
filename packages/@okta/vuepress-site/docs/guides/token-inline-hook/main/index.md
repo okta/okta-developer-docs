@@ -16,8 +16,8 @@ This guide provides a working example of an Okta Token Inline Hook. It uses the 
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account to act as an external service.
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 * A Node.js Express framework sample application. This guide works with the sample application in the Sample code section below.
 
 **Sample code**
@@ -26,6 +26,8 @@ This guide provides a working example of an Okta Token Inline Hook. It uses the 
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)
 
 ---
+
+## About Token Inline Hook implementation
 
 The Token Inline Hook can be used to customize the Authorization Code flow that occurs between an application and the Okta org used for authentication.
 

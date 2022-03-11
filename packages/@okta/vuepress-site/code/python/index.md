@@ -57,4 +57,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Python Developer Blog posts](/search/#q=python&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [Python Developer Blog posts](https://developer.okta.com/blog/tags/python/) for further useful topics.

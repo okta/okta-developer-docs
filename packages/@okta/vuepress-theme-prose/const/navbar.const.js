@@ -63,7 +63,7 @@ export const concepts = [
         path: "/docs/concepts/oauth-openid/"
       },
       {
-        title: "Okta authentication models — redirect vs. embedded",
+        title: "Okta deployment models — redirect vs. embedded",
         path: "/docs/concepts/redirect-vs-embedded/"
       },
       {
@@ -662,11 +662,14 @@ export const languagesSdk = [
     subLinks: [
       { title: "Overview", path: "/code/" },
       {
-        title: "Mobile/native",
+        title: "Server-side",
         subLinks: [
-          { title: "Android", path: "/code/android/" },
-          { title: "iOS", path: "/code/ios/" },
-          { title: "React Native", path: "/code/react-native/" }
+          { title: ".NET", path: "/code/dotnet/aspnetcore/" },
+          { title: "Go", path: "/code/go/" },
+          { title: "Java", path: "/code/java/" },
+          { title: "Node.js", path: "/code/nodejs/" },
+          { title: "PHP", path: "/code/php/" },
+          { title: "Python", path: "/code/python/" }
         ]
       },
       {
@@ -679,14 +682,11 @@ export const languagesSdk = [
         ]
       },
       {
-        title: "Back-end",
+        title: "Mobile/native",
         subLinks: [
-          { title: ".NET", path: "/code/dotnet/aspnetcore/" },
-          { title: "Go", path: "/code/go/" },
-          { title: "Java", path: "/code/java/" },
-          { title: "Node.js", path: "/code/nodejs/" },
-          { title: "PHP", path: "/code/php/" },
-          { title: "Python", path: "/code/python/" }
+          { title: "Android", path: "/code/android/" },
+          { title: "iOS", path: "/code/ios/" },
+          { title: "React Native", path: "/code/react-native/" }
         ]
       },
       { title: "Test APIs using Postman", path: "/code/rest/" }

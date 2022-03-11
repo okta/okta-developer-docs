@@ -67,4 +67,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Go Developer Blog posts](/search/#q=golang&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [Go Developer Blog posts](https://developer.okta.com/blog/tags/go/) for further useful topics.
