@@ -1,7 +1,6 @@
 >**Note:** The examples in this guide use Swift 5, SwiftUI, and a target of iOS 15 or later. The SwiftUI portions pass state information using multiple bindings, consider using more robust ways of sharing and updating data in production apps. For more information, see the [Apple developer documentation for state and data flow in SwiftUI](https://developer.apple.com/documentation/swiftui/state-and-data-flow/).
 
-The code in this manages the sign-on flow using a singleton class (`SignInController`). It handles asynchronous responses from the SDK by implementing the delegate functions of the `IDXClientDelegate` protocol. The SDK also provides completion handlers,
-and for some calls, Swift Concurrency (`async/await`).
+The code in this manages the sign-on flow using a singleton class (`SignInController`). It handles asynchronous responses from the SDK by implementing the delegate functions of the `IDXClientDelegate` protocol. The SDK also provides completion handlers and Swift Concurrency (`async/await`).
 
 ### 1: Display the initial sign-in UI
 
