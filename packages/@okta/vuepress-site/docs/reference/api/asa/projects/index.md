@@ -1097,6 +1097,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
+| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1119,6 +1120,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 	"projects": [
 		"the-sound-and-the-fury"
 	],
+	"servers": null,
 	"user_name": "jason.compson"
 }
 ```
@@ -1220,6 +1222,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
+| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1244,6 +1247,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 			"projects": [
 				"the-sound-and-the-fury"
 			],
+			"servers": null,
 			"user_name": "jason.compson"
 		}
 	]
@@ -1286,6 +1290,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
+| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1317,6 +1322,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 	"projects": [
 		"the-sound-and-the-fury"
 	],
+	"servers": null,
 	"user_name": "jason.compson"
 }
 ```
