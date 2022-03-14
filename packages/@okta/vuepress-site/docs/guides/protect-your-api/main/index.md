@@ -31,7 +31,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```
+```txt
 Your Okta Domain: https://dev-xxxxxxx.okta.com
 To set your password open this link:
 https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
@@ -41,7 +41,7 @@ https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/):
 
-```
+```bash
 okta login
 ```
 
@@ -76,7 +76,6 @@ There are three pieces of information you may need, depending on the platform yo
 * **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
 
 > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
-
 
 <StackSnippet snippet="configmid" />
 
