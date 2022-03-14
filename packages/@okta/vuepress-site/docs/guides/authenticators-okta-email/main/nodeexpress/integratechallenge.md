@@ -9,7 +9,7 @@ First, the user initiates the sign-in with username and optionally password by m
 
 ### 2. Send email to user's email address
 
-If the user is already enrolled in Okta email, calling `OktaAuth.idx.authenticate()` iniitates the sending of an email to the user's email address. The email is based off of the **Email Challenge** template, which contains a placeholder for the OTP.
+If the user is already enrolled in Okta email, calling `OktaAuth.idx.authenticate()` initiates the sending of an email to the user's email address. The email is based on the **Email Challenge** template, which contains a placeholder for the OTP.
 
 ### 3. Display OTP input page
 
