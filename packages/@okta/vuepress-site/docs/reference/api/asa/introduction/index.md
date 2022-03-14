@@ -61,7 +61,7 @@ when retrieving lists:
 3. Check for a Link header value with `rel="next"`. If such a value exists,
    fetch it and repeat steps two and three.
 
-For resources that support pagination, specify the `offset` query parameter to fetch the list from a specific page cursor. Use the URL from the `rel="next"` Link header, which contains the offset page-cursor string. For example:
+An example of a paginated request that contains the URL from the `rel="next"` Link header:
 
 ```bash
 curl -v -X GET \
