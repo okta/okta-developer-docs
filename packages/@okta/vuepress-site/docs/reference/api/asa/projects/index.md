@@ -72,7 +72,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link headers and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `self`   |  boolean | (Optional) If `true`, only lists the Projects that the ASA User making this request has been assigned. |
 
@@ -1207,7 +1207,7 @@ This endpoint requires one of the following roles: `access_admin`, or `preauthor
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_expired`   |  boolean | (Optional) If `true`, includes expired preauthorizations |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link headers and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project`   |  string | (Optional) If a value is provided, filters for the specified Project. This doesn`t apply if used against a Project-specific endpoint. |
 
