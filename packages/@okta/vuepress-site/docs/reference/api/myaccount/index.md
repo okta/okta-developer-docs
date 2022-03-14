@@ -26,175 +26,23 @@ Explore the MyAccount API:
 
 The MyAccount API has the following operations:
 
-* [Get data about Me](#get-me)
-* [Get my User Profile Schema](#get-my-user-profile-schema)
-* [Get my User Profile](#get-my-user-profile)
-* [Update my User Profile](#update-my-user-profile)
-* [Add My Email](#add-my-email)
-* [Get My Email](#get-my-email)
 * [Get My Emails](#get-my-emails)
-* [Delete My Email](#delete-my-email)
+* [Get My Email](#get-my-email)
+* [Add My Email](#add-my-email)
 * [Challenge My Email](#challenge-my-email)
 * [Verify My Email](#verify-my-email)
 * [Poll My Email Challenge](#poll-my-email-challenge)
+* [Delete My Email](#delete-my-email)
 * [Add My Phone](#add-my-phone)
 * [Get My Phone](#get-my-phone)
 * [Get My Phones](#get-my-phones)
 * [Delete My Phone](#delete-my-phone)
 * [Send Phone challenge](#send-phone-challenge)
 * [Verify Phone challenge](#verify-phone-challenge)
-
-### Add My Email
-
-<ApiOperation method="post" url="/idp/myaccount/emails" />
-
-Create a PRIMARY or SECONDARY email in UNVERIFIED status to user's MyAccount setting
-
-#### Required scope and role
-
-An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
-#### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
-#### Request path parameters
-N/A
-
-#### Request query parameters
-
-N/A
-
-#### Request body
-This API requires a [My Email Request object](#my-email-request-object) as its request body.
-
-#### Response body
-
-The requested [My Email object](#my-email-object)
-
-#### Usage example
-
-Any user with a valid bearer token can issue this request to create their email.
-
-##### Request
-
-```bash
-curl -v -X POST \
--H "Authorization: Bearer ${token}" \
-"https://${yourOktaDomain}/idp/myaccount/emails"
-```
-
-##### Response
-
-```json
-{
-    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
-    "status": "UNVERIFIED",
-    "profile": {
-        "email": "primary.email@okta.com"
-    },
-    "roles": [
-        "PRIMARY"
-    ],
-    "_links": {
-        "self": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        },
-        "challenge": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        }
-    }
-}
-```
-
-### Get My Email
-
-<ApiOperation method="get" url="/idp/myaccount/emails/{id}" />
-
-Fetches the current user's email information by id, a collection of links describing the operations can be performed to the email.
-
-#### Required scope and role
-
-An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
-
-#### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
-#### Request path parameters
-| Parameter  | Type   | Description                                       |
-| ---------- | ------ | ------------------------------------------------- |
-| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
-
-#### Request query parameters
-
-N/A
-
-#### Response body
-
-The requested [My Email object](#my-email-object)
-
-#### Usage example
-
-Any user with a valid bearer token can issue this request to get their email.
-
-##### Request
-
-```bash
-curl -v -X GET \
--H "Authorization: Bearer ${token}" \
-"https://${yourOktaDomain}/idp/myaccount/emails/{id}"
-```
-
-##### Response
-
-```json
-{
-    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
-    "status": "VERIFIED",
-    "profile": {
-        "email": "primary.email@okta.com"
-    },
-    "roles": [
-        "PRIMARY"
-    ],
-    "_links": {
-        "self": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        },
-        "challenge": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        }
-    }
-}
-```
+* [Get data about Me](#get-me)
+* [Get my User Profile Schema](#get-my-user-profile-schema)
+* [Get my User Profile](#get-my-user-profile)
+* [Update my User Profile](#update-my-user-profile)
 
 ### Get My Emails
 
@@ -299,17 +147,16 @@ curl -v -X GET \
 ]
 ```
 
-### Delete My Email
+### Get My Email
 
-<ApiOperation method="delete" url="/idp/myaccount/emails/{id}" />
+<ApiOperation method="get" url="/idp/myaccount/emails/{id}" />
 
-Delete the current user's email information by id, only UNVERIFIED primary and secondary emails can be deleted.
+Fetches the current user's email information by id, a collection of links describing the operations can be performed to the email.
 
 #### Required scope and role
 
-An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
 #### API Versioning
 An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
@@ -328,22 +175,129 @@ N/A
 
 #### Response body
 
-N/A
+The requested [My Email object](#my-email-object)
 
 #### Usage example
 
-Any non-admin user with a valid bearer token can issue this request to delete their UNVERIFIED emails.
+Any user with a valid bearer token can issue this request to get their email.
 
 ##### Request
 
 ```bash
-curl -v -X DELETE \
+curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}"
 ```
 
 ##### Response
-Returns an empty HTTP 204 status code response.
+
+```json
+{
+    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
+    "status": "VERIFIED",
+    "profile": {
+        "email": "primary.email@okta.com"
+    },
+    "roles": [
+        "PRIMARY"
+    ],
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Add My Email
+
+<ApiOperation method="post" url="/idp/myaccount/emails" />
+
+Add a PRIMARY or SECONDARY email address to the user's account. The new email address will be in UNVERIFIED status.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
+#### Request path parameters
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+This API requires a [My Email Request object](#my-email-request-object) as its request body.
+
+#### Response body
+
+The requested [My Email object](#my-email-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to create their email.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails"
+```
+
+##### Response
+
+```json
+{
+    "id": "5a8de6071e1b94e0f4ec664b9e4869e8",
+    "status": "UNVERIFIED",
+    "profile": {
+        "email": "primary.email@okta.com"
+    },
+    "roles": [
+        "PRIMARY"
+    ],
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/emails/5a8de6071e1b94e0f4ec664b9e4869e8/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Challenge My Email
 
@@ -535,6 +489,52 @@ curl -v -X GET \
     }
 }
 ```
+
+### Delete My Email
+
+<ApiOperation method="delete" url="/idp/myaccount/emails/{id}" />
+
+Delete the current user's email information by id, only UNVERIFIED primary and secondary emails can be deleted.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+N/A
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to delete their UNVERIFIED emails.
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}"
+```
+
+##### Response
+Returns an empty HTTP 204 status code response.
 
 ### Add My Phone
 
