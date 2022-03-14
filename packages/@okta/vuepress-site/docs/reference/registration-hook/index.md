@@ -165,7 +165,7 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
 * If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
    * You don't customize the error handling behavior of the Widget.
-   * The `errorSummary` attributes are in the correct location of the `errorCauses` object. See [Sample JSON payload of the response](#sample-json-payload-of-response).
+   * The `location` of `errorSummary` in the `errorCauses` object specifies the correct attribute. See [JSON response payload objects - error](/docs/concepts/inline-hooks/#error).
 
 * If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
       `Registration cannot be completed at this time.`</br></br>
