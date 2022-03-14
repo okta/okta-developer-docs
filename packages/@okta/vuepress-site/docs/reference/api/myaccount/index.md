@@ -34,6 +34,9 @@ The MyAccount API has the following operations:
 * [Get My Email](#get-my-email)
 * [Get My Emails](#get-my-emails)
 * [Delete My Email](#delete-my-email)
+* [Challenge My Email](#challenge-my-email)
+* [Verify My Email](#verify-my-email)
+* [Poll My Email Challenge](#poll-my-email-challenge)
 * [Add My Phone](#add-my-phone)
 * [Get My Phone](#get-my-phone)
 * [Get My Phones](#get-my-phones)
@@ -341,6 +344,197 @@ curl -v -X DELETE \
 
 ##### Response
 Returns an empty HTTP 204 status code response.
+
+### Challenge My Email
+
+<ApiOperation method="post" url="/idp/myaccount/emails/{id}/challenge" />
+
+Sends a challenge to the email, user receives a 'Confirm email address change' email with an one time passcode to verify the email.
+In addition, user also receives a - 'Notice of pending email address change' email. Once challenge verified, the email becomes active.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `state` | String | (Optional) The state parameter, the state of the client |
+
+#### Response body
+
+The requested [My Email Challenge Response object](#my-email-challenge-response-object)
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to challenge their emails.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge"
+```
+
+##### Response
+
+Returns an HTTP 201 status code response.
+
+```json
+{
+    "id": "myaccount.0Up-umuhQ1adW2EGRAAK1g",
+    "status": "UNVERIFIED",
+    "expiresAt": "2022-03-04T21:19:43.315Z",
+    "profile": {
+        "email": "some.primary.email@okta.com"
+    },
+    "_links": {
+        "verify": {
+            "href": "https://jay-oie-org1.okta1.com/idp/myaccount/emails/92fc7f9445e413e94e544cc3b30483ce/challenge/myaccount.0Up-umuhQ1adW2EGRAAK1g/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "poll": {
+            "href": "https://jay-oie-org1.okta1.com/idp/myaccount/emails/92fc7f9445e413e94e544cc3b30483ce/challenge/myaccount.0Up-umuhQ1adW2EGRAAK1g",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Verify My Email
+
+<ApiOperation method="post" url="/idp/myaccount/emails/{id}/challenge/{challengeId}/verify" />
+
+Verify the email challenge with the verification code that the user receives from the 'Confirm email address change' email. The email is active upon a successful verification.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+| `challengeId` | String | The challengeId of the email. the challengeId can be obtained through `POST /idp/myaccount/emails/{id}/challenge/` when creating a new challenge. |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This request requires the `verificationCode` property as its request body.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `verificationCode`  | String | A 6-digit verification code that the user receives from the 'Confirm email address change' email |
+
+#### Response body
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to verify their emails.
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge/{challengeId}/verify"
+```
+
+##### Response
+Returns an empty HTTP 204 status code response.
+
+### Poll My Email Challenge
+
+<ApiOperation method="get" url="/idp/myaccount/emails/{id}/challenge/{challengeId}" />
+
+Fetches the email challenge's status
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.email.read` is required to use this endpoint.
+
+#### API Versioning
+An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
+#### Request path parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+| `challengeId` | String | The challengeId of the email. the challengeId can be obtained through `POST /idp/myaccount/emails/{id}/challenge/` when creating a new challenge. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+The requested [My Email Challenge object](#my-email-challenge-object)
+
+#### Usage example
+
+Any non-admin user with a valid bearer token can issue this request to get their email challenge status.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge/{challengeId}"
+```
+
+##### Response
+
+```json
+{
+    "id": "myaccount.y-YPC4HiTbGEAeEwmHI2MA",
+    "status": "UNVERIFIED",
+    "expiresAt": "2022-03-04T17:29:57.067Z",
+    "profile": {
+        "email": "some.primary.email@okta.com"
+    }
+}
+```
 
 ### Add My Phone
 
@@ -1113,6 +1307,73 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authori
   },
    "role": "PRIMARY",
    "sendEmail": true
+}
+```
+
+### My Email Challenge object
+
+#### My Email Challenge properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `id`               | String                                                            | The caller's email ID|
+| `status`           | Object                                                            | The caller's email challenge status, VERIFIED, OR UNVERIFIED|
+| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires, the time to live of a challenge is 5 minutes|
+| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+
+#### My Email Challenge example
+
+```json
+{
+    "id": "myaccount.6FLx1qb0Q8KNZSsgS150fA",
+    "status": "UNVERIFIED",
+    "expiresAt": "2022-03-04T17:19:03.451Z",
+    "profile": {
+        "email": "some.primary.email@okta.com"
+    }
+}
+```
+
+### My Email Challenge Response object
+
+#### My Email Challenge Response properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `id`               | String                                                            | The caller's email ID|
+| `status`           | Object                                                            | The caller's email challenge status, VERIFIED, OR UNVERIFIED|
+| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires, the time to live of a challenge is 5 minutes|
+| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+| `_links`           | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email challenge|
+
+#### My Email Challenge Response example
+
+```json
+{
+    "id": "myaccount.0Up-umuhQ1adW2EGRAAK1g",
+    "status": "UNVERIFIED",
+    "expiresAt": "2022-03-04T21:19:43.315Z",
+    "profile": {
+        "email": "some.primary.email@okta.com"
+    },
+    "_links": {
+        "verify": {
+            "href": "https://jay-oie-org1.okta1.com/idp/myaccount/emails/92fc7f9445e413e94e544cc3b30483ce/challenge/myaccount.0Up-umuhQ1adW2EGRAAK1g/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "poll": {
+            "href": "https://jay-oie-org1.okta1.com/idp/myaccount/emails/92fc7f9445e413e94e544cc3b30483ce/challenge/myaccount.0Up-umuhQ1adW2EGRAAK1g",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
 }
 ```
 
