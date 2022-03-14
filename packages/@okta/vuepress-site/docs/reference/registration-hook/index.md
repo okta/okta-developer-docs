@@ -167,7 +167,7 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
    * You don't customize the error handling behavior of the Widget.
    * The `errorSummary` attributes are in the correct location of the `errorCauses` object. See [Sample JSON payload of the response](#sample-json-payload-of-response).
 
-* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic message appears to the end user:</br></br>
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
       `Registration cannot be completed at this time.`</br></br>
       `We found some errors. Please review the form and make corrections.` <ApiLifecycle access="ie" />
 
