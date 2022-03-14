@@ -1097,7 +1097,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
+| `servers`   | array | Not supported; this field will be removed in a future release of ASA. It is only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1222,7 +1222,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
+| `servers`   | array | Not supported; this field will be removed in a future release of ASA. It is only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1290,7 +1290,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for (not supported) |
+| `servers`   | array | Not supported; this field will be removed in a future release of ASA. It is only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
