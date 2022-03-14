@@ -79,11 +79,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
+      "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
+      "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -136,11 +136,11 @@ curl -v -X GET \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -220,11 +220,11 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -287,11 +287,11 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -333,11 +333,11 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -400,11 +400,11 @@ curl -v -X PUT \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -497,11 +497,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -554,11 +554,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/activate",
       "method": "POST"
     }
   }
@@ -585,11 +585,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }

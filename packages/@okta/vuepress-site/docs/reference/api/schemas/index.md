@@ -1581,7 +1581,7 @@ For brevity, the following response doesn't include all available properties.
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+  "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
   "title": "AWS EventBridge",
   "type": "object",
   "properties": {
@@ -1726,7 +1726,7 @@ For brevity, the following response doesn't include all available properties.
 [
   {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+    "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
     "title": "AWS EventBridge",
     "type": "object",
     "properties": {
