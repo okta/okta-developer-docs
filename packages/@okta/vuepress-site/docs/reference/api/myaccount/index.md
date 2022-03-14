@@ -38,7 +38,7 @@ The MyAccount API has the following operations:
 
 <ApiOperation method="post" url="/idp/myaccount/emails" />
 
-Create an UNVERIFIED status, PRIMARY or SECONDARY email to user's MyAccount setting.
+Create a PRIMARY or SECONDARY email in UNVERIFIED status to user's MyAccount setting
 
 #### Required scope and role
 
@@ -790,7 +790,7 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authori
 | Property           | Type                                                            | Description                                                                                                       |
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `profile`          | Object                                                            | The profile object defines the email address on the profile.|
-| `roles`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
+| `role`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
 | `sendEmail`        | Boolean                                                           | send challenge to the newly added email, the default is true | `state` | String | (Optional) The state parameter, the state of the client |
 
 #### My Email Request example
