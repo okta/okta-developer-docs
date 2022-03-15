@@ -173,7 +173,7 @@ A. Remove the mapping
     ![Remove Mapping](/img/oin/scim_check-attributes-3.png "Remove Mapping")
 
   1. After removing the mapping for the unwanted attributes, click **To Okta** under the settings section.
-    ![Provisioning to Okta tab](/img/oin/scim_check-attributes-4.png "Provisioning Tab: Provisioning to Okta")
+    ![Displays the Provisioning > To Okta tab](/img/oin/scim_check-attributes-4-n.png "Provisioning to Okta tab")
 
   Repeat Step 3 and 4 until you remove all the mappings for the attributes you want to delete.
 
@@ -183,15 +183,15 @@ B. Delete attributes from your attribute list
     ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
 
   1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
-    ![Attribute Mappings - Profile Editor](/img/oin/scim_check-attributes-6.png "Attribute Mappings - Profile Editor")
+    ![Go to the Attribute Mappings Profile Editor](/img/oin/scim_check-attributes-6-n.png "Attribute Mappings: Profile Editor")
 
   1. In the Profile Editor, scroll down to the attribute list.
 
   1. Look for the attribute that you want to delete, and click **X**.
-    ![Profile Editor - Remove Attribute](/img/oin/scim_check-attributes-7.png "Profile Editor - Remove Attribute")
+    ![Profile Editor - Remove Attribute](/img/oin/scim_check-attributes-7-n.png "Profile Editor - Remove Attribute")
 
   1. Click **Delete Attribute** to confirm that you want to remove the attribute.
-    ![Profile Editor - Delete Attribute](/img/oin/scim_check-attributes-8.png "Profile Editor - Delete Attribute")
+    ![Profile Editor: Delete Attribute](/img/oin/scim_check-attributes-8-n.png "Profile Editor: Delete Attribute")
 
 ### Add attributes
 
@@ -201,11 +201,13 @@ B. Delete attributes from your attribute list
   ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
 
 1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
-  ![Attribute Mappings - Profile Editor](/img/oin/scim_check-attributes-6.png "Attribute Mappings - Profile Editor")
+  ![Attribute Mappings - Profile Editor](/img/oin/scim_check-attributes-6-n.png "Attribute Mappings - Profile Editor")
 
 1. In the Profile Editor, click **Add Attribute**.
-  ![Profile Editor - Add Attribute](/img/oin/scim_check-attributes-10.png "Profile Editor - Add Attribute")
-  Enter the information for the new attribute that you’re adding and then click Save. For example:
+  ![Profile Editor - Add Attribute](/img/oin/scim_check-attributes-10-n.png "Profile Editor - Add Attribute")
+
+    Enter the information for the new attribute that you’re adding and then click Save. For example:
+
   ![Profile Editor - Add Attribute Dialog](/img/oin/scim_check-attributes-11.png "Profile Editor - Add Attribute Dialog")
 
    >**Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, don't check the **User personal** checkbox.
