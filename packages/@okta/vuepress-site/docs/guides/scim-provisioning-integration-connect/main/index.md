@@ -165,15 +165,13 @@ A. Remove the mapping
 
   1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
 
-      ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
+      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1d.png "Provisioning to App tab")
 
   1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to delete and then click **X**.
 
-      ![Attribute Mappings](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
+      ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2d.png "Attribute Mappings")
 
   1. Click **OK** to confirm that you want to remove the mapping for the attribute you selected.
-
-      ![Remove Mapping](/img/oin/scim_check-attributes-3.png "Remove Mapping")
 
   1. After removing the mapping for the unwanted attributes, click **To Okta** under the settings section.
 
@@ -185,7 +183,7 @@ B. Delete attributes from your attribute list
 
   1. After removing all the mappings for the attribute you want to delete, Click **To App**.
 
-      ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
+      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1d.png "Provisioning Tab: Provisioning to App")
 
   1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
 
@@ -207,19 +205,15 @@ B. Delete attributes from your attribute list
 
 1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
 
-    ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
-
 1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
-
-    ![Displays the Attribute Mappings > Profile Editor.](/img/oin/scim_check-attributes-6d.png "Attribute Mappings: Profile Editor")
 
 1. In the Profile Editor, click **Add Attribute**.
 
     ![Displays the Profile Editor > Add Attribute screen.](/img/oin/scim_check-attributes-10d.png "Profile Editor: Add Attribute")
 
-    Enter the information for the new attribute that you’re adding and then click Save. For example:
+    Enter the information for the new attribute that you’re adding and then click **Save**. For example:
 
-    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
+    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11d.png "Profile Editor: Add Attribute")
 
     > **Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, don't check the **User personal** checkbox.
 
@@ -231,29 +225,25 @@ B. Delete attributes from your attribute list
 
 1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
 
-    ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
-
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
     ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13d.png "Attribute Mappings: Edit Attribute")
 
 1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from Okta Profile**. In the second drop-down menu, choose the Okta profile attribute that you would like to map the SCIM attribute from. Click **Save**.
 
-    ![Attributes - Map Attribute](/img/oin/scim_check-attributes-14.png "Attributes - Map Attribute")
+    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14d.png "Attributes: Map Attribute")
 
 1. Repeat for all other SCIM attributes where you would like to modify the mapping (from Okta to your application).
 
 1. After updating the mappings from Okta to your application, click **To Okta** under the settings section.
 
-    ![Displays the Provisioning > To Okta tab.](/img/oin/scim_check-attributes-4-n.png "Provisioning to Okta tab")
-
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
-    ![Attributes - Edit Attribute](/img/oin/scim_check-attributes-16.png "Attributes - Edit Attribute")
+    ![Displays the Edit Attribute dialog.](/img/oin/scim_check-attributes-16d.png "Attributes: Edit Attribute")
 
 1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from ${App Name} App Profile**. In the second drop-down menu, choose the Okta profile attribute you would like to map the SCIM attribute to. Click **Save**.
 
-    ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17.png "Attribute Dialog - Map Attribute")
+    ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17d.png "Attribute Dialog - Map Attribute")
 
 1. Repeat for all other SCIM attributes that you would like to modify the mapping (from your application to Okta).
 
@@ -270,12 +260,12 @@ You only want to include the attributes that you support in your current user sc
     1. Go to your Admin Console.
     1. Click **Directory** > **People**.
 
-      ![Admin Dashboard - Directory - People](/img/oin/scim_check-attributes-18.png "Dashboard showing Directory to People menu item")
+        ![Displays the Admin Dashboard > Directory > People screen.](/img/oin/scim_check-attributes-18d.png "Dashboard: Directory to People menu")
 
     1. You should see the list of Okta users for your org. Find the user you just imported and click that user's name.
     1. Once the user account is opened, click **Profile**. The Profile screen shows you that user's attributes. Check whether the values for the attributes you support were imported properly for this user.
 
-      ![User Profile Attributes](/img/oin/scim_check-attributes-19.png "User attributes dialog")
+        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19d.png "User Profile Attributes")
 
         Your Profile Mapping template can always be updated in the future.
 
