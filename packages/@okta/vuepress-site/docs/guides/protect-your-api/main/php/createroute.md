@@ -21,7 +21,7 @@ switch($path) {
 }
 ```
 
-The two functions `whoami()` and `hello()` are where you would define the actual logic of your API methods. For now, you can define these functions to just output a string of text.
+The two functions `whoami()` and `hello()` are where you define the actual logic of your API methods. For now, you can define these functions to just output a string of text.
 
 ```php
 function hello() {

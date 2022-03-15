@@ -1,4 +1,4 @@
-Delete or comment out the code block you added above that calls `hasValidAccessToken()` and instead move that into the particular API routes you want to protect. For example, you can protect only the `whoami` route and output the claims of the access token. Replace your `whoami` function with the below.
+Delete or comment out the code block you added above that calls `hasValidAccessToken()` and instead move that into the particular API routes that you want to protect. For example, you can protect only the `whoami` route and output the claims of the access token. Replace your `whoami` function with the following:
 
 ```php
 function whoami() {

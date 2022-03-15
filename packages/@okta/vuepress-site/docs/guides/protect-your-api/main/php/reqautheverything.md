@@ -1,4 +1,4 @@
-First, create a function that will check whether a request has a valid access token. This function will be responsible for parsing the incoming `Authorization` header and validating the JWT.
+First, create a function that checks whether a request has a valid access token. This function is responsible for parsing the incoming `Authorization` header and validating the JWT.
 
 ```php
 function hasValidAccessToken() {
@@ -29,7 +29,7 @@ function hasValidAccessToken() {
 }
 ```
 
-This function calls another function that will need to be created which is responsible for fetching and caching the JWT keys from Okta, so create that function now:
+This function calls another function that you need to create that is responsible for fetching and caching the JWT keys from Okta. Create that function now:
 
 ```php
 function getJWKS() {
