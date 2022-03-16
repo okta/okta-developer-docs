@@ -1,3 +1,4 @@
+<!-- WEB SHARED: KEEP EMPTY FOR JAVA, JAVASCRIPT, .NET, AND GO
 ### 1. Initiate sign in
 
 First, the user initiates the sign-in with username and password by making a call to `OktaAuth.idx.authenticate()`.
@@ -164,3 +165,4 @@ If your configuration is setup with only the email authenticator, `IdxTransactio
 }
 
 ```
+-->
