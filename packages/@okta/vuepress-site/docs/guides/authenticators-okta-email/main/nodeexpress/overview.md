@@ -1,4 +1,4 @@
-With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge and complete those flows using magic links and OTP. Use this guide to learn how.
+With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using magic links and OTP. Use this guide to learn how.
 
 ### Discover the convenience of magic links
 

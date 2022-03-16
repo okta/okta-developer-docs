@@ -1,6 +1,6 @@
-## Integrate the email authenticator using OTP
+## Integrate email enrollment with OTP
 
- With OTP, the user copies an automatically generated numeric string from their email to your application to verify their identity. The following diagram illustrates the email challenge flow using OTP.
+ With OTP, the user copies an automatically generated numeric string from their email to your application to verify their identity.
 
 <div class="common-image-format">
 
@@ -8,7 +8,7 @@
 
 </div>
 
-The following step-by-step instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, integrating OTP for the email challenge is nearly identical.
+The following step-by-step instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, the OTP integration portion is nearly identical for the email challenge.
 
 <div class="common-image-format">
 

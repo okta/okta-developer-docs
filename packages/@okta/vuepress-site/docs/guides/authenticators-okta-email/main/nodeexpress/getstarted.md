@@ -1,4 +1,4 @@
-Before integrating the email authenticator in your app, learn the user journey for email magic links and OTP. After, configure your Okta org to support the email authenticator. When these first steps are completed, you're ready to integrate the email authenticator in your app using the Embedded SDK. This guide walks you through each of these steps:
+This guide walks you through the email authenticator user journeys for both magic links and OTP and details step-by-step how to integrate the email enrollment and challenge flows in your app. For more details, see the following sections:
 
 **Magic links**
 
@@ -10,7 +10,7 @@ Before integrating the email authenticator in your app, learn the user journey f
 
 **OTP**
 
-1. [Integrate the email authenticator using OTP](#integrate-the-email-authenticator-using-otp): Integrate the OTP method to verify email in your app
+1. [Integrate email enrollment with OTP](#integrate-email-enrollment-with-otp): Integrate step-by-step email enrollment using OTP
 1. [Enable only OTP for the email authenticator](#enable-only-otp-for-the-email-authenticator): Update the email templates to only support OTP
 
 **Advanced use cases**
