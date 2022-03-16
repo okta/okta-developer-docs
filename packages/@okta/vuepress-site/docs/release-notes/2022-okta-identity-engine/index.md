@@ -9,7 +9,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bugs fixed in 2022.03.2](#bugs-fixed-in-2022-03-1) | March 16, 2022 |
+| [Bugs fixed in 2022.03.2](#bugs-fixed-in-2022-03-2) | March 16, 2022 |
 
 #### Bugs fixed in 2022.03.2
 
@@ -69,7 +69,7 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorized`](/docs/reference/api/oidc/#authorized) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
+* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorize`](/docs/reference/api/oidc/#authorize) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
 
 ## February
 
