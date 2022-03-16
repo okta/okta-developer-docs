@@ -5,6 +5,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## March
 
+### Weekly release 2022.03.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.03.2](#bugs-fixed-in-2022-03-1) | March 16, 2022 |
+
+#### Bugs fixed in 2022.03.2
+
+* An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
+
+* Sending an [error object](/docs/reference/registration-hook/#error) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn’t target attributes. (OKTA-473152)
+
 ### Weekly release 2022.03.1
 
 | Change | Expected in Preview Orgs |
@@ -39,7 +51,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides o
 
 #### Email Address Bounces API is EA in Preview
 
-Okta admins can now control the bounced email address list through the Email Address Bounces API. When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
 
 #### Shareable Authentication Policies
 
@@ -57,7 +69,7 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The [OAuth token endpoint](/docs/reference/api/oidc/#token) accepted requests that included the `resource` parameter. (OKTA-476549)
+* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorized`](/docs/reference/api/oidc/#authorized) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
 
 ## February
 
