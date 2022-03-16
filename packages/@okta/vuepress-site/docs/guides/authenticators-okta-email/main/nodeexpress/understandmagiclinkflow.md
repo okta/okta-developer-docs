@@ -1,6 +1,6 @@
 Before integrating email magic links in your app, it's important to understand how your app's user journey starts and ends. See the following steps for a sign-in with email example journey.
 
-1. Using your app, a user submits a username and password. This submission sends an email to their address. After submitting the user's credentials, your app should display an OTP input page.
+1. Using your app, a user submits a username and password. This submission sends an email to their email address. After submitting the user's credentials, your app should display an OTP input page.
 1. Using a new tab in the browser, the user opens their email and clicks on the magic link.
 1. The link redirects to your app in a new tab and automatically signs the user in.
 
