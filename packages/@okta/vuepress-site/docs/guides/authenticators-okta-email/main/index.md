@@ -14,57 +14,55 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 ---
 **Learning outcomes**
 
-<StackSnippet snippet="learningoutcomes" />
+<StackSnippet snippet="learningoutcomes" /> <!-- SHARED FOR BACKEND | NATIVE UNIQUE  -->
 </br>
 
 **What you need**
 
-* <StackSnippet snippet="whatyouneedsdk" />
-* <StackSnippet snippet="whatyouneedorg" />
+<StackSnippet snippet="whatyouneed" /> <!-- UNIQUE FOR EACH LANGUAGE  -->
+</br>
 
 **Sample code**
 
-* <StackSnippet snippet="samplecode" />
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
+<StackSnippet snippet="samplecode" />  <!-- UNIQUE FOR EACH LANGUAGE  -->
 
 ---
 
 ## Overview
 
-<StackSnippet snippet="overview" />
+<StackSnippet snippet="overview" /> <!-- SHARED FOR BACKEND | NATIVE UNIQUE  -->
 
 ## Get started
 
-<StackSnippet snippet="getstarted" />
+<StackSnippet snippet="getstarted" /> <!-- SHARED FOR BACKEND  | NATIVE UNIQUE  -->
 
 ## Understand the magic link flow
 
-<StackSnippet snippet="understandmagiclinkflow" />
+<StackSnippet snippet="understandmagiclinkflow" /> <!-- SHARED FOR BACKEND | NATIVE UNIQUE   -->
+
+<StackSnippet snippet="supportmatrix" /> <!-- SHARED FOR BACKEND | NATIVE UNIQUE   -->
 
 ## Update configurations
 
-<StackSnippet snippet="updateconfigurations" />
+<StackSnippet snippet="updateconfigurations" /> <!-- SHARED FOR BACKEND | NATIVE UNIQUE  -->
 
-<StackSnippet snippet="integratechallengemagiclinksummary"/>
+<StackSnippet snippet="integratechallengemagiclinksummary"/> <!-- UNIQUE FOR BACKEND  -->
 
-<StackSnippet snippet="integratechallengemagiclink" />
+<StackSnippet snippet="integratechallengemagiclink" /> <!-- UNIQUE FOR BACKEND  -->
 
-<StackSnippet snippet="integratediffbrowserdeviceoverview"/>
+<StackSnippet snippet="integratediffbrowserdeviceoverview"/> <!-- SHARED FOR BACKEND | NATIVE UNIQUE  -->
 
-<StackSnippet snippet="integratediffbrowserdevicesummary"/>
+<StackSnippet snippet="integratediffbrowserdevicesummary"/> <!-- UNIQUE FOR EACH LANGUAGE -->
 
-<StackSnippet snippet="integratediffbrowserdevice" />
+<StackSnippet snippet="integratediffbrowserdevice" /> <!-- UNIQUE FOR EACH LANGUAGE -->
 
-<StackSnippet snippet="integrateenrollmagiclinksummary"/>
+<StackSnippet snippet="integrateenrollmagiclinksummary"/> <!-- UNIQUE FOR EACH LANGUAGE -->
 
-<StackSnippet snippet="integrateenrollmagiclink"/>
+<StackSnippet snippet="integrateenrollmagiclink"/> <!-- UNIQUE FOR EACH LANGUAGE  -->
 
-<StackSnippet snippet="integrateenrollotpsummary"/>
+<StackSnippet snippet="integrateenrollotpsummary"/> <!-- UNIQUE FOR EACH LANGUAGE  -->
 
-<StackSnippet snippet="integrateenrollotp" />
+<StackSnippet snippet="integrateenrollotp" /> <!-- UNIQUE FOR EACH LANGUAGE  -->
 
 ## Enable only OTP for the email authenticator
 
@@ -88,4 +86,8 @@ To learn more about customizing email templates and using the velocity template 
 
 </div>
 
-<StackSnippet snippet="designconsiderationscustompasswordrecovery"/>
+<StackSnippet snippet="designconsiderationscustompasswordrecovery"/>  <!-- MOSTLY SHARED FOR BACKEND -->
+
+## See also
+
+<StackSnippet snippet="seealso" /> <!-- UNIQUE FOR EACH LANGUAGE  -->

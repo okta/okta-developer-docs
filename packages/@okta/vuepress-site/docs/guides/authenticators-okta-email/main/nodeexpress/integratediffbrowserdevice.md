@@ -1,14 +1,14 @@
 ### 1. Initiate sign and start magic link flow
 
-First, the user initiates the sign-in and email challenge flow. Next, they click on the magic link, which redirects back to your application. Your application validates that the URL contains the `otp` and `state` parameters. The steps are identical to the first steps in [Integrate email challenge](#integrate-email-challenge).
+First, the user initiates the sign-in and email challenge flow. Next, they click on the magic link, which redirects them back to your app. Your app validates that the `otp` and `state` parameters are included in the URL. The steps are identical to the first steps in [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links).
 
 
 ### 2. Verify the email and location of magic link click
 
-Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query paramter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
+Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parameter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
 
 * Ensures that the user clicked the magic link in the same browser (but different tab) as your application.
-* Validates that the OTP and state parameters originate from a non expired verification email
+* Validates that the OTP and state parameters originate from a nonexpired verification email
 
 
 ```javascript
@@ -23,7 +23,7 @@ Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query paramt
 
 #### 3: Handle error and inform user to use OTP on original tab
 
-`OktaAuth.idx.handleEmailVerifyCallback()` throws a `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. If this error is thrown, inform the user to enter the OTP on the original tab.
+`OktaAuth.idx.handleEmailVerifyCallback()` throws a `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. Inform the user to enter the OTP on the original tab when this error is thrown.
 
 <div class="common-image-format">
 

@@ -26,7 +26,7 @@ If email enrollment is enabled for you org's application and the user has not ye
 }
 ```
 
-Use this response to a display a page of available authenticators, including email.
+Use this response to display a page of available authenticators, including email.
 
 <div class="common-image-format">
 
@@ -44,11 +44,11 @@ When the user selects the email authenticator from the list, call `OktaAuth.idx.
     const transaction = await authClient.idx.proceed({ authenticator });
 ```
 
-### 4. Send email to user's email address
+### 4. Send the email to user's email address
 
-Calling `OktaAuth.idx.proceed()` in the previus step iniitates the sending of an email to the user's email address. The email is based off of the **Email Factor Verification** template, which contains a placeholder for the OTP.
+Calling `OktaAuth.idx.proceed()` in the previous step sends an email to the user's email address. The email, which contains a placeholder for the OTP, is based on the **Email Factor Verification** template.
 
-### 5. Display OTP input page
+### 5. Display an OTP input page
 
 The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status` of `PENDING`, `nextStep.name` equal to `enroll-authenticator`, and `availableSteps[n].authenticator.key` set to `okta_email`.
 
@@ -79,7 +79,7 @@ The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status`
 }
 ```
 
-Using this response display a page to input the OTP.
+Using this response, display a page to input the OTP.
 
 <div class="common-image-format">
 
@@ -89,7 +89,7 @@ Using this response display a page to input the OTP.
 
 ### 6. Open email and copy OTP
 
-Next, the user opens the email sent by Okta and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
+Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
 <div class="common-image-format">
 
@@ -97,7 +97,7 @@ Next, the user opens the email sent by Okta and copies the OTP. The following sc
 
 </div>
 
-### 7. Submit OTP
+### 7. Submit the OTP
 
 When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing in the OTP.
 
