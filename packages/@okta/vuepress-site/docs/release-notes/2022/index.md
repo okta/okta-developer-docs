@@ -14,7 +14,7 @@ title: Okta API Products release notes 2022
 
 * An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* The `servers` parameter was incorrectly set as required in the [Preauthorizations](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the ASA Projects API. (OKTA-478566)
+* The `servers` parameter was incorrectly set as required in the [Preauthorization](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the ASA Projects API. (OKTA-478566)
 
 
 ### Weekly release 2022.03.1
