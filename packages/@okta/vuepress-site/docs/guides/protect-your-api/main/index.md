@@ -154,5 +154,6 @@ If you are using Postman, your GET call and response should look something like 
 * Define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 * [Learn more about validating access tokens](/docs/guides/validate-access-tokens/dotnet/main/)
 * [Include custom claims in your token returned from Okta](/docs/guides/customize-tokens-returned-from-okta/-/main/)
+* [Learn about Authentication, OAuth 2.0, and OpenID Connect](https://developer.okta.com/docs/concepts/)
 
 <StackSnippet snippet="specificlinks" />
