@@ -72,7 +72,9 @@ const isRegionLocked = () => {
   return BLOCKED_REGION_LIST.includes(countryCode);
 }
 
+const geoLocation = new GeoLocation();
+
 export {
-  GeoLocation,
+  geoLocation,
   isRegionLocked
 }

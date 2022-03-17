@@ -3,7 +3,7 @@
     <div class="signup--content">
       <div class="signup--form">
         <div v-if="isRegionLocked">
-          <p>We believe that you are located in a region recently impacted by US sanctions relating to Russia's invasion of Ukraine and are not able to process this request on that basis. This change in our policy is effective as of March 21, 2022. If you have any questions, contact support.</p>
+          <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
         </div>
         <div v-else>
           <form id="signupForm" @submit="submitForm">
