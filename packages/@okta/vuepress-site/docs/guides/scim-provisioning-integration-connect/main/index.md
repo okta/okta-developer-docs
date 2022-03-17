@@ -23,7 +23,7 @@ Begin by signing up for an [Okta developer account](https://developer.okta.com/s
 1. Click **Add** on the desired template application for your integration and finish adding the template application.
 1. On the **General Settings** page: Set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
 1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
-1. Click the **Provisioning*** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
+1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
     - Basic Auth: Enter the the username and password for the account that handles the create, update, and deprovisioning actions of your SCIM implementation.
@@ -197,7 +197,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
     ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
 
-    > **Note:** The Scope property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
+    > **Note:** The **Scope** property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
 1. After adding an attribute, you can add a mapping for that new attribute.
 
