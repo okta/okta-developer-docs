@@ -161,11 +161,11 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
   1. From the Admin Console, open your SCIM integration.
 
-  1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
+  1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
       ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png "Provisioning to App tab")
 
-  1. Scroll to the Attribute Mappings section. Look for the attribute that you want to delete and then click the corresponding **X**.
+  1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to delete and then click the corresponding **X**.
 
       ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
 
@@ -173,7 +173,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
         Repeat steps 3 and 4 until you remove all the mappings for the attributes that you want to delete.
 
-  1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor** in the Attribute Mappings section.
+  1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor** in the **Attribute Mappings** section.
 
   1. In the Profile Editor, look for the attribute that you want to delete, and click the corresponding **X**.
 
@@ -187,7 +187,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. From the Admin Console, open your SCIM integration.
 
-1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
+1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
 1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
 
@@ -205,9 +205,9 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. From the Admin Console, open your SCIM integration.
 
-1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
+1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
-1. Scroll to the Attribute Mappings section. Look for the attribute that you want to update and click **Edit**.
+1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
     ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png "Attribute Mappings: Edit Attribute")
 
@@ -217,9 +217,9 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Repeat steps 3 and 4 for all other SCIM attributes you want to map (from Okta to your application).
 
-1. After updating the mappings from Okta to your application, click **To Okta** under the Settings section.
+1. After updating the mappings from Okta to your application, click **To Okta** under the **Settings** section.
 
-1. Scroll to the Attribute Mappings section. Look for the attribute that you want to update and click **Edit**.
+1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
 1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from ${App Name} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
 
