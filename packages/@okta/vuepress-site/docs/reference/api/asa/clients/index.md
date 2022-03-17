@@ -46,7 +46,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `all`   |  boolean | (Optional) When `true`, returns all Clients for the Team |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The page offset |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `state`   |  string | (Optional) The state of the ASA Client: `ACTIVE`, `PENDING`, or `DELETED` |
 | `username`   |  string | (Optional) List Clients assigned to a single User. An empty string returns unassigned Clients. |

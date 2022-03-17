@@ -61,6 +61,14 @@ when retrieving lists:
 3. Check for a Link header value with `rel="next"`. If such a value exists,
    fetch it and repeat steps two and three.
 
+An example of a paginated request that contains the URL from the `rel="next"` Link header:
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.com/v1/teams/${team_name}/projects?offset=${next_page_offset}
+```
+
 Clients that want to fetch pages of less than 100 items (for testing
 pagination, for example) may pass a `count` parameter to the initial list call.
 This parameter is automatically propagated to each of the pagination Link URLs
