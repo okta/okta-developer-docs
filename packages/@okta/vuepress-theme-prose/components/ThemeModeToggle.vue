@@ -26,8 +26,8 @@ export default {
   methods: {
     getDarkMode: function() {
       this.isDarkMode = storage.getItem(THEME_MODE_KEY) 
-          ? JSON.parse(storage.getItem(THEME_MODE_KEY))  
-          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        ? JSON.parse(storage.getItem(THEME_MODE_KEY))  
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
     },
 
     toggleDarkMode: function() {
@@ -39,7 +39,9 @@ export default {
     addHtmlClass: function() {
       const bodyClasses = document.body.classList;
       bodyClasses.add('loaded');
-      (this.isDarkMode === true) ? bodyClasses.add(DARK_THEME_CLASS) : bodyClasses.remove(DARK_THEME_CLASS);
+      this.isDarkMode === true
+        ? bodyClasses.add(DARK_THEME_CLASS)
+        : bodyClasses.remove(DARK_THEME_CLASS);
     }
   }
 };
