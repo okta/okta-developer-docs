@@ -1,13 +1,13 @@
 ### 1 - 4: Sign-in and Select Authenticator
-The challenge flow follows the same first four steps as the [enrollment flow](/docs/guides/authenticators-google-authenticator/ios/main/#integrate-sdk-for-authenticator-enrollment):
+The challenge flow follows the same first four steps as the [enrollment flow](#integrate-sdk-for-authenticator-enrollment):
 
-* Display the initial sign-in UI
-* Start the sign-on flow
-* Authenticate the user credentials
-* Display a list of possible authenticator factors
+* [Display the initial sign-on UI](#_1-display-the-initial-sign-on-ui).
+* [Start the sign-on flow](#_2-start-the-sign-on-flow).
+* [Authenticate the user credentials](#_3-authenticate-the-user-credentials).
+* [Display a list of authenticators available for enrollment](#_4-display-a-list-of-authenticators-available-for-enrollment).
 
 
-### 5: Display and capture a code entry
+### 5: Display an OTP entry field
 
 The `.challengeAuthenticator` remediation type used for requesting a password is also used for one-time codes. A Google Authencator code request is represented by an authenticator with a `type` of `.app` and a `key` of `"google_otp"`.
 

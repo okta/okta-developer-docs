@@ -4,7 +4,7 @@ The examples in this guide manage the sign-on flow using a singleton class (`Sig
 
 The SwiftUI portions pass state information using multiple bindings, consider using more robust ways of sharing and updating data in production apps. For more information, see the [Apple developer documentation for state and data flow in SwiftUI](https://developer.apple.com/documentation/swiftui/state-and-data-flow/).
 
-### 1: Display the initial sign-in UI
+### 1: Display the initial sign-on UI
 
 Enable the user to start the sign-in flow, such as presenting a Sign In button or a form with fields for a username and password (you won't use those values until step 3 when you [authenticate the user credentials](#_3-authenticate-the-user-credentials)).
 
@@ -134,7 +134,7 @@ func handleChallenge(_ remediation: Remediation) {
 
 >**Note:** The response from the server specifies either the next step, an error, or a message, such as an incorrect code. The code that handles the response may need to show different UI, depending on the step. The `IDXClientDelegate` protocol includes two other functions: `idx(client:didReceive<Token>:)` handles receiving a sign-in token, and   `idx(client:didReceive<Error>:)` handles errors.
 
-### 4: Display a list of possible authenticator factors
+### 4: Display a list of authenticators available for enrollment
 
 After verifying the username and password, the server sends a remediation of type `.selectAuthenticatorEnroll` that contains the possible authenticators. The list of choices are in the `options` property of a field with `name` set to `"authenticator"` in the remediation `forms` property.
 
