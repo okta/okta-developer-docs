@@ -65,7 +65,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 ### 5. Send the request to Okta
 
-When the user clicks on the magic link, your org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and OTP and state query parameters. An example callback URL is as follows: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks on the magic link, your org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org combines the `Callback URI` you defined in [Update configurations](#update-configurations) with the `OTP` and `state` parameters to produce a final callback URL for the user. For example, `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 6: Handle redirect in your app
 
@@ -81,7 +81,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ### 7. Validate request is from a verification email
 
-Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter section of the URL. This method validates that the OTP and state query parameters are present. An example of the input parameter is as follows: `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`.
+Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter section of the URL. This method validates that the OTP and state query parameters are present. For example, `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` will present the `otp` value `726009` and the `state` value `1b34371af02dd31d2bc4c48a3607cd32`
 
 ```javascript
     if (authClient.idx.isEmailVerifyCallback(search)) {
@@ -91,7 +91,7 @@ Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter secti
 
 ### 8. Verify the email and location of the magic link click
 
-Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parameter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
+Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parameter containing the OTP and state. This method performs the following checks:
 
 * Ensures that the user clicked the magic link in the same browser (but different tab) as your application.
 * Validates that the `otp` and `state` parameters originate from a nonexpired verification email

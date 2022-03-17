@@ -68,11 +68,11 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 
 Magic links is a secure way to verify users' emails. However, you may want to use only OTP to provide an even higher level of security that positively proves that the person who started the request is the same person reading the email. In this case, OTP may be a more compatible solution. For example, if you have a banking app, which shows account information and allows for money transfers, magic links may be too convenient, and OTP may provide a better solution.
 
-To disable magic link functionality, remove the links from the following email templates:
+To disable magic link functionality, open the Admin Console and select **Customizations > Emails**. Now remove the links from the following email templates:
 
-* Email Challenge
-* Email Factor Verification
-* Forgot password
+* Other > Email Challenge
+* Other > Email Factor Verification
+* Password > Forgot password
 
 In each template, find the anchor tag and remove it from the template HTML. The following screenshot identifies the magic link anchor tag (identified by `email-authentication-button` id) for the **Email Challenge** template.
 

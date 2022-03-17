@@ -1,4 +1,4 @@
-<!-- WEB SHARED: KEEP EMPTY FOR JAVA, JAVASCRIPT, .NET, AND GO
+<!-- NOT SUPPORTED YET FOR BACKEND DESIGNS
 ## Integrate email enrollment with magic links
 
 <div class="common-image-format">

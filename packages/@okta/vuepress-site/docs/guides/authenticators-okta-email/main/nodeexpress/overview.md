@@ -1,8 +1,8 @@
-With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using magic links and OTP. Use this guide to learn how.
+With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using magic links, OTP, or a combination of both. Use this guide to learn how.
 
 ### Discover the convenience of magic links
 
-A user performs one action with magic links - a click on a link - to complete the email verification. The experience is less choppy than OTP, where a user must switch between their email service and your app to find and submit the OTP. Because of this, magic links is a balance of security and convenience and provides a frictionless experience for your users.
+When using OTP, a user must switch between your app to their email, find the OTP, switch back to your app again, type in the OTP and hit submit to verify their identity. Compare this to using magic links where verification requires the user only to click on a link in the email - a far quicker, more user-convenient, and yet still secure experience.
 
 <div class="common-image-format">
 

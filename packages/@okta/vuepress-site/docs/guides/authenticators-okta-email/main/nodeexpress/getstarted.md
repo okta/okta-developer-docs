@@ -1,4 +1,4 @@
-This guide walks you through the email authenticator user journeys for both magic links and OTP and details step-by-step how to integrate the email enrollment and challenge flows in your app. For more details, see the following sections:
+This guide walks you through the email authenticator user journeys for both magic links and OTP and details step-by-step how to integrate the email enrollment and challenge flows into your app. For more details, see the following sections in this guide:
 
 **Magic links**
 

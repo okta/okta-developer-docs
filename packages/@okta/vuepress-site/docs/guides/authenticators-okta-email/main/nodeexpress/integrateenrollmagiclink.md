@@ -1,4 +1,4 @@
-<!-- WEB SHARED: KEEP EMPTY FOR JAVA, JAVASCRIPT, .NET, AND GO
+<!-- NOT SUPPORTED YET FOR BACKEND DESIGNS
 ### 1. Initiate sign in
 
 First, the user initiates the sign-in with username and password by making a call to `OktaAuth.idx.authenticate()`.
@@ -10,7 +10,7 @@ First, the user initiates the sign-in with username and password by making a cal
 
 ### 2. Show option to enroll email
 
-If email enrollment is enabled for you org's application and the user has not yet enrolled in email, `OktaAuth.idx.authenticate()` returns `IdxTransaction` with a status of `PENDING` and `nextStep.name` equal to `select-authenticator-enroll`. The `nextStep.options` array includes an item with a `value` property of `okta_email`.
+If email enrollment is enabled for your org's application and the user has not yet enrolled in email, `OktaAuth.idx.authenticate()` returns `IdxTransaction` with a status of `PENDING` and `nextStep.name` equal to `select-authenticator-enroll`. The `nextStep.options` array includes an item with a `value` property of `okta_email`.
 
 ```json
 {
@@ -80,7 +80,7 @@ The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status`
 }
 ```
 
-Using this response display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for a OTP verification fallback in cases where OTP maybe required or simply more convienent.  For example, a user checking their email from a different device from where they are signing into your app, is required to use OTP. Different browser and device scenarios are covered in  [Integrate different browser and device scenario][#integrate-different-browser-and-device-scenario]
+Using this response display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP maybe required or simply more convienent.  For example, a user checking their email from a different device from where they are signing into your app, is required to use OTP. Different browser and device scenarios are covered in  [Integrate different browser and device scenario][#integrate-different-browser-and-device-scenario]
 
 <div class="common-image-format">
 
@@ -98,11 +98,11 @@ Next, the user opens their email and clicks on the magic link. The following scr
 
 </div>
 
-The link is points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
+The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
 ### 7. Send request to Okta
 
-When the user clicks on the magic link, the request is first routed to you Okta org, which forwards the request to your application including the `OTP` and `state` parameters. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and adds the OTP and state query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks on the magic link, the request is first routed to you Okta org, which forwards the request to your application including the `otp` and `state` parameters. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and adds the `otp` and `state` query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 8: Handle redirect in your app
 
@@ -118,7 +118,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ### 9. Validate request is from a verification email
 
-Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parmaeter section of the URL. This method validates that the OTP and state query parameters are present. `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039` is an example of the method's input parmaeter.
+Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parmaeter section of the URL. This method validates that the OTP and state query parameters are present. `?otp=482039&state=8bae50c6e5a973e954b4ac7cd4d1a744` is an example of the method's input parmaeter.
 
 ```javascript
     if (authClient.idx.isEmailVerifyCallback(search)) {
