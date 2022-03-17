@@ -524,17 +524,11 @@ struct EnrollAuthenticatorView: View {
 }
 ```
 
+The following screenshot shows the form displaying the shared secret used for enrollment in addition to the OTP entry field.
 
 <div class="common-image-format">
 
 ![Display a QR Code and shared secret.](/img/authenticators/ios-authenticators-google-enroll.png "An app displaying a form containing the QR Code, shared secret, code entry field, and continue and cancel buttons.")
-
-</div>
-
-
-<div class="common-image-format">
-
-![Display the OTP entry field and any warning message.](/img/authenticators/ios-authenticators-google-code-screen.png "Two screenshots. The first shows a form containing an OTP code entry filed and continue and cancel buttons. The second shows the same form with a warning message.")
 
 </div>
 
