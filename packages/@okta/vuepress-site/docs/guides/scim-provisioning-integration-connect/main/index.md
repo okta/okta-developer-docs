@@ -211,7 +211,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
     ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png "Attribute Mappings: Edit Attribute")
 
-1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you would like to map the SCIM attribute from. Click **Save**.
+1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute from. Click **Save**.
 
     ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png "Attributes: Map Attribute")
 
