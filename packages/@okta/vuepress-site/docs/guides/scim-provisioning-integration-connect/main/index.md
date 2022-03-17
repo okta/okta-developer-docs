@@ -103,7 +103,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Exclude Username Updates**: Prevents your downstream application profile from overwriting the Okta user profile when using the [Profile Push](https://help.okta.com/okta_help.htm?id=ext_Using_Selective_Profile_Push) feature.
 
-* **Sync Password**: Ensures that a user's application password is always the same as their Okta password, or alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main) .
+* **Sync Password**: Ensures that a user's application password is always the same as their Okta password, or alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main).
 
 * **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
