@@ -18,11 +18,16 @@
 </template>
 
 <script>
+import { GeoLocation } from "../util/geoLocation";
+
 export default {
   components: {
     Footer: () => import("../components/Footer"),
     Header: () => import("../components/Header"),
     SmartLink: () => import("../components/SmartLink"),
+  },
+  beforeMount() {
+    const geoLocation = new GeoLocation();
   },
   mounted: function() {
     import("../util/pendo");
