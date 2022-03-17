@@ -197,7 +197,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
     ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
 
-    > **Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, don't check the **User personal** checkbox.
+    > **Note:** The Scope property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
 1. After adding an attribute, you can add a mapping for that new attribute.
 
