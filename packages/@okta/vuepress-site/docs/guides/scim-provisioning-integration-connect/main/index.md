@@ -169,7 +169,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
       ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
 
-  1. Click **OK** to confirm that you want to remove the mapping for the attribute you selected.
+  1. Click **OK** to confirm that you want to remove the mapping for the attribute that you selected.
 
         Repeat steps 3 and 4 until you remove all the mappings for the attributes that you want to delete.
 
