@@ -54,8 +54,8 @@ class GeoLocation {
 
   onError = () => {
     // Try again if there is an error.
-    if (hasRetried === false) {
-      hasRetried = true;
+    if (this.hasRetried === false) {
+      this.hasRetried = true;
       this.getLocale();
     }
   }
