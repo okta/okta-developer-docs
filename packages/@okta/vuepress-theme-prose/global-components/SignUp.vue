@@ -281,6 +281,7 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import getAnalyticsValues from "../util/attribution/attribution";
+import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
@@ -288,6 +289,8 @@ const USA = "United States";
 
 const GENERIC_ERROR_MSG =
   "Something unexpected happened while processing your registration. Please try again.";
+
+const THEME_MODE_KEY = 'is_dark_mode';
 
 export default {
   components: {
@@ -365,7 +368,7 @@ export default {
   },
   methods: {
     getTheme: function() {
-      return JSON.parse(localStorage["is_dark_mode"]) === true ? "dark" : "light";
+      return JSON.parse(storage.getItem(THEME_MODE_KEY)) === true ? "dark" : "light";
     },
     async submitForm(e) {
       e.preventDefault();

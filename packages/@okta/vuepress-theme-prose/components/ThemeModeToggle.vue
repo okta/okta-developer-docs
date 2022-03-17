@@ -6,9 +6,10 @@
 </template>
 
 <script>
+import storage from "../util/localStorage";
 
-const themeModeCookieName = 'is_dark_mode';
-const darkThemeHtmlClass = 'dark-theme';
+const THEME_MODE_KEY = 'is_dark_mode';
+const DARK_THEME_CLASS = 'dark-theme';
 
 export default {
   data() {
@@ -24,20 +25,23 @@ export default {
 
   methods: {
     getDarkMode: function() {
-      this.isDarkMode = localStorage[themeModeCookieName] 
-          ? JSON.parse(localStorage[themeModeCookieName])  
-          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.isDarkMode = storage.getItem(THEME_MODE_KEY) 
+        ? JSON.parse(storage.getItem(THEME_MODE_KEY))  
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
     },
 
     toggleDarkMode: function() {
-      this.isDarkMode = localStorage[themeModeCookieName] = !this.isDarkMode;
+      this.isDarkMode = !this.isDarkMode;
+      storage.setItem(THEME_MODE_KEY, this.isDarkMode);
       this.addHtmlClass();
     },
 
     addHtmlClass: function() {
       const bodyClasses = document.body.classList;
       bodyClasses.add('loaded');
-      (this.isDarkMode === true) ? bodyClasses.add(darkThemeHtmlClass) : bodyClasses.remove(darkThemeHtmlClass);
+      this.isDarkMode === true
+        ? bodyClasses.add(DARK_THEME_CLASS)
+        : bodyClasses.remove(DARK_THEME_CLASS);
     }
   }
 };
