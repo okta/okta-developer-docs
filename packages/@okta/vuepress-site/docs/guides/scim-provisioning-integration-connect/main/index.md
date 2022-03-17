@@ -215,7 +215,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
     ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png "Attributes: Map Attribute")
 
-1. Repeat steps 3 and 4 for all other SCIM attributes you want to map (from Okta to your application).
+1. Repeat steps 3 and 4 for all other SCIM attributes that you want to map (from Okta to your application).
 
 1. After updating the mappings from Okta to your application, click **To Okta** under the **Settings** section.
 
