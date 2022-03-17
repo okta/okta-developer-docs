@@ -119,7 +119,7 @@ Click **Edit** to make changes to the following sections.
 
 * **User Creation & Matching**: Sets up matching rules to use when importing users from your application. Establishing matching criteria allows you to specify how an imported user is defined when creating a new user or mapping to an existing Okta user.
 
-  * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. For the new imported user to be considered an exact match, each option that you select must be true. Note that if you choose the third option, the first and second choices are disabled.
+  * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. To consider the new imported user an exact match, each option that you select must be true. Note that if you choose the third option, the first and second choices are disabled.
 
   * **Allow partial matches**: Permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
 
