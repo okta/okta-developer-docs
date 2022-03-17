@@ -238,7 +238,7 @@ You only want to include the attributes that you support in your current user sc
     1. From your Admin Console, select **Directory** > **People**. The list of Okta users for your org appears.
 
     1. Find the user that you imported and click the user's name.
-    1. Once the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
+    1. After the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
 
         ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19.png "User Profile Attributes")
 
