@@ -1,12 +1,11 @@
 ### 1 - 4: Sign-in and Select Authenticator
-The challenge flow follows the same first 3-4 steps as the [enrollment flow](/docs/guides/authenticators-google-authenticator/ios/main/#integrate-sdk-for-authenticator-enrollment):
+The challenge flow follows the same first four steps as the [enrollment flow](/docs/guides/authenticators-google-authenticator/ios/main/#integrate-sdk-for-authenticator-enrollment):
 
 * Display the initial sign-in UI
 * Start the sign-on flow
 * Authenticate the user credentials
 * Display a list of possible authenticator factors
 
-Step 4, displaying a list of authenticators, depends on the policy settings.
 
 ### 5: Display and capture a code entry
 
@@ -40,4 +39,4 @@ func handleChallenge(_ remediation: Remediation) {
 }
 ```
 
-The same utlity functions work for both a challenge and an enrollment. The SwiftUI form also works because the QR Code and shared secret display only if there's data. The next steps are also the same, either a successful login, a message, or an error.
+The next response from the SDK is also handled the same way, and is either: a successful login that ends the sign-on flow, a message to display (e.g. an incorrect code), or an error that terminates the sign-on flow.

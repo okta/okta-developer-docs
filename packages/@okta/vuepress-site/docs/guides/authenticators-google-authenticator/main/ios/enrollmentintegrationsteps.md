@@ -1,6 +1,8 @@
->**Note:** The examples in this guide use Swift 5, SwiftUI, and a target of iOS 15 or later. The SwiftUI portions pass state information using multiple bindings, consider using more robust ways of sharing and updating data in production apps. For more information, see the [Apple developer documentation for state and data flow in SwiftUI](https://developer.apple.com/documentation/swiftui/state-and-data-flow/).
+>**Note:** The examples in this guide use Swift 5, SwiftUI, and a target of iOS 15 or later.
 
-The code in this guide manages the sign-on flow using a singleton class (`SignInController`). The class handles asynchronous responses from the SDK by implementing the delegate functions of the `IDXClientDelegate` protocol. The SDK also provides completion handlers and Swift Concurrency (`async/await`).
+The examples in this guide manage the sign-on flow using a singleton class (`SignInController`). The class handles asynchronous responses from the SDK by implementing the delegate functions of the `IDXClientDelegate` protocol. The SDK also provides completion handlers and Swift Concurrency (`async/await`).
+
+The SwiftUI portions pass state information using multiple bindings, consider using more robust ways of sharing and updating data in production apps. For more information, see the [Apple developer documentation for state and data flow in SwiftUI](https://developer.apple.com/documentation/swiftui/state-and-data-flow/).
 
 ### 1: Display the initial sign-in UI
 
@@ -30,11 +32,13 @@ IDXClient.start(with: configuration) { (client, error) in
 }
 ```
 
-The `configuration` (`IDXClient.IDXClientConfiguration`) parameter in the call to `IDX.start(with:)` contains the configuration information for your Okta org, and is usually initialized from an `Okta.plist` file. The call to `client.resume()` requests the first response of the sign-sequence.
+The call to `IDX.start(with:)` takes a single parameter of type `IDXClient.IDXClientConfiguration`. It contains the configuration information for your Okta org, and is usually initialized from an `Okta.plist` file. The call to `client.resume()` requests the first response of the sign-sequence.
 
 ### 3: Authenticate the user credentials
 
 The SDK uses a `Response` object to represent the server request for the current sign-on step. It contains a collection of remediations (`Remedation`) that specify the type of step, any general messages, and a nested collection of forms (`Remedation.Form`) containing fields (`Remedation.Form.Field`) that represent the various elements of the UI, such as an entry field with a label. Completing a step usually requires setting the value of one or more fields. The remediation is then sent back to the server with the updated values by calling `proceed()`. The server processes the values and then sends the next step.
+
+
 
 The kind of sign-on step is represented by the `type` property of the remediation. In this step the server is requesting the username and password, an `.identify` remediation type.
 
@@ -103,7 +107,7 @@ func handleIdentify(_ remediation: Remediation) {
 }
 ```
 
-Some types of policies ask for the passsword in a separate step using a `.challengeAuthenticator` remediation type. The `handleChallege(remediation:)` function sets the password and calls `proceed()`:
+Some types of policies ask for the password in a separate step using a `.challengeAuthenticator` remediation type. The `handleChallege(remediation:)` function sets the password and calls `proceed()`:
 
 
 ```swift
@@ -128,9 +132,7 @@ func handleChallenge(_ remediation: Remediation) {
 
 ```
 
->**Note:** The response from the server specifies either the next step, an error, or a
-message, such as an incorrect code. The code that handles the response may need to show
-different UI, depending on the step. The `IDXClientDelegate` protocol includes two other functions: `idx(client:didReceive<Token>:)` handles receiving a sign-in token, and   `idx(client:didReceive<Error>:)` handles errors.
+>**Note:** The response from the server specifies either the next step, an error, or a message, such as an incorrect code. The code that handles the response may need to show different UI, depending on the step. The `IDXClientDelegate` protocol includes two other functions: `idx(client:didReceive<Token>:)` handles receiving a sign-in token, and   `idx(client:didReceive<Error>:)` handles errors.
 
 ### 4: Display a list of possible authenticator factors
 
@@ -175,8 +177,7 @@ func handleSelectAuthenticatorToEnroll(_ remediation: Remediation) {
 }
 ```
 
-Display a UI for selecting an authenticator, or if there no options or some other issue,
-present an error.
+Use the information returned by these utility functions to populate a UI for selecting an authenticator.If there no options or some other issue, present an error.
 
 One way to do this is building a picker using the results of the `authenticatorOptions()` utility function. For example, the following SwiftUI code displays the options using a `Picker` in a `Form`. In the code `SignInController` is the singleton that manages the sign-on flow. The view model uses a completion handler to receive results from the controller. The `.success` result type for this completion handler is:
 
@@ -297,7 +298,16 @@ struct AuthenticatorSelectionView: View {
 
 ```
 
-The UI updates the sign-on controller with the selected authenticator by calling `selectAuthenticator(authenticator:completion)`, or `skipAuthenticatorSelection(completion:)` if the user chose to skip enrolling in additional authenticators:
+These screenshots show selecting Google Authenticator using the form. The first displays the picker with the label and no selected item. The next screen shows the generated list of choices shown after tapping the picker. The final screen shows the picker with Google Authenticator selected.
+
+<div class="common-image-format">
+
+![The authentication selection picker form.](/img/authenticators/ios-authenticators-google-choose-authenticator.png "A series of three screenshots with a form for selecting an authenticator. The first shows the picker with no value, the second shows the list of choices in a new form, and the third shows the picker displaying the name of the chosen authenticator.")
+
+</div>
+
+
+The UI updates the sign-on controller with the selected authenticator by calling `selectAuthenticator(authenticator:completion)`, or `skipAuthenticatorSelection(completion:)` if the user choses to skip enrolling in additional authenticators.
 
 ```swift
 public func skipAuthenticatorSelection(completion:@escaping (Result<SuccessResultType, LoginError>) -> Void) {
@@ -337,10 +347,10 @@ After selecting the authenticator, the server sends an enrollment request in a r
 
 The remediation includes the shared secret as both a QR Code and as text. It also includes a request to enter a Google Authenticator code after enrollment.
 
-The sign-on controller code for `handleEnrollAuthenticator(remdiation:)` works for many different authenticators because the `form` property of the remediation contains the information required to build the UI:
+The sign-on controller code for `handleEnrollAuthenticator(remediation:)` works for many different authenticators because the `form` property of the remediation contains the information required to build the UI:
 
 ```swift
-func handleEnrollAuthenticator(_ remdiation: Remediation) {
+func handleEnrollAuthenticator(_ remediation: Remediation) {
     // Tell the caller to present a UI for enrolling in Google Authenticator.
 
 }
@@ -348,7 +358,7 @@ func handleEnrollAuthenticator(_ remdiation: Remediation) {
 
 The collection of authenticators related to the current request are in the `authenticators` property of the remediation. Each one is an instance of the `Authenticator` class which includes an identifier in the `key` property and a name for display in the UI in the `displayName` property.
 
-Authenticators may include one or more capabilities that describe associated data and behaviors, such as the QR Code or the ability to send a code. This includes
+Authenticators may include one or more capabilities that describe associated data and behaviors, such as the QR Code or the ability to send a one-time passcode (OTP).
 
 This utility function finds the Google Authenticator (`key` set to `"google_otp"`), and then loads an image for the QR Code and the shared secret:
 
@@ -372,7 +382,7 @@ func authenticatorEnrollment() -> AuthenticatorEnrollment? {
     }
 ```
 
-The model and view information for the one-time code entry field are nested in the forms of the remediation. First find a field with the `name` property set to `"credentials"` in the `form` property of the remediation. Then in the `form` property of that field, find the field with the `name` set to `"passcode"`:
+The model and view information for the OTP entry field are nested in the forms of the remediation. First find a field with the `name` property set to `"credentials"` in the `form` property of the remediation. Then in the `form` property of that field, find the field with the `name` set to `"passcode"`:
 
 ```swift
 typealias AuthenticatorCode = (codeField: Remediation.Form.Field,
@@ -388,7 +398,7 @@ typealias AuthenticatorCode = (codeField: Remediation.Form.Field,
 
 ```
 
-Set the `value` property of the  entry field, the one with a name `"passcode"` to the code entered by the user, and then submit the remediation to continue to the next step. This is the utility function from the sign-on manager:
+Set the `value` property of the  entry field, the one with a name `"passcode"` to the OTP entered by the user, and then submit the remediation to continue to the next step. This is the utility function from the sign-on manager:
 
 ```swift
 public func authenticateWithCode(code: String?, completion:@escaping (Result<SuccessResultType, LoginError>) -> Void) {
@@ -405,7 +415,7 @@ public func authenticateWithCode(code: String?, completion:@escaping (Result<Suc
 }
 ```
 
-The following form displays the QR Code, secret key, and a form for entering the one-time code:
+The following form displays the QR Code, secret key, and a form for entering the OTP:
 
 ```swift
 import SwiftUI
@@ -514,10 +524,34 @@ struct EnrollAuthenticatorView: View {
 }
 ```
 
-There are three possible results after sending the code to the server:
 
-- Sending the correct code signs the user in.
-- Sending an incorrect code results in another `.enrollAuthenticator` response with a message indicating that the code doesn't match. The UI code handles that case by displaying a form that includes the message.
+<div class="common-image-format">
+
+![Display a QR Code and shared secret.](/img/authenticators/ios-authenticators-google-enroll.png "An app displaying a form containing the QR Code, shared secret, code entry field, and continue and cancel buttons.")
+
+</div>
+
+
+<div class="common-image-format">
+
+![Display the OTP entry field and any warning message.](/img/authenticators/ios-authenticators-google-code-screen.png "Two screenshots. The first shows a form containing an OTP code entry filed and continue and cancel buttons. The second shows the same form with a warning message.")
+
+</div>
+
+There are three possible results after sending the OTP to the server:
+
+- Sending the correct OTP signs the user in.
+- Sending an incorrect OTP results in another `.enrollAuthenticator` response with a message indicating that the code doesn't match. The UI code handles that case by displaying a form that includes the message.
 - An error, such as a disconnected server.
 
+A successful sign-on sets `isLoginSuccessful` to `true`. Your code then aquires a token from the response by calling `response.exchangeCode()`. The following code shows the singleton delegate function called that's called with the token:
 
+```swift
+extension SignInController: IDXClientDelegate {
+    // Delegate method sent after a token is exchanged.
+    public func idx(client: IDXClient, didReceive token: Token) {
+        // Inform the UI that sign-on is successful
+    }
+    ...
+}
+```
