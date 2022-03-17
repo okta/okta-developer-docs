@@ -314,6 +314,14 @@ export const guides = [
                 guideName: "authenticators-overview"
               },
               {
+                title: "Okta email",
+                guideName: "authenticators-okta-email"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
+              },
+              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator"
               },
@@ -321,10 +329,6 @@ export const guides = [
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn"
               },
-              {
-                title: "Okta Verify",
-                guideName: "authenticators-okta-verify"
-              }
             ]
           },
         ]

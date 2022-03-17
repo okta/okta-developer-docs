@@ -49,4 +49,4 @@ After the user enters and submits the TOTP, call `IdxTransaction.idx.proceed()` 
 
 ### 5: Complete successful sign-in
 
-Eventually, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed in user.
+Eventually, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
