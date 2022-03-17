@@ -36,7 +36,7 @@ The following operators and functionality offered by SpEL aren't supported in Ok
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
 
-> **Note:** You can't use `user.status` with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?id=ext-okta-method-creategrouprule).
+> **Note:** You can't use `user.status` with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
