@@ -1,6 +1,6 @@
 ## Design considerations when customizing magic link for password recovery
 
-### Overview
+### Design Overview
 
 If you've customized your self-service password recovery solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recoveries using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
 
@@ -10,7 +10,7 @@ If you've customized your self-service password recovery solution as described i
 
 ### Considerations
 
-In your design, you've customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />. This variable is resolved to an empty string when the /forgot_password API and Sign-in Widget are used to initiate the password recovery.  In these cases where the user clicks on the magic link and redirects to your app, the `otp` value is missing, and your app cannot complete the password reset using the Embedded SDK. As a result, you have to available options:
+In this design, you've customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-in Widget are used to initiate the password recovery, an emai is sent to the user. When the user clicks on the magic link and the request is redirected back to your app, the `otp` value is missing. This is because the password recovery was not initiated by the Embedded SDK and does not have context.  Since the `otp` value is missing, your app cannot complete the password reset using the Embedded SDK. Two options are available, however, to complete the password reset with this design. They are:
 
 #### Option 1: Use `resetPasswordLink` variable
 

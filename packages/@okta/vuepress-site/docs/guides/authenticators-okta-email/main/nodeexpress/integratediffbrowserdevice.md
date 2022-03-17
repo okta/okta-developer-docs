@@ -8,7 +8,7 @@ First, the user initiates the sign-in and email challenge flow. Next, they click
 Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parameter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
 
 * Ensures that the user clicked the magic link in the same browser (but different tab) as your application.
-* Validates that the OTP and state parameters originate from a nonexpired verification email
+* Validates that the `otp` and `state` parameters originate from a nonexpired verification email
 
 
 ```javascript
@@ -23,7 +23,7 @@ Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parame
 
 #### 3: Handle error and inform user to use OTP on original tab
 
-`OktaAuth.idx.handleEmailVerifyCallback()` throws a `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. Inform the user to enter the OTP on the original tab when this error is thrown.
+`OktaAuth.idx.handleEmailVerifyCallback()` throws a `EmailVerifyCallbackError` error if the user clicked on the magic link in a different browser or device. Handle the error and inform the user to enter the OTP on the original tab.
 
 <div class="common-image-format">
 

@@ -109,7 +109,7 @@ When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing
 
 ### 8: Complete successful sign-in
 
-If your configuration is setup with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
+If your configuration is set up with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
 
 
 ```json

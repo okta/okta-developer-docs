@@ -1,6 +1,6 @@
 ### 1. Initiate sign in
 
-First, the user initiates the sign-in with username and optionally password by making a call to `OktaAuth.idx.authenticate()`.
+First, the user initiates the sign-in with username and password by making a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -42,7 +42,7 @@ If the user is already enrolled in Okta email, calling `OktaAuth.idx.authenticat
 }
 ```
 
-Using this response, display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario][#integrate-different-browser-and-device-scenario] covers the integration details for the different browser and device scenarios.
+Using this response, display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario) covers the integration details for the different browser and device scenarios.
 
 
 <div class="common-image-format">
@@ -65,7 +65,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 ### 5. Send the request to Okta
 
-When the user clicks on the magic link, your OKta org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and OTP and state query parameters. An example callback URL is as follows: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks on the magic link, your org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org uses the `Callback URI` you defined in [Update configuraitons](#update-configurations) to build the URL path and OTP and state query parameters. An example callback URL is as follows: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 6: Handle redirect in your app
 
@@ -94,7 +94,7 @@ Call `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter secti
 Next call `OktaAuth.idx.handleEmailVerifyCallback()` passing in the query parameter containing the OTP and state (for example, `?state=8bae50c6e5a973e954b4ac7cd4d1a744&otp=482039`). This method performs the following checks:
 
 * Ensures that the user clicked the magic link in the same browser (but different tab) as your application.
-* Validates that the OTP and state parameters originate from a nonexpired verification email
+* Validates that the `otp` and `state` parameters originate from a nonexpired verification email
 
 
 ```javascript
