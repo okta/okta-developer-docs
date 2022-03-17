@@ -56,7 +56,7 @@ To configure and run the SCIM CRUD tests:
     * `oktaAppId` - the unique identifier randomly assigned to your Okta integration. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
     * `oktaOrgUrl` - the base URL for your Okta org. Include the `https://` prefix.
 
-        ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers-d.png "Dev Window")
+        ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png "Dev Window")
 
     * `oktaToken` - the security token used to connect to your API. You can generate a token for your integration inside your Okta org:
         * Click **Security** > **API**.

@@ -91,21 +91,21 @@ This page contains settings for all information that flows from Okta user profil
 
 Click **Edit** to make changes to the following sections.
 
-* **Create Users** &mdash; assigns a new account in your downstream application for each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in your application. The user's Okta username is assigned by default.
+* **Create Users**: Assigns a new account in your downstream application for each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in your application. The user's Okta username is assigned by default.
 
     In addition to the user profile, Okta sends a random password in its request to create a new user.
 
-* **Update User Attributes** &mdash; syncs any updates made to the profiles of users assigned to the integration and sends those changes to your downstream application. Profile changes made in your application are overwritten with their respective Okta profile values.
+* **Update User Attributes**: Syncs any updates made to the profiles of users assigned to the integration and sends those changes to your downstream application. Profile changes made in your application are overwritten with their respective Okta profile values.
 
-* **Deactivate Users** &mdash; automatically deactivates user accounts in the downstream application when either the integration is removed from a user profile in Okta or if the Okta account is deactivated.
+* **Deactivate Users**: Automatically deactivates user accounts in the downstream application when either the integration is removed from a user profile in Okta or if the Okta account is deactivated.
 
     Okta can also reactivate the user account in the downstream application if the integration is later reassigned to a user in Okta.
 
-* **Exclude Username Updates** &mdash; prevents your downstream application profile from overwriting the Okta user profile when using the [Profile Push](https://help.okta.com/okta_help.htm?id=ext_Using_Selective_Profile_Push) feature.
+* **Exclude Username Updates**: Prevents your downstream application profile from overwriting the Okta user profile when using the [Profile Push](https://help.okta.com/okta_help.htm?id=ext_Using_Selective_Profile_Push) feature.
 
-* **Sync Password** &mdash; ensures that a user's application password is always the same as their Okta password or, alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main) .
+* **Sync Password**: Ensures that a user's application password is always the same as their Okta password, or alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main) .
 
-* **Profile Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### To Okta
 
@@ -113,37 +113,37 @@ This page contains settings for all information that flows from your application
 
 Click **Edit** to make changes to the following sections.
 
-* **General** &mdash; schedules imports and dictates a username format for imported users. You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
+* **General**: Schedules imports and dictates a username format for imported users. You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
 
     If the Okta username is overridden due to mapping from a provisioning-enabled app, the custom mapping appears in this section.
 
-* **User Creation & Matching** &mdash; sets up matching rules to use when importing users from your application. Establishing matching criteria allows you to specify how an imported user is defined when creating a new user or mapping to an existing Okta user.
+* **User Creation & Matching**: Sets up matching rules to use when importing users from your application. Establishing matching criteria allows you to specify how an imported user is defined when creating a new user or mapping to an existing Okta user.
 
-  * **Imported user is an exact match to Okta user if** &mdash; sets the matching criteria to determine when an imported user matches to an existing Okta user. For the new imported user to be considered an exact match, each option that you select must be true. Note that if you choose the third option, the first and second choices are disabled.
+  * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. For the new imported user to be considered an exact match, each option that you select must be true. Note that if you choose the third option, the first and second choices are disabled.
 
-  * **Allow partial matches** &mdash; permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
+  * **Allow partial matches**: Permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
 
-  * **Confirm matched users** &mdash; automates the confirmation or activation of existing users. If the option isn't selected, matches are confirmed manually.
+  * **Confirm matched users**: Automates the confirmation or activation of existing users. If the option isn't selected, matches are confirmed manually.
 
-  * **Confirm new users** &mdash; automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. Note that this feature doesn't apply to users who already exist in Okta.
+  * **Confirm new users**: Automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. Note that this feature doesn't apply to users who already exist in Okta.
 
-* **Profile & Lifecycle Sourcing** &mdash; allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters) page.
+* **Profile & Lifecycle Sourcing**: Allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters) page.
 
-  * **Allow `<app>` to source Okta users** &mdash; enables profile sourcing and determines what happens when a user is deactivated or reactivated in your application. Only the highest priority profile source for that Okta user can deactivate or suspend an Okta user. To verify the highest priority profile source, check the Profile Sources page for your integration.
+  * **Allow `<app>` to source Okta users**: Enables profile sourcing and determines what happens when a user is deactivated or reactivated in your application. Only the highest priority profile source for that Okta user can deactivate or suspend an Okta user. To verify the highest priority profile source, check the Profile Sources page for your integration.
 
-  * **When a user is deactivated in the app** &mdash; select **Do Nothing** to prevent activity in your application from controlling the user life cycle when a user is removed from your application. This option still permits profile source control of attributes and mappings.
+  * **When a user is deactivated in the app**: Select **Do Nothing** to prevent activity in your application from controlling the user life cycle when a user is removed from your application. This option still permits profile source control of attributes and mappings.
 
     The other options are to deactivate or suspend the Okta user profile if the user is removed from your downstream application.
 
-  * **When a user is reactivated in the app** &mdash; determines if deactivated or suspended Okta user profiles that are assigned to your Okta integration should also be reactivated when they have been reactivated in your downstream application.
+  * **When a user is reactivated in the app**: Determines if deactivated or suspended Okta user profiles that are assigned to your Okta integration should also be reactivated when they have been reactivated in your downstream application.
 
     >**Note** When a user is reactivated in your application, the user profile must be an exact match to the Okta profile for the reactivation to occur in Okta. If any user profile is not an exact match, then after importing the reactivated users, the user profiles appear in **Pending Activation** state.
 
-* **Import Safeguards** &mdash; defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
+* **Import Safeguards**: Defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
 
-* **Inline Hooks** &mdash; configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
+* **Inline Hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
-* **Okta Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Okta Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### API Integration
 
@@ -159,61 +159,43 @@ When you add a SCIM template integration to your development org, it comes with 
 
 Before you can delete an attribute, you first need to remove the mapping for that attribute.
 
-A. Remove the mapping
-
   1. From the Admin Console, open your SCIM integration.
 
-  1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
+  1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
 
-      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1d.png "Provisioning to App tab")
+      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png "Provisioning to App tab")
 
-  1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to delete and then click **X**.
+  1. Scroll to the Attribute Mappings section. Look for the attribute that you want to delete and then click the corresponding **X**.
 
-      ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2d.png "Attribute Mappings")
+      ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
 
   1. Click **OK** to confirm that you want to remove the mapping for the attribute you selected.
 
-  1. After removing the mapping for the unwanted attributes, click **To Okta** under the settings section.
+        Repeat steps 3 and 4 until you remove all the mappings for the attributes that you want to delete.
 
-      ![Displays the Provisioning > To Okta tab.](/img/oin/scim_check-attributes-4d.png "Provisioning to Okta tab")
+  1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor** in the Attribute Mappings section.
 
-  Repeat Step 3 and 4 until you remove all the mappings for the attributes you want to delete.
+  1. In the Profile Editor, look for the attribute that you want to delete, and click the corresponding **X**.
 
-B. Delete attributes from your attribute list
-
-  1. After removing all the mappings for the attribute you want to delete, Click **To App**.
-
-      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1d.png "Provisioning Tab: Provisioning to App")
-
-  1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
-
-      ![Displays the Attribute Mappings > Profile Editor.](/img/oin/scim_check-attributes-6d.png "Attribute Mappings: Profile Editor")
-
-  1. In the Profile Editor, scroll down to the attribute list.
-
-  1. Look for the attribute that you want to delete, and click **X**.
-
-      ![Displays the Profile Editor > Remove Attribute screen.](/img/oin/scim_check-attributes-7d.png "Profile Editor: Remove Attribute")
+        ![Displays the Profile Editor > Remove Attribute screen.](/img/oin/scim_check-attributes-7.png "Profile Editor: Remove Attribute")
 
   1. Click **Delete Attribute** to confirm that you want to remove the attribute.
 
-      ![Displays the Delete Attribute dialog.](/img/oin/scim_check-attributes-8d.png "Profile Editor: Delete Attribute")
+        Repeat steps 6 and 7 for the attributes that you want to delete.
 
 ### Add attributes
 
 1. From the Admin Console, open your SCIM integration.
 
-1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
+1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
 
 1. Scroll to the **Attribute Mappings** section. Click **Go to Profile Editor**.
 
 1. In the Profile Editor, click **Add Attribute**.
 
-    ![Displays the Profile Editor > Add Attribute screen.](/img/oin/scim_check-attributes-10d.png "Profile Editor: Add Attribute")
+1. Enter the information for the new attribute that you’re adding and then click **Save**. For example:
 
-    Enter the information for the new attribute that you’re adding and then click **Save**. For example:
-
-    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11d.png "Profile Editor: Add Attribute")
+    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
 
     > **Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, don't check the **User personal** checkbox.
 
@@ -223,29 +205,27 @@ B. Delete attributes from your attribute list
 
 1. From the Admin Console, open your SCIM integration.
 
-1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
+1. Go to the **Provisioning** tab. Under the Settings section, click **To App**.
 
-1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
+1. Scroll to the Attribute Mappings section. Look for the attribute that you want to update and click the corresponding edit icon.
 
-    ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13d.png "Attribute Mappings: Edit Attribute")
+    ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png "Attribute Mappings: Edit Attribute")
 
-1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from Okta Profile**. In the second drop-down menu, choose the Okta profile attribute that you would like to map the SCIM attribute from. Click **Save**.
+1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you would like to map the SCIM attribute from. Click **Save**.
 
-    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14d.png "Attributes: Map Attribute")
+    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png "Attributes: Map Attribute")
 
-1. Repeat for all other SCIM attributes where you would like to modify the mapping (from Okta to your application).
+1. Repeat steps 3 and 4 for all other SCIM attributes you want to map (from Okta to your application).
 
-1. After updating the mappings from Okta to your application, click **To Okta** under the settings section.
+1. After updating the mappings from Okta to your application, click **To Okta** under the Settings section.
 
-1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
+1. Scroll to the Attribute Mappings section. Look for the attribute that you want to update and click the corresponding edit icon.
 
-    ![Displays the Edit Attribute dialog.](/img/oin/scim_check-attributes-16d.png "Attributes: Edit Attribute")
+1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from ${App Name} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
 
-1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from ${App Name} App Profile**. In the second drop-down menu, choose the Okta profile attribute you would like to map the SCIM attribute to. Click **Save**.
+    ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17.png "Attribute Dialog - Map Attribute")
 
-    ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17d.png "Attribute Dialog - Map Attribute")
-
-1. Repeat for all other SCIM attributes that you would like to modify the mapping (from your application to Okta).
+1. Repeat steps 7 and 8 for all other SCIM attributes that you want to map (from your application to Okta).
 
 ### Attribute support
 
@@ -257,15 +237,12 @@ You only want to include the attributes that you support in your current user sc
 
 1. If your integration supports User Imports, try importing one user from your application. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
 
-    1. Go to your Admin Console.
-    1. Click **Directory** > **People**.
+    1. From your Admin Console, select **Directory** > **People**. The list of Okta users for your org appears.
 
-        ![Displays the Admin Dashboard > Directory > People screen.](/img/oin/scim_check-attributes-18d.png "Dashboard: Directory to People menu")
+    1. Find the user that you imported and click the user's name.
+    1. Once the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
 
-    1. You should see the list of Okta users for your org. Find the user you just imported and click that user's name.
-    1. Once the user account is opened, click **Profile**. The Profile screen shows you that user's attributes. Check whether the values for the attributes you support were imported properly for this user.
-
-        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19d.png "User Profile Attributes")
+        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19.png "User Profile Attributes")
 
         Your Profile Mapping template can always be updated in the future.
 
