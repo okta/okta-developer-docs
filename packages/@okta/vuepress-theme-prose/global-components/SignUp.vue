@@ -2,10 +2,10 @@
   <div class="signup" vue-if="!isRegionLoading">
     <div class="signup--content">
       <div class="signup--form">
-        <div v-if="isRegionLocked === true">
+        <div v-if="isRegionLocked">
           <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
         </div>
-        <div v-else-if="isRegionLocked === false">
+        <div v-else>
           <form id="signupForm" @submit="submitForm">
             <div class="row">
               <label class="field-wrapper" for="email">
@@ -254,7 +254,7 @@
         <div class="logo-wrapper">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
-        <div class="auth0-banner" v-if="isRegionLocked === false">
+        <div class="auth0-banner" v-if="!isRegionLocked">
           <div class="auth0-banner--content">
             <p>
               Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.

@@ -8,10 +8,7 @@ const ONE_WEEK_IN_MILLISECONDS = 1000 * 60 * 60 * 24 * 7;
 class GeoLocation {
   constructor(onCompletion) {
     this.hasRetried = false;
-
-    if (typeof onCompletion === 'function') {
-      this.onCompletion = onCompletion;
-    }
+    this.onCompletion = typeof onCompletion === 'function' ? onCompletion : () => {};
 
     this.fetchCountryCode();
   }
@@ -20,7 +17,7 @@ class GeoLocation {
     if (typeof geoip2 !== 'undefined') {
       geoip2.country(this.onSuccess, this.onError);
     } else {
-      this.onCompletion && this.onCompletion();
+      this.onCompletion();
     }
   }
 
@@ -33,17 +30,17 @@ class GeoLocation {
 
     if (storageIsExpired) {
       this.storeCountryCode(countryCode);
-      this.onCompletion && this.onCompletion();
+      this.onCompletion();
       return;
     }
 
     if (storageItem !== null) {
-      this.onCompletion && this.onCompletion();
+      this.onCompletion();
       return;
     }
 
     this.storeCountryCode(countryCode);
-    this.onCompletion && this.onCompletion();
+    this.onCompletion();
   }
 
   onError = () => {
@@ -52,7 +49,7 @@ class GeoLocation {
       this.hasRetried = true;
       this.fetchCountryCode();
     } else {
-      this.onCompletion && this.onCompletion();
+      this.onCompletion();
     }
   }
 
