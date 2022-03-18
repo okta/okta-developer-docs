@@ -42,8 +42,7 @@ The SDK uses a `Response` object to represent the server request for the current
 
 The kind of sign-on step is represented by the `type` property of the remediation. In this step the server is requesting the username and password, an `.identify` remediation type.
 
-This code shows the singleton delegate function that handles the an SDK response indicating a next step and includes all the types of remediations that are part of a Google Authenticator flow:
-
+The SDK calls the `idx(client: response:)` delegate function with the server response that specifies the next step. This code first checks for a successful sign-on and for other conditions, and then uses a `switch` statement to handle the different types of remediation that are part of a Google Authenticator enrollment flow:
 
 ```swift
 public func idx(client: IDXClient, didReceive response: Response) {
@@ -177,7 +176,7 @@ func handleSelectAuthenticatorToEnroll(_ remediation: Remediation) {
 }
 ```
 
-Use the information returned by these utility functions to populate a UI for selecting an authenticator.If there no options or some other issue, present an error.
+Use the information returned by these utility functions to populate a UI for selecting an authenticator.If there are no options or some other issue, present an error.
 
 One way to do this is building a picker using the results of the `authenticatorOptions()` utility function. For example, the following SwiftUI code displays the options using a `Picker` in a `Form`. In the code `SignInController` is the singleton that manages the sign-on flow. The view model uses a completion handler to receive results from the controller. The `.success` result type for this completion handler is:
 
@@ -538,7 +537,7 @@ There are three possible results after sending the OTP to the server:
 - Sending an incorrect OTP results in another `.enrollAuthenticator` response with a message indicating that the code doesn't match. The UI code handles that case by displaying a form that includes the message.
 - An error, such as a disconnected server.
 
-A successful sign-on sets `isLoginSuccessful` to `true`. Your code then aquires a token from the response by calling `response.exchangeCode()`. The following code shows the singleton delegate function called that's called with the token:
+A successful sign-on sets `isLoginSuccessful` to `true`. Your code then requests a token from the server by calling `response.exchangeCode()`. The following code shows the singleton delegate function called that's called with the returned token:
 
 ```swift
 extension SignInController: IDXClientDelegate {
