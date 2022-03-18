@@ -1846,7 +1846,7 @@ For brevity, the following response doesn't include all available properties.
             "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
             "type": "string",
             "writeOnce": false,
-            "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud\\.com$"
+            "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud(gc|fed)?\\.com$"
           },
           "token": {
             "title": "HEC Token",
