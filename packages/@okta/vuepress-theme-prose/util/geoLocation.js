@@ -19,6 +19,8 @@ class GeoLocation {
   fetchCountryCode = () => {
     if (typeof geoip2 !== 'undefined') {
       geoip2.country(this.onSuccess, this.onError);
+    } else {
+      this.onCompletion && this.onCompletion();
     }
   }
 
