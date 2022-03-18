@@ -328,7 +328,8 @@ module.exports = ctx => ({
               '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
               '/docs/guides/oie-upgrade-sign-in-widget-styling/',
               '/docs/guides/oie-upgrade-mfa-enroll-policy/',
-              '/docs/reference/telephony-hook/'
+              '/docs/reference/telephony-hook/',
+              '/docs/reference/csi-delauth-hook/'
           ]
         }
       ]
