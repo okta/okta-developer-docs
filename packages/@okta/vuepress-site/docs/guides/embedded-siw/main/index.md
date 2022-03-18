@@ -122,7 +122,7 @@ To ensure that the Widget renders properly on a mobile device, include the `view
 
 The Widget handles a number of different authentication scenarios. See the following sections for common applications. For a full-walk through of a simple JavaScript sample, follow the [Sign In and Display User's Email](#sign-in-and-display-user-s-email) use case.
 
-### Sign In and display user's email
+### Sign in and display user's email
 
 In this case, you use the Widget to sign in to a simple web page and display the user's email. Ensure that you have an Okta developer account, and use the following one page of code to create a new Single-Page App (SPA) and see it working with the Widget.
 
@@ -150,11 +150,11 @@ Create an app integration in the Okta org that represents the application you wa
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
 1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
-1. For this use case, we want to use only the password factor. Click **Edit** and select the “Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
-
-    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
-
+1. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 1. Click **Save**.
+
+   > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
+
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
