@@ -6510,7 +6510,7 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 
 ##### Options object
 
-The authentication transaction [state machine](#transaction-state) can be modified via the following opt-in features:
+You can modify the authentication transaction [state machine](#transaction-state) through the following opt-in features:
 
 | Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
