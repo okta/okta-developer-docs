@@ -50,7 +50,10 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * You must provide a subdomain for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
 
-* If you use an Okta-managed TSL certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, you need to add `letsencrypt.org` to the issuers list or Okta can't obtain a certificate for you. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+* If you use an Okta-managed TSL certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
+
+    * If you're setting up a custom domain URL with an Okta-managed certificate for the first time, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TSL certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+    * If you already have an Okta-managed TSL certificate and you later get a CAA record, Okta may be unable to renew your certificate.
 
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind.isc.org/doc/arm/9.11/man.dig.html).
 
