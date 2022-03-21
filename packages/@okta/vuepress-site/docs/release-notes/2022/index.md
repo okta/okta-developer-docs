@@ -12,11 +12,7 @@ title: Okta API Products release notes 2022
 
 #### Bug fixed in 2022.03.3
 
-The `auth_time` claim wasn't defined as a reserved system claim. (OKTA-478924)
-
-https://developer.okta.com/docs/reference/api/oidc/#claims-in-the-payload-section
-
-https://developer.okta.com/docs/reference/api/oidc/#reserved-claims-in-the-header-section
+The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-section) wasn't defined as a reserved system claim. (OKTA-478924)
 
 ### Weekly release 2022.03.2
 
