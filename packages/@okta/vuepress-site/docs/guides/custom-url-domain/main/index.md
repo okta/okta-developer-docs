@@ -50,6 +50,8 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * You must provide a subdomain for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
 
+* If you use an Okta-managed TSL certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TSL certificate. However, if you do have a CAA record, you need to add [Let's Encrypt](https://letsencrypt.org/) to the issuers list. Without Let's Encrypt in the issuers list, Okta can't obtain a certificate for you.
+
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind.isc.org/doc/arm/9.11/man.dig.html).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
@@ -77,6 +79,8 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 ## Use an Okta-managed certificate
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
+
+> **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TSL certificate. However, if you do have a CAA record, you need to add [Let's Encrypt](https://letsencrypt.org/) to the issuers list. Without Let's Encrypt in the issuers list, Okta can't obtain a certificate for you.
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
