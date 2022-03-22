@@ -131,23 +131,6 @@ export const guides = [
         subLinks: [
           { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Set up to run Identity Engine sample apps",
-            subLinks: [
-              {
-                title: "Get set up",
-                guideName: "oie-embedded-common-org-setup",
-              },
-              {
-                title: "Download and set up the sample app",
-                guideName: "oie-embedded-common-download-setup-app",
-              },
-              {
-                title: "Run the sample apps",
-                guideName: "oie-embedded-common-run-samples",
-              },
-            ]
-          },
-          {
             title: "Redirect authentication",
             subLinks: [
               {
@@ -175,6 +158,23 @@ export const guides = [
           {
             title: "Embedded authentication",
             subLinks: [
+              {
+                title: "Get set up",
+                subLinks: [
+                  {
+                    title: "Set up your Okta org",
+                    guideName: "oie-embedded-common-org-setup",
+                  },
+                  {
+                    title: "Download and set up the SDK, Sign-In Widget, and sample apps",
+                    guideName: "oie-embedded-common-download-setup-app",
+                  },
+                  {
+                    title: "Run the sample apps",
+                    guideName: "oie-embedded-common-run-samples",
+                  },
+                ]
+              },
               {
                 title: "Auth JS fundamentals",
                 guideName: "auth-js"

@@ -1,5 +1,5 @@
 ---
-title: Download and set up the SDK, Sign-In Widget, and sample app
+title: Download and set up the SDK, Sign-In Widget, and sample apps
 ---
 
 <ApiLifecycle access="ie" />
