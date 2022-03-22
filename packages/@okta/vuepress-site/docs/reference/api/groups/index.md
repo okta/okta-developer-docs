@@ -731,7 +731,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 This operation:
 
 * Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
 * Searches many properties:
   - Any group profile property, including imported app group profile properties.
   - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
