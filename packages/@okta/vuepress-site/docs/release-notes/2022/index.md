@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## March
 
+### Weekly release 2022.03.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.03.3](#bugs-fixed-in-2022-03-3) | March 23, 2022 |
+
+#### Bug fixed in 2022.03.3
+
+The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-section) wasn't defined as a reserved system claim. (OKTA-478924)
+
 ### Weekly release 2022.03.2
 
 | Change | Expected in Preview Orgs |
