@@ -74,13 +74,15 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following two Inline Hooks:
 
 * Registration Inline Hook
-* SAML Inline  Hook
+* SAML Inline Hook
+* Telephony Inline Hook <ApiLifecycle access="ea" />
 
 Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
 An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Admin Console System Log
+
 Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 ### Glitch logs
@@ -99,6 +101,7 @@ Review the following guides to implement a simple hook example and preview the h
 * [Event Hook](/docs/guides/event-hook-implementation/)
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Telephony Inline Hook](/docs/guides/telephony-inline-hook/) <ApiLifecycle access="ea" />
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
 
 ## See also

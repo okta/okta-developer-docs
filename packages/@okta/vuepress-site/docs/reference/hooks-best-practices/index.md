@@ -81,4 +81,5 @@ See also the following guides for sample Okta Hook implementations:
 * [Event Hook](/docs/guides/event-hook-implementation/)
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Telephony Inline Hook](/docs/guides/telephony-inline-hook) <ApiLifecycle access="ea" />
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
