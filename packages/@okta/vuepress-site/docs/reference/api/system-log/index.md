@@ -339,7 +339,7 @@ For example, a Transaction object such as the following:
 
 indicates that a `WEB` request with `id` `Wn4f-0RQ8D8lTSLkAmkKdQAADqo` has created this event.
 
-A Transaction object such as the following with a `requestApiTokenId` in the `detail` object, for example,
+A Transaction object with a `requestApiTokenId` in the `detail` object, for example:
 ```json
 {
     "id": "YjSlblAAqnKY7CdyCkXNBgAAAIU",
@@ -350,7 +350,7 @@ A Transaction object such as the following with a `requestApiTokenId` in the `de
 }
 ```
 
-indicates that this event was the result of an action performed via API using the token identified by `00T94e3cn9kSEO3c51s5`. The token ID is [visible in the Admin Console](https://help.okta.com/okta_help.htm?id=Security_API). You can read more about API tokens [here](/docs/guides/create-an-api-token/).
+indicates that this event was the result of an action performed through an API using the token identified by `00T94e3cn9kSEO3c51s5`. The token ID is visible in the Admin Console, **Security** > **API**. See [API token management](https://help.okta.com/okta_help.htm?id=Security_API). For more information on API tokens, see [Create an API token](/docs/guides/create-an-api-token/).
 
 | Property   | Description                                                                                             | DataType             | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------------- | -------------------- | -------- |
@@ -547,7 +547,7 @@ The `LogResponse` object offers two identifiers in this respect:
 
 ### Correlating events based on API Token
 
-It may be useful to identify multiple events which are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/reference/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning.  The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` will return all events, subject to other parameters of the query, which were the result of an action made using the token `00T94e3cn9kSEO3c51s5`.
+It may be useful to identify multiple events that are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/reference/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning. The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` returns all events that were the result of an action made using the token `00T94e3cn9kSEO3c51s5`, subject to other parameters of the query.
 
 ### Event correlation example
 
