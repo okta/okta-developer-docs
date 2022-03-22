@@ -1,7 +1,14 @@
-1. Create the required routes in `app.py`: 
+1. Create a Flask app instance inside your `app.py` file:
 
 ```python
-@app.route("/")
+app = Flask(__name__)
+app.config.update({'SECRET_KEY': 'SomethingNotEntirelySecret'})
+```
+
+2. Create the required routes in `app.py`: 
+
+```python
+@app.route("/hello")
 def hello():
     return render_template("hello.html")
 
@@ -11,6 +18,6 @@ def whoami():
     return render_template("whoami.html", user=current_user)
 ```
 
-2. Create a new folder in your project root  called `templates`.
+3. Create a new folder in your project root called `templates`.
 
-3. Inside the `templates` directory, create the following template files: [hello.html](https://github.com/okta-samples/okta-flask-api-sample/blob/main/templates/hello.html) and [whoami.html](https://github.com/okta-samples/okta-flask-sample/blob/main/templates/whoami.html).
+4. Inside the `templates` directory, create the following template files: [hello.html](https://github.com/okta-samples/okta-flask-api-sample/blob/main/templates/hello.html), [whoami.html](https://github.com/okta-samples/okta-flask-api-sample/blob/main/templates/whoami.html), and [template.html](https://github.com/okta-samples/okta-flask-api-sample/blob/main/templates/template.html).

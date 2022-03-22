@@ -3,7 +3,7 @@ To enable [flask_cors](https://flask-cors.readthedocs.io/en/latest/), import and
 ```python
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app)
+...
 
+CORS(app)
 ```

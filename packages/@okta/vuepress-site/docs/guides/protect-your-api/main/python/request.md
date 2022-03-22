@@ -1,7 +1,7 @@
 ```http
-https://localhost:5000/api/whoami Bearer: ${TOKEN}
+https://localhost:5000/whoami Bearer: ${TOKEN}
 ```
 
 ```http
-https://localhost:5000/api/hello
+https://localhost:5000/hello
 ```
