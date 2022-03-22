@@ -339,7 +339,7 @@ For example, a Transaction object such as the following:
 
 indicates that a `WEB` request with `id` `Wn4f-0RQ8D8lTSLkAmkKdQAADqo` has created this event.
 
-A Transaction object such as the following:
+A Transaction object such as the following with a `requestApiTokenId` in the `detail` object, for example,
 ```json
 {
     "id": "YjSlblAAqnKY7CdyCkXNBgAAAIU",
