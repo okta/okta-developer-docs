@@ -4,7 +4,7 @@ excerpt: Learn how to easily implement a Telephony Inline hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta Telephony Inline Hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the Telephony provider that receives and responds to SMS and Voice Inline Hook calls.
+This guide provides a working example of an Okta Telephony Inline Hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the telephony provider that receives and responds to SMS and Voice Inline Hook calls.
 
 ---
 
@@ -20,28 +20,30 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 * An active phone number in Twilio with SMS and MMS capabilities
-* A [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) created in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically created to use as a variable.
+* A [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) created in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
 * [Use Your Own Telephony Provider feature enabled for your org.](/#before-you-begin/)
 
 **Sample code**
 
 [Okta Telephony Inline Hook Example](https://glitch.com/~okta-inlinehook-telephonyhook)
 
+---
+
 ## Before you begin
 
 * Read the information and perform any required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project for this guide and understanding how Glitch projects are configured and used with hooks.
 
-* Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook* slider, and slide to enable.
+* Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook** slider, and slide to enable.
 
-> **Note:** If the feature doesn’t appear, then contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
+> **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
 
 ## About Telephony Inline Hook implementation
 
-You can customize a telephony service provider for your org by using an Okta Telephony Inline Hook. A Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (CALL) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
+You can customize a telephony service provider for your org by using an Okta Telephony Inline Hook. A Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
 
-> **Note:** An org can have only one active Telephony inline Hook.
+> **Note:** An org can have only one active Telephony Inline Hook.
 
-In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or Voice (CALL) message was sent successfully.
+In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or Voice (Call) message was sent successfully.
 
 At a high-level, the following workflow occurs:
 
@@ -59,8 +61,7 @@ At a high-level, the following workflow occurs:
 Verify that your org has the Phone authenticator added and enabled for **Authentication, Recovery**.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
-1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled.
-1. If not already added, click **Add Authenticator** and then click **Add** on the Phone tile.
+1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled. If not already added, click **Add Authenticator** and then click **Add** on the Phone tile.
 1. Select both **Voice call** and **SMS** as how the verification messages are sent.
 1. Select **Authentication and recovery** as how the Phone authenticator is used.
 1. Click **Add**.
@@ -78,9 +79,9 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 
 Copy the account SID and auth token from your Twilio account and add them as variables in the `.env` file in the Glitch project.
 
-> **Note:** Make sure to have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
+> **Note:** Ensure that you have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
 
-1. From the left, click **.env**.
+1. From the left navigation in the Glitch project, click **.env**.
 1. In the first blank variable line that appears, add **ACCOUNT_SID** and then paste your account SID as the value on the right.
 1. In the second blank variable line, add **AUTH_TOKEN** and then paste your account authentication token as the value on the right.
 1. Click **Add a Variable** and then add **FROM_PHONE_NUMBER** as the variable and then the Twilio phone number from your account as the value.
@@ -99,43 +100,23 @@ The external service in this scenario requires code to handle the Telephony Inli
 
 From the Telephony Inline Hook request, the following code retrieves the value of the user’s phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
 
-```javascript
-var userPhoneNumber = request.body.data.messageProfile["phoneNumber"];
- …
-```
+<StackSelector snippet="userphonenumber" noSelector/>
 
 The following code retrieves the value of the OTP code sent by Okta from the `data.messageProfile` object. The code parses the Okta request body for the value of `otpCode` and stores it in the variable `userOtpCode`.
 
-```javascript
- var userOtpCode = request.body.data.messageProfile["otpCode"];
-  …
-```
+<StackSelector snippet="userotpcode" noSelector/>
 
-In the next section of the `server.js` file, see the `function sendSms` and then the `function makeCall` for the code that is sent to the user and then what is sent back to Okta based on the result of the SMS or the Call.
+## Response sent to the user
 
-## Send response
+The following code is used to send the SMS or Voice (Call) to the user:
+
+<StackSelector snippet="sendsmsmakecall" noSelector/>
+
+## Send response to Okta
 
 The way to tell Okta that the SMS or Voice (Call) message was successfully sent is by returning a `commands` object in the body of your HTTPS response. The `commands` object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The`value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
 
-```json
-{
-  "error": null,
-  "commands": [
-      {
-          "type": "com.okta.telephony.action",
-          "value": [
-              {
-                  "status": "SUCCESSFUL",
-                  "provider": "TWILIO",
-                  "transactionId": "SMa8187e0027a64dbb9878ec7d3e0a2d86",
-                  "transactionMetadata": null
-              }
-          ]
-      }
-  ],
-  "debugContext": {}
-}
-```
+<StackSelector snippet="responsetookta" noSelector/>
 
 ## Activate the Telephony Inline Hook in Okta
 
