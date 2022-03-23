@@ -10,7 +10,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
-* Notification alerts when you're about to hit or have hit the rate limit.
+* Notification alerts when you're about to hit, have hit the rate limit, or exceeded the rate limit (burst rate limits).
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
@@ -44,17 +44,17 @@ In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits repor
 
 ![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rl_dashboard6.png)
 
-The **Overview** tab provides you with graphs that plot the number of violations over a three-month period and is based on system log events. It also provides a table that lists your org's APIs and their corresponding current rate limits, violations and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
+The **Overview** tab provides you with graphs that plot the number of events (violations, bursts, and warnings) over a period of time and is based on system log events. Use the **Filters** dropdown menu, to select the time period and events you want to view. It also provides a table that lists your org's APIs and their corresponding current rate limits, violations, bursts, and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
 
 The **Settings** tab allows you to change the per client rate limit settings and customize the threshold for warning notifications when the API's rate limit is exceeded. See [Change rate limit settings](#change-rate-limit-settings).
 
 ### Browse and monitor rate limit usage
 
-#### Violation graphs
+#### Event count graphs
 
-The Violations line graph plots the number of violations over the selected time period, which can be the last 24 hours, last 7 days, last month, or last 3 months. The Violations per API bar graph shows the top ten number of violations by API over the same time period.
+The Event Count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, last 7 days, last month, or last 3 months. The Events per API bar graph shows the top ten number of events by API over the same time period.
 
-![Displays the violations over a period of time graph and the top 10 endpoint violations bar graph.](/img/rl_dashboard7.png)
+![Displays the events (violations, bursts, and warnings) over a period of time graph and the top 10 endpoint violations bar graph.](/img/rl_dashboard7.png)
 
 You can hover over the line graph or bar graph to get more details. The details also include a link to the system log where you can view filtered events specific to that API and time period.
 
