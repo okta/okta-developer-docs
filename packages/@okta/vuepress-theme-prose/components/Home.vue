@@ -5,13 +5,9 @@
         <Sidebar />
       </div>
       <div class="width-adjuster">
-        <AnnouncementBanner>
-          <template v-slot:description>
-            <SmartLink :item="{ link: '/signup/' }">Developer sign ups</SmartLink>
-            now utilize Okta Identity Engine beginning March 1st, 2022.
-            <SmartLink :item="{ link: '/docs/guides/oie-intro/' }">Click here</SmartLink>
-            to learn more about how this impacts our developer experience &amp
-            documentation.
+        <AnnouncementBanner ctaText="Read more" ctaHref="https://www.okta.com/blog/2022/03/updated-okta-statement-on-lapsus/">
+          <template v-slot:description >
+            Updated Okta Statement on LAPSUS$
           </template>
         </AnnouncementBanner>
         <div class="justify-content-center">
