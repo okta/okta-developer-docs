@@ -1,10 +1,10 @@
 ---
-title: Get set up
+title: Set up your Okta org
 ---
 
 <ApiLifecycle access="ie" />
 
-This guide covers how to create and set up your Okta org before you can run the provided sample apps or integrate the SDK or Widget into your own app.
+This guide covers how to create and set up your Okta org before you can [run the Identity Engine sample apps](/docs/guides/oie-embedded-common-run-samples/) or [integrate the SDK or Widget](/docs/guides/oie-embedded-common-download-setup-app/) into your own app.
 
 ---
 
