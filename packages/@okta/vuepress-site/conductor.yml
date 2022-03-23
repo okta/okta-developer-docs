@@ -338,7 +338,7 @@ redirects:
   - from: /docs/guides/add_mfa.html
     to: /docs/guides/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
-    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+    to: https://help.okta.com/okta_help.htm?id=ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
     to: /docs/reference/api/apps/
   - from: /docs/reference/api/users.html
@@ -374,7 +374,7 @@ redirects:
   - from: /docs/reference/api/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/guides/okta_mobile_connect
-    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+    to: https://help.okta.com/okta_help.htm?id=ext_Okta_Mobile_Connect
   - from: /docs/reference/okta-expression-language/index
     to: /docs/reference/okta-expression-language/
   - from: /docs/reference/api-overview/getting_a_token/index.html
@@ -2280,9 +2280,9 @@ redirects:
   - from: /docs/reference/api/oie-policy-types/index.html
     to: /docs/reference/api/policy/
   - from: /docs/concepts/ie-intro/index.html
-    to: https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie/
+    to: https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie
   - from: /docs/concepts/ie-intro
-    to: https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie/
+    to: https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie
   - from: /docs/guides/sign-into-web-app-remediation/-/before-you-begin/index.html
     to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
   - from: /docs/guides/sign-into-web-app-remediation/-/configure-packages/index.html
