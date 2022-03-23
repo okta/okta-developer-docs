@@ -21,7 +21,7 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 * An active phone number in Twilio with SMS and MMS capabilities
 * A [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) created in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
-* [Use Your Own Telephony Provider feature enabled for your org.](/#before-you-begin/)
+* [Use Your Own Telephony Provider feature enabled for your org.](#before-you-begin)
 
 **Sample code**
 
@@ -89,10 +89,7 @@ Copy the account SID and auth token from your Twilio account and add them as var
 
 The above variable values coincide with the following lines in the Glitch `server.js` file:
 
-Line 38: `var accountSid = process.env.ACCOUNT_SID;`
-Line 39: `var authToken = process.env.AUTH_TOKEN;`
-Line 65: `var from = process.env.FROM_PHONE_NUMBER;`
-Line 98: `const url = encodeURI(process.env.TWIML_URL + otp);`
+<StackSelector snippet="variables" noSelector/>
 
 ## Parse the Telephony Inline Hook request
 
@@ -126,9 +123,9 @@ You must activate the Telephony Inline Hook in your Okta org. Activating the Tel
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
 1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
 1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
-1. Include values for the following fields. For this use case example:
-    **Authentication field**: `authorization`
-    **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+1. Include values for the following fields. For this use case example:<br>
+    **Authentication field**: `authorization`<br>
+    **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
 1. Click **Save**. The Telephony Inline Hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
@@ -152,15 +149,15 @@ To preview the Telephony Inline Hook:
 ### Test
 
 To run a test of your Telephony Inline Hook, go to your Okta org’s sign-in page and sign in as a user in your org.
-When you click **Sign in**, you are prompted for an additional factor to either receive a code through sms or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
+When you click **Sign in**, you are prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
 
 ## Next steps
 
 Review the following guides to implement other Inline or Event Hook examples:
 
-[Event Hook](/docs/guides/event-hook-implementation/)
-[Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/main/)
-[Token Inline Hook](/docs/guides/token-inline-hook/nodejs/main/)
+* [Event Hook](/docs/guides/event-hook-implementation/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/main/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/main/)
 
 ## See also
 
