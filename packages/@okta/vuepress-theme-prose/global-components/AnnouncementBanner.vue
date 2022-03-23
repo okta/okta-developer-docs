@@ -15,6 +15,8 @@
           v-if="ctaHref && ctaText"
           :href="ctaHref"
           class="announcement-banner--cta"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {{ ctaText }}
         </a>
