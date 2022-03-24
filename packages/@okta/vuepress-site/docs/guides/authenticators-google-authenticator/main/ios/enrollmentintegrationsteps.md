@@ -36,7 +36,7 @@ The call to `IDX.start(with:)` takes a single parameter of type `IDXClient.IDXCl
 
 ### 3: Authenticate the user credentials
 
-The SDK uses a `Response` object to represent the server request for the current sign-in step. It contains a collection of remediations (`Remedation`) that specify the type of step, any general messages, and a nested collection of forms (`Remedation.Form`) containing fields (`Remedation.Form.Field`) that represent the various elements of the UI, such as an entry field with a label. Completing a step usually requires setting the value of one or more fields. The remediation is then sent back to the server with the updated values by calling `proceed()`. The server processes the values and then sends the next step.
+The SDK uses a `Response` object to represent the server request for the current sign-in step. It contains a collection of remediations (`Remediation`) that specify the type of step, any general messages, and a nested collection of forms (`Remediation.Form`) containing fields (`Remediation.Form.Field`) that represent the various elements of the UI, such as an entry field with a label. Completing a step usually requires setting the value of one or more fields. The remediation is then sent back to the server with the updated values by calling `proceed()`. The server processes the values and then sends the next step.
 
 
 

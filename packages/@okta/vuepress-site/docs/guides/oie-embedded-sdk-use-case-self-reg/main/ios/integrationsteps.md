@@ -184,7 +184,7 @@ public class MultifactorLogin {
                        method: IDXClient.Authenticator.Method,
                        phoneNumber: String? = nil)
     {
-        // Retrieve the appropriate remedation, authentication factor field and method, to
+        // Retrieve the appropriate remediation, authentication factor field and method, to
         // select the appropriate method type.
         guard let remediation = response?.remediations[.selectAuthenticatorAuthenticate] ?? response?.remediations[.selectAuthenticatorEnroll],
               let authenticatorsField = remediation["authenticator"],
