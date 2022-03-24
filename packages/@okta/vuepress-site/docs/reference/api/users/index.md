@@ -1141,6 +1141,11 @@ The first three parameters in the table below correspond to different types of l
 
 Array of [User](#user-object)
 
+##### Known Limitation
+
+Due to an infrastructure limitation, [group administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-group-admin.htm), [help desk administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-help-desk-admin.htm),
+and [custom administrators](https://help.okta.com/en-us/Content/Topics/Security/custom-admin-role/custom-admin-roles.htm) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
+
 #### List all Users
 
 
