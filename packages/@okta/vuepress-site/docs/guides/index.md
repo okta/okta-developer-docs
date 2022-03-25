@@ -98,6 +98,7 @@ guides:
  - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
  - authenticators-okta-verify
  - authenticators-okta-email
+ - oie-embedded-sdk-use-case-new-user-activation
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
