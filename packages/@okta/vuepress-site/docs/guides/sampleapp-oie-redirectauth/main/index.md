@@ -141,9 +141,22 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
-## Authenticator recovery
+## Self-service Password Recovery
 
-In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+### Email magic link password recovery flow
+
+> **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+
+Try the email magic link revoery flow:
+
+1. Select **Forgot password?** in the Sign-In Widget.
+1. Enter your email or username when prompted and click **Next**.
+1. Click **Select** for the Email authenticator. A magic link is sent to your email address.
+1. Click **Reset password** 
+
+### One-time password recovery flow
+
+> **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
 Try out the email password recovery flow:
 
@@ -155,9 +168,11 @@ Try out the email password recovery flow:
 1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 1. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
-### Recovery with Okta Verify
+### Okta Verify recovery flow
 
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
+
+<!--- Needs a link to verify setup as recovery option --->
 
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
