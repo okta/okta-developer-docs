@@ -147,7 +147,7 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 > **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
-Try the email magic link revoery flow:
+Try the email magic link recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
