@@ -118,11 +118,11 @@ After the user submits the email authenticator for enrollment, Okta sends an ema
 
 #### 4. Opens email and copies OTP to your app
 
-Next the user opens the email and copies the OTP to your app. After the OTP is verified the user continues the steps to complete the user registraiton. Depending on your org configuration, these steps could included additional required authenticators.
+Next the user opens the email and copies the OTP to your app. After the OTP is verified the user continues the steps to complete the user registraiton. Depending on your org configuration, these steps could included additional required authenticators. The OTP flow for Okta email is desribed in detail in the <StackSnippet snippet="emailenrollmentotp" inline />.
 
 #### 5. Completes registration and activation completion
 
-TODO ****
+After all the registration steps are coompleted `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for newly registered user.
 
 ### Integrate the Registration - Activation template
 
@@ -156,11 +156,74 @@ The user clicks on the email link. The request is first sent to Okta where the u
 
 ### Create the user
 
-`/api/v1/users?activate=false'` - creates user and returns userid
+`https://${yourOktaDomain}/api/v1/users?activate=false`
+
+ creates user and returns userid
+
+See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the endpoint.
+
+#### Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "john.doe@example.com",
+    "login": "john.doe@example.com",
+    "mobilePhone": "555-415-1337"
+  }
+}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+```
+
+#### Response
+
+```json
+{
+    "id": "00uomf0lstcwPYliG696",
+    "status": "STAGED",
+    "created": "2022-03-26T15:32:09.000Z",
+    "profile": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "mobilePhone": null,
+        "secondEmail": null,
+        "login": "john.doe@example.com",
+        "email": "john.doe@example.com"
+    },
+    ...
+}
+```
 
 ### Start user activation and get activation token
 
+#### Request
+
 `api/v1/users/{{userid}}/lifecycle/activate?sendEmail=false` get activationtoken
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate?sendEmail=false"
+```
+
+#### Response
+
+```json
+{
+  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationToken": "XE6wE17zmphl3KqAPFxO"
+}
+```
+
+For more details see [Activate User](/docs/reference/api/users/#activate-user).
+
 
 ### Prove user ownership of the mail
 
@@ -170,6 +233,26 @@ Send user email
 
 Node JS specific ...
 
+`http://${yourAppsURL}/register?activationToken=7nlzWIv1aCKStPXlknwd`
+
+<StackSnippet snippet="sampleappregisterurl" />
+
+
+
+```javascript
+router.get('/register', async (req, res, next) => {
+  const activationToken = query['activationToken'] || query['token'];
+  const transaction = await authClient.idx.register({ activationToken });
+  ...
+}
+```
+
+
+
+
 ### Complete activation
+
+
+
 
 </div>
