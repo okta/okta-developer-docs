@@ -17,7 +17,8 @@ var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
   AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(
+    enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
 If the call is successful, Okta sends an enrollment email to the user containing the OTP. All being equal, the server should return a status of `AwaitingAuthenticatorVerification` indicating it is waiting for the user to check their email and either click the magic link in it or enter the OTP it contains.
@@ -53,16 +54,6 @@ Next, the user opens the email and copies the OTP. The following screenshot show
 
 </div>
 
-### 7. Submit the OTP
-
-When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing in the OTP.
-
-```javascript
-  const { verificationCode } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx.proceed({ verificationCode });
-```
-
 ### 8. Process the OTP
 
 Create a `VerifyAuthenticatorOptions` object and set its `Code` property to the OTP entered by the user. Pass this object as a parameter to the `IdxClient.VerifyAuthenticatorAsync` method.
@@ -92,13 +83,15 @@ switch (authnResponse.AuthenticationStatus)
     return RedirectToAction("ChangePassword", "Manage");
 
   case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
-    Session["authenticators"] = ViewModelHelper.ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
+    Session["authenticators"] = ViewModelHelper.
+      ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
     TempData["canSkip"] = authnResponse.CanSkip;
     Session["isChallengeFlow"] = false;
     return RedirectToAction("SelectAuthenticator", "Manage");
 
   case AuthenticationStatus.Success:
-    ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, authnResponse.TokenInfo);
+    ClaimsIdentity identity = await AuthenticationHelper.
+      GetIdentityFromTokenResponseAsync(_idxClient.Configuration, authnResponse.TokenInfo);
     _authenticationManager.SignIn(new AuthenticationProperties(), identity);
     return RedirectToAction("Index", "Home");
 }

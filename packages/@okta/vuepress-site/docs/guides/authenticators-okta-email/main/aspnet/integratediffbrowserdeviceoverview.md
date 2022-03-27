@@ -4,6 +4,6 @@ Magic links is made with security in mind and only works when there is complete 
 
 <div class="common-image-format">
 
-![Diagram showing nagic link flow for same and diff browsers](/img/authenticators/authenticators-email-magic-link-flowchart.png)
+![Diagram showing magic link flow for same and diff browsers](/img/authenticators/authenticators-email-magic-link-flowchart.png)
 
 </div>

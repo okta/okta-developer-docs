@@ -16,13 +16,13 @@ Once a user has initiated the sign-on process by entering the username and passw
 var _idxClient = new Okta.Idx.Sdk.IdxClient();
 var authnOptions = new Okta.Idx.Sdk.AuthenticationOptions
 {
-    Username = model.UserName,
-    Password = model.Password,
+  Username = model.UserName,
+  Password = model.Password,
 };
 
 try
 {
-    var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
+  var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
 ### 3: Handle the response from the sign-in flow
@@ -79,11 +79,16 @@ public ActionResult SelectAuthenticator()
   {
     Authenticators = authenticators,
     AuthenticatorId = authenticators.FirstOrDefault()?.AuthenticatorId,
-    PasswordId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "password")?.AuthenticatorId,
-    PhoneId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "phone")?.AuthenticatorId,
-    WebAuthnId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "security key or biometric")?.AuthenticatorId,
-    TotpId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "google authenticator")?.AuthenticatorId,
-    OktaVerifyId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "okta verify")?.AuthenticatorId,
+    PasswordId = authenticators.FirstOrDefault(
+        x => x.Name.ToLower() == "password")?.AuthenticatorId,
+    PhoneId = authenticators.FirstOrDefault(
+        x => x.Name.ToLower() == "phone")?.AuthenticatorId,
+    WebAuthnId = authenticators.FirstOrDefault(
+        x => x.Name.ToLower() == "security key or biometric")?.AuthenticatorId,
+    TotpId = authenticators.FirstOrDefault(
+        x => x.Name.ToLower() == "google authenticator")?.AuthenticatorId,
+    OktaVerifyId = authenticators.FirstOrDefault(
+        x => x.Name.ToLower() == "okta verify")?.AuthenticatorId,
     CanSkip = TempData["canSkip"] != null && (bool)TempData["canSkip"]
   };
 
@@ -95,7 +100,9 @@ This viewModel is then consumed in a Razor page
 
 ```razor
 <section id="selectAuthenticatorForm">
-  @using (Html.BeginForm("SelectAuthenticatorAsync", "Manage", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  @using (Html.BeginForm("SelectAuthenticatorAsync", "Manage",
+    new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+    new { @class = "form-horizontal", role = "form" }))
   {
     @Html.AntiForgeryToken()
     <!-- Headings elided -->
@@ -160,11 +167,15 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
   case AuthenticationStatus.AwaitingChallengeAuthenticatorData:
     var methodViewModel = new SelectAuthenticatorMethodViewModel
     {
-      Profile = selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.Profile,
-      EnrollmentId = selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.EnrollmentId,
+      Profile = selectAuthenticatorResponse.
+        CurrentAuthenticatorEnrollment.Profile,
+      EnrollmentId = selectAuthenticatorResponse.
+        CurrentAuthenticatorEnrollment.EnrollmentId,
       AuthenticatorId = model.AuthenticatorId,
-      MethodTypes = selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.MethodTypes,
-      MethodType = selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.MethodTypes.FirstOrDefault(),
+      MethodTypes = selectAuthenticatorResponse.
+        CurrentAuthenticatorEnrollment.MethodTypes,
+      MethodType = selectAuthenticatorResponse.
+        CurrentAuthenticatorEnrollment.MethodTypes.FirstOrDefault(),
     };
     return View("SelectPhoneChallengeMethod", methodViewModel);
 
@@ -183,7 +194,8 @@ This ViewModel is then consumed in a Razor page.
 
 ```razor
 <section>
-  @using (Html.BeginForm("SelectPhoneChallengeMethodAsync", "Manage", FormMethod.Post, new { role = "form" }))
+  @using (Html.BeginForm("SelectPhoneChallengeMethodAsync", "Manage", 
+    FormMethod.Post, new { role = "form" }))
   {
     @Html.AntiForgeryToken()
     <h4>@ViewBag.Title</h4>
@@ -251,11 +263,12 @@ switch (challengeResponse?.AuthenticationStatus)
 
 ### 8. Display OTP input page
 
-Build a form that allows the user to enter the one-time password sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the one-time password sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ```razor
 <section id="enterCodeForm">
-@using (Html.BeginForm("VerifyAuthenticatorAsync", "Manage", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("VerifyAuthenticatorAsync", "Manage",
+  new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Verify authenticator.</h4>
@@ -282,7 +295,9 @@ Build a form that allows the user to enter the one-time password sent to them by
 }
 </section>
 <section id="resendCodeForm">
-@using (Html.BeginForm("ResendAuthenticatorAsync", "Manage", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("ResendAuthenticatorAsync", "Manage",
+  new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+  new { @class = "form-horizontal", role = "form" }))
   {
     @Html.AntiForgeryToken()
     <div>
@@ -294,7 +309,7 @@ Build a form that allows the user to enter the one-time password sent to them by
 </section>
 ```
 
-### 4. User clicks on the email magic link
+### 9. User clicks on the email magic link
 
 Next, the user opens their email and clicks on the magic link. The following screenshot shows the magic link in the email.
 
@@ -333,7 +348,8 @@ if (idxContext != null)
     Code = otp,
   };
 
-  var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, idxContext);
+  var authnResponse = await _idxClient.
+    VerifyAuthenticatorAsync(verifyAuthenticatorOptions, idxContext);
 ```
 
 If the `otp` value is valid, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` will be `Success`. In this case, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
@@ -344,7 +360,8 @@ If the `otp` value is valid, the `AuthenticationStatus` property of the `Authent
     // other case statements
 
     case AuthenticationStatus.Success:
-      ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, authnResponse.TokenInfo);
+      ClaimsIdentity identity = await AuthenticationHelper.
+        GetIdentityFromTokenResponseAsync(_idxClient.Configuration, authnResponse.TokenInfo);
       _authenticationManager.SignIn(new AuthenticationProperties(), identity);
       return RedirectToAction("Index", "Home");
   }
@@ -354,6 +371,8 @@ If the `otp` value is valid, the `AuthenticationStatus` property of the `Authent
 If the `otp` value is not valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
 
 ```csharp
-    return View(new MagicLinkCallbackModel { Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow." });
+    return View(new MagicLinkCallbackModel {
+        Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow."
+    });
 }
 ```

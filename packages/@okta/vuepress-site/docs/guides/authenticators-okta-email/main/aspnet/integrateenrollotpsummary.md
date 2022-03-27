@@ -12,6 +12,6 @@ The following step-by-step instructions detail how to integrate the OTP flow for
 
 <div class="common-image-format">
 
-![Sequence diagram for Okta email OTP enrollment](/img/authenticators/authenticators-email-summary-otp-enrollment.png)
+![Sequence diagram for Okta email OTP enrollment](/img/authenticators/dotnet-authenticators-email-enrollment-with-otp-flow-diagram.png)
 
 </div>
