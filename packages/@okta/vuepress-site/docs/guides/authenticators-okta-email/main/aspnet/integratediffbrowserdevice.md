@@ -22,7 +22,7 @@ If we are unable to retrieve the context using the state, we assume that this is
     // Process magic link
   }
 
-  return View(new MagicLinkCallbackModel { Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow." });
+  return View(new MagicLinkCallbackModel { Message = $"Enter the OTP code in the originating client: {otp}" });
 }
 ```
 

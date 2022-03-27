@@ -25,7 +25,7 @@ In this option you set the magic link in the **Forgot Password** template to use
     ...
 ```
 
-> **Note:** Using `${resetPasswordLink}` sends the user to an Okta hosted page to complete the sign-in. If your looking for a fully branded experience where you control the page experience, then the next option is a better alternative.
+> **Note:** Using `${resetPasswordLink}` sends the user to an Okta hosted page to complete the sign-in. If you're looking for a fully branded experience where you control the page experience, then the next option is a better alternative.
 
 #### Option 2 (Recommended): Use your own infrastructure to send the password recovery email
 
