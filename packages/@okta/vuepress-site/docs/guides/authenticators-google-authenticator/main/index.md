@@ -19,7 +19,6 @@ This guide shows you how to integrate the Google Authenticator into your authent
 
 **What you need**
 
-* <StackSnippet snippet="orgconfigurepwdonly" />
 * <StackSnippet snippet="oiesdksetup" />
 * Google Authenticator installed on a mobile device
 
@@ -55,30 +54,42 @@ The following diagram illustrates how the Google authenticator enrollment and ch
 
 ## Update configurations
 
-Before you can start using the Google Authenticator, create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add the Google Authenticator to your app integration by executing the following steps:
+Before you can start using Google Authenticator, you need to enable it in your Okta org and assign it an authentication policy which requires it to be used.
 
-### Add Google Authenticator to the Okta org
+### Add Google Authenticator to your org
 
-1. In the Admin Console, go to **Security > Authenticators**.
-1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog, click **Add** under **Google Authenticator**.
-1. On the **Add Google Authenticator** dialog box, click **Add**.
-1. On the **Authenticators** page, select the **Enrollment** tab.
-1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
-1. Set **Google Authenticator** to **Optional** and click **Update Policy**.
+First, add Google Authenticator to your org and enable it.
 
-### Configure your Okta org application to use Google Authenticator
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authenticators** to show the available authenticators.
+3. If the **Google Authenticator** isn't in the list:
+   1. Click **Add Authenticator**.
+   2. Click **Add** on the **Google Authenticator** tile, and then click **Add** in the next dialog.
+4. Select the **Enrollment** tab.
+5. Check that **Google Authenticator** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
+   1. If **Google Authenticator** is set to **Disabled**, click **Edit** for the Default Policy
+   2. Select **Optional** from the drop-down box for the **Google Authenticator**, and then click **Update Policy**.
 
-1. In the Admin Console, go to **Applications** and **Applications**.
-1. On the **Applications** page, click on the application you've previously created.
-1. On the **General** tab ensure that **Interaction Code** and **Refresh Token** are selected.
-1. On the **Sign-On** tab, scroll down to the **Sign-On Policy** section and click **Add Rule**.
-1. On the **Add Rule** dialog, do the following:
-   1. Enter a name for the new rule (for example "2FA Rule").
-   1. Set **User must authenticate with** to **Password+Another Factor**.
-   1. Select **Device Bound**.
-   1. Confirm **Your org's authenticators that satisfy this requirement** is set to **Password AND Google Authenticator or ...**.
-   1. Click **Save**.
+### Set your app integration to use Google Authenticator
+
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
+
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authentication Policies** to show the available authentication policies.
+3. Click **Add a Policy**.
+4. Give the policy a name, and then click **Save**.
+5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+6. Select **Allowed after successful authentication**.
+7. Set **User must authenticate with** to **Password + Another factor**.
+8. For **Possession factor constraints**
+   1. Verify that **Device Bound** is selected.
+   2. Verify that **Google Authenticator** is listed in the box under **Additional factor types**. If it is not listed, check the authenticator has been enabled using steps 4 and 5 of [Add Google Authenticator to your org](#add-google-authenticator-to-your-org).
+   3. Click **Save**.
+
+9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
+10. Find your app in the list and click **Add** next to it.
+11. Click **Close**.
+12. Verify that the app is now listed in the **Applications** tab of the new policy.
 
 ## Install Google Authenticator
 
