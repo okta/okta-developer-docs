@@ -9,7 +9,7 @@ title: Embedded SDK New user activation
 
 <StackSelector />
 
-Learn how to integrate user activations using email with the Embedded SDK
+Learn how to integrate user activations with the Embedded SDK
 
 **Learning outcomes**
 
@@ -29,10 +29,26 @@ Learn how to integrate user activations using email with the Embedded SDK
 
 ## Overview
 
-User activations using the self service registration and embedded SDK
+User activation is the final step in the self-service registration process where a user verifies their identity typically with an email. How you integrate the user activation in your app depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration approaches. Each approach guides how you integrate user activations.
+
+### Approach 1: Create and activate the user with the Embedded SDK
+
+In this approach, your app uses the Embedded SDK to create and activate users. See the <StackSnippet snippet="ssrguide" inline /> guide for more details. With this approach, your app uses [Okta email](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-using-okta-email) to activate the user. Your Okta org configuration dictates which Okta email template your app needs to support. The possible templates are:
+
+* [The Email Factor Verification template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-email-factor-verification-template)
+* [The Registration - Activation template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-registration-activation-template)
 
 
-## Activations using Okta email
+### Approach 2: Create and activate the user with the Okta API and Embedded SDK
+
+TODO ...
+
+
+
+
+## Integrate using Okta email
+
+
 
 ### Summary
 
@@ -41,11 +57,11 @@ User activations using the self service registration and embedded SDK
 | Email Factor Verification   | Yes   | Optional or Disabled | Yes | OTP
 | Registration - Activation   | Yes   | Optional or Disabled | No | Link
 
-#### Where to find settings in the Admin Console
+### Setting location in Admin Console
 
 Talk about the email authenticator needing to be setup with authentication and recovery ...
 
-### Email verification required before access
+#### Email verification required before access
 
 1. Select **Security > Profile Enrollment**, in the Admin Console
 1. Edit the **Default Policy** by clicking the pencil icon in the **Profile Enrollment** page
@@ -55,7 +71,7 @@ Talk about the email authenticator needing to be setup with authentication and r
 1. Set the desired value.
 1. Click **Save** to save your changes.
 
-### Enrollment policy for email authenticator
+#### Enrollment policy for email authenticator
 
 1. Select **Security > Authenticators**
 1. Click on the **Enrollment** tab in the **Authenticators** page
@@ -64,7 +80,7 @@ Talk about the email authenticator needing to be setup with authentication and r
 1. Set the desired value.
 1. Click **Update Policy** to save your changes
 
-### Self-service recovery with email
+#### Self-service recovery with email
 
 1. Select **Security > Authenticators**.
 1. In the **Authenticators** page, find **Password** and select **Edit** under the **Actions** menu.
@@ -72,7 +88,7 @@ Talk about the email authenticator needing to be setup with authentication and r
 1. Click the field's **Email** option to toggle it's value.
 1. Click **Update Rule** to save changes.
 
-### Initiate URL
+#### Initiate login URI
 
 1. Select **Applications > Applications**
 1. Select your application in the **Applications** page
@@ -80,14 +96,9 @@ Talk about the email authenticator needing to be setup with authentication and r
 1. Under **Login**, find **Initiate login URI** and set its value. The sample application uses <StackSnippet snippet="initiateloginuri" inline />
 1. Click **Save** to save the changes.
 
-### Email Factor Verification template
+#### Email Factor Verification template
 
-
-
-### Registration - Activation template
-
-
-## Integrate user activations using Okta email
+#### Registration - Activation template
 
 ### Integrate the Email Factor Verification template
 
