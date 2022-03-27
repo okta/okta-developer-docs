@@ -29,26 +29,20 @@ Learn how to integrate user activations with the Embedded SDK
 
 ## Overview
 
-User activation is the final step in the self-service registration process where a user verifies their identity typically with an email. How you integrate the user activation in your app depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration approaches. Each approach guides how you integrate user activations.
+User activation is the final step in the self-service registration process where a user verifies their identity typically with an email. How you integrate the user activation in your app depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration designs. Each design dictates how you integrate user activations.
 
-### Approach 1: Create and activate the user with the Embedded SDK
+### Design 1: Create and activate the user with the Embedded SDK
 
-In this approach, your app uses the Embedded SDK to create and activate users. See the <StackSnippet snippet="ssrguide" inline /> guide for more details. With this approach, your app uses [Okta email](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-using-okta-email) to activate the user. Your Okta org configuration dictates which Okta email template your app needs to support. The possible templates are:
+In this design, your app uses the Embedded SDK to create and activate users. See the <StackSnippet snippet="ssrguide" inline /> guide for more details. With this design, your app uses [Okta email](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-using-okta-email) to activate the user. Your Okta org configuration determines what type of email and corresponding email template you app needs to support. For more information see the following:
 
-* [The Email Factor Verification template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-email-factor-verification-template)
-* [The Registration - Activation template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-registration-activation-template)
+* [Integrate the Email Factor Verification template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-email-factor-verification-template)
+* [Integrate The Registration - Activation template](docs/guides/oie-embedded-sdk-use-case-new-user-activation/nodeexpress/main/#integrate-the-registration-activation-template)
 
+### Design 2: Create and activate the user with the Okta API and Embedded SDK
 
-### Approach 2: Create and activate the user with the Okta API and Embedded SDK
+Unlike in the previous design where your app uses the Embedded SDK to create users, your infrastructure makes calls to the Okta API in this design to create the user and initiate the user activation. The Embedded SDK is used in the final step to activate the user. See[Integrate user activations using your own infrastructure]() for more details.
 
-TODO ...
-
-
-
-
-## Integrate using Okta email
-
-
+## Integrate user activations using Okta email
 
 ### Summary
 
