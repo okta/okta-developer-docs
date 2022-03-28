@@ -4,7 +4,7 @@
 ORG_URL=https://${yourOktaDomain}
 ```
 
-2. Replace the placeholder with your own value obtained earlier.
+2. Replace the placeholder with your own value that you obtained earlier.
 
 3. Add the following into your app file:
 
