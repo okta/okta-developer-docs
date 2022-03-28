@@ -110,7 +110,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 * You've hit a rate limit when you're in the Admin Console and the Rate Limit Monitoring widget informs you. Click **View** in the widget to open the rate limits dashboard or select the particular API in the widget, which opens to the rate limits dashboard with usage details for that API.
 
-* You've hit a rate limit warning, burst, or violation, and a rate limit event (violation, burst, or warning) is created in the System Log from where you can click **View Usage** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations, bursts, and warnings) have a link to the rate limit dashboard.
+* You've hit a rate limit warning, burst, or violation, and a rate limit event (warning, burst, or violation) is created in the System Log. In the log, you can click **View Usage** under **Event info** to go to the rate limits dashboard. All rate limit events in the System Log (warnings, bursts, and violations) have a link to the rate limit dashboard.
 
 ![Displays the event in the System Log that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard3.png)
 
