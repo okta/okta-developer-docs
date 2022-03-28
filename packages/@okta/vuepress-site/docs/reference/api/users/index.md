@@ -59,9 +59,9 @@ The user is emailed a one-time activation token if activated without a password.
 | Security Q & A   | Password   | Activate Query Parameter   | User Status     | Login Credential         | Welcome Screen   |
 | :--------------: | :--------: | :------------------------: | :-------------: | :----------------------: | :--------------: |
 |                  |            | FALSE                      | `STAGED`        |                          |                  |
-|                  |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+|                  |            | TRUE                       | `PROVISIONED` or `ACTIVE`   | One-Time Token (Email) or Email  | X                |
 | X                |            | FALSE                      | `STAGED`        |                          |                  |
-| X                |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+| X                |            | TRUE                       | `PROVISIONED` or `ACTIVE`   | One-Time Token (Email) or Email  | X                |
 |                  | X          | FALSE                      | `STAGED`        |                          |                  |
 |                  | X          | TRUE                       | `ACTIVE`        | Password                 | X                |
 | X                | X          | FALSE                      | `STAGED`        |                          |                  |
@@ -69,12 +69,25 @@ The user is emailed a one-time activation token if activated without a password.
 
 Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to either `ACTIVE` or `STAGED` based on the `activate` query parameter since these two providers don't support a `password` or `recovery_question` credential.
 
+#### Create User with Optional Password enabled
+
+<ApiLifeCycle access="ea" />
+
+When Optional Password is enabled, user status following creation can be affected by enrollment policy (see [About MFA enrollment policies and rules](/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm)).
+Based on the group memberships that are specified when the user is created (see [Create user in a group](#Create User in Group)) a password may or may not be required to make the users status `ACTIVE`.
+
+If the enrollment policy that applies to the user (as determined by the groups assigned to the user) specifies that Password authenticator is `required` then, in the case where the user is created without a password, the user will be in the `PROVISIONED` state and
+a One-Time Token will be sent to the user via email.
+If the user is created with a password, then their state is set to ACTIVE, and they can immediately log in using their Password authenticator.
+
+On the other hand, if the enrollment policy that applies to the groups specified for the newly created user indicates that password is `optional` or `disabled` then the Administrator cannot specify a password for the user.  Instead, the user status is set to `ACTIVE` and the user may immediately log in using their Email authenticator.   If policy permits, and the user so chooses, they can enroll a password after they log in.
+
 #### Create User without credentials
 
 
 Creates a user without a [password](#password-object) or [recovery question & answer](#recovery-question-object)
 
-When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
+If appropriate, when the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
 This is the default flow for new user registration using the administrator UI.
 
 ##### Request example
@@ -2179,6 +2192,10 @@ This operation can only be performed on users with a `STAGED` or `DEPROVISIONED`
 * The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
+
+>**Note:** If you have Optional Password enabled, visiting the activation link is optional for users who are not required to enroll a password (see [Create user with Optional Password enabled](####Create user with Optional Password enabled)).
+>
+
 
 ##### Request parameters
 
