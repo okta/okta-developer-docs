@@ -10,7 +10,7 @@ pip install requests==2.27.1 Flask==2.0.2 flask-cors==3.0.10 python-dotenv==0.19
 from dotenv import load_dotenv
 ```
 
-3. We'll use [flask_login](https://flask-login.readthedocs.io/en/latest/) to manage user actions. Add the following below your previous code:
+3. We use [flask_login](https://flask-login.readthedocs.io/en/latest/) to manage user actions. Add the following below your previous code:
 
 ```python
 from flask_login import (
