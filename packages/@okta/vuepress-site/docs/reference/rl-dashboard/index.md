@@ -120,7 +120,7 @@ The rate limit dashboard provides data use information for the API based on a se
 
 #### Usage pane
 
-The Usage pane provides a summary of the data use for the specified API. The following information on data use appears:
+The Usage pane provides a summary of the data use for the specified API:
 
 * Rate Limit: The rate limit for this API per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 * Latest Usage: The latest use of the API, which includes the API and its sub-APIs, as of the specified time
