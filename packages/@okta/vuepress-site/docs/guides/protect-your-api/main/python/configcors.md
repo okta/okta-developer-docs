@@ -1,4 +1,4 @@
-To enable [flask_cors](https://flask-cors.readthedocs.io/en/latest/), import and initialize it in your `app.py`: 
+To enable [flask_cors](https://flask-cors.readthedocs.io/en/latest/), import and initialize it into your `app.py`: 
 
 ```python
 from flask_cors import CORS
