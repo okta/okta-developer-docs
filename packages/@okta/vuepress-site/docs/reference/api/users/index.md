@@ -2193,7 +2193,7 @@ This operation can only be performed on users with a `STAGED` or `DEPROVISIONED`
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
->**Note:** If you have Optional Password enabled, visiting the activation link is optional for users who are not required to enroll a password (see [Create user with Optional Password enabled](####Create user with Optional Password enabled)).
+> **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
 >
 
 
