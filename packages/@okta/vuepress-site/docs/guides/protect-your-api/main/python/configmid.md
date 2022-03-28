@@ -1,4 +1,4 @@
-1. Create a new file called `.okta.env` in your project root, containing the following:
+1. Create a new file called `.okta.env` in your project root that contains the following:
 
 ```bash
 ORG_URL=https://${yourOktaDomain}
