@@ -78,7 +78,7 @@ Based on the group memberships that are specified when the user is created, a pa
 
 If the enrollment policy that applies to the user (as determined by the groups assigned to the user) specifies that the Password authenticator is `required`, then in the case where the user is created without a password, the user is in the `PROVISIONED` state and
 a One-Time Token is sent to the user through email.
-If the user is created with a password, then their state is set to ACTIVE, and they can immediately log in using their Password authenticator.
+If the user is created with a password, then their state is set to ACTIVE, and they can immediately sign in using their Password authenticator.
 
 On the other hand, if the enrollment policy that applies to the groups specified for the newly created user indicates that password is `optional` or `disabled` then the Administrator cannot specify a password for the user.  Instead, the user status is set to `ACTIVE` and the user may immediately log in using their Email authenticator.   If policy permits, and the user so chooses, they can enroll a password after they log in.
 
