@@ -18,9 +18,9 @@ This information is specific to the Telephony Inline Hook, one type of Inline Ho
 
 - For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) or [Add an Inline Hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook).
 
-- For a use case example of how to implement a Telephony Inline Hook, see [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/)
+- For a use case example of how to implement a Telephony Inline Hook, see [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/).
 
 ## About
 

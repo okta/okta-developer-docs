@@ -87,9 +87,7 @@ Copy the account SID and auth token from your Twilio account and add them as var
 1. Click **Add a Variable** and then add **FROM_PHONE_NUMBER** as the variable and then the Twilio phone number from your account as the value.
 1. Click **Add a Variable** and then add **TWIML_URL** as the variable and then the [TwiML URL](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) from your Twilio account.
 
-The above variable values coincide with the following lines in the Glitch `server.js` file:
-
-<StackSelector snippet="variables" noSelector/>
+> **Note:** See the code comments in the Glitch `server.js` file where these variable values appear.
 
 ## Parse the Telephony Inline Hook request
 
