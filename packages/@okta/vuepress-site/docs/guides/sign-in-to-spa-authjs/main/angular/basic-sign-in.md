@@ -25,37 +25,67 @@ const oidcConfig = {
 Review the same Angular `src/app/okta-config.ts` file that imports required libraries and instantiates the Okta Auth JS client with values from the `oidcConfig` variable.
 
 ```TypeScript
-import {
-  AuthState,
-  hasErrorInUrl,
-  IdxMessage,
-  IdxStatus,
-  IdxTransaction,
-  NextStep,
-  OktaAuth,
-  Tokens
-} from '@okta/okta-auth-js';
+import { OktaAuth } from '@okta/okta-auth-js';
+import { FactoryProvider, InjectionToken } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Router } from '@angular/router';
 
-....
+const oidcConfig = {
+  clientId: '0oa39qgjkuXPmnp5w1d7',
+  issuer: 'https://oie-9102338.oktapreview.com/oauth2/default',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
+};
 
-export interface AppAuthState {
-  transaction: IdxTransaction | undefined;
-  authState: AuthState;
+export const OKTA_AUTH = new InjectionToken('okta-auth');
+
+const oktaAuthFactory = (router: Router, doc: any) => {
+  const params = router.parseUrl(doc.location.search);
+  const state = params.queryParamMap.get('state') ?? undefined;
+  const recoveryToken = params.queryParamMap.get('recoveryToken') ?? undefined;
+  const redirectUri = `${doc.location.origin}/login/callback`;
+  return new OktaAuth({...oidcConfig, redirectUri, state, recoveryToken})
+};
+
+export const OKTA_PROVIDER: FactoryProvider = {
+  provide: OKTA_AUTH,
+  useFactory: oktaAuthFactory,
+  deps: [Router, DOCUMENT]
 }
+```
 
-const defaultAppAuthState: AppAuthState = {
-  authState: {
-    isAuthenticated: false
-  },
-  transaction: undefined
+To start the Okta Auth JS service, see this code snippet from the `okta-auth-service.ts` file:
+
+```TypeScript
+import { OKTA_AUTH } from './okta-config';
+
+constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
+  this.oktaAuth.start();
 }
 ```
 
 ### Handle the password authentication
 
-Review the `okta-auth.service.ts` file for details on handling a successful password authentication by receiving the `SUCCESS` status, which also returns tokens:
+Review the `okta-auth.service.ts` file for details on handling a successful password authentication by receiving the `SUCCESS` status, which also returns tokens. For example, for the simple authentication case:
 
-```JavaScript
+```TypeScript
+public authenticateFlow(): Observable<NextStep | undefined> {
+  return defer(() => this.oktaAuth.idx.authenticate().pipe(
+    map( transaction => {
+      const status = transaction.status;
+      if (status === IdxStatus.SUCCESS || status === IdxStatus.CANCELED) {
+        return undefined;
+      }
+      if (status === Idx.FAILURE) throw 'Idx error';
+      return transaction.nextStep;
+    }
+  );
+}
+```
+
+The sample app includes other flow states as well as authentication:
+
+```TypeScript
 ....
 export type FLOW_TYPE = 'authenticate' | 'recoverPassword' | 'register' | 'idp';
 ....

@@ -59,8 +59,6 @@ ng new okta-app
 
 When asked `Would you like to add Angular routing?`, press "y"
 
-For this example we are using `CSS` as the style engine. If you would like to use `SCSS` or another style engine, you may need to make a few adjustments to the code snippets shown in this guide.
-
 After all prompts have been answered, the Angular CLI will create a new project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
