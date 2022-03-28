@@ -1,4 +1,4 @@
-To force Flask to check for login on all routes, use `@before_request` to check route access. For example:
+To force Flask to check for `login` on all routes, use `@before_request` to check route access. For example:
 
 ```python
 @app.before_request
