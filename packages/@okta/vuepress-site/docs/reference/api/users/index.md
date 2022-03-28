@@ -74,7 +74,7 @@ Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to 
 <ApiLifeCycle access="ea" />
 
 When Optional Password is enabled, user status following creation can be affected by enrollment policy (see [About MFA enrollment policies and rules](/Content/Topics/identity-engine/policies/about-mfa-enrollment-policies.htm)).
-Based on the group memberships that are specified when the user is created (see [Create user in a group](#Create User in Group)) a password may or may not be required to make the users status `ACTIVE`.
+Based on the group memberships that are specified when the user is created, a password may or may not be required to make the users status `ACTIVE`. See [Create user in a group](#Create User in Group).
 
 If the enrollment policy that applies to the user (as determined by the groups assigned to the user) specifies that Password authenticator is `required` then, in the case where the user is created without a password, the user will be in the `PROVISIONED` state and
 a One-Time Token will be sent to the user via email.
