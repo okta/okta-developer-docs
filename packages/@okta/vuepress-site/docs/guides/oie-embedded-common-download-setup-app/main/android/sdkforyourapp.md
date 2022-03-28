@@ -2,33 +2,56 @@ Follow these steps to integrate the SDK into your own app.
 
 #### 1: Set up your app with the prerequisites
 
-1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app.
+1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/android/main/#create-a-new-application) for your app.
 1. Ensure that you have all the [software requirements](#software-requirements).
 
-#### 2: Import the packages and add the Android framework
+#### 2: Import the packages and create a configuration object
 
-The embedded authentication with SDK sample apps use the Android framework with the Identity Engine Java SDK. Import the Okta API packages as well as any Android packages that you need.
+The embedded authentication with SDK sample apps use the Android framework with the Identity Engine Kotlin SDK. Import the Okta API packages as well as any Android packages that you need.
 
-```java
-package com.okta.android.example;
+```kotlin
+import com.okta.idx.kotlin.client.IdxClientConfiguration
+import com.okta.android.example.BuildConfig
 
-import com.okta.idx.sdk.api.client.IDXAuthenticationWrapper;
-import com.okta.idx.sdk.api.client.ProceedContext;
-import com.okta.idx.sdk.api.model.AuthenticationOptions;
-import com.okta.idx.sdk.api.model.UserProfile;
-import com.okta.idx.sdk.api.model.VerifyAuthenticatorOptions;
-import com.okta.idx.sdk.api.response.AuthenticationResponse;
-import com.okta.idx.sdk.api.response.TokenResponse;
+...
+
+val clientConfig = IdxClientConfiguration(
+    issuer = BuildConfig.ISSUER.toHttpUrl(),
+    clientId = BuildConfig.CLIENT_ID,
+    scopes = setOf("openid", "email", "profile", "offline_access"),
+    redirectUri = BuildConfig.REDIRECT_URI,
+)
 ```
 
 #### 3: Instantiate the IDXAuthenticationWrapper object
 
-Start integrating your app using the Identity Engine Java SDK. Begin the Okta authentication flow by instantiating the `IDXAuthenticationWrapper` object.
+Start integrating your app using the Identity Engine Kotlin SDK. Begin the Okta authentication flow by calling `start()` on the `IdxClient` object.
 
-```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
+```kotlin
+@Volatile
+private var client: IdxClient? = null
+
+...
+
+when (val clientResult = IdxClient.start(IdxClientConfigurationProvider.get())) {
+    is IdxClientResult.Error -> {
+        // handle error
+    }
+    is IdxClientResult.Success -> {
+        client = clientResult.result
+        // calls the IDX API resume to receive the first IDX response.
+        when (val resumeResult = clientResult.result.resume()) {
+            is IdxClientResult.Error -> {
+               // handle error
+            }
+            is IdxClientResult.Success -> {
+                handleResponse(resumeResult.result)
+            }
+        }
+    }
+}
 ```
 
-See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information.
+See [Okta Kotlin SDK Usage guide](https://github.com/okta/okta-idx-android#introduction) for more information.
 
 Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your embedded app. See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/android/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample Android app.
