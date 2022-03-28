@@ -1,4 +1,4 @@
-You can create a `@public_route` decorator to allow any route decorated by it to be accessed without login: 
+You can create a `@public_route` decorator to allow any route decorated by it to be accessed without `login`: 
 
 ```python
 def public_route(decorated_function):
