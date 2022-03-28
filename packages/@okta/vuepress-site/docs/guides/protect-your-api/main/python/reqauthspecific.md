@@ -6,7 +6,7 @@ def public_route(decorated_function):
     return decorated_function
 ```
 
-For example, to make the default route (`/`) public, you'd update that route as follows:
+For example, to make the default route (`/`) public, update that route as follows:
 
 ```python
 @app.route("/")
