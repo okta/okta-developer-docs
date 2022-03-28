@@ -87,7 +87,7 @@ If the enrollment policy that applies to the groups specified for the newly crea
 
 Creates a user without a [password](#password-object) or [recovery question & answer](#recovery-question-object)
 
-If appropriate, when the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
+If appropriate, when the user is activated, an email is sent to the user with an activation token that the user can use to complete the activation process.
 This is the default flow for new user registration using the administrator UI.
 
 ##### Request example
