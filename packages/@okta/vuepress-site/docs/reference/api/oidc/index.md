@@ -24,7 +24,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | Endpoint                                                                          | Use                                                                                     |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
-| [/par](#par)                                                                      | Push an authorization request payload directly to the authorization server that responds with a request URI value for use in subsequent authorization requests to the `/authorize` endpoint.                     |
+| [/par](#par)                                                                      | Push an authorization request payload directly to the authorization server that responds with a request URI value for use in subsequent authorization requests to the `/authorize` endpoint. <ApiLifecycle access="ie" />                     |
 | [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
@@ -258,6 +258,8 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 ```
 
 ### /par
+
+<ApiLifecycle access="ie" />
 
 <ApiOperation method="post" url="${baseUrl}/v1/par" />
 
