@@ -10,7 +10,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
-* Notification alerts when you're about to hit, have hit the rate limit, or exceeded the rate limit (burst rate limits).
+* Notification alerts when you're about to hit or have hit the rate limit, or exceeded the rate limit (burst rate limits).
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
