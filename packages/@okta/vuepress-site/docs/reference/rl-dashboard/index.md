@@ -54,7 +54,7 @@ The **Settings** tab allows you to change the per client rate limit settings and
 
 The Event Count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, last 7 days, last month, or last 3 months. The Events per API bar graph shows the top five number of events by API over the same time period.
 
-![Displays the events (violations, bursts, and warnings) over a period of time graph and the top 10 endpoint violations bar graph.](/img/rl_dashboard7.png)
+![Displays the events (violations, bursts, and warnings) over a period of time graph and the top 5 endpoint events bar graph.](/img/rl_dashboard7.png)
 
 You can hover over the line graph or bar graph to get more details. The details also include a link to the system log where you can view filtered events specific to that API and time period.
 
