@@ -38,11 +38,11 @@ private fun createClient() {
 }
 ```
 
-The `IdxClientConfigurationProvider` class used in the call to `IdxClient.start()` contains the configuration information for your Okta org, and is usually initialized from an `okta.properties` file. The call to `clientResult.result.resume()` requests the first response of the sign-sequence.
+The `IdxClientConfigurationProvider` class used in the call to `IdxClient.start()` contains the configuration information for your Okta org, and in the sample app it is initialized from an `okta.properties` file found in the project root. The call to `clientResult.result.resume()` requests the first response of the sign-sequence.
 
 ### 3: Authenticate the user credentials
 
-The SDK uses an `IdxResponse` object to represent the server response for the current sign-on step. It contains a collection of remediations (`IdxRemediation`) that specify the type of step, any general messages, and a nested collection of forms (`IdxRemediation.Form`) containing fields (`IdxRemediation.Form.Field`) that represent the various elements required for the UI, such as an text field with a label or a QR code. Completing a step usually requires setting the value of one or more fields. The remediation is then sent back to the server with the updated values by calling the `proceed()` function. The server processes the values and then sends the next step and the the cycle continues until the user is authenticated.
+The SDK uses an `IdxResponse` object to represent the server response for the current sign-on step. It contains a collection of remediations (`IdxRemediation`) that specify the type of step, any general messages, and a nested collection of forms (`IdxRemediation.Form`) containing fields (`IdxRemediation.Form.Field`) that represent the various elements required for the UI, such as an text field with a label or a QR code. Completing a step usually requires setting the value of one or more fields. The remediation is then sent back to the server with the updated values by calling the `proceed()` function on the `IdxClient` instance. The server processes the values and then sends the next step and the the cycle continues until the user is authenticated.
 
 The kind of sign-on step is represented by the `type` property of the remediation. In the first step the server is requesting the username and password, an `IDENTIFY` remediation type.
 
@@ -50,7 +50,7 @@ This code shows the `handleResponse` function that handles the an SDK response i
 
 ```kotlin
 private suspend fun handleResponse(response: IdxResponse) {
-    // If a response is successful, immediately exchange it for a token and set it on LoggedInUserView
+    // If a response is successful, immediately exchange it for a token and handle success scenario
     if (response.isLoginSuccessful) {
         when (val exchangeCodesResult = client?.exchangeInteractionCodeForTokens(response.remediations[ISSUE]!!)) {
             is IdxClientResult.Error -> {
@@ -63,14 +63,14 @@ private suspend fun handleResponse(response: IdxResponse) {
         return
     }
 
-    // Check for messages, such as entering an incorrect code or auth error and abort if there is message.
-    if (response.messages.size != 0) {
+    // Check for messages, such as entering an incorrect code or auth error and abort if there is a message.
+    if (response.messages.isNotEmpty()) {
         // handle error
         return
     }
 
     // If no remediations are present, abort the login process and show error
-    if (response.remediations.size == 0) {
+    if (response.remediations.isEmpty()) {
         // handle error
         return
     }
@@ -89,7 +89,7 @@ private suspend fun handleResponse(response: IdxResponse) {
         // Display a list of authenticators to select or Enroll in an Authenticator
         SELECT_AUTHENTICATOR_ENROLL, ENROLL_AUTHENTICATOR -> handleAuthenticatorEnrollOrChallenge(remediation, skipRemediation)
         else -> {
-            // handle error
+            // handle other remediation types or throw and handle an error
         }
     }
 }
@@ -129,7 +129,7 @@ Some types of policies ask for the password in a separate step using a `CHALLENG
 ```kotlin
 private suspend fun handleChallenge(remediation: IdxRemediation) {
     // If no authenticators are found for challenge show error and abort
-    if (remediation.authenticators.size == 0) {
+    if (remediation.authenticators.isEmpty()) {
         // handle error
         return
     }
@@ -157,6 +157,8 @@ private suspend fun handleChallenge(remediation: IdxRemediation) {
 ### 4: Display a list of possible authenticator factors
 
 After verifying the username and password, the server sends a remediation of type `SELECT_AUTHENTICATOR_ENROLL` that contains the possible authenticators. The list of choices are in the `options` property of a field with `name` set to `"authenticator"` in the remediation's `forms`, `visibleFields` property.
+
+In the sample application we use a data structure ([`IdxDynamicField`](https://github.com/okta-samples/okta-android-oie-authenticators-quickstart/blob/main/app/src/main/java/com/okta/android/samples/authenticator/ui/login/IdxDynamicField.kt)) to hold details to build a dynamic UI
 
 The display name of an authenticator is in the `label` property of the field. Use this name to build your selection UI. See the `IdxRemediation.Form.Field.asIdxDynamicFields()` function in the [LoginViewModel class of the sample application](https://github.com/okta-samples/okta-android-oie-authenticators-quickstart/blob/main/app/src/main/java/com/okta/android/samples/authenticator/ui/login/LoginViewModel.kt) for an example of building a dynamic field from options.
 
@@ -210,7 +212,7 @@ private fun IdxRemediation.Form.Field.asIdxDynamicFields(): List<IdxDynamicField
 // Create actions for IdxRemediations with visibleFields
 private fun IdxRemediation.asDynamicAuthFieldActions(): List<IdxDynamicField> {
     // Don't show action for actions that are pollable without visible fields.
-    if (form.visibleFields.count() == 0 && capabilities.get<IdxPollRemediationCapability>() != null) {
+    if (form.visibleFields.isEmpty() && capabilities.get<IdxPollRemediationCapability>() != null) {
         return emptyList()
     }
 

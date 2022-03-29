@@ -16,7 +16,7 @@ This version of `handleChallenge()` includes Google Authenticator:
 ```kotlin
 private suspend fun handleChallenge(remediation: IdxRemediation) {
     // If no authenticators are found for challenge show error and abort
-    if (remediation.authenticators.size == 0) {
+    if (remediation.authenticators.isEmpty()) {
         // handle error
         return
     }
@@ -29,7 +29,7 @@ private suspend fun handleChallenge(remediation: IdxRemediation) {
             remediation.proceed()
         }
         IdxAuthenticator.Kind.APP -> {
-            if (authenticator.key?.equals("google_otp")!!) {
+            if (authenticator.key == "google_otp") {
                 // get challenge form field from remediation
                 handleAuthenticatorEnrollOrChallenge(remediation, null)
             }
