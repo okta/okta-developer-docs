@@ -14,6 +14,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Set up passwordless or password-optional sign-in experience is EA in Preview](#set-up-passwordless-or-password-optional-sign-in-experience-is-ea-in-preview) | March 30, 2022 |
 | [Native SSO support is EA in Preview](#native-sso-support-is-ea-in-preview) | March 30, 2022 |
 | [Telephony Inline Hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
+| [Splunk available for Log Streaming is EA in Preview]() | March 30, 2022 |
 | [Burst rate limits available on Rate Limit Dashboard](#burst-rate-limits-available-on-rate-limit-dashboard) | March 30, 2022 |
 | [OAuth 2.0 Push Authorization Requests](#oauth-2-0-push-authorization-requests) | March 30, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Preview](#signed-request-support-for-generic-oidc-idp-is-ga-in-preview) | March 02, 2022 |
@@ -38,6 +39,12 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 #### Telephony Inline Hook is EA in Preview
 
 While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes (OTPs) within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, whether that’s due to the time a customer has already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
+
+#### Splunk available for Log Streaming is EA in Preview
+
+Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
+
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](https://developer.okta.com/docs/reference/api/log-streaming/#splunk-cloud-settings-object).
 
 #### Burst rate limits available on Rate Limit Dashboard
 
