@@ -13,8 +13,8 @@ Learn how to integrate user activations with the Embedded SDK
 
 **Learning outcomes**
 
-<StackSnippet snippet="learningoutcomes" />
-</br>
+* Integrate user activations using Okta email
+* Integrate user activations using your own infrastructure
 
 **What you need**
 
@@ -29,11 +29,11 @@ Learn how to integrate user activations with the Embedded SDK
 
 ## Overview
 
-User activation is the final step in the self-service registration process where a user proves ownership of the email they've used during activation. After the email is verified, the new account's state is set to active and permitted to sign in to your app. How you integrate user activation depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration architectures: registration with the Embedded SDK or with the Okta API and Embedded SDK. Each architectures supports a unique way to integrate a user activation.
+User activation is the final step in self-service registration where a user proves ownership of the email they've used during registration. After the email is verified, their account status changes to active and they are now permitted to sign in to your app. How you integrate user activation depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration architectures: registration with the Embedded SDK or with the Okta API and Embedded SDK. Each architectures supports a unique way to integrate a user activation.
 
 ### Architecture 1: Create and activate the user with the Embedded SDK
 
-In this architecture, your app uses the Embedded SDK to create and activate users during self-service registration. The user uses <StackSnippet snippet="oktaemailguide" inline /> to verify their email address which enables them to be activated. The type of Okta email [template](/docs/guides/custom-email/main/) used depends on how you've configured your org.
+In this architecture, your solution uses the Embedded SDK to create and activate users during self-service registration. The user uses <StackSnippet snippet="oktaemailguide" inline /> to verify their email address which enables them to be activated. The type of Okta email [template](/docs/guides/custom-email/main/) used depends on how you've configured your Okta org.
 
 <div class="common-image-format">
 
@@ -41,14 +41,11 @@ In this architecture, your app uses the Embedded SDK to create and activate user
 
 </div>
 
-**Learn more:**
-
-* See the <StackSnippet snippet="ssrguide" inline /> guide for more details on self-service registration.
-* See [Integrate user activations using Okta email](#integrate-user-activations-using-okta-email) to learn how to integrate activation with this type of architecture.
+See [Integrate user activations using Okta email](#integrate-user-activations-using-okta-email) to get started integrating this activation solution into your app.
 
 ### Architecture 2: Create and activate the user with the Okta API and Embedded SDK
 
-Unlike in the previous design where your app uses the Embedded SDK to create users, in this architecture your app makes direct calls to the Okta API to create users and initiate activations. You use your own email infrastructure to send an emai to the user and use the Embedded SDK in the final step to complete the registration steps and activate the user.
+Unlike the previous design where your solution uses the Embedded SDK to create users, in this architecture your system makes direct calls to the Okta API to create users and initiate activations. You use your own email infrastructure to send activation emails and use the Embedded SDK to complete the registration steps and activate the user.
 
 <div class="common-image-format">
 
@@ -56,13 +53,11 @@ Unlike in the previous design where your app uses the Embedded SDK to create use
 
 </div>
 
-**Learn more:**
-
-See [Integrate user activations using your own infrastructure](#integrate-user-activations-using-your-own-infrastructure) for more details.
+See [Integrate user activations using your own infrastructure](#integrate-user-activations-using-your-own-infrastructure) to get started integrating this activation solution into your app.
 
 ## Integrate user activations using Okta email
 
-When your app supports <StackSnippet snippet="ssrguide" inline /> using the complete Embedded SDK solution, Okta email is used to enable activations. This activation can only occur when the user proves ownership of the email address they used during sign up. User activation is the final step in this registration process, which sets the newly created account's status to active and allows the account to sign in to your app.
+When your app uses the <StackSnippet snippet="ssrguide" inline /> to create a user, Okta sends an email to the registered email address to prove the user's ownership of the address. This proof of ownership permits the user's account to be activated and allows it to sign in to your app.
 
 ### Org settings that control the email template
 
@@ -111,7 +106,7 @@ Learn how to find each setting in the Admin Console.
 
 ### Integrate the Email Factor Verification template
 
-In this configuration the user enrolls in the email authenticator while creating a new account in your app. An email is sent to the user baseed on the **Email Factor Verification** template. After the user verifies the email with the OTP, they complete all required registration steps in your app and are activated.  See the <StackSnippet snippet="emailenrollmentotp" inline /> section in the Okta email guide for more details on this flow.
+In this configuration the user submits the email authenticator for enrollment while registering a new account in your app. Okta sends an email baseed on the **Email Factor Verification** template to the entered email address. After the user verifies the email with the OTP, they complete all required registration steps in your app and are activated.  See the <StackSnippet snippet="emailenrollmentotp" inline /> section in the Okta email guide for more details on this flow.
 
 #### Update configurations
 
@@ -139,12 +134,14 @@ Integrate the **Email Factor Verification** template into your app with the foll
 
 First, the user starts a new account registration using your app. During the process, they submit the email authenticator for enrollment and your app displays an OTP page. See the following to learn more about this flow:
 
+**Learn more:**
+
 * To learn more about integrating self-service registration, see the <StackSnippet snippet="ssrguide" inline /> guide.
 * To learn about integrating the email enrollment, see <StackSnippet snippet="emailenrollmentotp" inline /> under the Okta email guide.
 
 #### 2. Send email
 
-After the user submits the email authenticator, Okta sends an email to the user based on the **Email Factor Verification Template**. See the following screenshot for an example.
+After the user submits the email authenticator for enrollment, Okta sends an email to the user based on the **Email Factor Verification Template**. See the following screenshot for an example of the email.
 
 <div class="common-image-format">
 
@@ -152,17 +149,17 @@ After the user submits the email authenticator, Okta sends an email to the user 
 
 </div>
 
-#### 3. Opens email and submit OTP in your app
+#### 3. Open email and submit OTP in your app
 
-Next, the user copies the OTP from their email and submits it in your app. Depending on how your org's configuration, they may be required to complete additional steps (including enrolling in any other authenticators) before completing the registraiton. This flow is described in detail in <StackSnippet snippet="emailenrollmentotp" inline /> under the Okta email guide.
+Next, the user copies the OTP from their email and submits it in your app. Depending on how your org's configuration, they may be required to complete additional steps (including enrolling in any additional authenticators) before completing the registration. This flow is described in detail in <StackSnippet snippet="emailenrollmentotp" inline /> under the Okta email guide.
 
-#### 5. Completes registration and activation completion
+#### 4. Complete registration and activation completion
 
 <StackSnippet snippet="integrateemailverifylaststep" />
 
 ### Integrate the Registration - Activation template
 
-In this configuration the user initiates a new account registration in your app. They complete all registration steps including required authenticator enrollment, although the email authenticator is not included in the list of authenticators. After the user completes these steps, an email is sent to the user based on the **Registration - Activation** template. The user opens their email and clicks on the **Activate account** link to complete the activation.
+In this configuration the user initiates a new account registration and completes all registration steps including enrolling in optional and required authenticators. Due to how the org is configured the email authenticator is excluded from this authenticator list. After the user completes these steps, an email is sent to the user based on the **Registration - Activation** template. The user opens their email and clicks on the **Activate account** link to complete the activation.
 
 #### Update configurations
 
@@ -182,7 +179,7 @@ If for any reason you want to view or modify the **Registration - Activation** t
 
 ##### Initiate login URI
 
-When the user clicks **Activate Account** in their email, their account is activated and the request is redirected to the URL defined in **Initiate login URI**. To update this value used by your app, perform the following steps.
+When the user clicks the email's **Activate Account** link, Okta activates their account and the request is redirected to the URL defined in **Initiate login URI**. To update this value, perform the following steps in the Admin Console.
 
 1. Select **Applications > Applications**.
 1. Select your application in the **Applications** page.
@@ -194,9 +191,17 @@ When the user clicks **Activate Account** in their email, their account is activ
 
 First, the user registers a new account using your app. This registration includes setting the username, optional password, and enrolling in any required authenticators. In this configuration, the email authenticator won't be in the list of authenticators eligible for enrollment.
 
+**Learn more:**
+
+* To learn more about integrating self-service registration, see the <StackSnippet snippet="ssrguide" inline /> guide.
+
+#### 2. Notify user to complete registration using their email
+
+<StackSnippet snippet="registrationactivationtemplatelaststep" />
+
 #### 3. Send email
 
-After the user completes the account registration in your app, an email is sent to the user based on the **Registration - Activation** template. See the following screenshot for an example of the email.
+After the user completes the account registration, an email is sent to the user based on the **Registration - Activation** template. See the following screenshot for an example of the email.
 
 <div class="common-image-format">
 
@@ -216,7 +221,7 @@ In this architecture, you take more control over the account creation by calling
 
 #### 1. Create the user
 
-The first step is create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The following example, creates a user without credentials.
+The first step is create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The following example creates a user without credentials.
 
 ##### Request
 
@@ -255,11 +260,11 @@ curl -v -X POST \
 }
 ```
 
-See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on this API endpoint.
+See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the API endpoints described in the examples.
 
 #### 2. Start user activation and get activation token
 
-After the user is created, the next step is obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation under the User Lifecycle API to generate the activation token. The endpoint requires the user id, which is found in `id` property in the previous step's [Create user](/docs/reference/api/users/#create-user) response. See the following request and response examples for further details.
+After the user is created, the next step is obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The endpoint requires the user id, which is found in `id` property in the [Create user](/docs/reference/api/users/#create-user) response described in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
 
 ##### Request
 
