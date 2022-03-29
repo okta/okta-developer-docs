@@ -34,6 +34,18 @@ When you create a Telephony Inline Hook, you must include the `authScheme` param
 
 For the Telephony Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
+### requestType
+OTP request or event for which this transaction is being requested: authentication, enrollment, recovery
+
+Acceptable values for `requestType`
+
+| Enum Value                      | Associated Okta Event                                                                                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `com.okta.user.telephony.pre-enrollment`                  | Enrollment |
+| `com.okta.user.telephony.mfa-verification`    | Authentication |
+| `com.okta.user.telephony.account-unlock`              | Account Unlock |
+| `com.okta.user.telephony.password-reset`              | Password Reset |
+
 ### data.userProfile
 
 Provides information on the OTP requester
@@ -57,7 +69,6 @@ Provides information on the properties of the message being sent to the OTP requ
 | deliveryChannel   | OTP delivery method: SMS or CALL | String     |
 | otpCode   | OTP code | String     |
 | locale   | Location of the OTP requester | String     |
-| eventAction   | Event for which OTP is requested: authentication, enrollment, recovery events | String     |
 
 ## Objects in the response that you send
 
@@ -126,6 +137,7 @@ Returning an error object causes Okta to retry sending the OTP to the requester 
   "contentType": "application/json",
   "cloudEventVersion": "0.1",
   "source": "https://${yourOktaDomain}/api/v1/inlineHooks/calz6lVQA77AwFeEe0g3",
+  "requestType": "com.okta.user.telephony.pre-enrollment",
   "data": {
     "context": {
       "request": {
@@ -149,8 +161,7 @@ Returning an error object causes Okta to retry sending the OTP to the requester 
       "otpExpires": "2022-01-28T21:48:34.321Z",
       "deliveryChannel": "SMS",
       "otpCode": "11111",
-      "locale": "EN-US",
-      "eventAction": "com.okta.user.telephony.pre-enrollment"
+      "locale": "EN-US"
     }
   }
 }
