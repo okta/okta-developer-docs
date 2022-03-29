@@ -5,9 +5,9 @@
         <Sidebar />
       </div>
       <div class="width-adjuster">
-        <AnnouncementBanner ctaText="Read more" ctaHref="https://www.okta.com/blog/2022/03/updated-okta-statement-on-lapsus/">
-          <template v-slot:description >
-            Updated Okta Statement on LAPSUS$
+        <AnnouncementBanner>
+          <template v-slot:description>
+            For more information and frequently asked questions regarding the January 2022 compromise, <a href="https://support.okta.com/help/s/article/Frequently-Asked-Questions-Regarding-January-2022-Compromise?language=en_US#" target="_blank" rel="noopener noreferrer">read more</a>.
           </template>
         </AnnouncementBanner>
         <div class="justify-content-center">
