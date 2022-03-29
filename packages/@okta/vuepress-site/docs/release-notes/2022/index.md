@@ -12,7 +12,7 @@ title: Okta API Products release notes 2022
 | [Burst rate limits available on Rate Limit Dashboard](#burst-rate-limits-available-on-rate-limit-dashboard) | March 30, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Preview](#signed-request-support-for-generic-oidc-idp-is-ga-in-preview) | March 02, 2022 |
 | [Client secret rotation and key management is GA in Preview](#client-secret-rotation-and-key-management-is-ga-in-preview) | February 03, 2022 |
-| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview]() | March 30, 2022 |
+| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-preview) | February 16, 2022 |
 | [Bug fixed in 2022.04.0](#bug-fixed-in-2022-04-0) | March 30, 2022 |
 
 #### Improved email magic link authentication experience is EA in Preview
