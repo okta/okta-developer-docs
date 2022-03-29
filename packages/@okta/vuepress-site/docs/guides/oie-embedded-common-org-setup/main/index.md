@@ -83,7 +83,7 @@ Create an app integration that represents the application you want to add authen
 1. Click **Save**.
 1. On the **General** tab, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
 
-   > **Note:** New apps are automatically assigned the shared default authentication policy that has a catch-all rule that allows a user access to the app using one factor. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Polices** and then select **Default Policy**.
+   > **Note:** New apps are automatically assigned the shared default authentication policy with a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Policies** and then select **Default Policy**.
 
 <StackSnippet snippet="appsbaseurl" />
 
@@ -91,13 +91,13 @@ Create an app integration that represents the application you want to add authen
 
 After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use case that you're implementing.
 
-* For a basic password factor use case, see [Set up your Okta org for a password factor-only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* For a basic password factor use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, your new app was automatically assigned to the shared default authentication policy that has a catch-all rule that allows a user access to the app using one factor. In the next section, follow the steps to finish setting up your Okta org for a password factor only use case.
+This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, you updated that app’s policy to **Password only** to use **Password** as the only factor required for a user to sign in. In the next section, follow the steps to finish setting up your Okta org for a password factor only use case.
 
 #### Update the password authenticator to password only
 
@@ -145,7 +145,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. In the Admin Console, go to **Security** > **Authentication Policies**.
 1. On the Authentication polices page, select **Default Policy** as this is the policy that the [app that you created](#create-a-new-application) is assigned to.
 1. Select **Edit** from the **Actions** menu for the **Catch-all Rule**.
-1. On the **Edit Rule** dialog, scroll down to the **AND User must authenticate with** dropdown menu and select **Password/IdP + Another Factor**.
+1. On the **Edit Rule** dialog, scroll down to the **AND User must authenticate with** dropdown menu and select **Password + Another Factor**.
 1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
 

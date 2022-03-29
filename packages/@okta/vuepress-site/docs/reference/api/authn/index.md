@@ -6506,6 +6506,16 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 | Parameter     | Description                                                                                                    | Param Type | DataType | Required |
 | ------------- | ----------------------------------------------------------------------------------------------------------     | ---------- | -------- | -------- |
 | recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |    
+
+##### Options object
+
+You can modify the authentication transaction [state machine](#transaction-state) through the following opt-in features:
+
+| Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
+| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when additional optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
+
 
 ##### Response parameters for verify recovery token
 

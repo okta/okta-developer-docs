@@ -620,6 +620,10 @@ export const guides = [
           guideName: "registration-inline-hook"
           },
           {
+            title: "Telephony Inline Hook",
+          guideName: "telephony-inline-hook"
+          },
+          {
             title: "Token Inline Hook",
           guideName: "token-inline-hook"
           },
@@ -854,7 +858,7 @@ export const reference = [
               { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
               { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
               { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-              { title: "Telephony Hook", guideName: "/docs/reference/telephony-inline-hook/", hidden: true},
+              { title: "Telephony Hook", path: "/docs/reference/telephony-hook/" },
               { title: "Token Hook", path: "/docs/reference/token-hook/" },
               { title: "User Import Hook", path: "/docs/reference/import-hook/"}
           ]},
