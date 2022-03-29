@@ -11,7 +11,7 @@ title: Okta Identity Engine API Products release notes 2022
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Improved email magic link authentication experience is EA in Preview](#improved-email-magic-link-authentication-experience-is-ea-in-preview) | March 30, 2022 |
-| [Set up passwordless or password-optional sign-in experience is EA in Preview](#set-up-passwordless-or-password-optional-sign-in-experience-is-ea-in-preview) | March 30, 2022 |
+| [Password as an optional authenticator is EA in Preview](#password-as-an-optional-authenticator-is-ea-in-preview) | March 30, 2022 |
 | [Native SSO support is EA in Preview](#native-sso-support-is-ea-in-preview) | March 30, 2022 |
 | [Telephony Inline Hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
 | [Splunk available for Log Streaming is EA in Preview](#splunk-available-for-log-streaming-is-ea-in-preview) | March 30, 2022 |
@@ -26,7 +26,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
-#### Set up passwordless or password-optional sign-in experience is EA in Preview
+#### Password as an optional authenticator is EA in Preview
 
 Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. This functionality allows you to create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. You can target specific groups in the Authenticator Enrollment policy to enable users to register and authenticate without having to set up a password. See [Create User with Optional Password enabled](/docs/reference/api/users/#create-user-with-optional-password-enabled).
 
