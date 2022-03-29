@@ -1,6 +1,6 @@
 {
-  "release" : "2022.03.1",
-  "build" : "2022.03.1-begin-126-g4846f8a5233f",
+  "release" : "2022.04.1",
+  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -43,9 +43,6 @@
   }, {
     "id" : "delivery",
     "name" : "Delivery"
-  }, {
-    "id" : "desktop-device-trust",
-    "name" : "Desktop Device Trust"
   }, {
     "id" : "devex",
     "name" : "DevEx"
@@ -94,12 +91,6 @@
   }, {
     "id" : "mfa-platform",
     "name" : "MFA Platform"
-  }, {
-    "id" : "mobile-device-trust",
-    "name" : "Mobile DeviceTrust"
-  }, {
-    "id" : "mobile-omm",
-    "name" : "Mobile OMM"
   }, {
     "id" : "msft-apps",
     "name" : "Microsoft Apps"
@@ -6684,7 +6675,7 @@
       }
     }, {
       "id" : "mim.command.generic.acknowledged",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6701,7 +6692,7 @@
       }
     }, {
       "id" : "mim.command.generic.cancelled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6718,7 +6709,7 @@
       }
     }, {
       "id" : "mim.command.generic.delegated",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6735,7 +6726,7 @@
       }
     }, {
       "id" : "mim.command.generic.error",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6752,7 +6743,7 @@
       }
     }, {
       "id" : "mim.command.generic.new",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6769,7 +6760,7 @@
       }
     }, {
       "id" : "mim.command.generic.notnow",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6786,7 +6777,7 @@
       }
     }, {
       "id" : "mim.command.ios.acknowledged",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6803,7 +6794,7 @@
       }
     }, {
       "id" : "mim.command.ios.cancelled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6820,7 +6811,7 @@
       }
     }, {
       "id" : "mim.command.ios.error",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6837,7 +6828,7 @@
       }
     }, {
       "id" : "mim.command.ios.formaterror",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6854,7 +6845,7 @@
       }
     }, {
       "id" : "mim.command.ios.new",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6871,7 +6862,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.ANDROID",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6888,7 +6879,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.IOS",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6905,7 +6896,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.OSX",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6922,7 +6913,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.UNKNOWN",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6939,7 +6930,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.WINDOWS",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6956,7 +6947,7 @@
       }
     }, {
       "id" : "mim.streamDevicesAppListCSVDownload",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6973,7 +6964,7 @@
       }
     }, {
       "id" : "mim.streamDevicesCSVDownload",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -7194,7 +7185,7 @@
       }
     }, {
       "id" : "omm.app.VPN.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7211,7 +7202,7 @@
       }
     }, {
       "id" : "omm.app.WIFI.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7228,7 +7219,7 @@
       }
     }, {
       "id" : "omm.app.eas.cert_based.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7245,7 +7236,7 @@
       }
     }, {
       "id" : "omm.app.eas.disabled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7262,7 +7253,7 @@
       }
     }, {
       "id" : "omm.app.eas.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7279,7 +7270,7 @@
       }
     }, {
       "id" : "omm.cma.created",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7296,7 +7287,7 @@
       }
     }, {
       "id" : "omm.cma.deleted",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7313,7 +7304,7 @@
       }
     }, {
       "id" : "omm.cma.updated",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7330,7 +7321,7 @@
       }
     }, {
       "id" : "omm.enrollment.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -8843,7 +8834,7 @@
       }
     }, {
       "id" : "pki.cert.issue",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate issuance.",
       "info" : {
         "created" : "2017-10-27",
@@ -8945,7 +8936,7 @@
       }
     }, {
       "id" : "pki.cert.renew",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate renewal.",
       "info" : {
         "created" : "2017-10-27",
@@ -8962,7 +8953,7 @@
       }
     }, {
       "id" : "pki.cert.revoke",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate revocation.",
       "info" : {
         "created" : "2017-10-27",
@@ -13263,7 +13254,7 @@
       }
     }, {
       "id" : "user.authentication.authenticate",
-      "category" : "mobile-device-trust",
+      "category" : "device-platform",
       "description" : "Authentication via device trust certificate.",
       "info" : {
         "created" : "2017-10-25",
@@ -13331,7 +13322,7 @@
       }
     }, {
       "id" : "user.credential.enroll",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate enrollment.",
       "info" : {
         "created" : "2017-10-27",
@@ -21757,6 +21748,38 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "resource" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "api://default" ]
+          },
+          "actor_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:x-oath:params:oauth:token-type:device-secret" ]
+          },
+          "subject_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:ietf:params:oauth:token-type:id_token" ]
+          },
+          "requested_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:okta:oauth:token-type:web_sso_token" ]
           },
           "client_secret" : {
             "type" : "String",
