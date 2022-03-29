@@ -1,6 +1,6 @@
-### 1 - 9. Sign-in and get magic link email
+### 1 - 9. Sign in and get magic link email
 
-First, the user initiates the sign-in and email challenge flow. Next, they click on the magic link, which redirects them back to your app. These steps are identical to the steps 1 - 9 in Integrate email challenge with magic links.
+First, the user attempts to sign in, initiating the email challenge flow. Next, they click on the magic link, which redirects them back to your app. These steps are identical to the steps 1 - 9 in [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links).
 
 ### 10: Handle the magic link redirect in your app
 
@@ -14,7 +14,7 @@ if (idxContext == null)
 }
 ```
 
-If we are unable to retrieve the context using the state, we assume that this is because we are in a different browser and advise the user to return to the original tab and enter the otp value there.
+If your code can't retrieve the context using the state, assume that this is because the user is in a different browser. Advise the user to return to the original tab and enter the OTP value there.
 
 ```csharp
   if (idxContext != null)

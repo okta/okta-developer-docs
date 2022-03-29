@@ -1,13 +1,13 @@
-### 1 - 4: Sign-in and Select Authenticator
+### 1 - 4: Sign in and select authenticator
 
-The enrollment flow follows the same first four steps as the Challenge flow
+The Enrollment flow follows the same first four steps as the Challenge flow:
 
 * Build a sign-in page on the client
 * Authenticate the user credentials
 * Handle the response from the sign-in flow
 * Display a list of possible authenticator factors
 
-### 5. Check Authenticator Status & Send Email to the User
+### 5. Check authenticator status and send email to the user
 
 When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow. When in Enrollment Flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
@@ -21,7 +21,7 @@ var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(
     enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, Okta sends an enrollment email to the user containing the OTP. All being equal, the server should return a status of `AwaitingAuthenticatorVerification` indicating it is waiting for the user to check their email and either click the magic link in it or enter the OTP it contains.
+If the call is successful, Okta sends an enrollment email to the user containing the OTP. The server should return a status of `AwaitingAuthenticatorVerification` to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
 
 ```csharp
 switch (enrollResponse?.AuthenticationStatus)
@@ -42,7 +42,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the one-time password sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
+Build a form that allows the user to enter the one-time password (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
 
 ### 7. Open email and copy OTP
 
@@ -70,10 +70,10 @@ try
     verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the current status of the authentication process. You should expect one of the following statuses
+Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the current status of the authentication process. You should expect one of the following:
 
 * `Success` : All authenticators have been enrolled and the user has logged in successfully.
-* `AwaitingPasswordReset` : The user needs to change their password
+* `AwaitingPasswordReset` : The user needs to change their password.
 * `AwaitingAuthenticatorEnrollment` : The user has successfully enrolled the Email Authenticator and must now enroll other authenticators.
 
 ```csharp
@@ -99,4 +99,4 @@ switch (authnResponse.AuthenticationStatus)
 return View(view, model);
 ```
 
-On `Success`, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+If the returned status is `Success`, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.

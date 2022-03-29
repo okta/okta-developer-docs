@@ -1,6 +1,6 @@
 ## Integrate email enrollment with OTP
 
- With OTP, the user copies an automatically generated numeric string from their email to your application to verify their identity. The following flowchart, which uses the sign-in with email example, illustrates the OTP user journey.
+ With a one-time password (OTP), the user copies an automatically generated numeric string from their email to your application to verify their identity. The following flowchart, which uses the sign-in with email example, illustrates the OTP user journey.
 
 <div class="common-image-format">
 

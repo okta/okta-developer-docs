@@ -10,7 +10,7 @@ Build a sign in page that captures the user's name and password, as shown in the
 
 ### 2: Authenticate the user credentials
 
-Once a user has initiated the sign-on process by entering the username and password and clicking **Sign In**, create an `AuthenticationOptions` object in your `SignIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` which you have also instantiated.
+After a user has initiated the sign-on process by entering the username and password and clicking **Sign In**, create an `AuthenticationOptions` object in your `SignIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` which you have also instantiated.
 
 ```csharp
 var _idxClient = new Okta.Idx.Sdk.IdxClient();
@@ -39,7 +39,7 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
                 … your code …
 ```
 
-If you've configured your Okta org correctly, you'll need to respond to two specific authenticator statuses to handle this scenario in addition to `Success`, `PasswordExpired` and so on:
+If you've configured your Okta org correctly, you'll need to respond to two specific authenticator statuses to handle this scenario:
 
 * `AwaitingChallengeAuthenticatorSelection` which is covered in this section
 * `AwaitingAuthenticatorEnrollment` which is covered in a later section
@@ -96,7 +96,7 @@ public ActionResult SelectAuthenticator()
 }
 ```
 
-This viewModel is then consumed in a Razor page
+This viewModel is then consumed in a Razor page.
 
 ```razor
 <section id="selectAuthenticatorForm">
@@ -133,7 +133,7 @@ This viewModel is then consumed in a Razor page
 </section>
 ```
 
-For example, if the user has previously enrolled the email authenticator, Google Authenticator and Okta Verify, they would see the following:
+For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they would see the following:
 
 <div class="common-image-format">
 
@@ -141,7 +141,7 @@ For example, if the user has previously enrolled the email authenticator, Google
 
 </div>
 
-### 5. Check Authenticator Status
+### 5. Check authenticator status
 
 When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow.
 
@@ -188,7 +188,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ### 6: Display a list of challenge methods
 
-Build a page to display the list of challenge methods returned in the previous step. For example, in the sample application, a new `SelectAuthenticatorMethodViewModel` is populated from the `CurrentAuthenticatorEnrollment` object contained in `AuthenticationResponse`. Of note, the list of methods is saved to a property called `MethodTypes` of type `IList<AuthenticatorMethodType>`.
+Build a page to display the list of challenge methods returned in the previous step. For example, in the sample application, a new `SelectAuthenticatorMethodViewModel` is populated from the `CurrentAuthenticatorEnrollment` object contained in `AuthenticationResponse`. The list of methods is saved to a property called `MethodTypes` of type `IList<AuthenticatorMethodType>`.
 
 This ViewModel is then consumed in a Razor page.
 
@@ -225,7 +225,7 @@ This ViewModel is then consumed in a Razor page.
 </section>
 ```
 
-Typically, the email authenticator has only one challenge method: proof by email, so that option is shown.
+Typically, the email authenticator only uses the proof by email challenge method.
 
 <div class="common-image-format">
 
@@ -235,7 +235,7 @@ Typically, the email authenticator has only one challenge method: proof by email
 
 ### 7. Send email to user's email address
 
-When the user selects **email** and clicks **Submit**, the form posts back to the `SelectPhoneChallengeMethodAsync` method. (Email and Phone authenticators share the same challenge method). This retrieves the selected method type, enrollment ID and authenticator ID, and prompts an email to be sent to the user from the Okta server with a call to `ChallengeAuthenticatorAsync`.
+When the user selects **email** and clicks **Submit**, the form posts back to the `SelectPhoneChallengeMethodAsync` method. (Email and phone authenticators share the same challenge method). This retrieves the selected method type, enrollment ID, and authenticator ID, and prompts an email to be sent to the user from the Okta server with a call to `ChallengeAuthenticatorAsync`.
 
 ```csharp
 var challengeOptions = new ChallengePhoneAuthenticatorOptions
@@ -249,7 +249,7 @@ var challengeResponse = await _idxClient.ChallengeAuthenticatorAsync(
   challengeOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-All being equal, the server should return a status of `AwaitingAuthenticatorVerification` indicating it is waiting for the user to check their email and either click the magic link in it or enter the OTP it contains.
+The server should return a status of `AwaitingAuthenticatorVerification` to indicate it is waiting for the user to check their email and either click the magic link or enter the OTP.
 
 ```csharp
 switch (challengeResponse?.AuthenticationStatus)
@@ -263,7 +263,7 @@ switch (challengeResponse?.AuthenticationStatus)
 
 ### 8. Display OTP input page
 
-Build a form that allows the user to enter the one-time password sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the one-time password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ```razor
 <section id="enterCodeForm">

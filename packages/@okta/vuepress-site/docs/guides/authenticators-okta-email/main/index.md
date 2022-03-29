@@ -37,7 +37,7 @@ With the Embedded SDK, your app can verify a user's identity using the email aut
 
 ### Discover the convenience of magic links
 
-When using OTP, a user must switch between your app to their email, find the OTP, switch back to your app again, type in the OTP and hit submit to verify their identity. Compare this to using magic links where verification requires the user only to click on a link in the email - a far quicker, more user-convenient, and yet still secure experience.
+When using OTP, a user must switch from your app to their email, find the OTP, switch back to your app again, type in the OTP and click submit to verify their identity. Compare this to using magic links, where verification only requires the user to click on a link in the email - a far quicker, more user-convenient, and yet still secure experience.
 
 <div class="common-image-format">
 
@@ -53,7 +53,7 @@ This guide walks you through the email authenticator user journeys for both magi
 
 1. [Understand magic link flow before you integrate](#understand-the-magic-link-flow): Learn the magic link user journey
 1. [Know which use cases support magic link and OTP](#know-which-use-cases-support-magic-link-and-otp): Understand magic link and OTP support across the supported use cases
-1. [Update Configurations](#update-configurations): Set up your org to enable the email authenticator and magic links
+1. [Update configurations](#update-configurations): Set up your org to enable the email authenticator and magic links
 1. [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links): Integrate email challenge using magic links with step-by-step instructions
 1. [Integrate different browser and device scenario with magic links](#integrate-different-browser-and-device-scenario-with-magic-links): Integrate the different browser and device scenarios with step-by-step instructions
 
@@ -82,7 +82,7 @@ The following diagram illustrates these steps.
 
 </div>
 
-Note that the user is within the same browser when they start the sign-in and click on the magic link.
+Note that the user stays within the same browser when they start the sign-in flow and click on the magic link in their email.
 
 ### The reason for the OTP input page
 
@@ -127,7 +127,7 @@ First, add the email authenticator to your org and enable it for both authentica
 
 ### Set your app integration to use the email authenticator
 
-New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
+New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
@@ -163,7 +163,7 @@ Enable magic links in your org.
 
 ## Integrate different browser and device scenario with magic links
 
-Magic links is made with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked on the magic link. For example, a user who started signing into your app in a web browser must be in the same browser when they click on the magic link. If the browser or device is different, magic links is disabled, and they need to use OTP or be in the same browser to complete the email verification. The following flowchart illustrates this logic.
+The email magic links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked on the magic link. For example, a user who started signing into your app in a web browser must be in the same browser when they click on the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
 
 <div class="common-image-format">
 
