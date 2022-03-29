@@ -4,7 +4,7 @@ title: OAuth 2.0 and OpenID Connect Overview
 
 # OAuth 2.0 and OpenID Connect Overview
 
-This article provides a high-level introduction to OAuth 2.0 and OpenID Connect (OIDC), which are the standard protocols that Okta's authentication and authorization solutions are based on. This articles discusses how you can implement flows based on these standards using Okta, and what flows and grant types different types of app commonly use.
+This article provides a high-level introduction to OAuth 2.0 and OpenID Connect (OIDC), which are the standard protocols that Okta's authentication and authorization solutions are based on. This article discusses how you can implement flows based on these standards using Okta, and what flows and grant types different types of apps commonly use.
 
 > **Note**: See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for more information on the specific types of authentication deployment models that Okta provides that are built on top of OAuth 2.0 and OIDC.
 
@@ -34,7 +34,7 @@ The OAuth 2.0 spec has four important roles:
 
 * The "client" &mdash; The application that requests the access token from Okta and then passes it to the resource server
 
-* The "resource server" &mdash; Accepts the access token and must verify that it's valid. In this case this is your application.
+* The "resource server" &mdash; Accepts the access token and must verify that it's valid. In this case, this is your application.
 
 Other important terms:
 
