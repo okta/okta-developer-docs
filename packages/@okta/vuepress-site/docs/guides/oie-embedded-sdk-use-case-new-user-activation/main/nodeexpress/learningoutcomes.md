@@ -1,3 +1,3 @@
-* Configure your Okta org to support several of the activation flows
-* Integrate your app using activations through Okta email
-* Activate users using your own infrastructure
+* Configure your Okta org to enable the supported activation flows
+* Integrate user activations using Okta email
+* Integrate user activations using your own infrastructure

@@ -1,0 +1,1 @@
+`OktaAuth.idx.register()` returns a status of `PENDING` or `SUCCESS` depending whether there are additional authenticators that need to be enrolled or other steps that need to be completed.  After all steps are completed, the SDK returns a status of `SUCCESS` and the activation is completed.

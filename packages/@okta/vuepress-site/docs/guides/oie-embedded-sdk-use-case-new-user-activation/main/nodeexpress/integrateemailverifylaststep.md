@@ -1,0 +1,1 @@
+After all the registration steps are completed `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for newly registered user.
