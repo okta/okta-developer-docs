@@ -1,6 +1,7 @@
 ---
 title: Okta Identity Engine API Products release notes 2022
 ---
+
 <ApiLifecycle access="ie" />
 
 ## April
@@ -10,12 +11,11 @@ title: Okta Identity Engine API Products release notes 2022
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Improved email magic link authentication experience is EA in Preview](#improved-email-magic-link-authentication-experience-is-ea-in-preview) | March 30, 2022 |
-| [Set up passwordless or password-optional sign-in experience is EA in Preview]() | March 30, 2022 |
-| [Native SSO support is EA in Preview]() | March 30, 2022 |
-|  | March 30, 2022 |
-| [Telephony Inline Hook is EA in Preview]() | March 30, 2022 |
+| [Set up passwordless or password-optional sign-in experience is EA in Preview](#set-up-passwordless-or-password-optional-sign-in-experience-is-ea-in-preview) | March 30, 2022 |
+| [Native SSO support is EA in Preview](#native-sso-support-is-ea-in-preview) | March 30, 2022 |
+| [Telephony Inline Hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
 | [Burst rate limits available on Rate Limit Dashboard](#burst-rate-limits-available-on-rate-limit-dashboard) | March 30, 2022 |
-| [OAuth 2.0 Push Authorization Requests]() | March 30, 2022 |
+| [OAuth 2.0 Push Authorization Requests](#oauth-2-0-push-authorization-requests) | March 30, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Preview](#signed-request-support-for-generic-oidc-idp-is-ga-in-preview) | March 02, 2022 |
 | [Client secret rotation and key management is GA in Preview](#client-secret-rotation-and-key-management-is-ga-in-preview) | February 03, 2022 |
 | [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-preview) | February 16, 2022 |
