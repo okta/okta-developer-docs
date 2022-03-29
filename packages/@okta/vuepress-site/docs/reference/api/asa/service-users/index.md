@@ -33,7 +33,7 @@ The Service Users API has the following operations:
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
 Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of `Bearer ${AUTH_TOKEN}`.
-To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?id=ext_asa_service_users), then pass the API key information to this endpoint.
+To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users), then pass the API key information to this endpoint.
 Auth tokens may expire at any time, so code that uses them should be prepared to handle a 401 response code by creating a new auth token.
 
 #### Request path parameters
