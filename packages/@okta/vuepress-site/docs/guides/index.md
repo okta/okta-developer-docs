@@ -77,6 +77,7 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
+ - telephony-inline-hook
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
