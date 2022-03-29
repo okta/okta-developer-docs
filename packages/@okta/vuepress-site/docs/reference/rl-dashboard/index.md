@@ -62,7 +62,7 @@ You can hover over the line graph or bar graph to get more details. The details 
 
 #### APIs table
 
-The APIs table shows each API and its corresponding rate limit for your org. The rate limits include all overrides, dynamic scale, or Workforce multipliers. The table also shows the number of violations, bursts, and warnings for each API in the last hour, and includes a trendline of usage in the last hour.
+The APIs table shows each API and its corresponding rate limit for your org. The rate limits include all overrides, dynamic scale, or Workforce multipliers. The table also shows the number of violations, bursts, and warnings for each API in the last hour, and includes a trendline of use in the last hour.
 
 ![Displays the APIs table with corresponding rate limits for each API.](/img/rl_dashboard9.png)
 
