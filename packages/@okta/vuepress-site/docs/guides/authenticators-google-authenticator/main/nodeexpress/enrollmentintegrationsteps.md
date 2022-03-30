@@ -1,6 +1,6 @@
 ### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case that requires authentication. This guide uses a sign-in flow with username and password that is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -11,7 +11,7 @@ The first step is to initiate a use case requiring authentication. This guide us
 
 ### 2: Display Google Authenticator option
 
-If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with Google Authenticator in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Google Authenticator included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with Google Authenticator in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Google Authenticator is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example.
 
 ```json
 {
@@ -34,7 +34,7 @@ If you've configured your Okta org as detailed in [Configuration updates](#updat
 }
 ```
 
-Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
+Use the `value` and `label` properties to show the available list of authenticators to the user. The sample app constructs a dropdown list using a [Mustache](https://mustache.github.io/) template.
 
 ```xml
   <select id="authenticator-options" class="ui selection dropdown" name="authenticator">
@@ -54,7 +54,7 @@ UI showing the Google Authenticator option:
 
 ### 3: Submit Google Authenticator option
 
-When the user selects and submits Google Authenticator, call `OktaAuth.idx.proceed()` passing in the `google_otp` value from `IdxOption.value`.
+When the user selects and submits Google Authenticator, call `OktaAuth.idx.proceed()` and passes in the `google_otp` value from `IdxOption.value`.
 
 ```javascript
     const transaction = await authClient.idx.proceed({ authenticator });
@@ -63,7 +63,7 @@ When the user selects and submits Google Authenticator, call `OktaAuth.idx.proce
 
 ### 4: Display shared secret and QR Code
 
-Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code containing the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` storing the secret in a base64-encoded PNG image. See the following `IdxTransaction` example for more details.
+Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code that contains the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` stores the secret in a base64-encoded PNG image. See the following `IdxTransaction` example.
 
 ``` json
 {
@@ -120,7 +120,7 @@ Example UI showing the Google Authenticator in the dropdown list:
 
 ### 5: Copy shared secret to Google Authenticator
 
-After the shared secret is displayed, the user installs the Google Authenticator app on their mobile device if it's not already installed.  Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. Once added, Google Authenticator displays the time-based one-time password for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. After it's added, Google Authenticator displays the time-based one-time password for the newly added account.
 
 <div class="common-image-format">
 
@@ -130,7 +130,7 @@ After the shared secret is displayed, the user installs the Google Authenticator
 
 ### 6: Submit one-time password in your app
 
-The user then copies the one-time password from Google Authenticator to your app. Once the user submits the password, call `OktaAuth.idx.proceed()` passing in the password.
+The user then copies the one-time password from Google Authenticator to your app. After the user submits the password, call `OktaAuth.idx.proceed()` and pass in the password.
 
 ```javascript
   const { verificationCode } = req.body;
