@@ -38,7 +38,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### Telephony Inline Hook is EA in Preview
 
-While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes (OTPs) within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, whether that’s due to the time a customer has already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See Telephony Inline Hook with Twilio. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
 
 #### Splunk available for Log Streaming is EA in Preview
 
@@ -69,7 +69,6 @@ The Okta Org2Org integration enables you to push and match both users and groups
 #### Bug fixed in 2022.04.0
 
 Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/reference/api/apps/#update-application) didn't update the secret if the org had the [Client Credentials Management](/docs/guides/implement-grant-type/clientcreds/main/#client-credentials-flow) feature enabled.
-
 
 ## March
 
