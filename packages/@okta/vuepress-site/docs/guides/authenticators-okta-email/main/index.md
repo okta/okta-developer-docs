@@ -14,15 +14,15 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 ---
 **Learning outcomes**
 
-* Configure your Okta org to use the email authenticator
-* Enroll and challenge a user with email OTP and magic links
-* Enable OTP only for the email authenticator
+* Configure your Okta org to use the email authenticator.
+* Enroll and challenge a user with email OTP and magic links.
+* Enable OTP only for the email authenticator.
 
 </br>
 
 **What you need**
 
-<StackSnippet snippet="whatyouneed" /> 
+<StackSnippet snippet="whatyouneed" />
 </br>
 
 **Sample code**
@@ -37,7 +37,7 @@ With the Embedded SDK, your app can verify a user's identity using the email aut
 
 ### Discover the convenience of magic links
 
-When using OTP, a user must switch from your app to their email, find the OTP, switch back to your app again, type in the OTP and click submit to verify their identity. Compare this to using magic links, where verification only requires the user to click on a link in the email - a far quicker, more user-convenient, and yet still secure experience.
+When using OTP, a user must switch from your app to their email, find the OTP, switch back to your app again, type in the OTP and click submit to verify their identity. Compare this to using magic links, where verification only requires the user to click a link in the email - a far quicker, more user-convenient, and yet still secure experience.
 
 <div class="common-image-format">
 
@@ -47,20 +47,20 @@ When using OTP, a user must switch from your app to their email, find the OTP, s
 
 ## Get started
 
-This guide walks you through the email authenticator user journeys for both magic links and OTP and details step-by-step how to integrate the email enrollment and challenge flows into your app. For more details, see the following sections in this guide:
+This guide walks you through the email authenticator user journeys for both magic links and OTP and details how to integrate the email enrollment and challenge flows into your app. For more details, see the following sections in this guide:
 
 **Magic links**
 
-1. [Understand magic link flow before you integrate](#understand-the-magic-link-flow): Learn the magic link user journey
-1. [Know which use cases support magic link and OTP](#know-which-use-cases-support-magic-link-and-otp): Understand magic link and OTP support across the supported use cases
-1. [Update configurations](#update-configurations): Set up your org to enable the email authenticator and magic links
-1. [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links): Integrate email challenge using magic links with step-by-step instructions
-1. [Integrate different browser and device scenario with magic links](#integrate-different-browser-and-device-scenario-with-magic-links): Integrate the different browser and device scenarios with step-by-step instructions
+1. [Understand the magic link flow before you integrate](#understand-the-magic-link-flow): Learn the magic link user journey.
+1. [Know which use cases support magic link and OTP](#know-which-use-cases-support-magic-link-and-otp): Understand magic link and OTP support across the supported use cases.
+1. [Update configurations](#update-configurations): Set up your org to enable the email authenticator and magic links.
+1. [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links): Integrate email challenge using magic links with step-by-step instructions.
+1. [Integrate different browser and device scenario with magic links](#integrate-different-browser-and-device-scenario-with-magic-links): Integrate the different browser and device scenarios with step-by-step instructions.
 
 **OTP**
 
-1. [Integrate email enrollment with OTP](#integrate-email-enrollment-with-otp): Integrate email enrollment using OTP with step-by-step instructions
-1. [Enable only OTP for the email authenticator](#enable-only-otp-for-the-email-authenticator): Update the email templates to only support OTP
+1. [Integrate email enrollment with OTP](#integrate-email-enrollment-with-otp): Integrate email enrollment using OTP with step-by-step instructions.
+1. [Enable only OTP for the email authenticator](#enable-only-otp-for-the-email-authenticator): Update the email templates to only support OTP.
 
 **Advanced use cases**
 
@@ -71,8 +71,8 @@ This guide walks you through the email authenticator user journeys for both magi
 Before integrating email magic links in your app, it's important to understand how your app's user journey starts and ends. An example user journey for a sign-in with email use case:
 
 1. Using your app, a user submits their username and password. Next, an email is sent to the user and your app displays an OTP input page.
-1. Using a new tab in the browser, the user opens their email and clicks on the magic link.
-1. In a new tab, the link redirects to your app and automatically signs the user in.
+1. Using a new tab in the browser, the user opens their email and clicks the magic link.
+1. In a new tab, the link redirects the browser to your app and automatically signs the user in.
 
 The following diagram illustrates these steps.
 
@@ -82,7 +82,7 @@ The following diagram illustrates these steps.
 
 </div>
 
-Note that the user stays within the same browser when they start the sign-in flow and click on the magic link in their email.
+> **Note:** The user stays within the same browser when they start the sign-in flow and clicks the magic link in their email.
 
 ### The reason for the OTP input page
 
@@ -90,20 +90,20 @@ Your app should always display an OTP input page to allow the user to use the OT
 
 ## Know which use cases support magic link and OTP
 
-Out of the box, the Embedded SDK solution supports magic links for various use cases. For those use cases where magic links is not fully supported, OTP is available. See the following support matrix for more details:
+Out of the box, the Embedded SDK solution supports the Email Magic Link feature for various use cases. For those use cases where the feature isn't fully supported, OTP is available. See the following support matrix for more details:
 
 | Email template name  | Use cases  | Email authenticator flow  | Supported methods | Template customizations needed |
 | ----------------------------| ------------------|------------------------|-------------|-------------------------|
-| Email Factor Verification   | Self service registration, Sign-in with email - enroll   | Email enrollment  | [OTP](#integrate-email-enrollment-with-otp)              | Yes, remove magic link
+| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | [OTP](#integrate-email-enrollment-with-otp)              | Yes, remove magic link
 | Email Challenge             | Sign-in with email - challenge                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | No
-| Forgot Password             | Self-service password recovery                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | Yes, add `otp` and `state` parameters. See <StackSnippet snippet="custompwdguide" inline />  for more details.
+| Forgot Password             | Self-service password recovery                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | Yes, add `otp` and `state` parameters. See <StackSnippet snippet="custompwdguide" inline />.
 
 > **Note:** This guide uses the sign-in with email use cases to describe how to integrate email enrollment and challenge.
 
 
 ## Update configurations
 
-Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an authentication policy which requires it to be used.
+Before you can start using the email authenticator, you need to enable it in your Okta org and assign it an authentication policy that requires the email authenticator.
 
 ### Add the email authenticator to your org
 
@@ -122,12 +122,12 @@ First, add the email authenticator to your org and enable it for both authentica
    3. Select the **Authentication and recovery** option, and then click **Save**.
 4. Select the **Enrollment** tab.
 5. Check that **Email** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
-   1. If **Email** is set to **Disabled**, click **Edit** for the Default Policy
-   2. Select **Optional** from the drop-down box for the **Email** authenticator, and then click **Update Policy**.
+   1. If **Email** is set to **Disabled**, click **Edit** for the Default Policy.
+   2. Select **Optional** from the dropdown list for the **Email** authenticator, and then click **Update Policy**.
 
 ### Set your app integration to use the email authenticator
 
-New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
+New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, it's recommended that you create a new policy specifically for your test application.
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
@@ -136,9 +136,9 @@ New app integrations are automatically assigned the shared default [authenticati
 5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
 6. Select **Allowed after successful authentication**.
 7. Set **User must authenticate with** to **Password + Another factor**.
-8. For **Possession factor constraints**
+8. For **Possession factor constraints**:
    1. Verify that **Device Bound** isn’t selected.
-   2. Verify that **Email** is listed in the box under **Additional factor types**. If it is not listed, check the authenticator has been enabled using steps 4 and 5 of [Add the email authenticator to your org](#add-the-email-authenticator-to-your-org).
+   2. Verify that **Email** is listed in the box under **Additional factor types**. If it isn't listed, verify that the authenticator is enabled using steps 4 and 5 of [Add the email authenticator to your org](#add-the-email-authenticator-to-your-org).
    3. Click **Save**.
 
 9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
@@ -151,9 +151,9 @@ New app integrations are automatically assigned the shared default [authenticati
 Enable magic links in your org.
 
 1. Open the **Admin Console** for your Okta org.
-2. Choose **Applications > Applications** to show the app integrations you have already created.
-3. Click on the application you’ve previously created on the Applications page.
-4. In the **General Settings** tab under the **General** tab, and then click **Edit**
+2. Choose **Applications > Applications** to show the app integrations that you have already created.
+3. Click on the application that you previously created.
+4. In the **General Settings** section on the **General** tab, click **Edit**.
 5. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your application. The sample application uses <StackSnippet snippet="callbackuri" inline />.
 6. Click **Save** to save your changes.
 
@@ -163,7 +163,7 @@ Enable magic links in your org.
 
 ## Integrate different browser and device scenario with magic links
 
-The email magic links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked on the magic link. For example, a user who started signing into your app in a web browser must be in the same browser when they click on the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
+The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
 
 <div class="common-image-format">
 

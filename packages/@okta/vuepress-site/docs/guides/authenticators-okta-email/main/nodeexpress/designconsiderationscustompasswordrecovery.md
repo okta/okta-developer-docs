@@ -2,19 +2,19 @@
 
 ### Design Overview
 
-If you've customized your self-service password recovery solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recoveries using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
+If you customized your self-service password recovery solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recoveries using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
 
-* The magic link `href` attribute in the **Forgot Password** template has been updated to replace the `${resetPasswordLink}` variable with a URL string containing the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, `http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}`.
+* The magic link `href` attribute in the **Forgot Password** template is updated to replace the `${resetPasswordLink}` variable with a URL string that contains the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, `http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}`.
 
-* Your system supports password recoveries using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the Embedded Sign-in Widget. These methods send an email to the user with a magic link meant to continue the password recovery.
+* Your system supports password recoveries using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the Embedded Sign-In Widget. These methods send an email to the user with a magic link meant to continue the password recovery.
 
 ### Considerations
 
-In this design, you've customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-in Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks on the magic link and the request is redirected back to your app, the `otp` value is missing. This is because the password recovery was not initiated by the Embedded SDK and does not have context.  Since the `otp` value is missing, your app cannot complete the password reset using the Embedded SDK. Two options are available, however, to complete the password reset with this design. They are:
+In this design, you customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the Embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the Embedded SDK. Two options are available, however, to complete the password reset with this design.
 
 #### Option 1: Use `resetPasswordLink` variable
 
-In this option you set the magic link in the **Forgot Password** template to use the `${resetPasswordLink}` variable or include logic that sets it to `${resetPasswordLink}` if `${oneTimePassword}` is empty.
+In this option, you set the magic link in the **Forgot Password** template to use the `${resetPasswordLink}` variable or include logic that sets it to `${resetPasswordLink}` if `${oneTimePassword}` is empty.
 
 ```velocity
 #if(${oneTimePassword})
@@ -41,4 +41,4 @@ In this option, make a call to [/forgot_password API](/docs/reference/api/users/
 
 In the above example, the recovery token is `XE6wE17zmphl3KqAPFxO`.
 
-2. Parse the recovery token from the URL and send it using your infrastructure (via an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token) for more information on recovery tokens.
+2. Parse the recovery token from the URL and send it using your infrastructure (via an out-of-band channel) to the end user's verified email address or SMS phone number.

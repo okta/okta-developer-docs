@@ -21,7 +21,7 @@ var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(
     enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, Okta sends an enrollment email to the user containing the OTP. The server should return a status of `AwaitingAuthenticatorVerification` to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
+If the call is successful, Okta sends an enrollment email to the user that contains the OTP. The server returns a status of `AwaitingAuthenticatorVerification` to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
 
 ```csharp
 switch (enrollResponse?.AuthenticationStatus)
@@ -42,7 +42,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the one-time password (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
+Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
 
 ### 7. Open email and copy OTP
 
@@ -72,7 +72,7 @@ try
 
 Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the current status of the authentication process. You should expect one of the following:
 
-* `Success` : All authenticators have been enrolled and the user has logged in successfully.
+* `Success` : All authenticators are enrolled and the user has signed in successfully.
 * `AwaitingPasswordReset` : The user needs to change their password.
 * `AwaitingAuthenticatorEnrollment` : The user has successfully enrolled the Email Authenticator and must now enroll other authenticators.
 

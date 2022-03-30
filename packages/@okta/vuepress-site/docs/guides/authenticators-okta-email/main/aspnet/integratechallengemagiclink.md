@@ -1,6 +1,6 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign in page that captures the user's name and password, as shown in the following example.
+Build a sign-in page that captures the user's name and password, as shown in the following example.
 
 <div class="common-image-format">
 
@@ -10,7 +10,7 @@ Build a sign in page that captures the user's name and password, as shown in the
 
 ### 2: Authenticate the user credentials
 
-After a user has initiated the sign-on process by entering the username and password and clicking **Sign In**, create an `AuthenticationOptions` object in your `SignIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` which you have also instantiated.
+After a user has initiated the sign-in process by entering the username and password and clicking **Sign In**, create an `AuthenticationOptions` object in your `SignIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` that you have instantiated.
 
 ```csharp
 var _idxClient = new Okta.Idx.Sdk.IdxClient();
@@ -39,12 +39,12 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
                 … your code …
 ```
 
-If you've configured your Okta org correctly, you'll need to respond to two specific authenticator statuses to handle this scenario:
+If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario:
 
-* `AwaitingChallengeAuthenticatorSelection` which is covered in this section
-* `AwaitingAuthenticatorEnrollment` which is covered in a later section
+* `AwaitingChallengeAuthenticatorSelection` that is covered in this section
+* `AwaitingAuthenticatorEnrollment` that is covered in a later section
 
-The names of the available authenticators for enrollment or challenge can be found in the `AuthenticationResponse` object's `Authenticators` collection. The user should be redirected to an authenticator list page that displays all the authenticators the user has enrolled and are ready for challenge.
+You can find the names of the available authenticators for enrollment or challenge in the `AuthenticationResponse` object's `Authenticators` collection. You should redirect the user to an authenticator list page that displays all of the authenticators that the user has enrolled and are ready for use.
 
 ```csharp
         case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
@@ -68,7 +68,7 @@ catch (OktaException exception)
 
 ### 4: Display a list of possible authenticators
 
-The next step is to show a list of all the authenticators the user has previously enrolled. Build a page to display the list of authenticators from the previous step. For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection contained in the `AuthenticationResponse`.
+The next step is to show a list of all the authenticators that the user has previously enrolled. Build a page to display the list of authenticators from the previous step. For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection contained in the `AuthenticationResponse`.
 
 ```csharp
 public ActionResult SelectAuthenticator()
@@ -133,7 +133,7 @@ This viewModel is then consumed in a Razor page.
 </section>
 ```
 
-For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they would see the following:
+For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they see the following:
 
 <div class="common-image-format">
 
@@ -157,7 +157,7 @@ selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync
   (selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingChallengeAuthenticationData`. This indicates that the authenticator can use more than one method to challenge the user and the user must select which they wish to use. These methods are provided in the `selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.MethodTypes` collection and must be presented to the user.
+If the call is successful, the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingChallengeAuthenticationData`. This indicates that the authenticator can use more than one method to challenge the user and the user must select which one they want to use. These methods are provided in the `selectAuthenticatorResponse.CurrentAuthenticatorEnrollment.MethodTypes` collection and must be presented to the user.
 
 ```csharp
 Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
@@ -190,11 +190,11 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 Build a page to display the list of challenge methods returned in the previous step. For example, in the sample application, a new `SelectAuthenticatorMethodViewModel` is populated from the `CurrentAuthenticatorEnrollment` object contained in `AuthenticationResponse`. The list of methods is saved to a property called `MethodTypes` of type `IList<AuthenticatorMethodType>`.
 
-This ViewModel is then consumed in a Razor page.
+This viewmodel is then consumed in a Razor page.
 
 ```razor
 <section>
-  @using (Html.BeginForm("SelectPhoneChallengeMethodAsync", "Manage", 
+  @using (Html.BeginForm("SelectPhoneChallengeMethodAsync", "Manage",
     FormMethod.Post, new { role = "form" }))
   {
     @Html.AntiForgeryToken()
@@ -249,7 +249,7 @@ var challengeResponse = await _idxClient.ChallengeAuthenticatorAsync(
   challengeOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-The server should return a status of `AwaitingAuthenticatorVerification` to indicate it is waiting for the user to check their email and either click the magic link or enter the OTP.
+The server should return a status of `AwaitingAuthenticatorVerification` to indicate that it's waiting for the user to check their email and either click the magic link or enter the OTP.
 
 ```csharp
 switch (challengeResponse?.AuthenticationStatus)
@@ -263,7 +263,7 @@ switch (challengeResponse?.AuthenticationStatus)
 
 ### 8. Display OTP input page
 
-Build a form that allows the user to enter the one-time password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. See [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ```razor
 <section id="enterCodeForm">
@@ -309,9 +309,9 @@ Build a form that allows the user to enter the one-time password (OTP) sent to t
 </section>
 ```
 
-### 9. User clicks on the email magic link
+### 9. User clicks the email magic link
 
-Next, the user opens their email and clicks on the magic link. The following screenshot shows the magic link in the email.
+Next, the user opens their email and clicks the magic link. The following screenshot shows the magic link in the email.
 
 <div class="common-image-format">
 
@@ -321,7 +321,7 @@ Next, the user opens their email and clicks on the magic link. The following scr
 
 The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-When the user clicks on the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 10: Handle the magic link redirect in your app
 
@@ -352,7 +352,7 @@ if (idxContext != null)
     VerifyAuthenticatorAsync(verifyAuthenticatorOptions, idxContext);
 ```
 
-If the `otp` value is valid, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` will be `Success`. In this case, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+If the `otp` value is valid, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` is `Success`. In this case, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
   switch (authnResponse.AuthenticationStatus)
@@ -368,7 +368,7 @@ If the `otp` value is valid, the `AuthenticationStatus` property of the `Authent
 }
 ```
 
-If the `otp` value is not valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
+If the `otp` value isn't valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
 
 ```csharp
     return View(new MagicLinkCallbackModel {
