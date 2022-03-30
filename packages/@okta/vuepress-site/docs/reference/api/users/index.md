@@ -80,7 +80,7 @@ If the enrollment policy that applies to the user (as determined by the groups a
 a One-Time Token is sent to the user through email.
 If the user is created with a password, then their state is set to ACTIVE, and they can immediately sign in using their Password authenticator.
 
-If the enrollment policy that applies to the groups specified for the newly created user indicates that password is `optional` or `disabled`, then the Administrator can't specify a password for the user.  Instead, the user status is set to `ACTIVE` and the user may immediately sign in using their Email authenticator.  If policy permits, and the user so chooses, they can enroll a password after they sign in.
+If the enrollment policy that applies to the groups specified for the newly created user indicates that password is `optional` or `disabled`, then the Administrator can't specify a password for the user. Instead, the user status is set to `ACTIVE` and the user may immediately sign in using their Email authenticator. If policy permits, and the user so chooses, they can enroll a password after they sign in.
 
 #### Create User without credentials
 
