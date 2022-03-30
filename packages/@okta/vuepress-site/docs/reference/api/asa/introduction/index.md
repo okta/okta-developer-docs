@@ -6,7 +6,7 @@ Most calls to the Advanced Server Access (ASA) API require an HTTP `Authorizatio
 header with a value of `Bearer ${AUTH_TOKEN}`.
 
 To retrieve an auth token, you need to [create a Service User and API
-key](https://help.okta.com/okta_help.htm?id=ext_asa_service_users),
+key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users),
 then pass the API key information to the [Issue a Service User
 token](../service-users/#issue-a-service-user-token) endpoint.
 
