@@ -38,9 +38,9 @@ The OAuth 2.0 spec has four important roles:
 
 Other important terms:
 
-* An OAuth 2.0 **grant** is the authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow, explained below.
-* The **access token** is issued by the authorization server (Okta) in exchange for the grant.
-* The **refresh token** is an optional token that is exchanged for a new access token if the access token has expired.
+* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow, explained below.
+* **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
+* **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
 > **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
@@ -66,10 +66,10 @@ OpenID Connect is an authentication standard built on top of OAuth 2.0. It adds 
 Although OpenID Connect is built on top of OAuth 2.0, the [OpenID Connect specification](https://openid.net/connect/) uses slightly different terms for the roles in the flows:
 
 * **OpenID provider**: The authorization server that issues the ID token. In this case Okta is the OpenID provider.
-* **end user**: The user's information that is contained in the ID token.
+* **end user**: The end user's information that is contained in the ID token.
 * **relying party**: The client application that requests the ID token from Okta.
 * **ID token**: The token issued by the OpenID Provider and contains information about the end user in the form of claims.
-* **claim"**: The claim is a piece of information about the end user.
+* **claim**: The claim is a piece of information about the end user.
 
 The high-level flow looks the same for both OpenID Connect and regular OAuth 2.0 flows. The primary difference is that an OpenID Connect flow results in an ID token, in addition to any access or refresh tokens.
 
