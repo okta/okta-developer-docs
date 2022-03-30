@@ -8,8 +8,6 @@ sections:
 - main
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide shows you how to rotate and manage your client secrets without service or app downtime. Additionally, this guide shows you how to generate public/private key pairs and manage them using the Admin Console.
 
 ---
