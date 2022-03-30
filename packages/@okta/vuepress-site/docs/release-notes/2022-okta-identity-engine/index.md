@@ -44,7 +44,7 @@ While Okta provides out-of-the-box telephony functionality, many customers need 
 
 Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
 
-Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](https://developer.okta.com/docs/reference/api/log-streaming/#splunk-cloud-settings-object).
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](/docs/reference/api/log-streaming/#splunk-cloud-settings-object).
 
 #### Burst rate limits available on Rate Limit Dashboard
 
