@@ -331,6 +331,20 @@ export const guides = [
               },
             ]
           },
+          {
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Email use cases",
+                subLinks: [
+                  {
+                    title: "New user activation",
+                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
+                  },
+                ]
+              },
+            ]
+          },
         ]
       },
       {
