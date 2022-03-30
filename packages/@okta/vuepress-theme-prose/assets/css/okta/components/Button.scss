@@ -35,8 +35,8 @@
 
 	&:active,
 	&:hover {
-		border-color: mix(get-color('accent'), get-color('white'), 75%);
-		color: mix(get-color('accent'), get-color('white'), 75%);
+		border-color: linear-gradient(get-color('accent'), get-color('white'), 75%);
+		color: linear-gradient(get-color('accent'), get-color('white'), 75%);
 	}
 
 	&:visited {

@@ -10,4 +10,3 @@ Okta’s Developer Edition provides everything you need to evaluate and explore 
 :::
 
 <SignUp />
-

@@ -1,55 +1,30 @@
 <template>
-  <div class="signup">
-    <div class="signup--banner-oie" v-if="isOie">
-      Identity engine preview
-    </div>
+  <div class="signup" vue-if="!isRegionLoading">
     <div class="signup--content">
       <div class="signup--form">
-        <form id="signupForm" @submit="submitForm">
-          <div class="row">
-            <label class="field-wrapper" for="email">
-              Work Email
-              <input
-                type="text"
-                id="email"
-                maxlength="128"
-                v-model="form.email.value"
-                :class="{ error: !form.email.isValid }"
-                @blur="validationService.checkEmailInput('email')"
-              />
-              <ul
-                class="error-color error-msg"
-                v-if="form.email.errorList.length"
-              >
-                <li
-                  class="error-color"
-                  v-for="(error, index) in form.email.errorList"
-                  v-bind:key="index"
-                >
-                  {{ error }}
-                </li>
-              </ul>
-            </label>
-          </div>
-          <div class="user-name">
+        <div v-if="isRegionLocked">
+          <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
+        </div>
+        <div v-else>
+          <form id="signupForm" @submit="submitForm">
             <div class="row">
-              <label class="field-wrapper" for="firstName">
-                First Name
+              <label class="field-wrapper" for="email">
+                Work Email
                 <input
                   type="text"
-                  id="firstName"
+                  id="email"
                   maxlength="128"
-                  v-model="form.firstName.value"
-                  :class="{ error: !form.firstName.isValid }"
-                  @blur="validationService.checkFormInput('firstName')"
+                  v-model="form.email.value"
+                  :class="{ error: !form.email.isValid }"
+                  @blur="validationService.checkEmailInput('email')"
                 />
                 <ul
                   class="error-color error-msg"
-                  v-if="form.firstName.errorList.length"
+                  v-if="form.email.errorList.length"
                 >
                   <li
                     class="error-color"
-                    v-for="(error, index) in form.firstName.errorList"
+                    v-for="(error, index) in form.email.errorList"
                     v-bind:key="index"
                   >
                     {{ error }}
@@ -57,159 +32,185 @@
                 </ul>
               </label>
             </div>
-            <div class="row">
-              <label class="field-wrapper" for="lastName">
-                Last Name
-                <input
-                  type="text"
-                  id="lastName"
-                  maxlength="128"
-                  v-model="form.lastName.value"
-                  :class="{ error: !form.lastName.isValid }"
-                  @blur="validationService.checkFormInput('lastName')"
-                />
-                <ul
-                  class="error-color error-msg"
-                  v-if="form.lastName.errorList.length"
-                >
-                  <li
-                    class="error-color"
-                    v-for="(error, index) in form.lastName.errorList"
-                    v-bind:key="index"
+            <div class="user-name">
+              <div class="row">
+                <label class="field-wrapper" for="firstName">
+                  First Name
+                  <input
+                    type="text"
+                    id="firstName"
+                    maxlength="128"
+                    v-model="form.firstName.value"
+                    :class="{ error: !form.firstName.isValid }"
+                    @blur="validationService.checkFormInput('firstName')"
+                  />
+                  <ul
+                    class="error-color error-msg"
+                    v-if="form.firstName.errorList.length"
                   >
-                    {{ error }}
-                  </li>
-                </ul>
-              </label>
+                    <li
+                      class="error-color"
+                      v-for="(error, index) in form.firstName.errorList"
+                      v-bind:key="index"
+                    >
+                      {{ error }}
+                    </li>
+                  </ul>
+                </label>
+              </div>
+              <div class="row">
+                <label class="field-wrapper" for="lastName">
+                  Last Name
+                  <input
+                    type="text"
+                    id="lastName"
+                    maxlength="128"
+                    v-model="form.lastName.value"
+                    :class="{ error: !form.lastName.isValid }"
+                    @blur="validationService.checkFormInput('lastName')"
+                  />
+                  <ul
+                    class="error-color error-msg"
+                    v-if="form.lastName.errorList.length"
+                  >
+                    <li
+                      class="error-color"
+                      v-for="(error, index) in form.lastName.errorList"
+                      v-bind:key="index"
+                    >
+                      {{ error }}
+                    </li>
+                  </ul>
+                </label>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <label class="field-wrapper" for="country">
-              Country/Region
-              <select
-                name=""
-                v-model="form.country.value"
-                id="country"
-                @change="
-                  validationService.checkFormInput('country');
-                  validationService.resetFormField('state', {
-                    reset: true,
-                    value: '',
-                  });
-                  showConsentSection(form.country.value);
-                  states = form.country.value;
-                "
-                :class="{ error: !form.country.isValid }"
-              >
-                <option disabled selected>Country</option>
-                <option
-                  v-for="country in getCountries"
-                  v-bind:key="country.value"
-                  :value="country.value"
-                  >{{ country.name }}</option
-                >
-              </select>
-              <span
-                class="error-color error-msg"
-                v-if="form.country.errorList.length"
-                >{{ validationService.errorDictionary.emptyField }}</span
-              >
-            </label>
-          </div>
-          <div class="row" v-if="states.list.length">
-            <label class="field-wrapper" for="state">
-              {{ states.label }}
-              <select
-                name=""
-                id="state"
-                v-model="form.state.value"
-                @change="validationService.checkFormInput('state')"
-                :class="{ error: !form.state.isValid }"
-              >
-                <option selected disabled>{{ states.label }}</option>
-                <option
-                  v-for="state in states.list"
-                  v-bind:key="state.name"
-                  :value="state.value"
-                  >{{ state.name }}</option
-                >
-              </select>
-              <span
-                class="error-color error-msg"
-                v-if="form.state.errorList.length"
-                >{{ validationService.errorDictionary.emptyField }}</span
-              >
-            </label>
-          </div>
-          <div class="row signup--recaptcha">
-            <label class="field-wrapper" for="recaptcha">
-              <vue-recaptcha
-                ref="recaptcha"
-                :loadRecaptchaScript="true"
-                @verify="onCaptchaVerified"
-                @expired="onCaptchaExpired"
-                :sitekey="captchaSiteKey"
-              >
-              </vue-recaptcha>
-              <span
-                class="error-color error-msg"
-                v-if="form.captcha.errorList.length"
-                >{{ validationService.errorDictionary.emptyField }}</span
-              >
-            </label>
-          </div>
-          <div class="row error-color" v-if="error !== null">
-            {{ error }}
-          </div>
-          <div class="row signup--submit">
-            <label class="field-wrapper" for="signup" id="submitbutton">
-              <a class="btn pending" v-if="isPending">
-                <img src="/img/ajax-loader-white.gif" />
-              </a>
-              <input
-                type="submit"
-                class="btn"
-                :disabled="!validationService.isValidForm()"
-                id="signup"
-                value="Sign up"
-                v-else
-              />
-            </label>
-          </div>
-
-          <div class="consent--section" v-show="displayConsent">
-            <div class="consent--section-text">
-              <p>
-                By clicking “SIGN UP” I agree to the applicable Free Trial terms
-                in
-                <SmartLink :item="{ link: '/terms/', target: '_blank' }"
-                  >Okta’s Terms of Service</SmartLink
-                >
-                during my use of the Free Trial Service and Okta’s
-                <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
-                  >Privacy Policy</SmartLink
-                >.
-              </p>
-              <p>
-                I agree that Okta may contact me with marketing communications.
-                See Privacy Policy for details on how to unsubscribe.
-              </p>
-            </div>
-            <div class="consent--section-agree" v-show="displayAgree">
-              <label for="agree-checkbox">
-                <input
-                  type="checkbox"
+            <div class="row">
+              <label class="field-wrapper" for="country">
+                Country/Region
+                <select
                   name=""
-                  id="agree-checkbox"
-                  v-model="form.consentAgree.value"
-                />
-                I agree (Optional)
+                  v-model="form.country.value"
+                  id="country"
+                  @change="
+                    validationService.checkFormInput('country');
+                    validationService.resetFormField('state', {
+                      reset: true,
+                      value: '',
+                    });
+                    showConsentSection(form.country.value);
+                    states = form.country.value;
+                  "
+                  :class="{ error: !form.country.isValid }"
+                >
+                  <option disabled selected>Country</option>
+                  <option
+                    v-for="country in getCountries"
+                    v-bind:key="country.value"
+                    :value="country.value"
+                    >{{ country.name }}</option
+                  >
+                </select>
+                <span
+                  class="error-color error-msg"
+                  v-if="form.country.errorList.length"
+                  >{{ validationService.errorDictionary.emptyField }}</span
+                >
               </label>
             </div>
-          </div>
-        </form>
-        <template v-if="!isOie">
+            <div class="row" v-if="states.list.length">
+              <label class="field-wrapper" for="state">
+                {{ states.label }}
+                <select
+                  name=""
+                  id="state"
+                  v-model="form.state.value"
+                  @change="validationService.checkFormInput('state')"
+                  :class="{ error: !form.state.isValid }"
+                >
+                  <option selected disabled>{{ states.label }}</option>
+                  <option
+                    v-for="state in states.list"
+                    v-bind:key="state.name"
+                    :value="state.value"
+                    >{{ state.name }}</option
+                  >
+                </select>
+                <span
+                  class="error-color error-msg"
+                  v-if="form.state.errorList.length"
+                  >{{ validationService.errorDictionary.emptyField }}</span
+                >
+              </label>
+            </div>
+            <div class="row signup--recaptcha">
+              <label class="field-wrapper" for="recaptcha">
+                <vue-recaptcha
+                  ref="recaptcha"
+                  :loadRecaptchaScript="true"
+                  @verify="onCaptchaVerified"
+                  @expired="onCaptchaExpired"
+                  :sitekey="captchaSiteKey"
+                  :theme="theme"
+                >
+                </vue-recaptcha>
+                <span
+                  class="error-color error-msg"
+                  v-if="form.captcha.errorList.length"
+                  >{{ validationService.errorDictionary.emptyField }}</span
+                >
+              </label>
+            </div>
+            <div class="row error-color" v-if="error !== null">
+              {{ error }}
+            </div>
+            <div class="row signup--submit">
+              <label class="field-wrapper" for="signup" id="submitbutton">
+                <a class="btn pending" v-if="isPending">
+                  <img src="/img/ajax-loader-white.gif" />
+                </a>
+                <input
+                  type="submit"
+                  class="btn"
+                  :disabled="!validationService.isValidForm()"
+                  id="signup"
+                  value="Sign up"
+                  v-else
+                />
+              </label>
+            </div>
+
+            <div class="consent--section" v-show="displayConsent">
+              <div class="consent--section-text">
+                <p>
+                  By clicking “SIGN UP” I agree to the applicable Free Trial terms
+                  in
+                  <SmartLink :item="{ link: '/terms/', target: '_blank' }"
+                    >Okta’s Terms of Service</SmartLink
+                  >
+                  during my use of the Free Trial Service and Okta’s
+                  <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
+                    >Privacy Policy</SmartLink
+                  >.
+                </p>
+                <p>
+                  I agree that Okta may contact me with marketing communications.
+                  See Privacy Policy for details on how to unsubscribe.
+                </p>
+              </div>
+              <div class="consent--section-agree" v-show="displayAgree">
+                <label for="agree-checkbox">
+                  <input
+                    type="checkbox"
+                    name=""
+                    id="agree-checkbox"
+                    v-model="form.consentAgree.value"
+                  />
+                  I agree (Optional)
+                </label>
+              </div>
+            </div>
+          </form>
           <div class="splitter">
             <span></span>
             <span>or</span>
@@ -242,18 +243,18 @@
             :socialUrl="socialUrl"
             @close="closeTermsConditionsDialog()"
           ></TermsAndConditionsDialog>
-        </template>
-        <div class="row goto-signin">
-          Already signed up?
-          <SmartLink :item="{ link: '/login/' }">Sign in</SmartLink>
+          <div class="row goto-signin">
+            Already signed up?
+            <SmartLink :item="{ link: '/login/' }">Sign in</SmartLink>
+          </div>
         </div>
       </div>
       <div class="signup--description">
         <Content slot-key="signup-description" />
-        <div class="logo-wrapper" v-if="!isOie">
+        <div class="logo-wrapper">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
-        <div class="auth0-banner" v-if="!isOie">
+        <div class="auth0-banner" v-if="!isRegionLocked">
           <div class="auth0-banner--content">
             <p>
               Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
@@ -266,7 +267,7 @@
             </p>
           </div>
           <div class="auth0-banner--logo">
-            <img src="/img/logos/auth0-inc-logo.svg" alt="auth0 logo" />
+            <img src="/img/logos/auth0-shield.svg" />
           </div>
         </div>
       </div>
@@ -285,7 +286,9 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import getAnalyticsValues from "../util/attribution/attribution";
+import storage from "../util/localStorage";
 import { getIdpUri } from "../util/uris";
+import { GeoLocation, isRegionLocked } from "../util/geoLocation";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -293,13 +296,9 @@ const USA = "United States";
 const GENERIC_ERROR_MSG =
   "Something unexpected happened while processing your registration. Please try again.";
 
+const THEME_MODE_KEY = 'is_dark_mode';
+
 export default {
-  props: {
-    isOie: {
-      type: Boolean,
-      default: false,
-    },
-  },
   components: {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
@@ -330,7 +329,10 @@ export default {
       },
       isPending: false,
       error: null,
-      captchaSitekey: null
+      captchaSitekey: null,
+      theme: 'light',
+      isRegionLoading: true,
+      isRegionLocked: null,
     };
   },
   computed: {
@@ -373,6 +375,9 @@ export default {
     }
   },
   methods: {
+    getTheme: function() {
+      return JSON.parse(storage.getItem(THEME_MODE_KEY)) === true ? "dark" : "light";
+    },
     async submitForm(e) {
       e.preventDefault();
       this.validationService.checkFormInput("firstName");
@@ -395,14 +400,11 @@ export default {
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
             captchaResponse: this.form.captcha.value,
+            okta_oie: true,
             // Merge in analytics tracking data
             ...this.analyticsValues,
           },
         };
-
-        if (this.isOie) {
-          body.userProfile.okta_oie = true;
-        }
 
         this.isPending = true;
 
@@ -498,6 +500,13 @@ export default {
     } else {
       this.captchaSiteKey = captcha.test;
     }
+
+    this.theme = this.getTheme();
+
+    const geoLocation = new GeoLocation(() => {
+      this.isRegionLocked = isRegionLocked();
+      this.isRegionLoading = false;
+    });
   },
   mounted() {
     this.analyticsValues = getAnalyticsValues();

@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) Project is a collection of ASA Servers and ASA Users that have access to those Servers through ASA Groups.
 
-Explore the Projects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Projects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Projects API operations
 
-
 The Projects API has the following operations:
+
 * [List Projects for a Team](#list-projects-for-a-team)
 * [Create a Project](#create-a-project)
 * [Fetch a Project](#fetch-a-project)
@@ -73,7 +72,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `self`   |  boolean | (Optional) If `true`, only lists the Projects that the ASA User making this request has been assigned. |
 
@@ -1098,7 +1097,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | Not supported. This field will be removed in a future release of ASA. It's only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1153,7 +1152,6 @@ This endpoint requires an object with the following fields.
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Response body
@@ -1174,7 +1172,6 @@ curl -v -X POST \
 	"projects": [
 		"the-sound-and-the-fury"
 	],
-	"servers": null,
 	"user_name": "jason.compson"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
@@ -1208,7 +1205,7 @@ This endpoint requires one of the following roles: `access_admin`, or `preauthor
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_expired`   |  boolean | (Optional) If `true`, includes expired preauthorizations |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project`   |  string | (Optional) If a value is provided, filters for the specified Project. This doesn`t apply if used against a Project-specific endpoint. |
 
@@ -1225,7 +1222,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | Not supported; this field will be removed in a future release of ASA. It is only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1283,7 +1280,6 @@ This endpoint requires an object with the following fields.
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Response body
@@ -1294,7 +1290,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | Not supported. This field will be removed in a future release of ASA. It's only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1311,7 +1307,6 @@ curl -v -X PUT \
 	"projects": [
 		"the-sound-and-the-fury"
 	],
-	"servers": null,
 	"user_name": "jason.compson"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}

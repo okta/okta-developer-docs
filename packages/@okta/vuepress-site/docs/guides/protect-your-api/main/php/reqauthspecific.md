@@ -1,41 +1,16 @@
-For example, you could require authentication for all routes under `/api/private` by defining a new function:
+Delete or comment out the code block you added above that calls `hasValidAccessToken()` and instead move that into the particular API routes that you want to protect. For example, you can protect only the `whoami` route and output the claims of the access token. Replace your `whoami` function with the following:
 
 ```php
-function authenticate() {
+function whoami() {
+  $token = hasValidAccessToken();
 
-    try {
-        switch(true) {
-            case array_key_exists('HTTP_AUTHORIZATION', $_SERVER) :
-                $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
-                break;
-            case array_key_exists('Authorization', $_SERVER) :
-                $authHeader = $_SERVER['Authorization'];
-                break;
-            default :
-                $authHeader = null;
-                break;
-        }
-        preg_match('/Bearer\s(\S+)/', $authHeader, $matches);
+  if(!$token) {
+    header(HTTP/1.1 401 Unauthorized');
+    echo "Unauthorized";
+    die();
+  }
 
-        if(!isset($matches[1])) {
-            throw new \Exception('No Bearer Token');
-        }
-
-        return $jwtVerifier->verify($matches[1]);
-    } catch (\Exception $e) {
-        http_response_code(401);
-        die('Unauthorized');
-    }
+  header('Content-type: application/json');
+  echo json_encode($token->all());
 }
-```
-
-and then in your route, you would call this function to confirm authorization:
-
-```php
-$route->get('/protected/route', function() {
-  authenticate(); // will die here if not authenticated
-
-  // Handle rest of your protected route here.
-
-});
 ```

@@ -4,10 +4,7 @@ title: Load the Widget
 
 <div class="oie-embedded-sdk">
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-<StackSelector />
+<ApiLifecycle access="ie" />
 
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 

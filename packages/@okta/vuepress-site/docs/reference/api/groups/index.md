@@ -411,11 +411,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=type+eq+\"OKTA_GROUP\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=type+eq+%22OKTA_GROUP%22&limit=200"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -501,7 +500,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -556,7 +555,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -645,7 +644,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"+or+lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -732,14 +731,11 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 This operation:
 
 * Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
-For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
 * Searches many properties:
-   - Any group profile property, including imported app group profile properties.
-   - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
-   - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+  - Any group profile property, including imported app group profile properties.
+  - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
+  - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
 
 | Search Term Example                                       | Description                                                               |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------ |
@@ -767,11 +763,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"+or+lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\""
+"https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1148,7 +1143,7 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 
 | Parameter                           | Description                                             | ParamType | DataType                          | Required | Default |
 | ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
-| name                                | name of the Group                                       | Body      | String                            | TRUE     |         |
+| name                                | name of the Group rule                                   | Body      | String                            | TRUE     |         |
 | type                                | `group_rule`                                            | Body      | String                            | TRUE     |         |
 | conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |         |
 | conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |         |

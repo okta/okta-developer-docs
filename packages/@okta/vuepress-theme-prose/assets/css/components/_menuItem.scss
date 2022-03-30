@@ -35,6 +35,19 @@ ul.menu--items {
       top: 42px;
       transform: translateX(-50%);
       width: auto;
+
+      li a {
+        white-space: nowrap;
+        color: cv('gray', '900'); 
+        &:after {
+          background-image: none !important;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          background-color: cv('gray', '900') !important;
+          -webkit-mask-image: url("/img/icons/external--white.svg");
+          mask-image: url("/img/icons/external--white.svg");
+        }
+      }
       
       @include media("<tablet") {
         display: block;
@@ -57,7 +70,7 @@ ul.menu--items {
 
       .menu--divider {
         margin: 15px 0;
-        border: 1px solid cv('text', 'darker');
+        border: 1px solid cv('gray', '900');
       }
 
       .menu--icons {
@@ -67,7 +80,7 @@ ul.menu--items {
           width: 20px;
 
           svg {
-            fill: cv('text', 'darker');
+            fill: cv('gray', '900');
           }
         }
 
