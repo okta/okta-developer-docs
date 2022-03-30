@@ -28,19 +28,19 @@ OAuth 2.0 is a standard that apps use to provide client applications with access
 
 The OAuth 2.0 spec has four important roles:
 
-* The "authorization server" &mdash; The server that issues the access token. In this case Okta is the authorization server.
+* **authorization server**: The server that issues the access token. In this case Okta is the authorization server.
 
-* The "resource owner" &mdash; Normally your application's end user that grants permission to access the resource server with an access token
+* **resource owner**: Normally your application's end user that grants permission to access the resource server with an access token.
 
-* The "client" &mdash; The application that requests the access token from Okta and then passes it to the resource server
+* **client**: The application that requests the access token from Okta and then passes it to the resource server.
 
-* The "resource server" &mdash; Accepts the access token and must verify that it's valid. In this case, this is your application.
+* **resource server**: Accepts the access token and must verify that it's valid. In this case, this is your application.
 
 Other important terms:
 
-* An OAuth 2.0 "grant" is the authorization given (or "granted") to the client by the user. Examples of grants are "authorization code" and "client credentials". Each OAuth grant has a corresponding flow, explained below.
-* The "access token" is issued by the authorization server (Okta) in exchange for the grant.
-* The "refresh token" is an optional token that is exchanged for a new access token if the access token has expired.
+* An OAuth 2.0 **grant** is the authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow, explained below.
+* The **access token** is issued by the authorization server (Okta) in exchange for the grant.
+* The **refresh token** is an optional token that is exchanged for a new access token if the access token has expired.
 
 > **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
@@ -65,12 +65,11 @@ OpenID Connect is an authentication standard built on top of OAuth 2.0. It adds 
 
 Although OpenID Connect is built on top of OAuth 2.0, the [OpenID Connect specification](https://openid.net/connect/) uses slightly different terms for the roles in the flows:
 
-* The "OpenID provider" &mdash; The authorization server that issues the ID token. In this case Okta is the OpenID provider.
-* The "end user" &mdash; Whose information is contained in the ID token
-* The "relying party" &mdash; The client application that requests the ID token from Okta
-
-* The "ID token" is issued by the OpenID Provider and contains information about the end user in the form of claims.
-* A "claim" is a piece of information about the end user.
+* **OpenID provider**: The authorization server that issues the ID token. In this case Okta is the OpenID provider.
+* **end user**: The user's information that is contained in the ID token.
+* **relying party**: The client application that requests the ID token from Okta.
+* **ID token**: The token issued by the OpenID Provider and contains information about the end user in the form of claims.
+* **claim"**: The claim is a piece of information about the end user.
 
 The high-level flow looks the same for both OpenID Connect and regular OAuth 2.0 flows. The primary difference is that an OpenID Connect flow results in an ID token, in addition to any access or refresh tokens.
 
