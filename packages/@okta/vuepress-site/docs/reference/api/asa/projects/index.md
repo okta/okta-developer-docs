@@ -93,7 +93,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Not supported) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
+| `rdp_session_recording`   | boolean | (Not currently supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
@@ -177,7 +177,7 @@ This endpoint requires an object with the following fields.
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Not supported) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
+| `rdp_session_recording`   | boolean | (Not currently supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
@@ -196,7 +196,7 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Not supported) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
+| `rdp_session_recording`   | boolean | (Not currently supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
@@ -279,7 +279,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Not supported) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
+| `rdp_session_recording`   | boolean | (Not currently supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
@@ -382,7 +382,7 @@ This endpoint requires an object with the following fields.
 | `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Not supported) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
+| `rdp_session_recording`   | boolean | (Not currently supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `ssh_session_recording`   | boolean | Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 
