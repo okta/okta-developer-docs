@@ -9,7 +9,7 @@ title: Embedded SDK New user activation
 
 <StackSelector />
 
-Learn how to integrate user activations with the Embedded SDK
+Learn how to use the Embedded SDK to integrate user activation with self-service registration
 
 **Learning outcomes**
 
@@ -57,7 +57,7 @@ See [Integrate user activations using your own infrastructure](#integrate-user-a
 
 ## Integrate user activations using Okta email
 
-When your app uses the <StackSnippet snippet="ssrguide" inline /> to create a user, Okta sends an email to the registered email address to prove the user's ownership of the address. This proof of ownership permits the user's account to be activated and allows it to sign in to your app.
+When your app uses the Embedded SDK's <StackSnippet snippet="ssrguide" inline /> to create a user, Okta sends an email to the registered email address to prove the user's ownership of the address. This proof of ownership permits the user to be activated and allows them to sign in to your app.
 
 ### Org settings that control the email template
 
@@ -106,7 +106,7 @@ Learn how to find each setting in the Admin Console.
 
 ### Integrate the Email Factor Verification template
 
-In this configuration, the user submits the email authenticator for enrollment while registering a new account in your app. Okta sends an email based on the **Email Factor Verification** template to the entered email address. After the user verifies the email with the OTP, they complete all required registration steps in your app and are activated. See the <StackSnippet snippet="emailenrollmentotp" inline /> section in the Okta email guide for more details on this flow.
+In this configuration, the user enrolls in the email authenticator while registering a new account in your app. During enrollment Okta sends an email based on the **Email Factor Verification** template to the entered email address. After the user verifies the email with the OTP and completes any additional registration steps, their account is activated. See the <StackSnippet snippet="emailenrollmentotp" inline /> section in the Okta email guide for more details on this flow.
 
 #### Update configurations
 
@@ -138,7 +138,7 @@ Integrate the **Email Factor Verification** template into your app with the foll
 
 #### 1. Start self-service registration and submit the email authenticator
 
-First, the user starts a new account registration using your app. They are required to enroll in the email authenticator. After they submit email for enrollment, your app displays an OTP page. See the following to learn more about this flow:
+First, the user starts a new account registration using your app and is required to enroll in the email authenticator. After they submit email for enrollment, your app displays an OTP page. See the following guides to learn more about this flow.
 
 **Learn more:**
 
@@ -165,7 +165,7 @@ Next, the user copies the OTP from their email and submits it in your app. Depen
 
 ### Integrate the Registration - Activation template
 
-In this configuration, the user initiates a new account registration and completes all registration steps, including enrolling in optional and required authenticators. The email authenticator is excluded from the list of available authenticators. Okta sends an email to the user based on the **Registration - Activation** template after completing these steps. The user opens their email and clicks on the **Activate account** link to complete the activation.
+In this configuration, the user initiates a new account registration and completes all registration steps, including enrolling in optional and required authenticators. The email authenticator is excluded from the list of available authenticators. After the user completes the registration in your app, Okta sends an email to the user based on the **Registration - Activation** template. The user opens their email and clicks on the **Activate account** link to complete the activation.
 
 #### Update configurations
 
@@ -185,7 +185,7 @@ If you want to view or modify the **Registration - Activation** template, go int
 
 ##### Initiate login URI
 
-When the user clicks the email's **Activate Account** link, Okta activates their account redirects the request to the URL defined in **Initiate login URI**. To update this value, perform the following steps in the Admin Console.
+When the user clicks the email's **Activate Account** link, Okta activates their account and redirects the request to the URL defined in **Initiate login URI**. To update this value, perform the following steps in the Admin Console.
 
 1. Select **Applications > Applications**.
 1. Select your application in the **Applications** page.
@@ -205,7 +205,7 @@ Integrate the **Registration - Activation** template into your app with the foll
 
 #### 1. Complete registration in your app
 
-First, the user registers a new account using your app. This registration includes setting the username, optional password, and enrolling in any required authenticators. The email authenticator won't be in the list of eligible authenticators.
+First, the user registers a new account using your app. This registration includes setting the username, optional password, and enrolling in any required authenticators. The email authenticator won't be in the list of eligible authenticators during the registration process.
 
 **Learn more:**
 
@@ -227,11 +227,11 @@ After the user completes the account registration, Okta sends an email to the us
 
 #### 4. Click the email link and complete the activation
 
-When the user clicks on the email link, the request is sent to Okta where the user is activated. After activation, the request redirects to your app's URL defined in **Initiate login URI**,  where the user is now able to sign in to your app.
+When the user clicks on the email link, the request is sent to Okta and the user is activated. After activation, the user is redirected to your app (defined in **Initiate login URI**). where they can sign in.
 
 ## Integrate user activations using your infrastructure
 
-In this architecture, you take more control over the account creation by calling Okta APIs directly to create the account and initiate the activation. It is your responsibility to prove ownership of the user's email. Once verified, send the user to your app to complete the activation with the Embedded SDK. This architecture is also called the "proxy model" because your infrastructure serves as a relay between user requests and Okta.
+In this architecture, you take more control over the account creation by calling Okta APIs directly to create the account and initiate the activation during self-service registration. It is your responsibility to send the email to the user to prove ownership. Once verified, redirect the user to your app to complete the activation with the Embedded SDK. This architecture is also called the "proxy model" because your infrastructure serves as a relay between user requests and Okta.
 
 ### Integration steps
 
@@ -284,11 +284,11 @@ curl -v -X POST \
 }
 ```
 
-See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the API endpoints described in the examples.
+Note that the `id` property is the user Id of newly created user. See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the response.
 
 #### 2. Start user activation and get activation token
 
-After the user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The endpoint requires the user id, which is found in `id` property in the [Create user](/docs/reference/api/users/#create-user) response described in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
+After user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The endpoint requires the user id, which is found in the`id` property shown in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
 
 ##### Request
 
@@ -326,6 +326,5 @@ Next, using your infrastructure and email service, send the user an email with a
 ## See also
 
 * The <StackSnippet snippet="oktaemailfullguide" inline /> guide
-* The <StackSnippet snippet="oktaemailguide" inline /> guide
 
 </div>
