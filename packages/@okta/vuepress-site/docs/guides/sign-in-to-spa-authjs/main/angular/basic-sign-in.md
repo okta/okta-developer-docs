@@ -31,8 +31,8 @@ import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
 const oidcConfig = {
-  clientId: '0oa39qgjkuXPmnp5w1d7',
-  issuer: 'https://oie-9102338.oktapreview.com/oauth2/default',
+  clientId: '${clientId}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
