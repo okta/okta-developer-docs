@@ -24,10 +24,6 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 * <StackSnippet snippet="samplecode" />
 
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
-
 ---
 
 ## The case for WebAuthn
@@ -130,5 +126,9 @@ The following summarizes the WebAuthn challenge flow using a user sign-in use ca
 <StackSnippet snippet="challengeintegrationsummary" />
 
 <StackSnippet snippet="challengeintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

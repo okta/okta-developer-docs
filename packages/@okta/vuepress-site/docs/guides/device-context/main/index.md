@@ -24,10 +24,6 @@ This guide shows you how to enable and integrate device context into your applic
 
 * <StackSnippet snippet="samplecode" />
 
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
-
 ---
 
 ## Overview
@@ -105,5 +101,9 @@ Add a new application rule that requires an authenticator when the user signs in
 ## SDK Integration steps
 
 <StackSnippet snippet="integrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>
