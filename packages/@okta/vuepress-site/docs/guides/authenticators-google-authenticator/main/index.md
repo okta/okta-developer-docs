@@ -24,10 +24,6 @@ This guide shows you how to integrate the Google Authenticator into your authent
 
 * <StackSnippet snippet="samplecode" />
 
-**Related use cases**
-
-* <StackSnippet snippet="relatedusecases" />
-
 ---
 
 ## The reason to choose Google Authenticator
@@ -112,5 +108,9 @@ The following summarizes the Google Authenticator challenge flow using a user si
 <StackSnippet snippet="challengeintegrationsummary" />
 
 <StackSnippet snippet="challengeintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

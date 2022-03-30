@@ -23,11 +23,6 @@ This guide shows how to customize the self-service password recovery flow using 
 **Sample code**
 
 <StackSnippet snippet="samplecode" />
-</br>
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -144,9 +139,12 @@ The next step is to update your app to accept the link with the `otp` and `state
 ### Summary of steps
 The following diagram illustrates the steps in the customized password recovery using a SDK based app.
 
-
 <StackSnippet snippet="sdksummary" />
 
 <StackSnippet snippet="sdk" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

@@ -24,10 +24,6 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 * <StackSnippet snippet="samplecode" />
 
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
-
 ---
 
 ## Overview
@@ -166,5 +162,9 @@ The following summarizes the Okta Verify enrollment flow with TOTP.
 <StackSnippet snippet="challengetotpintegrationsummary" />
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>
