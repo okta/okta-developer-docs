@@ -1,6 +1,6 @@
 ### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case that requires authentication. This guide uses a sign-in flow with username and password that is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case that requires authentication. This guide uses a sign-in with username and password flow that is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
