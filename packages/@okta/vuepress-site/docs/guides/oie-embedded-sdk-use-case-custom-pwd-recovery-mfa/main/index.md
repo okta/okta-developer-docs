@@ -7,8 +7,6 @@ title: Custom password recovery
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows how to customize the self-service password recovery flow using Okta's embedded solutions. Specifically, it details how you can better control your user's password recovery experience using email authentication and magic links.
 
 ---

@@ -7,8 +7,6 @@ title: Okta Verify (Push/OTP) integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---

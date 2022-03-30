@@ -7,8 +7,6 @@ title: Device Context
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to enable and integrate device context into your application using the Embedded SDK.
 
 ---

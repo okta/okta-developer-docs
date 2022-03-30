@@ -7,8 +7,6 @@ title: Web Authentication integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
 ---

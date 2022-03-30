@@ -7,8 +7,6 @@ title: Google Authenticator integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to integrate the Google Authenticator into your authentication use cases using the embedded SDK.
 
 ---
