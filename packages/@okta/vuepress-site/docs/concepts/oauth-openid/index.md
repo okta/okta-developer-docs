@@ -38,7 +38,7 @@ The OAuth 2.0 spec has four important roles:
 
 Other important terms:
 
-* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow, explained below.
+* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow. See [Choosing an OAuth 2.0 flow](#choosing-an-oauth-2-0-flow).
 * **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
 * **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
