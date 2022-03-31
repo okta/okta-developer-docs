@@ -152,7 +152,7 @@ Enable magic links in your org.
 
 1. Open the **Admin Console** for your Okta org.
 2. Choose **Applications > Applications** to show the app integrations that you have already created.
-3. Click on the application that you previously created.
+3. Click the application that you previously created.
 4. In the **General Settings** section on the **General** tab, click **Edit**.
 5. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your application. The sample application uses <StackSnippet snippet="callbackuri" inline />.
 6. Click **Save** to save your changes.
