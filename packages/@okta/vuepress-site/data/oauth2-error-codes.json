@@ -1,6 +1,6 @@
 {
-  "release" : "2022.03.1",
-  "build" : "2022.03.1-begin-126-g4846f8a5233f",
+  "release" : "2022.04.1",
+  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1030,6 +1030,13 @@
     "internalErrorCode" : "mfa_attestation_login_hint_required",
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
+  }, {
+    "title" : "MFA attestation interact requires client credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mfa_attestation_interact_requires_client_credentials",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The client authentication is required for MFA attestation request."
   }, {
     "title" : "Missing token request parameter",
     "statusCode" : 400,

@@ -4,8 +4,6 @@ excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 i
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to securely set up Okta hub and spoke orgs to synchronize users and groups by using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). The connection between Okta orgs can be set up for API access to specific scoped data using the OAuth 2.0 client credential flow for the [Org2Org integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) app.
 
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.

@@ -1,7 +1,74 @@
 ---
 title: Okta Identity Engine API Products release notes 2022
 ---
+
 <ApiLifecycle access="ie" />
+
+## April
+
+### Monthly release 2022.04.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improved email magic link authentication experience is EA in Preview](#improved-email-magic-link-authentication-experience-is-ea-in-preview) | March 30, 2022 |
+| [Password as an optional authenticator is EA in Preview](#password-as-an-optional-authenticator-is-ea-in-preview) | March 30, 2022 |
+| [Native SSO support is EA in Preview](#native-sso-support-is-ea-in-preview) | March 30, 2022 |
+| [Telephony Inline Hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
+| [Splunk available for Log Streaming is EA in Preview](#splunk-available-for-log-streaming-is-ea-in-preview) | March 30, 2022 |
+| [Burst rate limits available on Rate Limit Dashboard](#burst-rate-limits-available-on-rate-limit-dashboard) | March 30, 2022 |
+| [OAuth 2.0 Push Authorization Requests](#oauth-2-0-push-authorization-requests) | March 30, 2022 |
+| [Signed request support for generic OIDC IdP is GA in Preview](#signed-request-support-for-generic-oidc-idp-is-ga-in-preview) | March 02, 2022 |
+| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-preview) | February 16, 2022 |
+| [Client secret rotation and key management is GA in Preview](#client-secret-rotation-and-key-management-is-ga-in-preview) | February 03, 2022 |
+| [Bug fixed in 2022.04.0](#bug-fixed-in-2022-04-0) | March 30, 2022 |
+
+#### Improved email magic link authentication experience is EA in Preview
+
+Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+
+#### Password as an optional authenticator is EA in Preview
+
+Passwords are weak authenticators and prone to security issues. Currently all users are required to enroll a password. This also causes friction during the self-service registration process. You can now create a password-optional or passwordless sign-in experience for your end users. It makes the registration process quicker by removing the need to set up a password. It also provides a safer and more secure sign-in experience as users can instead use stronger authenticators such as possession-based authenticators or biometrics. Okta gives you the flexibility to target specific groups of users in your organization with passwordless flows, allowing you to gradually roll out the experience across your entire user base. See [Create User with Optional Password enabled](/docs/reference/api/users/#create-user-with-optional-password-enabled).
+
+#### Native SSO support is EA in Preview
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).
+
+#### Telephony Inline Hook is EA in Preview
+
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
+
+#### Splunk available for Log Streaming is EA in Preview
+
+Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
+
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](/docs/reference/api/log-streaming/#splunk-cloud-settings-object).
+
+#### Burst rate limits available on Rate Limit Dashboard
+
+The Rate Limit Dashboard, available from the Admin Console, now includes data on burst limits in your Okta org, in addition to rate limit warnings and violations. The Violations dashboard was renamed Events to acknowledge the increase of scope, and includes the ability to filter on timeline as well as the type of event (warning, burst, and violation). Hovering over the burst rates in the graphs provides more detail and links to the system log for individual endpoint calls. The individual Usage graphs provide details on bursts for the individual API. See [Rate limit dashboard](/docs/reference/rl-dashboard/) and [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+
+#### OAuth 2.0 Push Authorization Requests
+
+Okta authorization servers now support push authorization requests in the `/par` endpoint to enhance OAuth security. This feature allows clients to push the payload of an OAuth 2.0 authorization request to the authorization server through a direct `/par` request and, in return, a request URI that is used to reference the payload data is provided by the authorization server. The request URI is then used in a subsequent `/authorize` request to reference the initial authorization payload. See the [/par](/docs/reference/api/oidc/#par) OAuth 2.0 API endpoint.
+
+#### Signed request support for generic OIDC IdP is GA in Preview
+
+When customers [integrate Okta with an OpenID Connect-based Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta), Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new [Signed Request Object](/docs/reference/api/idps/#oidc-algorithms-object) allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server.
+
+#### Client secret rotation and key management is GA in Preview
+
+Rotating client secrets without service or application downtime is a challenge. Additionally, JSON Web Key management can be cumbersome. To make [client secret rotation](/docs/guides/client-secret-rotation-key/) a seamless process and improve JWK management, you can now create overlapping client secrets and manage JWK key pairs in the Admin Console. You can also create JWK key pairs from the Admin Console without having to use an external tool.
+
+#### Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Preview
+
+The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
+
+#### Bug fixed in 2022.04.0
+
+Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/reference/api/apps/#update-application) didn't update the secret if the org had the [Client Credentials Management](/docs/guides/implement-grant-type/clientcreds/main/#client-credentials-flow) feature enabled. (OKTA-482341)
 
 ## March
 
