@@ -1,12 +1,12 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that cature's the user's name and password, as shown in the following example.
+Build a sign-in page that captures the user's name and password, as shown in the following example.
 
 ![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
 
 ### 2: Authenticate the user credentials
 
-After a user initiates the sign-on flow by entering their username and password and then clicks **Log In**, create an `AuthenticationOptions` object in your `LogIn` method. Then, set the object's `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient`.
+After a user initiates the sign-in flow by entering their username and password and then clicking **Sign In**, create an `AuthenticationOptions` object in your `LogIn` method. Then, set the object's `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient`.
 
 ```csharp
 var authnOptions = new AuthenticationOptions
@@ -21,6 +21,7 @@ try
 ```
 
 ### 3: Handle the response from the sign-in flow
+
 Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync` to discover the current status of the authentication process.
 
 ```csharp
@@ -36,11 +37,11 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
 If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario in addition to `Success` and `PasswordExpired`:
 
 * `AwaitingAuthenticatorEnrollment` that is covered in this section
-* `AwaitingChallengeAuthenticatorSelection` that is covered in [the challenge flow section](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-challenge).
+* `AwaitingChallengeAuthenticatorSelection` that is covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge).
 
 The names of the authenticators available for enrollment or challenge can be found in the `AuthenticationResponse` object's `Authenticators` collection. Redirect the user to a list of authenticators to select the Google Authenticator for enrollment.
 
-> **Note:** The `isChallengeFlow` session variable is set to `false` if the user needs to enroll the Google Authenticator first, and `true` if they have already done so.
+> **Note:** The `isChallengeFlow` session variable is set to `false` if the user needs to enroll Google Authenticator first, and `true` if they have already done so.
 
 ```csharp
       case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
@@ -66,7 +67,7 @@ catch (OktaException exception)
 
 ### 4: Display a list of possible authenticator factors
 
-Build a page to display the list of authenticators (including the Google Authenticator). For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection returned by the `AuthenticationResponse` in the previous step.
+Build a page to display the list of authenticators (including Google Authenticator). For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection returned by the `AuthenticationResponse` in the previous step.
 
 ```csharp
 public ActionResult SelectAuthenticator()
@@ -136,7 +137,7 @@ The `viewModel` parameter is then consumed in a Razor page.
 </section>
 ```
 
-In this use case, only the Google Authenticator appears, as shown in the following screenshot.
+In this use case, only Google Authenticator appears, as shown in the following screenshot.
 
 ![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-Authenticators-Google-AuthenticatorList.png)
 
@@ -238,7 +239,7 @@ This ViewModel is then consumed in a Razor page
 
 The user sees the following
 
-![A page showing a QR code and a shared secret to enroll a mobile device into Google Authenticator](/img/authenticators/dotnet-Authenticators-Google-EnrollPage.png)
+![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-Authenticators-Google-EnrollPage.png)
 
 ### 7: Copy shared secret to Google Authenticator
 
@@ -262,10 +263,10 @@ Build a form that allows the user to enter the TOTP they have received from thei
    <div>
       <div>
          <div>
-            @Html.LabelFor(m => m.Code, new { @class = "control-label" })
+            @Html.LabelFor(m => m.Code)
          </div>
          <div>
-            @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @id="passcodeInput" })
+            @Html.TextBoxFor(m => m.Code, new { @id="passcodeInput" })
             @Html.ValidationMessageFor(m => m.Code, "", new { @class = "text-danger" })
          </div>
       </div>
