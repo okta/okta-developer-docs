@@ -269,8 +269,6 @@ curl -v -X GET \
 
 ## List subscriptions of a Custom Role
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions" />
 
 List all subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object)
@@ -345,8 +343,6 @@ curl -v -X GET \
 
 ## Get subscription of a Custom Role with a specific notification type
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}" />
 
 Get subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object) with a specific notification type
@@ -404,8 +400,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Subscribe a Custom Role to a specific notification type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/subscribe" />
 
@@ -467,8 +461,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Unsubscribe a Custom Role from a specific notification type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/unsubscribe" />
 

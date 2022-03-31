@@ -1,5 +1,4 @@
 $border-color: #b7bcc0;
-$text-color: #5c6971;
 $gray-000: #fafafa;
 $small-spacing: 0.75rem;
 
@@ -22,6 +21,17 @@ $small-spacing: 0.75rem;
       padding: 0.65rem 0.5rem 0.5rem 0;
       font-weight: 500;
       white-space: nowrap;
+      font-size: 1rem;
+      color: #1D1D21;
+
+      @include media(">desktop-xl") {
+        margin-left: 0.8rem;
+      }
+    }
+    .select-dropdown {
+      @include media(">desktop-xl") {
+        margin-left: 0.8rem;
+      }
     }
     .icon {
       width: 24px;
@@ -48,7 +58,7 @@ $small-spacing: 0.75rem;
       white-space: nowrap;
       text-overflow: ellipsis;
       text-decoration: none;
-      color: $text-color;
+      color: cv('text');
       background: transparent;
       align-items: center;
       width: 100%;
@@ -73,12 +83,19 @@ $small-spacing: 0.75rem;
         flex-basis: auto;
         padding: 0;
         padding-left: 0.5rem;
-        max-width: 95%;
+        max-width: 93%;
         .vs__selected{
           margin: 0;
           padding: 0;
           border: 0;
+          max-width: 90%;
         }
+        .vs__search {
+          margin: 0;
+        }
+      }
+      .vs__actions {
+        padding: 0;
       }
       .vs__open-indicator {
         fill: cv('text','darker');
@@ -88,17 +105,18 @@ $small-spacing: 0.75rem;
     .vs__dropdown-menu {
       overflow-x: hidden;
       border-top-style: initial;
-      padding-bottom: 0px;
+      padding: 0;
       z-index: 50;
 
       .vs__dropdown-option {
         padding: 0.7rem 1rem;
-        border: 1px solid transparent;
+        border: none;
         border-bottom: 1px solid cv('gray', '100');
         width: 100%;
+        margin: 0;
 
         &:last-child {
-          border-bottom: 1px solid transparent;;
+          border-bottom: none;
         }
 
         &--highlight {

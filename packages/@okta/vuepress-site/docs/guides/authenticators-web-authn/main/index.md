@@ -7,8 +7,6 @@ title: Web Authentication integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
 ---
@@ -19,17 +17,12 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 **What you need**
 
-* <StackSnippet snippet="orgconfigurepwdonly" />
 * <StackSnippet snippet="oiesdksetup" />
 * An authenticator such as a fingerprint scanner or hardware security key
 
 **Sample code**
 
 * <StackSnippet snippet="samplecode" />
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -65,31 +58,50 @@ As the service provider, you can provide WebAuthn support to your users by enabl
 
 ## Update configurations
 
-Before you can start using Web Authentication (WebAuthn), create an Okta org application as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>. Then add WebAuthn to your app integration by executing the following steps:
+Before you can start using Web Authentication (WebAuthn), you need to enable it in your Okta org and assign it an authentication policy which requires it to be used.
 
-### Add WebAuthn to the Okta org
+### Add WebAuthn to your org
 
-1. In the Admin Console, go to **Security > Authenticators**.
-1. On the **Authenticators** page, click **Add Authenticator**.
-1. On the **Add Authenticator** dialog, click **Add** under **FIDO2 (WebAuthn)**.
-1. Leave the default value for **User Verification**, which is set to "Discouraged".
-1. On the **Add FIDO2(WebAuthn)** dialog, click **Add**.
-1. On the **Authenticators** page, select the **Enrollment** tab.
-1. On the **Enrollment** tab, click **Edit** for the **Default Policy**.
-1. Set **FIDO2 (WebAuthn)** to **Optional** and click **Update Policy**.
+First, add the WebAuthn authenticator to your org and enable it.
 
-### Configure your Okta org application to use WebAuthn
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authenticators** to show the available authenticators.
+3. If **FIDO2 (WebAuthn)** isn't in the list:
+   1. Click **Add Authenticator**.
+   2. Click **Add** on the **FIDO2 (WebAuthn)** tile.
+   3. Verify that **User verification** is set to **Discouraged**.
+   4. Click **Add**.
 
-1. In the Admin Console, go to **Applications** and **Applications**.
-1. On the **Applications** page, click on the application you've previously created.
-1. On the **General** tab ensure that **Interaction Code** and **Refresh Token** are selected.
-1. On the **Sign-On** tab, scroll down to the **Sign-On Policy** section and click **Add Rule**.
-1. On the **Add Rule** dialog box, do the following:
-   1. Enter a name for the new rule (for example "2FA Rule").
-   1. Set **User must authenticate with** to **Password+Another Factor**.
-   1. Select **Device Bound**.
-   1. Confirm **Your org's authenticators that satisify this requirment** is set to **Password AND FIDO2 (WebAuthn) or ...**.
-   1. Click **Save**.
+   If **FIDO2 (WebAuthn)** is in the list:
+   1. Select **Actions > Edit** for **FIDO2 (WebAuthn)**.
+   2. Verify that **User verification** is checked.
+   3. Click **Save** to save your changes.
+
+4. Select the **Enrollment** tab.
+5. Check that **FIDO2 (WebAuthn)** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
+   1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the Default Policy
+   2. Select **Optional** from the drop-down box for **FIDO2 (WebAuthn)**, and then click **Update Policy**.
+
+### Set your app integration to use the WebAuthn authenticator
+
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
+
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authentication Policies** to show the available authentication policies.
+3. Click **Add a Policy**.
+4. Give the policy a name, and then click **Save**.
+5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+6. Select **Allowed after successful authentication**.
+7. Set **User must authenticate with** to **Password + Another factor**.
+8. For **Possession factor constraints**
+   1. Verify that **Device Bound** is selected.
+   2. Verify that **FIDO2 (WebAuthn)** is listed in the box under **Additional factor types**. If it is not listed, check the authenticator has been enabled using steps 4 and 5 of [Add WebAuthn to your org](#add-webauthn-to-your-org).
+   3. Click **Save**.
+
+9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
+10. Find your app in the list and click **Add** next to it.
+11. Click **Close**.
+12. Verify that the app is now listed in the **Applications** tab of the new policy.
 
 ## Verify browser version
 
@@ -114,5 +126,9 @@ The following summarizes the WebAuthn challenge flow using a user sign-in use ca
 <StackSnippet snippet="challengeintegrationsummary" />
 
 <StackSnippet snippet="challengeintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

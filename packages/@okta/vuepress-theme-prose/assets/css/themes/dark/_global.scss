@@ -1,0 +1,25 @@
+.sidebar-area,
+table,
+.CodeMirror-vscrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: dark;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: cv("body", "obscure");
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: cv("breadcrumb", "svg");
+    border-radius: 6px;
+    border: 2px solid cv("body", "obscure");
+  }
+}
+
+.page-body {
+  background-color: cv("body");
+}
+
+hr {
+  color: cv("text");
+}

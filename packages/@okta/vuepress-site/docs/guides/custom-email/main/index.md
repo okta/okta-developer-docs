@@ -14,11 +14,12 @@ Customize email notifications.
 
 **What you need**
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+- [Okta Developer Edition organization](https://developer.okta.com/signup)
+- Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
 
 **Sample code**
 
-[Example of using app context to brand an email](#example-of-using-app-context-to-brand-an-email)
+[Customization example](#customization-example)
 
 ---
 
@@ -32,9 +33,15 @@ You can customize and style the default email notifications that Okta sends to e
 
 Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
 
+> **Note:** When you edit a template, Okta stops sending the default in other languages. You are responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
+
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
+The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Widget, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
+
+> **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
+
+See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about email templates and the Brands API.
 
 ### Caveats
 
@@ -46,88 +53,190 @@ The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early A
 
 - If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
 
-## Add or edit email templates
+## Edit a default email template
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** Free trial editions of Okta can't create or send customized email templates.
+> **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
-1. In the Admin Console, go to **Settings** and then **Emails & SMS**. The **Email** tab is selected by default.
-2. From the left pane, select the email template that you want to edit or for which you want to add a new translation. A text version of the default message appears.
-3. Click **Edit** to open the message in HTML.
-4. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.
-5. If your org supports additional languages, click **Add Translation**, and then select a language from the drop-down box.
-6. Make your edits, and then click **Add Translation**.
-7. Repeat steps 5 and 6 for additional languages.
+1. In the Admin Console, go to **Customizations** > **Emails**.
+1. Click a default email template listed in the left pane.
+1. Click **Edit** to open the message in HTML. If you see **Add Translation** instead of **Edit**, the template is already customized. You need to make any additional edits in the default language version. Skip to step 2 in [Add translations](#add-translations).
+1. Select a language from the dropdown menu.
+1. Make your edits. See [Velocity Templating Language](#velocity-templating-language) for customization options.
+1. Click **Save**. The default language version of your edited message appears in the **Custom Email** table.
 
-## Localization notes
+Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
 
-* When multiple translations have been added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** drop-down box. Doing so reorders the list of added translations automatically. You can edit the templates through the pencil icon, but you can't delete the default language template.
+### Use customizable email templates
 
-* It may be more convenient to copy and paste the HTML from the message body into a text editor, compose your custom translation, then copy and paste it back into the message body.
+The following table provides a list of all available email templates in an Okta org, along with:
 
-* If you want to delete all custom translations and revert to the original Okta-provided template, click **Reset to Default**.
+- the default subject line for the email template
+- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- a description of the template
 
-## Expression Language variables
+| UI name | Default subject line | API object reference</br>`${templateName}` | Description |
+|---------|---------|----------------------|----------|---------|
+| User Activation | Welcome to Okta! | `UserActivation` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
+| Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process |
+| LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
+| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
+| Registration - Activation | Activate Account | `RegistrationActivation` | Sent to users who must follow the provided link to complete their self-registration |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | Sent to users who must follow the provided link to verify their email address |
+| Email Factor verification (Identity Engine)</br>Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | Sent to users who must follow the provided link to verify their email address |
+| Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | Sent to users who forgot their password but only their admin can reset it |
+| Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | Sent to users who had their password reset by an Okta system administrator, and must follow the provided link to complete the password reset process |
+| Active Directory Password Reset Denied | Forgotten Password | `ADForgotPasswordDenied` | Sent to Active Directory users who tried to reset their Active Directory password reset but don't have permission |
+| LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | Sent to LDAP users who tried to reset their LDAP password but don't have permission |
+| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
+| Forgot Password | Account password reset | `ForgotPassword` | Sent to users who must follow the provided link to reset their forgotten password |
+| Active Directory Password Reset | Forgotten password (Identity Engine)</br>Account password reset (Classic Engine) | `ADForgotPassword` | Identity Engine: Sent to users who want to reset their Active Directory account password and must follow the provided link to reset their password</br>Classic Engine: Sent to users who have had their Active Directory account password reset and must follow the provided link to reset their password |
+| Password Changed | Password Changed | `PasswordChanged` | Sent to users whenever their account password changes |
+| Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | Sent to users who tried to use self-service to unlock an account that isn't locked |
+| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Sent to Active Directory users who must follow the provided link to unlock their password |
+| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Sent to users who must follow the provided link to complete self-service unlock account process |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
+| Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | Sent to users who must follow the provided link to confirm their email address change request |
+| Email Change Notification | Notice of pending email address change | `PendingEmailChange` | Sent to a user's old email address when they request to change their email address |
+| Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | Sent when the request to change a user's email address is confirmed |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Account Lockout | Account Lockout | `AccountLockout` | Sent to users who are locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
+| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user doesn't recognize the sign-in details of the unknown device |
+| Authenticator Enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Identity Engine: Sent to users when authenticators are reset</br>Classic Engine: Sent to users when new MFA factors are enrolled |
+| Authenticator Reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Identity Engine: Sent to users when authenticators are reset</br>Classic Engine: Sent to users when MFA factors are reset |
+| Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` |  |
+| Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` |  |
+| Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` |  |
+| Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` |  |
 
-Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/okta_help.htm?id=ext-expression-language). EL variables enable advanced customization and can prevent potential broken links when they're used in place of hard-coded URLs.
+## Add translations
 
-> **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
+When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically.
 
-## Enhanced Email Macros
+You can edit the templates through the pencil icon, but you can't delete the default language template.
 
-<ApiLifecycle access="ea" />
+1. In the Admin Console, go to **Customizations** > **Emails**.
+1. Choose an email template that you customized. The default language version appears in the **Custom Email** table.
+1. Click **Add Translation**, and then select a language from the dropdown box. If the **Add Translation** button isn't available, this template isn't customized. See [Edit a default email template](#edit-a-default-email-template).
+1. Make your translated edits, and then click **Add Translation**.
+1. Repeat steps 3 and 4 for additional languages.
 
-> **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
+To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
-> **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
+> **Note:** It may be more convenient to copy and paste the HTML from the message body into a text editor, compose your custom translation, then copy and paste it back into the message body.
 
-The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than Expression Language. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use:
+## Use Velocity Templating Language
+
+[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/1.7/user-guide.html) allows you to customize your org's email templates so that you can use:
 
 - enhanced conditional logic
 - all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
-- some of the org attributes in these macros
+- some of the org attributes in these variables
 
-All of Okta's default email templates are available for customization.
+Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
 
-> **Note:** Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults. However, when you disable the Enhanced Email Macros feature, your old customized templates return. If you choose to disable the feature, you lose access to the customizations done while the EA feature was enabled.
+For example, reference the first name of a user with `${user.profile.firstName}`.
 
-### Velocity Templating syntax
+See [Use VTL variables](#use-vtl-variables) for available email template variables.
 
-The templating syntax that is used in enhanced email macros is the Velocity Templating Language (VTL). Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
+### Use conditional logic
 
-The new templating syntax is different from the EL expression-based Okta email templating syntax that was previously used. You no longer need to use curly braces around the variable name.
+In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
-Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
+### Customization example
 
-The previously available template variables are listed in [Customization Variables](https://help.okta.com/okta_help.htm?id=ext_ref_email_variables).
+The following example uses the `${app.name} variable, which is only available in Okta Identity Engine.
 
-## Use all User Profile attributes
+```html
+#if(${app.name} == "Toys R' Fun")
+<img src="https://cdn.toysrfun.com/logo" height="37">
+<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+#elseif(${app.name} == "Fidget Spinners Unlimited")
+<img src="https://cdn.fidgetsu.com/logo" height="37">
+<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
+#else
+<img src="${parentLogoUrl}" height="37">
+#end
+```
 
-You can reference any Okta User Profile attribute in your email templates. The reference notation is `$user.profile.attributeName`, where `attributeName` is an attribute from the Okta User Profile. For example, use `$user.profile.displayName` to reference the User Profile `displayName` attribute.
+### Use VTL variables
 
-Other examples include:
+You can reference any Okta User Profile attribute in your email templates.
 
-- Trigger an email in your end-users' preferred language by using the conditional logic and calling the `preferredLanguage` attribute.
-- If a customer wants to specify a department such as Engineering in an Activation Email, they are able to call the user attribute `department`.
+> **Note:** Some attributes are only available in Okta Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and Okta Classic Engine.
 
-See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
+| Variable       | Template availability         |
+|---------------------------------------------------------------|------------------------------------------------------------------------|
+| `${user.profile.login}` | Available in all templates |
+| `${user.profile.email}` | Available in all templates |
+| `${user.profile.secondEmail}` | Available in all templates |
+| `${user.profile.firstName}` | Available in all templates |
+| `${user.profile.lastName}` | Available in all templates |
+| `${user.profile.locale}` | Available in all templates |
+| `${user.profile.mobilePhone}` | Available in all templates |
+| `${user.profile.primaryPhone}` | Available in all templates |
+| `${user.profile.username}` | Available in all templates |
+| `${user.profile.fullName}` | Available in all templates |
+| `${user.profile.city}` | Available in all templates |
+| `${user.profile.state}` | Available in all templates |
+| `${user.profile.streetAddress}` | Available in all templates |
+| `${user.profile.zipCode}` | Available in all templates |
+| `${user.profile.countryCode}` | Available in all templates |
+| `${user.groups.names}` | Available in all templates |
+| `${user.group.ids}` | Available in all templates |
+| `${app.id}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `${app.name}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `${app.label}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `${org.name}` | Available in all templates |
+| `${org.locale}` | Available in all templates |
+| `${org.subDomain}` | Available in all templates |
+| `${org.activationTokenExpirationHours}` | Available in all templates |
+| `${baseURL}` | Available in all templates |
+| `${oktaLogoUrl}` | Available in all templates |
+| `${activationLink}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `${activationToken}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `${samAccountName}` | Available in these templates:</br><ul><li>Active Directory User Activation</li><li>Active Directory Password Reset</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>Active Directory Self-Service Unlock Account</li></ul> |
+| `${technicalContact.login}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.email}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.secondEmail}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.firstName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.lastName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.locale}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `${technicalContact.fullName}` | Available in Password Reset by Admin |
+| `${pushVerifyActivationLink}` | Available in Send Push Verify Activation Link |
+| `${androidOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `${iosOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `${registrationEmailVerificationLink}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${registrationEmailVerificationToken}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${instanceDisplayName}` | Available in these templates:</br><ul><li>Email Factor Verification</li><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `${unlockAccountLink}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${recoveryLink}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${factorDisplayName}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
+| `${recoveryToken}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Reset Factor</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
+| `${request.date}` | Available in Authenticator Enrolled |
+| `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
+| `${request.location}` | Available in Authenticator Enrolled |
+| `${request.performedBySubject}` | Available in Authenticator Enrolled |
+| `${request.factor}` | Available in Factor Enrolled |
+| `${request.factors}` | Available in Factor Reset |
+| `${request.ipAddress}` | Available in Sign In From New Device |
+| `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
+| `${request.browser}` | Available in Sign In From New Device |
+| `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
+| `${emailAuthenticationLink}` | Available in Email Challenge |
+| `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
 
 ## Use functions for email templates
 
 In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email recipient.
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
-
-There are slight differences between EL templating syntax and VTL syntax. For example, the following EL and VTL syntax call the same function.
-
-EL templating syntax:
-
-`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
-
-VTL syntax:
-
-`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -144,55 +253,17 @@ VTL syntax:
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
-## Use org attributes
-
-You can also reference these org-level attributes, such as:
-
-* `$org.name`
-* `$org.locale`
-* `$org.subDomain`
-
-### Support for conditional logic
-
-<ApiLifecycle access="ie" />
-
-All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
-
-## Use app context
-
-Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
-
-* `$app.id`
-* `$app.name`
-* `$app.label`
-
-When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
-
-### Example of using app context to brand an email
-
-```html
-#if(${app.name} == "Toys R' Fun")
-<img src="https://cdn.toysrfun.com/logo" height="37">
-<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#elseif(${app.name} == "Fidget Spinners Unlimited")
-<img src="https://cdn.fidgetsu.com/logo" height="37">
-<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
-#else
-<img src="$parentLogoUrl" height="37">
-#end
-```
-
 ## Test custom email templates
 
-You can send yourself a test email to see how a custom email template looks and functions. This can help you validate macro attributes and translations in the customized template as well as see how the template renders in different email environments. This eliminates the need to create a real end-to-end workflow to test customization. The test email is sent to the primary email address of the admin that initiates the test email.
+You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
 
-1. Click the email icon to the right of the email template that you have customized. The Send test email dialog box appears and lists who the email is sent to and from what sender the email is coming from.
+1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
 ## See also
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
 
-- [Customize the Okta URL and email notification domains](/docs/guides/custom-url-domain/)
-- [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-- [Style the Widget](/docs/guides/style-the-widget/)
+- [Customize the Okta URL and email notification domains](/docs/guides/custom-url-domain/main/)
+- [Customize SMS messages](/docs/guides/custom-sms-messaging/main/)
+- [Style the Widget](/docs/guides/custom-widget/main/)

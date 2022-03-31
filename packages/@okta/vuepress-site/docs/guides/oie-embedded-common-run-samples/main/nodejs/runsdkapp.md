@@ -1,8 +1,8 @@
 1. If you haven't already done so, [set up your Okta org](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If you haven't already done so, [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
-1. Locate the sample apps solution file in the following path:
-`...\okta-auth.js\samples\generated\express-embedded-auth-with-sdk` and ensure the module dependencies are installed. See [Install the module dependencies](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#install-the-module-dependencies).
-1. Open `express-embedded-auth-with-sdk` using Visual Studio or the editor of your choice.
+1. Locate the sample app in the following directory:
+`okta-auth.js/samples/generated/express-embedded-auth-with-sdk` and ensure the module dependencies are installed. See [Install the module dependencies](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#install-the-module-dependencies).
+1. Open the embedded SDK sample application directory using Visual Studio Code or your preferred IDE.
 1. Add a `testenv` configuration file. See [Option 1: Create a configuration file](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#option-1-create-a-configuration-file) for further information.
 1. From the terminal, navigate to the `express-embedded-sign-in-widget` sample directory and run the application: `npm run start`. This process sets the environment variables and starts the web server. Verify on the console that the environment variables are set.
 1. Open a browser window and navigate to the app's home page: `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home page.

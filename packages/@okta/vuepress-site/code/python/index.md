@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your Python App
+title: Add user authentication to your Python app
 language: Python
 integration: back-end
 icon: code-python
@@ -8,32 +8,53 @@ meta:
     content: Our guide shows you how to add user authentication to your Python app with examples using Flask.
 ---
 
-## Python Samples
+## Get started with Python Flask + Okta
 
-<ul class="language-ctas">
+New to Okta? Our resources walk you through adding user authentication to your Python Flask app in minutes.
+
+<ul class='language-ctas'>
+	<li>
+		<a href='/docs/guides/sign-into-web-app-redirect/python/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
+		</a>
+	</li>
+	<!-- <li>
+    <a href='/docs/guides/protect-your-api/python/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <span>Protect your API quickstart</span>
+    </a>
+  </li> -->
 	<li>
 		<a href='https://github.com/okta/samples-python-flask' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta Management SDK for Python
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta Python SDK can be used in your server-side code to create and update users, groups, and more.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
+
+[Flask redirect authentication sample app](https://github.com/okta/samples-python-flask): See [Okta-hosted login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a redirect configuration.
+
+## Okta Classic Python SDKs
+
+The [Okta Management Python SDK](https://github.com/okta/okta-sdk-python) can be used in your server-side code to create and update users, groups, and more.
 
 ```bash
 pip install okta
 ```
-<a href='https://github.com/okta/okta-sdk-python'>
-	<span class='fa fa-github'></span> <span>Okta Python SDK GitHub Project</span>
-</a>
 
 ## Recommended Guides
 
+Okta-hosted Sign-In Widget guide:
 
-- [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/python/main/)
 
+Other guides:
+
+* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our recent [Python Developer Blog posts](https://developer.okta.com/blog/tags/python/) for further useful topics.

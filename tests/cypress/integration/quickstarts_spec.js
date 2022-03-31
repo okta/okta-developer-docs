@@ -36,7 +36,7 @@ describe('quickstarts page default selections spec', () => {
   //   basePage.pageReload();
 
   //   cy.location().should(location => {
-  //     expect(location.pathname).to.eq('/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/');
+  //     expect(location.pathname).to.eq('/docs/guides/sign-into-web-app-redirect/nodeexpress/before-you-begin/');
   //   });
   // });
 

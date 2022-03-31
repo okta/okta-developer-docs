@@ -15,7 +15,7 @@ This guide explains how to share application key credentials across multiple app
 
 **What you need**
 
-A couple of existing Okta apps already set up so that application key credentials can be shared between the apps, for example, [a web app](/docs/guides/sign-into-web-app/aspnet/main/).
+A couple of existing Okta apps already set up so that application key credentials can be shared between the apps, for example, [a web app](/docs/guides/sign-into-web-app-redirect/aspnet/main/).
 
 ---
 

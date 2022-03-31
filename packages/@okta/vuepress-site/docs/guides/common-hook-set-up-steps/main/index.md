@@ -1,5 +1,5 @@
 ---
-title: Common Hook Set-up Steps
+title: Common Hook set-up steps
 excerpt: A list of set-up steps that are common to all hook implementations.
 layout: Guides
 ---
@@ -10,19 +10,17 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 **Learning outcomes**
 
-* Understand common set up steps for implementing an Okta Event or Inline Hook
-* Understand how to use these steps when running the example hook code in the accompanying guides
+* Understand common set up steps for implementing an Okta Event or Inline Hook.
+* Understand how to use these steps when running the example hook code in the accompanying guides.
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/)
-
-**Sample code**
-
-* n/a
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 ---
+
+## About the common Hook set-up steps
 
 Okta Event and Inline Hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
 

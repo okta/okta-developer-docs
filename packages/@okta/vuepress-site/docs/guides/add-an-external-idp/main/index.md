@@ -3,6 +3,7 @@ title: Add an external Identity Provider
 meta:
   - name: description
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
+showStackSelector: False
 ---
 
 ## <StackSnippet snippet="idp" inline />
@@ -29,7 +30,7 @@ Okta manages the connection to the IdP for your application. The connection sits
 
 > **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
-## Create an app at <StackSnippet snippet="idp" inline />
+## Create an app at the Identity Provider
 
 At <StackSnippet snippet="idp" inline />, create the client application that you want to use for authenticating and authorizing your users.
 
@@ -45,7 +46,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. Select **Add Identity Provider** and then select **<StackSnippet snippet="idp" inline />**.
 
-1. In the **Add an Identity Provider** dialog box, define the following:
+1. In the **Add an Identity Provider** dialog, define the following:
 
     <StackSnippet snippet="appidpinokta" />
 
