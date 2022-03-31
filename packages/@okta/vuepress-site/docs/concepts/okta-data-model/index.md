@@ -28,6 +28,6 @@ The relationship between an application and a user is stored in Okta as an [AppU
 
 A [**Policy**](/docs/reference/api/policy/) specifies the **rules** of how your organization behaves for certain actions. Policies have conditions that need to be met to apply actions. Your Okta organization contains policies for how to gain access to an application, what the user needs to do to reset their password, and to enroll into multifactor authentication, for example.
 
-An [**Authorization Server**](/docs/reference/api/authorization-servers/) in your Okta organization gives applications tokens that allow those applications to access resources either from your APIs or Okta's. This is done with protocols such as OAuth 2.0, OpenID Connect, and SAML.
+An [**Authorization Server**](/docs/reference/api/authorization-servers/) in your Okta organization provides applications tokens that allow those applications to access either your API or Okta resources. This is done with protocols such as OAuth 2.0, OpenID Connect, and SAML.
 
 A resource that contains other resources is known as a **collection**. Collections support additional behavior, such as pagination, sort ordering, and searching. So the users collection would contain an array of `User` resources.
