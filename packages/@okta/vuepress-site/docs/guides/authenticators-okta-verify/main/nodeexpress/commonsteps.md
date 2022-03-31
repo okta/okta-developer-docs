@@ -1,12 +1,12 @@
-Since several steps in the enrollment and challenge flows are nearly identical,  it's recommended to componentize the logic to reduce duplicate code and increase reusability. Specifically, the common areas include:
+Since several steps in the enrollment and challenge flows are nearly identical, it's recommended to componentize the logic to reduce duplicate code and increase reusability. Specifically, the common areas include:
 
-* [Initiate sign-in for Okta Verify enrollment](#initiate-sign-in-for-okta-verify-enrollment)
-* [Initiate sign-in for Okta Verify challenge](#initiate-sign-in-for-okta-verify-challenge)
+* [Initiate sign-in flow for Okta Verify enrollment](#initiate-sign-in-flow-for-okta-verify-enrollment)
+* [Initiate sign-in flow for Okta Verify challenge](#initiate-sign-in-flow-for-okta-verify-challenge)
 * [Polling Okta](#polling-okta)
 
 A description and step-by-step integration for each of these common steps follow.
 
-### Initiate sign-in for Okta Verify enrollment
+### Initiate sign-in flow for Okta Verify enrollment
 
 The [enrollment with the QR Code](#integrate-enrollment-using-qr-code) and [enrollment with another channel](#integrate-enrollment-using-other-channels) flows both start with the same three steps that enable a user to sign in and start to enroll Okta Verify. The following diagram shows this common flow:
 
@@ -18,7 +18,7 @@ The [enrollment with the QR Code](#integrate-enrollment-using-qr-code) and [enro
 
 #### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, starting with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow, starting with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -29,7 +29,7 @@ The first step is to initiate a use case requiring authentication. This guide us
 
 #### 2: Display Okta Verify option
 
-If you've configured your Okta org as detailed in [Update Configurations](#update-configurations), `authenticate()` returns a response with Okta Verify in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Okta Verify is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
+If you've configured your Okta org as detailed in [Update Configurations](#update-configurations), `authenticate()` returns a response with Okta Verify in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and Okta Verify is included as an option in the `nextStep.options` array. See the following `IdxTransaction` example.
 
 ```json
 {
@@ -51,7 +51,7 @@ If you've configured your Okta org as detailed in [Update Configurations](#updat
   },
 ```
 
-Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
+Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown list using a [Mustache](https://mustache.github.io/) template.
 
 ```xml
   <select id="authenticator-options" class="ui selection dropdown" name="authenticator">
@@ -71,7 +71,7 @@ UI showing the Okta Verify authenticator option:
 
 #### 3: Submit Okta Verify option
 
-When the user selects and submits the Okta Verify option, call `OktaAuth.idx.proceed()` passing in the `okta_verify` value from `IdxOption.value`.
+When the user selects and submits the Okta Verify option, call `OktaAuth.idx.proceed()` and pass in the `okta_verify` value from `IdxOption.value`.
 
 ```javascript
     const transaction = await authClient.idx.proceed({ authenticator });
@@ -80,9 +80,9 @@ When the user selects and submits the Okta Verify option, call `OktaAuth.idx.pro
 
 At this point, the next steps differ between [enrolling with a QR code](#integrate-enrollment-using-qr-code) and with [other channels](#integrate-enrollment-using-other-channels). Go to the specific flows to understand how.
 
-### Initiate sign-in for Okta Verify challenge
+### Initiate sign-in flow for Okta Verify challenge
 
-The [challenge with push notification](#integrate-challenge-using-push-notification-option) and [challenge with TOTP](#integrate-challenge-using-totp-option) flows both start with the same three steps that enable a user to entere their username and password and then authenticate themselves with Okta Verify. The following diagram shows this common flow:
+The [challenge with push notification](#integrate-challenge-using-push-notification-option) and [challenge with TOTP](#integrate-challenge-using-totp-option) flows both start with the same three steps that enable a user to enter their username and password and then authenticate themselves with Okta Verify. The following diagram shows this common flow:
 
 <div class="common-image-format">
 
@@ -92,7 +92,7 @@ The [challenge with push notification](#integrate-challenge-using-push-notificat
 
 #### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, starting with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case requiring authentication. This guide uses the sign-in with username and password flow, starting with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -133,10 +133,9 @@ Build a page that allows the user to choose between the available methods.
 
 </div>
 
-
 #### 3. Select an option
 
-When the user selects and submits a verify option, call `IdxTransaction.idx.proceed()` passing in the option value. For TOTP, it's `totp,` and for push notifications, it's `push`.
+When the user selects and submits a verify option, call `IdxTransaction.idx.proceed()` and pass in the option value. For TOTP, it's `totp,` and for push notifications, it's `push`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -147,7 +146,7 @@ At this point, the next steps differ between challenging a user using [push noti
 
 ### Polling Okta
 
-Polling is used during the [enrollment using QR code](#integrate-enrollment-using-qr-code), [enrollment using other channels](#integrate-enrollment-using-other-channels), and [challenge using push notification](#integrate-challenge-using-push-notification-option) flows to determine when the user has completed the verification action in Okta Verify.
+Polling is used during the [enrollment using QR code](#integrate-enrollment-using-qr-code), [enrollment using other channels](#integrate-enrollment-using-other-channels), and [challenge using push notification](#integrate-challenge-using-push-notification-option) flows to determine when the user completes the verification action in Okta Verify.
 
 The user steps out of your app during these flows to complete actions within Okta Verify. While your app waits for the user, it should poll the SDK to determine when they finish with Okta Verify. Using the Okta Verify challenge as an example, the following steps detail integrating this polling logic. Note that the steps can also apply to the other flows with slight modifications.
 
@@ -161,17 +160,17 @@ The following summarizes the polling logic for the Okta Verify challenge flow wi
 
 </div>
 
-#### 1. Initiate sign-in
+#### 1. Initiate the sign-in flow
 
 First, the user initiates the user sign-in with username and password.
 
-#### 2: Poll Okta to determine when the user has completed the challenge
+#### 2: Poll Okta to determine when the user completes the challenge
 
-After the call to `OktaAuth.idx.authenticate`, the responding `IdxTransaction` object returns a `status` of `PENDING` and `nextStep.name` equal to `challenge-poll`. `challenge-poll` indicates that your app should begin polling the SDK to determine when the user has completed the Okta Verify challenge.
+After the call to `OktaAuth.idx.authenticate`, the responding `IdxTransaction` object returns a `status` of `PENDING` and `nextStep.name` equal to `challenge-poll`. `challenge-poll` indicates that your app should begin polling the SDK to determine when the user completes the Okta Verify challenge.
 
 ##### Enrollment scenarios
 
-For enrollment flows outside of this specific example, your application should start polling when `IdxTransaction` returns a `status` of `PENDING` and `nextStep.name` equal to `enroll-poll`
+For enrollment flows outside of this specific example, your application should start polling when `IdxTransaction` returns a `status` of `PENDING` and `nextStep.name` equal to `enroll-poll`.
 
 ##### IdxTransaction response
 
@@ -215,7 +214,7 @@ This method is the same for challenge and enrollment flows.
 
 ##### Polling mechanism
 
-There are many ways to implement polling in your application. The sample application implements it by repeatedly calling the server using client-side javascript. Your poll interval should be pulled from `IdxTransaction.nextStep.refresh` value. See the following example code for more details:
+There are many ways to implement polling in your application. The sample application implements it by repeatedly calling the server using client-side javascript. Your poll interval should be pulled from the `IdxTransaction.nextStep.refresh` value. See the following example code:
 
 ```javascript
 poll('/poll-authenticator/okta_verify?state=86b19cae436da12fbc334060ac00bcac', 4000);
@@ -244,10 +243,10 @@ function poll(url, refresh) {
 
 #### 3: Complete challenge in Okta Verify
 
-Next, the user completes the challenge in Okta Verify by tapping on the "Yes, it's me" prompt.
+Next, the user completes the challenge in Okta Verify by tapping the **Yes, it's me** prompt.
 
 #### 4: Exit polling
 
-Your app should continue polling while `IdxTransaction.status` equals `PENDING` and `IdxTransaction.nextStep.name` equals `challenge-poll`. After the user completes the challenge, the `IdxTransaction` properties change, the polling should stop, and your application should continue handling the next steps in the sign-in.
+Your app should continue polling while `IdxTransaction.status` equals `PENDING` and `IdxTransaction.nextStep.name` equals `challenge-poll`. After the user completes the challenge, the `IdxTransaction` properties change, the polling should stop, and your application should continue handling the next steps in the sign-in flow.
 
 Depending on your app policy, when you exit polling, `IdxTransaction.status` could be set to `PENDING`, `SUCCESS` or `TERMINAL`. `TERMINAL` occurs when the user takes too long to complete the Okta Verify verification and Okta times out.

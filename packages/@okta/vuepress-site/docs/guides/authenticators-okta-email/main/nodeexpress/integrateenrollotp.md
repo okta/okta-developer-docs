@@ -1,6 +1,6 @@
-### 1. Initiate sign in
+### 1. Initiate the sign-in flow
 
-First, the user initiates the sign-in with username and password by making a call to `OktaAuth.idx.authenticate()`.
+First, the user initiates the sign-in with username and password flow by making a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -9,7 +9,7 @@ First, the user initiates the sign-in with username and password by making a cal
 
 ### 2. Show option to enroll email
 
-If email enrollment is enabled for you org's application and the user has not yet enrolled in email, `OktaAuth.idx.authenticate()` returns `IdxTransaction` with a status of `PENDING` and `nextStep.name` equal to `select-authenticator-enroll`. The `nextStep.options` array includes an item with a `value` property of `okta_email`.
+If email enrollment is enabled for your org's application, and the user hasn't yet enrolled in email, `OktaAuth.idx.authenticate()` returns `IdxTransaction` with a status of `PENDING` and `nextStep.name` equal to `select-authenticator-enroll`. The `nextStep.options` array includes an item with a `value` property of `okta_email`.
 
 ```json
 {
@@ -26,7 +26,7 @@ If email enrollment is enabled for you org's application and the user has not ye
 }
 ```
 
-Use this response to display a page of available authenticators, including email.
+Use this response to display a page of available authenticators, including Email.
 
 <div class="common-image-format">
 
@@ -35,9 +35,9 @@ Use this response to display a page of available authenticators, including email
 </div>
 
 
-### 3. Submit the email authenticator
+### 3. Submit the Email Authenticator
 
-When the user selects the email authenticator from the list, call `OktaAuth.idx.proceed()` passing in `okta_email`.
+When the user selects the Email Authenticator from the list, call `OktaAuth.idx.proceed()` and pass in `okta_email`.
 
 ```javascript
     const authClient = getAuthClient(req);
@@ -99,7 +99,7 @@ Next, the user opens the email and copies the OTP. The following screenshot show
 
 ### 7. Submit the OTP
 
-When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing in the OTP.
+When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` and pass in the OTP.
 
 ```javascript
   const { verificationCode } = req.body;
@@ -107,9 +107,9 @@ When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` passing
   const transaction = await authClient.idx.proceed({ verificationCode });
 ```
 
-### 8: Complete successful sign-in
+### 8: Complete a successful sign-in flow
 
-If your configuration is set up with only the email authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed in user.
+If your configuration is set up with only the Email Authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed-in user.
 
 
 ```json
@@ -127,5 +127,4 @@ If your configuration is set up with only the email authenticator, `IdxTransacti
     },
   }
 }
-
 ```

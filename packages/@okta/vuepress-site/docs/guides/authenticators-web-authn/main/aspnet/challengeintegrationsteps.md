@@ -1,4 +1,4 @@
-### 1 - 4: Sign-in and Select Authenticator
+### 1 - 4: Sign in and Select Authenticator
 
 The challenge flow follows the same first four steps as the [enrollment flow](/docs/guides/authenticators-web-authn/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 

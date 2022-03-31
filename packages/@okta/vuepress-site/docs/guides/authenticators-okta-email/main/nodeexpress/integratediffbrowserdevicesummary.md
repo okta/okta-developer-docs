@@ -1,5 +1,4 @@
-
-The following step-by-step instructions detail integrating the different browser scenario using the email challenge.
+The following instructions detail integrating the different browser scenario using the email challenge.
 
 </br>
 

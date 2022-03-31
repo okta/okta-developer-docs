@@ -1,6 +1,6 @@
 ### 1: Initiate use case requiring authentication
 
-The first step is to initiate a use case requiring authentication. This guide uses sign-in with username and password, which is initiated with a call to `OktaAuth.idx.authenticate()`.
+The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with a call to `OktaAuth.idx.authenticate()`.
 
 ```javascript
   const transaction = await authClient.idx.authenticate({
@@ -11,7 +11,7 @@ The first step is to initiate a use case requiring authentication. This guide us
 
 ### 2: Display WebAuthn option
 
-If you've configured your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with WebAuthn in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and WebAuthn included as an option in the `nextStep.options` array. See the following `IdxTransaction` example for more details.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations), `authenticate()` returns a response with WebAuthn in the list of available authenticators. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `select-authenticator-enroll`, and WebAuthn included as an option in the `nextStep.options` array. See the following `IdxTransaction` example.
 
 ```json
 {
@@ -33,7 +33,7 @@ If you've configured your Okta org as detailed in [Configuration updates](#updat
   },
 ```
 
-Using the `value` and `label` properties, show the available list of authenticators to the user. The sample app constructs a dropdown using a [Mustache](https://mustache.github.io/) template.
+Use the `value` and `label` properties to show the available list of authenticators to the user. The sample app constructs a dropdown list using a [Mustache](https://mustache.github.io/) template.
 
 ```xml
   <select id="authenticator-options" class="ui selection dropdown" name="authenticator">
@@ -53,7 +53,7 @@ UI showing the Google Authenticator option:
 
 ### 3: Submit WebAuthn option
 
-When the user selects and submits the WebAuthn option, call `OktaAuth.idx.proceed()` passing in the `webauthn` value from `IdxOption.value`.
+When the user selects and submits the WebAuthn option, call `OktaAuth.idx.proceed()` and pass in the `webauthn` value from `IdxOption.value`.
 
 ```javascript
     const transaction = await authClient.idx.proceed({ authenticator });
@@ -62,7 +62,7 @@ When the user selects and submits the WebAuthn option, call `OktaAuth.idx.procee
 
 ### 4: Get data for creating a new credential
 
-The response from `OktaAuth.idx.proceed()` returns objects needed to create a WebAuthn credential on the client. Specifically, `IdxTransaction` is returned with `nextStep.authenticator.contextualData.activationData`, which contains the randomly generated challenge, and `nextStep.authenticatorEnrollments`, which includes a list of enrolled authenticators. See the following `IdxTransaction` example for more details.
+The response from `OktaAuth.idx.proceed()` returns objects needed to create a WebAuthn credential on the client. Specifically, `IdxTransaction` is returned with `nextStep.authenticator.contextualData.activationData` that contains the randomly generated challenge and `nextStep.authenticatorEnrollments` that includes a list of enrolled authenticators. See the following `IdxTransaction` example.
 
 ```json
 {
@@ -92,7 +92,7 @@ The response from `OktaAuth.idx.proceed()` returns objects needed to create a We
 
 ### 5: Display page to create credentials
 
-Redirect the user to page that creates the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.activationData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
+Redirect the user to a page that creates the WebAuthn credentials. Allow this page access to `Idxtransaction.nextStep.authenticator.contextualData.activationData` and `Idxtransaction.nextStep.authenticatorEnrollments` retrieved from the previous step. The sample app accesses these objects by converting them to JSON strings and assigning them to server-side variables.
 
 ```javascript
 const authenticatorEnrollmentsJSON = authenticatorEnrollments ? JSON.stringify(authenticatorEnrollments) : null;
@@ -117,7 +117,7 @@ The [Mustache](https://mustache.github.io/) template renders the following javas
 
 ### 6: Build parameter for creating a new credential
 
-On page load, build the parameter needed to create a new credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialCreationOptions()` in the client browser.  Call the method with the `activateData` and `authenticatorEnrollments` variables that were set in the previous step.
+On page load, build the parameter needed to create a new credential. The parameter is created by a call to `OktaAuth.webauthn.buildCredentialCreationOptions()` in the client browser. Call the method with the `activateData` and `authenticatorEnrollments` variables that were set in the previous step.
 
 ```javascript
 const options = OktaAuth.webauthn.buildCredentialCreationOptions(activationData, authenticatorEnrollments);
@@ -165,7 +165,7 @@ This call initiates the following steps:
 
 </div>
 
-2. After the user chooses the authenticator, the device's local authenticator asks the user for consent to create the credentials. In the following example the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
+2. After the user chooses the authenticator, the device's local authenticator asks the user for consent to create the credentials. In the following example, the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 
@@ -173,7 +173,7 @@ This call initiates the following steps:
 
 </div></br>
 
-3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential`, which contains the public key, credential id, and other information used to associate the new credential with the server and browser.
+3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` that contains the public key, credential ID, and other information used to associate the new credential with the server and browser.
 
 ```json
 {

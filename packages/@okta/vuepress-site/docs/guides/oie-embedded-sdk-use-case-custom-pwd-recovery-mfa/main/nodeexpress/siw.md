@@ -1,10 +1,10 @@
 ### 1: Initiate password recovery
 
-The first step is to initiate the password recovery flow and choose email as the authenticator. Once the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
 Before sending the email, Okta builds the message based on the **Forgot Password** template. The `otp` and `request.relayState` variables are translated into actual values. For example,`http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
-### 2: Click on email magic link
+### 2: Click the email magic link
 
 The next step is to open the Okta email and click its reset password link.
 
@@ -27,7 +27,7 @@ router.get('/login/callback', async (req, res, next) => {
 
 ### 3: Check if the otp and state parameters are included in URL
 
-Check to see if the `otp` and `state` parameters exist in the query parameter by calling `OktaAuth.idx.isEmailVerifyCallback()` passing in the query parameter string. For example the query string can look like `?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+Check to see if the `otp` and `state` parameters exist in the query parameter by calling `OktaAuth.idx.isEmailVerifyCallback()` and passing in the query parameter string. For example, the query string can look like `?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ```javascript
 if (authClient.idx.isEmailVerifyCallback(search)) {
@@ -37,7 +37,7 @@ if (authClient.idx.isEmailVerifyCallback(search)) {
 
 ### 4: Check for the existence of an in-progress password recovery
 
-Call `OktaAuth.idx.canProceed()` passing in the`state` parameter to verify there is an active in-progress password recovery for the current user.
+Call `OktaAuth.idx.canProceed()` and pass in the`state` parameter to verify that there is an active in-progress password recovery for the current user.
 
 ```javascript
     if (authClient.idx.canProceed({ state })) {
@@ -45,9 +45,9 @@ Call `OktaAuth.idx.canProceed()` passing in the`state` parameter to verify there
       return;
 ```
 
-### 5: Setup and render Widget with otp and State
+### 5: Set up and render widget with otp and state
 
-Once you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Setup the configurations based on the following snippet:
+After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet:
 
 ```javascript
     const widgetConfig = {
@@ -68,7 +68,7 @@ Once you validate the `state` parameter, the final step is to set up the `otp` a
     });
 ```
 
-Once set up, render the client site page and pass the configurations to the widget during initialization.
+After set up, render the client site page and pass the configurations to the widget during initialization.
 
 ```html
 <script type="text/javascript">
@@ -86,7 +86,7 @@ Once set up, render the client site page and pass the configurations to the widg
 
 ### 6: Display password reset page and continue the password recovery flow
 
-Once the widget is loaded, the following reset page is displayed:
+After the widget is loaded, the following reset page is appears:
 
 <div class="common-image-format">
 
