@@ -777,7 +777,7 @@
     "eventTypes" : [ {
       "id" : "app.access_request.approver.approve",
       "category" : "extensibility",
-      "description" : "Request to access an app was approved by a administrator defined approver.",
+      "description" : "Request to access an app was approved by an administrator defined approver.",
       "info" : {
         "created" : "2017-10-14",
         "release" : "2017.43"
@@ -794,7 +794,7 @@
     }, {
       "id" : "app.access_request.approver.deny",
       "category" : "extensibility",
-      "description" : "Request to access an app was denied by a administrator defined approver.",
+      "description" : "Request to access an app was denied by an administrator defined approver.",
       "info" : {
         "created" : "2017-10-14",
         "release" : "2017.43"
