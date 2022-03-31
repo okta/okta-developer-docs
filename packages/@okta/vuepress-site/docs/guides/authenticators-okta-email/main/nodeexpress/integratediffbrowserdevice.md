@@ -1,4 +1,4 @@
-### 1. Initiate sign and start magic link flow
+### 1. Initiate sign-in and magic link flow
 
 First, the user initiates the sign-in and email challenge flow. Next, they click the magic link that redirects them back to your app. Your app validates that the `otp` and `state` parameters are included in the URL. These steps are identical to the first steps in [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links).
 

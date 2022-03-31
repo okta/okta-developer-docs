@@ -189,7 +189,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 ### 6: Enroll authenticator through the browser
 
-Build a page which that the challenge and user information from the website's backend servers and calls `navigator.credentials.create` to raise the prompt to enter a security key, validate with Windows Hello, Touch ID, or other WebAuthn Authenticator. For example, in the sample application, a new `EnrollWebAuthnViewModel` is populated from the `currentAuthenticator` object returned by the `enrollResponse` in the previous step.
+Build a page with the challenge and user information from the website's backend servers and then call `navigator.credentials.create` to raise the prompt to enter a security key, validate with Windows Hello, Touch ID, or other WebAuthn Authenticator. For example, in the sample application, a new `EnrollWebAuthnViewModel` is populated from the `currentAuthenticator` object returned by the `enrollResponse` in the previous step.
 
 ```csharp
 var currentAuthenticator = (IAuthenticator)Session["currentWebAuthnAuthenticator"];

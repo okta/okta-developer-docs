@@ -1,4 +1,4 @@
-### 1. Initiate sign in
+### 1. Initiate the sign-in flow
 
 First, the user initiates the sign-in with username and password flow by making a call to `OktaAuth.idx.authenticate()`.
 
