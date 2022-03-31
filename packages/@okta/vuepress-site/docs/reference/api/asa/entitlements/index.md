@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Entitlements offer ASA admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
-Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Entitlements API operations
 
-
 The Entitlements API has the following operations:
+
 * [List the sudo Entitlements for a Team](#list-the-sudo-entitlements-for-a-team)
 * [Create a sudo Entitlement](#create-a-sudo-entitlement)
 * [Fetch a single sudo Entitlement](#fetch-a-single-sudo-entitlement)
@@ -47,7 +46,7 @@ This endpoint requires the `access_admin` role.
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The page offset |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 

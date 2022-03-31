@@ -7,8 +7,6 @@ title: Web Authentication integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
 ---
@@ -25,10 +23,6 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 **Sample code**
 
 * <StackSnippet snippet="samplecode" />
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -132,5 +126,9 @@ The following summarizes the WebAuthn challenge flow using a user sign-in use ca
 <StackSnippet snippet="challengeintegrationsummary" />
 
 <StackSnippet snippet="challengeintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

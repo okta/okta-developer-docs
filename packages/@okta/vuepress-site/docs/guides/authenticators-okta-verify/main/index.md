@@ -7,8 +7,6 @@ title: Okta Verify (Push/OTP) integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---
@@ -25,10 +23,6 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 **Sample code**
 
 * <StackSnippet snippet="samplecode" />
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -168,5 +162,9 @@ The following summarizes the Okta Verify enrollment flow with TOTP.
 <StackSnippet snippet="challengetotpintegrationsummary" />
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

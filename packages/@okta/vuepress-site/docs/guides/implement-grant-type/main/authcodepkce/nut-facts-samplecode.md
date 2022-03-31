@@ -1,3 +1,3 @@
 **Sample code**
 
-See [Examples](#examples).
+[Native and single-page app examples](#examples)

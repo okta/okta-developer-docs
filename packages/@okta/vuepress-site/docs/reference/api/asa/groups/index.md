@@ -13,12 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) Group is a collection of ASA Users that share permissions and access.
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Groups API operations
 
-
 The Groups API has the following operations:
+
 * [List the ASA Groups for a Team](#list-the-asa-groups-for-a-team)
 * [Create an ASA Group](#create-an-asa-group)
 * [Fetch a single ASA Group](#fetch-a-single-asa-group)
@@ -51,7 +51,7 @@ This endpoint requires one of the following roles: `reporting_user`, `access_adm
 | `contains`   |  string | (Optional) If a value is provided, the results are filtered to only contain ASA Groups whose name contains that value. |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -367,7 +367,7 @@ This endpoint requires one of the following roles: `reporting_user`, `access_use
 | `contains`   |  string | (Optional) Includes ASA Users with name that contains the value |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with a name that begins with the provided value |
 | `status`   |  string | (Optional) Includes ASA Users with the specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |

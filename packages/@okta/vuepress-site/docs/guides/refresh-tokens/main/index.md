@@ -27,8 +27,6 @@ For clients such as native apps, persistent refresh tokens help improve a user's
 
 However, public clients such as browser-based applications have a much higher risk of a refresh token being compromised when a persistent refresh token is used. With clients such as single-page applications (SPAs), long-lived refresh tokens aren't suitable, because there isn't a way to safely store a persistent refresh token in a browser and assure access by only the intended app. These threats are greatly reduced by rotating refresh tokens. [Refresh token rotation](#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. With refresh token rotation behavior, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
 
-Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
-
 ## Set up your application
 
 Refresh tokens are available for a subset of Okta OAuth 2.0 client applications, specifically web, single-page, and native applications. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect application.
@@ -278,11 +276,11 @@ If the refresh token is valid, then you get back a new access and the refresh to
 
 Read more about the SDKs that support refresh token rotation and reuse detection:
 
-* [Okta Auth SDK Guide - JavaScript](https://developer.okta.com/code/javascript/okta_auth_sdk/)
-* [Okta Sign-in Widget Guide - JavaScript](https://developer.okta.com/code/javascript/okta_sign-in_widget/)
-* [Okta Sign-in Widget and Angular](https://developer.okta.com/code/angular/okta_angular_sign-in_widget/)
-* [Okta Auth JS and Angular](https://developer.okta.com/code/angular/okta_angular_auth_js/)
-* [Okta Sign-in Widget and React](https://developer.okta.com/code/react/okta_react_sign-in_widget/)
-* [Okta Auth JS and React](https://developer.okta.com/code/react/okta_react/)
-* [Okta Sign-in Widget and Vue](https://developer.okta.com/code/vue/okta_vue_sign-in_widget/)
-* [Okta Auth JS and Vue](https://developer.okta.com/code/vue/okta_vue/)
+* [Okta Auth SDK Guide - JavaScript](/docs/guides/auth-js/main/)
+* [Okta Sign-in Widget Guide - JavaScript](/docs/guides/embedded-siw/main/)
+* [Okta Sign-in Widget and Angular](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
+* [Okta Auth JS and Angular](/#)  (coming soon)
+* [Okta Sign-in Widget and React](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
+* [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main/)
+* [Okta Sign-in Widget and Vue](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/)
+* [Okta Auth JS and Vue](/docs/guides/sign-in-to-spa-authjs/vue/main/)

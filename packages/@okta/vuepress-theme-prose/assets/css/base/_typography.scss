@@ -72,34 +72,28 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   color: cv('text', 'darker');
-  margin-top: 3.125rem;
+  margin-top: 2rem;
+  margin-bottom: 1.1rem;
+  font-weight: 600;
 }
 
 h1 {
-  margin-top: 20px;
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 28px;
 }
 h2 {
-  font-size: 26px;
-  font-weight: 500;
-  margin-top: 2rem;
+  font-size: 24px;
 }
 h3 {
-  font-size: 20px;
-  font-weight: normal;
+  font-size: 21px;
 }
 h4 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
 }
 h5 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
 }
 h6 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 14px;
 }
 
 .is-link {
@@ -113,37 +107,4 @@ blockquote {
   border-bottom: 1px solid cv('gray', '300');
   border-radius: 4px;
   padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
-}
-
-@include media("<desktop-xl") {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 2rem;
-    margin-bottom: 1.1rem;
-  }
-  h1 {
-    font-size: 36px;
-    font-weight: 500;
-    margin-top: 7px;
-  }
-  h2 {
-    font-size: 28px;
-  }
-  h3 {
-    font-size: 24px;
-    font-weight: 500;
-  }
-  h4 {
-    font-size: 22px;
-  }
-  h5 {
-    font-size: 20px;
-  }
-  h6 {
-    font-size: 18px;
-  }
 }

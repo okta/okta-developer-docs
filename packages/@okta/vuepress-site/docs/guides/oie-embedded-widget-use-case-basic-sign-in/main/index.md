@@ -2,12 +2,7 @@
 title: Basic sign-in flow using the Widget
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-<StackSelector />
+<ApiLifecycle access="ie" />
 
 This guide covers a basic user sign-in flow that uses the Sign-In Widget. The flow diagram and steps describe the process to sign in to an app with the embedded Sign-In Widget.
 
@@ -40,5 +35,3 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

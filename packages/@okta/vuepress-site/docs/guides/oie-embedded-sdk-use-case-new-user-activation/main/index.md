@@ -7,8 +7,6 @@ title: Embedded SDK New user activation
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 Learn how to use the Embedded SDK to integrate user activation with self-service registration
 
 **Learning outcomes**

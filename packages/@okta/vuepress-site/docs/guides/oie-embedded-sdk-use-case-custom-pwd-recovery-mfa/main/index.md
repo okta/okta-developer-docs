@@ -7,8 +7,6 @@ title: Custom password recovery
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This guide shows how to customize the self-service password recovery flow using Okta's embedded solutions. Specifically, it details how you can better control your user's password recovery experience using email authentication and magic links.
 
 ---
@@ -25,11 +23,6 @@ This guide shows how to customize the self-service password recovery flow using 
 **Sample code**
 
 <StackSnippet snippet="samplecode" />
-</br>
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -65,12 +58,7 @@ With this customized experience, you gain better control of the user experience,
 
 Before you begin you need to:
 
-1. Create an Okta org and configure it as described in <StackSnippet snippet="orgconfigurepwdonly" inline/>.
-1. [Set up the SDK and Sign-in Widget](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/)
-1. Build an app with the Embedded Sign-in Widget or SDK.
-    * For Sign-in Widget based apps, implement [Basic sign-in flow](docs/guides/oie-embedded-widget-use-case-basic-sign-in/nodejs/main/).
-    * For SDK based apps, implement [User Password Recovery](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
-1. If you want to test the flows without building an app, use the provided sample apps, which have prebuilt support for password recovery email customizations.
+<StackSnippet snippet="beforeyoubegin" />
 
 ## Summary of changes
 
@@ -146,9 +134,12 @@ The next step is to update your app to accept the link with the `otp` and `state
 ### Summary of steps
 The following diagram illustrates the steps in the customized password recovery using a SDK based app.
 
-
 <StackSnippet snippet="sdksummary" />
 
 <StackSnippet snippet="sdk" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>
