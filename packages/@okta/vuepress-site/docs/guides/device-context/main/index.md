@@ -59,44 +59,57 @@ Update your Okta org to allow for AMFA. The following steps set up your org to p
 
 Add a new Global Session Policy that allows applications to set rules for new devices.
 
-1. In the Admin Console, go to **Security > Okta Sign-on Policy**.
-1. On the **Okta Sign-on Policy** page, click **Add New Okta Sign-on Policy**.
-1. In the **Add Policy** dialog, do the following:
-   1. Set **Policy Name**, for example, **New Device AMFA Policy**.
-   1. Set **Assign to Groups** to **Everyone**.
-   1. Click **Create Policy and Add Rule** to save the new policy.
-1. After adding the rule, the **Add Rule** dialog opens. In this dialog, do the following:
-   1. Set a **Rule Name**, for example **New Device AMFA Rule**.
-   1. Set **Behavior is** to **New Device**.
-   1. Set **Primary factor is** to **Password / IDP**
-   1. Clear **Require secondary factor** for **Secondary factor**.
-   1. Confirm **Secondary factor** is set to **Require secondary factor**.
-   1. Click **Create Rule** to create the rule.
+1. Open the **Admin Console** for your org.
+1. Choose **Security > Global Session Policy** to show the available global session policies.
+1. Click **Add Policy**.
+1. Give the policy a name, for example "New Device AMFA Policy".
+1. Set **Assign to Groups** to **Everyone**.
+1. Click **Create Policy and Add Rule** to save the new policy.
+
+After creating the policy, the **Add Rule** dialog appears.
+
+1. Set a **Rule Name**, for example **New Device AMFA Rule**.
+1. Set **Behavior is** to **New Device**.
+1. Set **Primary factor is** to **Password / IDP**
+1. Verify that **Require Secondary factor** is selected for **Secondary factor**.
+1. Click **Create Rule** to create the rule.
 
 > **Note:** The **New Device** behavior is defined under **Security** > **Behavior Detection**.
 
-### Confirm catch-all rule has no additional authenticators
+### Create a new authentication policy
 
-1. In the Admin Console, go to **Applications > Applications**.
-1. On the **Applications** page, select your application.
-1. On your application page, click the **Sign On** tab.
-1. Scroll down to the **Sign on Policy** section and select your default **catch-all** rule.
-1. In the **Edit Rule** dialog, confirm that **User must authenticate with** is set to **Password**.
-1. Click **Cancel** to exit if no changes were made.
+New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, it's recommended that you create a new policy specifically for your test application. Specifically for this app, the policy has two rules:
 
-### Add a new rule in the application sign on policy
+* By default, users authenticate with a username and password only.
+* If the user is using a new device, require a second authentication factor.
+
+1. Open the **Admin Console** for your org.
+1. Choose **Security > Authentication Policies** to show the available authentication policies.
+1. Click **Add a Policy**.
+1. Give the policy a name, and then click **Save**.
+
+Set the catch-all rule to require username and password only.
+
+1. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+1. Select **Allowed after successful authentication**.
+1. Verify that **User must authenticate with** is set to **Password**.
+1. Click **Save**.
 
 Add a new authentication rule that requires an authenticator when the user signs in with a new device.
 
-1. In the Admin Console, go to **Applications > Applications**.
-1. On the **Applications** page, select your application.
-1. On your application page, click the **Sign On** tab.
-1. Scroll down to the **Sign on Policy** section and click **Add rule**.
-1. On the **Add Rule** dialog box, set the name for the rule name, for example, "New Device AMFA"
-1. Set the **The following custom expression is true** to the following expression `security.behaviors.contains(“New Device”)`. For more information on this expression and other expressions see the [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
-1. Confirm that the **User must authenticate with** field is set to **Password + Another factor**.
-1. Confirm **Your org's authenticators that satisfy this requirement** displays password plus at least one additional factor type (for example, email or phone).
-1. Click **Save** to save your changes.
+1. Click **Add rule** on the **Rules** tab for your new policy.
+1. Give the rule a name, for example, **New device requires second factor**
+1. Set the **The following custom expression is true** to `security.behaviors.contains("New Device")`.
+1. Verify that **User must authenticate with** is set to **Password + Another factor**.
+1. Verify that at least one additional factor type (for example, email or Okta Verify) is listed in the box under **Additional factor types**.
+1. Click **Save**.
+
+1. Select the **Applications** tab for your newly created policy, and then click **Add App**.
+1. Find your app in the list and click **Add** next to it.
+1. Click **Close**.
+1. Verify that the app is now listed in the **Applications** tab of the new policy.
+
+> **Note:** For more information on the `New Device` expression, see the [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
 
 ## SDK Integration steps
 
