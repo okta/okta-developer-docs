@@ -1,8 +1,8 @@
-#### 1. Initiate sign-in and return a list of authenticators
+#### 1. Initiate sign-in flow and return a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
-#### 2. Request QR Code
+#### 2. Request QR code
 
 When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow. When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Okta Verify factor ID.
 
@@ -16,7 +16,7 @@ var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(
     enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, the returned `enrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification` and its `CurrentAuthenticator` property contains the QR code that the user can use to setup their copy of Okta Verify. This needs to be passed to a page to display that information.
+If the call is successful, the returned `enrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification` and its `CurrentAuthenticator` property contains the QR code that the user can use to set up their copy of Okta Verify. Pass this to a page that displays that information.
 
 ```csharp
 Session["IdxContext"] = enrollResponse.IdxContext;
@@ -46,9 +46,9 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-#### 3: Display QR Code and start polling
+#### 3: Display QR code and start polling
 
-Build a page to display the QR code for Okta Verify. For example, in the sample application, a new `OktaVerifyEnrollPollModel` is populated from the `CurrentAuthenticator` object returned by the `enrollResponse` object in the previous step.
+Build a page that displays the QR code for Okta Verify. For example, in the sample application, a new `OktaVerifyEnrollPollModel` is populated from the `CurrentAuthenticator` object returned by the `enrollResponse` object in the previous step.
 
 ```csharp
 public ActionResult Enroll()
@@ -59,7 +59,7 @@ public ActionResult Enroll()
 }
 ```
 
-The `OktaVerifyEnrollPollModel` constructor includes some values for the polling the page will perform.
+The `OktaVerifyEnrollPollModel` constructor includes some values for the polling the page performs.
 
 ```csharp
 public OktaVerifyEnrollPollModel(
@@ -72,7 +72,9 @@ public OktaVerifyEnrollPollModel(
 }
 ```
 
-This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form that contains the QR code and drop-down of other enrollment options.
+This ViewModel is then consumed in a Razor page. This page contains two important sections:
+
+First, the form that contains the QR code and a dropdown list of other enrollment options.
 
 ```razor
 <div>
@@ -93,9 +95,9 @@ The instructions and QR code appear, as shown in the following screenshot
 
 </div>
 
-> Note the link to select an enrollment channel other than the QR code above ("Can't scan?"). The code for this and enrolling Okta Verify using other channels is covered [here](#Integrate-enrollment-using-other-channels).
+> **Note:** There is a link to select an enrollment channel other than the QR code above ("Can't scan?"). The code for this and enrolling Okta Verify using other channels is in the [Integrate enrollment using other channels](#Integrate-enrollment-using-other-channels) section.
 
-Second, the JavaScript `poll()` function that will continue to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/EnrollPoll`) until an indication is given that Okta Verify has been enrolled successfully on the server-side.
+Second, the JavaScript `poll()` function that continues to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/EnrollPoll`) until an indication is given that Okta Verify is enrolled successfully on the server-side.
 
 ```js
 <script>
@@ -115,16 +117,16 @@ Second, the JavaScript `poll()` function that will continue to poll an endpoint 
 </script>
 ```
 
-The polling logic and code is common across all the flows that use it and is covered [here](#Polling-okta)
+The polling logic and code is common across all the flows that use it and is covered in the [Polling Okta](#Polling-okta) section.
 
 #### 4: Open Okta Verify
 
 Next, the user installs Okta Verify (if not already installed on their device) and opens the app. To learn how to install and use the Okta Verify app, go to the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
 
-#### 5: Scan QR Code
+#### 5: Scan QR code
 
 After the user opens Okta Verify, they verify the account in the app by scanning the QR code on the screen using the device's camera.
 
-#### 6: Exit Polling
+#### 6: Exit polling
 
-Once the user has scanned the QR code and finished enrolling their account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.
+After the user scans the QR code and finishes enrolling their account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.

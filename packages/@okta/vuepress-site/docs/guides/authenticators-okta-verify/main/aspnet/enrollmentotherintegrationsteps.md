@@ -1,16 +1,16 @@
-#### 1. Initiate sign-in and return a list of authenticators
+#### 1. Initiate sign-in flow and return a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
 #### 2 - 3. Retrieve QR code, display QR code
 
-When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In Enrollment Flow, a QR code is returned to be displayed to the user, along with a link to select an alternative enrollment method.
+When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In Enrollment Flow, a QR code is returned and appears for the user, along with a link to select an alternative enrollment method.
 
 The code for this is shared with Steps 2 and 3 of [Integrate Enrollment Using QR code](#integrate-enrollment-using-qr-code).
 
 #### 4. Display a list of other enrollment channels
 
-Build a page to display the other enrollment channels for Okta Verify. For example, in the sample application, a new `OktaVerifySelectEnrollmentChannelModel` is populated from the `oktaVerifyAuthenticator` object stored in session in the previous step.
+Build a page to display the other enrollment channels for Okta Verify. For example, in the sample application, a new `OktaVerifySelectEnrollmentChannelModel` is populated from the `oktaVerifyAuthenticator` object that is stored in the session in the previous step.
 
 ```csharp
 [HttpGet]
@@ -23,7 +23,7 @@ public ActionResult SelectEnrollmentChannel()
 }
 ```
 
-The `OktaVerifySelectEnrollmentChannelModel` constructor retains the authenticator ID and a list of available enrollment channels that are not QR code.
+The `OktaVerifySelectEnrollmentChannelModel` constructor retains the authenticator ID and a list of available enrollment channels that aren't the QR code.
 
 ```csharp
 public OktaVerifySelectEnrollmentChannelModel(IAuthenticator authenticator)
@@ -76,7 +76,7 @@ The available channels are listed, as shown in the following screenshot.
 
 </div>
 
-#### 5. Initiate Email Enrollment On Server-Side
+#### 5. Initiate email enrollment on server-side
 
 When the user selects **Email** and clicks **Next**, the form posts back to the `SelectEnrollmentChannel()` method. This retrieves the selected channel type and authenticator ID, and starts the email enrollment process on the server-side with a call to `SelectEnrollAuthenticatorAsync`.
 
@@ -111,9 +111,9 @@ Send the user to a page specific to the email channel that asks them for their e
 }
 ```
 
-#### 6. Display Prompt for User's Email Address
+#### 6. Display prompt for user's email address
 
-Build a page to display a prompt for the user's email address. For example, in the sample app, we have:
+Build a page that displays a prompt for the user's email address. For example, in the sample app, we have:
 
 ```razor
 <div>
@@ -183,9 +183,9 @@ After the user submits their email, Okta sends an activation link to that addres
 
 #### 9. Prompt user to check email and start polling
 
-Build a page to display the prompt for the user to check their email while starting to poll Okta for completion.  In the sample application, a new `OktaVerifyEnrollPollModel` is populated in the previous step containing a message to the user to look in their email for the next step.
+Build a page that displays the prompt for the user to check their email while starting to poll Okta for completion.  In the sample application, a new `OktaVerifyEnrollPollModel` is populated in the previous step that contains a message to the user to look in their email for the next step.
 
-This ViewModel is then consumed in a Razor page. This page contains two important sections. First, the form that contains the QR code and drop-down of other enrollment options.
+This viewmodel is then consumed in a Razor page. This page contains two important sections. First, the form that contains the QR code and a dropdown list of other enrollment options.
 
 ```razor
 <div>
@@ -198,7 +198,7 @@ This ViewModel is then consumed in a Razor page. This page contains two importan
 </div>
 ```
 
-Second, the JavaScript `poll()` function that will continue to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/EnrollPoll`) until an indication is given that Okta Verify has been enrolled successfully on the server-side.
+Second, the JavaScript `poll()` function that continues to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/EnrollPoll`) until an indication is given that Okta Verify is enrolled successfully on the server-side.
 
 ```js
 <script>
@@ -218,11 +218,11 @@ Second, the JavaScript `poll()` function that will continue to poll an endpoint 
 </script>
 ```
 
-The polling logic and code is common across all the flows that use it and is covered [here](#polling-okta).
+The polling logic and code is common across all the flows that use it and is covered in the [Polling Okta](#polling-okta) section.
 
-#### 10. Click on the link in the email and complete Okta Verify setup
+#### 10. Click the link in the email and complete Okta Verify setup
 
-The user opens the email on their mobile device and clicks Activate Okta Verify Push, which sends them to Okta Verify to complete the account setup.
+The user opens the email on their mobile device and taps **Activate Okta Verify Push** that sends them to Okta Verify to complete the account setup.
 
 <div class="common-image-format">
 
@@ -230,6 +230,6 @@ The user opens the email on their mobile device and clicks Activate Okta Verify 
 
 </div>
 
-#### 11. Exit Polling
+#### 11. Exit polling
 
-After the user completes the setup and finishes enrolling the account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.
+After the user completes the setup and finishes enrolling their account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.

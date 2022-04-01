@@ -94,7 +94,7 @@ Setup your application to use Okta Verify:
 
 1. Open the Admin Console for your Okta org.
 1. Choose **Applications > Applications** to show the app integrations you have already created.
-1. Click on the application you’ve previously created on the **Applications** page.
+1. Click on the application you've previously created on the **Applications** page.
 1. Ensure that **Interaction Code** and **Refresh Token** are selected.
 1. Switch to the **Sign-On** tab
 1. Scroll down to the **Sign-On Policy** section and click **Add Rule**.
@@ -106,14 +106,14 @@ Setup your application to use Okta Verify:
 
 ### You're ready to start integrating
 
-After you've configured your org, you can start integrating the enrollment and challenge flows into your app. The following are the list of supported flows:
+After you configure your org, you can start integrating the enrollment and challenge flows into your app. The following are the list of supported flows:
 
-* Integrate enrollment using QR Code
+* Integrate enrollment using QR code
 * Integrate enrollment using other channels
 * Integrate challenge using push notification option
 * Integrate challenge using TOTP option
 
-Each of these has some common steps for initiating the flow once the user has signed in and for polling Okta Verify for a response midway through the flow. We'll cover these first before seeing how they fit into the individual flows
+Each of these has some common steps for initiating the flow after the user is signed in, and for polling Okta Verify for a response midway through the flow. We cover these first before seeing how they fit into the individual flows.
 
 ## Shared steps between flows
 
@@ -121,7 +121,7 @@ Each of these has some common steps for initiating the flow once the user has si
 
 ## Integrate enrollment using QR Code
 
-In this flow, the user enrols Okta Verify as an authenticator using a QR Code. The following diagram summarizes this flow.
+In this flow, the user enrolls Okta Verify as an authenticator using a QR code. The following diagram summarizes this flow.
 
 <StackSnippet snippet="enrollmentqrcodeintegrationsummary" />
 
@@ -129,7 +129,7 @@ In this flow, the user enrols Okta Verify as an authenticator using a QR Code. T
 
 ## Integrate enrollment using other channels
 
-A user can enrol Okta Verify using several methods other than a QR code. The flow for each of these is the same but we’ll use email as the option in this guide. The following diagram summarizes this flow.
+A user can enroll Okta Verify using several methods other than a QR code. The flow for each of these is the same but we use email as the option in this guide. The following diagram summarizes this flow.
 
 <StackSnippet snippet="enrollmentotherintegrationsummary" />
 
@@ -137,7 +137,7 @@ A user can enrol Okta Verify using several methods other than a QR code. The flo
 
 ## Integrate challenge using push notification option
 
-Once Okta Verify has been enrolled, a user can authenticate themselves with Okta Verify using a push notification challenge. Once they want to log in, they must go to Okta Verify where they must tap on a “Yes its me” prompt sent by the Okta servers. The following diagram summarizes this flow.
+After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a push notification challenge. When they want to sign in, they must go to Okta Verify where they tap **Yes it's me** sent by the Okta servers. The following diagram summarizes this flow.
 
 <StackSnippet snippet="challengepushintegrationsummary" />
 
@@ -145,7 +145,7 @@ Once Okta Verify has been enrolled, a user can authenticate themselves with Okta
 
 ## Integrate challenge using TOTP option
 
-Once Okta Verify has been enrolled, a user can authenticate themselves with Okta Verify using a Time-base One-Time Password (TOTP) challenge. Once they want to log in, they must go to Okta Verify which generates the one-time password. The user submits this to the service provider for verification. The Okta server independently generates the password and validates that the submitted password is identical to the generated one in which case the user is authenticated and logged in.
+After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a Time-based One-Time Password (TOTP) challenge. When they want to sign in, they must retrieve the TOTP that Okta Verify generates, and submits this to the service provider for verification. The Okta server independently generates the same password and validates that the submitted password is identical to the generated one. If it is the same, the user is authenticated and signed in.
 
 The following diagram summarizes this flow.
 

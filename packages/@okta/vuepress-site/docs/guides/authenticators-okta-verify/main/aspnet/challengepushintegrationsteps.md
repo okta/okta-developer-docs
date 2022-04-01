@@ -1,4 +1,4 @@
-#### 1. Initiate sign-in and return a list of authenticators
+#### 1. Initiate sign-in flow and return a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
@@ -85,7 +85,7 @@ The available challenge methods are listed, as shown in the following screenshot
 
 </div>
 
-#### 4. Initiate Authentication On Server-Side
+#### 4. Initiate authentication on server-side
 
 When the user selects the challenge method type and clicks **Submit**, the form posts back to the `SelectAuthenticatorMethodAsync()` method. This retrieves the selected method type and authenticator ID, and starts the challenge process on the server-side with a call to `SelectChallengeAuthenticatorAsync`.
 
@@ -105,7 +105,7 @@ public async Task<ActionResult> SelectAuthenticatorMethodAsync(OktaVerifySelectA
             (IIdxContext)Session["IdxContext"]);
 ```
 
-All being equal, the server should return a status of `AwaitingAuthenticatorVerification` indicating it is waiting for the user to interact with Okta Verify. If this is true, send the user to the page specific to that challenge method.
+All being equal, the server should return a status of `AwaitingAuthenticatorVerification` indicating that it's waiting for the user to interact with Okta Verify. If this is true, send the user to the page specific to that challenge method.
 
 ```csharp
         if (authnResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorVerification)
@@ -134,7 +134,9 @@ In this use case, the user is redirected to `\OktaVerify\PushSent`.
 
 #### 5. Prompt user to use Okta Verify and start polling
 
-Build a page to prompt the user to open Okta Verify and complete the push challenge. In the sample application, a new `OktaVerifySelectAuthenticatorMethodModel` is created and consumed in a Razor page (`PushSent.cshtml`). This page contains two sections. First, the prompt to the user and a way to go back and choose an alternate challenge method if they can't complete the push challenge or have arrived here in error.
+Build a page to prompt the user to open Okta Verify and complete the push challenge. In the sample application, a new `OktaVerifySelectAuthenticatorMethodModel` is created and consumed in a Razor page (`PushSent.cshtml`). This page contains two sections:
+
+First, the prompt to the user and a way to go back and choose an alternate challenge method if they can't complete the push challenge or have arrived here in error.
 
 ```razor
 <div>
@@ -153,7 +155,7 @@ This page is shown in the following screenshot.
 
 </div>
 
-Second, the JavaScript `poll()` function that will continue to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/ChallengePoll`) until an indication is given that the user has been authenticated successfully on the server-side.
+Second, the JavaScript `poll()` function that continues to poll an endpoint in the app on the server-side (in this case, `/OktaVerify/ChallengePoll`) until an indication is given that the user is authenticated successfully on the server-side.
 
 ```razor
 <script>
@@ -173,9 +175,9 @@ Second, the JavaScript `poll()` function that will continue to poll an endpoint 
 </script>
 ```
 
-The polling logic and code is common across all the flows that use it and is covered [here](#polling-okta).
+The polling logic and code is common across all the flows that use it and is covered in the [Polling Okta](#polling-okta) section.
 
-#### 6. Click on “Yes It Me” and complete challenge
+#### 6. Click prompt and complete challenge
 
 The user opens Okta Verify on their device and clicks **Yes it's me** to complete the challenge and finish authenticating themselves.
 
