@@ -71,12 +71,12 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 
 ## Update an authentication policy
 
-This section walks you through updating a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before we make changes to the authentication policy, create a test group with a test user for this use case scenario.
+In this section, you update a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before we make changes to the authentication policy, we first create a test group and add a test user for this use case example.
 
 ### Create a group and add a user
 
 1. In the Admin Console, go to **Directory** > **Groups**.
-1. Click **Add Group** , name it **Support**, and click **Save**.
+1. Click **Add Group** , name it **Support**, and then click **Save**.
 1. Select the group that you just created and on the **People** tab, click **Assign People**.
 1. Add a user to the group for testing and click **Save**.
 
@@ -85,11 +85,30 @@ This section walks you through updating a [preset authentication policy](https:/
 Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding an additional rule for the Support group that you just created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
+1. Click **Add Rule** and do the following:
+    * Name the rule.
+    * In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
+    * In the box that appears, start typing the group that you just created and select it when it appears.
+    * In the **AND Possession factor constraints are** section, clear the **Device Bound (excludes phone and email)** checkbox.
+    * Verify that **Phone** is listed as an additional factor type in the **AND Access with Okta FastPass is granted** section.
+    * Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
 
+need to add a step to make sure that the user has a phone number listed in their profile - or have them add a phone number when on the preview tab.
 
-1. For the **Catch-all Rule**, select **Edit** from the **Actions** dropdown list.
-1. Scroll down to the **AND User must authenticate with** field and select **Password + Another factor** from the dropdown list.
-1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
+## Activate the Telephony Inline Hook in Okta
+
+You must activate the Telephony Inline Hook in your Okta org. Activating the Telephony Inline Hook registers the hook with the Okta org and associates it with your external service.
+
+1. Navigate to the **Workflow** > **Inline Hooks** page.
+1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
+1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
+1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
+1. Include values for the following fields. For this use case example:<br>
+    **Authentication field**: `authorization`<br>
+    **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
+1. Click **Save**. The Telephony Inline Hook is now set up with an active status.
+
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ## Add Twilio credentials to the external service
 
@@ -129,20 +148,6 @@ The way to tell Okta that the SMS or Voice (Call) message was successfully sent 
 
 <StackSelector snippet="responsetookta" noSelector/>
 
-## Activate the Telephony Inline Hook in Okta
-
-You must activate the Telephony Inline Hook in your Okta org. Activating the Telephony Inline Hook registers the hook with the Okta org and associates it with your external service.
-
-1. Navigate to the **Workflow** > **Inline Hooks** page.
-1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
-1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
-1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
-1. Include values for the following fields. For this use case example:<br>
-    **Authentication field**: `authorization`<br>
-    **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
-1. Click **Save**. The Telephony Inline Hook is now set up with an active status.
-
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ## Preview and test
 
