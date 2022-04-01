@@ -131,31 +131,6 @@ export const guides = [
         subLinks: [
           { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Authenticators",
-            subLinks: [
-              {
-                title: "Overview",
-                guideName: "authenticators-overview"
-              },
-              {
-                title: "Okta email",
-                guideName: "authenticators-okta-email"
-              },
-              {
-                title: "Okta Verify",
-                guideName: "authenticators-okta-verify"
-              },
-              {
-                title: "Google authenticator",
-                guideName: "authenticators-google-authenticator"
-              },
-              {
-                title: "Web Authentication",
-                guideName: "authenticators-web-authn"
-              },
-            ]
-          },
-          {
             title: "Redirect authentication",
             subLinks: [
               {
@@ -279,6 +254,31 @@ export const guides = [
                   },
                 ]
               }
+            ]
+          },
+          {
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Okta email",
+                guideName: "authenticators-okta-email"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "authenticators-google-authenticator"
+              },
+              {
+                title: "Web Authentication",
+                guideName: "authenticators-web-authn"
+              },
             ]
           },
           {
@@ -413,7 +413,6 @@ export const guides = [
             ]
           },
           { title: "Sign users out", guideName: "sign-users-out" },
-          { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Basics",
             subLinks: [
@@ -696,7 +695,11 @@ export const guides = [
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget"
-          }
+          },
+          {
+            title: "Add multifactor authentication",
+            guideName: "mfa"
+          },
         ]
       }
     ]
