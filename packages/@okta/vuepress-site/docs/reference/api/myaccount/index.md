@@ -1152,7 +1152,11 @@ This request requires the `method` property as its request body. An optional boo
 
 #### Response body
 
-Returns an empty response with an HTTP 200 status code.
+Returns a JSON object containing a link to the verify endpoint an HTTP 200 status code.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `_links` | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
 
 Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
 
@@ -1175,6 +1179,24 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Auth
  }'
 ```
 
+##### Response
+
+Returns an HTTP 200 status code response.
+
+```bash
+{
+    "_links": {
+        "verify": {
+            "href": 'http://${yourOktaDomain}/idp/myaccount/phones/smsa7gpDMs5V6C0LT0g4/verify',
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
 ### Verify Phone Challenge
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
