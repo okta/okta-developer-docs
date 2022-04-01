@@ -63,8 +63,9 @@ Okta emails are based on templates, and the type of template used to enable acti
 
 | Email template  | [Email verification required before access](#email-verification-required-before-access)  | [Enrollment policy for email authenticator](#enrollment-policy-for-email-authenticator) | [Self-service recovery with email](#self-service-recovery-with-email)| Supported methods |
 | ----------------------------| ------------------|------------------------|-------------|-------------------------|
-| [Email Factor Verification](#update-email-factor-verification-template)   | Yes   | Optional or Disabled | Yes | OTP
-| [Registration - Activation](#find-the-registration-activation-template)  | Yes   | Optional or Disabled | No | Link
+| [Email Factor Verification](#update-email-factor-verification-template)   | Yes / No   | Optional or Disabled | Yes | OTP
+| [Email Factor Verification](#update-email-factor-verification-template)   | Yes / No  | **Required or Optional** and user chooses to enroll email authenticator | No | OTP
+| [Registration - Activation](#find-the-registration-activation-template)  | Yes   | **Disabled or Optional** and user does not choose to enroll email authenticator| No | Link
 
 See [Setting location in the Admin Console](#setting-location-in-the-admin-console) to locate each setting in the Admin console. The following step-by-step instructions detail how to integrate each template into your app.
 
@@ -203,7 +204,7 @@ Integrate the **Registration - Activation** template into your app with the foll
 
 #### 1. Complete registration in your app
 
-First, the user registers a new account using your app. This registration includes setting the username, optional password, and enrolling in any required authenticators. The email authenticator won't be in the list of eligible authenticators during the registration process.
+First, the user registers a new account using your app. This registration includes setting the username, optional password, and enrolling in any required authenticators. The email authenticator is excluded from the list of available authenticators, or it's present and the user doesn't choose to enroll in it.
 
 **Learn more:**
 
@@ -243,7 +244,7 @@ Integrate user activations in this proxy model with the following steps.
 
 #### 1. Create the user
 
-The first step is create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The following example creates a user without credentials. Ensure the `activate` query parameter is set to `false`.
+The first step is create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The URL format of the endpoint call is `https://${yourOktaDomain}/api/v1/users?activate=false`. The following example creates a user without credentials. Ensure the `activate` query parameter is set to `false`.
 
 ##### Request
 
@@ -286,7 +287,7 @@ Note that the `id` property is the user Id of newly created user. See the [Creat
 
 #### 2. Start user activation and get activation token
 
-After user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The endpoint requires the user id, which is found in the`id` property shown in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
+After user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The URL format of the endpoint call is `https://${yourOktaDomain}/api/v1/users/${userid}/lifecycle/activate?sendEmail=false`. The endpoint requires the user id, which is found in the`id` property shown in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
 
 ##### Request
 
