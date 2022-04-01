@@ -7,8 +7,6 @@ title: Okta Verify (Push/OTP) integration guide
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---
@@ -20,16 +18,11 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 **What you need**
 
 * <StackSnippet snippet="whatyouneedsdk" />
-* <StackSnippet snippet="whatyouneedorg" />
 * Okta Verify installed on a mobile device
 
 **Sample code**
 
 * <StackSnippet snippet="samplecode" />
-
-**Related use cases**
-
-<StackSnippet snippet="relatedusecases" />
 
 ---
 
@@ -73,36 +66,54 @@ First, you'll need to configure your Okta org to enable Okta Verify for the foll
 * **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
 * **Time-based One-time Password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
 
-This is a simple two-step process. First, you add Okta Verify to the list of enabled authenticators in your org, and then you add it to the list of allowed authenticators in your app, as shown next.
+This is a simple two-step process. First, you need to enable it in your Okta org and then assign it an authentication policy which requires it to be used.
 
-### Add Okta Verify
+### Add Okta Verify to your org
 
-Add and configure Okta Verify in your org:
+First, add Okta Verify to your org and enable it.
 
-1. Open the Admin Console for your Okta org.
-1. Choose **Security > Authenticators** to show the available authenticators.
-1. Click **Add Authenticator**.
-1. Click **Add** under Okta Verify in the **Add Authenticator** dialog.
-1. Note that **TOTP (on by default) (Android and iOS only)** is checked by default.
-1. Check the box for **Push notification (Android and iOS only)**
-1. Check **Never** for **Number challenge for Okta Verify push** if it is not already checked. This option is not currently supported in the embedded SDK.
-1. Click **Add** to save your changes.
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authenticators** to show the available authenticators.
+3. If **Okta Verify** isn't in the list:
+   1. Click **Add Authenticator**.
+   2. Click **Add** on the **Okta Verify** tile.
+   3. Verify that **TOTP (on by default) (Android and iOS only)** is checked.
+   4. Check **Push notification (Android and iOS only)**.
+   5. Select **Never** for **Number challenge for Okta Verify push**. This option is not currently supported in the embedded SDK.
+   6. Click **Add**.
 
-### Configure your org application
+   If **Okta Verify** is in the list:
+   1. Select **Actions > Edit** for **Okta Verify**.
+   2. Verify that **TOTP (on by default) (Android and iOS only)** is checked.
+   3. Check **Push notification (Android and iOS only)**.
+   4. Select **Never** for **Number challenge for Okta Verify push**. This option is not currently supported in the embedded SDK.
+   5. Click **Save** to save your changes.
 
-Setup your application to use Okta Verify:
+4. Select the **Enrollment** tab.
+5. Check that **Okta Verify** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
+   1. If **Okta Verify** is set to **Disabled**, click **Edit** for the Default Policy
+   2. Select **Optional** from the drop-down box for **Okta Verify**, and then click **Update Policy**.
 
-1. Open the Admin Console for your Okta org.
-1. Choose **Applications > Applications** to show the app integrations you have already created.
-1. Click on the application you've previously created on the **Applications** page.
-1. Ensure that **Interaction Code** and **Refresh Token** are selected.
-1. Switch to the **Sign-On** tab
-1. Scroll down to the **Sign-On Policy** section and click **Add Rule**.
-1. Enter a name for the new rule (for example "2FA Rule") in the **Add Rule** dialog.
-1. Set **User must authenticate with** to **Password+Another Factor**.
-1. Select **Device Bound**.
-1. Confirm **Your org's authenticators that satisfy this requirement** is set to **Password AND Okta Verify or ...**
-1. Click **Save**.
+### Set your app integration to use Okta Verify
+
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. In testing, it's recommended that you create a new policy specifically for your app.
+
+1. Open the **Admin Console** for your org.
+2. Choose **Security > Authentication Policies** to show the available authentication policies.
+3. Click **Add a Policy**.
+4. Give the policy a name, and then click **Save**.
+5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+6. Select **Allowed after successful authentication**.
+7. Set **User must authenticate with** to **Password + Another factor**.
+8. For **Possession factor constraints**
+   1. Verify that **Device Bound** is selected.
+   2. Verify that **Okta Verify** is listed in the box under **Additional factor types**. If it is not listed, check the authenticator has been enabled using steps 4 and 5 of [Add Okta Verify to your org](#add-okta-verify-to-your-org).
+   3. Click **Save**.
+
+9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
+10. Find your app in the list and click **Add** next to it.
+11. Click **Close**.
+12. Verify that the app is now listed in the **Applications** tab of the new policy.
 
 ### You're ready to start integrating
 
@@ -152,5 +163,9 @@ The following diagram summarizes this flow.
 <StackSnippet snippet="challengetotpintegrationsummary" />
 
 <StackSnippet snippet="challengetotpintegrationsteps" />
+
+## See also
+
+<StackSnippet snippet="relatedusecases" />
 
 </div>

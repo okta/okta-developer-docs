@@ -2,8 +2,7 @@
 title: Updates to the Sign-In Widget i18n properties
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide covers how to override existing text strings in the interface with i18n translation strings.
 

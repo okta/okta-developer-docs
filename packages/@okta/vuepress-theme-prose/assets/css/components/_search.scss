@@ -82,7 +82,6 @@
       background-color: cv("link");
     }
     &.coveo-selected .coveo-facet-value-checkbox svg {
-      transform: translate(0, -1px);
       fill: $white;
       stroke-width: 2;
     }

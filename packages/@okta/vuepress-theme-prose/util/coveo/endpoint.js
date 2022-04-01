@@ -2,13 +2,16 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import moment from "moment";
 
+import storage from '../localStorage'
+
 const TOKEN_ENDPOINT =
   "https://wt1ugse0be.execute-api.us-west-2.amazonaws.com/prod/token?site=developer";
 const COVEO_PIPELINE = "oktaproduction9ounvcxa";
 const COVEO_ENDPOINT = "https://platform.cloud.coveo.com/rest/search";
+const COVEO_KEY = "coveo_token";
 
 const _getToken = () => {
-  let token = localStorage.getItem("coveo_token");
+  let token = storage.getItem(COVEO_KEY);
   if (!token) return;
 
   // Strip " if present (breaks coveo)
@@ -19,7 +22,7 @@ const _getToken = () => {
   const now = moment();
   const expWithBuffer = moment.unix(decoded.exp).subtract(5, "minutes");
   if (now.isAfter(expWithBuffer)) {
-    localStorage.removeItem("coveo_token");
+    storage.removeItem(COVEO_KEY);
     return;
   } else {
     return token;
@@ -28,7 +31,7 @@ const _getToken = () => {
 
 const _renewToken = () => {
   return axios.get(TOKEN_ENDPOINT).then(({ data: { token } }) => {
-    localStorage.setItem("coveo_token", token);
+    storage.setItem(COVEO_KEY, token);
     return token;
   });
 };

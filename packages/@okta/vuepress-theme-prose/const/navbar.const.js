@@ -11,10 +11,6 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/"
       },
       {
-        title: "Authentication",
-        path: "/docs/concepts/authentication/"
-      },
-      {
         title: "Authorization Servers",
         path: "/docs/concepts/auth-servers/"
       },
@@ -43,21 +39,12 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity Engine",
-        subLinks: [
-          {
-            title: "Interaction Code grant type",
-            path: "/docs/concepts/interaction-code/"
-          },
-          {
-            title: "Redirect vs. embedded authentication",
-            path: "/docs/concepts/redirect-vs-embedded"
-          },
-        ]
-      },
-      {
         title: "Inline Hooks",
         path: "/docs/concepts/inline-hooks/"
+      },
+      {
+        title: "Interaction Code grant type",
+        path: "/docs/concepts/interaction-code/"
       },
       {
         title: "Key Rotation",
@@ -76,20 +63,20 @@ export const concepts = [
         path: "/docs/concepts/oauth-openid/"
       },
       {
+        title: "Okta deployment models — redirect vs. embedded",
+        path: "/docs/concepts/redirect-vs-embedded/"
+      },
+      {
         title: "Okta Data Model",
         path: "/docs/concepts/okta-data-model/"
       },
       {
+        title: "Okta Identity Engine Overview",
+        path: "/docs/guides/oie-intro/"
+      },
+      {
         title: "Okta Organizations",
         path: "/docs/concepts/okta-organizations/"
-      },
-      {
-        title: "Okta-Hosted Flows",
-        path: "/docs/concepts/okta-hosted-flows/"
-      },
-      {
-        title: "Hosted Vs. Embedded",
-        path: "/docs/concepts/hosted-vs-embedded/"
       },
       {
         title: "Policies",
@@ -138,42 +125,198 @@ export const guides = [
     title: "Guides",
     subLinks: [
       { title: "Guides overview", path: "/docs/guides/" },
+      { title: "Quickstart", guideName: "quickstart" },
       {
-        title: "Basics",
+        title: "Sign users in",
         subLinks: [
+          { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Quickstart: Signing in your first user",
-            guideName: "quickstart"
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Okta email",
+                guideName: "authenticators-okta-email"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "authenticators-google-authenticator"
+              },
+              {
+                title: "Web Authentication",
+                guideName: "authenticators-web-authn"
+              },
+            ]
           },
-          { title: "Create an API token", guideName: "create-an-api-token" },
-          { title: "Enable CORS", guideName: "enable-cors" },
-          { title: "Find your Okta domain", guideName: "find-your-domain" },
           {
-            title: "Find your application credentials",
-            guideName: "find-your-app-credentials"
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Sign users in to your single-page application",
+                guideName: "sign-into-spa-redirect"
+              },
+              {
+                title: "Sign users in to your web application",
+                guideName: "sign-into-web-app-redirect"
+              },
+              {
+                title: "Sign users in to your mobile app",
+                guideName: "sign-into-mobile-app-redirect"
+              },
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              }
+            ]
           },
           {
-            title: "Share Application Key Credentials for IdPs across Apps",
-            guideName: "sharing-cert"
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Get set up",
+                subLinks: [
+                  {
+                    title: "Set up your Okta org",
+                    guideName: "oie-embedded-common-org-setup",
+                  },
+                  {
+                    title: "Download and set up the SDK, Sign-In Widget, and sample apps",
+                    guideName: "oie-embedded-common-download-setup-app",
+                  },
+                  {
+                    title: "Run the sample apps",
+                    guideName: "oie-embedded-common-run-samples",
+                  },
+                ]
+              },
+              {
+                title: "Auth JS fundamentals",
+                guideName: "auth-js"
+              },
+              {
+                title: "Embedded Sign-In Widget fundamentals",
+                guideName: "embedded-siw"
+              },
+              {
+                title: "Sign in to your SPA with Auth JS",
+                guideName: "sign-in-to-spa-authjs"
+              },
+              {
+                title: "Sign in to SPA with embedded Widget",
+                guideName: "sign-in-to-spa-embedded-widget"
+              },
+              {
+                title: "Embedded SDK use cases",
+                subLinks: [
+                  {
+                    title: "Basic sign-in flow using the password factor",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
+                  },
+                  {
+                    title: "User password recovery",
+                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
+                  },
+                  {
+                    title: "Self-registration",
+                    guideName: "oie-embedded-sdk-use-case-self-reg",
+                  },
+                  {
+                    title: "Sign in with password and email factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
+                  },
+                  {
+                    title: "Sign in with password and phone factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
+                  },
+                  {
+                    title: "User sign out (local app)",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
+                  },
+                  {
+                    title: "SDK limitations and workarounds",
+                    guideName: "oie-embedded-sdk-limitations",
+                  }
+                ]
+              },
+              {
+                title: "Embedded Sign-In Widget use cases",
+                subLinks: [
+                  {
+                    title: "Load the Widget",
+                    guideName: "oie-embedded-widget-use-case-load",
+                  },
+                  {
+                    title: "Basic sign-in flow using the Widget",
+                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook using the Widget",
+                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
+                  }
+                ]
+              },
+              {
+                title: "Email use cases",
+                subLinks: [
+                  {
+                    title: "New user activation",
+                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
+                  },
+                ]
+              }
+            ]
           },
-          { title: "Set up SAML Tracer", guideName: "saml-tracer" },
           {
-            title: "Upgrade SAML Apps to SHA256",
-            guideName: "updating-saml-cert"
+            title: "Advanced use cases",
+            subLinks: [
+              {
+                title: "Custom password recovery",
+                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
+              },
+              {
+                title: "Device Context",
+                guideName: "device-context"
+              }
+            ]
           },
           {
-            title: "Sign the Okta certificate with your own CA",
-            guideName: "sign-your-own-saml-csr"
+            title: "Mobile techniques",
+            subLinks: [
+              {
+                title: "Unlock a mobile app with biometrics",
+                guideName: "unlock-mobile-app-with-biometrics"
+              },
+              {
+                title: "Build a custom sign-in UI in your mobile app",
+                guideName: "build-custom-ui-mobile"
+              },
+              {
+                title: "Share a sign-in session with native mobile apps",
+                guideName: "shared-sso-android-ios"
+              }
+            ]
           },
           {
-            title: "Set up self-service registration",
-            guideName: "set-up-self-service-registration"
-          }
-        ]
-      },
-      {
-        title: "Sign Users In",
-        subLinks: [
+            title: "Configure an access policy",
+            guideName: "configure-access-policy"
+          },
+          { title: "Configure a Global Session Policy and authentication policies",
+            guideName: "configure-signon-policy" },
           {
             title: "Add an Identity Provider",
             subLinks: [
@@ -191,6 +334,10 @@ export const guides = [
                   {
                     title: "Apple",
                     path: "/docs/guides/add-an-external-idp/apple/main/"
+                  },
+                  {
+                    title: "Discord",
+                    path: "/docs/guides/social-login/discord/main/"
                   },
                   {
                     title: "Facebook",
@@ -225,6 +372,14 @@ export const guides = [
                     path: "/docs/guides/social-login/salesforce/main/"
                   },
                   {
+                    title: "Spotify",
+                    path: "/docs/guides/social-login/spotify/main/"
+                  },
+                  {
+                    title: "Xero",
+                    path: "/docs/guides/social-login/xero/main/"
+                  },
+                  {
                     title: "Yahoo",
                     path: "/docs/guides/social-login/yahoo/main/"
                   },
@@ -257,76 +412,37 @@ export const guides = [
               },
             ]
           },
-
+          { title: "Sign users out", guideName: "sign-users-out" },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
-            title: "Mobile App",
+            title: "Basics",
             subLinks: [
+              { title: "Create an API token", guideName: "create-an-api-token" },
+              { title: "Enable CORS", guideName: "enable-cors" },
+              { title: "Find your Okta domain", guideName: "find-your-domain" },
               {
-                title: "Unlock a mobile app with biometrics",
-                guideName: "unlock-mobile-app-with-biometrics"
+                title: "Find your application credentials",
+                guideName: "find-your-app-credentials"
               },
               {
-                title: "Build a custom sign-in UI in your mobile app",
-                guideName: "build-custom-ui-mobile"
+                title: "Share Application Key Credentials for IdPs across Apps",
+                guideName: "sharing-cert"
+              },
+              { title: "Set up SAML Tracer", guideName: "saml-tracer" },
+              {
+                title: "Upgrade SAML Apps to SHA256",
+                guideName: "updating-saml-cert"
               },
               {
-                title: "Sign users in to your mobile app",
-                guideName: "sign-into-mobile-app"
+                title: "Sign the Okta certificate with your own CA",
+                guideName: "sign-your-own-saml-csr"
               },
               {
-                title: "Share a sign-in session with native mobile apps",
-                guideName: "shared-sso-android-ios"
+                title: "Set up self-service registration",
+                guideName: "set-up-self-service-registration"
               }
             ]
-          },
-          {
-            title: "Sign users in to your single-page application",
-            guideName: "sign-into-spa"
-          },
-          {
-            title: "Sign users in to your web application",
-            guideName: "sign-into-web-app"
-          },
-          { title: "Sign users out", guideName: "sign-users-out" },
-          {
-            title: "Configure Okta sign-on and App sign-on policies",
-            guideName: "configure-signon-policy"
-          },
-          {
-            title: "Advanced use cases",
-            subLinks: [
-              {
-                title: "Custom password recovery",
-                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
-              },
-              {
-                title: "Device Context",
-                guideName: "device-context"
-              }
-            ]
-          },
-          {
-            title: "Authenticators",
-            subLinks: [
-              {
-                title: "Overview",
-                guideName: "authenticators-overview"
-              },
-              {
-                title: "Google authenticator",
-                guideName: "authenticators-google-authenticator"
-              },
-              {
-                title: "Web Authentication",
-                guideName: "authenticators-web-authn"
-              },
-              {
-                title: "Okta Verify",
-                guideName: "authenticators-okta-verify"
-              }
-            ]
-          },
+          }
         ]
       },
       {
@@ -348,6 +464,10 @@ export const guides = [
           {
             title: "Configure Device Authorization Grant Flow",
             guideName: "device-authorization-grant"
+          },
+          {
+            title: "Client secret rotation and key management",
+            guideName: "client-secret-rotation-key"
           },
           {
             title: "Tokens",
@@ -486,12 +606,12 @@ export const guides = [
             guideName: "protect-your-api"
           },
           {
-            title: "Configure an access policy",
-            guideName: "configure-access-policy"
-          },
-          {
             title: "Integrate Third-Party Risk",
             guideName: "third-party-risk-integration"
+          },
+          {
+            title: "Secure OAuth API connection between orgs",
+            guideName: "secure-oauth-between-orgs"
           }
         ]
       },
@@ -553,205 +673,70 @@ export const guides = [
         ]
       },
       {
-        title: "Identity Engine",
+        title: "Classic archive",
         subLinks: [
           {
-            title: "Okta Identity Engine Overview",
-            path: "/docs/guides/oie-intro/"
+            title: "Overview",
+            guideName: "archive-overview"
           },
           {
-            title: "Redirect authentication",
-            subLinks: [
-              {
-                title: "Use redirect auth with the sample apps",
-                guideName: "sampleapp-oie-redirectauth",
-              },
-            ]
+            title: "Auth JS fundamentals",
+            guideName: "archive-auth-js"
+          },
+          { title: "Configure Okta Sign-On and App Sign-On Policies",
+            guideName: "archive-configure-signon-policy" },
+          {
+            title: "Embedded Sign-In Widget fundamentals",
+            guideName: "archive-embedded-siw"
           },
           {
-            title: "Embedded authentication",
-            subLinks: [
-              {
-                title: "Get set up",
-                guideName: "oie-embedded-common-org-setup",
-              },
-              {
-                title: "Download and set up the sample app",
-                guideName: "oie-embedded-common-download-setup-app",
-              },
-              {
-                title: "Run the sample apps",
-                guideName: "oie-embedded-common-run-samples",
-              },
-              {
-                title: "Build a use case with the embedded SDK",
-                subLinks: [
-                  {
-                    title: "Basic sign-in flow using the password factor",
-                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
-                  },
-                  {
-                    title: "Sign in with Facebook",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
-                  },
-                  {
-                    title: "User password recovery",
-                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
-                  },
-                  {
-                    title: "Self-registration",
-                    guideName: "oie-embedded-sdk-use-case-self-reg",
-                  },
-                  {
-                    title: "Sign in with password and email factors",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
-                  },
-                  {
-                    title: "Sign in with password and phone factors",
-                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
-                  },
-                  {
-                    title: "User sign out (local app)",
-                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
-                  },
-                  {
-                    title: "SDK limitations and workarounds",
-                    guideName: "oie-embedded-sdk-limitations",
-                  }
-                ]
-              },
-              {
-                title: "Build a use case with the embedded Widget",
-                subLinks: [
-                  {
-                    title: "Load the Widget",
-                    guideName: "oie-embedded-widget-use-case-load",
-                  },
-                  {
-                    title: "Basic sign-in flow using the Widget",
-                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
-                  },
-                  {
-                    title: "Sign in with Facebook using the Widget",
-                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
-                  }
-                ]
-              },
-              {
-                title: "Refresh access and ID tokens",
-                guideName: "oie-embedded-common-refresh-tokens",
-              },
-            ]
-            },
-          {
-            title: "Okta Identity Engine Limitations",
-            path: "/docs/guides/ie-limitations/"
+            title: "Sign in to SPA with Auth JS",
+            guideName: "archive-sign-in-to-spa-authjs"
           },
+          {
+            title: "Sign in to SPA with embedded Widget",
+            guideName: "archive-sign-in-to-spa-embedded-widget"
+          }
         ]
-      },
+      }
     ]
-  },
+  }
 ];
 
 export const languagesSdk = [
   {
     title: "Languages & SDKs",
     subLinks: [
-      { title: "Languages & SDKs overview", path: "/code/" },
+      { title: "Overview", path: "/code/" },
       {
-        title: "Mobile",
-        subLinks: [
-          { title: "Android", path: "/code/android/" },
-          { title: "iOS", path: "/code/ios/" },
-          { title: "React Native", path: "/code/react-native/" }
-        ]
-      },
-      {
-        title: "Front End",
-        subLinks: [
-          {
-            title: "Angular",
-            subLinks: [
-              {
-                title: "Add User Authentication to Your Angular App",
-                path: "/code/angular/"
-              },
-              {
-                title: "Okta Sign-In Widget and Angular",
-                path: "/code/angular/okta_angular_sign-in_widget/"
-              },
-              {
-                title: "Okta Auth JS and Angular",
-                path: "/code/angular/okta_angular_auth_js/"
-              }
-            ]
-          },
-          {
-            title: "JavaScript",
-            subLinks: [
-              {
-                title: "Add User Authentication to Your JavaScript App",
-                path: "/code/javascript/"
-              },
-              {
-                title: "Okta Sign-In Widget Guide",
-                path: "/code/javascript/okta_sign-in_widget/"
-              },
-              {
-                title: "Okta Auth SDK Guide",
-                path: "/code/javascript/okta_auth_sdk/"
-              }
-            ]
-          },
-          {
-            title: "React",
-            subLinks: [
-              {
-                title: "Add User Authentication to Your React App",
-                path: "/code/react/"
-              },
-              {
-                title: "Okta Sign-In Widget and React",
-                path: "/code/react/okta_react_sign-in_widget/"
-              },
-              {
-                title: "Okta Auth JS and React",
-                path: "/code/react/okta_react/"
-              }
-            ]
-          },
-          {
-            title: "Vue",
-            subLinks: [
-              {
-                title: "Add User Authentication to Your Vue App",
-                path: "/code/vue/"
-              },
-              {
-                title: "Okta Sign-In Widget and Vue",
-                path: "/code/vue/okta_vue_sign-in_widget/"
-              },
-              {
-                title: "Okta Auth JS and Vue",
-                path: "/code/vue/okta_vue/"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: "Back End",
+        title: "Server-side",
         subLinks: [
           { title: ".NET", path: "/code/dotnet/aspnetcore/" },
           { title: "Go", path: "/code/go/" },
           { title: "Java", path: "/code/java/" },
           { title: "Node.js", path: "/code/nodejs/" },
           { title: "PHP", path: "/code/php/" },
-          { title: "Python", path: "/code/python/" },
-          { title: "REST", path: "/code/rest/" }
+          { title: "Python", path: "/code/python/" }
         ]
       },
-      { title: "Identity Engine SDKs & Samples", path: "/code/oie/" }
+      {
+        title: "Front-end",
+        subLinks: [
+          { title: "Angular", path: "/code/angular/" },
+          { title: "React", path: "/code/react/" },
+          { title: "Vue", path: "/code/vue/" },
+          { title: "JavaScript", path: "/code/javascript/" },
+        ]
+      },
+      {
+        title: "Mobile/native",
+        subLinks: [
+          { title: "Android", path: "/code/android/" },
+          { title: "iOS", path: "/code/ios/" },
+          { title: "React Native", path: "/code/react-native/" }
+        ]
+      },
+      { title: "Test APIs using Postman", path: "/code/rest/" }
     ]
   }
 ];
@@ -913,11 +898,12 @@ export const reference = [
           { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
           { title: "Inline Hook Types",
             subLinks: [
-            { title: "Token Hook", path: "/docs/reference/token-hook/" },
-            { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-            { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
-            { title: "User Import Hook", path: "/docs/reference/import-hook/"},
-            { title: "Registration Hook", path: "/docs/reference/registration-hook/" }
+              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
+              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
+              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+              { title: "Telephony Hook", guideName: "/docs/reference/telephony-inline-hook/", hidden: true},
+              { title: "Token Hook", path: "/docs/reference/token-hook/" },
+              { title: "User Import Hook", path: "/docs/reference/import-hook/"}
           ]},
           { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
         ]

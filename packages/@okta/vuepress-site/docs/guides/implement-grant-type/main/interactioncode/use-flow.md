@@ -2,7 +2,7 @@ The Interaction Code flow is intended for developers who want to control the rem
 
 ### Use an SDK
 
-Okta recommends using an Identity Engine SDK with the Sign-In Widget to implement your embedded authentication Interaction Code flow. See [Okta Identity Engine SDKs & Samples](/code/oie/) for a list of Identity Engine SDKs that you can download to start using with your app.
+Okta recommends using an Identity Engine SDK with the Sign-In Widget to implement your embedded authentication Interaction Code flow. See [Languages and SDKs](/code/) for information on Identity Engine SDKs that you can download to start using with your app.
 
 > **Note:** Even if you are not using the Sign-In Widget in your final embedded app, the Sign-In Widget can be used to validate and test your defined policies before investing a lot of time on coding the authentication flow.
 

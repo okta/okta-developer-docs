@@ -23,6 +23,7 @@
           </div>
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
+            <StackSelector v-if="$page.hasStackContent" />
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />

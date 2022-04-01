@@ -1,1 +1,0 @@
-See our [React Native browser sign-in example](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in).

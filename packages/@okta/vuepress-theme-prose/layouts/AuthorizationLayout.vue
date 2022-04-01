@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 export default {
   components: {
     Footer: () => import("../components/Footer"),

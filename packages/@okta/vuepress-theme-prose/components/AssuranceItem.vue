@@ -1,7 +1,7 @@
 <template>     
     <div class="assurance-item">
         <div class="assurance-item--rounded"> 
-            <img :src="item.image"/>
+            <span v-bind:style="{ 'background': 'url(' + item.image + ') 50% 50% no-repeat' }"></span>
         </div>
         <div class="assurance-item--content">
             <div class="assurance-item--content--title">

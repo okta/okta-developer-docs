@@ -18,6 +18,16 @@ The following describes some typical reasons for viewing the dashboard:
 * You want to open the rate limits report to proactively monitor rate limit usage, and to manage rate limit settings and the warning threshold. See [Rate limit monitoring](#rate-limit-monitoring).
 * You've hit a rate limit violation for an API, and you receive a notification that contains a link to the rate limits dashboard for that API so that you can investigate the violation. See [API rate limits and violations](#API-rate-limits-and-violations).
 
+You can access the rate limit dashboard only if you're assigned one of these admin roles:
+
+* `ROLE_APP_ADMIN`
+* `ROLE_MOBILE_ADMIN`
+* `ROLE_ORG_ADMIN`
+* `ROLE_READ_ONLY_ADMIN`
+* `ROLE_SUPER_ORG_ADMIN`
+* `ROLE_API_ACCESS_MANAGEMENT_ADMIN`
+* `ROLE_REPORT_ADMIN`
+
 ## Rate limit monitoring
 
 The overview of the rate limits dashboard enables you to browse and monitor rate limit usage over a period of time whenever you want to check on an API. You can also configure the client rate limit settings and customize the threshold percentage for when a warning notification occurs.
@@ -74,7 +84,7 @@ You can enable per-client rate limiting to prevent a single client from blocking
 
 #### Warning notification
 
-Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, and issue banner and email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
+Warnings, which appear if the threshold for the rate limit is reached, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Before your API hits its rate limit, you can change the threshold for when you want to be notified that your API has consumed a high amount of traffic.
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications. If you customize the threshold to a higher percentage, such as 90%, the warning notifications wouldn't start until the API's rate limit is at 90%.
 
@@ -90,13 +100,11 @@ The dashboard is an optimized tool that helps you investigate warnings and viola
 
 When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 
-* You receive a rate limit email that informs you that you've hit a rate limit for an API. Click **View utilization history** in the email to navigate to the rate limits dashboard and System Log for that particular API.
+* You receive a rate limit email that informs you that you've hit a rate limit for an API. Click **View usage** in the email to navigate to the rate limits dashboard and System Log for that particular API.
 
 ![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard1.png)
 
-* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the rate limits dashboard for that particular API or **syslog** to open the System Log.
-
-![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard2.png)
+* You've hit a rate limit when you're in the Admin Console and the Rate Limit Monitoring widget informs you. Click **View** in the widget to open the rate limits dashboard or select the particular API in the widget, which opens to the rate limits dashboard with usage details for that API.
 
 * You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Utilization** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
 
@@ -111,23 +119,23 @@ The rate limit dashboard provides data use information for the API based on a se
 The Overview pane provides a summary of the data use for the specified API. The following information on data use appears:
 
 * Rate Limit: The rate limit for this API per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
-* Latest Utilization: The latest use of the API, which includes the API and its sub-APIs, as of the specified time
-* Average Utilization: The average use of the API within the last 24 hours and the last hour
+* Latest Usage: The latest use of the API, which includes the API and its sub-APIs, as of the specified time
+* Average Usage: The average use of the API within the last 24 hours and the last hour
 * Impact: The amount of time that the org is affected by a rate limit violation on this API. The impact time is the remainder of the one-minute interval after your org hits the rate limit. For example, if your org hits the rate limit 40 seconds into the one-minute interval, then the impact time is 20 seconds for that API.
 
 #### Rate limit multiplier
 
 A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit. For example, three times the current rate limit.
 
-![Displays the line graph, bar graph, and timeline graph of the rate limit utilization over time pane](/img/rl_dashboard4.png)
+![Displays the line graph, bar graph, and timeline graph in the Rate limit usage over time pane](/img/rl_dashboard4.png)
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
-#### Rate limit utilization over time pane
+#### Rate limit usage over time pane
 
-The Rate limit utilization over time pane comprises the line graph, bar graph, and timeline graph.
+The Rate limit usage over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Displays the line graph, bar graph, and timeline graph](/img/rl_dashboard5.png)
+![Displays the line graph, bar graph, and timeline graph](/img/rl_usage_over_time.png)
 
 ##### Line graph
 

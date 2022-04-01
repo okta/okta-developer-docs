@@ -10,6 +10,11 @@ body {
   font-feature-settings: "lnum", "pnum";
   background-color: cv("body");
   color: cv('text', 'darker');
+  display: none;
+
+  &.loaded {
+    display: block;
+  }
 }
 
 .flex {
