@@ -1,5 +1,5 @@
 ---
-title: Telephony Inline Hook with Twilio
+title: Telephony Inline Hook
 excerpt: Learn how to easily implement a Telephony Inline hook
 layout: Guides
 ---
@@ -19,9 +19,6 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
-* An active phone number in Twilio with SMS and MMS capabilities
-* A [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) created in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
-* [Use Your Own Telephony Provider feature enabled for your org.](#before-you-begin)
 
 **Sample code**
 
@@ -36,6 +33,10 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 * Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook** slider, and slide to enable.
 
 > **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
+
+* Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
+
+* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
 
 ## About Telephony Inline Hook implementation
 
@@ -61,16 +62,31 @@ At a high-level, the following workflow occurs:
 Verify that your org has the Phone authenticator added and enabled for **Authentication, Recovery**.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
-1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled. If not already added, click **Add Authenticator** and then click **Add** on the Phone tile.
-1. Select both **Voice call** and **SMS** as how the verification messages are sent.
-1. Select **Authentication and recovery** as how the Phone authenticator is used.
-1. Click **Add**.
+1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled in the **Used for** column.
+1. Select **Edit** from the **Actions** menu and verify that both **Voice call** and **SMS** are selected as how the verification messages are sent.
+1. Verify that **Authentication and recovery** is selected as how the Phone authenticator is used.
+1. Click **Save** if made any changes.
+
+> **Note:** If the Phone authentication isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned above and click **Add**.
 
 ## Update an authentication policy
 
-Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor.
+This section walks you through updating a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before we make changes to the authentication policy, create a test group with a test user for this use case scenario.
+
+### Create a group and add a user
+
+1. In the Admin Console, go to **Directory** > **Groups**.
+1. Click **Add Group** , name it **Support**, and click **Save**.
+1. Select the group that you just created and on the **People** tab, click **Assign People**.
+1. Add a user to the group for testing and click **Save**.
+
+### Add a rule to the policy
+
+Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding an additional rule for the Support group that you just created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
+
+
 1. For the **Catch-all Rule**, select **Edit** from the **Actions** dropdown list.
 1. Scroll down to the **AND User must authenticate with** field and select **Password + Another factor** from the dropdown list.
 1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
