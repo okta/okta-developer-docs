@@ -3,6 +3,6 @@
 3. Choose whether verification messages are sent through **Voice call**, **SMS**, or select both options.
 4. Select when users can use the Phone authenticator:
     * **Authentication and password reset**
-    * **Authentication (MFA/SSO)
+    * **Authentication** (MFA/SSO)
     * **Password reset**
 5. Click **Add**.
