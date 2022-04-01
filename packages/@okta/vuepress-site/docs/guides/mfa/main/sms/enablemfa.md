@@ -1,3 +1,8 @@
-1. From the Admin Console, select **Security** from the main menu and then **Multifactor**.
-2. On the **Factor Types** tab, select **SMS Authentication** from the left navigation.
-3. Click the **Inactive** drop-down box, and then select **Activate**.
+1. In the Admin Console, go to **Security** > **Authenticators**.
+2. Click **Add Authenticator**, and then click **Add** on the Phone tile.
+3. Choose whether verification messages are sent through **Voice call**, **SMS**, or select both options.
+4. Select when users can use the Phone authenticator:
+    * **Authentication and password reset**
+    * **Authentication** (MFA/SSO)
+    * **Password reset**
+5. Click **Add**.
