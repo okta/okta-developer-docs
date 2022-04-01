@@ -92,9 +92,9 @@ Out of the box, the Embedded SDK solution supports the Email Magic Link feature 
 
 | Email template name  | Use cases  | Email authenticator flow  | Supported methods | Template customizations needed |
 | ----------------------------| ------------------|------------------------|-------------|-------------------------|
-| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | [OTP](#integrate-email-enrollment-with-otp)              | Yes, remove magic link
 | Email Challenge             | Sign-in with email - challenge                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | No
 | Forgot Password             | Self-service password recovery                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | Yes, add `otp` and `state` parameters. See <StackSnippet snippet="custompwdguide" inline />.
+| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | [OTP](#integrate-email-enrollment-with-otp)              | Yes, remove magic link
 
 > **Note:** This guide uses the sign-in with email use cases to describe how to integrate email enrollment and challenge.
 
