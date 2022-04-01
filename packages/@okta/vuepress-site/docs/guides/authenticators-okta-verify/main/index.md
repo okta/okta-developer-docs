@@ -117,7 +117,14 @@ New apps are automatically assigned the shared default [authentication policy](h
 
 ### You're ready to start integrating
 
-After configuring your org, you're ready to start integrating the Okta Verify flows into your app.
+After you configure your org, you can start integrating the enrollment and challenge flows into your app. The following are the list of supported flows:
+
+* Integrate enrollment using QR code
+* Integrate enrollment using other channels
+* Integrate challenge using push notification option
+* Integrate challenge using TOTP option
+
+Each of these has some common steps for initiating the flow after the user is signed in, and for polling Okta Verify for a response midway through the flow. We cover these first before seeing how they fit into the individual flows.
 
 ## Shared steps between flows
 
@@ -125,9 +132,7 @@ After configuring your org, you're ready to start integrating the Okta Verify fl
 
 ## Integrate enrollment using QR Code
 
-### Summary of steps
-
-The following summarizes the Okta Verify enrollment flow with QR Code.
+In this flow, the user enrolls Okta Verify as an authenticator using a QR code. The following diagram summarizes this flow.
 
 <StackSnippet snippet="enrollmentqrcodeintegrationsummary" />
 
@@ -135,19 +140,15 @@ The following summarizes the Okta Verify enrollment flow with QR Code.
 
 ## Integrate enrollment using other channels
 
-### Summary of steps
+A user can enroll Okta Verify using several methods other than a QR code. The flow for each of these is the same but we use email as the option in this guide. The following diagram summarizes this flow.
 
-The following summarizes the Okta Verify enrollment flow with an email channel.
-
-<StackSnippet snippet="enrollmentotherpintegrationsummary" />
+<StackSnippet snippet="enrollmentotherintegrationsummary" />
 
 <StackSnippet snippet="enrollmentotherintegrationsteps" />
 
 ## Integrate challenge using push notification option
 
-### Summary of steps
-
-The following summarizes the Okta Verify challenge flow with push notification.
+After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a push notification challenge. When they want to sign in, they must go to Okta Verify where they tap **Yes it's me** sent by the Okta servers. The following diagram summarizes this flow.
 
 <StackSnippet snippet="challengepushintegrationsummary" />
 
@@ -155,9 +156,9 @@ The following summarizes the Okta Verify challenge flow with push notification.
 
 ## Integrate challenge using TOTP option
 
-### Summary of steps
+After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a Time-based One-Time Password (TOTP) challenge. When they want to sign in, they must retrieve the TOTP that Okta Verify generates, and submits this to the service provider for verification. The Okta server independently generates the same password and validates that the submitted password is identical to the generated one. If it is the same, the user is authenticated and signed in.
 
-The following summarizes the Okta Verify enrollment flow with TOTP.
+The following diagram summarizes this flow.
 
 <StackSnippet snippet="challengetotpintegrationsummary" />
 
