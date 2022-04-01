@@ -103,9 +103,7 @@ A client application is considered public when an end user could possibly view a
 
 #### Is your client a SPA or native?
 
-If your client application is a SPA you should use the [Implicit flow](#implicit-flow).
-
-If your client application is a native application, you should use the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce).
+If your client application is a SPA or native application, you should use an authorization flow with PKCE, either the [Interaction Code flow with PKCE](#interaaction-code-flow) or [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). If you are doing a redirect flow to an Okta hosted sign-in page, the authorization code flow with PKCE is recommended. If you want to embed the sign-in experience, the interaction code flow is recommended.
 
 #### Does the client have an end user?
 
@@ -116,6 +114,41 @@ If your client application is running on a server with no direct end user, then 
 If you own both the client application and the resource that it's accessing, then your application can be trusted to store your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
 
 If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
+
+### Interaction Code flow
+
+The interaction code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+
+<!--
+See http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+actor "Resource Owner (User)" as user
+participant "Client" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
+
+user -> client: Start auth with user info
+client -> client: Generate PKCE code verifier & challenge
+client -> okta: Authorization request w/ code_challenge, client ID, scopes, and user info
+okta -> okta: Remediation required
+okta -> client: Send interaction_handle in response (for required interaction)
+client <-> okta: Remediation steps w/ interaction_handle
+user <-> client: Remediation
+note right: Possible multiple remediation steps required
+client -> okta: Complete remediation steps w/ interaction_handle
+okta -> client: Send interaction_code in response
+client -> okta: Send interaction_code, client ID, code_verifier to /token
+okta -> okta: Evaluates PKCE code
+okta -> client: Access token (and optionally refresh token)
+client -> app: Request with access token
+app -> client: Response
+@enduml
+
+ -->
+
+![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
 
 ### Authorization Code flow
 
