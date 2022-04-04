@@ -6,6 +6,6 @@ To set up your Okta org for these use cases, see:
 
 * [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-social-idp-use-case)
-* See [Sign in with Facebook using the Widget](/docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/) for an example of a web application that uses the Sign-In Widget with social IdP authentication.
+* [Sign in with Facebook using the Widget](/docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/) for an example of a web application that uses the Sign-In Widget with social IdP authentication.
 
 > **Note**: Identity Engine org configuration is supported by the Admin Console and by the Okta API.
