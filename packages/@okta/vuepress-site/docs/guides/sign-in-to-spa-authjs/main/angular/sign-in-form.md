@@ -1,4 +1,4 @@
-Build a sign-in page that captures both the username and password. As an example, see the app component files such as `app.component.html` and `app.component.ts` that generates a dynamic form in the sample application.
+Build a sign-in page that captures both the username and password. As an example, see the app component files such as `app.component.html` and `app.component.ts` that generate a dynamic form in the sample application.
 
 From the `app.component.html` file:
 
