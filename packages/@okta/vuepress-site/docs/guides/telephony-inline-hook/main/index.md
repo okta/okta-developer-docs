@@ -32,11 +32,13 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook** slider, and slide to enable.
 
-> **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
+    > **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
 
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
 * Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
+
+* Make sure that you have a user in your org that already has the [Phone authentication enrolled](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage) with Okta.
 
 ## About Telephony Inline Hook implementation
 
@@ -78,22 +80,20 @@ In this section, you update a [preset authentication policy](https://help.okta.c
 1. In the Admin Console, go to **Directory** > **Groups**.
 1. Click **Add Group** , name it **Support**, and then click **Save**.
 1. Select the group that you just created and on the **People** tab, click **Assign People**.
-1. Add a user to the group for testing and click **Save**.
+1. Add a user to the group for testing. Make sure that the user has a working phone number included in their profile.
+1. Click **Save**.
 
 ### Add a rule to the policy
 
 Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding an additional rule for the Support group that you just created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
-1. Click **Add Rule** and do the following:
-    * Name the rule.
-    * In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
-    * In the box that appears, start typing the group that you just created and select it when it appears.
-    * In the **AND Possession factor constraints are** section, clear the **Device Bound (excludes phone and email)** checkbox.
-    * Verify that **Phone** is listed as an additional factor type in the **AND Access with Okta FastPass is granted** section.
-    * Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
-
-need to add a step to make sure that the user has a phone number listed in their profile - or have them add a phone number when on the preview tab.
+1. Click **Add Rule** and name the rule.
+1. In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
+1. In the box that appears, start typing the group that you just created and select it when it appears.
+1. In the **AND Possession factor constraints are** section, clear the **Device Bound (excludes phone and email)** checkbox.
+1. Verify that **Phone** is listed as an additional factor type in the **AND Access with Okta FastPass is granted** section.
+1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
 
 ## Activate the Telephony Inline Hook in Okta
 
@@ -148,7 +148,6 @@ The way to tell Okta that the SMS or Voice (Call) message was successfully sent 
 
 <StackSelector snippet="responsetookta" noSelector/>
 
-
 ## Preview and test
 
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a Telephony Inline Hook. In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly in your org.
@@ -162,6 +161,9 @@ To preview the Telephony Inline Hook:
 1. Select the **Preview** tab.
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 1. Define a value for `requestType` by selecting the flow that you want to test. In this example, select **MFA Verification**.
+
+    > **Note:** If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example Inline Hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
+
 1. From the **Preview example Inline Hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. If it’s a successful response, an SMS code or Voice (Call) message with the code is sent to the user that you specified. If there is an error, the error message appears in the response.
 
