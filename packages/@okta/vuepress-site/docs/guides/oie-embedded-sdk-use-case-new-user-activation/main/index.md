@@ -1,5 +1,5 @@
 ---
-title: Embedded SDK New user activation
+title: New user activation
 ---
 
 <div class="oie-embedded-sdk">

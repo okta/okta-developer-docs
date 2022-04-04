@@ -211,6 +211,10 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-self-reg",
                   },
                   {
+                    title: "New user activation",
+                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
+                  },
+                  {
                     title: "Sign in with password and email factors",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
@@ -245,15 +249,6 @@ export const guides = [
                   }
                 ]
               },
-              {
-                title: "Email use cases",
-                subLinks: [
-                  {
-                    title: "New user activation",
-                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
-                  },
-                ]
-              }
             ]
           },
           {
