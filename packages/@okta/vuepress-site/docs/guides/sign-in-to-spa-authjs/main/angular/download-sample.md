@@ -1,6 +1,6 @@
 ### Download the sample Angular application
 
-To view a simple example of an Angular application, clone the Okta Angular Identity Engine Sample App and follow the set up procedure:
+To view a simple example of an Angular application, clone the Okta Angular Identity Engine sample app and follow the set up procedure:
 
 #### Clone the Angular sample repository
 
