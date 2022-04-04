@@ -59,7 +59,7 @@ ng new okta-app
 
 When asked `Would you like to add Angular routing?`, press **y**.
 
-After all prompts have been answered, the Angular CLI will create a new project in a folder named `okta-app` and installs all required dependencies.
+After all prompts are answered, the Angular CLI creates a new project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
 cd okta-app
