@@ -1363,6 +1363,8 @@ redirects:
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /guides/sign-into-mobile-app
+    to: /docs/guides/sign-into-mobile-app-redirect/
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
