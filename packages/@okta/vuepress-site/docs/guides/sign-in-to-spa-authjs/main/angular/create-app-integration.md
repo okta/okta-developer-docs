@@ -7,7 +7,7 @@ Before you integrate Okta authentication into your Angular app, you need to regi
 
     | Setting                | Value/Description                                    |
     | -------------------    | ---------------------------------------------------  |
-    | App integration name   | Specify a unique name for your app                  |
+    | App integration name   | Specify a unique name for your app.                  |
     | Grant types            | Select **Authorization Code**, **Interaction Code**, and  **Refresh Token** |
     | Sign-in redirect URIs  | Specify your app URI for the callback redirect from Okta. For example, `http://localhost:4200/login/callback`. |
     | Sign-out redirect URIs | Specify your app sign-out redirect URI. For example: `http://localhost:4200`. Ensure that you add all your deployment URIs.|
