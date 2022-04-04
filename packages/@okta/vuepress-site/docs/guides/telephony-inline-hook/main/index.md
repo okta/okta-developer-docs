@@ -85,7 +85,7 @@ In this section, you update a [preset authentication policy](https://help.okta.c
 
 ### Add a rule to the policy
 
-Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding an additional rule for the Support group that you just created.
+Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you just created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
 1. Click **Add Rule** and name the rule.
