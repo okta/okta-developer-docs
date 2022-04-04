@@ -36,7 +36,12 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
-* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable.
+* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable. Additionally, place an `otp` tag key in double brackets in the prepopulated XML. This tag key directly references the dynamic `otp` used in this exercise. For example:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Response><Say>Your code is {{otp}}</Say></Response>
+    ```
 
 * Make sure that you have a user in your org that already has the [Phone authentication enrolled](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage) with Okta.
 
