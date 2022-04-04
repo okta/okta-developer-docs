@@ -1363,6 +1363,8 @@ redirects:
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /guides/sign-into-mobile-app
+    to: /docs/guides/sign-into-mobile-app-redirect/
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
@@ -5500,13 +5502,13 @@ redirects:
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
   - from: /code/angular/okta_angular_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js
-    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/
+    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
   - from:  /code/javascript/okta_sign-in_widget/index.html
     to: /docs/guides/embedded-siw
   - from:  /code/javascript/okta_sign-in_widget
@@ -5516,18 +5518,18 @@ redirects:
   - from: /code/javascript/okta_auth_sdk
     to:  /docs/guides/auth-js
   - from:  /code/react/okta_react_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
   - from:  /code/react/okta_react_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
   - from:  /code/react/okta_react/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/react/
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
   - from:  /code/react/okta_react
-    to:  /docs/guides/sign-in-to-spa-authjs/react/
+    to:  /docs/guides/sign-in-to-spa-authjs/react/main/
   - from:  /code/vue/okta_vue_sign-in_widget/index.html
     to: /docs/guides/sign-in-to-spa-embedded-widget/
   - from:  /code/vue/okta_vue_sign-in_widget
     to: /docs/guides/sign-in-to-spa-embedded-widget/
   - from:  /code/vue/okta_vue/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/vue/
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from:  /code/vue/okta_vue
-    to:  /docs/guides/sign-in-to-spa-authjs/vue/
+    to:  /docs/guides/sign-in-to-spa-authjs/vue/main/
