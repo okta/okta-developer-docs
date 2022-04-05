@@ -1365,6 +1365,38 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/
   - from: /guides/sign-into-mobile-app
     to: /docs/guides/sign-into-mobile-app-redirect/
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application
+    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application
+    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application
+    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
+  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
