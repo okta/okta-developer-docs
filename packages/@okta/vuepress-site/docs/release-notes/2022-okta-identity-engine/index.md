@@ -14,8 +14,6 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bugs fixed in 2022.04.1
 
-* The Admin Console returned an HTTP 500 internal server error when attempting to preview a token for an org with the OAuth Rich Authentication Requests feature enabled. (OKTA-462452)
-
 * An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
 
 * Active Directory email activation templates, translated for the Japanese, Korean, and Chinese languages, didn’t render correctly. (OKTA-469764)
