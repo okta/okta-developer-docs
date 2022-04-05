@@ -3,7 +3,6 @@ title: Overview
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 Okta’s Embedded solutions support various architectures, use cases, and customization needs. These guides cover the more advanced use cases, where you may have specific requirements for your system architecture and overall users’ experience.
 

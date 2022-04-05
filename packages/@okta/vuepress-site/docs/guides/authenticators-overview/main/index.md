@@ -3,7 +3,6 @@ title: Authenticators overview
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 Increase the security of your app by requiring a user to verify their identity in more than one way.
 

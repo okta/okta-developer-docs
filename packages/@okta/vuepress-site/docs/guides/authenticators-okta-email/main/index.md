@@ -5,7 +5,6 @@ title: Okta email (magic link/OTP) integration guide
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 Learn how to integrate the Okta Email authenticator into your app with the Embedded SDK.
 

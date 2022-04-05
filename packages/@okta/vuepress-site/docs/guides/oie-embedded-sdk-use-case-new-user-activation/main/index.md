@@ -5,7 +5,6 @@ title: New user activation
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 Learn how to use the Embedded SDK to integrate user activation with self-service registration
 

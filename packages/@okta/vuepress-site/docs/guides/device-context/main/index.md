@@ -5,7 +5,6 @@ title: Device Context
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
 
 This guide shows you how to enable and integrate device context into your application using the Embedded SDK.
 
