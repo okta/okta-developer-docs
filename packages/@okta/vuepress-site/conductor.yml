@@ -1362,9 +1362,9 @@ redirects:
   - from: /guides/sign-in-with-microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
-    to: /docs/guides/sign-into-mobile-app-redirect/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /guides/sign-into-mobile-app
-    to: /docs/guides/sign-into-mobile-app-redirect/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
     to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /docs/guides/sign-into-mobile-app/create-okta-application
