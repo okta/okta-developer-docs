@@ -1,3 +1,5 @@
+> **Note:** These steps describe integrating the Okta email OTP flow into your app. To learn more about Okta email including how to integrate Okta email using magic links, see the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+
 ### 1: Add the forgot password link to the sign-in page
 
 The first step is to create a forgot your password link on the sign-in page, as in the following example. This link points to a **Recover password** page (`/recover-password)`.

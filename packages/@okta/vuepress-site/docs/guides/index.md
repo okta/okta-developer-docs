@@ -105,7 +105,15 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
-
+ - authenticators-overview
+ - authenticators-google-authenticator
+ - authenticators-web-authn
+ - device-context
+ - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
+ - authenticators-okta-verify
+ - authenticators-okta-email
+ - oie-embedded-sdk-use-case-new-user-activation
+ - advanced-use-case-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

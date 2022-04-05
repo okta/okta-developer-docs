@@ -1,3 +1,5 @@
+> **Note:** These steps describe integrating the Okta email OTP flow into your app. To learn more about Okta email including how to integrate Okta email using magic links, see the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+
 ### 1: Build a sign-in page on the client and authenticate the user credentials
 
 Build a sign-in page that captures both the user’s name and password, as shown in the following example:
