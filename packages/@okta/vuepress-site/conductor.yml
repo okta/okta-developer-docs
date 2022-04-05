@@ -1378,9 +1378,9 @@ redirects:
   - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
     to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/index.html
     to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application
