@@ -5526,9 +5526,9 @@ redirects:
   - from: /code/react/okta_react
     to: /docs/guides/sign-in-to-spa-authjs/react/main/
   - from: /code/vue/okta_vue_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
   - from: /code/vue/okta_vue_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
   - from: /code/vue/okta_vue/index.html
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /code/vue/okta_vue
