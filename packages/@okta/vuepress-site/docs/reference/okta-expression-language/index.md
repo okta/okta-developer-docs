@@ -339,10 +339,10 @@ To catch User attributes that are null or blank, use the following valid conditi
 `user.employeeNumber != "" AND user.employeeNumber != null ? user.employeeNumber : user.nonEmployeeNumber`
 
 If a Profile attribute has never been populated, catch it with the following expression:<br>
-`user.employeeNumber != null`
+`user.employeeNumber == null`
 
 If a Profile attribute was populated in the past but the content is removed, it's no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
-`user.employeeNumber != ""`
+`user.employeeNumber == ""`
 
 ## Popular expressions
 
