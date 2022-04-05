@@ -6,6 +6,24 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## April
 
+### Weekly release 2022.04.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.04.1](#bugs-fixed-in-2022-04-1) | April 6, 2022 |
+
+#### Bugs fixed in 2022.04.1
+
+* The Admin Console returned an HTTP 500 internal server error when attempting to preview a token for an org with the OAuth Rich Authentication Requests feature enabled. (OKTA-462452)
+
+* An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
+
+* Active Directory email activation templates, translated for the Japanese, Korean, and Chinese languages, didn’t render correctly. (OKTA-469764)
+
+* The `initiate_login_uri` parameter was still validated for an IdP-initiated login with Okta flow when the Initiate login URI field in the Admin Console value was empty, and the OIDC app couldn’t be updated. (OKTA-447112)
+
+* The Factors Admin API property `factorType` couldn't be synchronized in Identity Engine if the equivalent authenticator didn't exist. (OKTA-456613)
+
 ### Monthly release 2022.04.0
 
 | Change | Expected in Preview Orgs |
