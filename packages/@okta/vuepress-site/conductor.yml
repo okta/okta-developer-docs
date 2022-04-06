@@ -1366,9 +1366,9 @@ redirects:
   - from: /guides/sign-into-mobile-app
     to: /docs/guides/build-custom-ui-mobile/android/main/
   - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main/
+    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
   - from: /docs/guides/sign-into-mobile-app/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/android/main/
+    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
   - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
     to: /docs/guides/build-custom-ui-mobile/ios/main/
   - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
