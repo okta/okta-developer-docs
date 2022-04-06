@@ -20,8 +20,6 @@ title: Okta Identity Engine API Products release notes 2022
 
 * An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
 
-* The [Factors Administration API](/docs/reference/api/factor-admin/) property `factorType` couldn't be synchronized in Identity Engine if the equivalent authenticator didn't exist. (OKTA-456613)
-
 ### Monthly release 2022.04.0
 
 | Change | Expected in Preview Orgs |
