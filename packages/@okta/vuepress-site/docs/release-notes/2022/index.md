@@ -14,9 +14,9 @@ title: Okta API Products release notes 2022
 
 * An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
 
-* Active Directory email activation templates, translated for the Japanese, Korean, and Chinese languages, didn’t render correctly. (OKTA-469764)
+* Active Directory email activation templates that were translated for the Japanese, Korean, and Chinese languages didn’t render correctly. (OKTA-469764)
 
-* The `initiate_login_uri` parameter was still validated for an IdP-initiated login with Okta flow when the Initiate login URI field in the Admin Console value was empty, and the OIDC app couldn’t be updated. (OKTA-447112)
+* An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
 
 ### Monthly release 2022.04.0
 
