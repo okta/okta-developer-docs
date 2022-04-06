@@ -1362,41 +1362,13 @@ redirects:
   - from: /guides/sign-in-with-microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
   - from: /guides/sign-into-mobile-app
-    to: /docs/guides/build-custom-ui-mobile/android/main/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
   - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
-  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/ios/main/
-  - from: /docs/guides/sign-into-mobile-app/ios/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/ios/main/
-  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main/
-  - from: /docs/guides/sign-into-mobile-app/android/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/android/main/
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application
-    to: /docs/guides/build-custom-ui-mobile/android/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application
-    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application
-    to: /docs/guides/build-custom-ui-mobile/ios/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
-  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
@@ -2873,8 +2845,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
@@ -2893,8 +2863,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/#create-an-okta-application
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
