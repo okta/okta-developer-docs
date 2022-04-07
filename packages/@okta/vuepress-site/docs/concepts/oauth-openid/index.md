@@ -117,7 +117,7 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 ### Interaction Code flow
 
-The interaction code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
