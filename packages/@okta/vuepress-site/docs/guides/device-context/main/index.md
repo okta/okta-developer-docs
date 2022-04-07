@@ -52,7 +52,7 @@ Update your Okta org to allow for AMFA. The following steps set up your org to p
 
 1. If you haven't yet created an org, [create one](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#get-set-up) and <StackSnippet snippet="configureorg" inline/>.
 
-1. Ensure that you have at least one authenticator set up for your org. See how to set up an [Email](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-set-up-the-email-authenticator-for-authentication-and-recovery) and [Phone](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-add-the-phone-authenticator-for-authentication-and-recovery) aAthenticator.
+1. Ensure that you have at least one authenticator set up for your org. See how to set up an [Email](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-set-up-the-email-authenticator-for-authentication-and-recovery) and [Phone](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-add-the-phone-authenticator-for-authentication-and-recovery) Authenticator.
 
 ### Add a new Global Session Policy
 
@@ -98,7 +98,7 @@ Add a new authentication rule that requires an authenticator when the user signs
 
 1. Click **Add rule** on the **Rules** tab for your new policy.
 1. Give the rule a name, for example, **New device requires second factor**
-1. Set the **The following custom expression is true** to `security.behaviors.contains("New Device")`.
+1. Set the **The following custom expression is true** to `security.behaviors.contains('New Device')`.
 1. Verify that **User must authenticate with** is set to **Password + Another factor**.
 1. Verify that at least one additional factor type (for example, email or Okta Verify) is listed in the box under **Additional factor types**.
 1. Click **Save**.
