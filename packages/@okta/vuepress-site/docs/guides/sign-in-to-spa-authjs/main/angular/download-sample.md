@@ -1,6 +1,6 @@
 ### Download the sample Angular application
 
-To view a simple example of an Angular application, clone the Okta Angular Identity Engine Sample App and follow the set up procedure:
+To view a simple example of an Angular application, clone the Okta Angular Identity Engine sample app and follow the set up procedure:
 
 #### Clone the Angular sample repository
 
@@ -57,9 +57,9 @@ Now, create a new application using the Angular CLI:
 ng new okta-app
 ```
 
-When asked `Would you like to add Angular routing?`, press "y"
+When asked `Would you like to add Angular routing?`, press **y**.
 
-After all prompts have been answered, the Angular CLI will create a new project in a folder named `okta-app` and installs all required dependencies.
+After all prompts are answered, the Angular CLI creates a new project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
 cd okta-app

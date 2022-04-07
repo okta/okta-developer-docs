@@ -1,4 +1,4 @@
-Build a sign-in page that captures both the username and password. As an example, see the app component files such as `app.component.html` and `app.component.ts` that generates a dynamic form in the sample application.
+Build a sign-in page that captures both the username and password. As an example, see the app component files such as `app.component.html` and `app.component.ts` that generate a dynamic form in the sample application.
 
 From the `app.component.html` file:
 
@@ -71,6 +71,6 @@ export class AppComponent implements OnInit {
   }
 ```
 
-The dynamic form works with the [Interaction code](/docs/concepts/interaction-code/) flow to convert the `NextStep` response into appropriate form fields. Review the and the `dynamic-form.component` and `form-transformer.service.ts` files for code details. Se also [NextStep](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#nextstep).
+The dynamic form works with the [Interaction code](/docs/concepts/interaction-code/) flow to convert the `NextStep` response into appropriate form fields. Review the `dynamic-form.component` and `form-transformer.service.ts` files for code details. See also [Next Step](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#nextstep).
 
 > **Note:** This guide only reviews the sign-in use case of the sample app.
