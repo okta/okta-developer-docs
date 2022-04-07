@@ -103,7 +103,7 @@ A client application is considered public when an end user could possibly view a
 
 #### Is your client a SPA or native?
 
-If your client application is a SPA or native application, you should use an authorization flow with PKCE, either the [Interaction Code flow with PKCE](#interaction-code-flow) or [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). If you are doing a redirect flow to an Okta hosted sign-in page, the authorization code flow with PKCE is recommended. If you want to embed the sign-in experience, the interaction code flow is recommended.
+If your client application is a SPA or a native application, you should use an authorization flow with PKCE, such as either the [Interaction Code flow with PKCE](#interaction-code-flow) or the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). If you are doing a redirect flow to an Okta-hosted sign-in page, the Authorization Code flow with PKCE is recommended. If you want to embed the sign-in experience, the Interaction Code flow is recommended.
 
 #### Does the client have an end user?
 
