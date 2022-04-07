@@ -9,7 +9,7 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 Okta uses the widget as part of its normal sign-in page. If you want to customize the widget, then you need to host it yourself. This guide walks you through the [installation process](#installation) for the widget, as well as [a few common use cases](#use-cases) for the widget and how to implement them. You can find the full widget reference [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-<!---  **Note:** A version of the widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/> --->
+[]: # (**Note:** A version of the widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>)
 
 <img src="/img/okta-signin.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
