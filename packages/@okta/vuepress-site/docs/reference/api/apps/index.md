@@ -3681,6 +3681,8 @@ Content-Type: application/json
 
 ### Update application policy
 
+<ApiLifecycle access="ie" />
+
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
