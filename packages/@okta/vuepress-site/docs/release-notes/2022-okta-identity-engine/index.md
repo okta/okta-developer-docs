@@ -6,6 +6,20 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## April
 
+### Weekly release 2022.04.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.04.1](#bugs-fixed-in-2022-04-1) | April 6, 2022 |
+
+#### Bugs fixed in 2022.04.1
+
+* An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
+
+* Active Directory email activation templates that were translated for the Japanese, Korean, and Chinese languages didn’t render correctly. (OKTA-469764)
+
+* An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
+
 ### Monthly release 2022.04.0
 
 | Change | Expected in Preview Orgs |
