@@ -29,7 +29,7 @@ When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Con
 
 User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
 
-Additionally, you can configure which scopes are optional for a user and which scopes users are required to allow an application to access.
+You can configure which scopes are not required, which are optional, and which are required for a user to allow an application to access.
 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
@@ -78,7 +78,7 @@ The following section provides example requests for enabling the consent dialog 
 
 ### Update the App
 
-This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
+This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
 > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these three properties. In most cases, `REQUIRED` is the correct value.
 
