@@ -58,14 +58,14 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
-1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for the default custom authorization server scopes.
+1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, from the left navigation select **Security** and then **API**.
+1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for a default custom authorization server scope.
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
 1. For this use case example, select **Required**. The options available include:
 
     * **Not required**: Indicates that the user isn't required to grant the app access to the information (scope).
-    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the request to the `/authorize` endpoint. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
+    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the authorization request. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
 
     > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent enabled scopes. This includes scopes that are required and optional, even if the user has already given consent.
 
@@ -77,7 +77,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 ## Enable consent using the APIs
 
-The following section provides example requests for enabling the consent dialog using the APIs. You must first set the `consent_method` property and then enable consent for the scope.
+The following section provides example requests for enabling the consent dialog using the APIs. You must first verify that the `consent_method` property is set to `REQUIRED` and then enable consent for the scope.
 
 ### Check the consent method value for an app
 
@@ -146,9 +146,9 @@ If the `consent_method` is set to `TRUSTED`, you need to update that parameter. 
 }
 ```
 
-To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE` or `OPTIONAL`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties).
-
 ### Update Scope consent
+
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE` or `OPTIONAL`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties).
 
 This example shows the JSON body for a PUT request to the default custom authorization server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
 
