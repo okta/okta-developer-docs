@@ -3,9 +3,6 @@ Build a sign-in page that captures both the username and password. As an example
 From the `app.component.html` file:
 
 ```HTML
-<header>
-  <h1>Angular OIE Example App</h1>
-</header>
 
 <main>
   <app-menu [isAuthenticated]="(isAuthenticated$ | async) ?? false" (startFlow)="onFlow($event)" (logout)="onLogout()"></app-menu>
@@ -32,8 +29,7 @@ From the `app.component.ts` file:
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [FormTransformerService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
 
