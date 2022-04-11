@@ -20,6 +20,8 @@ title: Okta Identity Engine API Products release notes 2022
 
 * An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
 
+* The IdP and ADSSO authentication times were not reflected in the `AuthnInstant` of SAML assertions resulting in an "Invalid username or password" error while signing into the SAML app. (OKTA-484474)
+
 ### Monthly release 2022.04.0
 
 | Change | Expected in Preview Orgs |
