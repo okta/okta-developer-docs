@@ -4,8 +4,6 @@ excerpt: How to request user consent during authentication
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide explains how to configure an Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows.
 
 ---
@@ -23,13 +21,13 @@ Implement an Okta-hosted user consent dialog.
 
 ## About the user consent dialog
 
-When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
+When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 ## User consent and tokens
 
 User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
 
-You can configure which scopes are not required, which are optional, and which are required for a user to allow an application to access.
+You can configure which scopes aren't required, which are optional, and which are required for a user to allow an application to access.
 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
@@ -51,8 +49,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
-1. On the **General** tab, in the **General Settings** section, click **Edit**.
-1. Scroll down to the **User Consent** section and select **Require consent**.
+1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. (Consent is enabled by default.) If it isn't, click **Edit** and select **Require consent**.
 
     > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
 
@@ -62,13 +59,16 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 1. Click **Save**.
 1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
-1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
+1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for the default custom authorization server scopes.
 1. Select the **Scopes** tab.
-1. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
+1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
+1. Select one of the following:
 
-1. Select **Require user consent for this scope**. The **Block services from requesting this scope** check box is automatically selected.
+    * **Not required**: Indicates that the user isn't required to grant the app access to the information specified to sign in to the app.
+    * **Optional**: Indicates that it's up to the user whether they want to grant the app access to the information specified. This doesn't keep the user from being able to sign in to the app. The scope is excluded from the request for tokens.
+    * **Required**: Indicates that the user must grant the app access to the information specified or they can't sign in to the app.
 
-    The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When this check box is selected, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+    The **Block services from requesting this scope** checkbox is automatically selected. The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
 1. Click **Save**.
 
@@ -173,7 +173,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 2. Use the default custom authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
     A default custom authorization endpoint looks like this where the `${authorizationServerId}` is `default`: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
@@ -187,9 +187,9 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` or ??`prompt=optional_consent`?? in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` or `prompt=optional_consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
 
-    > **Note:** All of the values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
+    > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
 
     The resulting URL to request an access token looks something like this:
 
