@@ -41,9 +41,7 @@
     "jest": "^24.9.0",
     "mocha": "^9.1.0",
     "recursive-readdir": "^2.2.2",
-    "remove": "^0.1.5",
-    "wait-on": "^3.2.0",
-    "wait-until": "^0.0.2"
+    "remove": "^0.1.5"
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
