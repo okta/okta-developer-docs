@@ -27,7 +27,7 @@ When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Con
 
 User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
 
-You can configure which scopes aren't required, which are optional, and which are required for a user to allow an application to access.
+You can configure which scopes aren't required, which are optional, and which are required.
 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
@@ -36,8 +36,8 @@ When an application needs to get a new access token from an authorization server
 When a consent dialog appears depends on the values of three elements:
 
 * `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
-* `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
-* `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
+* `consent_method`: an application property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+* `consent`: a scope property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint. This property allows you to enable or disable user consent for an individual scope.
 
 ## Enable consent for scopes
 
@@ -49,7 +49,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
-1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. (Consent is enabled by default.) If it isn't, click **Edit** and select **Require consent**.
+1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
 
     > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
 
@@ -59,16 +59,19 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 1. Click **Save**.
 1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
-1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for the default custom authorization server scopes.
+1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for the default custom authorization server scopes.
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
-1. Select one of the following:
+1. For this use case example, select **Required**. The options available include:
 
-    * **Not required**: Indicates that the user isn't required to grant the app access to the information specified to sign in to the app.
-    * **Optional**: Indicates that it's up to the user whether they want to grant the app access to the information specified. This doesn't keep the user from being able to sign in to the app. The scope is excluded from the request for tokens.
-    * **Required**: Indicates that the user must grant the app access to the information specified or they can't sign in to the app.
+    * **Not required**: Indicates that the user isn't required to grant the app access to the information (scope).
+    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the request to the `/authorize` endpoint. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
 
-    The **Block services from requesting this scope** checkbox is automatically selected. The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent enabled scopes. This includes scopes that are required and optional, even if the user has already given consent.
+
+    * **Required**: Indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The **Block services from requesting this scope** checkbox is automatically selected.
+
+        The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
 1. Click **Save**.
 
@@ -76,13 +79,16 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 The following section provides example requests for enabling the consent dialog using the APIs. You must first set the `consent_method` property and then enable consent for the scope.
 
-### Update the App
+### Check the consent method value for an app
 
-This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
+Make sure that the `consent_method` parameter for the app is set to `REQUIRED`:
+
+* Do a [List applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate the `applicationId` of the app.
+* Do a [Get application](/docs/reference/api/apps/#get-application) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
+
+If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
 > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these three properties. In most cases, `REQUIRED` is the correct value.
-
-> **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate that ID.
 
 ```json
 {
@@ -140,7 +146,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
 }
 ```
 
-To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties).
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE` or `OPTIONAL`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties).
 
 ### Update Scope consent
 
@@ -187,7 +193,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` or `prompt=optional_consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
 
     > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
 
@@ -335,8 +341,8 @@ There are several ways to verify that you've successfully created a user grant:
 
 To revoke consent for a user, you can revoke one consent that is granted or all consents that are granted. Before you begin, you need the following:
 
-- `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/reference/api/users/#list-users) to locate the user and the `userId` that you need.
-- `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/reference/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
+* `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/reference/api/users/#list-users) to locate the user and the `userId` that you need.
+* `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/reference/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
 
 ### Revoke one Grant
 
