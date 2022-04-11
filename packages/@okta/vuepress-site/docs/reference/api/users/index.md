@@ -1128,7 +1128,7 @@ The performance optimization will only be applied when all three parameters are 
 
 ##### Request parameters
 
-The first three parameters in the table below correspond to different types of lists:
+The first three parameters in the table below correspond to different ways to list users.
 
 - [List Users with Search](#list-users-with-search) (`search`)
 - [List Users with a Filter](#list-users-with-a-filter) (`filter`)
@@ -1138,16 +1138,16 @@ The first three parameters in the table below correspond to different types of l
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
 | search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Prefer this option for optimal performance         | Query        | String     | FALSE    |
-| limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
-| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 | filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties (but prefer search; see above)                       | Query        | String     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200). Okta recommends preferring search; see above                           | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 | sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
 | sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
-| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties (but prefer search; see above)                       | Query        | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-  * We strongly advise that where possible, you prefer the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case we advise reformatting the request to use `search`.
+  * Okta strongly advises that where possible, you prefer the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta advises reformatting the request to use `search`.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1261,7 +1261,7 @@ curl -v -X GET \
 You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
 For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
-* We follow the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
+* Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
 * Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
 
 ##### Request example for array
@@ -1337,7 +1337,7 @@ curl -v -X GET \
 
 #### List Users with a filter
 
-Lists all users that match the filter criteria.  To ensure optimal performance, we recommend using a [search parameter](#list-users-with-search) instead of a filter.
+Lists all users that match the filter criteria.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 This operation:
 
@@ -1492,7 +1492,7 @@ curl -v -X GET \
 #### Find Users
 
 
-Finds users who match the specified query.  To ensure optimal performance, we recommend using a [search parameter](#list-users-with-search) instead.
+Finds users who match the specified query.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead.
 
 Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
 The value of `q` is matched against `firstName`, `lastName`, or `email`.
@@ -1501,7 +1501,7 @@ The value of `q` is matched against `firstName`, `lastName`, or `email`.
 This operation:
 
  * Doesn't support pagination.
- * May not deliver optimal performance for large organizations, and is deprecated for such use cases.  We recommend using a [search parameter](#list-users-with-search) instead.
+ * May not deliver optimal performance for large organizations, and is deprecated for such use cases.  Okta recommends using a [search parameter](#list-users-with-search) instead.
  * Performs a startsWith match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
 
 ##### Request example
