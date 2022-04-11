@@ -1138,9 +1138,9 @@ The first three parameters in the table below correspond to different ways to li
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
 | search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Prefer this option for optimal performance         | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. Okta recommends preferring search; see above                  | Query        | String     | FALSE    |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties (but prefer search; see above)                       | Query        | String     | FALSE    |
-| limit       | Specifies the number of results returned (maximum 200). Okta recommends preferring search; see above                           | Query        | Number     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200)                           | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 | sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
 | sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
@@ -1163,7 +1163,7 @@ and [custom administrators](https://help.okta.com/en-us/Content/Topics/Security/
 
 #### List Users with search
 
-Searches for users based on the properties specified in the search parameter. This method typically offers the best performance of any [List Users](#list-users) operation.
+Searches for users based on the properties specified in the search parameter. This method typically offers the best performance of any [List Users](#list-users) operation other than List All Users.
 
 > **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
 
