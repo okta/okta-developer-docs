@@ -151,8 +151,9 @@ Try the email magic link recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
-1. Click **Select** for the Email authenticator. A magic link is sent to your email address.
-1. Click **Reset password** 
+1. Click **Send me an email**. A magic link is sent to your email address.
+1. Click **Reset password**. A new window opens. Click **Yes, it's me**.
+1. Enter a new password. Click **Reset Password**.
 
 ### One-time password recovery flow
 
@@ -172,7 +173,7 @@ Try out the email password recovery flow:
 
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
 
-<!--- Needs a link to verify setup as recovery option --->
+<!-- Needs a link to verify setup as recovery option -->
 
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
