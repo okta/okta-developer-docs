@@ -71,11 +71,18 @@ Review the `okta-auth.service.ts` file for details on handling a successful pass
 ```TypeScript
 public authenticateFlow(): Observable<NextStep | undefined> {
   return defer(() => this.oktaAuth.idx.authenticate().pipe(
+    tap( transaction => {
+      if (transaction.status === IdxStatus.SUCCESS && !!transaction.tokens) {
+        this.oktaAuth.tokenManager.setToken(transaction.tokens);
+      }
+    }),
     map( transaction => {
       const status = transaction.status;
+
       if (status === IdxStatus.SUCCESS || status === IdxStatus.CANCELED) {
         return undefined;
       }
+
       if (status === Idx.FAILURE) throw 'Idx error';
       return transaction.nextStep;
     }
