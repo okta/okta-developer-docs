@@ -1,12 +1,13 @@
 ---
 title: Overview of the mobile Identity Engine SDK
-integration: mobile
-meta:
-  - name: description
-    content: Understand how the mobile IDX SDK... **TODO**
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
+
 **TODO** Abstract goes here
+
+
 
 ## Introduction
 
@@ -31,11 +32,30 @@ Each sign-in step may contain one or more *remediations*, the different user act
 - Entering a One Time Passcode (OTP)
 - Cancelling the sign-in
 
-### Dynamic UI
+## Sign-in objects
 
-There are two approaches to adding the sign-in flow to an app: add a fixed number of authentication methods possibly in a fixed order, or generate the user interface dynamically based on the response at each step of the sign-in flow.
+Each step in the flow is represented by a *Response* which contains the information used to create the UI, general state information, and is used to cancel the sign-in or retrieve the token after sign-in succeeds.
 
-Three conditions are required for using fixed methods:
+The UI information is divided between two objects in the response. An *Authenticator* represents a type, or factor for verifying the identity of a user, such as a username and password, or Okta Verify. A *Method* represents a channel for using or enrolling in an Authenticator, such as using email or SMS for an OTP. An Authenticator may have multiple methods. A *Remediation* represents a user action and usually contains most of the information for a step.
+
+Each response may contain multiple remediations and authenticators.
+
+Some common types of user action are represented by a *Capability*. These include requesting a new OTP, or a password reset request. Remediations, authenticators, and methods may contain capabilities.
+
+A *Form* inside the remediation represents the user action in a collection of *Fields*. Most fields represent something that's displayed in the UI, either a static element or a user input, such as a selection list. The field also contains state information, such as whether the associated value is secret, such as a password. Options, or lists of choices, are represented by a collection of fields. A Field may also contain a form.
+
+<div class="common-image-format">
+
+![A diagram showing the SDK objects and their relationships.](/img/sdk/mobile-idx-objects.png "A diagram that shows the SDK objects for the sign in flow and the relationships between them.")
+
+</div>
+
+
+### Sign-in flow UI
+
+Add the sign-in UI for the sign-in flow using one of two general approaches: add a fixed number of authentication methods possibly in a fixed order, or generate the user interface dynamically based on the response at each step of the sign-in flow.
+
+If you use a fixed number of methods you can create appropriate views and populate them from the parts of the remediations. Using fixed methods does introduce risk as authentication methods can be added or removed by the Okta administrator. There are three requirements to reduce that risk:
 - The code in the app can be updated before policy changes are enabled.
 - The updated app can be distributed to users before the policy changes are enabled.
 - You can ensure that the app is updated on all your users' devices.
@@ -44,23 +64,12 @@ The usual way to satisfy the last condition is with a workforce app that's manag
 
 For consumer apps, and to reduce the risk for enterprise apps, a safer choice is building the user interface from the current sign-on step, of presenting a dynamic UI.
 
-## Sign-in objects
+## Create and manage configurations
 
-Each step in the flow is represented by a *Response* which contains the information used to create the UI, general state information, and is used to cancel the sign-in or retrieve the token after sign-in succeeds. 
+A *configuration* contains the settings used by the SDK to connect to the Okta Application Integration.
 
-The UI information is divided between two objects in the response. An *Authenticator* represents a type, or factor for verifying the identity of a user, such as a username and password, or Okta Verify. A *Method* represents a channel for using or enrolling in an Authenticator, such as using email or SMS for an OTP. An Authenticator may have multiple methods. A *Remediation* represents a user action and usually contains most of the information for a step.
+<StackSnippet snippet="gettingatoken" />
 
-Each response may contain multiple remediations and authenticators.
-
-Some common types of user action are represented by a *Capability*. These include requesting a new OTP, or a password reset request. Remediations, authenticators, and methods may contain capabilities.
-
-A *Form* inside the remediation represents the user action in a collection of *Fields*. Most fields represent something that's displayed in the UI, either a static element or a user input, such as a selection list. The field also contains state information, such as whether the associated value is secret, such as a password. Options, or lists of choices, are represented by a collection of fields. A Field may also contain an form.
-
-<div class="common-image-format">
-
-![A diagram showing the SDK objects and their relationships.](/img/sdk/mobile-idx-objects.png "A diagram that shows the SDK objects for the sign in flow and the relationships between them.")
-
-</div>
 
 
 ## Start sign-in
@@ -76,4 +85,25 @@ A *Form* inside the remediation represents the user action in a collection of *F
 
 ## Completing sign-in
 
-(success, error)	
+(success, error)
+
+
+<!--
+## Process a response
+
+Start each new step by checking the response for a successful login unless an error stops the sign-in. Next process each remediation. In general, the first remediation is the main action, such as enrolling in an authenticator. Other remediations represent optional actions, such as selecting a different authenticator for enrollment. During the flow, there's usually a remediation for cancelling the sign-in attempt.
+
+Messages in a remediation usually indicate a non-fatal issue, such as an incorrect username or password. Display the messages as appropriate.
+
+The type of remediation
+capabilities
+authenticators
+fields
+	label
+	type - set value or look at options for the choices
+	?mutable?
+	required
+	secret
+--!>
+
+

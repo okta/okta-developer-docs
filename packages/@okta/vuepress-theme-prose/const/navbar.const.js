@@ -297,6 +297,10 @@ export const guides = [
             title: "Mobile techniques",
             subLinks: [
               {
+                title: "Identity Engine SDK overview",
+                guideName: "mobile-idx-sdk-overview"
+              },
+              {
                 title: "Unlock a mobile app with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics"
               },
@@ -737,7 +741,6 @@ export const languagesSdk = [
       {
         title: "Mobile/native",
         subLinks: [
-          { title: "Identity Engine Mobile SDK Overview", path: "/code/IDX-mobile-SDK-overview/" },
           { title: "Android", path: "/code/android/" },
           { title: "iOS", path: "/code/ios/" },
           { title: "React Native", path: "/code/react-native/" }
