@@ -2,8 +2,9 @@
 title: Overview of the mobile Identity Engine SDK
 ---
 
-<ClassicDocOieVersionNotAvailable />
+<!-- <div class="oie-embedded-sdk"> -->
 
+<ApiLifecycle access="ie" /><br>
 
 **TODO** Abstract goes here
 
@@ -23,7 +24,7 @@ The Android and iOS Identity Engine SDKs represent the sign-in flow as a state m
 
 <div class="common-image-format">
 
-![A diagram showing the sign-in flow.](/img/sdk/mobile-idx-basic-flow.png "A diagram that shows the sign-in flow.")
+![A diagram showing the sign-in flow.](/img/mobile-sdk/mobile-idx-basic-flow.png "A diagram that shows the sign-in flow.")
 
 </div>
 
@@ -46,7 +47,7 @@ A *Form* inside the remediation represents the user action in a collection of *F
 
 <div class="common-image-format">
 
-![A diagram showing the SDK objects and their relationships.](/img/sdk/mobile-idx-objects.png "A diagram that shows the SDK objects for the sign in flow and the relationships between them.")
+![A diagram showing the SDK objects and their relationships.](/img/mobile-sdk/mobile-idx-objects.png "A diagram that shows the SDK objects for the sign in flow and the relationships between them.")
 
 </div>
 
@@ -68,24 +69,37 @@ For consumer apps, and to reduce the risk for enterprise apps, a safer choice is
 
 A *configuration* contains the settings used by the SDK to connect to the Okta Application Integration.
 
-<StackSnippet snippet="gettingatoken" />
+<StackSnippet snippet="loadingaconfiguration" />
 
 
 
 ## Start sign-in
 
-(initializing the client from a configuration and requesting the first remediation)
+<!-- Initializing the client from a configuration and requesting the first remediation -->
+
+<StackSnippet snippet="initializingsdksession" />
 
 
 ## Process sign-in steps
 
 
-(The main sign-in flow. Creating the dynamic UI from the server response (this is light content in phase 1). Handing polling, messages, and errors.)
+<!--
+The main sign-in flow. Creating the dynamic UI from the server response (this is light content in phase 1). Handing polling, messagess.
+This is only an overview for now, details will be in the dynamic UI samples.
+ -->
 
 
 ## Completing sign-in
 
-(success, error)
+<!-- success, error -->
+
+<StackSnippet snippet="gettingatoken" />
+
+## Sign out a user
+
+<!-- Signing out a user, and revoking a token... are these two steps? -->
+
+<StackSnippet snippet="signingout" />
 
 
 <!--
@@ -104,6 +118,6 @@ fields
 	?mutable?
 	required
 	secret
---!>
+-->
 
 
