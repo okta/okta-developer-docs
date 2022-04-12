@@ -18,7 +18,7 @@ This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0
 
 **What you need**
 
-A functional integration created and tested in accordance with one of our OIN guides &mdash; [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) or [Build a Single-Sign On integration](/docs/guides/build-sso-integration/).
+A functional integration created and tested in accordance with one of our OIN guides &mdash; [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration/) or [Build a Single-Sign On integration](/docs/guides/build-sso-integration/).
 
 ---
 
