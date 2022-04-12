@@ -105,7 +105,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
-5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. Set up the Email and Password factors. Don't set up any other factors.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
@@ -128,18 +128,18 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSnippet snippet="applang" inline /> app.
 3. Select the **Sign On** tab.
-4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
-6. Select **Password + Another factor** and click **Save**.
+4. Scroll down to the **User authentication** section and click **Edit**.
+5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.
 
 ### Try multifactor authentication
 
 <StackSnippet snippet="tryenrollin" />
 
-3. Enter the credentials of the user that you enrolled earlier. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator.
+3. Enter the credentials of the user that you enrolled earlier. The Set up security methods page appears, which prompts you to set up either the Okta Verify app or the Phone authenticator.
 4. Under **Phone**, click **Set up**.
-5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
-6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
+5. Fill out the requested phone authentication information and verify your phone with a code.
+6. Under **Set up optional**, click **Set up later**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Self-service Password Recovery
 
@@ -163,10 +163,10 @@ Try out the email password recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
-1. Click **Select** for the Email authenticator. An OTP code is sent to your email address.
-1. Manually copy the code from the email and paste it into the Sign-In Widget.
-1. After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
-1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+1. Click **Select** for the Email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
+1. In the widget, click **Enter a code from the email instead**, paste the code and click **Verify**.
+1. Enter a new password.
+1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in [Enable multifactor authentication](#enable-multifactor-authentication). Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 1. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ### Okta Verify recovery flow
