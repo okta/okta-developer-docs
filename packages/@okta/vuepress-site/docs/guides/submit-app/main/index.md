@@ -7,7 +7,7 @@ layout: Guides
 ---
 
 
-This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparation, configuration, and updating published integrations.
+This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparing and configuring new integrations and updating previously published integrations.
 
 ---
 
