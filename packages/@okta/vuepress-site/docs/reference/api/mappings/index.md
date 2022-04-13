@@ -6,7 +6,7 @@ category: management
 # Mappings API
 
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
-[Profile properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language).
+[Profile properties](/docs/reference/api/users/#profile-object) using [Okta Expression Language](/docs/reference/okta-expression-language).
 More information on Okta User and App User Profiles can be found in
 Okta's [User profiles](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory).
 
@@ -524,7 +524,7 @@ Consists of a target property, in String form, that maps to a valid [JSON Schema
 
 | Property    | Description                                                                     | DataType                      | Nullable | Unique | Readonly | Validation  |
 |:------------|:--------------------------------------------------------------------------------|:------------------------------|:---------|:-------|:---------|:------------|
-| expression  | Combination or single source properties that are mapped to the target property  | [Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
+| expression  | Combination or single source properties that are mapped to the target property  | [Okta Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
 | pushStatus  | Indicates whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |           |
 
 > **Note:** Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
