@@ -1,23 +1,21 @@
-<!-- code from DashboardViewModel.kt in dynamic-app sample -->
+After a successful sign-in, store the `exchangeCodesResult.result` locally as it contains the refresh token and access token. To sign out revoke these tokens.
 
 
-```
+```kotlin
 fun logout() {
-    _logoutStateLiveData.value = LogoutState.Loading
-
     viewModelScope.launch(Dispatchers.IO) {
         try {
-            val refreshToken = TokenViewModel.tokenResponse.refreshToken
+            val refreshToken = Storage.tokens.refreshToken
             if (refreshToken != null) {
                 // Revoking the refresh token revokes both!
                 revokeToken("refresh_token", refreshToken)
             } else {
-                revokeToken("access_token", TokenViewModel.tokenResponse.accessToken)
+                revokeToken("access_token", Storage.tokens.accessToken)
             }
 
-            _logoutStateLiveData.postValue(LogoutState.Success)
+            // Logout successful. Redirect to login page.
         } catch (e: Exception) {
-            _logoutStateLiveData.postValue(LogoutState.Failed)
+            // Logout failed. Handle error.
         }
     }
 }
@@ -35,9 +33,8 @@ private fun revokeToken(tokenType: String, token: String) {
         .post(formBody)
         .build()
 
-    val response = IdxClientConfigurationProvider.get().okHttpCallFactory.newCall(request).execute()
+    val response =
+        OktaIdxClientConfigurationProvider.get().okHttpCallFactory.newCall(request).execute()
+    println("Revoke Token Response: $response")
 }
-
-
-
 ```
