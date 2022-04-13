@@ -536,6 +536,9 @@ curl -v -X DELETE \
 ##### Response
 Returns an empty HTTP 204 status code response.
 
+#### Error Responses
+If an invalid email id is passed to the request, the response will return a 404 NOT FOUND with error code E0000007.
+
 ### Add My Phone
 
 <ApiOperation method="post" url="/idp/myaccount/phones" />
@@ -832,6 +835,8 @@ Returns an empty HTTP 204 status code response.
 #### Error Responses
 
 If the phone authenticator is not enabled for `method` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+
+If an invalid phone id is passed to the request, the response will return a 404 NOT FOUND with error code E0000008.
 
 ### Get Me
 
