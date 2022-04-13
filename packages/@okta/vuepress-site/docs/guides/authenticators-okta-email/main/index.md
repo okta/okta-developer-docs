@@ -24,7 +24,7 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 
 **Sample code**
 
-<StackSnippet snippet="samplecode" />  <!-- UNIQUE FOR EACH LANGUAGE  -->
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -154,13 +154,17 @@ Enable magic links in your org.
 5. Under **EMAIL VERIFICATION EXPERIENCE** enter a callback URI for your application. The sample application uses <StackSnippet snippet="callbackuri" inline />.
 6. Click **Save** to save your changes.
 
+## Integrate email challenge with magic links
+
+The following step-by-step instructions detail integrating the email challenge into your app.
+
 <StackSnippet snippet="integratechallengemagiclinksummary"/>
 
-<StackSnippet snippet="integratechallengemagiclink" /> <!-- UNIQUE FOR BACKEND  -->
+<StackSnippet snippet="integratechallengemagiclink" />
 
 ## Integrate different browser and device scenario with magic links
 
-The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
+The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logiintegratediffbrowserdevicesummaryc.
 
 <div class="common-image-format">
 
@@ -168,17 +172,33 @@ The Email Magic Links feature is designed with security in mind and only works w
 
 </div>
 
-<StackSnippet snippet="integratediffbrowserdevicesummary"/> <!-- UNIQUE FOR EACH LANGUAGE -->
+The following instructions detail integrating the different browser scenario using the email challenge.
 
-<StackSnippet snippet="integratediffbrowserdevice" /> <!-- UNIQUE FOR EACH LANGUAGE -->
+</br>
 
-<StackSnippet snippet="integrateenrollmagiclinksummary"/> <!-- UNIQUE FOR EACH LANGUAGE -->
+<StackSnippet snippet="integratediffbrowserdevicesummary"/>
 
-<StackSnippet snippet="integrateenrollmagiclink"/> <!-- UNIQUE FOR EACH LANGUAGE  -->
+<StackSnippet snippet="integratediffbrowserdevice" />
 
-<StackSnippet snippet="integrateenrollotpsummary"/> <!-- UNIQUE FOR EACH LANGUAGE  -->
+<StackSnippet snippet="integrateenrollmagiclinksummary"/>
 
-<StackSnippet snippet="integrateenrollotp" /> <!-- UNIQUE FOR EACH LANGUAGE  -->
+<StackSnippet snippet="integrateenrollmagiclink"/>
+
+## Integrate email enrollment with OTP
+
+ With a One-Time Passcode (OTP), the user copies an automatically generated numeric string from their email to your application to verify their identity. The following flowchart, which uses the sign-in with email example, illustrates the OTP user journey.
+
+<div class="common-image-format">
+
+![Flowchart showing the OTP flow](/img/authenticators/authenticators-email-overview-otp-flowchart.png)
+
+</div>
+
+The following step-by-step instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, the OTP integration portion is nearly identical for the email challenge.
+
+<StackSnippet snippet="integrateenrollotpsummary"/>
+
+<StackSnippet snippet="integrateenrollotp" />
 
 ## Enable only OTP for the email authenticator
 
@@ -202,8 +222,44 @@ To learn more about customizing email templates and using the velocity template 
 
 </div>
 
-<StackSnippet snippet="designconsiderationscustompasswordrecovery"/>  <!-- MOSTLY SHARED FOR BACKEND -->
+## Design considerations when customizing magic link for password recovery
+
+### Design overview
+
+If you customized your self-service password recovery (SSPR) solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiated password recovery using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
+
+* The magic link `href` attribute in the **Forgot Password** template is updated to replace the `${resetPasswordLink}` variable with a URL string that contains the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, <StackSnippet snippet="callbackuriwithotpandstate" inline /> .
+
+* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the Embedded Sign-In Widget. These methods send an email to the user with a magic link meant to continue the password recovery.
+
+### Considerations
+
+In this design, you customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the Embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the Embedded SDK. Two options are available, however, to complete the password reset with this design.
+
+#### Option 1: Use the `resetPasswordLink` variable
+
+In this option, you set the magic link in the **Forgot Password** template to use the `${resetPasswordLink}` variable or include logic that sets it to `${resetPasswordLink}` if `${oneTimePassword}` is empty.
+
+<StackSnippet snippet="magiclinkcallback" />
+
+> **Note:** Using `${resetPasswordLink}` sends the user to an Okta-hosted page to sign in. If you're looking for a fully branded experience where you control the page experience, then the next option is a better alternative.
+
+#### Option 2 (Recommended): Use your own infrastructure to send the password recovery email
+
+In this option, make a call to [/forgot_password API](/docs/reference/api/users/#forgot-password) and use your infrastructure to notify the user to reset their password.
+
+1. Call [/forgot_password API](/docs/reference/api/users/#forgot-password) with `sendEmail=false`. Instead of sending a recovery email to the user, this returns a URL with a recovery token.
+
+```json
+{
+  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+}
+```
+
+In the above example, the recovery token is `XE6wE17zmphl3KqAPFxO`.
+
+2. Parse the recovery token from the URL and send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token) for more information on recovery tokens.
 
 ## See also
 
-<StackSnippet snippet="seealso" /> <!-- UNIQUE FOR EACH LANGUAGE  -->
+<StackSnippet snippet="seealso" />
