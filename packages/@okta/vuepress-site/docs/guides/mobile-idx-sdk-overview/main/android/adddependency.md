@@ -1,4 +1,4 @@
-Include the following Identity Engine Kotlin SDK dependency in your `app/build.gradle`:
+Include the following dependency in your `app/build.gradle`:
 
 ```gradle
 implementation 'com.okta.android:okta-idx-kotlin:$okta_sdk_version'

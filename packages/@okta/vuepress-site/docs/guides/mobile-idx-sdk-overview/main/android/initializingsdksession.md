@@ -1,4 +1,5 @@
-This can be done inside a viewModel class. Start by calling `IdxClient.start()` and on success call `resume()` on the result and handle the response.
+
+This example creates the client in the view model `launch` coroutine. Start by calling `IdxClient.start()` and on success, request the first response by calling `resume()` on the result.
 
 ```kotlin
 @Volatile
@@ -7,14 +8,14 @@ private var client: IdxClient? = null
 
 private fun createClient() {
     viewModelScope.launch {
-        // Initiate the IDX client and start IDX flow.
+        // Initialize the SDK client and start sign-in flow.
         when (val clientResult = IdxClient.start(OktaIdxClientConfigurationProvider.get())) {
             is IdxClientResult.Error -> {
                 // Handle error.
             }
             is IdxClientResult.Success -> {
                 client = clientResult.result
-                // Call the IDX API resume to receive the first IDX response.
+                // Request the first response by calling resume and handle the asynchronous response.
                 when (val resumeResult = clientResult.result.resume()) {
                     is IdxClientResult.Error -> {
                         // Handle error.
@@ -27,7 +28,6 @@ private fun createClient() {
 }
 
 private suspend fun handleResponse(response: IdxResponse) {
-  // Handle the successful response.
-  // This includes processing remediations, messages and getting tokens on successful login.
+  // Process the response.
 }
 ```

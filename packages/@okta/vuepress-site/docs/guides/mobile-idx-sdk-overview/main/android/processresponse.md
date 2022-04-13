@@ -1,27 +1,27 @@
 ```kotlin
 private suspend fun handleResponse(response: IdxResponse) {
-    // If a response is successful, immediately exchange it for a token.
+    // Check if sign-in is successful.
     if (response.isLoginSuccessful) {
-        // Get the token from the response and exit the flow.
+        // Get the access token and exit the flow.
         return
     }
 
-    // Check for messages, such as entering an incorrect code or auth error and abort if there is message.
+    // Check for messages, such as entering an incorrect code and finish this step.
     if (response.messages.isNotEmpty()) {
-        // Handle the error.
+        // Handle the messages which may require updating the UI.
         return
     }
 
-    // If no remediations are present, abort the login process and show error.
+    // Finish the login process if there are no remediations.
     if (response.remediations.isEmpty()) {
-        // Handle the error. For example, go back to login page.
+        // Handle the error. For example, display an error and then go back to login page.
         return
     }
 
     // Handle the different sign-in steps (remediations) for a policy.
     for (remediation in response.remediations) {
         // Handle different types of remediations.
-        // Call `proceed(remediation)` after user input is processed for a remediation.
+        // Call `proceed(remediation)` after the user completes the action for the remediation.
     }
 
     if (response.authenticators.isNotEmpty()) {
@@ -30,7 +30,7 @@ private suspend fun handleResponse(response: IdxResponse) {
 }
 
 /**
-  * Proceed to the next step in the IDX flow using the specified remediation.
+  * Proceed to the next step in the sign-in flow using the specified remediation.
   */
 private fun proceed(remediation: IdxRemediation) {
     viewModelScope.launch {

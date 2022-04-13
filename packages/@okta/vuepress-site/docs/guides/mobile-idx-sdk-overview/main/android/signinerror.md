@@ -1,3 +1,5 @@
+Needs update
+<!--
 Apart from errors that you might encounter while calling the IDX API methods like `IdxClient.start()`, `resume()`, etc, there could also be error messages from the API in `response.messages` (like wrong password, or wrong OTP, etc)
 
 ```kotlin
@@ -23,3 +25,4 @@ private suspend fun handleResponse(response: IdxResponse) {
     ...
 }
 ```
+-->

@@ -1,14 +1,16 @@
 ```kotlin
 private suspend fun handleResponse(response: IdxResponse) {
-    // If a response is successful, immediately exchange it for a token and set it on `LoggedInUserView`.
+    // Check if sign-in is successful.
     if (response.isLoginSuccessful) {
+        // Exchange the sign-in session token for a connection token.
         when (val exchangeCodesResult = client?.exchangeInteractionCodeForTokens(response.remediations[ISSUE]!!)) {
             is IdxClientResult.Error -> {
                 // Handle error.
             }
             is IdxClientResult.Success -> {
                 // Handle success.
-                // Token is available in `exchangeCodesResult.result` store it locally for further use.
+                // The token is in `exchangeCodesResult.result`.
+                // Store it securely for future use.
             }
             else -> {
                 // Handle error.
