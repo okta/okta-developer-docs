@@ -2357,6 +2357,10 @@ redirects:
     to: /signup/
   - from: /signup/oie-preview.html
     to: /signup/
+  - from: /docs/guides/migrate-to-oie/index.html
+    to: /docs/guides/oie-upgrade-overview/
+  - from: /docs/guides/migrate-to-oie
+    to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
     to: /docs/reference/core-okta-api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
