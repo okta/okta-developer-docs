@@ -1,3 +1,20 @@
-<!--- code for loading a configuration. Include common ways (e.g. manually, from a plist on iOS, ...)  ---> 
+<!-- code from IdxClientConfigurationProvider.kt in dynamic-app sample -->
 
-Android
+```
+package com.okta.idx.android.dynamic.auth
+
+import com.okta.idx.android.dynamic.BuildConfig
+import com.okta.idx.kotlin.client.IdxClientConfiguration
+import okhttp3.HttpUrl.Companion.toHttpUrl
+
+internal object IdxClientConfigurationProvider {
+    fun get(): IdxClientConfiguration {
+        return IdxClientConfiguration(
+            issuer = BuildConfig.ISSUER.toHttpUrl(),
+            clientId = BuildConfig.CLIENT_ID,
+            scopes = setOf("openid", "email", "profile", "offline_access"),
+            redirectUri = BuildConfig.REDIRECT_URI,
+        )
+    }
+}
+```
