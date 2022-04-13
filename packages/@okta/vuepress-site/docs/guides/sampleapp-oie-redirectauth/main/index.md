@@ -101,6 +101,8 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
+> **Note:** Enrollment uses the **Registration - Email Verification** email template. You can edit this template. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
+
 <StackSnippet snippet="tryenrollin" />
 
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
@@ -142,6 +144,8 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Self-service Password Recovery
+
+> **Note:** Self-service Password Recovery uses the **Forgot Password** email template. You can edit this template. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
 
 ### Email magic link password recovery flow
 
