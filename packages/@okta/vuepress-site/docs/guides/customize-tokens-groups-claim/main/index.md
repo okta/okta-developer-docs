@@ -205,7 +205,7 @@ The decoded JWT looks something like this:
 {
   "ver": 1,
   "jti": "AT.BYBJNkCefidrwo0VtGLHIZCYfSAeOyB0tVPTB6eqFss",
-  "iss": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
   "aud": "https://{yourOktaDomain}",
   "iat": 1617301739,
   "exp": 1617305339,

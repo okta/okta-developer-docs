@@ -4277,8 +4277,8 @@ curl -v -X GET \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [

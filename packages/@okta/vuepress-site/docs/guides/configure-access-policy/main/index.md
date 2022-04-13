@@ -122,7 +122,7 @@ Let's test your access policy and get back an access token.
 {
   "ver": 1,
   "jti": "AT.ReRI96X_2Ny3nSf0DepnWLhbAJW5kB0nbl0WqSn22W8",
-  "iss": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
   "aud": "https://{yourOktaDomain}",
   "iat": 1594769008,
   "exp": 1594772608,

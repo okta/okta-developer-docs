@@ -6191,7 +6191,7 @@ curl -v -X POST \
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
    "issuer":"{yourOktaDomain}",
-   "clientId":"${clientId}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6214,7 +6214,7 @@ curl -v -X POST \
          }
       },
       "client":{
-         "href":"https://{yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }
@@ -6259,7 +6259,7 @@ curl -v -X GET \
       },
       "lastUpdated":"2019-02-21T16:54:00.000Z",
       "issuer":"{yourOktaDomain}",
-      "clientId":"${clientId}",
+      "clientId":"{clientId}",
       "scopeId":"okta.users.read",
       "source":"ADMIN",
       "_links":{
@@ -6277,7 +6277,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://{yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -6292,7 +6292,7 @@ curl -v -X GET \
       },
       "lastUpdated":"2020-02-03T21:57:49.000Z",
       "issuer":"{yourOktaDomain}",
-      "clientId":"${clientId}",
+      "clientId":"{clientId}",
       "scopeId":"okta.apps.manage",
       "source":"ADMIN",
       "_links":{
@@ -6310,7 +6310,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://{yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -6357,7 +6357,7 @@ curl -v -X GET \
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
    "issuer":"{yourOktaDomain}",
-   "clientId":"${clientId}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6380,7 +6380,7 @@ curl -v -X GET \
          }
       },
       "client":{
-         "href":"https://{yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }

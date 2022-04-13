@@ -227,7 +227,7 @@ To check the returned ID Token, you can copy the value and paste it into any JWT
  "name": "John Smith",
  "locale": "en-US",
  "ver": 1,
- "iss": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
+ "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
  "aud": "fa39J40exampleXdcCwWA",
  "iat": 1498328175,
  "exp": 1498331912,

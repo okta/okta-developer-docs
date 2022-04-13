@@ -931,11 +931,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
-    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize",
-    "token_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/token",
+    "issuer": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize",
+    "token_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/token",
     "registration_endpoint": "https://{yourOktaDomain}/oauth2/v1/clients",
-    "jwks_uri": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys",
+    "jwks_uri": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/keys",
     "response_types_supported": [
         "code",
         "token",
@@ -991,7 +991,7 @@ curl -X GET \
     "code_challenge_methods_supported": [
         "S256"
     ],
-    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/introspect",
+    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -999,7 +999,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/revoke",
+    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -1007,7 +1007,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/logout",
+    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1323,7 +1323,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
 {
   "ver": 1,
   "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
   "aud": "https://api.example.com",
   "sub": "00ujmkLgagxeRrAg20g3",
   "iat": 1467145094,
