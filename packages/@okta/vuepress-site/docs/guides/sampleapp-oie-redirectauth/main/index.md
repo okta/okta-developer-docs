@@ -192,9 +192,9 @@ In addition to recovering your password with an email, you can add Okta Verify a
 
 ## Progressive Profiling
 
-> **Note:** To use Progressive Profiling, you must disable the `SELF_SERVICE_REGISTRATION` feature flag in your org. Contact [Support](https://support.okta.com/help/s/opencase) if you need help with that.
+> **Note:** To use Progressive Profiling, you must disable the Self-Service Registration feature. Contact [Support](https://support.okta.com/help/s/opencase) for help.
 
-Okta now gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
+Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
 
 When we enrolled our test user, the user was only prompted for first and last name, as well as their email and a password. Now add an additional required property to the Profile Enrollment Policy.
 
