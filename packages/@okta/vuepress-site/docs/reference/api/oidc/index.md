@@ -392,8 +392,8 @@ curl -v -X POST \
   "user_code": "RGTCFDTL",
   "device_code": "5cbeb234-7e00-4ff7-9aa2-b1a4558a75d2",
   "interval": 5,
-  "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=RGTCFDTL",
-  "verification_uri": "https://${yourOktaDomain}/activate",
+  "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=RGTCFDTL",
+  "verification_uri": "https://{yourOktaDomain}/activate",
   "expires_in": 600
 }
 ```
@@ -576,8 +576,8 @@ Based on the type of token and whether it is active, the returned JSON contains 
     "exp" : 1451606400,
     "iat" : 1451602800,
     "sub" : "john.doe@example.com",
-    "aud" : "https://${yourOktaDomain}",
-    "iss" : "https://${yourOktaDomain}/oauth2/orsmsg0aWLdnF3spV0g3",
+    "aud" : "https://{yourOktaDomain}",
+    "iss" : "https://{yourOktaDomain}/oauth2/orsmsg0aWLdnF3spV0g3",
     "jti" : "AT.7P4KlczBYVcWLkxduEuKeZfeiNYkZIC9uGJ28Cc-YaI",
     "uid" : "00uid4BxXw6I6TV4m0g3"
 }
@@ -931,11 +931,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
-    "authorization_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize",
-    "token_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/token",
-    "registration_endpoint": "https://${yourOktaDomain}/oauth2/v1/clients",
-    "jwks_uri": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys",
+    "issuer": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
+    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize",
+    "token_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/token",
+    "registration_endpoint": "https://{yourOktaDomain}/oauth2/v1/clients",
+    "jwks_uri": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys",
     "response_types_supported": [
         "code",
         "token",
@@ -991,7 +991,7 @@ curl -X GET \
     "code_challenge_methods_supported": [
         "S256"
     ],
-    "introspection_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/introspect",
+    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -999,7 +999,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/revoke",
+    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -1007,7 +1007,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/logout",
+    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1088,11 +1088,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://${yourOktaDomain}",
-    "authorization_endpoint": "https://${baseUrl}/authorize",
-    "token_endpoint": "https://${baseUrl}/token",
-    "userinfo_endpoint": "https://${baseUrl}/userinfo",
-    "registration_endpoint": "https://${baseUrl}/clients",
+    "issuer": "https://{yourOktaDomain}",
+    "authorization_endpoint": "https://{baseUrl}/authorize",
+    "token_endpoint": "https://{baseUrl}/token",
+    "userinfo_endpoint": "https://{baseUrl}/userinfo",
+    "registration_endpoint": "https://{baseUrl}/clients",
     "jwks_uri": "https://${baseUrl}/keys",
     "response_types_supported": [
         "code",
@@ -1323,7 +1323,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
 {
   "ver": 1,
   "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/${authorizationServerId}",
   "aud": "https://api.example.com",
   "sub": "00ujmkLgagxeRrAg20g3",
   "iat": 1467145094,
@@ -1452,7 +1452,7 @@ The ID token consists of three period-separated, Base64 URL-encoded JSON segment
 {
   "ver": 1,
   "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
   "exp": 1449627626,

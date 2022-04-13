@@ -609,8 +609,8 @@ Content-Type: application/json
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -622,7 +622,7 @@ Content-Type: application/json
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -631,7 +631,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -640,7 +640,7 @@ Content-Type: application/json
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -649,7 +649,7 @@ Content-Type: application/json
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
@@ -766,7 +766,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -897,7 +897,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -1018,7 +1018,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -1190,8 +1190,8 @@ curl -v -X GET \
 
 ```http
 HTTP/1.1 200 OK
-Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
-  <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ADUserActivation&limit=10>; rel="next"
+Link: <http://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
+  <http://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ADUserActivation&limit=10>; rel="next"
 ```
 
 ```json
@@ -1207,7 +1207,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
             },
             "defaultContent": {
                 "hints": {
@@ -1215,7 +1215,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
             },
             "self": {
                 "hints": {
@@ -1223,7 +1223,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1231,7 +1231,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         }
     },
@@ -1296,7 +1296,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
         },
         "defaultContent": {
             "hints": {
@@ -1304,7 +1304,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1312,7 +1312,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1320,7 +1320,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1384,7 +1384,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "self": {
             "hints": {
@@ -1392,7 +1392,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "template": {
             "hints": {
@@ -1400,7 +1400,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1464,7 +1464,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1472,7 +1472,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "template": {
             "hints": {
@@ -1480,7 +1480,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1575,8 +1575,8 @@ curl -v -X GET \
 
 ```http
 HTTP/1.1 200 OK
-Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?limit=10>; rel="self",
-  <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
+Link: <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?limit=10>; rel="self",
+  <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
 ```
 
 ```json
@@ -1596,7 +1596,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4/preview"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4/preview"
             },
             "self": {
                 "hints": {
@@ -1606,7 +1606,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4"
             },
             "template": {
                 "hints": {
@@ -1614,7 +1614,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1622,7 +1622,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         },
     },
@@ -1705,7 +1705,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1715,7 +1715,7 @@ HTTP/1.1 201 Created
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1723,7 +1723,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1731,7 +1731,7 @@ HTTP/1.1 201 Created
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1832,7 +1832,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1842,7 +1842,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1850,7 +1850,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1858,7 +1858,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1942,7 +1942,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "self": {
             "hints": {
@@ -1952,7 +1952,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4"
         },
         "template": {
             "hints": {
@@ -1960,7 +1960,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1968,7 +1968,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -2069,7 +2069,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "template": {
             "hints": {
@@ -2077,7 +2077,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -2085,7 +2085,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -2150,7 +2150,7 @@ The Brand Response object defines the following properties:
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -2158,7 +2158,7 @@ The Brand Response object defines the following properties:
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -2276,8 +2276,8 @@ The Theme Response object defines the following properties:
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -2289,7 +2289,7 @@ The Theme Response object defines the following properties:
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -2298,7 +2298,7 @@ The Theme Response object defines the following properties:
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -2307,7 +2307,7 @@ The Theme Response object defines the following properties:
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -2316,7 +2316,7 @@ The Theme Response object defines the following properties:
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
@@ -2340,7 +2340,7 @@ The Image Upload Response object defines the following properties:
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
+  "url": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
 }
 ```
 
