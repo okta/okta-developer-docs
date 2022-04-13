@@ -47,7 +47,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 ## Edit the error page
 
-The HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page allows you to modify any HTML, CSS, and JavaScript on the error page.
+The HTML editor that is provided on the **Error pages code editor** section of **Customizations** allows you to modify any HTML, CSS, and JavaScript on the error page.
 
 1. In the Admin Console, select **Customizations** and then **Error pages code editor**.
 1. Make changes directly in the embedded **Error Pages** editor.
