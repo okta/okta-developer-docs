@@ -61,7 +61,7 @@ Content-Type: application/json
     "removePoweredByOkta": false,
     "_links": {
       "themes": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
         "hints": {
           "allow": [
             "GET"
@@ -69,7 +69,7 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
         "hints": {
           "allow": [
             "GET",
@@ -128,7 +128,7 @@ Content-Type: application/json
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -136,7 +136,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -205,7 +205,7 @@ Content-Type: application/json
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -213,7 +213,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -254,7 +254,7 @@ Content-Type: application/json
   "removePoweredByOkta": true,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -262,7 +262,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -403,8 +403,8 @@ Content-Type: application/json
 [
   {
     "id": "thdul904tTZ6kWVhP0g3",
-    "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-    "favicon": "https://${yourOktaDomain}/favicon.ico",
+    "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+    "favicon": "https://{yourOktaDomain}/favicon.ico",
     "backgroundImage": null,
     "primaryColorHex": "#1662dd",
     "primaryColorContrastHex": "#000000",
@@ -416,7 +416,7 @@ Content-Type: application/json
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
     "_links": {
       "favicon": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
         "hints": {
           "allow": [
             "POST",
@@ -425,7 +425,7 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
         "hints": {
           "allow": [
             "GET",
@@ -434,7 +434,7 @@ Content-Type: application/json
         }
       },
       "logo": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
         "hints": {
           "allow": [
             "POST",
@@ -443,7 +443,7 @@ Content-Type: application/json
         }
       },
       "background-image": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
         "hints": {
           "allow": [
             "POST",
@@ -500,8 +500,8 @@ Content-Type: application/json
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -513,7 +513,7 @@ Content-Type: application/json
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -522,7 +522,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -531,7 +531,7 @@ Content-Type: application/json
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -540,7 +540,7 @@ Content-Type: application/json
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
