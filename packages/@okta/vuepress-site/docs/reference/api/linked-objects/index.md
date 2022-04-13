@@ -21,7 +21,7 @@ For each relationship:
 
 For details, see the [Linked Object object](#linked-object-object).
 
-The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+Okta Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 > **Note:** The Linked Objects feature isn't available for OpenID Connect claims.
 
