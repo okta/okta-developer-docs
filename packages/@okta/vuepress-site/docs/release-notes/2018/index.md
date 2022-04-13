@@ -1018,7 +1018,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Change to App Variable Name Incrementing
 
-When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of the Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
+When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
 
 #### Token Management API Is in Early Access (EA)
 

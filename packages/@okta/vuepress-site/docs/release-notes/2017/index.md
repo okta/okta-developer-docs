@@ -561,7 +561,7 @@ This allows you to use one `client_id` for an application that needs to make use
 OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use the Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
+You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -1419,7 +1419,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 #### Okta Expression Language Function for Filtering Groups
 
-Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
+Use Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
 For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 
