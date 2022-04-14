@@ -1136,13 +1136,13 @@ The first three parameters in the table below correspond to different ways to li
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Prefer this option for optimal performance         | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. Okta recommends preferring search; see above                  | Query        | String     | FALSE    |
-| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties (but prefer search; see above)                       | Query        | String     | FALSE    |
-| limit       | Specifies the number of results returned (maximum 200)                           | Query        | Number     | FALSE    |
-| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
-| sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
-| sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
+| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of users.                                                                                     | Query        | String     | FALSE    |
+| sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
