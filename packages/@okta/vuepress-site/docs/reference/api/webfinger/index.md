@@ -51,12 +51,12 @@ In this example, there is a rule configured that has a user identifier condition
     "links": [
         {
             "rel": "okta:idp",
-            "href": "https://${yourOktaDomain}/sso/idps/0oas562BigqDJl70T0g3",
+            "href": "https://{yourOktaDomain}/sso/idps/0oas562BigqDJl70T0g3",
             "titles": {
                 "und": "MySamlIdp"
             },
             "properties": {
-                "okta:idp:metadata": "https://${yourOktaDomain}/api/v1/idps/0oas562BigqDJl70T0g3/metadata.xml",
+                "okta:idp:metadata": "https://{yourOktaDomain}/api/v1/idps/0oas562BigqDJl70T0g3/metadata.xml",
                 "okta:idp:type": "SAML2",
                 "okta:idp:id": "0oas562BigqDJl70T0g3"
             }
@@ -88,7 +88,7 @@ In this example, there is already a rule configured that has a user identifier c
     "links": [
         {
             "rel": "https://openid.net/specs/connect/1.0/issuer",
-            "href": "https://${yourOktaDomain}/sso/idps/OKTA",
+            "href": "https://{yourOktaDomain}/sso/idps/OKTA",
             "titles": {
                 "und": "{subdomain}"
             },
