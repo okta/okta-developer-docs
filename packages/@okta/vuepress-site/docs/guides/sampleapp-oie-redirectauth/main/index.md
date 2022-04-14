@@ -107,7 +107,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
-5. Set up the Email and Password factors. Don't set up any other factors.
+5. Set up the Email and Password authenticators. Don't set up any other authenticators.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
@@ -137,7 +137,7 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 <StackSnippet snippet="tryenrollin" />
 
-3. Enter the credentials of the user that you enrolled earlier. The Set up security methods page appears, which prompts you to set up either the Okta Verify app or the Phone authenticator.
+3. Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the Phone authenticator.
 4. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information and verify your phone with a code.
 6. Under **Set up optional**, click **Set up later**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
