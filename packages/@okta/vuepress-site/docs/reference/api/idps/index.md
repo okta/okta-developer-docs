@@ -4700,7 +4700,7 @@ All Identity Providers have the following properties:
 
   After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
 
-* The `protocol` and `policy` properties are dependent on the specific `type` of IdP used.
+* The [Protocol objects](#protocol-object) (`protocol`) and [Policy objects](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
 ### Identity Provider type
 
@@ -4709,29 +4709,34 @@ Okta supports the following enterprise and social Identity Provider types:
 
 | Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
 | ------------ | ------------ | ---------------------- | ----------------------------- |
-| `amazon`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `AMAZON`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
 | `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `DISCORD`     | [Discord](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
 | `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
-| `github`     | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITHUB`     | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITLAB`     | [GitLab](xxx) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
 | `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) | |
 | `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) | |
 | `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) | |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | |
+| `PAYPAL`     | [Paypal](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `PAYPAL_SANDBOX`     | [Paypal Sandbox](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `SALESFORCE`     | [SalesForce](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
-| `spotify`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
-| `xero`      | [Xero](https://www.xero.com/us/signup/api/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
-| `yahoo`      | [Yahoo](https://login.yahoo.com/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
-| `yahoojp`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `XERO`      | [Xero](https://www.xero.com/us/signup/api/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOO`      | [Yahoo](https://login.yahoo.com/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 
 ### Protocol object
 
 The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages. The following are the supported Protocol objects:
 
-* [Mutual TLS](#mtls-protocol)
+* [SAML 2.0](#saml-2-0-protocol)
 * [OAuth 2.0](#oauth-2-0-protocol)
 * [OpenID Connect](#openid-connect-protocol)
-* [SAML 2.0](#saml-2-0-protocol)
+* [Mutual TLS](#mtls-protocol)
 
 #### SAML 2.0 Protocol
 
@@ -5098,7 +5103,7 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code flo
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
-> **Note:** The [OAuth 2.0 Setup Guide](#setup-guides) lists the scopes that are supported [per-IdP provider](#identity-provider-type).
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider.
 
 ```json
 {
@@ -5140,7 +5145,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
-> **Note:** The [IdP setup guides](#setup-guides) list the scopes that are supported [per-IdP provider](#identity-provider-type). The base `openid` scope is always required.
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider. The base `openid` scope is always required.
 
 ```json
 {
@@ -5186,6 +5191,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
   }
 }
 ```
+
 ##### OIDC Algorithms object
 
 <ApiLifecycle access="ea" />
@@ -5380,8 +5386,8 @@ The information is used to generate the secret JSON Web Token for the token requ
   }
 }
 ```
-> **Note:** The key is truncated for brevity.
 
+> **Note:** The key is truncated for brevity.
 
 #### MTLS Protocol
 
@@ -5427,20 +5433,6 @@ The Single Sign-On (SSO) endpoint is the IdP's `SingleSignOnService` endpoint:
 | ----------- | ---------------------------------------------------------------------------------- | -------------------------------- | -------- | -------- | --------- | --------- | ----------------------------------------------- |
 | url         | URL of binding-specific endpoint     | String                           | FALSE    | TRUE    | 11        | 1014      | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
 
-Property Details
-
-```json
-{
-  "protocol": {
-    "type": "MTLS",
-    "endpoints": {
-      "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert"
-      }
-    }
-  }
-}
-```
 ###### MTLS Credentials Object
 
 Certificate chain description for verifying assertions from the Smart Card.
