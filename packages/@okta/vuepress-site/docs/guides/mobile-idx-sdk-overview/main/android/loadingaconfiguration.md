@@ -8,7 +8,7 @@ First, create a property file, for example, `okta.properties` in the project roo
 ```
 issuer={yourIssuerUrl}
 clientId={yourClientId}
-scopes="openid email profile offline_access"
+scopes="openid","email","profile","offline_access"
 redirectUri=com.okta.sample.android:/login
 ```
 
@@ -20,7 +20,7 @@ defaultConfig {
 
     buildConfigField "String", 'ISSUER', "\"${oktaProperties.getProperty('issuer')}\""
     buildConfigField "String", 'CLIENT_ID', "\"${oktaProperties.getProperty('clientId')}\""
-    buildConfigField "String", 'SCOPES', "\"${oktaProperties.getProperty('scopes')}\""
+    buildConfigField "String[]", 'SCOPES', "{${oktaProperties.getProperty('scopes')}}"
     buildConfigField "String", 'REDIRECT_URI', "\"${oktaProperties.getProperty('redirectUri')}\""
 
     ...
@@ -42,7 +42,7 @@ internal object OktaIdxClientConfigurationProvider {
         return IdxClientConfiguration(
             issuer = BuildConfig.ISSUER.toHttpUrl(),
             clientId = BuildConfig.CLIENT_ID,
-            scopes = setOf(BuildConfig.SCOPES.split(" ").toTypedArray()),
+            scopes = BuildConfig.SCOPES.toSet(),,
             redirectUri = BuildConfig.REDIRECT_URI,
         )
     }
