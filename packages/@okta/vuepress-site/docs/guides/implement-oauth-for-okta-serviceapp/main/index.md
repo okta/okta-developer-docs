@@ -53,11 +53,36 @@ Create an OAuth 2.0 service app integration.
 
 4. Enter a name for your app integration and click **Save**.
 
+## Generate the JWK using the Okta apps API
+
+The Okta apps API provides functionality to manage JWKs, including generating new ones:
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks" />
+
+Request example:
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
+```
+
+A successful request returns a generated JWK. See [Add new JSON Web Key](/docs/reference/api/apps/#add-new-json-web-key).
+
 ## Generate the JWK in the Admin Console
 
 <ApiLifecycle access="ea" />
 
-Generate a public/private key pair using the Admin Console.
+Generate a public/private key pair using the Admin Console. Since this is an Early Access feature, contact [Support](mailto:support@okta.com) to have it enabled for your org.
 
 > **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
