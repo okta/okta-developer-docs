@@ -177,6 +177,8 @@ Try out the email password recovery flow:
 
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
 
+<!-- Needs a link to verify setup as recovery option -->
+
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
 3. In the **Add Rule** section at the bottom of the page, click the pencil icon for the Default Rule.
