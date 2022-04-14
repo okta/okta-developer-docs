@@ -285,8 +285,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
+<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
 ```
 
 Response body:
@@ -418,8 +418,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
+<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
 ```
 
 Response body:

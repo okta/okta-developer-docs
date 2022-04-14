@@ -47,12 +47,10 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 ## Edit the error page
 
-The HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page allows you to modify any HTML, CSS, and JavaScript on the error page.
+The HTML editor that is provided on the **Error pages code editor** section of **Customizations** allows you to modify any HTML, CSS, and JavaScript on the error page.
 
-1. In the Admin Console, select **Settings** and then **Customizations**.
-1. Click the **Custom Error Pages** tab.
-> **Note**: In Okta Identity Engine, select **Customizations** and then **Error pages code editor** to find the error pages editor.
-1. Make changes directly in the embedded **Custom Error Pages** editor.
+1. In the Admin Console, select **Customizations** and then **Error pages code editor**.
+1. Make changes directly in the embedded **Error Pages** editor.
 1. Click **Preview** to preview your changes before you publish.
 1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
 1. Click **Save and Publish** to commit your changes.

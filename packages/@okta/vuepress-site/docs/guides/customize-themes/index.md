@@ -139,7 +139,7 @@ A successful response results in a JSON object that contains the `url` of the up
 
 ``` json
 {
-  "url": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
+  "url": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
 }
 ```
 
