@@ -4694,33 +4694,28 @@ All Identity Providers have the following properties:
 
 ### Identity Provider type
 
+The `type` property represents the social or enterprise Identity Provider. Identity Providers use different protocols, therefore the `protocol` property must correspond with the IdP `type`.
 Okta supports the following enterprise and social providers:
 
-| Type         | Description                                                                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `APPLE`      | [Apple Sign In](https://developer.apple.com/documentation/sign_in_with_apple)                                                                       |
-| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/)                                                                       |
-| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)                                                  |
-| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)                                                                     |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)                                |
-| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)                                                    |
-| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) |
-| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280)                                |
+| Type         | Description  | Protocol |
+| ------------ | ------------ | -------- |
+| `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) |
+| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) as the Identity Provider|
+| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) |
+| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) |
+| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) |
+| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  |
+| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) |
 
 ### Protocol object
 
-The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages.
+The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages. The following are the supported Protocol objects:
 
-| Provider     | Protocol                                   |
-| ------------ | -----------------------------------------  |
-| `APPLE`      | [OpenID Connect](#openid-connect-protocol) |
-| `FACEBOOK`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `GOOGLE`     | [OpenID Connect](#openid-connect-protocol) |
-| `LINKEDIN`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `MICROSOFT`  | [OpenID Connect](#openid-connect-protocol) |
-| `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
-| `SAML2`      | [SAML 2.0](#saml-2-0-protocol)              |
-| `MTLS`  | [Mutual TLS](#mtls-protocol) |
+* [Mutual TLS](#mtls-protocol)
+* [OAuth 2.0](#oauth-2-0-protocol)
+* [OpenID Connect](#openid-connect-protocol)
+* [SAML 2.0](#saml-2-0-protocol)
 
 #### SAML 2.0 Protocol
 
