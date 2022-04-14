@@ -1146,7 +1146,7 @@ The first three parameters in the table below correspond to different ways to li
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-  * Okta strongly advises that where possible, you prefer the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta advises reformatting the request to use `search`.
+  * Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1177,7 +1177,7 @@ This operation:
   > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
 * Searches many properties:
   - Any user profile property, including custom-defined properties
-  - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
+  - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
   - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
 * Accepts `sortBy` and `sortOrder` parameters.
   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
@@ -1336,7 +1336,7 @@ curl -v -X GET \
 
 #### List Users with a filter
 
-Lists all users that match the filter criteria.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
+Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 This operation:
 
@@ -1501,7 +1501,7 @@ This operation:
 
  * Doesn't support pagination.
  * May not deliver optimal performance for large organizations, and is deprecated for such use cases.  Okta recommends using a [search parameter](#list-users-with-search) instead.
- * Performs a startsWith match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
+ * Performs a `startsWith` match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
 
 ##### Request example
 
