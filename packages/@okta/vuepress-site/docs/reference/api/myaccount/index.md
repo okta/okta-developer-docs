@@ -201,23 +201,15 @@ curl -v -X GET \
 ```json
 {
     "_links": {
-      "describedBy": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
+        "describedBy": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+        },
+        "user": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount"
         }
-      },
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile",
-        "hints": {
-          "allow": [
-            "GET",
-            "PUT"
-          ]
-        }
-      }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
     "modifiedAt": "2020-10-13T03:17:09.000Z",
@@ -283,23 +275,15 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 ```json
 {
     "_links": {
-      "describedBy": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
+        "describedBy": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+        },
+        "user": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount"
         }
-      },
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile",
-        "hints": {
-          "allow": [
-            "GET",
-            "PUT"
-          ]
-        }
-      }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
     "modifiedAt": "2020-11-03T06:01:13.000Z",
@@ -366,14 +350,12 @@ The User Profile Schema object has several properties:
 ```json
 {
     "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+        },
+        "user": {
+            "href": "https://${yourOktaDomain}/api/v1/myaccount"
         }
-      }
     },
     "properties": {
         "customBoolean": {
