@@ -158,10 +158,10 @@ curl --location --request GET 'https://${yourOktaDomain}/api/v1/groups' \
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/users"
         },
         "apps": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/apps"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/apps"
         }
     }
 }
@@ -305,7 +305,7 @@ The decoded JWT looks something like this:
 {
   "sub": "00uixa271s6x7qt8I0h7",
   "ver": 1,
-  "iss": "${yourOktaDomain}",
+  "iss": "{yourOktaDomain}",
   "aud": "0oaoesxtxmPf08QHk0h7",
   "iat": 1574117011,
   "exp": 1574120611,
@@ -375,8 +375,8 @@ The decoded JWT looks something like this:
 {
   "ver": 1,
   "jti": "AT.wYGuabpyb15nr9fmvb5SQGezLYYlMfvRWvUpI8mqoOY",
-  "iss": "https://${yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
-  "aud": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
+  "aud": "https://{yourOktaDomain}",
   "iat": 1574286687,
   "exp": 1574290287,
   "cid": "0oaoesxtxmPf08QHk0h7",

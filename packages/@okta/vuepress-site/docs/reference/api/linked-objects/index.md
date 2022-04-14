@@ -21,7 +21,7 @@ For each relationship:
 
 For details, see the [Linked Object object](#linked-object-object).
 
-The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+Okta Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 > **Note:** The Linked Objects feature isn't available for OpenID Connect claims.
 
@@ -132,7 +132,7 @@ HTTP/1.1 201 Created
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
@@ -190,7 +190,7 @@ HTTP/1.1 200 OK
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
@@ -246,7 +246,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
             }
         }
     },
@@ -265,7 +265,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
             }
         }
     }
@@ -402,7 +402,7 @@ curl -v -X GET \
     {
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
             }
         }
     }
@@ -449,7 +449,7 @@ curl -v -X GET \
     {
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5zex6ztMbOZhF50h7"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5zex6ztMbOZhF50h7"
             }
         }
     }
@@ -521,7 +521,7 @@ The following object contains example values for each attribute.
     },
     "_links": {
           "self": {
-               "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+               "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
           }
     }
 }

@@ -150,7 +150,7 @@ Here's what is returned from `getRequestContext()`:
     "issuer": {
       "name": "default",
       "id": "ausblkmh242Vtu5430h2",
-      "uri": "https://${yourOktaDomain}/oauth2/default"
+      "uri": "https://{yourOktaDomain}/oauth2/default"
     }
   }
 }
@@ -193,8 +193,6 @@ Example:
 ## Style the self-hosted Sign-In Widget
 
 This section discusses the customization options that you have when you are self-hosting the Sign-In Widget.
-
-> **Note:** You can try all of these customizations yourself using our [Live Widget](https://developer.okta.com/live-widget/).
 
 ### Initial sign-in page
 
@@ -358,10 +356,6 @@ Position:
 For a more in-depth look at styling the widget, you can watch this video:
 
 <iframe width="100%" class="video-tutorial" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Live Widget
-
-You can also play with the Sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ### Modify strings
 

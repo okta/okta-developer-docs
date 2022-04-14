@@ -62,7 +62,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -215,7 +215,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -403,7 +403,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -557,7 +557,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -686,7 +686,7 @@ curl -v -X GET \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -785,7 +785,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -894,7 +894,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -998,7 +998,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -1082,7 +1082,7 @@ curl -v -X GET \
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1164,7 +1164,7 @@ curl -v -X GET \
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-19T08:51:57.000Z",
   "name": "group",
   "properties": {
@@ -1246,7 +1246,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1286,7 +1286,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1369,7 +1369,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1409,7 +1409,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1479,7 +1479,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1519,7 +1519,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1897,7 +1897,7 @@ The [User object](/docs/reference/api/users/#user-object) schema is defined usin
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -2255,7 +2255,7 @@ The [App User object](/docs/reference/api/apps/#application-user-object) Schema 
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -2494,7 +2494,7 @@ The [Group object](/docs/reference/api/groups/#group-object) schema is defined u
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "example group",
   "title": "Okta group example",
@@ -2591,7 +2591,7 @@ The [Group object](/docs/reference/api/groups/#group-object) schema is defined u
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -2874,7 +2874,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -3054,7 +3054,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -3232,7 +3232,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
