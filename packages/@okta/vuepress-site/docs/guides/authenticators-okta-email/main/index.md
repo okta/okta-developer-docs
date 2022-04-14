@@ -164,7 +164,7 @@ The following step-by-step instructions detail integrating the email challenge i
 
 ## Integrate different browser and device scenario with magic links
 
-The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logiintegratediffbrowserdevicesummaryc.
+The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
 
 <div class="common-image-format">
 
@@ -172,7 +172,7 @@ The Email Magic Links feature is designed with security in mind and only works w
 
 </div>
 
-The following instructions detail integrating the different browser scenario using the email challenge.
+The following step-by-step instructions detail integrating the different browser scenario using the email challenge.
 
 </br>
 
