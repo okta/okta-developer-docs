@@ -15,20 +15,17 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 ## Identity Provider operations
 
+- [Add an Identity Provider](#add-identity-provider)
+- [Get an Identity Provider](#get-identity-provider)
+- [List Identity Providers](#list-identity-providers)
+- [Update an Identity Provider](#update-identity-provider)
+- [Delete an Identity Provider](#delete-identity-provider)
+
 ### Add Identity Provider
 
 <ApiOperation method="post" url="/api/v1/idps" />
 
 Adds a new IdP to your organization
-
-- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
-- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
-- [Add Apple Identity Provider](#add-apple-identity-provider)
-- [Add Facebook Identity Provider](#add-facebook-identity-provider)
-- [Add Google Identity Provider](#add-google-identity-provider)
-- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
-- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
-- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
 
 ##### Request parameters
 
@@ -39,6 +36,17 @@ Adds a new IdP to your organization
 ##### Response parameters
 
 The created [Identity Provider](#identity-provider-object)
+
+##### Request examples
+
+- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
+- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
+- [Add Apple Identity Provider](#add-apple-identity-provider)
+- [Add Facebook Identity Provider](#add-facebook-identity-provider)
+- [Add Google Identity Provider](#add-google-identity-provider)
+- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
+- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
+- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
 
 #### Add Generic OpenID Connect Identity Provider
 
@@ -4692,21 +4700,29 @@ All Identity Providers have the following properties:
 
   After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
 
+* The `protocol` and `policy` properties are dependent on the specific `type` of IdP used.
+
 ### Identity Provider type
 
-The `type` property represents the social or enterprise Identity Provider. Identity Providers use different protocols, therefore the `protocol` property must correspond with the IdP `type`.
-Okta supports the following enterprise and social providers:
+The Identity Provider object's `type` property indicates the social or enterprise Identity Provider. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`.
+Okta supports the following enterprise and social Identity Provider types:
 
-| Type         | Description  | Protocol |
-| ------------ | ------------ | -------- |
-| `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) |
-| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) as the Identity Provider|
-| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) |
-| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) |
-| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) |
-| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  |
-| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) |
+| Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
+| ------------ | ------------ | ---------------------- | ----------------------------- |
+| `amazon`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
+| `github`     | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) | |
+| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) | |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) | |
+| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | |
+| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
+| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
+| `spotify`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `xero`      | [Xero](https://www.xero.com/us/signup/api/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `yahoo`      | [Yahoo](https://login.yahoo.com/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `yahoojp`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 
 ### Protocol object
 
