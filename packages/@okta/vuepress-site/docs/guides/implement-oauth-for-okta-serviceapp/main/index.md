@@ -66,7 +66,7 @@ The private key that you use to sign the JWT must have the corresponding public 
     * Algorithm: RSA256
     * Key ID: This can be any random value.
 
-> **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own [internal instance](https://github.com/mitreid-connect/mkjwk.org) of the key pair generator.
+> **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
 2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
 
@@ -191,7 +191,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
-* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#create-a-service-app-and-grant-scopes). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
+* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to
 * `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti`: (Optional) The token's unique identifier. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
@@ -217,7 +217,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     }
     ```
 
-2. In the **Signing Key** box, paste the public and private key that you generated in the [Create a public/private key pair](#create-a-public-private-key-pair) step.
+2. In the **Signing Key** box, paste the public and private key that you generated in the [Generate the JWK using the Admin Console](#generate-the-jwk-using-the-admin-console) step.
 
 3. For the key format, use either the default of **JWT** or switch to **PEM**, and then click **Generate JWT**.
 
