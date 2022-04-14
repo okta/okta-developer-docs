@@ -4,6 +4,8 @@ excerpt: Learn how to easily implement a Telephony Inline hook
 layout: Guides
 ---
 
+<ApiLifecycle access="ie" /><br>
+
 This guide provides a working example of an Okta Telephony Inline Hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the telephony provider that receives and responds to SMS and Voice Inline Hook calls.
 
 ---

@@ -103,12 +103,12 @@ Note that using `filter` with a value of `published gt "2017-10-01T00:00:00.000Z
 
 return the same results. Since `filter` and `startDate` are [mutually exclusive](#request-parameters), `filter` must be used to simultaneously specify both time and additional filter criteria.
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of [Events](#event-object)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -119,14 +119,14 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/events?startDate=2013-07-15T16%3A00%3A00.000Z&limit=3"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/events?startDate=2017-09-15T16%3A00%3A00.000Z&limit=3>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/events?after=tevZxTo4IyHR9yUHIFdU0-f0w1373905100000&limit=3>; rel="next"
+Link: <https://{yourOktaDomain}/api/v1/events?startDate=2017-09-15T16%3A00%3A00.000Z&limit=3>; rel="self"
+Link: <https://{yourOktaDomain}/api/v1/events?after=tevZxTo4IyHR9yUHIFdU0-f0w1373905100000&limit=3>; rel="next"
 
 [
     {
@@ -298,7 +298,7 @@ The Event object is read only, with a fixed set of attributes:
 | _links      | discoverable resources related to the event                             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
 | _embedded   | embedded resources related to the event                                 | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
 
-Property Details
+Property details
 
 * The actor and/or target of an event is dependent on the action performed. Not all events have an actor or target.
 * The `sessionId` can identify multiple requests.  A single `requestId` can identify multiple events.  Use the `sessionId` to link events and requests that occurred in the same session.
@@ -327,7 +327,7 @@ Actions that do not define any categories will have a zero element array value.
 }
 ```
 
-#### Action Categories
+#### Action categories
 
 Categories for an action:
 
@@ -351,7 +351,7 @@ Categories for an action:
 
 The action `objectType` identifies the unique action performed.
 
-##### Application Authentication
+##### Application authentication
 
 | ObjectType                    | Description                                             |
 | :---------------------------- | :------------------------------------------------------ |

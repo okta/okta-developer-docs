@@ -63,10 +63,10 @@ curl -v -X GET \
 {
     "_links": {
         "directoryProfile": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount/directoryProfile"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
@@ -114,10 +114,10 @@ curl -v -X GET \
 {
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount/profile/schema"
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount"
         }
     },
     "properties": {
@@ -202,7 +202,7 @@ curl -v -X GET \
 {
     "_links": {
       "describedBy": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
+        "href": "https://{yourOktaDomain}/api/v1/myaccount/profile/schema",
         "hints": {
           "allow": [
             "GET"
@@ -210,7 +210,7 @@ curl -v -X GET \
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile",
+        "href": "https://{yourOktaDomain}/api/v1/myaccount/profile",
         "hints": {
           "allow": [
             "GET",
@@ -284,7 +284,7 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 {
     "_links": {
       "describedBy": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
+        "href": "https://{yourOktaDomain}/api/v1/myaccount/profile/schema",
         "hints": {
           "allow": [
             "GET"
@@ -292,7 +292,7 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile",
+        "href": "https://{yourOktaDomain}/api/v1/myaccount/profile",
         "hints": {
           "allow": [
             "GET",
@@ -338,10 +338,10 @@ The Me object has several properties:
 {
     "_links": {
         "directoryProfile": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount/directoryProfile"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
@@ -367,7 +367,7 @@ The User Profile Schema object has several properties:
 {
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema",
+        "href": "https://{yourOktaDomain}/api/v1/myaccount/profile/schema",
         "hints": {
           "allow": [
             "GET"
@@ -442,13 +442,13 @@ The User Profile object has several properties:
 {
     "_links": {
         "describedBy": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount/profile/schema"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount/directoryProfile"
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://{yourOktaDomain}/api/v1/myaccount"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",

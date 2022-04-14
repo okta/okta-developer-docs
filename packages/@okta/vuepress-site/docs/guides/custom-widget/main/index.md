@@ -150,7 +150,7 @@ Here's what is returned from `getRequestContext()`:
     "issuer": {
       "name": "default",
       "id": "ausblkmh242Vtu5430h2",
-      "uri": "https://${yourOktaDomain}/oauth2/default"
+      "uri": "https://{yourOktaDomain}/oauth2/default"
     }
   }
 }

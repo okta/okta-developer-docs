@@ -302,7 +302,7 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
