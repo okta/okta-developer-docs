@@ -71,7 +71,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 21:23:10",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -138,7 +138,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 23:18:30",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -191,7 +191,7 @@ curl -X GET \
       "lastUpdated": "2021-01-04 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -239,7 +239,7 @@ curl -X GET \
       "lastUpdated": "2021-01-05 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -258,7 +258,7 @@ curl -X GET \
       "lastUpdated": "2021-01-04 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",

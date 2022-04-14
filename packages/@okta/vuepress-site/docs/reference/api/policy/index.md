@@ -1059,7 +1059,7 @@ Specifies a particular level of risk to match on
 }
 ```
 
-#### Expression Language Condition object
+#### Okta Expression Language Condition object
 
 Use Okta Expression Language as a condition.
 See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
@@ -1069,7 +1069,7 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 | ---       | ---                      | ---       | ---      |
 | condition     | expression to match       | String     | Yes      |
 
-#### Expression Language Condition object example
+#### Okta Expression Language Condition object example
 
 ```json
 "elCondition": {
@@ -1846,7 +1846,7 @@ You can apply the following conditions to the rules associated with an authentic
 
 * [Platform Condition](#platform-condition-object)
 
-* [Expression Language Condition](#expression-language-condition-object)
+* [Okta Expression Language Condition](#okta-expression-language-condition-object)
 
 * [Risk Score Condition](#risk-score-condition-object)
 

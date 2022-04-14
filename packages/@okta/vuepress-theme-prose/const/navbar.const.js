@@ -211,6 +211,10 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-self-reg",
                   },
                   {
+                    title: "New user activation",
+                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
+                  },
+                  {
                     title: "Sign in with password and email factors",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
@@ -244,6 +248,48 @@ export const guides = [
                     guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   }
                 ]
+              },
+            ]
+          },
+          {
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Okta email",
+                guideName: "authenticators-okta-email"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "authenticators-google-authenticator"
+              },
+              {
+                title: "Web Authentication",
+                guideName: "authenticators-web-authn"
+              },
+            ]
+          },
+          {
+            title: "Advanced use cases",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "advanced-use-case-overview"
+              },
+              {
+                title: "Custom password recovery",
+                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
+              },
+              {
+                title: "Device Context",
+                guideName: "device-context"
               }
             ]
           },
@@ -366,7 +412,6 @@ export const guides = [
             ]
           },
           { title: "Sign users out", guideName: "sign-users-out" },
-          { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Basics",
             subLinks: [
@@ -653,7 +698,11 @@ export const guides = [
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget"
-          }
+          },
+          {
+            title: "Add multifactor authentication",
+            guideName: "mfa"
+          },
         ]
       }
     ]

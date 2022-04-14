@@ -163,7 +163,7 @@ The decoded JWT looks something like this:
 {
   "sub": "00uixa271s6x7qt8I0h7",
   "ver": 1,
-  "iss": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}",
   "aud": "0oaoiuhhch8VRtBnC0h7",
   "iat": 1574207471,
   "exp": 1574211071,
@@ -228,8 +228,8 @@ The decoded JWT looks something like this:
 {
   "ver": 1,
   "jti": "AT.lsZ5XmKiK4KxpKs2IDUBKMRgfMhiB2i2hTBZEM7epAk",
-  "iss": "https://${yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
-  "aud": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
+  "aud": "https://{yourOktaDomain}",
   "iat": 1574270245,
   "exp": 1574273845,
   "cid": "0oaoiuhhch8VRtBnC0h7",

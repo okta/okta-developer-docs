@@ -126,7 +126,7 @@ If the `consent_method` is set to `TRUSTED`, you need to update that parameter. 
             "client_uri": null,
             "logo_uri": null,
             "redirect_uris": [
-                "https://${yourOktaDomain}/authorization-code/callback"
+                "https://{yourOktaDomain}/authorization-code/callback"
             ],
             "response_types": [
                 "code",
@@ -137,7 +137,7 @@ If the `consent_method` is set to `TRUSTED`, you need to update that parameter. 
                 "authorization_code",
                 "implicit"
             ],
-            "initiate_login_uri": "https://${yourOktaDomain}/authorization-code/callback",
+            "initiate_login_uri": "https://{yourOktaDomain}/authorization-code/callback",
             "application_type": "web",
             "consent_method": "REQUIRED",
             "issuer_mode": "CUSTOM_URL"
@@ -181,7 +181,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    A default custom authorization endpoint looks like this where the `${authorizationServerId}` is `default`: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+    A default custom authorization endpoint looks like this where the `${authorizationServerId}` is `default`: `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following query parameters to the URL:
 
@@ -238,7 +238,7 @@ There are several ways to verify that you've successfully created a user grant:
     {
         "sub": "00uixa271s6x7qt8I0h7",
         "ver": 1,
-        "iss": "https://${yourOktaDomain}/oauth2/default",
+        "iss": "https://{yourOktaDomain}/oauth2/default",
         "aud": "0oaosna3ilNxgPTmk0h7",
         "iat": 1575931097,
         "exp": 1575934697,
@@ -260,7 +260,7 @@ There are several ways to verify that you've successfully created a user grant:
     {
         "ver": 1,
         "jti": "AT.xtjhr8FeMkyMfgLiFzVYOYPbgqWdd6ONULT3ffeK7d4",
-        "iss": "https://${yourOktaDomain}/oauth2/default",
+        "iss": "https://{yourOktaDomain}/oauth2/default",
         "aud": "api://default",
         "iat": 1575929637,
         "exp": 1575933237,
@@ -297,26 +297,26 @@ There are several ways to verify that you've successfully created a user grant:
             "type": "User"
         },
         "lastUpdated": "2019-12-09T17:36:12.000Z",
-        "issuer": "https://${yourOktaDomain}/oauth2/default",
+        "issuer": "https://{yourOktaDomain}/oauth2/default",
         "clientId": "0oaosna3ilNxgPTmk0h7",
         "userId": "00uixa271s6x7qt8I0h7",
         "scopeId": "scpixa2zmc8Eumvjb0h7",
         "source": "END_USER",
         "_links": {
             "app": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oaosna3ilNxgPTmk0h7",
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oaosna3ilNxgPTmk0h7",
                 "title": "ConsentWebApp"
             },
             "authorizationServer": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default",
                 "title": "default"
             },
             "scope": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scpixa2zmc8Eumvjb0h7",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/scopes/scpixa2zmc8Eumvjb0h7",
                 "title": "phone"
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7/grants/oaggjy8vxJwKeiMx20h6",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7/grants/oaggjy8vxJwKeiMx20h6",
                 "hints": {
                     "allow": [
                         "GET",
@@ -325,11 +325,11 @@ There are several ways to verify that you've successfully created a user grant:
                 }
             },
             "client": {
-                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oaosna3ilNxgPTmk0h7",
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oaosna3ilNxgPTmk0h7",
                 "title": "ConsentWebApp"
             },
             "user": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7",
                 "title": "Joe Smith"
                 }
              }

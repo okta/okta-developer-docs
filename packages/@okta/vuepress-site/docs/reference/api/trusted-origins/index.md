@@ -63,7 +63,7 @@ curl -X POST \
     "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -73,7 +73,7 @@ curl -X POST \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -128,13 +128,11 @@ Gets a Trusted Origin by ID
 
 #### Request parameters
 
-
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
 | `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
 #### Response parameters
-
 
 [Trusted Origin object](#trusted-origin-object)
 
@@ -149,6 +147,7 @@ curl -X GET \
 ```
 
 #### Response example
+
 ```json
     {
         "id": "tosue7JvguwJ7U6kz0g3",
@@ -169,7 +168,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -179,7 +178,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -199,7 +198,6 @@ A subset of Trusted Origins that match a supported filter expression or query cr
 
 ##### Request parameters
 
-
 - [List all Trusted Origins](#list-all-trusted-origins) (no parameters)
 - [List Trusted Origins with a filter](#list-trusted-origins-with-a-filter) (`filter`)
 
@@ -210,11 +208,9 @@ A subset of Trusted Origins that match a supported filter expression or query cr
 
 ##### Response parameters
 
-
 Array of [Trusted Origins](#trusted-origin-object)
 
 #### List all Trusted Origins
-
 
 Returns a list of all Trusted Origins
 
@@ -248,7 +244,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -258,7 +254,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -286,7 +282,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
                 "hints": {
                     "allow": [
                         "GET",
@@ -296,7 +292,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -324,7 +320,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10i0nu9m7pAlJQ0g4",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10i0nu9m7pAlJQ0g4",
                 "hints": {
                     "allow": [
                         "GET",
@@ -334,7 +330,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10i0nu9m7pAlJQ0g4/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10i0nu9m7pAlJQ0g4/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -384,7 +380,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -394,7 +390,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -422,7 +418,7 @@ curl -X GET \
         "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
                 "hints": {
                     "allow": [
                         "GET",
@@ -432,7 +428,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -531,7 +527,7 @@ curl -X PUT \
     "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -541,7 +537,7 @@ curl -X PUT \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -553,8 +549,6 @@ curl -X PUT \
 ```
 
 ### Activate Trusted Origin
-
-
 <ApiOperation method="post" url="/api/v1/trustedOrigins/${trustedOriginId}/lifecycle/activate" />
 
 Activates an existing Trusted Origin
@@ -600,7 +594,7 @@ curl -X POST \
     "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -610,7 +604,7 @@ curl -X POST \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -668,7 +662,7 @@ curl -X POST \
     "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -676,7 +670,7 @@ curl -X POST \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -690,7 +684,6 @@ curl -X POST \
 ```
 
 ### Delete Trusted Origin
-
 
 <ApiOperation method="delete" url="/api/v1/trustedOrigins/${trustedOriginId}" />
 
@@ -746,6 +739,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 | type        | The Scope type, which can be either "CORS" or "REDIRECT"                  | String                            | Yes      |
 
 #### Scope object example (CORS)
+
 ```json
 {
     "type": "CORS"
@@ -753,6 +747,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 ```
 
 #### Scope object example (redirect)
+
 ```json
 {
     "type": "REDIRECT"
@@ -760,6 +755,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 ```
 
 ### Trusted Origin example
+
 ```json
 {
     "id": "tosue7JvguwJ7U6kz0g3",
@@ -780,7 +776,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
     "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -790,7 +786,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"

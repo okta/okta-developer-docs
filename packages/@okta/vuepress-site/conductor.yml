@@ -1362,7 +1362,13 @@ redirects:
   - from: /guides/sign-in-with-microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
-    to: /docs/guides/sign-into-mobile-app-redirect/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
+  - from: /guides/sign-into-mobile-app
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
@@ -1484,9 +1490,9 @@ redirects:
   - from: /docs/guides/sign-in-with-facebook/add-redirect-uri/index.html
     to: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
-    to:  /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
-    to:  /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/guides/sign-in-with-facebook/register-oidc-app/index.html
     to: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/
   - from: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/index.html
@@ -1812,7 +1818,7 @@ redirects:
   - from: /docs/guides/oauth-for-okta/-/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/-/use-client-credentials-grant-flow/index.html
-    to:  /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/define-allowed-scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
@@ -2351,6 +2357,10 @@ redirects:
     to: /signup/
   - from: /signup/oie-preview.html
     to: /signup/
+  - from: /docs/guides/migrate-to-oie/index.html
+    to: /docs/guides/oie-upgrade-overview/
+  - from: /docs/guides/migrate-to-oie
+    to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
     to: /docs/reference/core-okta-api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
@@ -2358,13 +2368,13 @@ redirects:
   - from: /docs/guides/oie-embedded-sdk-overview/main/index.html
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-run-sample/-/main
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-run-sample/-/main/index.html
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-overview/main
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-overview/main/index.html
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main/index.html
@@ -2839,8 +2849,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
@@ -2859,8 +2867,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
@@ -5500,34 +5506,34 @@ redirects:
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
   - from: /code/angular/okta_angular_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js
-    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/
-  - from:  /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
+  - from: /code/javascript/okta_sign-in_widget/index.html
     to: /docs/guides/embedded-siw
-  - from:  /code/javascript/okta_sign-in_widget
+  - from: /code/javascript/okta_sign-in_widget
     to: /docs/guides/embedded-siw
   - from: /code/javascript/okta_auth_sdk/index.html
     to: /docs/guides/auth-js
   - from: /code/javascript/okta_auth_sdk
-    to:  /docs/guides/auth-js
-  - from:  /code/react/okta_react_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
-  - from:  /code/react/okta_react_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
-  - from:  /code/react/okta_react/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/react/
-  - from:  /code/react/okta_react
-    to:  /docs/guides/sign-in-to-spa-authjs/react/
-  - from:  /code/vue/okta_vue_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
-  - from:  /code/vue/okta_vue_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
-  - from:  /code/vue/okta_vue/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/vue/
-  - from:  /code/vue/okta_vue
-    to:  /docs/guides/sign-in-to-spa-authjs/vue/
+    to: /docs/guides/auth-js
+  - from: /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/

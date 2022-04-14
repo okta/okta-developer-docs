@@ -6,6 +6,20 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## April
 
+### Weekly release 2022.04.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.04.1](#bugs-fixed-in-2022-04-1) | April 6, 2022 |
+
+#### Bugs fixed in 2022.04.1
+
+* An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
+
+* Active Directory email activation templates that were translated for the Japanese, Korean, and Chinese languages didn’t render correctly. (OKTA-469764)
+
+* An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
+
 ### Monthly release 2022.04.0
 
 | Change | Expected in Preview Orgs |
@@ -24,7 +38,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Password as an optional authenticator is EA in Preview
 
