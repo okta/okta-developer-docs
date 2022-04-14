@@ -1,9 +1,9 @@
 * [JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) or later
 * [Apache Maven](https://maven.apache.org/download.cgi) 3.6.x or later
 
-To use Okta Identity Engine Java SDK, include the following dependency for Apache Maven:
+If you are using Apache Maven for your project, include the following:
 
-``` xml
+```xml
 <dependency>
     <groupId>com.okta.idx.sdk</groupId>
     <artifactId>okta-idx-java-api</artifactId>
@@ -11,4 +11,10 @@ To use Okta Identity Engine Java SDK, include the following dependency for Apach
 </dependency>
 ```
 
-where `${okta.sdk.version}` is the latest release version listed [here](https://github.com/okta/okta-idx-java#release-status).
+If you are using Gradle for your project, include the following:
+
+```shell
+compile "com.okta.idx.sdk:okta-idx-java-api:${okta.sdk.version}"
+```
+
+See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`${okta.sdk.version}`).

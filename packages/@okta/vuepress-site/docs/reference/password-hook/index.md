@@ -163,7 +163,7 @@ When the end user that you have added attempts to sign in to Okta for the first 
 
 ## Password Inline Hook and Okta service mode
 
-Normally, if your external service responds to Okta indicating that the credentials are valid, Okta saves the password and can authenticate the user independently from then on. However, if your Okta org is in a special [service mode](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_service_op_mode) at the time the end user signs in, then saving the password might not be possible, and the next time the end user attempts to sign in, the Password Import Inline Hook needs to be called again.
+Normally, if your external service responds to Okta indicating that the credentials are valid, Okta saves the password and can authenticate the user independently from then on. However, if your Okta org is in a special [service mode](https://help.okta.com/okta_help.htm?id=ext_ref_service_op_mode) at the time the end user signs in, then saving the password might not be possible, and the next time the end user attempts to sign in, the Password Import Inline Hook needs to be called again.
 
 ## Removing Password from existing user store
 

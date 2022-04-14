@@ -1,19 +1,12 @@
 $border-color: #b7bcc0;
-$text-color: #5c6971;
 $gray-000: #fafafa;
 $small-spacing: 0.75rem;
 
 .stack-selector {
-  border: 1px solid $border-color;
   border-radius: 3px;
   .selector-control {
     display: flex;
-    padding: $small-spacing;
-    background: $gray-000;
-    border-bottom: 1px solid $border-color;
-    @include media('<tablet') {
-      flex-direction: column;
-    }
+    flex-direction: column;
     .framework {
       padding-left: 10px;
       overflow: hidden;
@@ -26,8 +19,19 @@ $small-spacing: 0.75rem;
     .instructions-label {
       flex: 0;
       padding: 0.65rem 0.5rem 0.5rem 0;
-      font-weight: bold;
+      font-weight: 500;
       white-space: nowrap;
+      font-size: 1rem;
+      color: #1D1D21;
+
+      @include media(">desktop-xl") {
+        margin-left: 0.8rem;
+      }
+    }
+    .select-dropdown {
+      @include media(">desktop-xl") {
+        margin-left: 0.8rem;
+      }
     }
     .icon {
       width: 24px;
@@ -54,7 +58,7 @@ $small-spacing: 0.75rem;
       white-space: nowrap;
       text-overflow: ellipsis;
       text-decoration: none;
-      color: $text-color;
+      color: cv('text');
       background: transparent;
       align-items: center;
       width: 100%;
@@ -73,33 +77,46 @@ $small-spacing: 0.75rem;
       align-items: center;
       justify-content: space-between;
       flex-wrap: nowrap;
+      border-color: cv('text','darker');
+      font-size: 14px;
       .vs__selected-options{
         flex-basis: auto;
         padding: 0;
         padding-left: 0.5rem;
-        max-width: 95%;
+        max-width: 93%;
         .vs__selected{
           margin: 0;
           padding: 0;
           border: 0;
+          max-width: 90%;
         }
+        .vs__search {
+          margin: 0;
+        }
+      }
+      .vs__actions {
+        padding: 0;
+      }
+      .vs__open-indicator {
+        fill: cv('text','darker');
       }
     }
 
     .vs__dropdown-menu {
       overflow-x: hidden;
       border-top-style: initial;
-      padding-bottom: 0px;
+      padding: 0;
       z-index: 50;
 
       .vs__dropdown-option {
         padding: 0.7rem 1rem;
-        border: 1px solid transparent;
+        border: none;
         border-bottom: 1px solid cv('gray', '100');
         width: 100%;
+        margin: 0;
 
         &:last-child {
-          border-bottom: 1px solid transparent;;
+          border-bottom: none;
         }
 
         &--highlight {
@@ -119,8 +136,7 @@ $small-spacing: 0.75rem;
   }
 
   .stack-content {
-    overflow-x: auto;
-    padding: $base-spacing;
+    padding-top: $base-spacing;
     pre {
       margin: 0;
     }

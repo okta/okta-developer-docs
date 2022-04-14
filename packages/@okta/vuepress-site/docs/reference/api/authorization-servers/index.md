@@ -13,7 +13,7 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 * [Claim operations](#claim-operations)
 * [Key Store operations](#key-store-operations)
 
-## Get Started
+## Get started
 
 Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a)
 
@@ -52,7 +52,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   "audiences": [
     "https://api.resource.com"
   ],
-  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
   "created": "2017-05-17T22:25:57.000Z",
@@ -67,7 +67,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   },
   "_links": {
     "scopes": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
       "hints": {
         "allow": [
           "GET"
@@ -75,7 +75,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "claims": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
       "hints": {
         "allow": [
           "GET"
@@ -83,7 +83,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "policies": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
       "hints": {
         "allow": [
           "GET"
@@ -91,7 +91,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "hints": {
         "allow": [
           "GET",
@@ -103,7 +103,7 @@ When you use these API endpoints to create or modify an Authorization Server res
     "metadata": [
       {
         "name": "oauth-authorization-server",
-        "href": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/oauth-authorization-server",
+        "href": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/oauth-authorization-server",
         "hints": {
           "allow": [
             "GET"
@@ -112,7 +112,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       },
       {
         "name": "openid-configuration",
-        "href": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/openid-configuration",
+        "href": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/openid-configuration",
         "hints": {
           "allow": [
             "GET"
@@ -121,7 +121,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     ],
     "rotateKey": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/credentials/lifecycle/keyRotate",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/credentials/lifecycle/keyRotate",
       "hints": {
         "allow": [
           "POST"
@@ -129,7 +129,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -149,19 +149,21 @@ When you use these API endpoints to create or modify an Authorization Server res
 | credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials object](#credentials-object)                                 | False                         |
 | description                             | The description of a Custom Authorization Server                                                                                                                    | String                                                                    | True                          |
 | issuer                                  | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.                                                                | String                                                                    | False                         |
-| issuerMode <ApiLifecycle access="ea" /> | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
+| issuerMode                              | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
 | name                                    | The name of a Custom Authorization Server                                                                                                                           | String                                                                    | True                          |
 | status                                  | Indicates whether a Custom Authorization Server is `ACTIVE` or `INACTIVE`.                                                                                          | Enum                                                                      | False                         |
 
 ##### Property details
 
-`issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
+`issuerMode` is visible if you have a custom URL domain configured or the Dynamic Issuer Mode feature enabled. If you have a custom URL domain configured, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses.
 
 * If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://${yourOktaDomain}`.
 
 * If set to `CUSTOM_URL`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
+* If set to `DYNAMIC`, then in responses, `issuer` is the custom domain URL if the OAuth 2.0 request was sent to the custom domain or is the Okta org's domain URL if the OAuth 2.0 request was sent to the original Okta org domain. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
+
+After you configure a custom URL domain, all new Custom Authorization Servers use `CUSTOM_URL` by default. If the Dynamic Issuer Mode feature is enabled, then all new Custom Authorization Servers use `DYNAMIC` by default.  All existing Custom Authorization Servers continue to use the original value until changed using the Admin Console or the API, so that existing integrations with the client and resource server continue to work after the feature is enabled.
 
 #### Create Authorization Server
 
@@ -421,7 +423,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
     "lastUpdated": "2017-06-07T15:28:17.000Z",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7",
         "hints": {
           "allow": [
             "GET",
@@ -431,7 +433,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -439,7 +441,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
         }
       },
       "rules": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/rules",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/rules",
         "hints": {
           "allow": [
             "GET"
@@ -1138,7 +1140,7 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case-sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case-sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any Group name that has at least three letters, no more than 16, and contains lowercase letters, a hyphen, or numbers.
 
-If you have complex filters for Groups, you can [create a Groups allow list](/docs/guides/customize-tokens-groups-claim/overview/) to put them all in a Claim.
+If you have complex filters for Groups, you can [create a Groups allow list](/docs/guides/customize-tokens-groups-claim/) to put them all in a Claim.
 
 ##### Details for `alwaysIncludeInToken`
 
@@ -1365,7 +1367,7 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
             "use": "sig",
             "_links": {
               "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/Vy8zLvevjtTVBAXC138BCq4HQ_vj_RzaTXtlr7ekxfY",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/Vy8zLvevjtTVBAXC138BCq4HQ_vj_RzaTXtlr7ekxfY",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1428,7 +1430,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1450,7 +1452,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1472,7 +1474,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1528,7 +1530,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1550,7 +1552,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1572,7 +1574,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1664,7 +1666,7 @@ Content-Type: application/json;charset=UTF-8
   },
   "_links":{
     "self":{
-      "href":"https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7",
+      "href":"https://{yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7",
       "hints":{
         "allow":[
           "GET",
@@ -1674,7 +1676,7 @@ Content-Type: application/json;charset=UTF-8
       }
     },
     "deactivate":{
-      "href":"https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7/lifecycle/deactivate",
+      "href":"https://{yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7/lifecycle/deactivate",
       "hints":{
         "allow":[
           "POST"
@@ -1810,7 +1812,7 @@ curl -v -X GET \
         "logo_uri": null,
         "_links": {
             "tokens": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
             }
         }
     }
@@ -1866,7 +1868,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausnsopoM6vBRB3PD0g3",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausnsopoM6vBRB3PD0g3",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00upcgi9dyWEOeCwM0g3",
     "scopes": [
@@ -1875,14 +1877,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -1890,15 +1892,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3",
         "title": "Example Authorization Server"
       }
     }
@@ -1944,7 +1946,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://${yourOktaDomain}/oauth2/default",
+  "issuer": "https://{yourOktaDomain}/oauth2/default",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00upcgi9dyWEOeCwM0g3",
   "scopes": [
@@ -1959,7 +1961,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -1971,7 +1973,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -1980,14 +1982,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -1995,15 +1997,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default",
       "title": "Example Authorization Server"
     }
   }

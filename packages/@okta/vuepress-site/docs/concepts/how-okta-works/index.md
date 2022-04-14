@@ -15,11 +15,11 @@ Take a look at just a few of Okta's use cases:
 
 ##### You built an app, and you want to add authentication and authorization
 
-You can use Okta to allow your users to sign in with a username/password or with their [social accounts](/docs/guides/add-an-external-idp/), such as Google or Facebook using pre-built sign-in components from Okta. After the user has signed in, you can [retrieve their user profile](/docs/guides/sign-into-spa/user-info/) to customize the UI based on their role and apply your authorization policies.
+You can use Okta to allow your users to sign in with a username/password or with their [social accounts](/docs/guides/add-an-external-idp/), such as Google or Facebook using pre-built sign-in components from Okta. After the user has signed in, you can [retrieve their user profile](/docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user) to customize the UI based on their role and apply your authorization policies.
 
 ##### You built an API, and you want to add authentication and authorization to it
 
-You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and application backends so that only authorized users and applications can call them. Define [scopes](/docs/guides/customize-authz-server/create-scopes/), [claims](/docs/guides/customize-authz-server/create-claims/), and [configure policies](/docs/guides/configure-access-policy/) to determine who can have access to your API resources.
+You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and application backends so that only authorized users and applications can call them. Define [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [configure policies](/docs/guides/configure-access-policy/) to determine who can have access to your API resources.
 
 ##### You have more than one app, and you want to implement Single Sign-On (SSO)
 

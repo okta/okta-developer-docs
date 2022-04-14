@@ -1,5 +1,1 @@
-If you are setting up the sample app, use this value:
-`com.embeddedauth://callback`. Otherwise, choose
-a URI that is used by your app. Note that this value
-must match the redirect URI you configured in
-the Okta org.
+Use a redirect URI that is appropriate for your app or `com.embeddedauth://callback` if you're using the sample app.

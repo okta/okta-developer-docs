@@ -1,6 +1,6 @@
 {
-  "release" : "2021.08.1",
-  "build" : "2021.08.1-begin-97-ge2560149c65f",
+  "release" : "2022.04.1",
+  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -133,28 +133,28 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to process the username transform."
+    "errorDescription" : "Failed to generate username."
   }, {
     "title" : "Failed username transform invalid expression",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_invalid_expression",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to process the username transform. Username Transform has an invalid expression: '{0}'."
+    "errorDescription" : "The username transform '{0}' is invalid."
   }, {
     "title" : "Failed username transform missed field",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_missed_field",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to process the username transform. A required property is missing. Missing field: '{0}'."
+    "errorDescription" : "The following required property is missing: '{0}'."
   }, {
     "title" : "Failed username transform whitespaces found",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_whitespaces_found",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to process the username transform. Transformed username contained whitespaces: '{0}'."
+    "errorDescription" : "Unable to create a user. Username contains invalid whitespace characters: '{0}'."
   }, {
     "title" : "User match error",
     "statusCode" : 403,
@@ -422,13 +422,6 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "Only clients with 'application_type' of 'service' may use the client_credentials 'grant_type' with the Org Authorization Server."
   }, {
-    "title" : "Client assertion type invalid",
-    "statusCode" : 401,
-    "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "client_assertion_type_invalid",
-    "errorCode" : "invalid_client",
-    "errorDescription" : "The client_assertion_type is invalid."
-  }, {
     "title" : "Client assertion invalid issuer",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -555,6 +548,41 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
   }, {
+    "title" : "Jwks URI no key",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_no_key",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client JWKSet from jwks_uri must contain at least one key."
+  }, {
+    "title" : "Jwks URI ambiguous keys",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_ambiguous_keys",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "All keys in the client JWKSet from jwks_uri must have a unique kid."
+  }, {
+    "title" : "Jwks URI algorithm required",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_algorithm_required",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client JWKSet from jwks_uri must contain at least one key with an algorithm matching the request_object_signature_algorithm."
+  }, {
+    "title" : "Jwks URI error",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_error",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "Error retrieving the client JWKSet from jwks_uri."
+  }, {
+    "title" : "Jwks URI jku mismatch error",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_jku_mismatch_error",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The 'jku' in JWT and 'jwks_uri' doesn't match."
+  }, {
     "title" : "Authorize request URI mismatched client",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -653,6 +681,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The credentials provided were invalid."
   }, {
+    "title" : "Expired password credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "expired_password_credentials",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Password has expired."
+  }, {
     "title" : "Missing password enrollment",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -694,6 +729,48 @@
     "internalErrorCode" : "unsupported_saml_assertion",
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion Bearer Grant is not supported by OIE."
+  }, {
+    "title" : "Web sso token exchange request requires scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_token_exchange_request_requires_scope",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'actor_token' must have the 'okta.apps.sso' scope to request a 'web_sso_token'."
+  }, {
+    "title" : "Web sso subject token client mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_subject_token_client_mismatch",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'subject_token' must be issued to the client making the request."
+  }, {
+    "title" : "Web sso actor token client mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_actor_token_wrong_audience",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'actor_token' must be issued to the client making the request."
+  }, {
+    "title" : "Web sso app assurance not met",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_app_assurance_not_met",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The application's assurance requirements are not met by the 'subject_token'."
+  }, {
+    "title" : "Web sso subject token expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_subject_token_expired",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'subject_token' either expired or the session associated with it was terminated."
+  }, {
+    "title" : "Web sso client not permitted",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_client_not_permitted",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The target audience app must be configured to allow the client to request a 'web_sso_token'."
   }, {
     "title" : "Client requires MFA native sso",
     "statusCode" : 400,
@@ -757,6 +834,13 @@
     "internalErrorCode" : "duplicate_oauth_params",
     "errorCode" : "invalid_request",
     "errorDescription" : "The request contained multiple parameters with the same name."
+  }, {
+    "title" : "Sensitive query parameters not allowed in token request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "sensitive_query_parameters_not_allowed_in_token_requests",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "You shouldn't include any sensitive query parameters ({0}) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
@@ -891,6 +975,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Token request missing 'device_id'."
   }, {
+    "title" : "Mismatched resource",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mismatched_resource",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'resource' parameter does not match the resource used in the authorization request."
+  }, {
     "title" : "Request missing token",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -940,6 +1031,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
   }, {
+    "title" : "MFA attestation interact requires client credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mfa_attestation_interact_requires_client_credentials",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The client authentication is required for MFA attestation request."
+  }, {
     "title" : "Missing token request parameter",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -982,6 +1080,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "When 'actor_token_type' is '{0}', 'subject_token_type' must be '{1}'."
   }, {
+    "title" : "Invalid requested token type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_requested_token_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'requested_token_type' is invalid or not supported."
+  }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -995,6 +1100,13 @@
     "internalErrorCode" : "pkce_challenge_required",
     "errorCode" : "invalid_request",
     "errorDescription" : "PKCE code challenge is required to use the interaction code flow."
+  }, {
+    "title" : "Invalid device token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_device_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The request has a deviceToken with length greater than {0}."
   }, {
     "title" : "Illegal post logout redirect URI",
     "statusCode" : 400,
@@ -1031,6 +1143,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The access token cannot be specified in both the Authorization header and the request-body."
   }, {
+    "title" : "Client assertion type invalid",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "client_assertion_type_invalid",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The client_assertion_type is invalid."
+  }, {
     "title" : "Authorize request object and request URI provided",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1044,6 +1163,27 @@
     "internalErrorCode" : "pushed_authorization_request_uri_present",
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'request_uri' parameter must not be present in the request."
+  }, {
+    "title" : "Invalid activation token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_activation_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The activation token is invalid"
+  }, {
+    "title" : "Invalid application type for interact",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_application_type_for_interact",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Only confidential clients can use the activation token flow"
+  }, {
+    "title" : "Invalid recovery token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_recovery_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The recovery token is invalid"
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
@@ -1318,47 +1458,89 @@
     "errorCode" : "invalid_token",
     "errorDescription" : "The id token is invalid."
   }, {
+    "title" : "Web sso token invalid",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' is invalid."
+  }, {
+    "title" : "Web sso token invalid jti",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_jti",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' contains an invalid 'jti'."
+  }, {
+    "title" : "Web sso token revoked",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_revoked",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' was revoked."
+  }, {
+    "title" : "Web sso token invalid aud",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_aud",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' has an invalid audience."
+  }, {
+    "title" : "Web sso token invalid iss",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "web_sso_token_invalid_iss",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The 'web_sso_token' has an invalid issuer."
+  }, {
+    "title" : "Invalid user code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_user_code",
+    "errorCode" : "invalid_user_code",
+    "errorDescription" : "The user code is invalid or has expired."
+  }, {
     "title" : "JIT failure",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure",
     "errorCode" : "jit_failure",
-    "errorDescription" : "Unable to JIT the user."
+    "errorDescription" : "Unable to create the user."
   }, {
     "title" : "JIT failure invalid locale",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_invalid_locale",
     "errorCode" : "jit_failure_invalid_locale",
-    "errorDescription" : "Unable to JIT the user. Locale property is invalid."
+    "errorDescription" : "Unable to create the user. The locale property is invalid."
   }, {
     "title" : "JIT failure invalid login format",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_invalid_login_format",
     "errorCode" : "jit_failure_invalid_login_format",
-    "errorDescription" : "Unable to JIT the user. Login has wrong format or contains bad characters."
+    "errorDescription" : "Unable to create the user. Username is not an email address or contains invalid characters."
   }, {
     "title" : "JIT failure missing fields",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_missing_fields",
     "errorCode" : "jit_failure_missing_fields",
-    "errorDescription" : "Unable to JIT the user. Required properties are missing. Missing fields: {0}."
+    "errorDescription" : "Unable to create the user. The following required properties are missing: '{0}'."
   }, {
     "title" : "JIT failure values not match pattern",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_values_not_match_pattern",
     "errorCode" : "jit_failure_values_not_match_pattern",
-    "errorDescription" : "Unable to JIT the user. Properties don't match required pattern. Invalid fields: {0}."
+    "errorDescription" : "Unable to create the user. Properties don't match required pattern. Invalid fields: {0}."
   }, {
     "title" : "JIT failure values too long",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_values_too_long",
     "errorCode" : "jit_failure_values_too_long",
-    "errorDescription" : "Unable to JIT the user. Exceeded max length for properties. Invalid fields: {0}."
+    "errorDescription" : "Unable to create the user. Exceeded max length for properties. Invalid fields: {0}."
   }, {
     "title" : "Login required",
     "statusCode" : 400,
@@ -1577,6 +1759,27 @@
     "errorCode" : "unauthorized_client",
     "errorDescription" : "This client cannot use a custom authorization server."
   }, {
+    "title" : "Confidential client required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "confidential_client_required",
+    "errorCode" : "unauthorized_client",
+    "errorDescription" : "Confidential client is required to make this request."
+  }, {
+    "title" : "Unsupported api resource",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_api_resource",
+    "errorCode" : "unsupported_api_resource",
+    "errorDescription" : "The api resource is not supported by the authorization server."
+  }, {
+    "title" : "Unsupported api resource for authorization",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_api_resource_for_authorization",
+    "errorCode" : "unsupported_api_resource",
+    "errorDescription" : "Only support default api resource for authorization when passing resource parameter."
+  }, {
     "title" : "Unsupported grant type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1590,6 +1793,13 @@
     "internalErrorCode" : "unsupported_grant_type_client_creds_org_as",
     "errorCode" : "unsupported_grant_type",
     "errorDescription" : "'client_credentials' grant type can only be used with a custom authorization server."
+  }, {
+    "title" : "Unsupported grant type token exchange",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_grant_type_token_exchange",
+    "errorCode" : "unsupported_grant_type",
+    "errorDescription" : "'urn:ietf:params:oauth:grant-type:token-exchange' grant type is not supported."
   }, {
     "title" : "Unsupported response mode",
     "statusCode" : 400,
@@ -1625,5 +1835,12 @@
     "internalErrorCode" : "mfa_attestation_response_type_invalid",
     "errorCode" : "unsupported_response_type",
     "errorDescription" : "'response_type' must be 'id_token' for MFA attestation."
+  }, {
+    "title" : "Web sso token replayed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_token_replayed",
+    "errorCode" : "web_sso_token_replayed",
+    "errorDescription" : "The 'web_sso_token' was already consumed."
   } ]
 }

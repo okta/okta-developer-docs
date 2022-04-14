@@ -1,366 +1,1723 @@
 {
 	"info": {
-		"_postman_id": "31aaf19c-dbdf-4257-9a32-25d67b26ccf1",
+		"_postman_id": "fc86eb8e-814c-41d3-94c8-75d6eb3234b3",
 		"name": "Administrator Roles (Okta API)",
 		"description": "The Okta Administrator Roles API provides operations to manage administrative role assignments for a User.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "List Roles Assigned to User",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+			"name": "Custom Role operations",
+			"item": [
+				{
+					"name": "Create Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"label\": \"UserCreator\",\n      \"description\": \"Create users\",\n      \"permissions\": [\n        \"okta.users.create\",\n        \"okta.users.read\",\n        \"okta.groups.read\",\n        \"okta.users.userprofile.manage\"\n      ]\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Assign  Role to User",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Unassign  Role from User",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+				{
+					"name": "Get Role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Group Targets for Group Admin Role",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+				{
+					"name": "Update Role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"UserCreator-Updated\",\n    \"description\": \"Create users\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"groups"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add Group Target to Group Admin Role",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"groups",
-						"{{groupId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Remove Group Target from Group Admin Role",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+				{
+					"name": "List Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"groups",
-						"{{groupId}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List App Targets for App Admin Role",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+				{
+					"name": "List permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}",
+								"permissions"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"catalog",
-						"apps"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add App Target for App Admin Role",
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"catalog",
-						"apps",
-						"{{appName}}"
-					]
+				{
+					"name": "Add permission",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}/permissions/{{permissionType}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}",
+								"permissions",
+								"{{permissionType}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get permission",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}/permissions/{{permissionType}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}",
+								"permissions",
+								"{{permissionType}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete permission",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}/permissions/{{permissionType}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}",
+								"permissions",
+								"{{permissionType}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/roles/{{roleIdOrLabel}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"roles",
+								"{{roleIdOrLabel}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Remove App Target from App Admin Role",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json"
+			"name": "Resource set operations",
+			"item": [
+				{
+					"name": "Create Resource Set",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"SF-IT-People\",\n    \"description\": \"People in the IT department of San Francisco\",\n    \"resources\": [\n        \"{{url}}/api/v1/groups/{{groupId1}}\",\n        \"{{url}}/api/v1/groups/{{groupId2}}/users\",\n        \"{{url}}/api/v1/users\"\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets"
+							]
+						}
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "SSWS {{apikey}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+					"response": []
 				},
-				"url": {
-					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"{{userId}}",
-						"roles",
-						"{{roleId}}",
-						"targets",
-						"catalog",
-						"apps",
-						"{{appName}}"
-					]
+				{
+					"name": "Get Resource Set",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Resource Sets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update resource set",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"SF-IT-Staff\",\n    \"description\": \"Staff in the IT department of San Francisco\"\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete resource set",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Resource operations",
+			"item": [
+				{
+					"name": "Add more resources",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"additions\": [\n        \"{{url}}/api/v1/groups/{{groupId3}}\",\n        \"{{url}}/api/v1/groups/{{groupId4}}/users\"\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"resources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List resources",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"resources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a resource",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources/{{resourceId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"resources",
+								"{{resourceId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Custom Role assignment operations",
+			"item": [
+				{
+					"name": "Retrieve Bindings",
+					"item": [
+						{
+							"name": "Get a Binding by Role ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "SSWS {{apikey}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iam",
+										"resource-sets",
+										"{{resourceSetId}}",
+										"bindings",
+										"{{roleIdOrLabel}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Bindings in a Resource Set",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									},
+									{
+										"key": "Authorization",
+										"value": "SSWS {{apikey}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"iam",
+										"resource-sets",
+										"{{resourceSetId}}",
+										"bindings"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create a new Binding",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"{{roleId}}\",\n    \"members\": [\n        \"{{url}}/api/v1/groups/{{groupId}}\"\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add more Members to a Binding",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"additions\": [\n        \"{{url}}/api/v1/groups/{{groupId2}}\",\n        \"{{url}}/api/v1/users/{{userId}}\"\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleId}}/members",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings",
+								"{{roleId}}",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Members in a Binding",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings",
+								"{{roleIdOrLabel}}",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Member from a Binding",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings",
+								"{{roleIdOrLabel}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Member from a Binding",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings",
+								"{{roleIdOrLabel}}",
+								"members",
+								"{{memberId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Binding",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"iam",
+								"resource-sets",
+								"{{resourceSetId}}",
+								"bindings",
+								"{{roleIdOrLabel}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role assignment operations",
+			"item": [
+				{
+					"name": "Grant third-party admin status to a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles?disableNotifications=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "disableNotifications",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Grant third-party admin status to a Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles?disableNotifications=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles"
+							],
+							"query": [
+								{
+									"key": "disableNotifications",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Roles Assigned to User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Roles Assigned to Group",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign  Role to User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a Role to a Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a Custom Role to a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"CUSTOM\",\n    \"role\": \"{{roleId}}\",\n    \"resource-set\": \"{{resourceSetId}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign a Custom Role to a Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"CUSTOM\",\n    \"role\": \"{{roleId}}\",\n    \"resource-set\": \"{{resourceSetId}}\"\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign  Role from User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign a Role from a Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles/{{roleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles",
+								"{{roleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign a Custom Role from a User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{bindingId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{bindingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unassign a Custom Role from a Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/roles/{{bindingId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"roles",
+								"{{bindingId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role target operations",
+			"item": [
+				{
+					"name": "List Group Targets for Group Admin Role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Group Target to Group Admin Role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Group Target from Group Admin Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List App Targets for App Admin Role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"catalog",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add App Target for App Admin Role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"catalog",
+								"apps",
+								"{{appName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove App Target from App Admin Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"roles",
+								"{{roleId}}",
+								"targets",
+								"catalog",
+								"apps",
+								"{{appName}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

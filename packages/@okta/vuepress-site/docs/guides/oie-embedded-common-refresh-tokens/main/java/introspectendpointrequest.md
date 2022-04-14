@@ -1,10 +1,8 @@
 ### Web applications
 
-Web applications introspect tokens by calling the `/introspect` endpoint and passing
-in a required `Authorization` header. This header is computed from the client ID and
-client secret.
+Web applications request for token information by calling the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint and passing in a required [`Authorization`](/docs/reference/api/oidc/#client-authentication-methods) header. This header is computed from the client ID and secret.
 
-Example
+#### Request example
 
 ```http
 POST /oauth2/default/v1/introspect HTTP/1.1

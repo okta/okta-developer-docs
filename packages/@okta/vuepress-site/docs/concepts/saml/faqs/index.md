@@ -9,7 +9,7 @@ meta:
 
 **Q: Does Okta support Single Logout (SLO) for the SAML protocol?**
 
-Yes, Okta supports Service Provider-initiated SLO. This feature enables users to sign out of both a configured integration and Okta with a single click. For more information, see the **Advanced Settings** section in [Create a SAML integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-saml).
+Yes, Okta supports Service Provider-initiated SLO. This feature enables users to sign out of both a configured integration and Okta with a single click. For more information, see the **Advanced Settings** section in [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml).
 
 **Q: I'm an ISV setting up a SAML 2.0 integration using the App Integration Wizard, and we have different domains for each customer. How do you manage these types of situations?**
 
@@ -23,7 +23,7 @@ For a sample configuration, see our instructions on [How to Configure SAML 2.0 f
 
 **Q: My application currently supports WS-FED for Single Sign-On. Can I use it instead of SAML?**
 
-The Okta App Integration Wizard only supports SAML 2.0 for federated Single Sign-On. If your application supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Configuring_WS_Federation). You can only use this created template integration within your own account. To promote your template integration to the Okta Integration Network, email <developers@okta.com>. Put the name of your integration in the subject line and include a screenshot of the details of the configured integration.
+The Okta App Integration Wizard only supports SAML 2.0 for federated Single Sign-On. If your application supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/okta_help.htm?id=ext_Apps_Configure_Okta_Template_WS_Federation). You can only use this created template integration within your own account. To promote your template integration to the Okta Integration Network, contact your Okta rep, or ask on our [forum](https://devforum.okta.com/).
 
 **Q: What is Secure Web Authentication (SWA)? Is it different than using SAML?**
 

@@ -1,9 +1,6 @@
 .content--container {
   display: flex;
   padding: 0;
-  @include media("<=tablet") {
-    padding: 0.5rem 1.5rem;
-  }
 
   a[href*="app.getpostman.com"] {
     display: block;
@@ -26,7 +23,7 @@
       word-break: keep-all;
     }
   }
-
+  
   h1,
   h3 {
     word-break: break-word;
@@ -41,22 +38,9 @@
       word-break: normal;
     }
 
-    p,
-    ol,
-    ul {
-      max-width: inherit;
-    }
-
     h1,
     h3 {
       word-break: normal;
-    }
-
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: $base-spacing;
     }
   }
 
@@ -65,32 +49,41 @@
   }
 
   .sidebar-area {
-    width: 22%;
+    width: 266px;
     position: sticky;
-    top: 70px;
     overflow: auto;
-    @include media("<=bootstrap-lg") {
-      width: 32%;
+    background: cv('body');
+    top: 87px;
+    @include media("<desktop-xl") {
+      top: 70px;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       display: none;
     }
   }
 
   .content-area {
     flex: 1;
-    flex-wrap: wrap;
-    margin-top: 4rem;
-    width: 100%;
-    max-width: 100%;
-
+    max-width: calc(82% - 266px);
+    padding: 23px 59px;
+    @include media("<desktop-xl") {
+      max-width: calc(100% - 266px);
+      padding: 30px 57px;
+    }
+    @include media("<desktop") {
+      width: 100%;
+      max-width: 100%;
+      padding: 30px 20px 40px;
+    }
     @include media(">=tablet") {
-      margin: 3rem $big-spacing;
-      width: 64%;
-      max-width: 64%;
-
       a {
         word-break: normal;
+      }
+    }
+
+    .content__default {
+      @include media("<desktop-xl") {
+        margin-top: 20px;
       }
     }
 
@@ -155,7 +148,7 @@
         }
       }
 
-      @include media("<=tablet") {
+      @include media("<desktop") {
         &:hover {
           .dropdown-button-options {
             display: none;
@@ -179,12 +172,7 @@
         }
       }
     }
-    .mobile-on-this-page {
-      @include media(">=desktop") {
-        display: none;
-      }
-    }
-
+    
     a.header-link svg {
       width: 1rem;
       display: none;
@@ -231,16 +219,22 @@
     p > code {
       overflow-wrap: break-word;
     }
+
+    .stack-selector {
+      display: none;
+
+      @include media("<=desktop-xl") {
+        display: block;
+      }
+    }
   }
 
   .on-this-page {
     width: 18%;
-    @include media("<desktop") {
-      display: none;
-    }
   }
+
   &.navigation-only {
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 0;
       .sidebar-area {
         display: block;
@@ -250,7 +244,7 @@
   }
 
   &.navigation-only .content-area {
-    @include media("<tablet") {
+    @include media("<desktop") {
       display: none;
     }
   }

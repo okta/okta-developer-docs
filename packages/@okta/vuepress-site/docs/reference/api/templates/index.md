@@ -255,7 +255,7 @@ curl -v -X POST \
   "translations": {
     "de" : "${org.name}: ihre bestätigungscode ist ${code}."
   }
-}' "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
+}' "https://{yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
 ##### Response example

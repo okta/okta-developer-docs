@@ -3,6 +3,7 @@
 // see .vuepress/scripts/build-replacement-vars.js to see usage
 
 const execSync = require('child_process').execSync;
+const semverCompare = require('semver/functions/compare');
 
 const findLatestWidgetVersion = (majorVersion) => { 
   const cleanVersion = `${majorVersion}`.replace(/\D+/g, '');
@@ -12,7 +13,7 @@ const findLatestWidgetVersion = (majorVersion) => {
   }
 
   const publishedVersions = JSON.parse(execSync(`npm view --json @okta/okta-signin-widget@${cleanVersion} version`));
-  const latestWidgetVersion = Array.isArray(publishedVersions) ? publishedVersions.sort().slice(-1)[0] : publishedVersions;
+  const latestWidgetVersion = Array.isArray(publishedVersions) ? publishedVersions.sort(semverCompare).slice(-1)[0] : publishedVersions;
 
   return latestWidgetVersion;
 };

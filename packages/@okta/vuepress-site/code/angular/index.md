@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your Angular App
+title: Add user authentication to your Angular app
 language: Angular
 integration: front-end
 icon: code-angular
@@ -8,53 +8,47 @@ meta:
     content: Our Angular guide helps you to add user authentication to your Angular app and create a fully-branded experience with the Okta Angular SDK.
 ---
 
-## Get Started with Angular + Okta
+## Get started with Angular + Okta
 
-New to Okta? Our how to guide will walk you through adding user authentication to your Angular app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your Angular app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-spa/angular/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='/docs/guides/sign-into-spa-redirect/angular/main' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
 	<li>
 		<a href='https://github.com/okta/samples-js-angular' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta Angular SDK
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you create a fully-branded sign-experience.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://www.npmjs.com/package/@okta/okta-angular' class="language-reference">
-	<span class='icon download-16'></span> <span>okta-angular on npm</span>
-</a>
+* [okta-angular on npm](https://www.npmjs.com/package/@okta/okta-angular)
+* [Angular SDK Source](https://github.com/okta/okta-angular)
+* [Angular redirect authentication sample app](https://github.com/okta/samples-js-angular): See [Okta-Hosted Login](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-angular'>
-	<span class='fa fa-github'></span> <span>Angular SDK Source</span>
-</a>
+## Recommended guides
 
-## Recommended Guides
+Okta-hosted Sign-In Widget guide:
 
-- [Okta Sign-In Widget and Angular](/code/angular/okta_angular_sign-in_widget/)
-- [Okta Auth JS and Angular](/code/angular/okta_angular_auth_js/)
-- [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social Login](/docs/concepts/social-login/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+[Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/angular/main/)
 
-## Related Blog Posts
+Embedded SDK and Sign-In Widget sign-in guides:
 
-- [Build a CRUD App with Angular 9 and Spring Boot 2.2](https://developer.okta.com/blog/2020/01/06/crud-angular-9-spring-boot-2)
-- [Build a SPA with ASP.NET Core 2.1, Stripe, and Angular 6](/blog/2018/08/08/aspnet-core-angular-stripe-ticket-sales)
-- [Add Authentication to Your Angular PWA](/blog/2017/06/13/add-authentication-angular-pwa)
-- [Build a CRUD-y SPA with Node and Angular](/blog/2018/08/07/node-angular-crud)
-- [Angular Authentication with OpenID Connect and Okta in 20 Minutes](/blog/2017/04/17/angular-authentication-with-oidc)
-- [Build Your First Progressive Web Application with Angular and Spring Boot](/blog/2017/05/09/progressive-web-applications-with-angular-and-spring-boot)
-- [Build a CRUD App with ASP.NET Framework 4.x Web API and Angular](/blog/2018/07/27/build-crud-app-in-aspnet-framework-webapi-and-angular)
-- [Tutorial: Build Your First CRUD App with Symfony and Angular](/blog/2018/08/14/php-crud-app-symfony-angular)
-- [Upgrade your ASP.NET Core 2.1 App to Angular 6](/blog/2018/08/02/aspnet-core-angular-crud)
+* [Sign in to your SPA with Auth JS](#) (coming soon)
+* [Sign in to your SPA with the embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
 
+Other guides:
+
+* [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our recent [Angular Developer Blog posts](https://developer.okta.com/blog/tags/angular/) for further useful topics.

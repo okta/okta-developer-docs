@@ -3,6 +3,10 @@
   height: 45px;
   width: 85%;
   max-width: 710px;
+  @include media("<desktop") {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .SearchBar {
@@ -20,8 +24,6 @@
     width: 100%;
   }
 }
-
-$redesign_placeholder_color: #616161;
 
 .search--wrapper {
   position: relative;
@@ -44,6 +46,28 @@ $redesign_placeholder_color: #616161;
       max-width: initial;
     }
 
+    .search--form {
+      display: flex;
+
+      .CoveoSearchButton {
+        color: cv('header');
+        border: none;
+        height: auto;
+        width: 94px;
+        line-height: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 2px solid cv('header');
+        box-sizing: content-box;
+        font-size: 14px;
+        font-weight: 600;
+        &:before {
+          display: none;
+        }
+      }
+    }
+
     .CoveoOmnibox.magic-box {
       width: 100%;
       height: 38px;
@@ -57,7 +81,7 @@ $redesign_placeholder_color: #616161;
           &:before {
             border-left: none;
           }
-  
+
           .magic-box-icon:before {
             display: none;
           }
@@ -67,6 +91,20 @@ $redesign_placeholder_color: #616161;
           height: 38px;
           padding-left: 40px;
           padding-right: 12px;
+          position: relative;
+
+          &::before {
+            position: absolute;
+            content: "\f002";
+            font: 13px FontAwesome;
+            left: 10px;
+            top: 13px;
+            color: cv('header');
+
+            @include media("<desktop") {
+              color: cv('text', 'darker');
+            }
+          }
         }
 
         input {
@@ -77,7 +115,7 @@ $redesign_placeholder_color: #616161;
           font-family: inherit;
 
           &::placeholder {
-            color: $redesign_placeholder_color;
+            color: cv('text');
           }
 
           @media (max-width: 1080px) {
@@ -87,10 +125,9 @@ $redesign_placeholder_color: #616161;
           }
 
           @include media("<tablet") {
-            font-size: 16px;
 
             &::placeholder {
-              color: $redesign_placeholder_color;
+              color: cv('text');
             }
           }
         }
@@ -111,6 +148,16 @@ $redesign_placeholder_color: #616161;
           display: none !important;
         }
       }
+      .magic-box-suggestion {
+        font-size: 14px;
+      }
+
     }
+  }
+
+  @include media("<desktop") {
+    border: 1px solid cv('body', 'border');
+    border-radius: 4px;
+    height: 40px;
   }
 }

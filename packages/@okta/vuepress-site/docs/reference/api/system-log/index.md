@@ -7,7 +7,7 @@ category: management
 
 The Okta System Log records system events that are related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog).
+The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
@@ -339,6 +339,19 @@ For example, a Transaction object such as the following:
 
 indicates that a `WEB` request with `id` `Wn4f-0RQ8D8lTSLkAmkKdQAADqo` has created this event.
 
+A Transaction object with a `requestApiTokenId` in the `detail` object, for example:
+```json
+{
+    "id": "YjSlblAAqnKY7CdyCkXNBgAAAIU",
+    "type": "WEB",
+    "detail": {
+        "requestApiTokenId": "00T94e3cn9kSEO3c51s5"
+    }
+}
+```
+
+indicates that this event was the result of an action performed through an API using the token identified by `00T94e3cn9kSEO3c51s5`. The token ID is visible in the Admin Console, **Security** > **API**. See [API token management](https://help.okta.com/okta_help.htm?id=Security_API). For more information on API tokens, see [Create an API token](/docs/guides/create-an-api-token/).
+
 | Property   | Description                                                                                             | DataType             | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------------- | -------------------- | -------- |
 | id         | Unique identifier for this transaction.                                                                 | String               | TRUE     |
@@ -400,7 +413,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs through credentials provided by a credential provider, the credential provider is recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that creates and issues the credential                                                                                                                                                                | [Issuer object](#issuer-object) | TRUE     |           |           |
-| externalSessionId      | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)                                                                                                                                | String                          | TRUE     | 1         | 255       |
+| externalSessionId      | A proxy for the actor's [session ID](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)                                                                                                                                | String                          | TRUE     | 1         | 255       |
 | interface              | The third-party user interface that the actor authenticates through, if any.                                                                                                                                                        | String                          | TRUE     | 1         | 255       |
 
 ###### Possible values
@@ -531,6 +544,10 @@ When looking through the System Log, it is often useful to correlate events so t
 The `LogResponse` object offers two identifiers in this respect:
   - `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
   - `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to Okta's servers)
+
+### Correlating events based on API Token
+
+It may be useful to identify multiple events that are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/reference/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning. The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` returns all events that were the result of an action made using the token `00T94e3cn9kSEO3c51s5`, subject to other parameters of the query.
 
 ### Event correlation example
 
@@ -708,19 +725,23 @@ The `after` parameter is system generated for use in ["next" links](#next-link-r
 The response contains a JSON array of [LogEvent objects](#logevent-object).
 
 ###### Self link response header
+
 The response always includes a `self` `link` header, which is a link to the current query that was executed.
 
 The header has the following format:
+
 ```
 link: <url>; rel="self"
 ```
 
 For example:
+
 ```
-link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
+link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
 ###### Next link response header
+
 The response may include a `next` `link` header, which is a link to the next page of results, if there is one.
 
 >**Note:** While the `self` `link` always exists, the `next` `link` may not exist.
@@ -732,7 +753,7 @@ link: <url>; rel="next"
 
 For example:
 ```
-link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
+link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
@@ -835,6 +856,7 @@ Log data older than 90 days isn't returned, in accordance with Okta's [Data Rete
 ## Examples
 
 ### Debugging
+
 The System Log API can be used to troubleshoot user problems. For example, you
 can use the following `curl` command to see events from user "Jane Doe":
 
@@ -857,6 +879,7 @@ curl -v -X GET \
 ```
 
 ### Transferring data to a separate system
+
 You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate point of time in the past.
 
 ```bash

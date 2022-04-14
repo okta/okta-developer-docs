@@ -2,13 +2,12 @@
 title: Okta Expression Language in Okta Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of the Okta Expression Language in Okta Identity Engine.
+  content: Learn more about the features and syntax of Okta Expression Language in Okta Identity Engine.
 ---
 
 # Okta Expression Language in Okta Identity Engine
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Overview
 
@@ -37,6 +36,8 @@ The following operators and functionality offered by SpEL aren't supported in Ok
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
 
+> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
+
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
@@ -49,18 +50,18 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `device.profile.$profile_property`  | `profile_property` - references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
-| `device.provider.<vendor>.<signal>`| `vendor` - references a vendor, such as `wtc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+| `device.provider.<vendor>.<signal>`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
 See [Integrate with Endpoint Detection and Response solutions
-](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm) for details about `vendor` and `signal`.
+](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
 ### Security Context
 
-You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [app sign-on policies](/docs/reference/api/policy/#app-sign-on-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) and the matching [User behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request.
+You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
-| security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
-| security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+| security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
+| security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ## Functions
 
@@ -102,7 +103,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
 |                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
 
-**Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
+> **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
 ### Array functions
 
@@ -246,9 +247,9 @@ The following functions are supported in conditions:
 * The `&&` operator to designate AND
 * The `||` operator to designate OR
 * The `!` operator to designate NOT
-* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`
+* Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>
 
-**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
+> **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
 **Examples**
 

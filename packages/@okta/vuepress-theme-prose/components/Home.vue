@@ -4,160 +4,154 @@
       <div class="sidebar-area">
         <Sidebar />
       </div>
-      <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
-        <DeveloperDayBanner />
-        <div class="row justify-content-center">
-          <div class="col-11 homepage--elevated">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="homepage--main-heading homepage--color-main">
-                  Okta Developer Portal
-                </h1>
+      <div class="width-adjuster">
+        <AnnouncementBanner>
+          <template v-slot:description>
+            For more information and frequently asked questions regarding the January 2022 compromise, <a href="https://support.okta.com/help/s/article/Frequently-Asked-Questions-Regarding-January-2022-Compromise?language=en_US#" target="_blank" rel="noopener noreferrer">read more</a>.
+          </template>
+        </AnnouncementBanner>
+        <div class="justify-content-center">
+          <div class="homepage--elevated">
+            <div class="homepage--top-section homepage--section-margins">
+              <div class="row flex align-items-center homepage--intro-heading">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <h1 class="homepage--main-heading homepage--color-main">
+                    Okta Developer Portal
+                  </h1>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                  <h6>Auth for All</h6>
+                  <p class="homepage--section-description">
+                    Quickly deploy auth that protects your apps,<br />
+                    APIs, and infrastructure
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="row">
-              <div class="col-12">
-                <h2 class="homepage--sub-heading homepage--color-main">
-                  Auth for All
-                </h2>
+              <div class="row">
+                <div class="col-12 homepage--sub-heading">
+                  <h2 class="homepage--color-main">
+                    Let’s get started
+                  </h2>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <p
-                  class="homepage--sub-heading-disclaimer homepage--color-main"
+
+              <div class="homepage--selector-block-margin selector-tiles">
+                <div
+                  class="selector-tile-item"
+                  v-for="(tile, index) in $page.frontmatter.tiles"
+                  :key="index"
                 >
-                  Quickly deploy auth that protects your apps, APIs, and
-                  infrastructure.
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-12">
-                <h2 class="homepage--sub-heading homepage--color-main">
-                  Let's get started
-                </h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <p class="homepage--sub-heading-disclaimer homepage--color-sub">
-                  Authenticate up to 15,000 users per month for free
-                </p>
-              </div>
-            </div>
-
-            <div class="row homepage--selector-block-margin">
-              <div
-                class="col-xl-3 col-lg-6 col-md-6"
-                v-for="(tile, index) in $page.frontmatter.tiles"
-                :key="index"
-              >
-                <SelectorTile :tileData="tile" />
+                  <SelectorTile :tileData="tile" />
+                </div>
               </div>
             </div>
             <div
-              class="
-                row
-                justify-content-around
-                align-items-center
-                flex-lg-row-reverse flex-md-row-reverse
-                homepage--assurance-block-margin
-              "
+              class="homepage--assurance-block-margin homepage--section-margins"
             >
-              <div
-                class="col-xl-4 col-lg-6 col-md-6 col-sm-12"
-                v-for="(assurance, index) in $page.frontmatter.assurances"
-                :key="index"
-              >
-                <AssuranceItem :item="assurance" />
+              <div class="row flex justify-content-around">
+                <div
+                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
+                  v-for="(assurance, index) in $page.frontmatter.assurances"
+                  :key="index"
+                >
+                  <AssuranceItem :item="assurance" />
+                </div>
               </div>
             </div>
             <div
-              class="
-                row
-                justify-content-around
-                homepage--customize-your-app-margin
-              "
+              class="homepage--customize-your-app-margin homepage--section-margins"
             >
-              <div class="col-12">
-                <h2
-                  class="
-                    homepage--sub-heading
-                    homepage--color-main
-                    homepage--centered-md
-                  "
-                >
-                  Customize your sign-in
-                </h2>
-              </div>
-              <div
-                v-if="!pseudoAuthorizedCodeBlock"
-                class="col-xl-7 col-md-12 col-sm-12"
+              <h2
+                class="homepage--main-heading homepage--color-main text-center"
               >
-                <div class="homepage--code-example">
-                  <div class="homepage--code-example--header">JavaScript</div>
+                Customize your sign-in
+              </h2>
+              <div class="flex align-items-center homepage--examples">
+                <div
+                  v-if="!pseudoAuthorizedCodeBlock"
+                  class="homepage--code-example"
+                >
                   <div class="homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
                   </div>
                 </div>
-              </div>
-              <div
-                v-if="!pseudoAuthorized"
-                class="col-xl-5 col-md-10 col-sm-12"
-              >
-                <div class="homepage--live-widget">
+
+                <div v-if="!pseudoAuthorized" class="homepage--live-widget">
                   <FrontPageWidget @authLeia="togglePseudoAuth" />
                 </div>
-              </div>
-              <div
-                v-if="pseudoAuthorized"
-                class="col-sm-12 col-xs-12 col-lg-10"
-              >
-                <div class="homepage--welcome-leia">
-                  <div
-                    class="homepage--welcome-leia--close"
-                    @click="togglePseudoAuth"
-                  >
-                    <span>X</span> close
-                  </div>
-                  <div class="homepage--welcome-leia--header">
-                    Welcome, Leia
-                  </div>
-                  <div class="homepage--welcome-leia--info">
-                    Okta makes authentication straightforward. Connect your
-                    apps, choose an identity provider (or use ours), add users,
-                    configure rules, customize your login page, and then gain
-                    insights from our built in reports.
-                  </div>
-                  <div class="homepage--welcome-leia--actions">
-                    <SmartLink
-                      :item="{ link: '/signup/' }"
-                      classes="homepage--welcome-leia--actions--cta act-btn"
+                <div
+                  v-if="pseudoAuthorized"
+                  class="col-sm-12 col-xs-12 col-lg-10"
+                >
+                  <div class="homepage--welcome-leia">
+                    <div
+                      class="homepage--welcome-leia--close"
+                      @click="togglePseudoAuth"
                     >
-                      Sign up for Okta
-                    </SmartLink>
-                    <SmartLink
-                      :item="{ link: '/code/javascript/okta_sign-in_widget/' }"
-                      classes="homepage--welcome-leia--actions--docs act-btn"
-                    >
-                      View widget docs
-                    </SmartLink>
+                      <svg
+                        class="close-icon"
+                        stroke="#00297A"
+                        stroke-width="2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 79.2 79.2"
+                        width="32"
+                      >
+                        <line
+                          stroke-width="5"
+                          class="st1"
+                          x1="23.3"
+                          y1="55.9"
+                          x2="55.9"
+                          y2="23.3"
+                        ></line>
+                        <line
+                          stroke-width="5"
+                          class="st1"
+                          x1="23.3"
+                          y1="23.3"
+                          x2="55.9"
+                          y2="55.9"
+                        ></line>
+                      </svg>
+                    </div>
+                    <div class="homepage--welcome-leia--header">
+                      Welcome, Leia
+                    </div>
+                    <div class="homepage--welcome-leia--info">
+                      Okta makes authentication straightforward. Connect your
+                      apps, choose an identity provider (or use ours), add
+                      users, configure rules, customize your login page, and
+                      then gain insights from our built in reports.
+                    </div>
+                    <div class="homepage--welcome-leia--actions">
+                      <SmartLink
+                        :item="{ link: '/signup/' }"
+                        classes="homepage--welcome-leia--actions--cta act-btn"
+                      >
+                        Sign up for Okta
+                      </SmartLink>
+                      <SmartLink
+                        :item="{
+                          link: '/code/javascript/okta_sign-in_widget/'
+                        }"
+                        classes="homepage--welcome-leia--actions--docs act-btn"
+                      >
+                        View widget docs
+                      </SmartLink>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="homepage--partners-block-margin">
+            <div
+              class="homepage--partners-block-margin homepage--section-margins"
+            >
               <CompanyLogos />
             </div>
-          </div>
-
-          <div class="homepage--shapes">
-            <img src="/img/home-curves.svg" class="homepage--shapes-curves" />
-            <div class="homepage--shapes-fill"></div>
           </div>
         </div>
       </div>
@@ -178,13 +172,13 @@ export default {
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
-    DeveloperDayBanner: () => import("../global-components/DeveloperDayBanner"),
+    AnnouncementBanner: () => import("../global-components/AnnouncementBanner")
   },
 
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false,
+      pseudoAuthorizedCodeBlock: false
     };
   },
   mounted() {
@@ -202,10 +196,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  },
+  }
 };
 </script>

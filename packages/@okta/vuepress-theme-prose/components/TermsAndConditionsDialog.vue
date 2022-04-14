@@ -85,7 +85,7 @@
           <input
             type="button"
             class="btn social-btn"
-            value="cancel"
+            value="Cancel"
             @click="closeTermsConditionsDialog()"
           />
         </div>
@@ -95,7 +95,7 @@
             class="btn red-button"
             @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
-            value="continue"
+            value="Continue"
             :disabled="isDisabledSocialAuth"
           />
         </div>
@@ -178,12 +178,14 @@ export default {
     setTaCUrlAndRedirect() {
       const okta_AcceptedToS = this.$refs.gdprBoxEl.checked;
       const okta_ts_AcceptedToS = Date.now();
+      const okta_oie = true;
       const country = this.selectedCountry;
       const regionType = this.region.type.toLowerCase(); // could be "state" or "province".
       const regionName = this.selectedRegion;
       const stateObject = {
         okta_AcceptedToS,
         okta_ts_AcceptedToS,
+        okta_oie,
         country,
       };
 

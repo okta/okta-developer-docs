@@ -7,6 +7,8 @@ meta:
 
 # Session management with Okta
 
+<ClassicDocOieVersionNotAvailable />
+
 An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identities. Okta provides a federated sign-in service so that a user can access multiple applications with a single set of sign-in credentials. A session is a group of user interactions with a resource, such as an IdP service or an application (app), for a given amount of time. When you use Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience&mdash;the IdP session and the application session.
 
 ## IdP session
@@ -38,7 +40,7 @@ For non-privileged access apps, such as a loyalty program catalog, sessions can 
 
 Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active, and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, the user is automatically authenticated through the active IdP session into the app, and the app creates a new session for the user.
 
-See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for a guide to implement local logout with Okta.
+See [Sign users out > Sign users out of your app](/docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app) for a guide to implement local logout with Okta.
 
 ### Single logout
 
@@ -46,8 +48,8 @@ Single logout is the act of signing the user out of the IdP and signing out of a
 
 Currently, Okta supports single logout initiated by an app, where the user signs out of an app and the Okta IdP, ending both the app and IdP sessions. However, other active application sessions for the user can still persist without the IdP session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an IdP session. For privileged access apps with short-lived sessions, the user is typically redirected to re-authenticate with Okta to start a new IdP session and an application session.
 
-See [Sign users out of Okta](/docs/guides/sign-users-out/-/sign-out-of-okta/) for a guide to implement Okta sign out. For Okta Admin Console app-initiated single logout configuration, see [Single Logout in applications](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm).
+See [Sign users out > Sign users out of Okta](/docs/guides/sign-users-out/-/main/#sign-users-out-of-okta) for a guide to implement Okta sign out. For Okta Admin Console app-initiated single logout configuration, see [Single Logout in applications](https://help.okta.com/okta_help.htm?id=ext_Apps_Single_Logout).
 
 > **Note:** In the SAML world, app-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
 
-Explore [Okta sample apps](/docs/guides/quickstart/cli/register-app/#start-from-a-sample-app) for sample code with non-privileged access implementations.
+Explore [Okta sample apps](/docs/guides/quickstart/cli/main/#start-from-a-sample-app) for sample code with non-privileged access implementations.

@@ -18,7 +18,7 @@ Make sure that the SAML 2.0 Assertion grant type is enabled in the Authorization
 
 1. On the **Authorization Servers** tab, select **default** from the **Name** column in the table. In this example, we are configuring the Default Policy Rule for the [default Custom Authorization Server](/docs/concepts/auth-servers/).
 
-    > **Note:** See [Configure an Access Policy](/docs/guides/configure-access-policy/overview/) for information on creating an access policy in the Okta Authorization Server.
+    > **Note:** See [Configure an access policy](/docs/guides/configure-access-policy/) for information on creating an access policy in the Okta Authorization Server.
 
 1. Select the **Access Policies** tab and then click the pencil for the Default Policy Rule to make changes.
 

@@ -1,11 +1,5 @@
-$babyBlue: #a8bac7;
-$slateBlue: #1a3041;
-$slateBlueBright: #2a4c63;
-$darkBlue: #153b56;
-$backgroundBlue: #182933;
-
 .pricing {
-  background-color: $backgroundBlue;
+  background-color: cv('body','white');
 
   .pricing--container {
     max-width: 1003px;
@@ -13,38 +7,6 @@ $backgroundBlue: #182933;
     @include media('<tablet') {
       padding: 0 10px;
     }
-  }
-
-  h1 {
-    color: white;
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 42px;
-  }
-
-  h2 {
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 28px;
-    margin: 16px 0;
-  }
-
-  h3 {
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-  }
-
-  button {
-    font: inherit;
-  }
-
-  .Button--red, .Button--redOutline {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    white-space: nowrap;
-    text-align: center;
   }
 
   .pricing--leader {
@@ -61,7 +23,6 @@ $backgroundBlue: #182933;
   }
 
   p.pricing--subtitle {
-    color: $babyBlue;
     font-size: 18px;
     font-weight: normal;
     line-height: 31px;
@@ -70,12 +31,10 @@ $backgroundBlue: #182933;
 
   .selector-lozenge {
     display: flex;
-    background-color: #111d24;
     font-size: 14px;
     border-radius: 40px;
 
     .lozenge {
-      color: #8dcffa;
       background-color: transparent;
       border: 0;
       outline: 0;
@@ -95,9 +54,11 @@ $backgroundBlue: #182933;
         flex-grow: 1;
         border-radius: 40px;
         cursor: pointer;
+        border: 1px solid cv('blue', '900');
 
         &.active {
-          background-color: $slateBlue;
+          background-color: cv('blue', '900');
+          color: cv('gray', '000');;
           cursor: initial;
         }
       }
@@ -124,9 +85,9 @@ $backgroundBlue: #182933;
       width: 100%;
       padding: 18px 50px 16px 24px;
       position: relative;
-      color: white;
-      background-color: $slateBlue;
-      border: 2px solid $slateBlueBright;
+      border: none;
+      color: cv('body', 'white');
+      background: cv('blue', '900');
       border-radius: 6px;
       outline: none;
       font-size: 18px;
@@ -134,10 +95,6 @@ $backgroundBlue: #182933;
       text-align: left;
       line-height: 1em;
       cursor: pointer;
-
-      &:hover {
-        background-color: #1e384d;
-      }
 
       &:before {
         content: '';
@@ -153,9 +110,9 @@ $backgroundBlue: #182933;
     }
 
     .pricing-collapsible-item-content {
-      background-color: #16262f;
+      background-color: cv('body', 'white');
       font-size: 16px;
-      border: 2px solid $slateBlueBright;
+      border: 1px solid cv('blue', '900');
       border-top: 0;
       border-bottom-left-radius: 6px;
       border-bottom-right-radius: 6px;
@@ -178,7 +135,6 @@ $backgroundBlue: #182933;
 
   .pricing--costs {
     flex-grow: 1;
-    color: white;
 
     .pricing-section {
       padding: 30px 0;
@@ -191,12 +147,11 @@ $backgroundBlue: #182933;
 
     .pricing-card {
       margin: 0 32px 0 0;
-      background-color: #142329;
       flex-grow: 1;
       flex-basis: 0;
-      border: 2px solid $slateBlueBright;
+      border: 1px solid cv('blue', '900');
       border-radius: 15px;
-      box-shadow: 0px 5px 25px rgba(11, 18, 22, 0.64);
+      box-shadow: 0px 5px 25px rgba(0, 0, 0, .25);
 
       &:last-child {
         margin-right: 0;
@@ -212,9 +167,12 @@ $backgroundBlue: #182933;
       }
     }
 
+    .Button--red, .Button--redOutline {
+      text-align: center;
+    }
+
     .pricing-card-top {
       padding: 20px;
-      background-color: $slateBlue;
       border-radius: inherit;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -240,6 +198,7 @@ $backgroundBlue: #182933;
       h3 {
         font-size: 18px;
         margin-bottom: 10px;
+        margin-top: 1rem;
       }
 
       .pricing-card-amount {
@@ -275,9 +234,9 @@ $backgroundBlue: #182933;
 
         li {
           background: url('/img/icons/icon--union.svg') no-repeat left center;
-          padding: 0 5px 8px 25px;
+          padding: 0 5px 0 25px;
           line-height: 1.5em;
-          margin: 0;
+          margin: 0 0 8px;
         }
       }
 
@@ -291,9 +250,7 @@ $backgroundBlue: #182933;
     flex-grow: 1;
 
     .pricing-card-table {
-      color: $babyBlue;
       font-size: 16px;
-      background-image: linear-gradient(to right, transparent, transparent 50%, #122027 50%, #122027);
 
       @include media('<tablet') {
         font-size: 14px;
@@ -308,7 +265,7 @@ $backgroundBlue: #182933;
 
     .pricing-card-row {
       display: flex;
-      border-top: 1px solid #2b4d63;
+      border-top: 1px solid cv('blue', '900');
       margin: 0 24px;
 
       &.no-border {
@@ -317,7 +274,6 @@ $backgroundBlue: #182933;
     }
 
     .pricing-card-column {
-      background-color: #122027;
       padding: 20px 15px;
       display: flex;
       flex-basis: 22%;
@@ -332,7 +288,6 @@ $backgroundBlue: #182933;
 
       small {
         font-size: 12px;
-        color: #86919a;
       }
 
       &:first-child {
@@ -371,7 +326,6 @@ $backgroundBlue: #182933;
     .pricing-card-section-header,
     .pricing-card-column-header {
       font-size: 18px;
-      color: white;
 
       @include media('<tablet') {
         font-size: 16px;
@@ -394,10 +348,9 @@ $backgroundBlue: #182933;
     flex-grow: 1;
 
     strong a {
-      font-weight: 700;
+      font-weight: 500;
     }
     a {
-      color: white;
       &:hover {
         text-decoration: underline;
       }
@@ -405,35 +358,23 @@ $backgroundBlue: #182933;
 
     .pricing-faq-content {
       padding: 20px 24px;
-      color: $babyBlue;
     }
   }
 
   .pricing--questions {
     margin: 0;
-    color: white;
 
     p {
       font-size: 18px;
-      color: $babyBlue;
       max-width: initial;
     }
   }
 
   .pricing--footer {
-    background-image: url('/img/home-curves.svg');
-    background-color: #182933;
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100%;
     flex-grow: 1;
-    margin-top: -50px;
-    padding: 190px 0 0;
-
-    @include media('<tablet') {
-      .company-logos--wrapper {
-        background-color: $darkBlue;
-      }
-    }
+    padding: 60px 0 0;
+  }
+  .company-logos--wrapper h1 {
+    color: cv('text', 'darker');
   }
 }

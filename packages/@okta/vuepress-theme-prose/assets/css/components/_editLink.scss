@@ -1,8 +1,14 @@
 .edit-on-github {
 
   text-align: right;
-  margin: 4rem 0 2rem 0;
-  font-size: 120%;
+  margin: 105px 0 2rem 0;
+  font-size: .9rem;
+
+  .fa {
+    color: #000;
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
 
   @include media('<tablet') {
     display: none;

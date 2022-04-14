@@ -19,13 +19,16 @@
 // Layouts
 @import "layouts/layout.scss";
 @import "layouts/authorizationLayout.scss";
+@import "layouts/darktheme.scss";
 
 // Components
+@import "components/announcementBanner";
 @import "components/apiLifecycle";
 @import "components/apiOperation";
 @import "components/breadcrumb";
 @import "components/button";
 @import "components/code";
+@import "components/codemirror";
 @import "components/companyLogos";
 @import "components/content";
 @import "components/editLink";
@@ -58,13 +61,13 @@
 @import "components/oktaIntegrationNetwork";
 @import "components/terms";
 @import "components/thankYou";
+@import "components/themeModeToggle";
 @import "components/liveWidget";
 @import "components/errors";
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
-@import "components/developerDayBanner";
 
 //Pages
 @import "okta/pages/multi-tenancy";
-@import 'okta/pages/oie-embedded-sdk';
+@import "okta/pages/oie-embedded-sdk";

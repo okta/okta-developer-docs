@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <div class="fixed-header">
       <Header />
     </div>
@@ -8,7 +8,6 @@
         'page-body': true,
       }"
     >
-      <Breadcrumb v-if="appContext.isInMobileViewport" />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -22,9 +21,11 @@
           <div class="sidebar-area">
             <Sidebar />
           </div>
-          <div class="content-area">
-            <PageTitle />
+          <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <Breadcrumb />
+            <StackSelector v-if="$page.hasStackContent" />
             <MobileOnThisPage />
+            <PageTitle />
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
@@ -57,6 +58,8 @@ export const LAYOUT_CONSTANTS = {
 };
 const TABLET_BREAKPOINT = 767;
 
+import SidebarItems from "../mixins/SidebarItems";
+
 export const endingSlashRE = /\/$/;
 export default {
   components: {
@@ -78,27 +81,30 @@ export default {
     LiveWidget: () => import('../components/LiveWidget.vue'),
     Errors: () => import("../components/Errors.vue"),
   },
+  mixins: [SidebarItems],
   data() {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
-        isInMobileViewport: false
+        isInMobileViewport: false,
+        treeNavDocs: []
       },
       stackSelectorData: {
         to: '',
         from: ''
-      }
+      },
     };
   },
   provide() {
     return {
       appContext: this.appContext,
-      stackSelectorData: this.stackSelectorData
+      stackSelectorData: this.stackSelectorData,
     };
   },
   mounted: function() {
     import('../util/pendo');
     let that = this;
+    that.appContext.treeNavDocs = this.getTreeNavDocs();
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
@@ -110,6 +116,17 @@ export default {
     $route(to, from) {
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
+      
+      // On route change check if base path has changed.
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
+      if (from.path !== to.path) {
+        // Previously we tried to remove re-render logic but seems it
+        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
+        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
+        this.appContext.treeNavDocs = this.getNavigationData();   
+      }
     }
   },
   computed: {
@@ -162,7 +179,11 @@ export default {
         "/" +
         path
       );
-    }
+    },
+    getTreeNavDocs() {
+      this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
+      return this.appContext.treeNavDocs;
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);

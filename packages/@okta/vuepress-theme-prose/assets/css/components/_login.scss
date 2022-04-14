@@ -6,10 +6,9 @@
   font-size: 16px;
   align-items: center;
   flex-direction: column;
-  color: $white;
   h1 {
-    color: $white;
     text-align: center;
+    margin-bottom: 70px;
   }
 
   .login--form {
@@ -18,8 +17,8 @@
     width: 588px;
     margin: 0;
     padding: 40px 48px 40px 48px;
-    background-color: cv("blue", "whale");
-    box-shadow: 0px 6px 25px cv("blue", "whale");
+    background-color: #fff;
+    box-shadow: 0px 6px 18px rgba(65, 65, 75, 0.5);
     @include media("<tablet") {
       padding: 10px;
       width: 100%;
@@ -27,10 +26,11 @@
 
     .splitter {
       display: flex;
-      height: 27px;
-      margin: 19.5px 0;
-      justify-content: space-between;
+      height: 20px;
+      margin: 0 0 17px;
+      justify-content: center;
       align-items: center;
+
       span:nth-child(2) {
         margin: 0 16px;
       }
@@ -38,17 +38,18 @@
       span:nth-child(3) {
         height: 0;
         flex-grow: 1;
-        border: 2px solid cv("brand", "base");
+        border: 2px solid cv("header");
+        display: none;
       }
     }
 
     .goto-signup {
       justify-content: center;
       margin: 0;
+      font-size: 14px;
+      line-height: 2rem;
       a {
-        font-size: 17px;
         text-indent: 5px;
-        color: cv("cerise", "base");
         &:hover {
           text-decoration: underline;
         }

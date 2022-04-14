@@ -1,6 +1,11 @@
-There are several options to set the sample app's configuration.
+There are several options to set the sample app's configuration:
 
-### Option 1: YAML configuration
+* [Option 1: Create a YAML file](#option-1-create-a-yaml-file)
+* [Option 2: Set environment variables](#option-2-set-environment-variables)
+* [Option 3: Use Java system properties](#option-3-use-java-system-properties)
+* [Option 4: Add the values as parameters to the SDK's client constructor](#option-4-add-the-values-as-parameters-to-the-sdk-s-client-constructor)
+
+### Option 1: Create a YAML file
 
 Create a YAML file named `okta.yaml` in one of the following three directories:
 
@@ -39,20 +44,11 @@ okta:
     redirectUri: "http://localhost:8080"
 ```
 
-Where
+### Option 2: Set environment variables
 
-* `${authorizationServerId}=default` (the default Custom Authorization Server)
-* `${yourOktaDomain}=dev-1234.okta.com`
-* `${clientId}=123xyz`
-* `${clientSecret}=123456abcxyz`
-* `${redirectUri}=http://localhost:8080`
-* `openid`, `profile`, and `offline_access` scopes are used for the sample app
+#### SDK environment variables
 
-### Option 2: Environment variables
-
-#### Embedded authentication with SDK sample app
-
-Set the following environment variables with your app's configuration values before running the embedded authentication with SDK sample app:
+Set the following environment variables with your app's configuration values before running an embedded authentication with SDK app:
 
 * `OKTA_IDX_ISSUER`
 * `OKTA_IDX_CLIENTID`
@@ -60,7 +56,7 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-The following is an example of setting environment variables for the sample app, in shell:
+The following is a Unix example of setting the environment variables for the sample app:
 
 ```bash
 export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default
@@ -70,9 +66,9 @@ export OKTA_IDX_SCOPES="openid profile offline_access"
 export OKTA_IDX_REDIRECTURI=http://localhost:8080
 ```
 
-#### Embedded Sign-In Widget sample app
+#### Sign-In Widget environment variables
 
-Set the following environment variables with your app's configuration values before running the embedded Sign-In Widget sample app:
+Set the following environment variables with your app's configuration values before running an embedded Sign-In Widget app:
 
 * `OKTA_OAUTH2_ISSUER`
 * `OKTA_OAUTH2_CLIENTID`
@@ -80,11 +76,11 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_OAUTH2_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-### Option 3: Java system properties
+### Option 3: Use Java system properties
 
-#### Embedded authentication with SDK sample app
+#### SDK Java properties
 
-Use the following Java system properties when you run the embedded authentication with SDK sample app:
+Use the following Java system properties when you run the embedded authentication with SDK app:
 
 * `okta.idx.issuer`
 * `okta.idx.clientId`
@@ -102,9 +98,9 @@ mvn -Dokta.idx.issuer=https://dev-1234.okta.com/oauth2/default \
     -Dokta.idx.redirectUri=http://localhost:8080
 ```
 
-#### Embedded Sign-In Widget sample app
+#### Sign-In Widget Java properties
 
-Use the following Java system properties when you run the embedded Sign-In Widget sample app:
+Use the following Java system properties when you run the embedded Sign-In Widget app:
 
 * `okta.oauth2.issuer`
 * `okta.oauth2.clientId`
@@ -112,7 +108,7 @@ Use the following Java system properties when you run the embedded Sign-In Widge
 * `okta.idx.scopes`
 * `okta.oauth2.redirectUri`
 
-### Option 4: Add configuration to the SDK's client constructor
+### Option 4: Add the values as parameters to the SDK's client constructor
 
 Add the configuration values as parameters to the constructor for `IDXAuthenticationWrapper`:
 

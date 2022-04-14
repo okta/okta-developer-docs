@@ -1,0 +1,255 @@
+---
+title: Customize tokens returned from Okta with a dynamic allow list
+excerpt: Define Groups claims for tokens returned from Okta.
+layout: Guides
+---
+
+<ApiAmProdWarning />
+
+This guide explains how to define custom Group claims for tokens that are returned from Okta, by using a dynamic allow list to define user limits with a default or custom Authorization Server.
+
+---
+
+**Learning outcomes**
+
+* Customize Okta tokens with a dynamic allow list.
+* Use a dynamic allow list with an authorization server.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
+
+---
+
+## About the dynamic allow list
+
+You can create a dynamic or [static allow list](/docs/guides/customize-tokens-static/) when you need to set Group allow lists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allow list of Groups that can then easily be referenced.
+
+Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+
+See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+
+## Request a token that contains the custom claim
+
+There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the next section if you don't currently need these steps.
+
+To test the full authentication flow that returns an ID token or an access token, build your request URL:
+
+1. Obtain the following values from your OpenID Connect application, both of which can be found on the application's **General** tab:
+
+    * Client ID
+    * Redirect URI
+
+2. Use the authorization server's authorization endpoint:
+
+    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+
+    * An Okta Org Authorization Server authorization endpoint looks like this:
+
+        `https://${yourOktaDomain}/oauth2/v1/authorize`
+
+    * A Custom Authorization Server authorization endpoint looks like this:
+
+        `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+
+    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+
+    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
+
+    **ID token**
+    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+
+    **Access token**
+    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+
+3. Add the following query parameters to the URL:
+
+    * Your OpenID Connect application's `client_id`
+    * The response type, which for an ID token is `id_token` and an access token is `token`
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `redirect_uri`
+    * Values for `state` and `nonce`, which can be anything
+
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
+
+    The resulting URL looks something like this:
+
+    ```bash
+    curl -X GET
+    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    &response_type=id_token
+    &scope=openid
+    &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+    &state=myState
+    &nonce=myNonceValue"
+    ```
+
+    > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
+
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a User who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, as well as any state that you defined.
+
+    **ID token**
+
+    ```bash
+    https://yourRedirectUriHere.com#id_token=eyJraWQiOiIxLVN5[...]C18aAqT0ixLKnJUR6EfJI-IAjtJDYpsHqML7mppBNhG1W55Qo3IRPAg&state=myState
+    ```
+
+    **Access token**
+
+    ```bash
+    https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
+    ```
+
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
+
+## Add a Groups claim with a dynamic allow list
+
+You can use Okta Expression Language Group Functions with dynamic allow lists. Three Group functions help you use dynamic group allow lists: `contains`, `startsWith`, and `endsWith`. These functions return all of the Groups that match the specified criteria without needing to have Groups specified in the app.
+
+You can use this function anywhere to get a list of Groups of which the current user is a member, including both User Groups and App Groups that originate from sources outside of Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows. All three functions have the same parameters:
+
+| Parameter          | Description                                   | Nullable       | Example Values                        |
+| :----------------- | :-------------------------------------------  | :------------- | :------------------------------------ |
+| app                | Application type or App ID                    | FALSE          | `"OKTA"`,`"0oa13c5hnZFqZsoS00g4"`, `"active_directory"`|
+| pattern            | Search term                                   | FALSE          | `"Eastern-Region"`, `"Eastern"`, `"-Region"`|
+| limit              | Maximum number of Groups returned. Must be a valid EL expression and evaluate to a value between 1 to 100. | FALSE | `1`, `50`, `100`|
+
+> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
+>
+>Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+>
+>See the **Parameter Examples** section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+
+You can use a dynamic group allow list with both the Okta Org Authorization Server and a Custom Authorization Server:
+
+* [Use a dynamic group allow list with the Org Authorization Server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
+* [Use a dynamic group allow list with a Custom Authorization Server](#use-a-dynamic-group-allow-list-with-a-custom-authorization-server)
+
+## Use a dynamic group allow list with the Org Authorization Server
+
+To use the Group Functions to create a token using a dynamic group allow list, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
+
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
+
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Select the client application that you want to configure.
+1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
+1. In the **Groups claim type** section, select **Expression**.
+1. In the **Groups claims filter** section, leave the default name `groups` (or add it if the box is empty) and add one of the three functions with the criteria for your dynamic group allow list. For this example, use `Groups.startsWith("OKTA", "IT", 10)`.
+1. Click **Save**.
+
+### Request an ID token that contains the Groups claim
+
+To test the full authentication flow that returns an ID token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
+
+The resulting URL looks something like this:
+
+```bash
+curl -X GET
+"https://${yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
+&response_type=id_token
+&scope=openid%20groups
+&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+&state=myState
+&nonce=myNonceValue"
+```
+
+The decoded JWT looks something like this:
+
+```json
+{
+  "sub": "00uixa271s6x7qt8I0h7",
+  "ver": 1,
+  "iss": "https://{yourOktaDomain}",
+  "aud": "0oaoiuhhch8VRtBnC0h7",
+  "iat": 1574207471,
+  "exp": 1574211071,
+  "jti": "ID.3xqAvJ3YTofkkrF0FpapgxFEExGWOEoyhWspO6SFQtA",
+  "amr": [
+    "pwd",
+    "mfa",
+    "kba"
+  ],
+  "idp": "00oixa26ycdNcX0VT0h7",
+  "nonce": "UBGW",
+  "auth_time": 1574207041,
+  "groups": [
+    "IT"
+  ]
+}
+```
+
+## Use a dynamic group allow list with a Custom Authorization Server
+
+To use the Group Functions to create an ID token or an access token using a dynamic group allow list, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
+
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
+
+1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
+1. Go to the **Claims** tab and click **Add Claim**.
+1. Enter a name for the claim. For this example, name it **dynamic_group**.
+1. In the **Include in token type** section, leave **Access Token** selected.
+1. Leave **Expression** as the **Value type**.
+1. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "IT", 10)`
+
+    > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
+    >
+    >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+    >
+    >See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+
+1. Click **Create**.
+1. Select the **Scopes** tab and click **Add Scope**.
+1. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
+1. Click **Create**.
+
+### Request an access token that contains the Groups claim
+
+To test the full authentication flow that returns an access token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
+
+The resulting URL looks something like this:
+
+```bash
+curl -X GET
+"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+&response_type=token
+&scope=openid%20groups
+&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+&state=myState
+&nonce=myNonceValue"
+```
+
+The decoded JWT looks something like this:
+
+```json
+{
+  "ver": 1,
+  "jti": "AT.lsZ5XmKiK4KxpKs2IDUBKMRgfMhiB2i2hTBZEM7epAk",
+  "iss": "https://{yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
+  "aud": "https://{yourOktaDomain}",
+  "iat": 1574270245,
+  "exp": 1574273845,
+  "cid": "0oaoiuhhch8VRtBnC0h7",
+  "uid": "00uixa271s6x7qt8I0h7",
+  "scp": [
+    "groups",
+    "openid"
+  ],
+  "sub": "joe.user@okta.com",
+  "dynamic_group": [
+    "IT"
+  ]
+}
+```
+
+## See also 
+
+Other ways that you can customize claims and tokens:
+
+* [Add a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token)
+* [Include App-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim)
+* [Customize tokens with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
+* [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)

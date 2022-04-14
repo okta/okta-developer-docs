@@ -21,13 +21,13 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine].(#enable-a-registration-inline-hook-for-self-service-registration-in-classic-engine)
+For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-the-classic-engine).
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
@@ -158,13 +158,23 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns is displayed to the end user.
+For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register.
 
-If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
+* If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
-> **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+   * You don't customize the error handling behavior of the widget.
+   * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute. See [JSON response payload objects - error](/docs/concepts/inline-hooks/#error).
+
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
+      `Registration cannot be completed at this time.`</br></br>
+      `We found some errors. Please review the form and make corrections.` <ApiLifecycle access="ie" />
+
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
+      `Registration denied.`
+
+> **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
@@ -207,29 +217,26 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ```json
 {
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY"
-         }
+  "commands": [
+    {
+      "type": "com.okta.action.update",
+      "value": {
+        "registration": "DENY"
       }
-   ]
-}
-
-{
-   "error":{
-      "errorSummary":"Errors were found in the user profile",
-      "errorCauses":[
-         {
-            "errorSummary":"You specified an invalid email domain",
-            "reason":"INVALID_EMAIL_DOMAIN",
-            "locationType":"body",
-            "location":"data.userProfile.login",
-            "domain":"end-user"
-         }
-      ]
-   }
+    }
+  ],
+  "error": {
+    "errorSummary": "Incorrect email address. Please contact your admin.",
+    "errorCauses": [
+      {
+        "errorSummary": "Only example.com emails can register.",
+        "reason": "INVALID_EMAIL_DOMAIN",
+        "locationType": "body",
+        "location": "data.userProfile.login",
+        "domain": "end-user"
+      }
+    ]
+  }
 }
 ```
 
@@ -241,7 +248,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Manage Profile Enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).)
+You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).)
 
 1. Go to **Security > Profile Enrollment**.
 
@@ -265,7 +272,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_self_service_registration_policy).)
+You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/okta_help.htm?id=ext_self_service_registration_policy).)
 
 1. Go to **Directory > Self-Service Registration**.
 

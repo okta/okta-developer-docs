@@ -2,20 +2,15 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1.5rem;
+  @include media("<desktop-xl") {
+    margin-bottom: 0;
+  }
 
   &--section {
     font-size: 1.3em;
     line-height: 2em;
     padding: 0em;
     margin: 0em;
-  }
-
-  &--title {
-    font-size: 2.3em;
-    line-height: 1.6em;
-    padding: 0em;
-    margin: -0.2em 0em 0em 0em;
-
   }
 
   &--updated {
@@ -31,6 +26,20 @@
         display: none;
       }
 
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+    margin: 5px 0 7px;
+    line-height: 1.3em;
+
+    @include media("<desktop-xl") {
+      margin-top: 30px;
+    }
+
+    i {
+      margin-top: -5px;
     }
   }
 }

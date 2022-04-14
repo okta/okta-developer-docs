@@ -10,6 +10,7 @@ describe("content section", () => {
     const id = 'first-section';
 
     basePage.visit('/test_page/#last-section');
+    basePage.resizeXLarge();
     basePage.pageReload();
 
     basePage.getH2HeadingById(id).should('be.not.inViewport');
@@ -23,6 +24,7 @@ describe("content section", () => {
     const id = "factors-that-require-only-a-verification-operation";
 
     basePage.visit('/docs/reference/api/factors');
+    basePage.resizeXLarge();
     basePage.getH2HeadingById(id).should('be.not.inViewport');
 
     basePage.getInPageLink(`/docs/reference/api/factors/#${id}`).click();
@@ -34,6 +36,7 @@ describe("content section", () => {
     const secondSectionId = 'second-section';
 
     basePage.visit('/test_page/');
+    basePage.resizeXLarge();
     basePage.pageReload();
 
     basePage.getH2HeadingById(secondSectionId).then($heading2 => {

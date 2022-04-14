@@ -25,6 +25,7 @@ REST endpoints to configure objects whenever you need. For example:
 - The [Sessions API](/docs/reference/api/sessions/) creates and manages user's authentication sessions.
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
 - The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
+- The [Devices API](/docs/reference/api/devices) is used to manage Device identity and lifecycle.
 
 ## Design principles
 
@@ -95,7 +96,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as Okta Sign-On Policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as Global Session Policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
 
 ### User Agent
 
@@ -133,7 +134,7 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 The public IP address of your application is automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a sign-in portal or gateway.
 
-> **Note:** The public IP address of your trusted web application must be a part of the allow list in your [org's network security settings](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) as a trusted proxy to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The public IP address of your trusted web application must be a part of the allow list in your [org's network security settings](https://help.okta.com/okta_help.htm?id=ext_Security_Network) as a trusted proxy to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ### Accept Language
 
@@ -204,8 +205,8 @@ Pagination links are included in the [Link header](http://tools.ietf.org/html/rf
 
 ``` http
 HTTP/1.1 200 OK
-link: <https://${yourOktaDomain}/api/v1/logs?limit=20>; rel="self"
-link: <https://${yourOktaDomain}/api/v1/logs?limit=20&after=1627500044869_1>; rel="next"
+link: <https://{yourOktaDomain}/api/v1/logs?limit=20>; rel="self"
+link: <https://{yourOktaDomain}/api/v1/logs?limit=20&after=1627500044869_1>; rel="next"
 ```
 
 The possible `rel` values are:
@@ -295,12 +296,12 @@ Objects with property names that are link relation types (as defined by [RFC8288
         "logo": [
             {
               "name": "medium",
-              "href": "https://${yourOktaDomain}/assets/img/logos/groups/active_directory-medium.b3959116154f9d44bd4d0f6b2ae31ea6.png",
+              "href": "https://{yourOktaDomain}/assets/img/logos/groups/active_directory-medium.b3959116154f9d44bd4d0f6b2ae31ea6.png",
               "type": "image/png"
             },
             {
               "name": "large",
-              "href": "https://${yourOktaDomain}/assets/img/logos/groups/active_directory-large.0e7a58559ac90c4bbc7b33fa14018c50.png",
+              "href": "https://{yourOktaDomain}/assets/img/logos/groups/active_directory-large.0e7a58559ac90c4bbc7b33fa14018c50.png",
               "type": "image/png"
             }
          ],

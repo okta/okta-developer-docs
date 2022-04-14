@@ -1,5 +1,9 @@
 .category--links {
 
+  @include media("<desktop") {
+    margin: 20px 0;
+  }
+
   li {
     margin-bottom: 1rem;
     

@@ -1,7 +1,7 @@
-.proxima {
-  font-family: "proxima-nova", sans-serif;
+.brand_font {
+  font-family: $font-family;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 #SearchPage {
@@ -15,9 +15,12 @@
     max-width: 100%;
   }
   .coveo-results-column {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     max-width: 800px;
+    &.coveo-no-results {
+      margin: 0 auto;
+    }
   }
   .coveo-facet-column {
     margin: 0 20px 0 0;
@@ -39,8 +42,8 @@
     }
   }
   .coveo-facet-header {
-    @extend .proxima;
-    color: cv("gray", "800");
+    @extend .brand_font;
+    color: cv("text", "darker");
     background: none;
     padding-top: 0;
   }
@@ -53,8 +56,8 @@
   }
   .CoveoQuerySummary,
   .coveo-summary-section {
-    @extend .proxima;
-    color: cv("gray", "500");
+    @extend .brand_font;
+    color: cv("text");
     font-weight: 300;
     .coveo-highlight {
       font-weight: 300;
@@ -70,16 +73,15 @@
     .coveo-facet-value-checkbox {
       top: -1px;
       border-radius: 4px;
-      border-color: cv("gray", "600");
+      border-color: cv("form", "input-border");
       width: 16px;
       height: 16px;
       margin-right: 8px;
     }
     &.coveo-selected .coveo-facet-value-checkbox {
-      background-color: cv("action");
+      background-color: cv("link");
     }
     &.coveo-selected .coveo-facet-value-checkbox svg {
-      transform: translate(0, -1px);
       fill: $white;
       stroke-width: 2;
     }
@@ -92,13 +94,13 @@
       background: none;
       .coveo-facet-value-checkbox-svg {
         .coveo-hook-svg {
-          fill: cv("action");
+          fill: cv("link");
         }
       }
     }
     &.coveo-selected {
       .coveo-facet-value-caption {
-        color: cv("gray", "800");
+        color: cv("text", "darker");
       }
       &:hover {
         .coveo-facet-value-checkbox-svg {
@@ -115,12 +117,12 @@
     @include is-visually-hidden;
   }
   .coveo-facet-values {
-    border-bottom: 1px solid cv("gray", "100");
+    border-bottom: 1px solid cv("body", "border");
     padding-bottom: 48px;
     margin-bottom: 48px;
   }
   .coveo-facet-value-caption {
-    color: cv("gray", "900");
+    color: cv("text", "darker");
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
@@ -130,19 +132,20 @@
   .coveo-pager-list-item-text,
   .coveo-pager-anchor,
   .coveo-active {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
-    color: cv("action");
+    color: cv("link");
     font-weight: 500;
     text-decoration: none;
+    background: none;
   }
   .coveo-pager-list {
     display: flex;
     margin-left: -5px;
   }
   .coveo-pager-list-item {
-    @extend .proxima;
-    font-weight: 600;
+    @extend .brand_font;
+    font-weight: 500;
     font-size: 16px;
     width: 36px;
     height: 36px;
@@ -151,8 +154,7 @@
     align-items: center;
     justify-content: center;
     &:hover {
-      color: cv("action");
-      background: cv("gray", "100");
+      color: cv("link");
       border: none;
       text-decoration: none;
     }
@@ -161,19 +163,18 @@
     display: none;
   }
   .coveo-active {
-    background: cv("gray", "100");
     &:hover,
     & > .coveo-pager-anchor {
       text-decoration: none;
-      color: cv("gray", "900");
+      color: cv("text", "darker");
     }
   }
   .coveo-pager-next,
   .coveo-pager-previous {
-    border: 1px solid cv("action");
+    border: 1px solid cv("link");
     border-radius: 3px;
     &:hover {
-      border: 1px solid cv("action");
+      border: 1px solid cv("link");
     }
   }
   .coveo-pager-next-icon,
@@ -185,49 +186,48 @@
   .coveo-pager-next-icon-svg,
   .coveo-pager-previous-icon-svg {
     height: 9px;
-    color: cv("action");
+    color: cv("link");
   }
   .coveo-results-header {
-    box-shadow: 0 -1px 0 0 cv("gray", "100") inset;
     margin: 0;
     padding: 0;
   }
   .CoveoSearchInterface {
     &,
     * {
-      @extend .proxima;
+      @extend .brand_font;
     }
   }
   .CoveoResultList {
     margin-top: 0;
   }
   .CoveoResultLink {
-    @extend .proxima;
+    @extend .brand_font;
     &,
     &:visited {
-      color: cv("action");
+      color: cv("link");
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;
     }
     &:hover,
     &:focus {
-      color: cv("action");
+      color: cv("link");
       cursor: pointer;
     }
     &.coveo-printable-uri-part {
-      color: cv("gray", "500");
+      color: cv("text");
       font-size: 14px;
       font-weight: 400;
     }
   }
   .is-secondary .CoveoResultLink {
-    color: cv("gray", "500");
+    color: cv("text");
     font-size: 14px;
     outline: none;
     &:hover,
     &:focus,
     &:visited {
-      color: cv("gray", "500");
+      color: cv("text");
       cursor: pointer;
     }
   }
@@ -240,8 +240,8 @@
     padding-right: calc(#{$icon-size} + 5px);
   }
   .CoveoExcerpt {
-    @extend .proxima;
-    color: cv("gray", "700");
+    @extend .brand_font;
+    color: cv("text");
     font-size: 16px;
     line-height: 1.5;
   }
@@ -249,31 +249,31 @@
     padding: 0;
   }
   .CoveoResult {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
-    color: cv("gray", "600");
+    color: cv("text");
     padding: 5px 0;
   }
   .CoveoFacet {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
     background: none;
     font-weight: bold;
     margin-top: 0;
   }
   .CoveoFieldValue {
-    @extend .proxima;
+    @extend .brand_font;
     .highlight {
-      background: cv("gray", "100");
+      background: cv('body');
       border-radius: 4px;
-      color: cv("gray", "900");
+      color: cv("text", "darker");
       font-size: 16px;
       line-height: 16px;
       font-weight: 400;
       padding: 7px;
       display: inline-block;
       .coveo-clickable {
-        color: cv("gray", "900");
+        color: cv("text", "darker");
         font-weight: 400;
         text-decoration: none;
       }
@@ -281,7 +281,7 @@
     &.date {
       span {
         font-size: 14px;
-        color: cv("gray", "700");
+        color: cv("text");
         margin: 0;
       }
     }
@@ -289,14 +289,14 @@
   .coveo-dropdown-header-wrapper {
     justify-content: flex-start;
     .coveo-facet-dropdown-header {
-      @extend .proxima;
+      @extend .brand_font;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 50%;
       margin-bottom: 20px;
       > p {
-        @extend .proxima;
+        @extend .brand_font;
         font-weight: 400;
       }
     }
@@ -309,14 +309,14 @@
     }
   }
   .CoveoBreadcrumb {
-    @extend .proxima;
-    border-color: cv("gray", "500");
+    @extend .brand_font;
+    border-color: cv("text");
     padding: 5px 0;
   }
   .coveo-facet-column-heading {
-    @extend .proxima;
-    color: cv("gray", "800");
-    font-weight: 600;
+    @extend .brand_font;
+    color: cv("text", "darker");
+    font-weight: 500;
     font-size: 18px;
     line-height: 18px;
     margin: 0 0 20px;
@@ -324,14 +324,14 @@
   .coveo-facet-help {
     padding-right: 60px;
     p {
-      @extend .proxima;
+      @extend .brand_font;
       visibility: visible;
-      color: cv("gray", "900");
+      color: cv("text", "darker");
     }
     a {
-      color: cv("action");
+      color: cv("link");
       &:hover {
-        color: cv("action");
+        color: cv("link");
       }
     }
   }

@@ -1,6 +1,6 @@
-You have several options for setting the configuration values:
+You have several options for setting the configuration values.
 
-### Option 1: Configuration file
+### Option 1: Create a configuration file
 
 Create a dotenv file named `testenv` (no extension) in the root level of the sample project.
 
@@ -12,9 +12,7 @@ CLIENT_ID=0oazcjm779c5MPY0O1d6
 CLIENT_SECRET=hCBX_o3OFZMMZMOUzmXb3kHBJd-_Q4IcxIT
 ```
 
-### Option 2: Environment variables
-
-> **Note:** Environment variables are currently not supported.
+### Option 2: Add the values as environment variables
 
 Add the values as environment variables with the following naming convention:
 
@@ -22,7 +20,7 @@ Add the values as environment variables with the following naming convention:
 * `CLIENT_ID`
 * `CLIENT_SECRET`
 
-### Option 3: Add parameters to the SDK's config.js file
+### Option 3: Add the parameters to the SDK config.js file
 
 Add the values as parameters to the `config.js` file:
 

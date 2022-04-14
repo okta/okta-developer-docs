@@ -411,7 +411,7 @@ We've changed the behavior of OpenID Connect scopes:
 #### Help Desk Administrator Role Generally Available
 
 The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
-For information about this role, see the [in-app help](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
+For information about this role, see the [in-app help](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
 
 #### Policy API
 
@@ -561,7 +561,7 @@ This allows you to use one `client_id` for an application that needs to make use
 OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use the Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
+You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -1102,7 +1102,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Manage Authorization Server policies, policy rules, claims, and scopes with the API.
 * Activate or deactivate Authorization Servers, or delete them.
 * Scopes were actions previously, but are now conditions in a policy rule.
-* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_API_Access).
+* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
 For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->
@@ -1419,7 +1419,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 #### Okta Expression Language Function for Filtering Groups
 
-Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
+Use Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
 For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 

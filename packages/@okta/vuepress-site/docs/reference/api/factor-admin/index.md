@@ -32,7 +32,6 @@ The following factor names are available:
 | `okta_otp`            | Okta Verify          |
 | `okta_question`       | Security Question    |
 | `okta_sms`            | SMS Authentication   |
-| `rsa_token`           | RSA SecurID          |
 | `symantec_vip`        | Symantec VIP         |
 
 ### Factor type
@@ -54,7 +53,6 @@ The following providers are supported:
 | ---------- | ----------------------------- |
 | `GOOGLE`   | Google Integration            |
 | `OKTA`     | Okta                          |
-| `RSA`      | RSA SecurID Integration       |
 | `SYMANTEC` | Symantec VIP Integration      |
 
 ### Links object
@@ -109,7 +107,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "ACTIVE",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/google_otp",
         "hints": {
           "allow": [
             "GET"
@@ -117,7 +115,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/google_otp/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -133,7 +131,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "INACTIVE",
     "_links": {
       "activate": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question/lifecycle/activate",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_question/lifecycle/activate",
         "hints": {
           "allow": [
             "POST"
@@ -141,7 +139,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_question",
         "hints": {
           "allow": [
             "GET"
@@ -157,7 +155,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "ACTIVE",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_otp",
         "hints": {
           "allow": [
             "GET"
@@ -165,7 +163,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
         }
       },
       "deactivate": {
-        "href": "http://ryour-domain.okta.com/api/v1/org/factors/okta_otp/lifecycle/deactivate",
+        "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_otp/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -181,7 +179,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "ACTIVE",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms",
         "hints": {
           "allow": [
             "GET"
@@ -189,7 +187,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -205,7 +203,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "NOT_SETUP",
     "_links": {
       "activate": {
-        "href": "http://ryour-domain.okta.com/api/v1/org/factors/symantec_vip/lifecycle/activate",
+        "href": "http://{yourOktaDomain}/api/v1/org/factors/symantec_vip/lifecycle/activate",
         "hints": {
           "allow": [
             "POST"
@@ -213,31 +211,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/symantec_vip",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      }
-    }
-  },
-  {
-    "id": "rsa_token",
-    "provider": "RSA",
-    "factorType": "token",
-    "status": "NOT_SETUP",
-    "_links": {
-      "activate": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token/lifecycle/activate",
-        "hints": {
-          "allow": [
-            "POST"
-          ]
-        }
-      },
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token",
+        "href": "https://{yourOktaDomain}/api/v1/org/factors/symantec_vip",
         "hints": {
           "allow": [
             "GET"
@@ -248,6 +222,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
   }
 ]
 ```
+
 ### Activate SMS
 
 
@@ -280,7 +255,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "ACTIVE",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms",
             "hints": {
                 "allow": [
                     "GET"
@@ -288,7 +263,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -332,7 +307,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "INACTIVE",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -340,7 +315,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_sms",
             "hints": {
                 "allow": [
                     "GET"
@@ -384,7 +359,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "ACTIVE",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_otp",
             "hints": {
                 "allow": [
                     "GET"
@@ -392,7 +367,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_otp/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -436,7 +411,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
     "status": "INACTIVE",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_otp/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -444,7 +419,7 @@ curl -v -H "Authorization: SSWS yourtoken" \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_otp",
             "hints": {
                 "allow": [
                     "GET"

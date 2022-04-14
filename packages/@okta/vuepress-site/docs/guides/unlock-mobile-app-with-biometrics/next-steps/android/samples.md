@@ -1,1 +1,0 @@
-We have a sample available in our [Android samples repo](https://github.com/okta/samples-android/tree/master/browser-sign-in) on GitHub.

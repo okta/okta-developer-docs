@@ -1,60 +1,105 @@
+@mixin active-link {
+  color: cv('text', 'darker');
+  font-weight: 500;
+
+  &> i.parent {
+    svg {
+      path {
+        fill: cv('text', 'darker');
+      }
+    }
+  }
+}
+
 .tree-nav {
   width: 100%;
   min-height: 100%;
-  padding: 3rem 1rem 3rem 0;
-  background: #16272f;
+  padding: 29px 1rem 3rem 26px;
+  font-size: 14px;
+  background: cv('body');
 
-  @include media(">=desktop") {
-    flex-grow: 0;
-    flex-shrink: 0;
+  @include media("<desktop-xl") {
+    padding-left: 16px;
   }
-
   @include media("<tablet") {
     flex-basis: 0;
     width: 100%;
     padding: 1rem 0 0 0;
   }
   .sections {
-    margin-left: 1.5rem;
-    .link-wrap {
-      margin-top: 1rem;
-      .blank-divider {
-        color: cv("gray", "300");
-        cursor: default;
-        margin-top: 12px;
+    margin-left: 17px;
+    &:first-child {
+      & > .link-wrap > .tree-nav-link {
+        &> .text-holder {
+          @include active-link;
+        }
+        &.router-link-active {
+          &> .text-holder {
+            color: cv('link');
+          }
+        }
       }
     }
-    .subnav-active {
-      .tree-nav-link {
-        color: #ffffff;
+    .link-wrap {
+      margin-top: 12px;
+      .blank-divider {
+        cursor: default;
+        margin-top: 12px;
+        margin-left: -17px;
       }
     }
     .tree-nav-link {
       position: relative;
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: flex-start;
       font-size: 1em;
+      font-weight: 300;
       text-decoration: none;
-      color: #b7bcc0;
+      color: cv('text');
       cursor: pointer;
       &:hover {
-        color: cv("cerise", "active");
+        color: cv('text', 'darker');
       }
       &.children-active {
-        font-weight: bold;
+        @include active-link;
       }
       &.router-link-active {
-        font-weight: bold;
-        color: cv("cerise", "active");
+        @include active-link;
+        color: cv('link');
+        &::before {
+          position: absolute;
+          content: '';
+          background: cv('link');
+          left: -18px;
+          top: 6px;
+          width: 2px;
+          height: 9px;
+          @include media("<desktop-xl") {
+            left: -13px;
+          }
+        }
       }
       > span.text-holder {
-        margin-left: 20px;
+        margin-left: 0px;
       }
-      > i.fa {
+      > i.parent {
         position: absolute;
-        left: 0;
+        left: -19px;
         top: 4px;
+        font-size: 9px;
+        padding-right: 5px;
+        @include media("<desktop-xl") {
+          left: -14px;
+        }
+        &.opened {
+          transform: rotate(90deg);
+          top: 7px;
+          left: -22px;
+          @include media("<desktop-xl") {
+            left: -17px;
+          }
+        }
       }
     }
   }

@@ -1,5 +1,1 @@
-## Option 1: Refresh using the Golang SDK
-
-The [Go SDK, Widget, and sample app](https://github.com/okta/okta-idx-golang)
-don't currently have built-in support for refreshing tokens. Instead use
-the direct approach with the [OAuth token endpoint](#refresh-using-the-oauth-token-endpoint).
+Currently, the [Identity Engine Golang SDK](https://github.com/okta/okta-idx-golang) doesn't have built-in support for refreshing tokens. Use the direct API approach in the [next section](#option-2-refresh-the-tokens-with-the-oauth-token-endpoint).

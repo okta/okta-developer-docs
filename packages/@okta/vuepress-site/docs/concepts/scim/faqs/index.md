@@ -92,14 +92,16 @@ To set up a regular schedule for importing users, go into the Okta Admin Console
 1. Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section.
 1. In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports.
 
-For more details on the import functionality of Okta, see [Import users](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Importing_People) in our Product Help documentation.
+For more details on the import functionality of Okta, see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People) in our Product Help documentation.
 
 **Q: How do I get my SCIM integration to use `PUT` requests instead of `PATCH` when updating users and groups?**
 
-SCIM integrations that are created using the templates from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can send an email to <developers@okta.com> and request to change your integration to use `PUT` for updates.
+SCIM integrations that are created using the templates from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can contact your Okta rep and request that they change your integration to use `PUT` for updates, or ask on our [forum](https://devforum.okta.com/).
 
 SCIM integrations that are created using the Application Integration Wizard use `PUT` by default. They can't be reconfigured to use `PATCH` for updates.
 
-**Q: How do I get a SCIM application that resides inside my corporate firewall to integrate with Okta?**
+**Q: How do I integrate a SCIM application residing inside my corporate firewall with Okta?**
 
-The [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premises applications. For more details about the Okta agent-based provisioning solution, see the [On-Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) configuration guide.
+Use the Okta agent-based provisioning solution. See the [On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) configuration guide.
+
+The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based applications.

@@ -4,26 +4,40 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" /><br>
+This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
-## Overview
+---
 
-Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications.
+**Learning outcomes**
 
-This guide provides a high-level overview of the Native SSO feature in Okta and describes how to configure your org to use this feature. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
+* Understand the Native SSO flow.
+* Set up your native application.
+* Update the authorization server policy rule to allow the token exchange grant.
+* Understand the device secret and refresh token idle lifetimes.
+* Verify that the device secret is valid.
+* End a desktop session by revoking the device secret.
+* Use the `/logout` request to revoke the device secret.
+
+**What you need**
+
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Native SSO feature enabled for your org](#before-you-begin)
+
+---
+
+## About the Native SSO feature
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
-# Before you begin
+## Before you begin
 
-This guide assumes that you:
-
-* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
+This guide assumes that you have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 ## Native SSO flow
 
-![Native SSO flow](/img/native_SSO_flow.png)
+![Native SSO flow diagram](/img/native_SSO_flow.png)
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -64,12 +78,11 @@ To use the Native SSO functionality, you need to:
 
 * Set up your application
 * Configure Native SSO for your Okta org
-* Configure your client to participate in Native SSO
 * Use Authorization Code with PKCE to obtain the authorization code for client 1
 * Exchange the code for tokens
 * Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
 * Validate the device secret
-* Revoke the device secret to end a desktop session
+* Revoke the device secret to end the session
 
 This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https://openid.net/specs/openid-connect-native-sso-1_0.html) draft specification.
 
@@ -79,173 +92,25 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 1. From the left navigation pane in the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method** and then pick **Native Application** as the **Application type**. Click **Next**.
-1. Fill in the details for your app integration, and then click **Save**.
+1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method** and choose **Native Application** as the **Application type**. Click **Next**.
+1. Enter a name for your new app integration.
+1. Select **Token Exchange** in the **Grant type** section.
+1. In this example, we are granting everyone access to the application. In the **Assignments** section, select **Allow everyone in your organization to access**. Click **Save**.
 1. On the **General** tab, click the **Copy to clipboard** icon for the **Client ID** and save the ID somewhere.
+1. Repeat the steps for client 2.
 
 ## Configure Native SSO for your Okta org
 
-Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server. Org Authorization Server is not supported with this feature.
+Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this example, we are using the "default" Custom Authorization Server. The Org Authorization Server isn't supported.
+
+> **Note:** You must have an authorization server policy and a rule set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/main/#create-access-policies) and [Create rules for each access policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
+
+To update the authorization server policy rule:
 
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
-1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
+1. On the **Authorization Servers** tab, click the pencil icon for the "default" Custom Authorization Server.
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
-1. Ensure that an authorization server policy and a rule are set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/create-access-policies/) and [Create rules for each access policy](/docs/guides/customize-authz-server/create-rules-for-policy/).
-1. Use the following API requests to update the policy rule to allow the token exchange grant.
-
-> **Note:** At this time, you must use the API to update the policy rule.
-
-### Obtain the policy ID
-
-Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this example, we are using the "default" Custom Authorization Server, so the `${authorizationServerID}` is `default`.
-
-**Request example**
-
-```bash
-curl --request GET \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}'
-```
-
-In the response, locate the "id" for the policy that you created in the "Configure Native SSO for your Okta org" section and save it somewhere.
-
-### Obtain the rule ID
-
-Make a request to obtain the rule ID of the policy that you just created in the "Configure Native SSO for your Okta org" section. In this use case example we are using the "default" Custom Authorization Server, so the `${authorizationServerID}` is `default`.
-
-**Request example**
-
-```bash
-curl --request GET \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}'
-```
-
-In the response, locate the ID of the rule and save it somewhere.
-
-### Get the current access policy rule
-
-Use the `policyId` and `ruleId` that you obtained in the previous section to obtain the current access policy rule.
-
-```bash
-curl --request GET \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}'
-```
-
-### Add the token exchange grant type to the policy
-
-Next, configure the token exchange grant type for the client that is using the API. You need to update the `grantTypes` property by including the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type in the policy rule.
-
-> **Note:** The `*` value in `scopes` means any scope is valid here.
-
-**Update example**
-
-```bash
-curl --request PUT \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}' \
-  -d '{
-    "id": "${ruleId}",
-    "status": "ACTIVE",
-    "name": "allow token exchange",
-    "priority": 1,
-    "created": "2021-04-14T17:47:42.000Z",
-    "lastUpdated": "2021-04-14T17:47:42.000Z",
-    "system": false,
-    "conditions": {
-      "people": {
-        "users": {
-          "include": [],
-          "exclude": []
-        },
-        "groups": {
-          "include": [
-            "EVERYONE"
-          ],
-          "exclude": []
-        }
-      },
-      "grantTypes": {
-        "include": [
-          "implicit",
-          "password",
-          "client_credentials",
-          "authorization_code",
-          "urn:ietf:params:oauth:grant-type:token-exchange"
-        ]
-      },
-      "scopes": {
-        "include": [
-          "*"
-        ]
-      }
-    },
-    "actions": {
-      "token": {
-        "accessTokenLifetimeMinutes": 60,
-        "refreshTokenLifetimeMinutes": 0,
-        "refreshTokenWindowMinutes": 10080
-      }
-    },
-    "type": "RESOURCE_ACCESS"
-  }'
-```
-
-## Configure your client to participate in Native SSO
-
-This is applicable for all clients participating in Native SSO (for example, client 1 and client 2). In this request, use the client ID for the client that you created in the "Set up the application" section. Copy the response that is returned from this request for use in the next step.
-
-**Request example**
-
-```bash
-curl --request GET \
-  --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId} \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}'
-```
-
-### Update the client with the token exchange grant
-
-In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grant_types` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
-
-> **Note:** All clients that want to leverage Native SSO and SLO must be configured with this grant type.
-
-```bash
-curl --request PUT \
-  --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId} \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: SSWS ${apiKey}' \
-  -d '{
-      "client_id": "${clientId}",
-      "client_id_issued_at": 1618351934,
-      "client_name": "Target Client",
-      "client_uri": null,
-      "logo_uri": null,
-      "redirect_uris": [
-        "yourApp:/callback"
-      ],
-      "post_logout_redirect_uris": [
-        "yourApp:/logout/callback"
-      ],
-      "response_types": [
-         "code"
-      ],
-      "grant_types": [
-          "authorization_code",
-          "refresh_token",
-          "urn:ietf:params:oauth:grant-type:token-exchange"
-      ],
-      "token_endpoint_auth_method": "none",
-      "application_type": "native"
-    }'
-```
+1. In the Edit Rule dialog box, select **Token Exchange** as a grant type in the **IF Grant type is** section and click **Update Rule**.
 
 ## Native SSO desktop session lifetime
 
@@ -260,6 +125,8 @@ To generate a new set of tokens:
 * Exchange the existing tokens from client 1 for new tokens for client 2.
 
 In this example, you want to SSO to multiple apps that are created by the same company. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
+
+> **Note:** Performing Native SSO token exchange with an application that has a low assurance policy configured and another application that has a high assurance policy results in an error.
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 

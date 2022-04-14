@@ -1,0 +1,3 @@
+See our [iOS Samples repo](https://github.com/okta/samples-ios) for multiple samples.
+
+You configure the [iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/master/browser-sign-in) in the [Set up the first mobile app](#set-up-the-first-mobile-app) section. You'll need to install [CocoaPods](https://cocoapods.org/) to install the dependencies for the iOS Browser Sign-In sample app, using `sudo gem install cocoapods`.

@@ -4,7 +4,7 @@ describe('header sanity check', () => {
   const mainPage = new MainPage();
 
   beforeEach( () => {
-    mainPage.visit();
+    mainPage.visit('/test_page/');
   });
 
   it('validate developer okta main page links', () => {

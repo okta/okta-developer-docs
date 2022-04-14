@@ -1,8 +1,9 @@
 <template>
   <aside class="on-this-page-navigation">
-    <div v-show="showOnthisPage">
-      <div class="title">On This Page</div>
-      <div>
+    <div v-show="showNavigation">
+      <StackSelector v-if="$page.hasStackContent" />
+      <div v-show="showOnthisPage">
+        <div class="title">On this page</div>
         <ul class="links" v-if="items">
           <OnThisPageItem
             v-for="(link, index) in items"
@@ -33,7 +34,8 @@ export default {
   mixins: [AnchorHistory],
   inject: ["appContext"],
   components: {
-    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
+    OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
+    StackSelector: () => import("../global-components/StackSelector.vue")
   },
   props: ["items"],
   data() {
@@ -50,6 +52,9 @@ export default {
         (this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
       );
+    },
+    showNavigation: function() {
+      return this.showOnthisPage || this.$page.hasStackContent;
     }
   },
   mounted() {
@@ -60,14 +65,14 @@ export default {
       this.$nextTick(() => {
         this.anchors = this.getOnThisPageAnchors();
         this.setActiveAnchor();
-        this.setAlwaysOnViewPosition();
+        //this.setAlwaysOnViewPosition();
       });
     });
-    window.addEventListener("scroll", this.setAlwaysOnViewPosition);
+    // window.addEventListener("scroll", this.setAlwaysOnViewPosition);
     window.addEventListener("scroll", this.setActiveAnchor);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
+    // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
   },
   watch: {
@@ -98,7 +103,7 @@ export default {
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
-    }, 200),
+    }, 50),
 
     getOnThisPageAnchors() {
       const onThisPageLinks = [].slice.call(

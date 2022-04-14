@@ -11,6 +11,8 @@ The Okta Risk Providers API provides the ability to manage the Risk Providers wi
 ## Get Started
 Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
+See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/) for guidance on integrating third-party risk providers with Okta.
+
 ## Risk Providers Operations
 The Risk Providers API has the following CRUD operations:
 
@@ -35,7 +37,7 @@ A maximum of 3 providers can be created. By default, one risk provider is create
 | ----------- | -------------- | ------------- |
 | `action` | String | Possible values: `none` (no action), `log_only` (include the risk event information in SystemLog only), `enforce_and_log` (include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Must be less than `50` characters and unique. This is a required field. |
-| `clientId` | String | The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that is used to send risk events to Okta. This is a required field.  |
+| `clientId` | String | The ID of the [OAuth service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes) that is used to send risk events to Okta. This is a required field.  |
 
 #### Response body
 
@@ -51,7 +53,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-X"
+    "name": "Risk-Partner-X",
     "action": "log_only",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers"
@@ -69,7 +71,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 21:23:10",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -101,7 +103,7 @@ Updates a Risk Provider.
 | ----------- | -------------- | ------------- |
 | `action` | String | Possible values: `none` (no action), `log_only` (include the risk event information in SystemLog only), `enforce_and_log` (include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Must be less than `50` characters and unique. This is a required field. |
-| `clientId` | String | The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that is used to send risk events to Okta. This is a required field.  |
+| `clientId` | String | The ID of the [OAuth service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes) that is used to send risk events to Okta. This is a required field.  |
 
 
 #### Response body
@@ -118,7 +120,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-    "name": "Risk-Partner-Y"
+    "name": "Risk-Partner-Y",
     "action": "enforce_and_log",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn"
@@ -136,7 +138,7 @@ curl -X POST \
     "lastUpdated": "2021-01-05 23:18:30",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+            "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
             "hints": {
                 "allow": [
                     "GET",
@@ -189,7 +191,7 @@ curl -X GET \
       "lastUpdated": "2021-01-04 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -237,7 +239,7 @@ curl -X GET \
       "lastUpdated": "2021-01-05 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -256,7 +258,7 @@ curl -X GET \
       "lastUpdated": "2021-01-04 23:18:30",
       "_links": {
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
               "hints": {
                   "allow": [
                       "GET",
@@ -318,11 +320,9 @@ The Risk Provider object has the following properties:
 | `id` | String | ID of the risk provider. This is an assigned field. |
 | `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible values: `none` (no action), `log_only` (include the risk event information in SystemLog only), `enforce_and_log` (include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Must be less than `50` characters and unique. This is a required field. |
-| `clientId` | String | The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that is used to send risk events to Okta. This is a required field. |
-
+| `clientId` | String | The ID of the [OAuth service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-a-service-app-and-grant-scopes) that is used to send risk events to Okta. This is a required field. |
 
 #### Risk Provider example
-```
 ```json
 {
     "id": "00rpdfgkljdlkklhktlrh",

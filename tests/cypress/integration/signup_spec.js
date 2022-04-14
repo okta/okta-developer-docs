@@ -76,15 +76,15 @@ describe('Sign up page check spec', () => {
 
   describe('verify button text', () => {
     it('email signup button text verification', () => {
-      signUpPage.getSignUpSubmitInput().should('have.value', 'sign up');
+      signUpPage.getSignUpSubmitInput().should('have.value', 'Sign up');
     });
 
     it('github signup button text verification', () => {
-      signUpPage.getGithubButtonInput().should('have.value', 'continue with github');
+      signUpPage.getGithubButtonInput().should('have.text', ' Continue with GitHub\n            ');
     });
 
     it('google signup button text verification', () => {
-      signUpPage.getGoogleButtonInput().should('have.value', 'continue with google');
+      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n            ');
     });
   })
 

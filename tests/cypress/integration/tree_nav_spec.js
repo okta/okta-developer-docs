@@ -21,24 +21,13 @@ describe("tree nav panel(left section)", () => {
     treeNav.getTreeNavLinkByItemText(selectedItemTitle).should("be.inViewport");
   });
 
-  describe("in mobile vieports", () => {
+  describe("in mobile viewports", () => {
     beforeEach(() => {
       treeNav.visit("/docs/concepts");
       treeNav.resizeXXsmall();
     });
     
-    it('can be toggled via Breadcrumbs "Show Contents" link', () => {
-      treeNav.getTreeNav().should("be.not.visible");
-
-      treeNav.toggleTreeNavMobile();
-      treeNav.getTreeNav().should("be.visible");
-
-      treeNav.toggleTreeNavMobile();
-      treeNav.getTreeNav().should("be.not.visible");
-
-      treeNav.toggleTreeNavMobile();
-      treeNav.getTreeNavLinkByItemText("Authentication").click();
-      treeNav.getTreeNavLinkByItemText("Authentication").parent().should('have.class', activeLinkClass);
+    it('tree nav is hidden', () => {
       treeNav.getTreeNav().should("be.not.visible");
     });
   });

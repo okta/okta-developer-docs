@@ -115,6 +115,8 @@ Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
+> **Note**: Continent codes are not intended to be used as `country` or `region` definitions. To include all of the countries in a continent, each country needs to be specified individually in a Location definition.  If a continent code is used, then traffic from a designated country region within the continent might not be considered. For example, if `EU` or `AP` is used instead of a country code, then the Location definition treats Europe or Asia/Pacific as generic codes for undesignated regions rather than inclusive of the countries they contain.
+
 #### Location object example (with region)
 
 ```json
@@ -236,7 +238,7 @@ curl -X POST \
   ],
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3",
       "hints": {
         "allow": [
           "GET",
@@ -246,7 +248,7 @@ curl -X POST \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -425,13 +427,13 @@ curl -X GET \
     "asns": ["23457"],
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
             "hints": {
                 "allow": ["GET", "PUT", "DELETE"]
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
             "hints": {
                 "allow": ["POST"]
             }
@@ -501,7 +503,7 @@ curl -X GET \
         "proxies": null,
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -511,7 +513,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -537,13 +539,13 @@ curl -X GET \
         "asns": ["23457"],
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
                 "hints": {
                     "allow": ["GET", "PUT", "DELETE"]
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": ["POST"]
                 }
@@ -568,7 +570,7 @@ curl -X GET \
         "proxies": null,
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -578,7 +580,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -660,7 +662,7 @@ curl -X GET \
     ],
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3",
         "hints": {
           "allow": [
             "GET",
@@ -670,7 +672,7 @@ curl -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -726,7 +728,7 @@ curl -X GET \
     ],
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3",
         "hints": {
           "allow": [
             "GET",
@@ -736,7 +738,7 @@ curl -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -866,7 +868,7 @@ curl -X PUT \
   ],
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3",
       "hints": {
         "allow": [
           "GET",
@@ -876,7 +878,7 @@ curl -X PUT \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"

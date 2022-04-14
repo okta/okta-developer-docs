@@ -345,7 +345,7 @@ The following features have already been released as Early Access. To enable the
 
 #### New Device Notification Emails are Generally Available (GA)
 
-When enabled, end users will receive a new device notification email when signing in to Okta from a new or unrecognized device. This feature is now generally available to all orgs. For more information about email notifications, refer to the New or Unknown Device Notification Emails section on [this page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General). <!--OKTA-186366-->
+When enabled, end users will receive a new device notification email when signing in to Okta from a new or unrecognized device. This feature is now generally available to all orgs. For more information about email notifications, refer to the New or Unknown Device Notification Emails section in[General Security](https://help.okta.com/okta_help.htm?id=ext_Security_General). <!--OKTA-186366-->
 
 #### Email Rate Limiting
 
@@ -452,7 +452,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Interstitial Page Settings are Generally Available
 
-You can now disable the Okta loading animation that appears during a login redirect to your application. For more information, see [Manage the Okta interstitial page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Settings_Customization).
+You can now disable the Okta loading animation that appears during a login redirect to your application. For more information, see [Manage the Okta interstitial page](https://help.okta.com/okta_help.htm?id=ext_Settings_Customization).
 
 #### New System Log Event Type for Denied Events
 
@@ -804,15 +804,15 @@ OpenID Connect ID tokens can now be retrieved using a refresh token. For more in
 
 #### Custom URL Domains are in Early Access
 
-You can customize your Okta org by replacing the Okta domain name with a custom URL domain name that you specify. For example, if the URL of your Okta org is `https://${yourOktaDomain}`, you can configure a custom URL for the org such as `https://id.example.com`. For details, see the [Configure a custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain).
+You can customize your Okta org by replacing the Okta domain name with a custom URL domain name that you specify. For example, if the URL of your Okta org is `https://${yourOktaDomain}`, you can configure a custom URL for the org such as `https://id.example.com`. For details, see the [Configure a custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain).
 
 #### Custom Okta-hosted Sign-In Page is in Early Access
 
-You can customize the text and the look and feel of the Okta-hosted sign-in page using form controls and an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/overview/), this feature offers a fully customized end-user sign-in experience hosted by Okta. For details, see [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/).
+You can customize the text and the look and feel of the Okta-hosted sign-in page by using form controls and an embedded HTML editor. When this feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/), it offers a fully customized end-user sign-in experience that is hosted by Okta. See [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) for more information.
 
 #### Custom Error Page is in Early Access
 
-You can customize the text and the look and feel of error pages using an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/), this feature offers a fully customized error page. For details, see [Configure a custom error page](/docs/guides/custom-error-pages/overview/).
+You can customize the text and the look and feel of error pages by using an embedded HTML editor. When the feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), it offers a fully customized error page. See [Configure a custom error page](/docs/guides/custom-error-pages/) for more information.
 
 #### Bugs Fixed in 2018.19
 
@@ -1018,7 +1018,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Change to App Variable Name Incrementing
 
-When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of the Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
+When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
 
 #### Token Management API Is in Early Access (EA)
 
@@ -1088,7 +1088,7 @@ For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--O
 
 The Okta System Log records system events related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#Reports_System_Log).
+The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?id=Reports_System_Log).
 
 Often the terms "event" and "log event" are used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system and "log" or "log event" is the recorded fact.
 

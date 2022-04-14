@@ -3,45 +3,31 @@
     <SmartLink :item="{ link: '/' }" classes="header--logo">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
-    <div
-      :class="{
-        'search--slideout': true,
-        opened: searchOpened || isSearchPage,
-      }"
-    >
-      <SearchBar />
-    </div>
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
-      <div class="header--links">
-        <MenuItems
-          :items="$themeConfig.primary_left_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
-        <MenuItems
-          :items="$themeConfig.primary_right_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
-        <MenuItems
-          :items="$themeConfig.primary_doc_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
+      <div class="search--slideout opened">
+        <SearchBar />
       </div>
+
+      <HeaderMenu />
+    </div>
+    <div class="flex align-items-center">
       <SmartLink :item="{ link: '/signup/' }" classes="sign-up--button">
         Sign Up
       </SmartLink>
-    </div>
-    <div class="mobile--toggles">
-      <div v-if="!isSearchPage" class="mobile--toggle" @click="toggleSearch()">
-        <img v-if="searchOpened" src="/img/icons/icon--search-cherry.svg" />
-        <img v-else src="/img/icons/icon--search-white.svg" />
+      <div class="mobile--toggles">
+        <div
+          :class="{
+            'mobile--toggle': true,
+            'is-opened': menuOpened
+          }"
+          @click="toggleMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <div class="mobile--toggle hamburger-icon-wrapper" @click="toggleMenu()">
-        <img v-if="menuOpened" src="/img/icons/icon--menu-cherry.svg" />
-        <img v-else src="/img/icons/icon--menu-white.svg" />
-      </div>
+      <ThemeModeToggle />
     </div>
   </header>
 </template>
@@ -49,20 +35,20 @@
 <script>
 export default {
   components: {
-    MenuItems: () => import("../components/MenuItems.vue"),
-    MenuItem: () => import("../components/MenuItem.vue"),
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
+    HeaderMenu: () => import("../components/HeaderMenu.vue"),
+    ThemeModeToggle: () => import("../components/ThemeModeToggle.vue")
   },
   data() {
     return {
       isSearchPage: false,
       searchOpened: false,
-      menuOpened: false,
+      menuOpened: false
     };
   },
   watch: {
-    $route: "closeMenu",
+    $route: "closeMenu"
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
@@ -85,7 +71,7 @@ export default {
         this.searchOpened = false;
         this.menuOpened = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>

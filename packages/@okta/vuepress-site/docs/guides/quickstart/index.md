@@ -1,12 +1,7 @@
 ---
-title: QuickStart
-excerpt: Get started with Okta authentication
+title: Quickstart
+excerpt: Quickly integrate Okta into your app to get a taste of how we work.
 sections:
- - create-org
- - using-console
- - add-user
- - register-app
- - sign-in
- - try-api
+ - main
 ---
 

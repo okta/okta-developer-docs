@@ -5,8 +5,7 @@ category: management
 
 # CAPTCHAS API
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -93,7 +92,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -203,7 +202,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -271,7 +270,7 @@ Content-Type: application/json
     "type": "RECAPTCHA_V2",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+        "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
         "hints": {
           "allow": [
             "GET",
@@ -345,7 +344,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -387,7 +386,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -532,7 +531,7 @@ The CAPTCHA object defines the following properties:
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -615,7 +614,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -626,7 +625,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -663,7 +662,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -732,7 +731,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -743,7 +742,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -783,7 +782,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -802,7 +801,7 @@ The following request returns an error when the updated `captchaId` is null but 
 ##### Request
 
 ```bash
-curl -v -X POST \
+curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -922,7 +921,7 @@ Property           | Type                             | Description             
     "captchaId": "cap18c2Ey3iR9BLDb0g4",
     "_links": {
         "captcha": {
-            "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+            "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -933,7 +932,7 @@ Property           | Type                             | Description             
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+            "href": "https://{yourOktaDomain}/api/v1/org/captcha",
             "hints": {
                 "allow": [
                     "GET",

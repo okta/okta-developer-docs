@@ -1,88 +1,85 @@
 ---
-title: Download and set up the SDK, Sign-In Widget, and sample app
+title: Download and set up the SDK, Sign-In Widget, and sample apps
 ---
-<div class="oie-embedded-sdk">
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
-<StackSelector class="cleaner-selector"/>
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
-After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), the next step is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+---
+
+**Learning outcomes**
+
+* Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
+* Configure the settings that you require for the SDK and the Sign-In Widget.
+
+**What you need**
+
+* [Okta Developer Edition organization](/signup)
+* <StackSnippet snippet="samplecode" inline />
+* [Software requirements](#software-requirements)
+---
 
 ## Software requirements
 
 Before you download the SDK, Widget, and sample apps, you need the following:
 
-<StackSelector snippet="softwarerequirements" noSelector />
+<StackSnippet snippet="softwarerequirements" />
 
-## Download from GitHub
+## Download the repository
 
-<StackSelector snippet="githubinstructions" noSelector />
+<StackSnippet snippet="githubinstructions" />
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
+Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that are required to initialize the SDK and/or the Sign-In Widget.
 
 ### Configuration settings
 
 #### Issuer
 
-Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list.
+There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-Example URI: `https://dev-foo.okta.com/oauth2/default`
+<ApiAmProdWarning />
 
-There are two main types of authorization servers: **Org** and **Custom**:
+The Issuer URI format depends on which authorization server that you decide to use:
 
-* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://dev-example.okta.com`.
-* **Custom**: You can either use the **default** Custom Authorization Server or create your own.
-  * **default**: The **default** Custom Authorization Server is predefined and automatically created when you created the org.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/default`
+* Org &mdash; If you use the Org Authorization Server, the Issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
+* Custom &mdash; You can either use the default Custom Authorization Server or create your own.
+  * If you use the default Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
+  * If you use your own Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your Custom Authorization Server's unique ID.
 
-      > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
-  * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/${authorizationServerId}`
+If you're getting started with your first app or if you're running an Okta sample app, use the Issuer URI of your default Custom Authorization Server. To find this value:
 
-For more information about the authorization server types available:
-
-* [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types)
-* [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US)
+1. In the Admin Console, go to **Security** > **API**.
+2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** Custom Authorization Server row (for example, `https://${yourOktaDomain}/oauth2/default`).
 
 #### Client ID
 
-For the sample app, use the **Client ID** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
+For the sample app, use the client ID for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
 
-<StackSelector snippet="clientsecret" noSelector /><br>
+<StackSnippet snippet="clientsecret" />
 
 #### Redirect URI
 
-<StackSelector snippet="redirecturi" noSelector /><br>
+This is the same value as the **Redirect URI** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
-This is the same value as the **Redirect URI** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
+<StackSnippet snippet="redirecturi" />
 
 #### Scopes
 
-For the sample app, use the following scopes: `openid`, `profile`, `offline_access`. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/reference/api/oidc/#scopes) for more information.
+The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#scopes) for more information on OIDC scopes associated with access tokens.
 
 ## Set the configuration values
 
-<StackSelector snippet="configlocations" noSelector />
+<StackSnippet snippet="configlocations" />
 
-<StackSelector snippet="configorder" noSelector />
-
-## Project structure
-
-<StackSelector snippet="projectstructure" noSelector />
-
-## Run the sample app
-
-After you complete the configurations, run the sample app:
-
-* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
+<StackSnippet snippet="configorder" />
 
 ## Set up the SDK for your own app
 
-<StackSelector snippet="sdkforyourapp" noSelector />
+<StackSnippet snippet="sdkforyourapp" />
 
-</div>
+## Set up the Sign-In Widget and SDK for your own app
+
+<StackSnippet snippet="widgetforyourapp" />

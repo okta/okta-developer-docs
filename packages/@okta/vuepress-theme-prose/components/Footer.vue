@@ -1,15 +1,17 @@
 <template>
   <footer class="app-footer">
-    <p class="app-footer--need-support">
-      <span class="italic">Need support?</span> Ask on the
-      <SmartLink
-        :item="{ link: config.forum_url, target: '_self' }"
-        classes="link link--red"
-      >
-        forum.
-      </SmartLink>
-    </p>
     <div class="footer--columns">
+      <div class="footer--column need-support">
+        <h4 class="column--header">{{ config.footer_nav.need_support.heading }}</h4> 
+        <p>
+          You can contact your Okta rep or ask us on our
+          <SmartLink
+            :item="{ link: config.forum_url, target: '_self' }"
+            classes="link"
+          >
+            forum</SmartLink>.
+        </p>
+      </div>
       <div class="footer--column social">
         <h4 class="column--header">
           {{ config.footer_nav.social.heading }}
@@ -71,20 +73,15 @@
         >
           <SmartLink
             :item="item"
-            classes="link link--red link--small link--bold link--uppercase link--spacing-large"
+            classes="link link--small link--bold link--uppercase link--spacing-large link--with-chevron-right link--heading"
           />
           <span class="description">{{ item.description }}</span>
         </div>
       </div>
-      <div class="footer--column copyright">
+      <div class="copyright">
         <span>{{ config.copyright_text }}</span>
       </div>
     </div>
-    <img
-      v-if="showMagentaCircle"
-      src="/img/home-magenta-circle.svg"
-      class="home--magenta-circle"
-    />
   </footer>
 </template>
 
@@ -97,22 +94,6 @@ export default {
     config() {
       return this.$themeConfig;
     },
-  },
-  data() {
-    return {
-      showMagentaCircle: false,
-    };
-  },
-  watch: {
-    $route: "setShowMagentaCircle",
-  },
-  methods: {
-    setShowMagentaCircle() {
-      this.showMagentaCircle = ["/", "/pricing/"].indexOf(window.location.pathname) >= 0;
-    },
-  },
-  mounted() {
-    this.setShowMagentaCircle();
   },
 };
 </script>

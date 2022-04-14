@@ -1,64 +1,60 @@
 .is-button-cerise-outline {
-  border-color: cv('cerise');
+  border-color: cv('header');
   background-color: transparent;
   color: cv('gray', '000');
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
   font-weight: 400;
   padding: 1em 3em;
 
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv('cerise');
+    border-color: cv('header');
     background-color: transparent;
     color: cv('gray', '000');
   }
 
   &:focus,
   &.is-button-focus {
-    border-color: cv('cerise');
+    border-color: cv('header');
     background-color: transparent;
     color: cv('gray', '000');
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('cerise'));
+    border-color: cv('header');
     background-color: transparent;
-    color: fauxpacity(cv('gray', '000'));
+    color: cv('gray', '000');
   }
 }
 
 .is-button-cerise {
-  border-color: cv('cerise');
-  background-color: cv('cerise');
+  border-color: cv('header');
+  background-color: cv('header');
   color: cv('gray', '000');
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 400;
+  font-weight: 500;
   padding: 1em 3em;
   cursor: pointer;
 
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv('cerise');
-    background-color: cv('cerise');
+    border-color: cv('header');
+    background-color: cv('header');
     color: cv('gray', '000');
   }
 
   &:focus,
   &.is-button-focus {
-    border-color: cv('cerise');
-    background-color: cv('cerise');
+    border-color: cv('header');
+    background-color: cv('header');
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('cerise'));
-    background-color: cv('cerise');
-    color: fauxpacity(cv('cerise'));
+    border-color: cv('header');
+    background-color: cv('header');
+    color: cv('header');
   }
 }
 
@@ -66,7 +62,7 @@
 	@include font-size('button');
 	@include font-weight('button');
 	@include transition(normal background, normal border, normal color);
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 	border-radius: 3px;
 	cursor: pointer;
 	display: inline-block;
@@ -93,17 +89,17 @@
 
 .Button {
 	@extend %Button;
-	border-color: cv('cerise', 'base');
-	color: cv('cerise', 'base');
+	border-color: cv('header', 'base');
+	color: cv('header', 'base');
 
 	&:active,
 	&:hover {
-		border-color: mix(cv('cerise', 'base'), cv('gray', '000'), 75%);
-		color: mix(cv('cerise', 'base'), cv('gray', '000'), 75%);
+		border-color: linear-gradient(cv('header', 'base'), cv('gray', '000'), 75%);
+		color: linear-gradient(cv('header', 'base'), cv('gray', '000'), 75%);
 	}
 
 	&:visited {
-		color: cv('cerise', 'base');
+		color: cv('header', 'base');
 	}
 }
 
@@ -161,8 +157,6 @@
 	border-color: cv('blue', '900');
 	color: cv('blue', '900');
 
-	text-transform: uppercase;
-	letter-spacing: .1em;
 	white-space: nowrap;
 
 	&:active,
@@ -274,8 +268,8 @@
 	&,
 	&:active,
 	&:hover {
-		background-color: cv('cerise');
-		border-color: cv('cerise');
+		background-color: cv('header');
+		border-color: cv('header');
 		color: cv('gray', '000');
 	}
 
@@ -291,12 +285,12 @@
 	&:active,
 	&:hover {
 		background-color: transparent;
-		border-color: cv('cerise');
-		color: cv('gray', '000');
+		border-color: cv('header');
+		color: cv('header');
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: cv('header');
 	}
 }
 
@@ -306,4 +300,10 @@
 		margin-bottom: 0.25em;
 		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M13.5%2010.5V13C13.5%2013.3%2013.3%2013.5%2013%2013.5H3C2.7%2013.5%202.5%2013.3%202.5%2013V3C2.5%202.7%202.7%202.5%203%202.5H5.5%22%20stroke%3D%22%23FFFFFF%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M8%208L14%202%22%20stroke%3D%22%23FFFFFF%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M9.5%201.5H14.5%22%20stroke%3D%22%23FFFFFF%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M14.5%206.5V1.5%22%20stroke%3D%22%23FFFFFF%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A");
 	}
+}
+
+.button {
+	font-family: $font-family;
+	font-size: 1rem;
+	font-weight: 500;
 }

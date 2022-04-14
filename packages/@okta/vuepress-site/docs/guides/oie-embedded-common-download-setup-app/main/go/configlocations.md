@@ -1,8 +1,8 @@
-You have several options for setting the configuration values in the SDK:
+You have several options for setting the configuration values for your app.
 
-### Option 1: Configuration file
+### Option 1: Create a configuration file
 
-Create a YAML file named `okta.yaml` in one of the following three available directories:
+Create a YAML file named `okta.yaml` in one of the following directories:
 
 * Current user's home directory.
   * **Unix/Linux**:    `~/.okta/okta.yaml`
@@ -14,19 +14,19 @@ Add your configuration values to the file, using the following format:
 
 ```yaml
 okta:
-idx:
-  issuer: "https://${yourOktaDomain}/oauth2/default"
-  clientId: "${clientId}"
-  clientSecret: "${clientSecret}"
-  scopes:
-  - "${scope1}"
-  - "${scope2}"
-  redirectUri: "${redirectUri}"
+  idx:
+    issuer: "https://${yourOktaDomain}/oauth2/default"
+    clientId: "${clientId}"
+    clientSecret: "${clientSecret}"
+    scopes:
+      - "${scope1}"
+      - "${scope2}"
+    redirectUri: "${redirectUri}"
 ```
 
-### Option 2: Environment variables
+### Option 2: Set the values as environment variables
 
-Add the values as environment variables with the following naming conventions:
+Set the following environment variables with the configuration values:
 
 * `OKTA_IDX_ISSUER`
 * `OKTA_IDX_CLIENTID`
@@ -34,7 +34,7 @@ Add the values as environment variables with the following naming conventions:
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-### Option 3: Add parameter to the SDK's client constructor
+### Option 3: Add the values as parameters to the SDK's client constructor
 
 Add the values as parameters to the constructor for the `IdxClient`:
 

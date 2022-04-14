@@ -40,12 +40,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
   {
     "_links": {
       "schema": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
         "method": "GET",
         "rel": "schema"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
         "method": "GET",
         "rel": "self"
       }
@@ -67,12 +67,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
   {
     "_links": {
       "schema": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
+        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
         "method": "GET",
         "rel": "schema"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
+        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
         "method": "GET",
         "rel": "self"
       }
@@ -120,12 +120,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 {
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -180,12 +180,12 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 {
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -240,12 +240,12 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 {
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -335,10 +335,10 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   "lastUpdated": "2013-07-02T21:36:25.344Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
     },
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
     }
   }
 }

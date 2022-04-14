@@ -1,1 +1,0 @@
-If you want to skip this guide and just download a working sample app, download our [React Native example](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in).

@@ -9,84 +9,84 @@ showBreadcrumb: False
 
 
 tiles:
-  - name: Web App
-    link: /docs/guides/sign-into-web-app/
+  - name: Server-side web app
+    link: /docs/guides/sign-into-web-app-redirect/
     items:
       - name: Go
-        link: /docs/guides/sign-into-web-app/go/before-you-begin/
+        link: /docs/guides/sign-into-web-app-redirect/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+        link: /docs/guides/sign-into-web-app-redirect/spring-boot/main/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
-        link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+      - name: .NET
+        link: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/
+        link: /docs/guides/sign-into-web-app-redirect/node-express/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/sign-into-web-app/php/before-you-begin/
+        link: /docs/guides/sign-into-web-app-redirect/php/main/
         image: /img/homepage/stackselectors/php.png
       - name: Python
-        link: /docs/guides/sign-into-web-app/python/before-you-begin/
+        link: /docs/guides/sign-into-web-app-redirect/python/main/
         image: /img/homepage/stackselectors/python.png
-  - name: Single-page App
-    link: /docs/guides/sign-into-spa/
+  - name: Front-end web app
+    link: /docs/guides/sign-into-spa-redirect/
     items:
       - name: React
-        link: /docs/guides/sign-into-spa/react/before-you-begin/
+        link: /docs/guides/sign-into-spa-redirect/react/main
         image: /img/homepage/stackselectors/react.png
       - name: Angular
-        link: /docs/guides/sign-into-spa/angular/before-you-begin/
+        link: /docs/guides/sign-into-spa-redirect/angular/main
         image: /img/homepage/stackselectors/angular.png
       - name: Vue.js
-        link: /docs/guides/sign-into-spa/vue/before-you-begin/
+        link: /docs/guides/sign-into-spa-redirect/vue/main
         image: /img/homepage/stackselectors/vue.png
-      - name: Blazor WebAssembly
-        link: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/
-        image: /img/homepage/stackselectors/dotnet.png
-  - name: Native App
-    link: /docs/guides/sign-into-mobile-app/
+      # - name: Blazor WebAssembly
+      #   link: /docs/guides/sign-into-spa-redirect/blazor-wasm/main
+      #   image: /img/homepage/stackselectors/dotnet.png
+  - name: Mobile/native app
+    link: /docs/guides/sign-into-mobile-app-redirect/
     items:
-      - name: React Native
-        link: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/
-        image: /img/homepage/stackselectors/react.png
+      # - name: React Native
+      #   link: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
+      #   image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app-redirect/android/main/
         image: /img/homepage/stackselectors/android.png
-      - name: IOS
-        link: /docs/guides/sign-into-mobile-app/ios/before-you-begin/
+      - name: iOS
+        link: /docs/guides/sign-into-mobile-app-redirect/ios/main/
         image: /img/homepage/stackselectors/ios.png
-  - name: API Services
+  - name: Protect your API
     link: /docs/guides/protect-your-api/
     items:
       - name: Go
-        link: /docs/guides/protect-your-api/go/before-you-begin/
+        link: /docs/guides/protect-your-api/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/protect-your-api/springboot/before-you-begin/
+        link: /docs/guides/protect-your-api/springboot/main/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
-        link: /docs/guides/protect-your-api/aspnet/before-you-begin/
+      - name: .NET
+        link: /docs/guides/protect-your-api/aspnetcore3/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/protect-your-api/nodeexpress/before-you-begin/
+        link: /docs/guides/protect-your-api/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/protect-your-api/php/before-you-begin/
+        link: /docs/guides/protect-your-api/php/main/
         image: /img/homepage/stackselectors/php.png
-      - name: Python
-        link: /docs/guides/protect-your-api/python/before-you-begin/
-        image: /img/homepage/stackselectors/python.png
+      # - name: Python
+      #   link: /docs/guides/protect-your-api/python/main/
+      #   image: /img/homepage/stackselectors/python.png
 
 assurances:
   - title: Compliant Out of the Box
     description: with HIPAA, FedRamp, and SOC environments available, we have you covered
-    image: /img/homepage/compliance-out-of-box.png
+    image: /img/homepage/compliance-out-of-box.svg
   - title: 99.99% Uptime
-    description: so your apps are working even when you’re not
-    image: /img/homepage/uptime.png
+    description: so your apps are working, even when you’re not
+    image: /img/homepage/uptime.svg
   - title: Open Standards
-    description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything
-    image: /img/homepage/standards.png
+    description: OpenID Connect, OAuth 2.0, and SAML connect you to everything
+    image: /img/homepage/standards.svg
 ---

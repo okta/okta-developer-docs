@@ -21,13 +21,14 @@ These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) poli
 > **Note:**
 >
 > * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
 > * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
 ## Concurrent rate limits
 
-To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even large bulk loads rarely require more than 10 simultaneous transactions.
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -42,8 +43,6 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
-
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
 > **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
@@ -62,17 +61,15 @@ The following endpoints are used by the Okta home page for authentication and us
 
 | Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
-| `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
+| `/app/${app}/${key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
 | `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
 | `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
-| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 300               | *300     | *600        | 2500               |
-| `/login/do-login`                                                       | 100               | 300               | 300      | 600         | 200                |
-| `/login/login.htm`                                                      | 100               | 300               | 300      | 600         | 850                |
-| `/login/sso_iwa_auth`                                                   | 100               | 300               | 300      | 600         | 500                |
-| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 300               | *300     | *600        | 650                |
-| `/api/plugin/${protocolVersion}/sites`                                   | 20                | 50                | 50       | 100         | 150                |
-| `/bc/image/fileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
-| `/bc/globalFileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
+| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 600               | *600     | *600        | 2500               |
+| `/login/do-login`                                                       | 100               | 600               | 600      | 600         | 200                |
+| `/login/login.htm`                                                      | 100               | 600               | 600      | 600         | 850                |
+| `/login/sso_iwa_auth`                                                   | 100               | 600               | 600      | 600         | 500                |
+| `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
@@ -97,16 +94,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
-* **Enrollment rate limit:** This rate limit applies to a user's attempt to enroll an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment attempts for the SMS or Call factors were made.
-
-  **Endpoints**
-  * `/api/v1/authn/factors`
-  * `/api/v1/users/${userId}/factors`
-
-  **Identity Engine endpoints**<br>
-  <ApiLifecycle access="ie" />
-  * `/idp/idx/challenge`
-  * `/idp/idx/credential/enroll`
+* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
 ### Workforce license rate limit multiplier
 
@@ -122,19 +110,22 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Authentication](/docs/reference/rl-global-enduser/)
 
+* `/api/${apiVersion}/radius`
 * `/api/v1/authn`
 * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
+* `/login/agentlessDsso`
+* `/login/agentlessDsso/auth`
+* `/login/default`
 * `/login/login.htm`
-* `/login/sso_iwa_auth`
 * `/login/sessionCookieRedirect`
+* `/login/sso_iwa_auth`
+* `/login/step-up/redirect`
 * `/login/token/redirect`
-* `/api/${apiVersion}/radius`
+* `/.well-known/webfinger`
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/v1`
 * `/app/${app}/${key}/sso/saml`
 * `/app/office365${appType}/${key}/sso/wsfed/active`
 * `/app/office365${appType}/${key}/sso/wsfed/passive`
@@ -142,6 +133,10 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
+* `/oauth2/v1`
+* `/oauth2/v1/authorize`
+* `/oauth2/${authorizationServerId}/v1`
+* `/oauth2/${authorizationServerId}/v1/authorize`
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 

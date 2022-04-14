@@ -21,9 +21,9 @@ A [session token](/docs/reference/api/authn/#session-token) is a one-time bearer
 
 Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to validate a [user's primary credentials](/docs/reference/api/authn/#primary-authentication) and secondary [MFA factor](/docs/reference/api/authn/#verify-factor). A session token is returned after successful authentication, which can be later exchanged for a session cookie that uses one of the following flows:
 
-- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
-- [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
-- [Retrieving a session cookie by visiting an application embed link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
+- [Retrieve a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-through-the-openid-connect-authorization-endpoint)
+- [Retrieve a session cookie by visiting a session redirect link](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-by-visiting-a-session-redirect-link)
+- [Retrieve a session cookie by visiting an application embed link](/docs/guides/session-cookie/main/#retrieve-a-session-cookie-by-visiting-an-application-embed-link)
 
 >**Note:** **Session tokens** are secrets and should be protected at rest and during transit. A session token for a user is equivalent to having the user's actual credentials.
 
@@ -92,7 +92,7 @@ curl -v -X POST \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -101,7 +101,7 @@ curl -v -X POST \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -110,7 +110,7 @@ curl -v -X POST \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -164,7 +164,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
   "mfaActive": true,
   "_links": {
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -172,7 +172,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
            "GET",
@@ -182,7 +182,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -246,7 +246,7 @@ curl -v -X PUT \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -255,7 +255,7 @@ curl -v -X PUT \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -264,7 +264,7 @@ curl -v -X PUT \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -326,7 +326,7 @@ curl -v -X POST \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -335,7 +335,7 @@ curl -v -X POST \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -344,7 +344,7 @@ curl -v -X POST \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -434,7 +434,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     "mfaActive": true,
     "_links": {
         "refresh": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
             "hints": {
                 "allow": [
                     "POST"
@@ -442,7 +442,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me",
             "hints": {
                 "allow": [
                     "GET",
@@ -452,7 +452,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
         },
         "user": {
             "name": "Isaac Brock",
-            "href": "https://${yourOktaDomain}/api/v1/users/me",
+            "href": "https://{yourOktaDomain}/api/v1/users/me",
             "hints": {
                 "allow": [
                     "GET"
@@ -507,7 +507,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     "mfaActive": true,
     "_links": {
         "refresh": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
             "hints": {
                 "allow": [
                     "POST"
@@ -515,7 +515,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me",
             "hints": {
                 "allow": [
                     "GET",
@@ -525,7 +525,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
         },
         "user": {
             "name": "Isaac Brock",
-            "href": "https://${yourOktaDomain}/api/v1/users/me",
+            "href": "https://{yourOktaDomain}/api/v1/users/me",
             "hints": {
                 "allow": [
                     "GET"
@@ -537,6 +537,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 ```
 
 #### Option: Use the HTTP Header Prefer
+
 Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in the [Sessions API for refreshing Sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the Session lifetime, but skip any processing work that is related to building the response body.
 
 ##### Request example
@@ -549,6 +550,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/refresh"
 ```
+
 >**Note:** `me` can also be an ID.
 
 ##### Response example
@@ -610,7 +612,7 @@ HTTP/1.1 204 No Content
   "mfaActive": true,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -619,7 +621,7 @@ HTTP/1.1 204 No Content
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -628,7 +630,7 @@ HTTP/1.1 204 No Content
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -683,20 +685,22 @@ The following values are defined for the status of a Session:
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods are used to establish the Session. The value is a JSON array with one or more of the following values:
 
-| Value    | Description                                            | Example                                                                                                |
-| -------- | ------------------------------------------------------ | -------------------------------------------------------------------------                              |
-| `pwd`    | Password authentication                                | Standard password-based login                                                                          |
-| `swk`    | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |
-| `hwk`    | Proof-of-possession (PoP) of a hardware key            | Yubikey factor                                                                                         |
-| `otp`    | One-time password                                      | Okta Verify, Google Authenticator                                                                      |
-| `sms`    | SMS text message to the user at a registered number    | SMS factor                                                                                             |
-| `tel`    | Telephone call to the user at a registered number      | Phone call factor                                                                                      |
-| `geo`    | Use of geo-location information                        | IP Trust and Network Zone policy conditions                                                            |
-| `fpt`    | Fingerprint biometric authentication                   | Okta Verify with Touch ID                                                                              |
-| `kba`    | Knowledge-based authentication                         | Security Question factor                                                                               |
-| `mfa`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
-| `mca`    | Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
-| `sc`    | Smart card authentication                                | User authenticated using a smart card, such as a Personal Identity Verification (PIV) card or Common Access Card (CAC)                                                                          |
+> **Note:** For inline hook requests, use the Inline Hook value for the `amr` object.
+
+| Value    | Inline Hook Value | Description                                           | Example                                                                                                |
+| -------- | ----------------- | ----------------------------------------------------- | -------------------------------------------------------------------------                              |
+| `pwd`    | `PASSWORD`         | Password authentication                                | Standard password-based login                                                                          |
+| `swk`    | `POP_SOFTWARE_KEY` | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |
+| `hwk`    | `POP_HARDWARE_KEY` | Proof-of-possession (PoP) of a hardware key            | Yubikey factor                                                                                         |
+| `otp`    | `ONE_TIME_PASSWORD`| One-time password                                      | Okta Verify, Google Authenticator                                                                      |
+| `sms`    | `SMS_MESSAGE`      | SMS text message to the user at a registered number    | SMS factor                                                                                             |
+| `tel`    | `TELEPHONE_CALL`   | Telephone call to the user at a registered number      | Phone call factor                                                                                      |
+| `geo`    | `GEOLOCATION`      | Use of geo-location information                        | IP Trust and Network Zone policy conditions                                                            |
+| `fpt`    | `BIO_FINGERPRINT`  | Fingerprint biometric authentication                   | Okta Verify with Touch ID                                                                              |
+| `kba`    | `KNOWLEDGE_BASED_AUTHENTICATION`| Knowledge-based authentication                         | Security Question factor                                                                               |
+| `mfa`    | `MULTIFACTOR_AUTHENTICATION`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
+| `mca`    | `MULTIPLE_CHANNEL_AUTHENTICATION`| Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
+| `sc`     |  `SMART_CARD`       | Smart card authentication                                | User authenticated using a smart card, such as a Personal Identity Verification (PIV) card or Common Access Card (CAC)                                                                          |
 
 ### IDP object
 

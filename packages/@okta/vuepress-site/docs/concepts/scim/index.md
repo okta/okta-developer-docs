@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-If you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
+When you are ready to start creating a SCIM integration, see our [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) guide and our technical references on how the [SCIM protocol is implemented with Okta](/docs/reference/scim/).
 
 ## What is SCIM for?
 
@@ -29,13 +29,15 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 ## How does Okta help?
 
-[Okta Lifecycle Management](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_con_okta_prov) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
+[Okta Lifecycle Management](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their applications.
 * Employee accounts can be created either directly from Okta accounts, or shared from external systems like HR applications or Active Directory.
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
+
+> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
@@ -76,7 +78,7 @@ Outside of the base CRUD operations, Okta supports additional provisioning featu
 
 Password synchronization helps you coordinate Okta-mastered users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
 
-This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Using_Sync_Password).
+This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/okta_help.htm?id=ext_Security_Using_Sync_Password).
 
 ### Map profile attributes
 
@@ -94,8 +96,8 @@ For example, if the lifecycle state of the user is changed to "Disabled" in Acti
 
 For more information about profile mastering and how to configure it in the Okta Admin Console, see:
 
-* [Profile mastering](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Masters)
-* [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview)
+* [Profile mastering](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters)
+* [Provisioning and Deprovisioning](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview)
 
 ## Provisioning use cases
 
@@ -110,21 +112,21 @@ Provisioning actions can be combined to solve for end-to-end use cases. Okta sup
 
 For your customers to use your SCIM provisioning integration with Okta, you need to publish it through the [Okta Integration Network](https://www.okta.com/integrations/).
 
-After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/overview/) guide.
+After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/) guide.
 
 ## Additional background
 
 If you want to read more about how to use the Okta Admin Console to set up provisioning in your integration or have additional questions about SCIM, visit the following links:
 
-* [Okta Lifecycle Management User Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_okta_lcm_user_provision)
+* [Okta Lifecycle Management User Provisioning](https://help.okta.com/okta_help.htm?id=ext_prov_okta_lcm_user_provision)
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
-* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
-* [Create a SCIM integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-scim)
+* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
+* [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
 * [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)
 * IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
 
 For setting up Active Directory or LDAP for profile mastering:
 
-* [Manage your Active Directory integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_active_directory_agent)
-* [Manage your LDAP provisioning integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_LDAP_Provisioning)
+* [Manage your Active Directory integration](https://help.okta.com/okta_help.htm?id=ext_okta_active_directory_agent)
+* [Manage your LDAP provisioning integration](https://help.okta.com/okta_help.htm?id=ext_LDAP_Provisioning)

@@ -1,28 +1,24 @@
 ---
-title: Limitations
+title: SDK limitations and workarounds
 excerpt: Current SDK Limitations
 layout: Guides
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 ## Passwordless sign-in with magic links
 
 ### Description
 
-The SDK currently doesn't support passwordless sign-in with magic links.
+The Okta Identity Engine SDKs currently don't support passwordless sign-in with magic links.
 
-In a passwordless sign-in with magic links, users submit only their email address through their app to initiate the sign-in. An email is then sent to the users to complete the sign-in by using a sign link. Uers open the email and click the link that sends them to your app already signed in. See the sequence of steps below for a details on the passwordless sign-in process.
+In a passwordless sign-in with magic links flow, a user submits only their email address through their app to initiate the sign-in flow. An email with a sign-in link is then sent to the user. The user opens the email and clicks the link that redirects them to the app. See the following sequence of steps for details on the passwordless sign-in process.
 
 ### Sequence of steps
 
 <div class="common-image-format">
 
-![Passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
- "Passwordless sign-in")
+![Sequence diagram for passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png)
 
 </div>
 
@@ -32,8 +28,7 @@ The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
-![Passwordless sign-in email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
- "Passwordless sign-in email link")
+![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png)
 
 </div>
 
@@ -41,16 +36,16 @@ The following image shows an example of the sign-in email's content.
 
 Use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta Sign-on Policy rule
+## Primary factor for the Global Session Policy rule
 
 ### Description
 
-The primary factor for the Org's global sign-in policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
+The primary factor for the org's Global Session Policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
 
 To identify the current value for this field:
 
-1. In the Admin Console for the Okta org that you set up, select **Security** > **Okta Sign-on Policy** from the left-hand navigation pane.
-1. In the **Default Policy** pane, check the configured policies. The Default Rule is automatically created when the org is created with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Rule** by clicking the information icon to the right of the rule.
+1. In the Admin Console for the Okta org that you set up, select **Security** > **Global Session Policy** from the left-hand navigation pane.
+1. In the left pane, select **Default Policy**. The Default Rule for this policy is automatically created when the org is created with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Rule** by clicking the information icon to the right of the rule.
 1. If other rules are defined in the **Default Policy** pane, ensure that the **Primary factor** field is set to **Password / IDP** for the other rules.
 
 ### Workaround
@@ -79,7 +74,7 @@ Use either of these two workarounds:
 * Create users through self registration.
 * Create users in the Okta org with the **Password** set to **Set by admin**.
 
-## Email link to verify email address not working
+## The email link to verify that the email address isn't working
 
 ### Description
 
@@ -101,12 +96,11 @@ Use either of these recommended options to mitigate the email verification link 
 
 > Email template customizations are not available for free developer orgs.
 
-The Okta org that you created in [Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with the users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
+The Okta org that you created in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/-/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with your users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
 
 <div class="common-image-format">
 
-![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png
- "Remove link from email template")
+![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png)
 
 </div>
 
@@ -122,6 +116,3 @@ Contact Okta support if the **Edit** button is disabled.
 #### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link and continue the activation through the code flow.
-
-
-</div>

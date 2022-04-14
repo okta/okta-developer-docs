@@ -10,29 +10,39 @@
 
     @include media('>=tablet') {
       top: 150px;
+      min-height: 450px;
+      padding-bottom: 40px;
     }
   }
 
-  a:visited {
-    color: cv('action');
+  a {
+    color: cv('text');
+    line-height: 1.2rem;
+    padding: 3px 0;
+
+    &:visited {
+      color: cv('text');
+    }
   }
 
   .title {
     font-size: 1rem;
     margin-left: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 14px;
     color: cv('gray', '900');
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .links {
     border-left: 3px solid cv('gray', '100');
     padding-left: 1rem;
+    font-size: 14px;
   }
 
   a.router-link-active {
     border-left: 3px solid cv('action', 'base');
-    font-weight: 600;
+    color: cv('link');
+    font-weight: 500;
   }
 
   ul {
@@ -41,7 +51,7 @@
 
     li {
       margin-left: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 4px;
 
       a.router-link-active {
         margin-left: -1.2rem;
@@ -49,7 +59,8 @@
       }
 
       ul {
-        margin-top: 1rem;
+        margin-top: 0;
+        padding-left: 1rem;
 
         li {
 
@@ -69,15 +80,22 @@
     }
 
   }
-
+  @include media("<desktop-xl") {
+    display: none;
+  }
 }
 
 .mobile-on-this-page {
-  margin-bottom: $base-spacing;
+  margin-bottom: 0;
+  @include media('>=desktop-xl') {
+    display: none;
+  }
   h3{
     &.mobile-header{
-    font-size: 1rem;
-  }}
+    font-size: 14px;
+    margin: 10px 0 10px;
+    }
+  }
   .vs--single.vs--open {
     .vs__selected{
       position: relative;
@@ -90,6 +108,8 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
+    border-color: cv('text','darker');
+    font-size: 14px;
     .vs__selected-options{
       flex-basis: auto;
       padding: 0;
@@ -107,16 +127,21 @@
       margin: 0;
       padding: 0;
     }
+    .vs__open-indicator {
+      fill: cv('text','darker');
+    }
   }
   .vs__dropdown-menu {
     overflow-x: hidden;
     border-top-style: initial;
     z-index: 50;
+    padding: 0;
 
     .vs__dropdown-option {
       padding: 0.7rem 1rem;
       border-bottom: 1px solid cv('gray', '100');
       width: 100%;
+      color: cv('gray', '900');
       .dropdown-item{
         width: 100%;
         overflow: hidden;

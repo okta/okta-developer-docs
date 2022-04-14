@@ -1,4 +1,4 @@
-Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [Custom Authorization Server](/docs/guides/customize-authz-server/overview/) used to authenticate your app from the Okta Admin Console.
+Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [Custom Authorization Server](/docs/guides/customize-authz-server/) used to authenticate your app from the Okta Admin Console.
 
 If you are not using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
@@ -6,7 +6,7 @@ If you are not using existing libraries, you can make a direct request to Okta's
 
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
-[Base64 encode](#base64-encode-the-client-ID-and-client-secret) the client ID and secret and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
+Base64 encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
 
 ```bash
 curl --request POST \
@@ -23,7 +23,7 @@ curl --request POST \
 Note the parameters that are being passed:
 
 - `grant_type` is `client_credentials`, indicating that we are using the Client Credentials grant type.
-- `scope` must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `scope` must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 If the credentials are valid, the application receives an access token:
 
@@ -36,34 +36,32 @@ If the credentials are valid, the application receives an access token:
 }
 ```
 
-### Base64 encode the client ID and client secret
+### Base64-encode the client ID and client secret
 
 Use this section to Base64 encode the client ID and secret. When you finish encoding, you can then use the encoded client ID and secret in the HTTP Authorization header in the following format: `'authorization: Basic <Base64 encoded client ID and secret>'`
+
+**If you are using macOS or Linux**:
 
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
-1. Copy the `clientid:clientsecret` line.
-1. Access the [base64encode.org](https://www.base64encode.org/) web site and paste the `clientid:clientsecret` line in the **Encode to Base64 format** box.
-1. Leave **UTF-8** as the **Destination character set** and click **Encode**.
-1. Copy the encoded line that appears.
+1. Copy the `clientid:clientsecret` line to the clipboard.
+1. Launch a terminal and enter the following command, replacing `clientid:clientsecret` with the value that you just copied.
 
-To encode the client ID and secret using the command line on Mac or Linux:
-
-1. Follow steps 1 through 4 above.
-1. Launch a terminal and enter the following command, replacing `clientid:clientsecret` with the value that you just copied to the clipboard.
-
-    `echo -n clientID:clientsecret | base64`
+    `echo -n clientid:clientsecret | base64`
 
 1. Copy the value that is returned.
 
 > **Note:** If the value that is returned is broken into more than one line, return to your text editor and make sure that the entire results are on a single line with no text wrapping.
 
-To encode the client ID and secret using the command line on Windows:
+**If you are using Windows**:
 
-1. Follow steps 1 through 3 above.
+1. Sign in to your Okta organization with your administrator account.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
+1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Save the file to `C:\temp` and name the file `appCreds.txt`.
 1. In Windows Explorer, right-click `C:\temp`, and then select **CMD Prompt Here** from the context menu.
 1. Enter the following command to encode the client ID and client secret:

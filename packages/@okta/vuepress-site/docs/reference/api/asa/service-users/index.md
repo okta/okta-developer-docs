@@ -13,13 +13,12 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Service Users are used to access the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
-Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Service Users API operations
 
-
 The Service Users API has the following operations:
+
 * [Issue a Service User token](#issue-a-service-user-token)
 * [Lists the Service Users for a Team](#lists-the-service-users-for-a-team)
 * [Create a Service User](#create-a-service-user)
@@ -34,7 +33,7 @@ The Service Users API has the following operations:
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
 Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of `Bearer ${AUTH_TOKEN}`.
-To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users), then pass the API key information to this endpoint.
+To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users), then pass the API key information to this endpoint.
 Auth tokens may expire at any time, so code that uses them should be prepared to handle a 401 response code by creating a new auth token.
 
 #### Request path parameters
@@ -109,7 +108,7 @@ This endpoint requires the `access_admin` role.
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_service_users`   |  string | (Optional) Include Service Users in the results |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
 | `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |

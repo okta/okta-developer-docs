@@ -1,0 +1,1 @@
+To use the PayPal sandbox environment, select **PayPal IdP (Sandbox)**.

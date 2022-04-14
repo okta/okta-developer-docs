@@ -5,12 +5,11 @@ category: other
 
 # Authenticators Administration API
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users for use when signing in to applications.
 
-End users are required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
+End users are required to use one or more Authenticators depending on the security requirements of the [authentication policy](/docs/reference/api/policy/#authentication-policy).
 
 Okta Identity Engine currently supports Authenticators for the following factors:
 
@@ -25,12 +24,9 @@ Okta Identity Engine currently supports Authenticators for the following factors
 * Email
 * WebAuthn
 
-<!--
 ## Get started
 
-Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
-
--->
+Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e)
 
 ## Authenticators Administration operations
 
@@ -38,6 +34,7 @@ The Authenticators Administration API has the following CRUD operations:
 
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by ID](#get-an-authenticator-by-id)
+* [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
 
@@ -95,7 +92,7 @@ curl -v -X GET \
      },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
         "hints": {
           "allow": [
             "GET",
@@ -104,7 +101,7 @@ curl -v -X GET \
         }
       },
       "methods": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/methods",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/methods",
         "hints": {
           "allow": [
             "GET"
@@ -112,7 +109,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -131,7 +128,7 @@ curl -v -X GET \
     "lastUpdated": "2020-07-26T21:05:23.000Z",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4",
         "hints": {
           "allow": [
             "GET",
@@ -140,7 +137,7 @@ curl -v -X GET \
         }
       },
       "methods": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4/methods",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4/methods",
         "hints": {
           "allow": [
             "GET"
@@ -162,7 +159,7 @@ curl -v -X GET \
      },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
         "hints": {
           "allow": [
             "GET",
@@ -171,7 +168,7 @@ curl -v -X GET \
         }
       },
       "methods": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/methods",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/methods",
         "hints": {
           "allow": [
             "GET"
@@ -179,7 +176,7 @@ curl -v -X GET \
         }
       },
       "activate": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/activate",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/activate",
         "hints": {
           "allow": [
             "POST"
@@ -198,7 +195,7 @@ curl -v -X GET \
     "lastUpdated": "2020-07-27T18:59:30.000Z",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
         "hints": {
           "allow": [
             "GET",
@@ -207,7 +204,7 @@ curl -v -X GET \
         }
       },
       "methods": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
         "hints": {
           "allow": [
             "GET"
@@ -215,7 +212,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -234,7 +231,7 @@ curl -v -X GET \
     "lastUpdated": "2020-07-26T21:05:23.000Z",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4",
         "hints": {
           "allow": [
             "GET"
@@ -242,7 +239,7 @@ curl -v -X GET \
         }
       },
       "methods": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/methods",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/methods",
         "hints": {
           "allow": [
             "GET"
@@ -250,7 +247,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -313,7 +310,7 @@ curl -v -X GET \
     "lastUpdated": "2020-07-27T18:59:30.000Z",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -322,7 +319,7 @@ curl -v -X GET \
             }
         },
         "methods": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
             "hints": {
                 "allow": [
                     "GET"
@@ -330,7 +327,7 @@ curl -v -X GET \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -341,6 +338,94 @@ curl -v -X GET \
 }
 ```
 
+### Update Authenticator settings
+
+<ApiOperation method="put" url="/api/v1/authenticators/${authenticatorId}" />
+
+Updates settings on an Authenticator
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                           |
+| ------------------ | ------ | --------------------------------------|
+| `authenticatorId`  | String | The Authenticator's unique identifier |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+An [Authenticator Object](#authenticator-object)
+
+The `name` attribute is required, `settings` object is optional and has values based on Authenticator key.
+
+#### Response body
+
+The updated [Authenticator](#Authenticator-object)
+
+#### Use example
+
+Returns the updated Authenticator with an `id` value of `aut1eyvv8siH9G6qw1d7`:
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "Phone",
+  "settings": {
+    "allowedFor": "recovery"
+  }
+}' "https://${yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7"
+```
+
+##### Response
+
+```json
+{
+    "type": "phone",
+    "id": "aut1eyvv8siH9G6qw1d7",
+    "key": "phone_number",
+    "status": "ACTIVE",
+    "name": "Phone",
+    "created": "2021-09-23T21:11:22.000Z",
+    "lastUpdated": "2021-10-19T20:57:27.000Z",
+    "settings": {
+        "allowedFor": "recovery"
+    },
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "methods": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7/methods",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Activate an Authenticator
 
@@ -390,7 +475,7 @@ curl -v -X POST \
     "lastUpdated": "2020-07-26T21:59:33.000Z",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -399,7 +484,7 @@ curl -v -X POST \
             }
         },
         "methods": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
             "hints": {
                 "allow": [
                     "GET"
@@ -407,7 +492,7 @@ curl -v -X POST \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -469,7 +554,7 @@ curl -v -X POST \
     "lastUpdated": "2020-07-26T22:01:46.000Z",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -478,7 +563,7 @@ curl -v -X POST \
             }
         },
         "methods": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
             "hints": {
                 "allow": [
                     "GET"
@@ -486,7 +571,7 @@ curl -v -X POST \
             }
         },
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -528,19 +613,23 @@ The Authenticators Administration API only involves one object: the Authenticato
 
 The Authenticator object defines the following properties:
 
-| Property      | Type                                                            | Description                                                                     |
-| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                  |
-| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created                                   |
-| `id`          | String                                                          | A unique identifier for the Authenticator                                                |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator                                |
-| `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                |
-| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified                             |
-| `name`        | String                                                          | Display name of this Authenticator                                             |
-| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, and `security_key`.                            |
-| `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`.                            |
-| `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes.                            |
-
+| Property      | Type                                                            | Description                                                                     | Applies to Authenticator Key |
+| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |------------------------------|
+| `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
+| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
+| `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator  | All Authenticators |
+| `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
+| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
+| `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`. | All Authenticators |
+| `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`. | `okta_email`, `phone_number`, `security_question` |
+| `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token and only applies to the `email` Authenticator type. Default value is `5` minutes. | `okta_email` |
+| `settings.compliance.fips` | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
+| `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
+| `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
+| `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
+| `settings.appInstanceId` | String | The application instance ID | `okta_verify` |
 
 #### Example Email Authenticator
 
@@ -559,7 +648,7 @@ The Authenticator object defines the following properties:
    },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
       "hints": {
         "allow": [
           "GET",
@@ -568,7 +657,7 @@ The Authenticator object defines the following properties:
       }
     },
     "methods": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/methods",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/methods",
       "hints": {
         "allow": [
           "GET"
@@ -576,7 +665,7 @@ The Authenticator object defines the following properties:
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -600,7 +689,7 @@ The Authenticator object defines the following properties:
   "lastUpdated": "2020-07-26T21:05:23.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4",
       "hints": {
         "allow": [
           "GET",
@@ -609,7 +698,7 @@ The Authenticator object defines the following properties:
       }
     },
     "methods": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4/methods",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbtrJKKA9m45a0g4/methods",
       "hints": {
         "allow": [
           "GET"
@@ -636,7 +725,7 @@ The Authenticator object defines the following properties:
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
       "hints": {
         "allow": [
           "GET",
@@ -645,7 +734,7 @@ The Authenticator object defines the following properties:
       }
     },
     "methods": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/methods",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/methods",
       "hints": {
         "allow": [
           "GET"
@@ -653,7 +742,7 @@ The Authenticator object defines the following properties:
       }
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -677,7 +766,7 @@ The Authenticator object defines the following properties:
   "lastUpdated": "2020-07-26T21:05:23.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4",
       "hints": {
         "allow": [
           "GET"
@@ -685,7 +774,7 @@ The Authenticator object defines the following properties:
       }
     },
     "methods": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/methods",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/methods",
       "hints": {
         "allow": [
           "GET"
@@ -693,7 +782,7 @@ The Authenticator object defines the following properties:
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nbvIgEenhwE6c0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -717,7 +806,7 @@ The Authenticator object defines the following properties:
   "lastUpdated": "2020-07-27T18:59:30.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4",
       "hints": {
         "allow": [
           "GET",
@@ -726,7 +815,7 @@ The Authenticator object defines the following properties:
       }
     },
     "methods": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/methods",
       "hints": {
         "allow": [
           "GET"
@@ -734,7 +823,7 @@ The Authenticator object defines the following properties:
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"

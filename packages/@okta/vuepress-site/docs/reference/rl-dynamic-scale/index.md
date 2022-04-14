@@ -17,11 +17,14 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/login/login.htm`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
+* `/login/step-up/redirect`
 
 **OAuth2 endpoints:**
 
 * `/oauth2/${authorizationServerId}/v1`
+* `/oauth2/${authorizationServerId}/v1/authorize`
 * `/oauth2/v1` except `/oauth2/v1/clients`
+* `/oauth2/v1/authorize`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
@@ -48,5 +51,3 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 >
 
 If your usage pattern exceeds the rate limits offered by the DynamicScale add-on or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then please contact your Okta Sales Representative regarding other options.
-
-For orgs that purchased the High Capacity Rate Limit SKU before 2019-10-24, the [previous rate limits](/docs/reference/rl-previous/) still apply.

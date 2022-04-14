@@ -1,6 +1,6 @@
 .signup {
   a {
-    color: cv("cerise", "base");
+    color: cv('link');
 
     &:hover {
       text-decoration: underline;
@@ -15,37 +15,43 @@
     padding: 10px;
   }
 
-  .signup--banner-oie {
-    width: 100%;
-    padding: 10px 26px;
-    background-color: #1662dd;
-    color: white;
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-
   .signup--content {
   width: 100%;
-  max-width: 1272px;
-  display: inline-flex;
-  justify-content: center;
+  max-width: 1195px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   font-size: 16px;
-  color: $white;
+  margin: 0 auto;
+  color: cv('text', 'darker');
+    
+    @include media("<desktop") {
+      justify-content: center;
+    }
 
     .signup--form {
-      width: 100%;
-      max-width: 588px;
-      margin: 0 80px 0 0;
-      padding: 40px;
-      background-color: cv("blue", "whale");
-      box-shadow: 0px 6px 25px cv("blue", "whale");
+      width: 45%;
+      max-width: 517px;
+      margin: 0;
+      padding: 65px 32px;
+      background-color: #fff;
+      box-shadow: 0px 6px 18px rgba(65, 65, 75, 0.5);
+
+      @include media("<desktop") {
+        width: 100%;
+        margin-bottom: 100px;
+      }
+
+      @include media("<tablet") {
+        padding: 10px;
+      }
 
       .user-name {
         display: flex;
 
         .row:nth-child(1) {
-          margin-right: 10px;
+          margin-right: 0px;
         }
 
         @include media("<tablet") {
@@ -55,6 +61,13 @@
             margin-right: 0;
           }
         }
+      }
+
+      .signup--recaptcha {
+        padding-top: 16px;
+      }
+      .signup--submit {
+        padding-top: 8px;
       }
 
       .consent--section {
@@ -92,8 +105,9 @@
 
       .error-msg {
         position: absolute;
-        bottom: -24px;
+        bottom: -17px;
         left: 0;
+        font-size: 0.8rem;
       }
 
       a.pending {
@@ -105,23 +119,11 @@
         }
       }
 
-      @include media("<desktop") {
-        margin: 0;
-      }
-
-      @include media("<475px") {
-        padding: 10px;
-      }
-
-      @include media("<=phone") {
-        padding: 0;
-      }
-
       .splitter {
         display: flex;
-        height: 27px;
-        margin: 19.5px 0;
-        justify-content: space-between;
+        height: 20px;
+        margin: 0 0 17px;
+        justify-content: center;
         align-items: center;
 
         span:nth-child(2) {
@@ -131,16 +133,18 @@
         span:nth-child(3) {
           height: 0;
           flex-grow: 1;
-          border: 2px solid cv("brand", "base");
+          border: 2px solid cv("header");
+          display: none;
         }
       }
 
       .goto-signin {
         justify-content: center;
         margin: 0;
+        padding-top: 15px;
+        font-size: 0.9em;
 
         a {
-          font-size: 16px;
           text-indent: 5px;
         }
       }
@@ -148,20 +152,49 @@
   }
 
   .signup--description {
-    padding: 30px 0 0 0;
+    padding: 0;
     max-width: 604px;
-    color: $white;
+    width: 44%;
+    color: cv('text','darker');
+
+    @include media("<desktop") {
+      width: 100%;
+    }
+
+    p, li {
+      font-size: 20px;
+      line-height: 1.7rem;
+    }
+    p {
+      margin-bottom: 28px;
+    }
+    ul {
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    p + ul {
+      margin-top: 0;
+    }
 
     h1 {
-      font-size: 40px;
-      color: $white;
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 35px;
+
+      @include media("<desktop") {
+        font-size: 36px;
+      }
+    }
+    h2, h3, h4, h5 {
+      margin-bottom: 2rem;
     }
 
     a {
       &,
       &:visited,
       &:focus,
-      &:hover, {
+      &:hover {
         color: white;
         text-decoration: underline;
       }

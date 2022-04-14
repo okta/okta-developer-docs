@@ -3,7 +3,7 @@ const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
-const signInWidgetMajorVersion = 5;
+const signInWidgetMajorVersion = 6;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
@@ -43,6 +43,7 @@ module.exports = ctx => ({
   head: [
     ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.8959/14/css/CoveoFullSearch.min.css', integrity: 'sha512-DzuDVtX/Dud12HycdAsm2k9D1UQ8DU7WOj7cBRnSsOKQbKfkI94g0VM9hplM0BkQ0VXdDiQYU9GvUzMmw2Khaw==', crossorigin: 'anonymous' }],
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
+    ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
@@ -192,9 +193,12 @@ module.exports = ctx => ({
       { text: 'Concepts', link: '/docs/concepts/' },
       { text: 'Reference', link: '/docs/reference/' },
       { text: 'Languages & SDKs', link: '/code/' },
-      { text: 'Release Notes', link: '/docs/release-notes/' }
+      { text: 'Release Notes', link: '/docs/release-notes/' },
     ],
     footer_nav: {
+      need_support: {
+        heading: 'Need Support?'
+      },
       social: {
         heading: 'Social',
         items: [
@@ -234,15 +238,15 @@ module.exports = ctx => ({
     },
 
     company_logos: [
-      { name: 'Major League Baseball', icon: '/img/logos/baseball.png' },
-      { name: 'Splunk', icon: '/img/logos/splunk.png' },
-      { name: 'Adobe', icon: '/img/logos/adobe.png' },
-      { name: 'JetBlue', icon: '/img/logos/jetblue.png' },
-      { name: 'Experian', icon: '/img/logos/experian.png' },
+      { name: 'Major League Baseball', icon: '/img/logos/baseball.svg' },
+      { name: 'Splunk', icon: '/img/logos/splunk.svg' },
+      { name: 'Adobe', icon: '/img/logos/adobe.svg' },
+      { name: 'JetBlue', icon: '/img/logos/jetblue.svg' },
+      { name: 'Experian', icon: '/img/logos/experian.svg' },
     ],
 
     forum_url: 'https://devforum.okta.com/',
-    copyright_text: 'Copyright © 2021 Okta.'
+    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta.`
   },
 
   chainWebpack(config) {
@@ -292,6 +296,7 @@ module.exports = ctx => ({
 
   plugins: {
     'code-copy': {},
+    'vuepress-plugin-chunkload-redirect': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
@@ -308,13 +313,22 @@ module.exports = ctx => ({
           crawlDelay: 10,
           disallow: [
               //'/docs/guides/third-party-risk-integration/', //EA release of Risk APIs and Guide 2021.08.0
-              //'/docs/guides/third-party-risk-integration/overview/',
-              //'/docs/guides/third-party-risk-integration/create-service-app/',
-              //'/docs/guides/third-party-risk-integration/update-default-provider/',
-              //'/docs/guides/third-party-risk-integration/test-integration/',
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
+              '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
+              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
+              '/docs/guides/oie-upgrade-overview/',
+              '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
+              '/docs/guides/oie-upgrade-sessions-api/',
+              '/docs/guides/oie-upgrade-sign-in-widget/',
+              '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
+              '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
+              '/docs/guides/oie-upgrade-sign-in-widget-styling/',
+              '/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              '/docs/reference/csi-delauth-hook/'
           ]
         }
       ]
@@ -350,6 +364,12 @@ module.exports = ctx => ({
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
+    }
+
+    // mark all generated non-root stack-enabled pages(i.e. those containing stack name in the URL)
+    // to display StackSelector for
+    if(found && !found.guide && !found.sections && found.mainFramework) {
+      $page.hasStackContent = true
     }
   },
   async ready() {
