@@ -76,7 +76,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
 ```
 
-A successful request will return a generated JWK. See [Add new JSON Web Key](/docs/reference/api/apps/#add-new-json-web-key).
+A successful request returns a generated JWK. See [Add new JSON Web Key](/docs/reference/api/apps/#add-new-json-web-key).
 
 ## Generate the JWK in the Admin Console
 
