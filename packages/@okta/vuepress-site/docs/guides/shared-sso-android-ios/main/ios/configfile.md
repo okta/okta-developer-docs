@@ -10,6 +10,7 @@ Enter the following at the command line inside the sample app:
 > **Note:** Be sure to work within the Okta BrowserSignIn Workspace in Xcode after you do `pod install`.
 
 ### Modify the configuration file
+
 Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of your sample app:
 
 * `redirectUri`: Enter `com.first.sample:/callback` as the value, which is what you defined as one of the **Sign-in redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).

@@ -137,10 +137,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -210,10 +210,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -280,10 +280,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -357,10 +357,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -375,7 +375,7 @@ The Password Inline Hook is triggered to handle verification of the end user's p
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
+> **Important:** Don't generate or send a one-time activation token when activating users with an Password Inline Hook. Users should sign in with their existing password to be imported using the Password Import Inline Hook.
 
 ##### Request example
 
@@ -432,7 +432,7 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -506,10 +506,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -574,26 +574,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/reset_password",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/reset_password",
       "method": "POST"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/credentials/change_recovery_question",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/credentials/change_recovery_question",
       "method": "POST"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
       "method": "POST"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
 ```
 
 #### Create User in Group
-
 
 Creates a user that is added to the specified groups upon creation
 
@@ -650,10 +649,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -716,16 +715,16 @@ curl -v -X POST \
   },
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     },
     "type": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
@@ -849,25 +848,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -922,25 +921,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -997,25 +996,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1072,25 +1071,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1128,25 +1127,26 @@ The performance optimization will only be applied when all three parameters are 
 
 ##### Request parameters
 
-The first three parameters in the table below correspond to different types of lists:
+The first three parameters in the table below correspond to different ways to list users.
 
-- [List All Users](#list-all-users) (no parameters)
-- [Find Users](#find-users) (`q`)
-- [List Users with a Filter](#list-users-with-a-filter) (`filter`)
 - [List Users with Search](#list-users-with-search) (`search`)
+- [List Users with a Filter](#list-users-with-a-filter) (`filter`)
+- [Find Users](#find-users) (`q`)
+- [List All Users](#list-all-users) (no parameters)
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties          | Query        | String     | FALSE    |
-| limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
-| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
-| sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
-| sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
+| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of users.                                                                                     | Query        | String     | FALSE    |
+| sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
+  * Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1159,113 +1159,51 @@ Array of [User](#user-object)
 Due to an infrastructure limitation, [group administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-group-admin.htm), [help desk administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-help-desk-admin.htm),
 and [custom administrators](https://help.okta.com/en-us/Content/Topics/Security/custom-admin-role/custom-admin-roles.htm) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
 
-#### List all Users
 
+#### List Users with search
 
-Returns a list of all users that do not have a status of `DEPROVISIONED`, up to the maximum (200 for most orgs)
+Searches for users based on the properties specified in the search parameter. This method typically offers the best performance of any [List Users](#list-users) operation other than List All Users.
 
-Different results are returned depending on specified queries in the request.
+> **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
 
-
-##### Request example
-
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?limit=200"
-```
-
-##### Response example
-
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/users?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/users?after=00ud4tVDDXYVKPXKVLCO&limit=200>; rel="next"
-
-[
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "STAGED",
-    "created": "2013-07-02T21:36:25.344Z",
-    "activated": null,
-    "statusChanged": null,
-    "lastLogin": null,
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Isaac",
-      "lastName": "Brock",
-      "email": "isaac.brock@example.com",
-      "login": "isaac.brock@example.com",
-      "mobilePhone": "555-415-1337"
-    },
-    "credentials": {
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  },
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "ACTIVE",
-    "created": "2013-06-24T16:39:18.000Z",
-    "activated": "2013-06-24T16:39:19.000Z",
-    "statusChanged": "2013-06-24T16:39:19.000Z",
-    "lastLogin": "2013-06-24T17:39:19.000Z",
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Eric",
-      "lastName": "Judy",
-      "email": "eric.judy@example.com",
-      "secondEmail": "eric@example.org",
-      "login": "eric.judy@example.com",
-      "mobilePhone": "555-415-2011"
-    },
-    "credentials": {
-      "password": {},
-      "recovery_question": {
-        "question": "The stars are projectors?"
-      },
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  }
-]
-```
-
-#### Find Users
-
-
-Finds users who match the specified query
-
-Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
-The value of `q` is matched against `firstName`, `lastName`, or `email`.
-
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
 
 This operation:
 
- * Doesn't support pagination.
- * Queries the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request, the change is reflected in the results.
- * Performs a startsWith match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
+* Supports [pagination](/docs/reference/core-okta-api/#pagination).
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
+  For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
+  Use an ID lookup for records that you update to ensure your results contain the latest data.
+  > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
+* Searches many properties:
+  - Any user profile property, including custom-defined properties
+  - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
+  - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
+* Accepts `sortBy` and `sortOrder` parameters.
+  - `sortBy` can be any single property, for example `sortBy=profile.lastName`
+  - `sortOrder` is optional and defaults to ascending
+  - `sortOrder` is ignored if `sortBy` is not present
+  - Users with the same value for the `sortBy` property will be ordered by `id`
+
+| Search Term Example                             | Description                                     |
+| :---------------------------------------------- | :---------------------------------------------- |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
+| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
+| `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
+| `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
+| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
+
+##### Search examples
+
+List users with an occupation of `Leader`
+
+    search=profile.occupation eq "Leader"
+
+List users in the department of `Engineering` who were created before `01/01/2014` or have a status of `ACTIVE`.
+
+    search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
 
 ##### Request example
 
@@ -1275,11 +1213,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?q=eric&limit=1"
+"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+%22555%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1293,17 +1230,16 @@ curl -v -X GET \
     "lastUpdated": "2013-07-02T21:36:25.344Z",
     "passwordChanged": "2013-07-02T21:36:25.344Z",
     "profile": {
-      "firstName": "Eric",
-      "lastName": "Judy",
-      "email": "eric.judy@example.com",
-      "secondEmail": "eric@example.org",
-      "login": "eric.judy@example.com",
-      "mobilePhone": "555-415-2011"
+      "firstName": "Isaac",
+      "lastName": "Brock",
+      "email": "isaac.brock@example.com",
+      "login": "isaac.brock@example.com",
+      "mobilePhone": "555-415-1337"
     },
     "credentials": {
       "password": {},
       "recovery_question": {
-        "question": "The stars are projectors?"
+        "question": "Who's a major player in the cowboy scene?"
       },
       "provider": {
         "type": "OKTA",
@@ -1312,23 +1248,98 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   }
 ]
 ```
 
-> **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
+##### Searching arrays
+
+You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
+For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
+
+* Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
+* Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
+
+##### Request example for array
+
+The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+%22arrayAttrVal1%22"
+```
+
+##### Response example for array
+
+
+```json
+[
+    {
+        "id": "00u19uiKQa0xXkbdGLNR",
+        "status": "PROVISIONED",
+        "created": "2016-03-15T04:21:51.000Z",
+        "activated": "2016-03-15T04:21:52.000Z",
+        "statusChanged": "2016-03-15T04:21:52.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2016-03-17T07:08:15.000Z",
+        "passwordChanged": null,
+        "profile": {
+            "login": "u7@test.com",
+            "mobilePhone": null,
+            "email": "u7@test.com",
+            "secondEmail": "",
+            "firstName": "u7",
+            "lastName": "u7",
+            "boolAttr": true,
+            "intAttr": 99,
+            "strArray": [
+                "strArrayVal1",
+                "strArrayVal2"
+            ],
+            "intArray": [
+                5,
+                8
+            ],
+            "numAttr": 8.88,
+            "attr1": "attr1ValUpdated3",
+            "arrayAttr": [
+                "arrayAttrVal1",
+                "arrayAttrVal2Updated"
+            ],
+            "numArray": [
+                1.23,
+                4.56
+            ]
+        },
+        "credentials": {
+            "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u19uiKQa0xXkbdGLNR"
+            }
+        }
+    }
+]
+```
+
+
 
 #### List Users with a filter
 
-Lists all users that match the filter criteria
+Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 This operation:
 
-* Filters against the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request,
-the changes are reflected in your results.
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 * Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 
@@ -1415,7 +1426,7 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   }
@@ -1469,57 +1480,28 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   }
 ]
 ```
 
-#### List Users with search
 
-Searches for users based on the properties specified in the search parameter
+#### Find Users
 
-> **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
+Finds users who match the specified query.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead.
+
+Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
+The value of `q` is matched against `firstName`, `lastName`, or `email`.
+
 
 This operation:
 
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
-For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
-Use an ID lookup for records that you update to ensure your results contain the latest data.
-    > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
-* Searches many properties:
-   - Any user profile property, including custom-defined properties
-   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
-   - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
-* Accepts `sortBy` and `sortOrder` parameters.
-   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
-   - `sortOrder` is optional and defaults to ascending
-   - `sortOrder` is ignored if `sortBy` is not present
-   - Users with the same value for the `sortBy` property will be ordered by `id`
-
-| Search Term Example                             | Description                                     |
-| :---------------------------------------------- | :---------------------------------------------- |
-| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
-| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
-| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
-| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
-| `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
-| `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
-
-##### Search examples
-
-List users with an occupation of `Leader`
-
-    search=profile.occupation eq "Leader"
-
-List users in the department of `Engineering` who were created before `01/01/2014` or have a status of `ACTIVE`.
-
-    search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
+ * Doesn't support pagination.
+ * May not deliver optimal performance for large organizations, and is deprecated for such use cases.  Okta recommends using a [search parameter](#list-users-with-search) instead.
+ * Performs a `startsWith` match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
 
 ##### Request example
 
@@ -1529,10 +1511,11 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+%22555%22+and+status+eq+%22ACTIVE%22"
+"https://${yourOktaDomain}/api/v1/users?q=eric&limit=1"
 ```
 
 ##### Response example
+
 
 ```json
 [
@@ -1546,16 +1529,17 @@ curl -v -X GET \
     "lastUpdated": "2013-07-02T21:36:25.344Z",
     "passwordChanged": "2013-07-02T21:36:25.344Z",
     "profile": {
-      "firstName": "Isaac",
-      "lastName": "Brock",
-      "email": "isaac.brock@example.com",
-      "login": "isaac.brock@example.com",
-      "mobilePhone": "555-415-1337"
+      "firstName": "Eric",
+      "lastName": "Judy",
+      "email": "eric.judy@example.com",
+      "secondEmail": "eric@example.org",
+      "login": "eric.judy@example.com",
+      "mobilePhone": "555-415-2011"
     },
     "credentials": {
       "password": {},
       "recovery_question": {
-        "question": "Who's a major player in the cowboy scene?"
+        "question": "The stars are projectors?"
       },
       "provider": {
         "type": "OKTA",
@@ -1564,92 +1548,110 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   }
 ]
 ```
 
-##### Searching arrays
+> **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
 
-You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
-For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
+#### List all Users
 
-* We follow the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
-* Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
 
-##### Request example for array
+Returns a list of all users that do not have a status of `DEPROVISIONED`, up to the maximum (200 for most orgs)
 
-The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
+Different results are returned depending on specified queries in the request.
+
+
+##### Request example
+
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+%22arrayAttrVal1%22"
+"https://${yourOktaDomain}/api/v1/users?limit=200"
 ```
 
-##### Response example for array
+##### Response example
 
 
-```json
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Link: <https://${yourOktaDomain}/api/v1/users?limit=200>; rel="self"
+Link: <https://${yourOktaDomain}/api/v1/users?after=00ud4tVDDXYVKPXKVLCO&limit=200>; rel="next"
+
 [
-    {
-        "id": "00u19uiKQa0xXkbdGLNR",
-        "status": "PROVISIONED",
-        "created": "2016-03-15T04:21:51.000Z",
-        "activated": "2016-03-15T04:21:52.000Z",
-        "statusChanged": "2016-03-15T04:21:52.000Z",
-        "lastLogin": null,
-        "lastUpdated": "2016-03-17T07:08:15.000Z",
-        "passwordChanged": null,
-        "profile": {
-            "login": "u7@test.com",
-            "mobilePhone": null,
-            "email": "u7@test.com",
-            "secondEmail": "",
-            "firstName": "u7",
-            "lastName": "u7",
-            "boolAttr": true,
-            "intAttr": 99,
-            "strArray": [
-                "strArrayVal1",
-                "strArrayVal2"
-            ],
-            "intArray": [
-                5,
-                8
-            ],
-            "numAttr": 8.88,
-            "attr1": "attr1ValUpdated3",
-            "arrayAttr": [
-                "arrayAttrVal1",
-                "arrayAttrVal2Updated"
-            ],
-            "numArray": [
-                1.23,
-                4.56
-            ]
-        },
-        "credentials": {
-            "provider": {
-                "type": "OKTA",
-                "name": "OKTA"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u19uiKQa0xXkbdGLNR"
-            }
-        }
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "STAGED",
+    "created": "2013-07-02T21:36:25.344Z",
+    "activated": null,
+    "statusChanged": null,
+    "lastLogin": null,
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Isaac",
+      "lastName": "Brock",
+      "email": "isaac.brock@example.com",
+      "login": "isaac.brock@example.com",
+      "mobilePhone": "555-415-1337"
+    },
+    "credentials": {
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
     }
+  },
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "ACTIVE",
+    "created": "2013-06-24T16:39:18.000Z",
+    "activated": "2013-06-24T16:39:19.000Z",
+    "statusChanged": "2013-06-24T16:39:19.000Z",
+    "lastLogin": "2013-06-24T17:39:19.000Z",
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Eric",
+      "lastName": "Judy",
+      "email": "eric.judy@example.com",
+      "secondEmail": "eric@example.org",
+      "login": "eric.judy@example.com",
+      "mobilePhone": "555-415-2011"
+    },
+    "credentials": {
+      "password": {},
+      "recovery_question": {
+        "question": "The stars are projectors?"
+      },
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
+    }
+  }
 ]
 ```
 
-### Update User
 
+### Update User
 
 > **Note:** Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
 
@@ -1678,11 +1680,9 @@ in the request is deleted.
 
 ##### Response parameters
 
-
 Updated [User](#user-object)
 
 #### Update current User's Profile
-
 
 <ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
 
@@ -1701,7 +1701,6 @@ End user can only update `profile` with this request. To update credentials, use
 use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)
 
 ##### Response parameters
-
 
 Updated [User](#user-object)
 
@@ -1754,25 +1753,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1785,7 +1784,7 @@ curl -v -X POST \
 
 Updates a user's profile or credentials with partial update semantics
 
-> Important: Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
+> **Important:** Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
 
 ##### Request parameters
 
@@ -1853,25 +1852,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1931,32 +1930,31 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
 ```
 
 #### Set recovery question and answer
-
 
 Sets recovery question and answer without validating existing user credentials
 
@@ -2012,25 +2010,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -2078,8 +2076,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Google Apps Mail",
-    "linkUrl": "https://${yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/50",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/google-mail.png",
+    "linkUrl": "https://{yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/50",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/google-mail.png",
     "appName": "google",
     "appInstanceId": "0oa3omz2i9XRNSRIHBZO",
     "appAssignmentId": "0ua3omz7weMMMQJERBKY",
@@ -2090,8 +2088,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Google Apps Calendar",
-    "linkUrl": "https://${yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/54",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/google-calendar.png",
+    "linkUrl": "https://{yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/54",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/google-calendar.png",
     "appName": "google",
     "appInstanceId": "0oa3omz2i9XRNSRIHBZO",
     "appAssignmentId": "0ua3omz7weMMMQJERBKY",
@@ -2102,8 +2100,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Box",
-    "linkUrl": "https://${yourOktaDomain}/home/boxnet/0oa3ompioiQCSTOYXVBK/72",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/box.png",
+    "linkUrl": "https://{yourOktaDomain}/home/boxnet/0oa3ompioiQCSTOYXVBK/72",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/box.png",
     "appName": "boxnet",
     "appInstanceId": "0oa3ompioiQCSTOYXVBK",
     "appAssignmentId": "0ua3omx46lYEZLPPRWBO",
@@ -2114,8 +2112,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Salesforce.com",
-    "linkUrl": "https://${yourOktaDomain}/home/salesforce/0oa12ecnxtBQMKOXJSMF/46",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/salesforce_logo.png",
+    "linkUrl": "https://{yourOktaDomain}/home/salesforce/0oa12ecnxtBQMKOXJSMF/46",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/salesforce_logo.png",
     "appName": "salesforce",
     "appInstanceId": "0oa12ecnxtBQMKOXJSMF",
     "appAssignmentId": "0ua173qgj5VAVOBQMCVB",
@@ -2218,7 +2216,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2241,7 +2239,7 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2273,7 +2271,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2294,7 +2292,7 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2317,7 +2315,6 @@ Content-Type: application/json
 
 ### Deactivate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/deactivate" />
 
 Deactivates a user
@@ -2327,7 +2324,7 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 * The user's `transitioningToStatus` property is `DEPROVISIONED` during deactivation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `DEPROVISIONED` when the deactivation process is complete.
 
-> Important: Deactivating a user is a **destructive** operation.  The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
+> **Important:** Deactivating a user is a **destructive** operation. The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
 
 ##### Request parameters
 
@@ -2629,7 +2626,7 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -2649,12 +2646,11 @@ curl -v -X POST \
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
 ##### Request example (Convert a User to a Federated User)
-
 
 To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
 parameter must be false or omitted for this type of conversion.
@@ -2749,25 +2745,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -2815,7 +2811,7 @@ Content-Type: application/json
 
 Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
 
-> This operation requires a session cookie for the user. API token is not allowed for this operation.
+> **Note:** This operation requires a session cookie for the user. The API token isn't allowed for this operation.
 
 <ApiOperation method="post" url="/api/v1/users/me/lifecycle/delete_sessions" /> <SupportsCors />
 
@@ -2865,7 +2861,6 @@ Content-Type: application/json
 
 ### Clear User sessions
 
-
 <ApiOperation method="delete" url="/api/v1/users/${userId}/sessions" />
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
@@ -2909,7 +2904,6 @@ HTTP/1.1 204 No Content
 
 ### Forgot password
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/forgot_password" />
 
 Generates a one-time token (OTT) that can be used to reset a user's password
@@ -2940,7 +2934,7 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -2962,7 +2956,7 @@ curl -v -X POST \
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -3021,7 +3015,6 @@ curl -v -X POST \
 ```
 
 ### Change password
-
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_password" />
 
@@ -3099,7 +3092,7 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 
 [Credentials](#credentials-object) of the user
 
-> This operation does not affect the status of the user.
+> **Note:** This operation doesn't affect the status of the user.
 
 ##### Request example
 
@@ -3189,25 +3182,25 @@ curl -v -X GET \
         "status": "ACTIVE",
         "created": "2017-10-30T22:06:53.000Z",
         "lastUpdated": "2017-10-30T22:06:53.000Z",
-        "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+        "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
         "clientId": "0oabskvc6442nkvQO0h7",
         "userId": "00u5t60iloOHN9pBi0h7",
         "scopeId": "scpCmCCV1DpxVkCaye2X",
         "_links": {
             "app": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
                 "title": "My App"
             },
             "scope": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
                 "title": "My phone"
             },
             "client": {
-                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
                 "title": "My App"
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
                 "hints": {
                     "allow": [
                         "GET",
@@ -3216,11 +3209,11 @@ curl -v -X GET \
                 }
             },
             "user": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
                 "title": "SAML Jackson"
             },
             "authorizationServer": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
                 "title": "Example Authorization Server"
             }
         }
@@ -3229,7 +3222,6 @@ curl -v -X GET \
 ```
 
 ### Get a Grant
-
 
 <ApiLifecycle access="ea" />
 
@@ -3266,25 +3258,25 @@ curl -v -X GET \
     "status": "ACTIVE",
     "created": "2017-10-30T22:06:53.000Z",
     "lastUpdated": "2017-10-30T22:06:53.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopeId": "scpCmCCV1DpxVkCaye2X",
     "_links": {
         "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
             "title": "My App"
         },
         "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
             "title": "My phone"
         },
         "client": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+            "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
             "title": "My App"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
             "hints": {
                 "allow": [
                     "GET",
@@ -3293,11 +3285,11 @@ curl -v -X GET \
             }
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
             "title": "SAML Jackson"
         },
         "authorizationServer": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
             "title": "Example Authorization Server"
         }
     }
@@ -3345,21 +3337,21 @@ curl -v -X GET \
         "status": "ACTIVE",
         "created": "2017-11-03T03:34:17.000Z",
         "lastUpdated": "2017-11-03T03:34:17.000Z",
-        "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+        "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
         "clientId": "0oabskvc6442nkvQO0h7",
         "userId": "00u5t60iloOHN9pBi0h7",
         "scopeId": "scpCmCCV1DpxVkCaye2X",
         "_links": {
             "app": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
                 "title": "Test App for Groups Claim"
             },
             "scope": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
                 "title": "Your phone"
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3j3j33ILN7OFqP0h6",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3j3j33ILN7OFqP0h6",
                 "hints": {
                     "allow": [
                         "GET",
@@ -3368,15 +3360,15 @@ curl -v -X GET \
                 }
             },
             "client": {
-                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
                 "title": "Test App for Groups Claim"
             },
             "user": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
                 "title": "Saml Jackson"
             },
             "authorizationServer": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
                 "title": "Example Authorization Server"
             }
         }
@@ -3546,7 +3538,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopes": [
@@ -3555,14 +3547,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -3570,15 +3562,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
         "title": "Example Authorization Server"
       }
     }
@@ -3631,7 +3623,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00u5t60iloOHN9pBi0h7",
   "scopes": [
@@ -3646,7 +3638,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -3658,7 +3650,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -3667,14 +3659,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -3682,15 +3674,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "title": "Example Authorization Server"
     }
   }
@@ -3801,7 +3793,6 @@ curl -v -X GET \
 
 #### Response example
 
-
 ```json
 [
     {
@@ -3811,10 +3802,10 @@ curl -v -X GET \
         "logo_uri": null,
         "_links": {
             "grants": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/grants"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/grants"
             },
             "tokens": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens"
             }
         }
     }
@@ -3876,31 +3867,31 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     },
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
     },
     "type": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
@@ -4217,11 +4208,11 @@ Specifies the authentication provider that validates the user's password credent
 | type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE      | FALSE    | TRUE     |
 | name       | String                                                                | TRUE       | FALSE    | TRUE     |
 
-> `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
+> **Note:** `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
 
-> Users with a `FEDERATION` or `SOCIAL` authentication provider do not support a `password` or `recovery_question` credential and must authenticate via a trusted Identity Provider.
+> **Note:** Users with a `FEDERATION` or `SOCIAL` authentication provider don't support a `password` or `recovery_question` credential and must authenticate through a trusted Identity Provider.
 
->`IMPORT` specifies a hashed password that was imported from an external source.
+> **Note:** `IMPORT` specifies a hashed password that was imported from an external source.
 
 ### Links object
 
@@ -4258,7 +4249,7 @@ Here are some links that may be available on a User, as determined by your polic
     "status": "ACTIVE",
     "created": "2017-11-07T21:46:36.000Z",
     "lastUpdated": "2017-11-07T21:46:36.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "customClientIdNative",
     "userId": "00uol9oQZaWN47WQZ0g3",
     "scopeId": "scpp4bmzfCV7dHf8y0g3",
@@ -4271,15 +4262,15 @@ Here are some links that may be available on a User, as determined by your polic
     },
     "_links": {
         "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaozwn7Qlfx0wl280g3",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaozwn7Qlfx0wl280g3",
             "title": "Native client"
         },
         "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
             "title": "test"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -4288,15 +4279,15 @@ Here are some links that may be available on a User, as determined by your polic
             }
         },
         "client": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/clients/customClientIdNative",
+            "href": "https://{yourOktaDomain}/oauth2/v1/clients/customClientIdNative",
             "title": "Native client"
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3",
             "title": "Saml Jackson"
         },
         "authorizationServer": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
             "title": "Example Authorization Server"
         }
     }
@@ -4332,7 +4323,7 @@ Here are some links that may be available on a User, as determined by your polic
   "logo_uri": "https://example.com/image/logo.jpg",
   "_links": {
      "grants": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oab57tu2q6C0rYwM0h7/grants"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oab57tu2q6C0rYwM0h7/grants"
         "hints": {
             "allow": [
                 "GET",

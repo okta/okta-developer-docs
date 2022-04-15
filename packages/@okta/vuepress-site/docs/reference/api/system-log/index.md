@@ -725,19 +725,23 @@ The `after` parameter is system generated for use in ["next" links](#next-link-r
 The response contains a JSON array of [LogEvent objects](#logevent-object).
 
 ###### Self link response header
+
 The response always includes a `self` `link` header, which is a link to the current query that was executed.
 
 The header has the following format:
+
 ```
 link: <url>; rel="self"
 ```
 
 For example:
+
 ```
-link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
+link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
 ###### Next link response header
+
 The response may include a `next` `link` header, which is a link to the next page of results, if there is one.
 
 >**Note:** While the `self` `link` always exists, the `next` `link` may not exist.
@@ -749,7 +753,7 @@ link: <url>; rel="next"
 
 For example:
 ```
-link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
+link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
@@ -852,6 +856,7 @@ Log data older than 90 days isn't returned, in accordance with Okta's [Data Rete
 ## Examples
 
 ### Debugging
+
 The System Log API can be used to troubleshoot user problems. For example, you
 can use the following `curl` command to see events from user "Jane Doe":
 
@@ -874,6 +879,7 @@ curl -v -X GET \
 ```
 
 ### Transferring data to a separate system
+
 You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate point of time in the past.
 
 ```bash
