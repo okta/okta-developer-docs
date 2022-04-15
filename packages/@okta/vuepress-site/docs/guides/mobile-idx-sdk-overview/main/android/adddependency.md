@@ -4,4 +4,4 @@ To add the SDK to your app, include the following dependency in your `app/build.
 implementation 'com.okta.android:okta-idx-kotlin:$okta_sdk_version'
 ```
 
-where `$okta.sdk.version` is the latest release version. See [Release Status](https://github.com/okta/okta-idx-android/tags) for the latest Identity Engine Kotlin SDK version.
+Change `$okta.sdk.version` to the desired release version of the SDK. For a list of released versions, see [the list tags for the SDK releases](https://github.com/okta/okta-idx-android/tags).

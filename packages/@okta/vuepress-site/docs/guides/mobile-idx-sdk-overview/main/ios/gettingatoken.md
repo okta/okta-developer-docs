@@ -1,4 +1,4 @@
-This example shows part of the implementation of the `IDXClientDelegate` protocol functions called by the SDK for each response, and for receiving the access token.
+This example shows part of the implementation of the `IDXClientDelegate` protocol functions the SDK calls for each response and for receiving the access token.
 
 ```swift
 

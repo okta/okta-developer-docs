@@ -2,7 +2,7 @@ The following code shows these steps in order:
 
 ```kotlin
 private suspend fun handleResponse(response: IdxResponse) {
-    // Check if sign-in is successful.
+    // Check if the sign-in flow is successful.
     if (response.isLoginSuccessful) {
         // Get the access token and exit the flow.
         return
@@ -10,13 +10,13 @@ private suspend fun handleResponse(response: IdxResponse) {
 
     // Check for messages, such as entering an incorrect code and finish this step.
     if (response.messages.isNotEmpty()) {
-        // Handle the messages which may require updating the UI.
+        // Handle the messages that may require updating the UI.
         return
     }
 
-    // Finish the login process if there are no remediations.
+    // Finish the sign-in process if there are no remediations.
     if (response.remediations.isEmpty()) {
-        // Handle the error. For example, display an error and then go back to login page.
+        // Handle the error. For example, display an error and then go back to the sign-in view.
         return
     }
 
@@ -38,7 +38,7 @@ private fun proceed(remediation: IdxRemediation) {
     viewModelScope.launch {
         when (val resumeResult = client?.proceed(remediation)) {
             is IdxClientResult.Error -> {
-                // Handle error.
+                // Handle the error.
             }
             is IdxClientResult.Success -> {
                 handleResponse(resumeResult.result)

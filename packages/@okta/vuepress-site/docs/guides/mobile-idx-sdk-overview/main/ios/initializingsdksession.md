@@ -33,7 +33,7 @@ class SignInController {
 
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
-                // Handle the error
+                // Handle the error.
                 return
             }
 

@@ -1,4 +1,4 @@
-This code assumes that the access token is stored after a successful sign-in:
+This code assumes storing the access token after a successful sign-in flow:
 
 ```kotlin
 fun logout() {
@@ -13,9 +13,9 @@ fun logout() {
                 revokeToken("access_token", Storage.tokens.accessToken)
             }
 
-            // Logout successful. Redirect to login page.
+            // Sign-out successful. Redirect to a sign-in view.
         } catch (e: Exception) {
-            // Logout failed. Handle error.
+            // Sign-out failed, handle the error.
         }
     }
 }
@@ -34,10 +34,9 @@ private fun revokeToken(tokenType: String, token: String) {
         .post(formBody)
         .build()
 
-    // send the request to revoke the token.
+    // Send the request to revoke the token.
     val response = OktaIdxClientConfigurationProvider.get().okHttpCallFactory.newCall(request).execute()
 
     println("Revoke Token Response: $response")
 }
 ```
-  qq

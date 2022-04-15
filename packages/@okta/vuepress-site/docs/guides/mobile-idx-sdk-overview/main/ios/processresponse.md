@@ -9,19 +9,6 @@ class SignInController: IDXClientDelegate {
 
     var currentResponse: Response? = nil
 
-    func initializeSDK() {
-        ...
-
-        IDXClient.start(with: configuration) { (client, error) in
-            ...
-
-            // Set this singleton as the delegate for SDK callbacks.
-            client.delegate = self
-
-            ...
-        }
-    }
-
     ...
 
     // Delegate function called for each sign-in step.
@@ -35,7 +22,7 @@ class SignInController: IDXClientDelegate {
         }
 
 
-        // If no remediations are present, abort the login process.
+        // If no remediations are present, abort the sign-in flow.
         guard let remediation = currentResponse?.remediations.first else {
             // Handle the error and finish the sign-in flow.
             return
@@ -47,7 +34,7 @@ class SignInController: IDXClientDelegate {
             return
         }
 
-        // Build the UI using the information in the remediations and authenticators
+        // Build the UI using the information in the remediations and authenticators.
 
         ...
     }

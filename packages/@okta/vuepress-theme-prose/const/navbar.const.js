@@ -294,7 +294,7 @@ export const guides = [
             ]
           },
           {
-            title: "Mobile techniques",
+            title: "Mobile authentication",
             subLinks: [
               {
                 title: "Identity Engine SDK overview",

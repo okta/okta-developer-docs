@@ -1,4 +1,4 @@
-This singleton stores the token in User Defaults. For more security, store the token in the Keychain.
+This singleton stores the token in user defaults. For more security, store the token in the Keychain.
 
 ```swift
 
@@ -12,16 +12,16 @@ enum TokenManagerError: Error {
 class TokenManager {
     static let shared = TokenManager()
 
-    // Change com.example.okta-samplecode.Okta-Login to your bundle identifier
+    // Change com.example.okta-samplecode.Okta-Login to your bundle identifier.
     private struct UserDefaultsKeys {
         static let storedTokenKey = "com.example.okta-samplecode.Okta-Login.storedToken"
     }
 
-    // Save the token to user defaults
+    // Save the token to user defaults.
     func saveToken(_ token: Token) {
         let defaults = UserDefaults.standard
 
-        // Convert the token to a format that can be saved in User Defaults
+        // Convert the token to a format that you can save in user defaults.
         guard let tokenData = try? JSONEncoder().encode(token) else {
             // Handle the error.
             return
@@ -33,7 +33,7 @@ class TokenManager {
 
     // Read the token from user defaults.
     func readToken() -> Token? {
-        // Check for an existing token and convert from JSON to an SDK Token object
+        // Check for an existing token and convert from JSON to an SDK Token object.
         guard let tokenData = UserDefaults.standard.object(forKey: UserDefaultsKeys.storedTokenKey) as? Data,
               let token = try? JSONDecoder().decode(Token.self, from: tokenData) else {
             // Handle the error.
@@ -75,19 +75,18 @@ public func idx(client: IDXClient, didReceive token: Token) {
 
 ```
 
-
 Revoke a token by calling `Token.revoke(type:completion:)` (`type` is optional):
 
 ```swift
 if let token = TokenManager.shared.readToken() {
     token.revoke() { (success, error) in
         guard success else {
-            // Handle the error
+            // Handle the error.
             return
         }
         // The token is revoked.
-        // In SwiftUI, update variables for presenting UI
-        // For ViewControllers perform the call on the main thread using DispatchQueue.main.async
+        // In SwiftUI, update variables for presenting UI.
+        // For ViewControllers perform the call on the main thread using `DispatchQueue.main.async`.
         return
     }
 }
