@@ -252,7 +252,7 @@ In this option, make a call to [/forgot_password API](/docs/reference/api/users/
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
