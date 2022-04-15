@@ -156,7 +156,7 @@ Enable magic links in your org.
 
 ## Integrate email challenge with magic links
 
-The following step-by-step instructions detail integrating the email challenge into your app.
+The following instructions detail integrating the email challenge into your app.
 
 <StackSnippet snippet="integratechallengemagiclinksummary"/>
 
@@ -194,7 +194,7 @@ The following step-by-step instructions detail integrating the different browser
 
 </div>
 
-The following step-by-step instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, the OTP integration portion is nearly identical for the email challenge.
+The following instructions detail how to integrate the OTP flow for email enrollment. Even though this is an enrollment example, the OTP integration portion is nearly identical for the email challenge.
 
 <StackSnippet snippet="integrateenrollotpsummary"/>
 
@@ -226,15 +226,15 @@ To learn more about customizing email templates and using the velocity template 
 
 ### Design overview
 
-If you customized your self-service password recovery (SSPR) solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiated password recovery using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
+If you customize your self-service password recovery (SSPR) solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recovery using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
 
 * The magic link `href` attribute in the **Forgot Password** template is updated to replace the `${resetPasswordLink}` variable with a URL string that contains the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, <StackSnippet snippet="callbackuriwithotpandstate" inline /> .
 
-* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the Embedded Sign-In Widget. These methods send an email to the user with a magic link meant to continue the password recovery.
+* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that is meant to continue the password recovery.
 
 ### Considerations
 
-In this design, you customized the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the Embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the Embedded SDK. Two options are available, however, to complete the password reset with this design.
+In this design, you customize the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When you use the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link, and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the embedded SDK. Two options are available, however, to complete the password reset with this design.
 
 #### Option 1: Use the `resetPasswordLink` variable
 
@@ -258,7 +258,7 @@ In this option, make a call to [/forgot_password API](/docs/reference/api/users/
 
 In the above example, the recovery token is `XE6wE17zmphl3KqAPFxO`.
 
-2. Parse the recovery token from the URL and send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token) for more information on recovery tokens.
+2. Parse the recovery token from the URL and send it using your infrastructure (through an out-of-band channel) to the end user's verified email address or SMS phone number. See [Authentication API - Recovery Token](/docs/reference/api/authn/#recovery-token).
 
 ## See also
 
