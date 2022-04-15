@@ -4,15 +4,27 @@ This example shows part of the implementation of the `IDXClientDelegate` protoco
 
 import OktaIdx
 
-class SignInController {
+class SignInController: IDXClientDelegate {
     ...
 
     var currentResponse: Response? = nil
 
+    func initializeSDK() {
+        ...
+
+        IDXClient.start(with: configuration) { (client, error) in
+            ...
+
+            // Set this singleton as the delegate for SDK callbacks.
+            client.delegate = self
+
+            ...
+        }
+    }
 
     ...
 
-    // Delegate method called for each sign-in step.
+    // Delegate function called for each sign-in step.
     public func idx(client: IDXClient, didReceive response: Response) {
         currentResponse = response
 
@@ -40,7 +52,7 @@ class SignInController {
         ...
     }
 
-    // Delegate method sent when an error occurs.
+    // Delegate function sent when an error occurs.
     public func idx(client: IDXClient, didReceive error: Error) {
         // Handle the error and finish the sign-in flow.
     }

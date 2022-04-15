@@ -1,4 +1,4 @@
-This example shows part of the implementation of the `IDXClientDelegate` protocol functions called by the SDK for each response, for recieving the access token, and when an error occurs.
+This example shows part of the implementation of the `IDXClientDelegate` protocol functions called by the SDK for each response, and for receiving the access token.
 
 ```swift
 
@@ -9,14 +9,13 @@ class SignInController {
 
     var currentResponse: Response? = nil
 
-
     ...
 
-    // Delegate method called for each sign-in step.
+    // Delegate function called for each sign-in step.
     public func idx(client: IDXClient, didReceive response: Response) {
         currentResponse = response
 
-        // If a response is successful, exchange it for a token.
+        // If a response is successful, exchange the session token for an access token.
         guard !response.isLoginSuccessful else {
             response.exchangeCode()
             return
@@ -25,7 +24,7 @@ class SignInController {
         ...
     }
 
-    // Delegate method called when a token is successfully exchanged.
+    // Delegate function called when a token is successfully exchanged.
     public func idx(client: IDXClient, didReceive token: Token) {
         // Save the token securely and finish the sign-in flow.
     }

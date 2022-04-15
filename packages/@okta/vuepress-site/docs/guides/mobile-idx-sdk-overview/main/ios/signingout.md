@@ -1,4 +1,4 @@
-This singleton stores the token in User Defaults. Store tokens in the Keychain for more security.
+This singleton stores the token in User Defaults. For more security, store the token in the Keychain.
 
 ```swift
 
@@ -12,7 +12,7 @@ enum TokenManagerError: Error {
 class TokenManager {
     static let shared = TokenManager()
 
-    // Change the key to use your bundle identifier
+    // Change com.example.okta-samplecode.Okta-Login to your bundle identifier
     private struct UserDefaultsKeys {
         static let storedTokenKey = "com.example.okta-samplecode.Okta-Login.storedToken"
     }
@@ -65,7 +65,8 @@ class TokenManager {
 }
 ```
 
-This code shows saving the token in the delegate that handles recieving an access token:
+This code shows the delegate function that handles receiving the access token:
+
 
 ```swift
 public func idx(client: IDXClient, didReceive token: Token) {
@@ -75,7 +76,8 @@ public func idx(client: IDXClient, didReceive token: Token) {
 ```
 
 
-To revoke a token:
+Revoke a token by calling `Token.revoke(type:completion:)` (`type` is optional):
+
 ```swift
 if let token = TokenManager.shared.readToken() {
     token.revoke() { (success, error) in

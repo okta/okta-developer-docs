@@ -1,4 +1,4 @@
-Include the following dependency in your `app/build.gradle`:
+To add the SDK to your app, include the following dependency in your `app/build.gradle`:
 
 ```gradle
 implementation 'com.okta.android:okta-idx-kotlin:$okta_sdk_version'

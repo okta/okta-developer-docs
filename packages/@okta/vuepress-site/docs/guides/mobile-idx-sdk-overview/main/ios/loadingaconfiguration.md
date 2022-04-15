@@ -1,6 +1,13 @@
-Initialize a configuration using `IDXClient.Configuration` and passing in the appropriate values.  You can set the values directly in your code or load them from a file. This example shows loading the values from a property file in your project.
+Initialize a configuration by passing the appropriate values to
+`IDXClient.Configuration(issuer:clientId:clientSecret:scopes:redirectUri:)`.  You can set
+the values directly in your code or load them from a file. This example shows loading the
+values from a property file in your project.
 
-First, create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your Application Integration. In this file, substitue your issuer URL for `{yourIssuerUrl}`, the client ID of your Application integration for `{yourClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
+First, create a property list file, such as `Okta.plist`. Next, add key-value pairs with
+the configuration settings for your Application Integration. In the file below, substitue
+your issuer URL for `{yourIssuerUrl}`, the client ID of your Application integration for
+`{yourClientId}`, and a URI that launches your app. Set the scopes based on the access
+required by your app.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -11,6 +18,8 @@ First, create a property list file, such as `Okta.plist`. Next, add key-value pa
     <string>{yourIssuerUrl}</string>
     <key>clientId</key>
     <string>{yourClientId}</string>
+    <key>clientSecret</key>
+    <string>{optionaClientSecret}</string>
     <key>redirectUri</key>
     <string>com.sample.:/callback</string>
     <key>scopes</key>
@@ -31,11 +40,18 @@ struct OktaPlistContent: Codable {
     var scopes: String
     var redirectUri: String
     var clientId: String
+    var clientSecret: String
     var issuer: String
 
     var scopeArray: [String] {
         get {
             scopes.components(separatedBy: " ")
+        }
+    }
+
+    var secret: String? {
+        get {
+            clientSecret.count == 0 ? nil : clientSecret
         }
     }
 }
@@ -50,7 +66,7 @@ func loadConfiguration() -> IDXClient.Configuration? {
 
     return IDXClient.Configuration(issuer: configuration.issuer,
                                     clientId: configuration.clientId,
-                                    clientSecret: nil,
+                                    clientSecret: configuration.secret,
                                     scopes: configuration.scopeArray,
                                     redirectUri: configuration.redirectUri)
 }

@@ -29,6 +29,8 @@ class SignInController {
             return
         }
 
+        self.configuration = configuration
+
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
                 // Handle the error

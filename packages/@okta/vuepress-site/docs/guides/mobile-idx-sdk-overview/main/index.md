@@ -2,11 +2,12 @@
 title: Overview of the mobile Identity Engine SDK
 ---
 
-<!-- <div class="oie-embedded-sdk"> -->
+<div class="oie-embedded-sdk">
+
+Design the implementation of sign-in for your mobile app by understanding the
+representation of the flow, and with examples of the common parts.
 
 <ApiLifecycle access="ie" /><br>
-
-**TODO** Abstract goes here
 
 ## Introduction
 
@@ -15,8 +16,7 @@ Okta which handles the flow in it's own window, or handle each step in the flow 
 building the appropriate user interface elements, capturing the information, and updating
 Okta.
 
-This guide covers the second case. For information on the redirect model, see the
-quickstart for [Android](/docs/guides/sign-into-mobile-app-redirect/android/main/) or [iOS](/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+This guide is an overview of building your own user interface. For information on the redirect model, see <StackSnippet snippet="redirectquickstart" inline />.
 
 ## Sign-in flow
 
@@ -37,22 +37,21 @@ is signed in, cancels, or an error occurs.
 
 </div>
 
-Each sign-in step may contain one or more _remediations_, or possible user actions. Some
-examples of remediations are:
-- Choosing an authenticator, such as Okta Verify or WebAuthN
-- Entering a One Time Passcode (OTP)
-- Cancelling the sign-in
+Each sign-in step may include one or more possible user actions, such as:
+- Choosing an authenticator, such as Okta Verify or WebAuthN.
+- Entering a One Time Passcode (OTP).
+- Cancelling the sign-in.
 
 ## Sign-in objects
 
 Each step in the flow is represented by a _Response_ which contains the information used
-for creating the UI, general state information. The response is also used to cancel the
-sign-in or retrieve the token after the sign-in succeeds.
+for creating the UI and general state information. The response is also used to cancel the
+sign-in, or retrieve an access token after the sign-in succeeds.
 
 The UI information is divided between two objects in the response, authenticators and
 remediations. An _Authenticator_ represents a type, or factor for verifying the identity
 of a user, such as a username and password, or Okta Verify. A _Method_ represents a
-channel for an Authenticator, such as using email or SMS for an OTP. An authenticator may
+channel for an authenticator, such as using email or SMS for an OTP. An authenticator may
 have multiple methods. A _Remediation_ represents a user action and usually contains most
 of the information for a step. Each response may contain multiple remediations and
 authenticators.
@@ -61,12 +60,12 @@ Some common types of user action are represented by a _Capability_. These includ
 requesting a new OTP, or a password reset request. Remediations, authenticators, and
 methods may contain capabilities.
 
-A _Form_ inside the remediation represents the user action in a collection of _Fields_.
-Most fields represent something that's displayed in the UI, either a static element or a
-user input, such as a selection list. The field also contains state information, such as
-whether the associated value is required or secret. Options, or lists of choices, are
-represented by a collection of fields. A field may also contain a form which contains more
-fields.
+A _Form_ inside the remediation represents the user action in a collection of _Field_
+objects. Most fields represent something that's displayed in the UI, either a static
+element, such as a label, or a user input, such as a selection list. The field also
+contains state information, such as whether the associated value is required or secret.
+Options, or lists of choices, are represented by a collection of fields. A field may also
+contain a form which contains more fields.
 
 <div class="common-image-format">
 
@@ -78,22 +77,20 @@ fields.
 
 Some parts of the sign-in flow are the same:
 
-- Configure the SDK
-- Initialize the client and start the flow
-- Process the response
-- Request a token
-- Show an error
-- Sign-out the user
+- Add the SDK to your app.
+- Configure the SDK.
+- Initialize the client and start the flow.
+- Process the response.
+- Request a token.
+- Sign-out the user.
 
 ### Add the SDK
-
-Add the SDK to your app.
 
 <StackSnippet snippet="adddependency" />
 
 ### Create and manage configurations
 
-A _configuration_ contains the settings used by the SDK to connect to an Okta Application Integration:
+A _Configuration_ contains the settings used by the SDK to connect to an Okta Application Integration:
 
 | Value         | Description |
 | :------------ | :---------- |
@@ -118,42 +115,22 @@ Start the sign-in flow by first creating an SDK client using a configuration, an
 ### Process the response
 
 The steps for processing a response are:
-1. Check for a successful sign-in
-1. Check for messages, such as an invalid password
-1. Check for remediations
-1. Process the remediations
-1. Process the authenticators
+1. Check for a successful sign-in.
+1. Check for messages, such as an invalid password.
+1. Check for remediations.
+1. Process the remediations.
+1. Process the authenticators.
 
-After the user enters the required information, request the next step.
-
-The following code shows these steps in order:
+After the user enters the required information, update the remediation and request the next step.
 
 <StackSnippet snippet="processresponse" />
 
-### Completing sign in
+### Complete sign in
 
 Check the response for a successful sign-in at each step of the flow. When the user is
-signed-in, exchange the session token for an access and refresh token and exit the flow.
+signed-in, exchange the session token for an access token, and then exit the flow.
 
 <StackSnippet snippet="gettingatoken" />
-
-<!--
-UNCLEAR that this is needed
-
-In addition to error results for a callback.
-
-Errors  two places:
-- Calls to the API, such as starting the client or sending the results of user input.
--
-
-Apart from errors that you might encounter while calling the IDX API methods like `IdxClient.start()`, `resume()`, etc, there could also be error messages from the API in `response.messages` (like wrong password, or wrong OTP, etc)
-
-
-Any call to process a step may result in an error. When one occurs, inform the user and
-finish the sign-in attempt.
-
-<StackSnippet snippet="signinerror" />
- -->
 
 ### Sign out a user
 
@@ -180,22 +157,9 @@ The usual way to satisfy the last condition is with an enterprise managed workfo
 Also note that there's additional risk as external events may require an immediate policy
 change that can result in the inability of mobile users to sign-in.
 
-For consumer apps, and to reduce the risk for enterprise apps, a safer choice is building the user interface from the current sign-in step, by presenting a dynamic UI.
+For consumer apps, and to reduce the risk for enterprise apps, a safer choice is building
+the user interface from the current sign-in step, by presenting a dynamic UI.
 
-<!--
-## Process a response
+For an example of implementing a dynamic UI, see <StackSnippet snippet="dynamicuisample" inline />.
 
-Start each new step by checking the response for a successful login unless an error stops the sign-in. Next process each remediation. In general, the first remediation is the main action, such as enrolling in an authenticator. Other remediations represent optional actions, such as selecting a different authenticator for enrollment. During the flow, there's usually a remediation for cancelling the sign-in attempt.
-
-Messages in a remediation usually indicate a non-fatal issue, such as an incorrect username or password. Display the messages as appropriate.
-
-The type of remediation
-capabilities
-authenticators
-fields
- label
- type - set value or look at options for the choices
- ?mutable?
- required
- secret
--->
+</div>

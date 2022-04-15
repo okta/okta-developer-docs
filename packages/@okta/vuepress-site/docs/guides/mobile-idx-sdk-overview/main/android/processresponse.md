@@ -1,3 +1,5 @@
+The following code shows these steps in order:
+
 ```kotlin
 private suspend fun handleResponse(response: IdxResponse) {
     // Check if sign-in is successful.
