@@ -193,9 +193,9 @@ The type of remediation
 capabilities
 authenticators
 fields
-	label
-	type - set value or look at options for the choices
-	?mutable?
-	required
-	secret
+ label
+ type - set value or look at options for the choices
+ ?mutable?
+ required
+ secret
 -->
