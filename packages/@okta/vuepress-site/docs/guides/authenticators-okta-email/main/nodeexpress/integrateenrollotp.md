@@ -107,7 +107,7 @@ When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` and pas
   const transaction = await authClient.idx.proceed({ verificationCode });
 ```
 
-### 8: Complete a successful sign-in flow
+### 8. Complete a successful sign-in flow
 
 If your configuration is set up with only the Email Authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed-in user.
 

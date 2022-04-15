@@ -66,7 +66,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 When the user clicks the magic link, your org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org combines the `Callback URI` that you defined in [Update configurations](#update-configurations) with the `OTP` and `state` parameters to produce a final callback URL for the user. For example, `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
-### 6: Handle redirect in your app
+### 6. Handle redirect in your app
 
 Create a route to handle the magic link redirect request.
 
@@ -106,7 +106,7 @@ Next, call `OktaAuth.idx.handleEmailVerifyCallback()` and pass in the query para
 
 ```
 
-### 9: Complete a successful sign-in flow
+### 9. Complete a successful sign-in flow
 
 `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed-in user.
 

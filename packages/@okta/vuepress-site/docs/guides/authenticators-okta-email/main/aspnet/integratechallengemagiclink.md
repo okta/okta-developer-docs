@@ -1,4 +1,4 @@
-### 1: Build a sign-in page on the client
+### 1. Build a sign-in page on the client
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
@@ -8,7 +8,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 </div>
 
-### 2: Authenticate the user credentials
+### 2. Authenticate the user credentials
 
 After a user has initiated the sign-in process by entering the username and password and clicking **Sign In**, create an `AuthenticationOptions` object in your `SignIn` method and set its `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient` that you have instantiated.
 
@@ -25,7 +25,7 @@ try
   var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### 3: Handle the response from the sign-in flow
+### 3. Handle the response from the sign-in flow
 
 Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync` to discover the current status of the authentication process.
 
@@ -66,7 +66,7 @@ catch (OktaException exception)
 }
 ```
 
-### 4: Display a list of possible authenticators
+### 4. Display a list of possible authenticators
 
 The next step is to show a list of all the authenticators that the user has previously enrolled. Build a page to display the list of authenticators from the previous step. For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection contained in the `AuthenticationResponse`.
 
@@ -186,7 +186,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 }
 ```
 
-### 6: Display a list of challenge methods
+### 6. Display a list of challenge methods
 
 Build a page to display the list of challenge methods returned in the previous step. For example, in the sample application, a new `SelectAuthenticatorMethodViewModel` is populated from the `CurrentAuthenticatorEnrollment` object contained in `AuthenticationResponse`. The list of methods is saved to a property called `MethodTypes` of type `IList<AuthenticatorMethodType>`.
 
@@ -323,7 +323,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
-### 10: Handle the magic link redirect in your app
+### 10. Handle the magic link redirect in your app
 
 Create a callback handler method that takes the `otp` parameter in the query string and passes it as a parameter to the `VerifyAuthenticatorAsync` method on the `IdxClient`.
 
