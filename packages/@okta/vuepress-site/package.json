@@ -42,7 +42,7 @@
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-sitemap": "^2.1.2",
-    "webpack": "^3.0.0",
+    "webpack": "^4.46.0",
     "xml2js": "^0.4.19"
   },
   "browserslist": "> 0.25%"

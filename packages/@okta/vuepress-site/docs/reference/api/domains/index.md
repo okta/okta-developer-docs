@@ -76,14 +76,14 @@ curl -v -X POST \
         {
             "fqdn": "login.sigmanetcorp.us",
             "values": [
-                "${yourOktaDomain}.customdomains.okta1.com"
+                "{yourOktaDomain}.customdomains.okta1.com"
             ],
             "recordType": "CNAME"
         }
     ],
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -92,7 +92,7 @@ curl -v -X POST \
             }
         },
         "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -159,14 +159,14 @@ curl -v -X POST \
         {
             "fqdn": "login.example.com",
             "values": [
-                "${yourOktaDomain}.customdomains.okta1.com"
+                "{yourOktaDomain}.customdomains.okta1.com"
             ],
             "recordType": "CNAME"
         }
     ],
    "_links": {
            "certificate": {
-               "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
+               "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
                "hints": {
                    "allow": [
                        "PUT"
@@ -174,7 +174,7 @@ curl -v -X POST \
                }
            },
            "self": {
-               "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+               "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
                "hints": {
                    "allow": [
                        "GET",
@@ -295,6 +295,7 @@ curl -v -X GET \
 ```
 
 ##### Response
+
 ```json
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
@@ -314,7 +315,7 @@ curl -v -X GET \
           "recordType": "CNAME",
           "fqdn": "login.example.com",
             "values": [
-                "${yourOktaDomain}.customdomains.okta1.com"
+                "{yourOktaDomain}.customdomains.okta1.com"
             ]
         }
     ],
@@ -325,7 +326,7 @@ curl -v -X GET \
     },
     "_links": {
         "certificate": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
             "hints": {
                 "allow": [
                     "PUT"
@@ -333,7 +334,7 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
             "hints": {
                 "allow": [
                     "DELETE"
@@ -341,7 +342,7 @@ curl -v -X GET \
             }
         },
         "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -403,6 +404,7 @@ curl -v -X GET \
 ```
 
 ##### Response
+
 ```json
 {
     "domains": [
@@ -413,7 +415,7 @@ curl -v -X GET \
             "validationStatus": "COMPLETED",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+                    "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
                     "hints": {
                         "allow": [
                             "GET",
@@ -533,7 +535,7 @@ The DomainResponse object defines the following properties:
           "recordType": "CNAME",
           "fqdn": "login.example.com",
             "values": [
-                "${yourOktaDomain}.customdomains.okta1.com"
+                "{yourOktaDomain}.customdomains.okta1.com"
             ],
         }
     ],
@@ -544,7 +546,7 @@ The DomainResponse object defines the following properties:
     },
     "_links": {
         "certificate": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
             "hints": {
                 "allow": [
                     "PUT"
@@ -552,7 +554,7 @@ The DomainResponse object defines the following properties:
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
             "hints": {
                 "allow": [
                     "DELETE"
@@ -560,7 +562,7 @@ The DomainResponse object defines the following properties:
             }
         },
         "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
+            "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -591,7 +593,7 @@ The DomainListResponse object defines list of domains with a subset of the prope
             "validationStatus": "COMPLETED",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+                    "href": "https://{yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
                     "hints": {
                         "allow": [
                             "GET",

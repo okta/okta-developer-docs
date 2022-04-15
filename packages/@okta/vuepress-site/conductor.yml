@@ -514,7 +514,7 @@ redirects:
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/social-login/social-settings/index.html
-    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
+    to: /docs/guides/social-login/
   - from: /authentication-guide/social-login/index.html
     to: /docs/concepts/social-login/
   - from: /authentication-guide/index.html
@@ -2357,6 +2357,10 @@ redirects:
     to: /signup/
   - from: /signup/oie-preview.html
     to: /signup/
+  - from: /docs/guides/migrate-to-oie/index.html
+    to: /docs/guides/oie-upgrade-overview/
+  - from: /docs/guides/migrate-to-oie
+    to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
     to: /docs/reference/core-okta-api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
@@ -2389,10 +2393,14 @@ redirects:
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/-/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
+    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta
+    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/-/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/index.html

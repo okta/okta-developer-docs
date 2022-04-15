@@ -2,7 +2,7 @@
 title: Okta Expression Language in Okta Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of the Okta Expression Language in Okta Identity Engine.
+  content: Learn more about the features and syntax of Okta Expression Language in Okta Identity Engine.
 ---
 
 # Okta Expression Language in Okta Identity Engine
@@ -103,7 +103,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
 |                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
 
-**Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
+> **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
 ### Array functions
 
@@ -249,7 +249,7 @@ The following functions are supported in conditions:
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>
 
-**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
+> **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
 **Examples**
 
