@@ -1,4 +1,4 @@
-### 1 - 4: Sign in and select authenticator
+### 1 - 4. Sign in and select authenticator
 
 The Enrollment flow follows the same first four steps as the Challenge flow:
 

@@ -61,7 +61,7 @@ This guide walks you through the email authenticator user journeys for both magi
 
 **Advanced use cases**
 
-1. [Design considerations when customizing magic link for password recovery](#design-considerations-when-customizing-magic-link-for-password-recovery): Learn about recommended magic link implementations for specific customized password recovery solutions.
+* [Design considerations when customizing magic link for password recovery](#design-considerations-when-customizing-magic-link-for-password-recovery): Learn about recommended magic link implementations for specific customized password recovery solutions.
 
 ## Understand the magic link flow
 
@@ -109,18 +109,25 @@ First, add the email authenticator to your org and enable it for both authentica
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authenticators** to show the available authenticators.
 3. If the **Email** authenticator isn’t in the list:
-   1. Click **Add Authenticator**.
-   2. Click **Add** on the **Email** tile.
-   3. Select the **Authentication and recovery** option, and then click **Save**.
-
+    <br><br>
+    a. Click **Add Authenticator**.
+    <br><br>
+    b. Click **Add** on the **Email** tile.
+    <br><br>
+    c. Select the **Authentication and recovery** option, and then click **Save**.
+    <br><br>
    If the **Email** authenticator is in the list:
-   1. Click the **Actions** menu for the **Email** authenticator.
-   2. Click **Edit**.
-   3. Select the **Authentication and recovery** option, and then click **Save**.
+      <br><br>
+      a. Click the **Actions** menu for the **Email** authenticator.
+      <br><br>
+      b. Click **Edit**.
+      <br><br>
+      c. Select the **Authentication and recovery** option, and then click **Save**.
+      <br><br>
 4. Select the **Enrollment** tab.
 5. Check that **Email** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
-   1. If **Email** is set to **Disabled**, click **Edit** for the Default Policy.
-   2. Select **Optional** from the dropdown list for the **Email** authenticator, and then click **Update Policy**.
+      a. If **Email** is set to **Disabled**, click **Edit** for the Default Policy.
+      b. Select **Optional** from the dropdown list for the **Email** authenticator, and then click **Update Policy**.
 
 ### Set your app integration to use the email authenticator
 
@@ -134,9 +141,9 @@ New app integrations are automatically assigned the shared default [authenticati
 6. Select **Allowed after successful authentication**.
 7. Set **User must authenticate with** to **Password + Another factor**.
 8. For **Possession factor constraints**:
-   1. Verify that **Device Bound** isn’t selected.
-   2. Verify that **Email** is listed in the box under **Additional factor types**. If it isn't listed, verify that the authenticator is enabled using steps 4 and 5 of [Add the email authenticator to your org](#add-the-email-authenticator-to-your-org).
-   3. Click **Save**.
+   a. Verify that **Device Bound** isn’t selected.
+   b. Verify that **Email** is listed in the box under **Additional factor types**. If it isn't listed, verify that the authenticator is enabled using steps 4 and 5 of [Add the email authenticator to your org](#add-the-email-authenticator-to-your-org).
+   c. Click **Save**.
 
 9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
 10. Find your app in the list and click **Add** next to it.
