@@ -72,12 +72,6 @@ curl -v -X POST \
           "scope": "REQUEST"
         }
       },
-      "response": {
-        "signature": {
-          "algorithm": "HS256",
-          "scope": "ANY"
-        }
-      }
     },
     "endpoints": {
       "acs": {
@@ -5331,6 +5325,7 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
 | client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
+| token_endpoint_auth_method | Client authentication methods supported by the token endpoint. Currently `private_key_jwt` is supported  | String   | TRUE     | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5361,6 +5356,51 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
   }
 }
 ```
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "your-client-id",
+        "token_endpoint_auth_method": "private_key_jwt"
+      }
+    }
+  }
+}
+```
+
+###### OpenID Connect Signing Credentials object
+
+Determines the [IdP Key Credential](#identity-provider-key-credential-object) used to sign requests sent to the IdP. Only needed if `token_endpoint_auth_method` is `private_key_jwt`.
+
+| Property | Description                                                                                                    | DataType | Nullable | Readonly  | Validation                                 |
+| -------- | -------------------------------------------------------------------------------------------------------------  | -------- | -------- | --------  | ------------------------------------------ |
+| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to Okta's X.509 signature certificate. | String   | TRUE    | FALSE     | Valid Signing Key ID reference             |
+| alg      |The algorithm used when generating the JWT from the private key for token endpoint authentication.  | `RS256`, `RS384`, `RS512`   | FALSE    | FALSE     | Valid date type             |
+
+> **Note:** `kid` is required for a UPDATE request. For an CREATE request, it can be null.
+
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "your-client-id",
+        "token_endpoint_auth_method": "private_key_jwt"
+      },
+      "signing":{
+        "kid": "your-key-id",
+        "alg": "RS256"
+      }
+    }
+  }
+}
+```
+
 
 ##### Apple Client Signing object
 
