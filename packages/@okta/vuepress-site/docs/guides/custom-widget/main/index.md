@@ -43,9 +43,14 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers both basic and advanced customization options to create a completely transformed sign-in experience. To access this page, in the Admin Console, go to **Customizations** and then **Sign-in page code editor**.
+The **Custom Sign-In Page** offers both basic and advanced customization options to create a completely transformed sign-in experience.
 
-> **Note**: In Okta Classic Engine, select **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
+> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+
+To access this page:
+
+* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Sign-in page code editor**.
+* Okta Classic Engine: In the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
 
 ### Change the Okta Sign-In Widget version
 
