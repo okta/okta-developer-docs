@@ -43,7 +43,7 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers both basic and advanced customization options to create a completely transformed sign-in experience.
+The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
 
 > **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
