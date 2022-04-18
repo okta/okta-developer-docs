@@ -33,7 +33,7 @@
 
 * If required, you can generate a new client secret. In the **Client Credentials** section, click **Edit**, then **Generate New Client Secret**.
 
-* You can use the `.well-known/openid-configuration` API endpoint to configure Okta interactions programmatically. When a web app integration has the  `implicit` value set for the `grant_types_supported` property, then admins can publish integrations with the **Login initiated by** feature.
+* You can use the `.well-known/openid-configuration` API endpoint to configure Okta interactions programmatically. When a web app integration has the `authorization_code`, `interaction_code`, or `implicit` value set for the `grant_types_supported` property, then admins can publish integrations with the **Login initiated by** feature.
 
   For more information, see the [OpenID Connect](/docs/reference/api/oidc/#well-known-openid-configuration) API reference.
 
