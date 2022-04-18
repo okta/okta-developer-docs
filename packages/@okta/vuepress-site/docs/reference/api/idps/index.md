@@ -4711,17 +4711,17 @@ Okta supports the following enterprise and social Identity Provider types:
 | ------------ | ------------ | ---------------------- | ----------------------------- |
 | `AMAZON`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
 | `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
-| `DISCORD`     | [Discord](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `DISCORD`     | [Discord](https://discord.com/login) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
 | `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
-| `GITHUB`     | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
-| `GITLAB`     | [GitLab](xxx) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
+| `GITHUB`     | [GitHub](https://github.com) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
 | `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) | |
 | `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) | |
 | `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) | |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | |
-| `PAYPAL`     | [Paypal](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
-| `PAYPAL_SANDBOX`     | [Paypal Sandbox](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
-| `SALESFORCE`     | [SalesForce](xxx) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `PAYPAL`     | [Paypal](https://www.paypal.com/signin) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `SALESFORCE`     | [SalesForce](https://login.salesforce.com/) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
 | `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
@@ -5516,13 +5516,13 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 #### IdP type policy actions
 
-| Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
+| IdP Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
 | ------------ | ----------------------------- | ------------------------------------- | ----------------------------- | --------------------  |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
+| `FACEBOOK`   | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
+
+> **Note:** All social IdPs (such as `GOOGLE`, `LINKEDIN`, and so on) use the same User and Group Provisioning Actions, and Account Link Actions and Filters as the `FACEBOOK` IdP type.
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
 
@@ -5569,11 +5569,11 @@ The follow provisioning actions are supported by each IdP provider:
 
 | Type         | User Provisioning Actions     | Group Provisioning Actions            |
 | ------------ | ----------------------------- | ------------------------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
+| `FACEBOOK`   | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |
+
+> **Note:** All social IdPs (such as `GOOGLE`, `LINKEDIN`, and so on) use the same User and Group Provisioning Actions as the `FACEBOOK` IdP type.
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
 
@@ -5773,11 +5773,11 @@ The following Account Link actions are supported by each IdP provider:
 
 | Type         | Account Link Actions          | Account Link Filters |
 | ------------ | ----------------------------- | -------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
+| `FACEBOOK`   | `AUTO`, `DISABLED` | `groups`             |
 | `OIDC`       | `AUTO`                        |                      |
 | `SAML2`      | `AUTO`                        |                      |
+
+> **Note:** All social IdPs (such as `GOOGLE`, `LINKEDIN`, and so on) use the same Account Link Actions and Filters as the `FACEBOOK` IdP type.
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> account link action.
 
