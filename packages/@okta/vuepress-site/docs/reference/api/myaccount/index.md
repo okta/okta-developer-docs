@@ -1152,7 +1152,7 @@ This request requires the `method` property as its request body. An optional boo
 
 #### Response body
 
-Returns a JSON object containing a link to the verify endpoint an HTTP 200 status code.
+Returns a JSON object containing a link to verify the challenged phone, with an HTTP 200 status code.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
