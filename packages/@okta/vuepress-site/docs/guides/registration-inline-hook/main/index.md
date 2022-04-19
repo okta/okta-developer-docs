@@ -117,35 +117,39 @@ See the [response properties](/docs/reference/registration-hook/#objects-in-the-
 
 ```
 
-## Activate and enable
+## Set up, activate, and enable
 
-The Registration Inline Hook must be set up and activated and enabled within your Okta Admin Console.
+The Registration Inline Hook must be set up, activated, and enabled within your Okta Admin Console.
 
-To set up and activate the Registration Inline Hook:
+### Set up and activate the Registration Inline Hook
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
 1. Add a name for the hook (in this example, "Guide Registration Hook Code").
-1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
-    - If using Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix.
-    - If using Glitch, to find the live site link click **Share**.
+1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHook`):
+
+    `https://your-glitch-projectname.glitch.me/registrationHook`
+
+    * If using Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix. To find the live site link, click **Share**.
+
 1. Include the authentication field and secret. In this example:
-    - **Authentication Field** = `authorization`
-    - **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+
+    * **Authentication Field** = `authorization`
+    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+
 1. Click **Save**.
 
 The Registration Inline Hook is now set up with a status of active.
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Enable the Registration Inline Hook
 
-<ApiLifecycle access="ie" />
-If you have an Identity Engine org, you must [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
+You can use Inline Hooks with the Progressive Profile feature to verify and modify user data. See [Progressive Profile support](/docs/concepts/inline-hooks/#progressive-profile-support) for general information about the Progressive Profile feature.
 
-> **Note:** Profile Enrollment and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+You must [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
 
-> **Note:** You can use Inline Hooks with the Progressive Profile feature to verify and modify user data. See [Progressive Profile support](/docs/concepts/inline-hooks/#progressive-profile-support).
+> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 To associate the Registration Inline Hook with your Profile Enrollment policy:
 
@@ -153,11 +157,13 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. Click the Pencil icon to edit the policy and associate it with your Registration Inline Hook.
 
-1. In **Enrollment Settings**, click the More Options icon and then select **Edit**.
+1. In **Profile enrollment**, click **Edit**.
 
-1. Select **Allowed** for **Self-service registration** in the **Profile enrollment** section.
+1. Select **Allowed** for **Self-service registration**.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
+1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](#set-up-and-activate-the-registration-inline-hook).
+
+    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
 1. In **Run this hook**, select when you want your inline hook to run:
     - **When a new user is created**: Your inline hook is triggered once by a self-service registration request and again after the initial registration is completed.
@@ -168,17 +174,13 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
-> **Note:** You can associate only one Inline Hook with your Profile Enrollment policy at a time.
-
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a Registration Inline Hook.
+Your Okta org is set up to call the sample external service using a Registration Inline Hook, and the external service is ready to receive and respond to an Okta call.
 
 In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly with self-registering users.
 
-### Preview
-
-To preview the Registration Inline Hook:
+### Preview the Registration Inline Hook
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
@@ -189,7 +191,7 @@ To preview the Registration Inline Hook:
 6. From the "View service's response" block, click **View Response**.
     You should see the response from your external service in JSON format, which either allows or denies the self-registration.
 
-### Test
+### Test the Registration Inline Hook
 
 To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
