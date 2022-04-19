@@ -369,6 +369,8 @@ Sample user data:
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
 
+> **Note:** These expressions don't work for SAML 2.0 apps.
+
 * See [Create claims](/docs/guides/customize-authz-server/main/#create-claims).
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
