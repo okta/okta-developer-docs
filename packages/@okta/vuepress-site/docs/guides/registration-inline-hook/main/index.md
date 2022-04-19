@@ -6,6 +6,8 @@ layout: Guides
 
 This guide provides a working example of an Okta Registration Inline Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
+<!-- >> **Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see . -->
+
 ---
 
 **Learning outcomes**
@@ -37,8 +39,6 @@ At a high-level, the following workflow occurs:
 ## Add Progressive Profile request code
 
 This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration) or update their profile (Progressive Profile).
-
-<ApiLifecycle access="ie" />
 
 The following code allows an external service to supply values for updating attributes on a user profile.
 
