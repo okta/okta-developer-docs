@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@okta/vuepress-theme-prose": "^0.1.0-alpha.1",
-    "semver": "^7.3.5"
+    "semver": "^7.3.7"
   },
   "dependencies": {
     "@okta/vuepress-plugin-qualtrics-feedback": "^1.0.0",
@@ -38,7 +38,7 @@
     "sass-loader": "^7.1.0",
     "string-replace-loader": "^2.2.0",
     "vue": "^2.0.0",
-    "vue-select": "^3.4.0",
+    "vue-select": "^3.18.3",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-sitemap": "^2.1.2",
