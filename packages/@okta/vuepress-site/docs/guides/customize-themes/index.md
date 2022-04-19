@@ -35,7 +35,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 * Favicon
 * Background image
 
-## Overriding themes in the code template editors
+## Override themes in the code template editors
 
 You can customize individual parts of your Okta org experience using the various code editors available in the Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). However, if you use the Brands API to delete or augment any [branding variables](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-variables), the API calls override any changes you make using the Admin Console.
 
