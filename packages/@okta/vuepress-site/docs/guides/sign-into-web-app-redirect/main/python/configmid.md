@@ -11,8 +11,13 @@ You can configure the properties of your application with configuration files, e
 1. Create an `app.py` file to import the installed packages and configure the Flask app.
 
 ```py
+import base64
+import hashlib
 import requests
-from flask import Flask, render_template, redirect, request, url_for
+import secrets
+
+from flask import Flask, render_template, redirect, request, session, url_for
+from flask_cors import CORS
 from flask_login import (
     LoginManager,
     current_user,
@@ -22,14 +27,12 @@ from flask_login import (
 )
 
 app = Flask(__name__)
-app.config.update({'SECRET_KEY': 'SomethingNotEntirelySecret'})
+app.config.update({'SECRET_KEY': secrets.token_hex(64)})
+CORS(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-
-APP_STATE = 'ApplicationState'
-NONCE = 'SampleNonce'
 
 @app.route("/")
 def home():
