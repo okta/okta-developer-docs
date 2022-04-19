@@ -101,7 +101,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-> **Note:** Enrollment uses the **Registration - Email Verification** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
+> **Note:** Enrollment uses the **Email Factor verification** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
 
 <StackSnippet snippet="tryenrollin" />
 
@@ -147,7 +147,7 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 > **Note:** Self-service Password Recovery uses the **Forgot Password** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
 
-### Email magic link password recovery flow
+### Password recovery with email magic link
 
 > **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
@@ -159,7 +159,7 @@ Try the email magic link recovery flow:
 1. Click **Reset password**. A new window opens. Click **Yes, it's me**.
 1. Enter a new password. Click **Reset Password**.
 
-### One-time password recovery flow
+### Password recovery with email OTP
 
 > **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
