@@ -1,6 +1,6 @@
 ## Handle users without email addresses
 
-GitHub doesn’t always provide email addresses for users that it authenticates, such as when the GitHub setting for **Keep email addresses private** is enabled. However, Okta requires an email address for its users to be able to sign in. You can support users who don't have email addresses by using information from GitHub to generate email addresses for them.
+GitHub doesn’t always provide email addresses for users that it authenticates, such as when the GitHub setting **Keep email addresses private** is enabled. However, Okta requires an email address for its users to be able to sign in. You can support users who don't have email addresses by using information from GitHub to generate email addresses for them.
 
 For example, you might generate email addresses using the `example.com` domain. This ensures that your GitHub users have email addresses that Okta can use, but can be easily identified as invalid should you ever want to replace them with valid email addresses. They're guaranteed to be invalid as `example.com` is a reserved domain. See [Reserved Top Level DNS Names (RFC2606)](https://datatracker.ietf.org/doc/html/rfc2606) for more information on reserved domains.
 
