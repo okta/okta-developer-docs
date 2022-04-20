@@ -9,7 +9,7 @@ The Okta Trusted Origins API provides operations to manage Trusted Origins and s
 
 When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins.
 Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS).
-If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted.
+If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted. You can also configure Trusted Origins to allow iframe embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin.
 
 ## Trusted Origins API operations
 
@@ -36,6 +36,10 @@ curl -X POST \
     },
     {
       "type": "REDIRECT"
+    },
+    {
+      "type": "IFRAME_EMBED",
+      "allowedOktaApps": [“OKTA_ENDUSER”]
     }
   ]
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
@@ -55,6 +59,10 @@ curl -X POST \
         },
         {
             "type": "REDIRECT"
+        },
+        {
+            "type": "IFRAME_EMBED",
+            "allowedOktaApps": ["OKTA_ENDUSER"]
         }
     ],
     "created": "2018-01-13T01:11:44.000Z",
@@ -100,6 +108,10 @@ curl -X POST \
     },
     {
       "type": "REDIRECT"
+    },
+    {
+      "type": "IFRAME_EMBED",
+      "allowedOktaApps": ["OKTA_ENDUSER"]
     }
   ]
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
@@ -159,6 +171,10 @@ curl -X GET \
             },
             {
                 "type": "REDIRECT"
+            },
+            {
+                "type": "IFRAME_EMBED",
+                "allowedOktaApps": ["OKTA_ENDUSER"]
             }
         ],
         "status": "ACTIVE",
@@ -273,6 +289,10 @@ curl -X GET \
             },
             {
                 "type": "REDIRECT"
+            },
+            {
+                "type": "IFRAME_EMBED",
+                "allowedOktaApps": []
             }
         ],
         "status": "ACTIVE",
@@ -311,6 +331,10 @@ curl -X GET \
             },
             {
                 "type": "REDIRECT"
+            },
+            {
+                "type": "IFRAME_EMBED",
+                "allowedOktaApps": ["OKTA_ENDUSER"]
             }
         ],
         "status": "ACTIVE",
@@ -475,6 +499,10 @@ curl -X PUT \
     },
     {
       "type": "REDIRECT"
+    },
+    {
+      "type": "IFRAME_EMBED",
+      "allowedOktaApps": ["OKTA_ENDUSER"]
     }
   ],
   "status": "ACTIVE",
@@ -518,6 +546,10 @@ curl -X PUT \
         },
         {
             "type": "REDIRECT"
+        },
+        {
+            "type": "IFRAME_EMBED",
+            "allowedOktaApps": ["OKTA_ENDUSER"]
         }
     ],
     "status": "ACTIVE",
@@ -728,7 +760,7 @@ A Trusted Origin defines several attributes:
 | id             | Unique identifier for the Trusted Origin                    | String                                    | No (assigned)   | N/A             |
 | name           | Unique name for the Trusted Origin                          | String                                    | Yes             | 255 (chars)     |
 | origin         | Unique origin URL for the Trusted Origin                    | String                                    | Yes             | 255 (chars)     |
-| scopes         | Array of Scope types that this Trusted Origin is used for  | Array of [Scope objects](#scope-object)   | Yes             | 2 (Scope types) |
+| scopes         | Array of Scope types that this Trusted Origin is used for  | Array of [Scope objects](#scope-object)   | Yes             | 3 (Scope types) |
 
 #### Scope object
 
@@ -736,7 +768,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | The Scope type, which can be either "CORS" or "REDIRECT"                  | String                            | Yes      |
+| type        | The Scope type, which can be either "CORS" or "REDIRECT" or "IFRAME_EMBED". "IFRAME_EMBED" scope object can also have "allowedOktaApps" field of type array that can be left empty to allow embedding of sign-in pages only in an iframe, this field can also have this value ["OKTA_ENDUSER"] to allow embedding of both sign-in as well as EndUser dashboard pages in an iframe.                    | String                            | Yes      |
 
 #### Scope object example (CORS)
 
@@ -746,14 +778,28 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 }
 ```
 
-#### Scope object example (redirect)
+#### Scope object example (REDIRECT)
 
 ```json
 {
     "type": "REDIRECT"
 }
 ```
+#### Scope object example (IFRAME_EMBED) - Allows Sign-In and EndUser Dashboard pages to be embedded in an iframe
+```json
+{
+    "type": "IFRAME_EMBED",
+    "allowedOktaApps": ["OKTA_ENDUSER"]
+}
+```
+#### Scope object example (IFRAME_EMBED) - Allows Sign-In pages to be embedded only in an iframe
 
+```json
+{
+    "type": "IFRAME_EMBED",
+    "allowedOktaApps": []
+}
+```
 ### Trusted Origin example
 
 ```json
@@ -767,6 +813,10 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
         },
         {
             "type": "REDIRECT"
+        },
+        {
+            "type": "IFRAME_EMBED",
+            "allowedOktaApps": ["OKTA_ENDUSER"]
         }
     ],
     "status": "ACTIVE",
