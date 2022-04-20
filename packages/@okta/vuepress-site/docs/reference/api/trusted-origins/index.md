@@ -7,20 +7,121 @@ category: management
 
 The Okta Trusted Origins API provides operations to manage Trusted Origins and sources.
 
-When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins.
-Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS).
-If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted. You can also configure Trusted Origins to allow iframe embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin.
+When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins. Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS). If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted. You can also configure Trusted Origins to allow iFrame embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin.
 
 ## Trusted Origins API operations
 
 ### Create Trusted Origin
-
 
 <ApiOperation method="post" url="/api/v1/trustedOrigins" />
 
 Creates a new Trusted Origin
 
 #### Valid request example
+
+```json
+curl -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "New Trusted Origin",
+  "origin": "http://example.com",
+  "scopes": [
+    {
+      "type": "CORS"
+    },
+    {
+      "type": "REDIRECT"
+    }
+  ]
+}' "https://${yourOktaDomain}/api/v1/trustedOrigins"
+```
+
+#### Successful response example
+
+```json
+{
+    "id": "tos10hu7rkbtrFt1M0g4",
+    "name": "New Trusted Origin",
+    "origin": "http://example.com",
+    "status": "ACTIVE",
+    "scopes": [
+        {
+            "type": "CORS"
+        },
+        {
+            "type": "REDIRECT"
+        }
+    ],
+    "created": "2018-01-13T01:11:44.000Z",
+    "createdBy": "00ut5t92p6IEOi4bu0g3",
+    "lastUpdated": "2018-01-13T01:11:44.000Z",
+    "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Invalid request example
+
+```json
+curl -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "Trusted Origin with Invalid Origin Value",
+  "origin": "example.com",
+  "scopes": [
+    {
+      "type": "CORS"
+    },
+    {
+      "type": "REDIRECT"
+    }
+  ]
+}' "https://${yourOktaDomain}/api/v1/trustedOrigins"
+```
+
+#### Unsuccessful response example
+
+```json
+{
+    "errorCode": "E0000001",
+    "errorSummary": "Api validation failed: origin",
+    "errorLink": "E0000001",
+    "errorId": "oaeHRVRe-oQQWChradByNOnHg",
+    "errorCauses": [
+        {
+            "errorSummary": "origin: Origin value is not valid"
+        }
+    ]
+}
+```
+
+#### Valid request example with iFrame embedding
+
+Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the type of Okta resource is the Okta End-User Dashboard.
+
 
 ```bash
 curl -X POST \
@@ -45,7 +146,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-#### Successful response example
+#### Successful response example with iFrame embedding
 
 ```json
 {
@@ -92,7 +193,7 @@ curl -X POST \
 }
 ```
 
-#### Invalid request example
+#### Invalid request example with iFrame embedding
 
 ```bash
 curl -X POST \
@@ -117,7 +218,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-#### Unsuccessful response example
+#### Unsuccessful response example with iFrame embedding
 
 ```json
 {
@@ -134,6 +235,7 @@ curl -X POST \
 ```
 
 ### Get Trusted Origin
+
 <ApiOperation method="get" url="/api/v1/trustedOrigins/${trustedOriginId}" />
 
 Gets a Trusted Origin by ID
@@ -159,6 +261,49 @@ curl -X GET \
 ```
 
 #### Response example
+
+```json
+{
+        "id": "tosue7JvguwJ7U6kz0g3",
+        "name": "Example Trusted Origin",
+        "origin": "http://example.com",
+        "scopes": [
+            {
+                "type": "CORS"
+            },
+            {
+                "type": "REDIRECT"
+            }
+        ],
+        "status": "ACTIVE",
+        "created": "2017-12-16T05:01:12.000Z",
+        "createdBy": "00ut5t92p6IEOi4bu0g3",
+        "lastUpdated": "2017-12-16T05:01:12.000Z",
+        "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            },
+            "deactivate": {
+                "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+```
+
+#### Response example with iFrame embedding
 
 ```json
     {
@@ -206,6 +351,7 @@ curl -X GET \
 ```
 
 ### List Trusted Origins
+
 <ApiOperation method="get" url="/api/v1/trustedOrigins" />
 
 Lists all Trusted Origins
@@ -484,6 +630,97 @@ Updates an existing Trusted Origin
 
 #### Request example
 
+```json
+curl -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "id": "tosue7JvguwJ7U6kz0g3",
+  "name": "Updated Example Trusted Origin",
+  "origin": "http://updated.example.com",
+  "scopes": [
+    {
+      "type": "CORS"
+    },
+    {
+      "type": "REDIRECT"
+    }
+  ],
+  "status": "ACTIVE",
+  "created": "2017-12-16T05:01:12.000Z",
+  "createdBy": "00ut5t92p6IEOi4bu0g3",
+  "lastUpdated": "2017-12-16T05:01:12.000Z",
+  "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+  "_links": {
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+      "hints": {
+        "allow": [
+          "GET",
+          "PUT",
+          "DELETE"
+        ]
+      }
+    },
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3"
+
+```
+
+#### Response example
+
+```json
+{
+    "id": "tosue7JvguwJ7U6kz0g3",
+    "name": "Updated Example Trusted Origin",
+    "origin": "http://updated.example.com",
+    "scopes": [
+        {
+            "type": "CORS"
+        },
+        {
+            "type": "REDIRECT"
+        }
+    ],
+    "status": "ACTIVE",
+    "created": "2017-12-16T05:01:12.000Z",
+    "createdBy": "00ut5t92p6IEOi4bu0g3",
+    "lastUpdated": "2018-01-17T21:25:40.000Z",
+    "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Request example with iFrame embedding
+
 ```bash
 curl -X PUT \
 -H "Accept: application/json" \
@@ -533,7 +770,7 @@ curl -X PUT \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3"
 ```
 
-#### Response example
+#### Response example with iFrame embedding
 
 ```json
 {
@@ -581,6 +818,7 @@ curl -X PUT \
 ```
 
 ### Activate Trusted Origin
+
 <ApiOperation method="post" url="/api/v1/trustedOrigins/${trustedOriginId}/lifecycle/activate" />
 
 Activates an existing Trusted Origin
@@ -593,7 +831,6 @@ Activates an existing Trusted Origin
 | `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
 #### Response parameters
-
 
 [Trusted Origin object](#trusted-origin-object)
 
@@ -730,7 +967,6 @@ Deletes an existing Trusted Origin
 
 #### Response parameters
 
-
 [Trusted Origin object](#trusted-origin-object)
 
 #### Request example
@@ -785,14 +1021,21 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
     "type": "REDIRECT"
 }
 ```
-#### Scope object example (IFRAME_EMBED) - Allows Sign-In and EndUser Dashboard pages to be embedded in an iframe
+
+#### Scope object example (IFRAME_EMBED)
+
+Allows you to embed sign-in pages and the Okta End-User Dashboard in an iFrame
+
 ```json
 {
     "type": "IFRAME_EMBED",
     "allowedOktaApps": ["OKTA_ENDUSER"]
 }
 ```
-#### Scope object example (IFRAME_EMBED) - Allows Sign-In pages to be embedded only in an iframe
+
+#### Scope object example (IFRAME_EMBED)
+
+Allows you to embed only sign-in pages in an iFrame
 
 ```json
 {
@@ -800,7 +1043,51 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
     "allowedOktaApps": []
 }
 ```
+
 ### Trusted Origin example
+
+```json
+{
+    "id": "tosue7JvguwJ7U6kz0g3",
+    "name": "Example Trusted Origin",
+    "origin": "http://example.example.com",
+    "scopes": [
+        {
+            "type": "CORS"
+        },
+        {
+            "type": "REDIRECT"
+        }
+    ],
+    "status": "ACTIVE",
+    "created": "2017-12-16T05:01:12.000Z",
+    "createdBy": "00ut5t92p6IEOi4bu0g3",
+    "lastUpdated": "2018-01-17T21:25:40.000Z",
+    "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Trusted Origin example with iFrame embedding
 
 ```json
 {
