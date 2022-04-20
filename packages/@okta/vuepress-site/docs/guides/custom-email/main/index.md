@@ -83,6 +83,7 @@ The following table provides a list of all available email templates in an Okta 
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
 | Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
 | Registration - Activation | Activate Account | `RegistrationActivation` | Sent to users who must follow the provided link to complete their self-registration |
+<!-- new template here -->
 | Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | Sent to users who must follow the provided link to verify their email address |
 | Email Factor verification (Identity Engine)</br>Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | Sent to users who must follow the provided link to verify their email address |
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | Sent to users who forgot their password but only their admin can reset it |
