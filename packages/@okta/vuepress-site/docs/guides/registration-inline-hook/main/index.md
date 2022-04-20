@@ -42,7 +42,7 @@ This step includes the code that parses the body of the request received from Ok
 
 The following code allows an external service to supply values for updating attributes on a user profile.
 
-> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`, depending on your settings in the Admin Console. <!-- See [link] -->
+> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 

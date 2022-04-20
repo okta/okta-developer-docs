@@ -214,7 +214,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ## Sample JSON payload of request
 
-> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`, depending on your settings in the Admin Console. <!-- See [link] -->
+> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`. See [requestType](#requesttype).
 
 ```json
 {
