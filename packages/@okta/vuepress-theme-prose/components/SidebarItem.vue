@@ -6,6 +6,7 @@
     <router-link
           v-if="entityType === types.link"
           :to="link.path"
+          custom
           v-slot="{ route, href, navigate }"
           class="tree-nav-link"
         >
