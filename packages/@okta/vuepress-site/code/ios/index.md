@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication to Your iOS App
+title: Add user authentication to your iOS app
 language: iOS
 integration: mobile
 icon: code-ios
@@ -8,87 +8,65 @@ meta:
     content: Our iOS developer docs help you add user authentication, integrate sign-in flows with an SDK on CocoaPods, and validate Okta OAuth 2.0 tokens.
 ---
 
-## Get Started with iOS + Okta
+## Get started with iOS + Okta
 
-New to Okta? Our how to guide will walk you through adding user authentication to your iOS app in minutes.
+New to Okta? Our resources walk you through adding user authentication to your iOS app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-mobile-app/ios/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='/docs/guides/sign-into-mobile-app-redirect/ios/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
 	<li>
 		<a href='https://github.com/okta/samples-ios' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta OIDC for iOS (CocoaPod)
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommend using this library to integrate the OIDC login flows into your native iOS applications.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='https://cocoapods.org/pods/OktaOidc' class="language-reference">
-	<span class='icon download-16'></span> <span>OktaOidc on CocoaPods</span>
-</a>
+[iOS redirect authentication sample app](https://github.com/okta/samples-ios): See [Browser sign in](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for a redirect configuration.
 
-<a href='https://github.com/okta/okta-oidc-ios'>
-	<span class='fa fa-github'></span> <span>Okta iOS OIDC SDK Source</span>
-</a>
+## Integrate with Okta using embedded Sign-In Widget and SDKs
 
-## iOS Libraries
+These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-ios-jwt">
-			<span>Okta JWT Verifier for iOS</span>
-      <br/>
-      <br/>
-      <p>Use this library for validating Okta OAuth tokens.</p>
-		</a>
-	</li>
-        <li>
-            <i class='fa fa-github'></i>
-            <a href="https://github.com/okta/okta-auth-swift">
-                    <span>iOS authentication SDK</span>
-                    <br/>
-                    <br/>
-                    <p>Use this library for building custom authentication flows with Okta.</p>
-            </a>
-        </li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-react-native/tree/master/ios">
-			<span>React Native app with Okta's OpenID Connect API</span>
-		</a>
-	</li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-storage-swift">
-			<span>Okta Secure Storage Library</span>
-		</a>
-	</li>
+Okta Identity Engine:
 
-</ul>
+* [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift)
+* [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs)
 
-## Recommended Guides
+Okta Classic OIDC library for iOS (CocoaPod):
 
+* [OktaOidc on CocoaPods](https://cocoapods.org/pods/OktaOidc)
+* [Okta iOS OIDC SDK Source](https://github.com/okta/okta-oidc-ios)
 
-- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+## Other Classic iOS libraries
 
-## Related Blog Posts
+* [Okta JWT Verifier for iOS](https://github.com/okta/okta-ios-jwt): Use this library for validating Okta OAuth tokens.
+* [iOS authentication SDK](https://github.com/okta/okta-auth-swift): Use this library for building custom authentication flows with Okta.
+* [React Native app with Okta's OpenID Connect API](https://github.com/okta/okta-react-native/tree/master/ios)
+* [Okta Secure Storage Library](https://github.com/okta/okta-storage-swift)
 
+## Recommended guides
 
-- [Tutorial: Develop a Mobile App With Ionic and Spring Boot](/blog/2017/05/17/develop-a-mobile-app-with-ionic-and-spring-boot)
-- [Build an Ionic App with User Authentication](/blog/2017/08/22/build-an-ionic-app-with-user-authentication)
-- [Build a React Native Application and Authenticate with OAuth 2.0](/blog/2018/03/16/build-react-native-authentication-oauth-2)
-- [Build an App for iOS and Android with Xamarin](/blog/2018/01/10/build-app-for-ios-android-with-xamarin)
-- [Build an iOS App with Secure Authentication in 20 Minutes](/blog/2017/11/20/build-an-iOS-app-with-secure-authentication-in-20-minutes)
-- [Use Ionic for JHipster to Create Mobile Apps with OIDC Authentication](/blog/2018/01/30/jhipster-ionic-with-oidc-authentication)
-- [Add Authentication to Your Xamarin App with OpenID Connect](/blog/2018/05/01/add-authentication-xamarin-openid-connect)
+Okta-hosted Sign-In Widget guide:
 
+[Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
+
+Embedded SDK and Sign-In Widget sign-in guide:
+
+* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/ios/main/)
+
+Other guides:
+
+* [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+
+> **Note**: Browse our recent [iOS Developer Blog posts](https://developer.okta.com/blog/tags/ios/) for further useful topics.

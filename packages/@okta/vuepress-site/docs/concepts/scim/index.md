@@ -37,6 +37,8 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
 
+> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+
 ## How does SCIM work?
 
 Provisioning consists of a set of actions between a service provider - like Okta - and the cloud-based integration (the SCIM client). Using REST style architecture and JSON objects, the SCIM protocol communicates data about users or groups.  As an application developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.

@@ -198,15 +198,23 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/docs/concepts/inline-hooks/#error) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns appears to the end user.
+For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register.
 
-If you don't return any value for that `errorCauses` object and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user: "Registration cannot be completed at this time".
+* If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
-If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user: "Registration denied".
+   * You don't customize the error handling behavior of the widget.
+   * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute. See [JSON response payload objects - error](/docs/concepts/inline-hooks/#error).
 
-> **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
+      `Registration cannot be completed at this time.`</br></br>
+      `We found some errors. Please review the form and make corrections.` <ApiLifecycle access="ie" />
+
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
+      `Registration denied.`
+
+> **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
@@ -252,29 +260,26 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ```json
 {
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY"
-         }
+  "commands": [
+    {
+      "type": "com.okta.action.update",
+      "value": {
+        "registration": "DENY"
       }
-   ]
-}
-
-{
-   "error":{
-      "errorSummary":"Errors were found in the user profile",
-      "errorCauses":[
-         {
-            "errorSummary":"You specified an invalid email domain",
-            "reason":"INVALID_EMAIL_DOMAIN",
-            "locationType":"body",
-            "location":"data.userProfile.login",
-            "domain":"end-user"
-         }
-      ]
-   }
+    }
+  ],
+  "error": {
+    "errorSummary": "Incorrect email address. Please contact your admin.",
+    "errorCauses": [
+      {
+        "errorSummary": "Only example.com emails can register.",
+        "reason": "INVALID_EMAIL_DOMAIN",
+        "locationType": "body",
+        "location": "data.userProfile.login",
+        "domain": "end-user"
+      }
+    ]
+  }
 }
 ```
 

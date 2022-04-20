@@ -4,21 +4,23 @@ title: OAuth 2.0 and OpenID Connect Overview
 
 # OAuth 2.0 and OpenID Connect Overview
 
-To decide which authentication flow is best for you based on the type of application that you are building, you first need to understand OAuth 2.0 and OpenID Connect and how you can implement these two flows using Okta.
+This article provides a high-level introduction to OAuth 2.0 and OpenID Connect (OIDC), which are the standard protocols that Okta's authentication and authorization solutions are based on. This article discusses how you can implement flows based on these standards using Okta, and what flows and grant types are commonly used by the different types of apps.
 
-## Authentication API vs OAuth 2.0 vs OpenID Connect
+> **Note**: See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for more information on the specific types of authentication deployment models that Okta provides that are built on top of OAuth 2.0 and OIDC.
 
-There are three major kinds of authentication that you can perform with Okta:
+## OAuth 2.0 vs OpenID Connect
 
-* The [Authentication API](/docs/reference/api/authn/) controls access to your Okta org and applications. It provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It is the underlying API that both the Okta Sign-In Widget and Auth JS use under the hood.
+There are two main types of authentication that you can perform with Okta:
+
+* The [OpenID Connect](/docs/reference/api/oidc/) (OIDC) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It's also more opinionated than plain OAuth 2.0, for example in its scope definitions.
 
 * The [OAuth 2.0](/docs/reference/api/oidc/) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
 
-* The [OpenID Connect](/docs/reference/api/oidc/) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It is also more opinionated than plain OAuth 2.0, for example in its scope definitions.
+The OAuth 2.0 protocol provides API security through scoped access tokens. OAuth 2.0 enables you to delegate authorization, while OIDC enables you to retrieve and store authentication information about your end users. OIDC extends OAuth 2.0 by providing user authentication and single sign-on (SSO) functionality.
 
-If you would like to work with the Okta API and control user access to Okta, then you should use the [Authentication API](/docs/reference/api/authn/).
+For most of your app auth requirements, we recommend that you use the OAuth 2.0 and OIDC protocols through the different solutions Okta provides, as outlined in [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/). To get started with auth implementation and find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 
-If you are interested in controlling access to your own application, then use the OAuth 2.0 and OpenID Connect protocols. The OAuth 2.0 protocol provides API security through scoped access tokens. OAuth 2.0 enables you to delegate authorization, while the OpenID Connect protocol enables you to retrieve and store authentication information about your end users. OpenID Connect extends OAuth 2.0 by providing user authentication and single sign-on (SSO) functionality.
+> **Note**: If you require a completely custom app setup and workflow with direct access control to your Okta org and app integrations, then you can use the [Authentication API](/docs/reference/api/authn/). This API underpins both the Okta [Redirect](/docs/guides/sign-into-web-app-redirect/) and [Embedded](/docs/guides/embedded-siw/) Sign-In Widget, and [Auth JS](/docs/guides/auth-js/) SDKs.
 
 ### OAuth 2.0
 
@@ -26,19 +28,19 @@ OAuth 2.0 is a standard that apps use to provide client applications with access
 
 The OAuth 2.0 spec has four important roles:
 
-* The "authorization server" &mdash; The server that issues the access token. In this case Okta is the authorization server.
+* **authorization server**: The server that issues the access token. In this case Okta is the authorization server.
 
-* The "resource owner" &mdash; Normally your application's end user that grants permission to access the resource server with an access token
+* **resource owner**: Normally your application's end user that grants permission to access the resource server with an access token.
 
-* The "client" &mdash; The application that requests the access token from Okta and then passes it to the resource server
+* **client**: The application that requests the access token from Okta and then passes it to the resource server.
 
-* The "resource server" &mdash; Accepts the access token and must verify that it's valid. In this case this is your application.
+* **resource server**: Accepts the access token and must verify that it's valid. In this case, this is your application.
 
 Other important terms:
 
-* An OAuth 2.0 "grant" is the authorization given (or "granted") to the client by the user. Examples of grants are "authorization code" and "client credentials". Each OAuth grant has a corresponding flow, explained below.
-* The "access token" is issued by the authorization server (Okta) in exchange for the grant.
-* The "refresh token" is an optional token that is exchanged for a new access token if the access token has expired.
+* **OAuth 2.0 grant**: The authorization given (or granted) to the client by the user. Examples of grants are **authorization code** and **client credentials**. Each OAuth grant has a corresponding flow. See [Choosing an OAuth 2.0 flow](#choosing-an-oauth-2-0-flow).
+* **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
+* **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
 > **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
@@ -63,12 +65,11 @@ OpenID Connect is an authentication standard built on top of OAuth 2.0. It adds 
 
 Although OpenID Connect is built on top of OAuth 2.0, the [OpenID Connect specification](https://openid.net/connect/) uses slightly different terms for the roles in the flows:
 
-* The "OpenID provider" &mdash; The authorization server that issues the ID token. In this case Okta is the OpenID provider.
-* The "end user" &mdash; Whose information is contained in the ID token
-* The "relying party" &mdash; The client application that requests the ID token from Okta
-
-* The "ID token" is issued by the OpenID Provider and contains information about the end user in the form of claims.
-* A "claim" is a piece of information about the end user.
+* **OpenID provider**: The authorization server that issues the ID token. In this case Okta is the OpenID provider.
+* **end user**: The end user's information that is contained in the ID token.
+* **relying party**: The client application that requests the ID token from Okta.
+* **ID token**: The token issued by the OpenID Provider and contains information about the end user in the form of claims.
+* **claim**: The claim is a piece of information about the end user.
 
 The high-level flow looks the same for both OpenID Connect and regular OAuth 2.0 flows. The primary difference is that an OpenID Connect flow results in an ID token, in addition to any access or refresh tokens.
 
@@ -80,26 +81,15 @@ Which OAuth flow that you use depends on your use case. The table below maps app
 
 The table shows you which OAuth 2.0 flow to use for the type of application that you are building.
 
-| Type of Application     | OAuth 2.0 flow                                      |
-| ----------------------- | --------------------------------------------------- |
-| Server-side (AKA Web)   | [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)                |
-| Single-Page Application | [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) or [Implicit flow](/docs/guides/implement-grant-type/implicit/main/) when the SPA that you are building runs in older browsers that don't support Web Crypto for PKCE |
-| Native                  | [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) |
-| Trusted                 | [Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/)            |
-| Service                 | [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/)                  |
+| Type of Application     | OAuth 2.0 flow / grant type                      | Access Token?    | ID Token?     |
+| ----------------------- | ------------------------------------------------ | ---------------- | ------------- |
+| Server-side (aka Web)   | [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly                | &#9989;          | &#9989;      |
+| Single-Page Application | [Implicit](/docs/guides/implement-grant-type/implicit/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
+| Native                  | [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
+| Trusted                 | [Resource Owner Password](/docs/guides/implement-grant-type/ropassword/main/)            | &#9989;          | &#9989;      |
+| Service                 | [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/)                  | &#9989;          | &#10060;     |
 
-### Does your application need an ID token?
-
-Any OAuth flow can give you an access token, but not all support ID tokens.
-
-| Grant Type                       | Access Token     | ID Token     |
-| -------------------------------- | :--------------: | :----------: |
-| **Authorization Code**           | &#9989;          | &#9989;      |
-| **Authorization Code with PKCE** | &#9989;          | &#9989;      |
-| **Implicit**                     | &#9989;          | &#9989;      |
-| **Resource Owner Password**      | &#9989;          | &#9989;      |
-| **Client Credentials**           | &#9989;          | &#10060;     |
-| **SAML 2.0 Assertion**           | &#9989;          | &#9989;      |
+> **Note**: There is also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow), intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. This supports access and ID tokens.
 
 ### What kind of client are you building?
 
@@ -113,17 +103,52 @@ A client application is considered public when an end user could possibly view a
 
 #### Is your client a SPA or native?
 
-If your client application is a SPA running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow). Because the Implicit flow is intended for applications where confidentiality of the client secret can't be guaranteed, you should only use this flow if other flows aren't viable.
-
-If your client application is a native application, you should use the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce).
+If your client application is a SPA or a native application, you should use an authorization flow with PKCE, such as either the [Interaction Code flow with PKCE](#interaction-code-flow) or the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce). If you are doing a redirect flow to an Okta-hosted sign-in page, the Authorization Code flow with PKCE is recommended. If you want to embed the sign-in experience, the Interaction Code flow is recommended.
 
 #### Does the client have an end user?
 
 If your client application is running on a server with no direct end user, then it can be trusted to store credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
-#### Does the resource owner own the client?
+#### Is your app high-trust?
 
-If you own both the client application and the resource that it is accessing, then your application can be trusted to store your end user's username and password. Because of the high degree of trust required here, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
+If you own both the client application and the resource that it's accessing, then your application can be trusted to store your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
+
+If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
+
+### Interaction Code flow
+
+The Interaction Code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+
+<!--
+See http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+actor "Resource Owner (User)" as user
+participant "Client" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
+
+user -> client: Start auth with user info
+client -> client: Generate PKCE code verifier & challenge
+client -> okta: Authorization request w/ code_challenge, client ID, scopes, and user info
+okta -> okta: Remediation required
+okta -> client: Send interaction_handle in response (for required interaction)
+client <-> okta: Remediation steps w/ interaction_handle
+user <-> client: Remediation
+note right: Possible multiple remediation steps required
+client -> okta: Complete remediation steps w/ interaction_handle
+okta -> client: Send interaction_code in response
+client -> okta: Send interaction_code, client ID, code_verifier to /token
+okta -> okta: Evaluates PKCE code
+okta -> client: Access token (and optionally refresh token)
+client -> app: Request with access token
+app -> client: Response
+@enduml
+
+ -->
+
+![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
 
 ### Authorization Code flow
 

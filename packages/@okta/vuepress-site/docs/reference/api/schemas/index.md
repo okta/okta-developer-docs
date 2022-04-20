@@ -62,7 +62,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -215,7 +215,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -403,7 +403,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -557,7 +557,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -686,7 +686,7 @@ curl -v -X GET \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -785,7 +785,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -894,7 +894,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -998,7 +998,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -1082,7 +1082,7 @@ curl -v -X GET \
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1164,7 +1164,7 @@ curl -v -X GET \
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-19T08:51:57.000Z",
   "name": "group",
   "properties": {
@@ -1246,7 +1246,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1286,7 +1286,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1369,7 +1369,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1409,7 +1409,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1479,7 +1479,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1519,7 +1519,7 @@ The following response is only a subset of properties for brevity.
     }
   },
   "description": "Okta group profile template",
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "lastUpdated": "2021-02-25T23:05:31.000Z",
   "name": "group",
   "properties": {
@@ -1551,7 +1551,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
-Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which can be the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema.
+Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which is either `aws_eventbridge` or `splunk_cloud_logstreaming`. Use the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema, and use the `splunk_cloud_logstreaming` literal retrieve the Splunk Cloud type schema.
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
 
@@ -1581,7 +1581,7 @@ For brevity, the following response doesn't include all available properties.
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+  "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
   "title": "AWS EventBridge",
   "type": "object",
   "properties": {
@@ -1726,7 +1726,7 @@ For brevity, the following response doesn't include all available properties.
 [
   {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+    "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
     "title": "AWS EventBridge",
     "type": "object",
     "properties": {
@@ -1830,6 +1830,59 @@ For brevity, the following response doesn't include all available properties.
         "name": "Name can't exceed 100 characters."
       }
     }
+  },
+  {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://{yourOktaDomain}/api/v1/meta/schemas/logStream/splunk_cloud_logstreaming",
+    "title": "Splunk Cloud",
+    "type": "object",
+    "properties": {
+      "settings": {
+        "description": "Configuration properties specific to Splunk Cloud",
+        "type": "object",
+        "properties": {
+          "host": {
+            "title": "Host",
+            "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
+            "type": "string",
+            "writeOnce": false,
+            "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud(gc|fed)?\\.com$"
+          },
+          "token": {
+            "title": "HEC Token",
+            "description": "The token from your Splunk Cloud HTTP Event Collector (HEC).",
+            "type": "string",
+            "writeOnce": false,
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+          }
+        },
+        "required": [
+          "host",
+          "token"
+        ],
+        "errorMessage": {
+          "properties": {
+            "host": "Host should be a domain without http or https. For example: acme.splunkcloud.com"
+          }
+        }
+      },
+      "name": {
+        "title": "Name",
+        "description": "A name for this log stream in Okta",
+        "type": "string",
+        "writeOnce": false,
+        "pattern": "^.{1,100}$"
+      }
+    },
+    "required": [
+      "name",
+      "settings"
+    ],
+    "errorMessage": {
+      "properties": {
+        "name": "Name can't exceed 100 characters."
+      }
+    }
   }
 ]
 ```
@@ -1844,7 +1897,7 @@ The [User object](/docs/reference/api/users/#user-object) schema is defined usin
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -2018,8 +2071,8 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | Property          | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | MinLength | MaxLength | Validation                                                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
 | login             | unique identifier for the User (`username`)                                                                                        | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [pattern](#login-pattern-validation)                                            |
-| email             | primary email address of the User                                                                                                      | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                        |
-| secondEmail       | secondary email address of the User typically used for account recovery                                                                | String   | TRUE     | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                        |
+| email             | primary email address of the User                                                                                                      | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
+| secondEmail       | secondary email address of the User typically used for account recovery                                                                | String   | TRUE     | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
 | firstName         | given name of the User (`givenName`)                                                                                               | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
 | lastName          | family name of the User (`familyName`)                                                                                             | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
 | middleName        | middle name(s) of the User                                                                                                         | String   | FALSE    | FALSE  | FALSE    |           |           |                                                                                                                   |
@@ -2202,7 +2255,7 @@ The [App User object](/docs/reference/api/apps/#application-user-object) Schema 
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -2441,7 +2494,7 @@ The [Group object](/docs/reference/api/groups/#group-object) schema is defined u
 
 ```json
 {
-  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "id": "https://{yourOktaDomain}/meta/schemas/group/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "example group",
   "title": "Okta group example",
@@ -2538,7 +2591,7 @@ The [Group object](/docs/reference/api/groups/#group-object) schema is defined u
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -2821,7 +2874,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -3001,7 +3054,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -3179,7 +3232,7 @@ The following response is only a subset of properties for brevity.
 
 ```json
 {
-    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",

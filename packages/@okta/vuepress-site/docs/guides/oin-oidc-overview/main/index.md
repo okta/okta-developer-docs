@@ -37,6 +37,8 @@ OAuth 2.0 provides security to API endpoints through access tokens. This enables
 
 OIDC relies on a set of standardized API endpoints for verifying and sharing user identity metadata. OIDC makes use of the ID token which has a predefined set of scopes containing claims specifically intended for identity management. This ID token is communicated using a JSON web token (JWT) that has digital signatures to cryptographically sign the payload.
 
+> **Note:** Refresh tokens aren't supported for apps published in OIN. This implies that OIDC clients in OIN can't use the `offline_access` scope.
+
 ## Guides
 
 This series contains the following parts:

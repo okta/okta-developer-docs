@@ -15,13 +15,12 @@ An Advanced Server Access (ASA) Team is the top-level organizational concept in 
 
 All other configuration objects in Advanced Server Access are scoped to an ASA Team.
 
-Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
-
+Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
 
 ## Teams API operations
 
-
 The Teams API has the following operations:
+
 * [List Servers for a Team](#list-servers-for-a-team)
 * [Update a Server](#update-a-server)
 * [Fetch Team settings](#fetch-team-settings)
@@ -54,7 +53,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `hostname`   |  string | (Optional) A hostname |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project_name`   |  string | (Optional) A Project name |
 | `selector`   |  string | (Optional) Server selectors. Same syntax as k8s |

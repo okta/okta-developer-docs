@@ -10,20 +10,22 @@ This guide provides a working example of an Okta Event Hook. It uses the website
 
 **Learning outcomes**
 
-* Understand the Okta Event Hook calls and responses
-* Implement a simple working example of an Okta Event Hook with a Glitch.com project, which acts as an external service
-* Preview and test an Okta Event Hook
+* Understand the Okta Event Hook calls and responses.
+* Implement a simple working example of an Okta Event Hook with a Glitch.com project, which acts as an external service.
+* Preview and test an Okta Event Hook.
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account.
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 **Sample code**
 
 * [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook)
 
 ---
+
+## About Event Hook implementation
 
 Event Hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview.
 
@@ -148,7 +150,7 @@ To run a test of your Event Hook:
 
     `The user John Doe has been deactivated on the Okta org!`
 
-> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/troubleshooting) section for information if you encounter any setup or configuration difficulties.
+> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations) section for information if you encounter any setup or configuration difficulties.
 
 ## Next steps
 

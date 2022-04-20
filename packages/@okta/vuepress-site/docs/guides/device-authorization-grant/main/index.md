@@ -4,6 +4,8 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
 
 ---
@@ -88,8 +90,8 @@ The device authorization request passes the following parameters:
 {
     "device_code": "4ebdb4de-1f8b-4497-be01-ddfaf83c4e9c",
     "user_code": "MHXTFRPK",
-    "verification_uri": "https://${yourOktaDomain}/activate",
-    "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=MHXTFRPK",
+    "verification_uri": "https://{yourOktaDomain}/activate",
+    "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=MHXTFRPK",
     "expires_in": 600,
     "interval": 5
 }

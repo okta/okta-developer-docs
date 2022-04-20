@@ -7,7 +7,7 @@
       <div class="search--slideout opened">
         <SearchBar />
       </div>
-      
+
       <HeaderMenu />
     </div>
     <div class="flex align-items-center">
@@ -15,11 +15,11 @@
         Sign Up
       </SmartLink>
       <div class="mobile--toggles">
-        <div 
+        <div
           :class="{
             'mobile--toggle': true,
-            'is-opened': menuOpened,
-          }" 
+            'is-opened': menuOpened
+          }"
           @click="toggleMenu()"
         >
           <span></span>
@@ -27,27 +27,28 @@
           <span></span>
         </div>
       </div>
+      <ThemeModeToggle />
     </div>
   </header>
 </template>
 
 <script>
-
 export default {
   components: {
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
     HeaderMenu: () => import("../components/HeaderMenu.vue"),
+    ThemeModeToggle: () => import("../components/ThemeModeToggle.vue")
   },
   data() {
     return {
       isSearchPage: false,
       searchOpened: false,
-      menuOpened: false,
+      menuOpened: false
     };
   },
   watch: {
-    $route: "closeMenu",
+    $route: "closeMenu"
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
@@ -70,7 +71,7 @@ export default {
         this.searchOpened = false;
         this.menuOpened = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>

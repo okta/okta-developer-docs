@@ -4,6 +4,8 @@ excerpt: How to revoke tokens with Okta
 layout: Guides
 ---
 
+> **Note**: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, see [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+
 This guide explains how to revoke access or refresh tokens with Okta.
 
 ---

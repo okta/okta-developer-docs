@@ -1,9 +1,6 @@
-Create a verifier instance, bound to the issuer:
+Create a file in your project `.env` (or copy the `.env.example` file from the completed quickstart repo) with the following contents, replacing the placeholder values with your own:
 
-```php
-$jwtVerifier = ( new \Okta\JwtVerifier\JwtVerifierBuilder() )
-        ->setAdaptor( new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt() )
-        ->setClientId( '${CLIENT_ID}' )
-        ->setIssuer( 'https://${yourOktaDomain}/oauth2/default' )
-        ->build();
+```env
+OKTA_OAUTH2_ISSUER=${yourOktaDomain}/oauth2/${authorizationServerId}
+OKTA_AUDIENCE=api://default
 ```

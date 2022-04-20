@@ -27,7 +27,7 @@ Customize error pages as part of the sign-in flow.
 
 When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
-However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the embedded HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page.
+However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using an embedded HTML editor.
 
 > **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
 
@@ -35,7 +35,7 @@ However, if an error occurs during sign-in, Okta may need to display an error pa
 
 **In what situations does Okta serve error pages to the user?**
 
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta-hosted flows](/docs/concepts/okta-hosted-flows/) for more information on Okta-hosted functionality.
+The error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
 **What can I customize on the error page?**
 
@@ -43,15 +43,14 @@ You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Edit the error page
 
-The HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page allows you to modify any HTML, CSS, and JavaScript on the error page.
+The HTML editor that is provided on the **Error pages code editor** section of **Customizations** allows you to modify any HTML, CSS, and JavaScript on the error page.
 
-1. In the Admin Console, select **Settings** and then **Customizations**.
-1. Click the **Custom Error Pages** tab.
-1. Make changes directly in the embedded **Custom Error Pages** editor.
+1. In the Admin Console, select **Customizations** and then **Error pages code editor**.
+1. Make changes directly in the embedded **Error Pages** editor.
 1. Click **Preview** to preview your changes before you publish.
 1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
 1. Click **Save and Publish** to commit your changes.
@@ -101,22 +100,22 @@ Inserts the logo image that has been configured for your application. You can ch
 If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
 
 Example:
+
 ```html
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-### <span v-pre>`{{{errorSummary}}}`</span>
-
 ### <span v-pre>`{{{errorDescription}}}`</span>
 
-Inserts a title and detailed description of the error.
+Inserts a detailed description of the error.
 
 Example:
 
 ```html
-<h2 class="o-form-title">{{errorSummary}}</h2>
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
+
+> **Note:** Macros with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
 
 ### <span v-pre>`{{back}}`</span>
 

@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cb0940c81c4d8a9afd73)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/febec0ced153d9cd3db1)
 
 ## Application operations
 
@@ -112,16 +112,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
     }
   }
 }
@@ -209,16 +209,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
     }
   }
 }
@@ -322,35 +322,35 @@ curl -v -X POST \
   },
   "_links":{
     "help":{
-      "href":"https://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "href":"https://{yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
       "type":"text/html"
     },
     "metadata":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
       "type":"application/xml"
     },
     "appLinks":[
       {
         "name":"login",
-        "href":"https://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "href":"https://{yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
         "type":"text/html"
       }
     ],
     "groups":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
     },
     "logo":[
       {
         "name":"medium",
-        "href":"https://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "href":"https://{yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
         "type":"image/png"
       }
     ],
     "users":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
     },
     "deactivate":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
@@ -441,7 +441,7 @@ curl -X POST \
   "settings": {
     "app": {
       "acsURL": null,
-      "orgName": "${yourOktaDomain}"
+      "orgName": "{yourOktaDomain}"
     },
     "notifications": {
       "vpn": {
@@ -472,35 +472,35 @@ curl -X POST \
   },
   "_links": {
     "help": {
-      "href": "https://${yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
+      "href": "https://{yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
       "type": "text/html"
     },
     "metadata": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
       "type": "application/xml"
     },
     "appLinks": [
       {
         "name": "login",
-        "href": "https://${yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
+        "href": "https://{yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
         "type": "text/html"
       }
     ],
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
     },
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+        "href": "https://{yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
     }
   }
 }
@@ -598,16 +598,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -710,16 +710,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -828,16 +828,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/lifecycle/deactivate"
     }
   }
 }
@@ -1229,7 +1229,7 @@ curl -v -X POST \
           "id": "${inlineHookId}",
           "_links": {
             "self": {
-              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+              "href": "https://{yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
               "hints": {
                 "allow": [
                   "GET",
@@ -1349,6 +1349,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
+| jwks_uri <ApiLifecycle access="ea" />       | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                                                                                      | String                                                                                        | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1483,7 +1484,7 @@ curl -v -X GET \
     },
     "signOn": {
       "defaultRelayState": "",
-      "ssoAcsUrl": "https://${yourOktaDomain}",
+      "ssoAcsUrl": "https://{yourOktaDomain}",
       "idpIssuer": "https://www.okta.com/${org.externalKey}",
       "audience": "https://example.com/tenant/123",
       "recipient": "https://recipient.okta.com",
@@ -1515,7 +1516,7 @@ curl -v -X GET \
           "id": "cal3ughy17pylLxQB357",
           "_links": {
             "self": {
-              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
+              "href": "https://{yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
               "hints": {
                 "allow": [
                   "GET",
@@ -1615,7 +1616,6 @@ The following link expansions are supported to embed additional resources into t
 
 > **Note:** The `user/:uid` expansion can currently only be used in conjunction with the `user.id eq ":uid"` filter. See [List applications assigned to a user](#list-applications-assigned-to-a-user).
 
-
 ##### Response parameters
 
 Array of [Applications](#application-object)
@@ -1682,7 +1682,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -1714,7 +1714,7 @@ curl -v -X GET \
             "id": "${inlineHookId}",
             "_links": {
               "self": {
-                "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+                "href": "https://{yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
                 "hints": {
                   "allow": [
                     "GET",
@@ -1809,16 +1809,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     }
   }
@@ -1836,7 +1836,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+\"00ucw2RPGIUNTDQOYPOF\"&expand=user/00ucw2RPGIUNTDQOYPOF"
+"https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+%2200ucw2RPGIUNTDQOYPOF%22&expand=user/00ucw2RPGIUNTDQOYPOF"
 ```
 
 > **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-object) information in the response body's `_embedded` property.
@@ -1889,7 +1889,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -1968,10 +1968,10 @@ curl -v -X GET \
         },
         "_links": {
           "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabizCHPNYALCHDUIOD"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabizCHPNYALCHDUIOD"
           },
           "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
+            "href": "https://{yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
           }
         }
       }
@@ -2024,16 +2024,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     },
     "_embedded": {
@@ -2054,10 +2054,10 @@ curl -v -X GET \
         },
         "_links": {
           "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
           },
           "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
+            "href": "https://{yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
           }
         }
       }
@@ -2077,7 +2077,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+\"00gckgEHZXOUDGDJLYLG\""
+"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+%2200gckgEHZXOUDGDJLYLG%22"
 ```
 
 ##### Response example
@@ -2131,16 +2131,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     }
   }
@@ -2158,7 +2158,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+\"SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4\""
+"https://${yourOktaDomain}/api/v1/apps?filter=credentials.signing.kid+eq+%22SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4%22"
 ```
 
 ##### Response example
@@ -2211,7 +2211,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -2288,7 +2288,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
 ```
 
 ##### Response example
@@ -2594,16 +2594,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2708,16 +2708,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2822,16 +2822,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2936,16 +2936,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -3056,16 +3056,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -3419,12 +3419,12 @@ curl -v -X PUT \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
         },
         "logo": [
             {
@@ -3434,10 +3434,10 @@ curl -v -X PUT \
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
         }
     }
 }
@@ -3642,7 +3642,7 @@ Removes an inactive application
 
 ##### Response parameters
 
-An empty JSON object `{}`
+Empty response
 
 ##### Request example
 
@@ -3677,6 +3677,42 @@ Content-Type: application/json
     }
   ]
 }
+```
+
+### Update application policy
+
+<ApiLifecycle access="ie" />
+
+<ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
+
+Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
+
+##### Request parameters
+
+| Parameter     | Description      | Param Type | DataType | Required | Default |
+| ---------     | ---------------- | ---------- | -------- | -------- | ------- |
+| applicationId | `id` of an app   | URL        | String   | TRUE     |         |
+| policyId      | `id` of a policy | URL        | String   | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/policies/rst179qp7umwdoEWQ0g5"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
 ```
 
 ## Application lifecycle operations
@@ -3808,10 +3844,10 @@ curl -v -X POST \
   "profile": {},
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaq2rRZUQAKJIZYFIGM"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaq2rRZUQAKJIZYFIGM"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL"
     }
   }
 }
@@ -3906,10 +3942,10 @@ curl -v -X POST \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
     }
   }
 }
@@ -3973,10 +4009,10 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
     }
   }
 }
@@ -4044,10 +4080,10 @@ curl -v -X GET \
     },
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ui2sVIFZNCNKFFNBPM"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ui2sVIFZNCNKFFNBPM"
       }
     }
   },
@@ -4079,10 +4115,10 @@ curl -v -X GET \
     },
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ujsgVNDRESKKXERBUJ"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ujsgVNDRESKKXERBUJ"
       }
     }
   }
@@ -4161,10 +4197,10 @@ curl -v -X POST \
   "profile": {},
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
     }
   }
 }
@@ -4251,10 +4287,10 @@ curl -v -X POST \
   },
   "_links": {
     "app": {
-      "href": "https://example.com/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
     }
   }
 }
@@ -4753,8 +4789,8 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
         </md:KeyDescriptor>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
-        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://${yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
-        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://${yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://{yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
     </md:IDPSSODescriptor>
 </md:EntityDescriptor>
 ```
@@ -4830,7 +4866,7 @@ Returns CSR in PKCS#10 format
 
 ```http
 HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
+Location: https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
 Content-Type: application/pkcs10; filename=okta.p10
 Content-Transfer-Encoding: base64
 
@@ -4847,7 +4883,7 @@ Returns a [CSR object](#application-csr-object)
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -4856,7 +4892,7 @@ Returns a [CSR object](#application-csr-object)
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -5030,7 +5066,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
         "hints": {
           "allow": [
             "GET",
@@ -5039,7 +5075,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -5055,7 +5091,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
         "hints": {
           "allow": [
             "GET",
@@ -5064,7 +5100,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -5113,7 +5149,7 @@ curl -v -X GET \
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -5122,7 +5158,7 @@ curl -v -X GET \
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -5132,6 +5168,983 @@ curl -v -X GET \
   }
 }
 ```
+
+## Application client secret management operations
+
+### Add new client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+
+Adds a new secret to the client's collection of secrets
+
+> **Note:** This API lets you bring your own secret. If no secret is specified in the request, it adds a new system-generated secret.
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
+| metadata | Client secret request object [Client Secret Metadata](#client-secret-request-object)   | Body      | Client Secret Metadata                     | FALSE    |         |
+
+##### Response parameters
+
+Returns the generated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "client_secret" : "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp"
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If `client_secret` in the request is more than 100 characters long, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' cannot be more than '100' characters long."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request is less than 14 characters long, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' must be at least '14' characters long."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request is less than 32 characters long, and the `token_endpoint_auth_method` of the app is `client_secret_jwt`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: 'client_secret' must be at least '32' characters long when 'token_endpoint_auth_method' is 'client_secret_jwt'."
+    }
+  ]
+}
+```
+
+If `token_endpoint_auth_method` for the app is `private_key_jwt`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "'client_secret' cannot be used when 'token_endpoint_auth_method' is 'private_key_jwt'."
+    }
+  ]
+}
+```
+
+If `client_secret` in the request contains non ASCII characters, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: client_secret",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "client_secret: ''client_secret'' must only contain printable ASCII: [x20-x7E]+"
+    }
+  ]
+}
+```
+
+If the number of client secrets per application exceeds 2, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You have reached the maximum number of client secrets per client."
+    }
+  ]
+}
+```
+
+### List client secrets
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+
+Enumerates the client's collection of secrets
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
+
+##### Response parameters
+
+Returns the list of [Client Secrets](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets"
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "ocsap6nz61rKdsoyOY0h7",
+    "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+    "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+    "created": "2022-01-01T04:22:27.000Z",
+    "status": "ACTIVE",
+    "_links" : {
+      "deactivate": {
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "ocsap6nz61rKdsoyOY0j8",
+    "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+    "secret_hash": "0ybeefbeefbeefbeefbeefbeef",
+    "created": "2022-01-01T04:22:27.000Z",
+    "status": "ACTIVE",
+    "_links" : {
+      "deactivate": {
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0j8/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  }
+]
+```
+
+### Get client secret
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}" />
+
+Gets a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)                 | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Activate a client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/activate"/>
+
+Activates a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns an activated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "ACTIVE",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Deactivate a client secret
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/deactivate"/>
+
+Deactivates a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the deactivated [Client Secret](#client-secret-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "3vimrC5Yv6bSDJzrUdLEYvkf9ElwUeWdndO5nhYp",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links": {
+    "activate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the application has only one active client secret, and if a deactivate request is sent for that client secret, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't deactivate the only active client secret."
+    }
+  ]
+}
+```
+
+### Delete a client secret
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}"/>
+
+Deletes a specific client secret by `secretId`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| secretId      | Unique key of a [Client Secret](#client-secret-response-object)             | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+If a secret isn't found for the `secretId`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 1234 (OAuth2ClientSecretMediated)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the delete request is received for an active secret, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't delete an active client secret. Deactivate the secret before deleting it."
+    }
+  ]
+}
+```
+
+## Application client JSON Web Key management operations
+
+### Add new JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks" />
+
+Adds a new JSON Web Key to the client’s JSON Web Keys.
+
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                                 | URL        | String                                    | TRUE     |         |
+| metadata      | JSON Web Key Request Object [JSON Web Key Metadata](#json-web-key-request-object)   | Body      | JSON Web Key Metadata             | TRUE     |         |
+
+##### Response parameters
+
+Returns the generated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+}' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If there is more than one JSON Web Key, each key must have unique non-null `kid` or you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "Each key should have a unique kid when adding multiple keys. Use the Apps API to update the JWKS to add a kid for the existing key, or delete the existing key and re-add the key with a kid using the JWKS APIs."
+    }
+  ]
+}
+```
+
+If the JSON Web Key has a duplicate `kid`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "All keys in the 'jwks' must have a unique kid."
+    }
+  ]
+}
+```
+
+If the RSA JSON Web Key length is less than `2048` bits, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "RSA key length in the 'jwks' is less than '2,048' bits for the given key."
+    }
+  ]
+}
+```
+
+If the number of JSON Web Keys per application exceeds the set limit (currently 50), you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: OAuth2ClientSecretMediated",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't create a new key. You have reached the maximum number of keys allowed (50). To add another key, you must first delete an existing one."
+    }
+  ]
+}
+```
+
+### List JSON Web Keys
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks"/>
+
+Enumerates the client's collection of JSON Web Keys
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                    | TRUE     |         |
+
+##### Response parameters
+
+Returns the list of [JSON Web Keys](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks"
+```
+
+##### Response example
+
+```json
+{
+  "jwks": {
+    "keys": [
+      {
+        "id": "pks055raeabcdef5rpg6",
+        "kid": "key1",
+        "kty": "RSA",
+        "alg": "RS256",
+        "use": "sig",
+        "e":"AQAB",
+        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+        "status": "ACTIVE",
+        "created": "2022-01-01 21:51:14.0",
+        "_links" : {
+          "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "pks055raeabcdef5ruuu",
+        "kid": "key2",
+        "kty": "RSA",
+        "alg": "RS256",
+        "use": "sig",
+        "e":"AQAB",
+        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+        "status": "ACTIVE",
+        "created": "2022-01-01 21:51:14.0",
+        "_links" : {
+          "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5ruuu/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Get JSON Web Key
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}" />
+
+Gets a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns the [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+If the JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: xyz (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Activate a JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/activate"/>
+
+Activates a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns an activated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "ACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+If the JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 2345 (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+### Deactivate a JSON Web Key
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/deactivate"/>
+
+Deactivates a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Returns a deactivated [JSON Web Key](#json-web-key-response-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate"
+```
+
+##### Response example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "kid": "key1",
+  "kty": "RSA",
+  "alg": "RS256",
+  "use": "sig",
+  "e":"AQAB",
+  "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU=",
+  "status": "INACTIVE",
+  "created": "2022-01-01 21:51:14.0",
+  "_links" : {
+    "activate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/delete",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+If a JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: 2345 (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the application has only one active JSON Web Key, the `token_endpoint_auth_method` is `private_key_jwt`, and a deactivate request is received for the JSON Web Key, then you will receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "Can't deactivate the only active JSON Web Key when the value for ''token_endpoint_auth_method'' is ''private_key_jwt''."
+    }
+  ]
+}
+```
+
+If the application has only one active JSON Web Key that matches `request_object_signature_algorithm` and a deactivate request is received for the JSON Web Key, then you will receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "The ''jwks'' must contain at least one key with an algorithm matching the ''request_object_signature_algorithm''."
+    }
+  ]
+}
+```
+
+### Delete a JSON Web Key
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}"/>
+
+Deletes a specific JSON Web Key by `id`
+
+##### Request parameters
+
+| Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
+| ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| applicationId | Unique key of an [Application](#application-object)                             | URL        | String                                        | TRUE     |         |
+| id            | Unique key of a [JSON Web Key](#json-web-key-response-object)                   | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+Empty response
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6"
+```
+
+##### Response example
+```http
+HTTP/1.1 204 No Content
+```
+
+If a JSON Web Key isn't found for the `id`, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000007",
+  "errorSummary": "Not found: Resource not found: xyz (JsonWebKey)",
+  "errorLink": "E0000007",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw"
+}
+```
+
+If the delete request is received for an active JSON Web Key, you receive an error response.
+
+```json
+{
+  "errorCode": "E0000001",
+  "errorSummary": "Api validation failed: JsonWebKey",
+  "errorLink": "E0000001",
+  "errorId": "oaeMHrsk2WLTACvPU5T7yQ4yw",
+  "errorCauses": [
+    {
+      "errorSummary": "You can't delete an active JSON Web key. Deactivate the key before deleting it."
+    }
+  ]
+}
+```
+
 
 ## Application OAuth 2.0 scope consent grant operations
 
@@ -5177,8 +6190,8 @@ curl -v -X POST \
       "type":"User"
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
-   "issuer":"${yourOktaDomain}",
-   "clientId":"${clientId}",
+   "issuer":"{yourOktaDomain}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -5188,11 +6201,11 @@ curl -v -X POST \
    },
    "_links":{
       "app":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -5201,7 +6214,7 @@ curl -v -X POST \
          }
       },
       "client":{
-         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }
@@ -5245,17 +6258,17 @@ curl -v -X GET \
          "type":"User"
       },
       "lastUpdated":"2019-02-21T16:54:00.000Z",
-      "issuer":"${yourOktaDomain}",
-      "clientId":"${clientId}",
+      "issuer":"{yourOktaDomain}",
+      "clientId":"{clientId}",
       "scopeId":"okta.users.read",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -5264,7 +6277,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -5278,17 +6291,17 @@ curl -v -X GET \
          "type":"User"
       },
       "lastUpdated":"2020-02-03T21:57:49.000Z",
-      "issuer":"${yourOktaDomain}",
-      "clientId":"${clientId}",
+      "issuer":"{yourOktaDomain}",
+      "clientId":"{clientId}",
       "scopeId":"okta.apps.manage",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -5297,7 +6310,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -5343,8 +6356,8 @@ curl -v -X GET \
       "type":"User"
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
-   "issuer":"${yourOktaDomain}",
-   "clientId":"${clientId}",
+   "issuer":"{yourOktaDomain}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -5354,11 +6367,11 @@ curl -v -X GET \
    },
    "_links":{
       "app":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -5367,7 +6380,7 @@ curl -v -X GET \
          }
       },
       "client":{
-         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }
@@ -5445,7 +6458,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopes": [
@@ -5454,14 +6467,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -5469,15 +6482,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
         "title": "Example Authorization Server"
       }
     }
@@ -5517,7 +6530,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00u5t60iloOHN9pBi0h7",
   "scopes": [
@@ -5532,7 +6545,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -5544,7 +6557,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -5553,14 +6566,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -5568,15 +6581,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "title": "Example Authorization Server"
     }
   }
@@ -5673,7 +6686,7 @@ curl -v -X POST \
 
 ``` http
 HTTP/1.1 201 Content Created
-Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
+Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
 ## Application Provisioning Connection operations
@@ -5714,7 +6727,7 @@ curl -v -X GET \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -5723,7 +6736,7 @@ curl -v -X GET \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -5775,7 +6788,7 @@ curl -v -X POST \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -5784,7 +6797,7 @@ curl -v -X POST \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -5914,7 +6927,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+                "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
                 "hints": {
                     "allow": [
                         "GET",
@@ -5982,7 +6995,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -6086,7 +7099,7 @@ curl -v -X PUT \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -6257,12 +7270,12 @@ curl -v -X POST \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
         },
         "logo": [
             {
@@ -6272,10 +7285,10 @@ curl -v -X POST \
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
         }
     }
 }
@@ -6416,25 +7429,165 @@ curl -X POST \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
         },
         "logo": [
             {
                 "name": "medium",
-                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "href": "https://{yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
                 "type": "image/png"
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
+
+#### Request example
+
+The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property using `jwks_uri`.
+
+```bash
+curl -X POST \
+  -H "Accept: application/json" \
+  -H "Authorization: key" \
+  -H "Content-Type: application/json" \
+  -H "cache-control: no-cache" \
+  -d '{
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "oauthClient": {
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "oauthClient": {
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri"
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oaktvoa8bGDHDmby0h7",
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2019-05-13T22:16:50.000Z",
+    "created": "2019-05-13T22:16:50.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oaktvoa8bGDHEmby0h7",
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri",
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL",
+	    "idp_initiated_login": {
+              "mode": "DISABLED"
+            }
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://{yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
         }
     }
 }
@@ -7092,10 +8245,10 @@ The Application User object defines a user's app-specific profile and credential
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabhnUQFYHMBNVSVXMV"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabhnUQFYHMBNVSVXMV"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u11z6WHMYCGPCHCRFK"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u11z6WHMYCGPCHCRFK"
     }
   }
 }
@@ -7241,7 +8394,7 @@ Application User profiles are app-specific, but may be customized by the Profile
   "priority": 0,
   "_links": {
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ubgfEUVRPSHGWHAZRI"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ubgfEUVRPSHGWHAZRI"
     }
   }
 }
@@ -7289,11 +8442,11 @@ The application key credential object defines a [JSON Web Key](https://tools.iet
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | created          | timestamp when certificate was created                       | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
-| e                | RSA key value (exponent) for key blinding                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | expiresAt        | timestamp when certificate expires                           | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | kid              | unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the certificate's keypair | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
-| n                | RSA key value (modulus) for key blinding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | use              | acceptable usage of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |           |            |
 | x5c              | X.509 certificate chain                                      | Array                                                                       | TRUE     | TRUE   | TRUE     |           |           |            |
 | x5t#S256         | X.509 certificate SHA-256 thumbprint                         | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
@@ -7359,7 +8512,7 @@ The application CSR object defines a certificate signing request for a signature
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -7368,7 +8521,7 @@ The application CSR object defines a certificate signing request for a signature
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -7417,13 +8570,14 @@ Property details
 The provisioning connection object is a read only object that displays the method of authentication used for provisioning.
 
 #### Example
+
 ```json
 {
     "authScheme": "TOKEN",
     "status": "DISABLED",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -7431,7 +8585,7 @@ The provisioning connection object is a read only object that displays the metho
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -7447,17 +8601,17 @@ The provisioning connection object is a read only object that displays the metho
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| authScheme              | Defines the method of authentication    | `TOKEN`, `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
+| authScheme        | Defines the method of authentication                        | `TOKEN`, `OAUTH2`, `UNKNOWN`                                                | FALSE    | FALSE  | TRUE    |           |
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
-| status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
+| status            | Status of the connection                                    | `ENABLED`, `DISABLED`, `UNKNOWN`                                            | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
 If the authScheme is `UNKNOWN`, then either the authentication scheme used by the application isn't supported or the the application doesn't support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, only token based authentication is supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported.
 
-#### Token based Provisioning Connection Profile example
+#### Token-based Provisioning Connection Profile example
 ```json
 {
     "profile": {
@@ -7467,18 +8621,36 @@ The application provisioning connection profile is used to configure the method 
 }
 ```
 
-#### Token based Provisioning Connection Profile properties
+#### Token-based Provisioning Connection Profile properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
 
+#### OAuth 2.0-based Provisioning Connection Profile example
+```json
+{
+    "profile": {
+        "authScheme": "OAUTH2",
+        "clientId": "${clientId}"
+    }
+}
+```
+
+#### OAuth 2.0-based Provisioning Connection Profile properties
+
+| Property     | Description                                                   | DataType            | Nullable | Unique | Readonly |
+| -------------| ------------------------------------------------------------- | ---------------     | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme   | Defines the method of authentication                          | `OAUTH2`            | FALSE    | FALSE  | FALSE    |
+| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String    | FALSE    | FALSE  | FALSE    |
+
 ### Application Feature object
 
 The Feature object is used to configure settings of the application. For example, the `USER_PROVISIONING` Feature object is used to configure the ability to create, read, update users in Okta accounts, deprovision accounts for deactivated users, and synchronize user attributes.
 
 #### Application Feature example
+
 ```json
 {
     "name": "USER_PROVISIONING",
@@ -7506,7 +8678,7 @@ The Feature object is used to configure settings of the application. For example
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -7622,3 +8794,153 @@ Okta updates a user's attributes in the application when the application is assi
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
 | status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+
+### Client Secret Request object
+
+#### Example
+
+```json
+{
+  "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO"
+}
+```
+
+#### Client Secret Request object properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| client_secret    | Client secret                                                | String                                                                      | TRUE     | TRUE   | FALSE    |    14  |   100     |
+
+> **Note:** If `token_endpoint_auth_method` of the app is `client_secret_jwt` then MinLength of `client_secret` should be 32.
+
+### Client Secret Response object
+
+#### Example
+
+```json
+{
+  "id": "ocsap6nz61rKdsoyOY0h7",
+  "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+  "secret_hash": "0xbeefbeefbeefbeefbeefbeef",
+  "created": "2022-01-01T03:22:27.000Z",
+  "lastUpdated": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links" : {
+    "activate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Client Secret Response object properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | ------- |
+| id               | Unique key of the group                                      | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| client_secret    | Client secret                                                | String                                                                      | FALSE     | TRUE   | FALSE   |         |
+| secret_hash      | Hash of the client secret                                    | String                                                                      | FALSE     | TRUE   | TRUE    |         |
+| created          | Timestamp when the secret was created                        | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| lastUpdated      | Timestamp when the secret was last updated                   | Date                                                                        | FALSE     | FALSE  | TRUE    |         |
+| status           | Status of the Client Secret                                  | `ACTIVE`, `INACTIVE`                                                        | FALSE     | FALSE  | FALSE   |`ACTIVE` |
+| _links           | Discoverable resources related to client secrets             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE     | FALSE  | TRUE    |         |
+
+
+### JSON Web Key Request object
+
+The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
+
+#### Example
+
+```json
+{
+  "e": "AQAB",
+  "alg": "RS256",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d-YK5qHFt-mXSsbjWKKs4EfNm-BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL_q7n0f_SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH-bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQ",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "kty": "RSA",
+  "use": "sig",
+  "status": "ACTIVE"
+}
+```
+
+#### Application JSON Web Key Request properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| kid              | Unique identifier for the certificate                        | String                                                                      | TRUE     | TRUE   | TRUE     |           |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | TRUE     | FALSE  | FALSE    | `ACTIVE`  |
+
+
+### JSON Web Key Response object
+
+The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
+
+#### Example
+
+```json
+{
+  "id": "pks055raeabcdef5rpg6",
+  "e": "AQAB",
+  "alg": "RS256",
+  "n": "mkC6yAJVvFwUlmM9gKjb2d-YK5qHFt-mXSsbjWKKs4EfNm-BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL_q7n0f_SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH-bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQ",
+  "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4",
+  "kty": "RSA",
+  "use": "sig",
+  "created": "2022-01-01T03:22:27.000Z",
+  "lastUpdated": "2022-01-01T04:22:27.000Z",
+  "status": "INACTIVE",
+  "_links" : {
+    "activate": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "delete": {
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Application JSON Web Key Response properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default   |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| id               | Unique key of group                                          | String                                                                      | FALSE    | TRUE   | TRUE     |           |
+| e                | RSA key value (exponent) for key binding                     | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| alg              | Algorithm used in the key                                    | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| n                | RSA key value (modulus) for key binding                      | String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| kid              | Unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |
+| kty              | Cryptographic algorithm family for the certificate's key pair| String                                                                      | FALSE    | FALSE  | TRUE     |           |
+| use              | Acceptable use of the certificate                            | String                                                                      | TRUE     | FALSE  | TRUE     |           |
+| created          | Timestamp when the JSON Web Key was created                  | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| lastUpdated      | Timestamp when the JSON Web Key was last updated             | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
+| status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | FALSE    | FALSE  | FALSE    | `ACTIVE`  |
+| _links           | Discoverable resources related to JSON Web Keys              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE    | FALSE  | TRUE     |           |

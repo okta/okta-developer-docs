@@ -48,7 +48,7 @@ curl -X POST \
     "lastUpdated": "2020-10-13T21:23:10.178Z",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/threats/configuration",
+            "href": "https://{yourOktaDomain}/api/v1/threats/configuration",
             "hints": {
                 "allow": [
                     "GET",
@@ -77,6 +77,7 @@ curl -X GET \
 ```
 
 #### Response example
+
 ```json
 {
     "action": "audit",
@@ -85,7 +86,7 @@ curl -X GET \
     "lastUpdated": "2020-09-08T20:53:20.882Z",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/threats/configuration",
+            "href": "https://{yourOktaDomain}/api/v1/threats/configuration",
             "hints": {
                 "allow": [
                     "GET",

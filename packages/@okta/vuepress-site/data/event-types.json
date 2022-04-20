@@ -1,6 +1,6 @@
 {
-  "release" : "2022.01.1",
-  "build" : "2022.01.1-begin-83-ga5b42812cf8e",
+  "release" : "2022.04.1",
+  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -35,14 +35,14 @@
     "id" : "cred-platform",
     "name" : "Credential Platform"
   }, {
+    "id" : "customer-federations",
+    "name" : "Customer Federations"
+  }, {
     "id" : "dda",
     "name" : "Delegated and Distributed Administration"
   }, {
     "id" : "delivery",
     "name" : "Delivery"
-  }, {
-    "id" : "desktop-device-trust",
-    "name" : "Desktop Device Trust"
   }, {
     "id" : "devex",
     "name" : "DevEx"
@@ -92,12 +92,6 @@
     "id" : "mfa-platform",
     "name" : "MFA Platform"
   }, {
-    "id" : "mobile-device-trust",
-    "name" : "Mobile DeviceTrust"
-  }, {
-    "id" : "mobile-omm",
-    "name" : "Mobile OMM"
-  }, {
     "id" : "msft-apps",
     "name" : "Microsoft Apps"
   }, {
@@ -130,6 +124,9 @@
   }, {
     "id" : "sync",
     "name" : "Sync"
+  }, {
+    "id" : "telephony",
+    "name" : "Telephony"
   }, {
     "id" : "ud-core",
     "name" : "UD Core"
@@ -767,6 +764,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "pam",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "uncategorized",
     "description" : "",
     "tags" : [ ]
@@ -776,7 +777,7 @@
     "eventTypes" : [ {
       "id" : "app.access_request.approver.approve",
       "category" : "extensibility",
-      "description" : "Request to access an app was approved by a administrator defined approver.",
+      "description" : "Request to access an app was approved by an administrator-defined approver.",
       "info" : {
         "created" : "2017-10-14",
         "release" : "2017.43"
@@ -793,7 +794,7 @@
     }, {
       "id" : "app.access_request.approver.deny",
       "category" : "extensibility",
-      "description" : "Request to access an app was denied by a administrator defined approver.",
+      "description" : "Request to access an app was denied by an administrator-defined approver.",
       "info" : {
         "created" : "2017-10-14",
         "release" : "2017.43"
@@ -4856,7 +4857,7 @@
     }, {
       "id" : "application.provision.group_push.mapping.update.or.delete.failed",
       "category" : "sync",
-      "description" : "Failed to push mapping changes due to an exception.",
+      "description" : "Group push mapping change failed and will be retried. Can be used to identify transient errors that may temporarily impact the group push mapping but likely do not require admin intervention. This event typically requires no action as the corresponding operation will be retried. Refer to application.provision.group_push.mapping.update.or.delete.failed for events that may require intervention.",
       "info" : {
         "created" : "2017-07-13",
         "release" : "2017.29"
@@ -4873,14 +4874,14 @@
     }, {
       "id" : "application.provision.group_push.mapping.update.or.delete.failed.with.error",
       "category" : "sync",
-      "description" : "Failed to push mapping changes due to user exception.",
+      "description" : "Group push mapping change failed and cannot be retried. Can be used to identify group push mapping errors which may require admin intervention to address. Unlike the similarly named event, application.provision.group_push.mapping.update.or.delete.failed, when this event is fired the corresponding action that triggered it will not be retried by Okta and may indicate a configuration problem. For example, invalid authorization credentials with the target application due to an expired password or invalid access token.",
       "info" : {
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.user_management.grouppush.mapping.update.or.delete.failed.with.error" ],
       "schema" : {
         "debugData" : null,
@@ -5432,6 +5433,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "certification.campaign.close",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is closed. This event can be used by admins to audit Access Certification Review activity to understand when a Campaign Instance has transitioned into the closed state. This event is triggered when a Campaign is closed either by an admin or on the configured campaign end date.",
+      "info" : {
+        "created" : "2022-01-25",
+        "release" : "2022.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IgaCampaignDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "certification.campaign.create",
       "category" : "id-fabric",
       "description" : "Triggered when a new campaign is created. Can be used to audit campaign activity in the system log as well as reports. This is triggered by creating a new campaign.",
@@ -5444,9 +5462,9 @@
       "tags" : [ "certification" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "IgaCampaignTemplateDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "certification.campaign.delete",
@@ -5461,9 +5479,9 @@
       "tags" : [ "certification" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "IgaCampaignTemplateDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "certification.campaign.item.decide",
@@ -5500,6 +5518,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "certification.campaign.launch",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is launched. This event can be used by admins to audit Access Certification Review activity to understand when a Campaign Instance has transitioned into the Active state. This event is triggered when a Campaign starts and moves from scheduled to active.",
+      "info" : {
+        "created" : "2022-01-25",
+        "release" : "2022.02.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IgaCampaignDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "certification.campaign.update",
       "category" : "id-fabric",
       "description" : "Triggered when a campaign is updated. Can be used to audit campaign activity in the system log as well as reports. This is triggered by updating a campaign.",
@@ -5512,9 +5547,9 @@
       "tags" : [ "certification" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "IgaCampaignTemplateDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "certification.remediation.open",
@@ -6318,14 +6353,14 @@
     }, {
       "id" : "iam.resourceset.bindings.add",
       "category" : "dda",
-      "description" : "Fired when a new admin role assignment is created. This event can be used to track and audit when a new admin role assignment is created. When fired this event contains information about the new user or group admin assignments for roles associated with the resource set.",
+      "description" : "Admin role assignment is created. This event can be used to track and audit when a new admin role assignment is created. When fired this event contains information about the new user or group admin assignments for roles associated with the resource set.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6335,14 +6370,14 @@
     }, {
       "id" : "iam.resourceset.bindings.delete",
       "category" : "dda",
-      "description" : "Fired when an admin assignment is deleted. This event can be used to track and audit when an admin role assignment is deleted. When fired this event contains information about the deleted user or group admin assignments for roles associated with the resource set.",
+      "description" : "Admin assignment is deleted. This event can be used to track and audit when an admin role assignment is deleted. When fired this event contains information about the deleted user or group admin assignments for roles associated with the resource set.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6352,14 +6387,14 @@
     }, {
       "id" : "iam.resourceset.create",
       "category" : "dda",
-      "description" : "Fired when a new resource set is created. This event can be used to track and audit when a resource set is created. When fired this event contains information about the resources contained in the resource set that is created.",
+      "description" : "Resource set is created. This event can be used to track and audit when a resource set is created. When fired this event contains information about the resources contained in the resource set that is created.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6369,14 +6404,14 @@
     }, {
       "id" : "iam.resourceset.delete",
       "category" : "dda",
-      "description" : "Fired when a resource set is deleted. This event can be used to track and audit when a resource set is deleted. When fired this event contains information about the resources contained in the resource set that is deleted.",
+      "description" : "Resource set is deleted. This event can be used to track and audit when a resource set is deleted. When fired this event contains information about the resources contained in the resource set that is deleted.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6386,14 +6421,14 @@
     }, {
       "id" : "iam.resourceset.resources.add",
       "category" : "dda",
-      "description" : "Fired when resources are added to a resource set. This event can be used to audit the resources added to a resource set. When fired this event contains information about the resources added to the resource set.",
+      "description" : "Resources are added to a resource set. This event can be used to audit the resources added to a resource set. When fired this event contains information about the resources added to the resource set.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6403,14 +6438,14 @@
     }, {
       "id" : "iam.resourceset.resources.delete",
       "category" : "dda",
-      "description" : "Fired when resources are deleted from a resource set. This event can be used to audit the resources deleted from a resource set. When fired this event contains information about the resources deleted from the resource set.",
+      "description" : "Resources are deleted from a resource set. This event can be used to audit the resources deleted from a resource set. When fired this event contains information about the resources deleted from the resource set.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6420,14 +6455,14 @@
     }, {
       "id" : "iam.role.create",
       "category" : "dda",
-      "description" : "Fired when a new custom admin role is created. This event can be used to track and audit when a custom admin role is created. When fired this event contains information about the permissions contained in the role that is created.",
+      "description" : "Custom admin role is created. This event can be used to track and audit when a custom admin role is created. When fired this event contains information about the permissions contained in the role that is created.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6437,14 +6472,14 @@
     }, {
       "id" : "iam.role.delete",
       "category" : "dda",
-      "description" : "Fired when a custom admin role is deleted. This event can be used to track and audit when a custom admin role is deleted. When fired this event contains information about the permissions contained in the role that is deleted.",
+      "description" : "Custom admin role is deleted. This event can be used to track and audit when a custom admin role is deleted. When fired this event contains information about the permissions contained in the role that is deleted.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6454,14 +6489,14 @@
     }, {
       "id" : "iam.role.permissions.add",
       "category" : "dda",
-      "description" : "Fired when new permissions are added to a custom admin role. This event can be used to audit the permissions added to a custom admin role. When fired this event contains information about the permissions added to the role.",
+      "description" : "Permissions are added to a custom admin role. This event can be used to audit the permissions added to a custom admin role. When fired this event contains information about the permissions added to the role.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6471,14 +6506,14 @@
     }, {
       "id" : "iam.role.permissions.delete",
       "category" : "dda",
-      "description" : "Fired when permissions are deleted from a custom admin role. This event can be used to audit the permissions deleted from a custom admin role. When fired this event contains information about the permissions deleted from the role.",
+      "description" : "Permissions are deleted from a custom admin role. This event can be used to audit the permissions deleted from a custom admin role. When fired this event contains information about the permissions deleted from the role.",
       "info" : {
         "created" : "2021-02-05",
         "release" : "2021.02.2"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6640,7 +6675,7 @@
       }
     }, {
       "id" : "mim.command.generic.acknowledged",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6657,7 +6692,7 @@
       }
     }, {
       "id" : "mim.command.generic.cancelled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6674,7 +6709,7 @@
       }
     }, {
       "id" : "mim.command.generic.delegated",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6691,7 +6726,7 @@
       }
     }, {
       "id" : "mim.command.generic.error",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6708,7 +6743,7 @@
       }
     }, {
       "id" : "mim.command.generic.new",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6725,7 +6760,7 @@
       }
     }, {
       "id" : "mim.command.generic.notnow",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6742,7 +6777,7 @@
       }
     }, {
       "id" : "mim.command.ios.acknowledged",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6759,7 +6794,7 @@
       }
     }, {
       "id" : "mim.command.ios.cancelled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6776,7 +6811,7 @@
       }
     }, {
       "id" : "mim.command.ios.error",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6793,7 +6828,7 @@
       }
     }, {
       "id" : "mim.command.ios.formaterror",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6810,7 +6845,7 @@
       }
     }, {
       "id" : "mim.command.ios.new",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-03-25",
@@ -6827,7 +6862,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.ANDROID",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6844,7 +6879,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.IOS",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6861,7 +6896,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.OSX",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6878,7 +6913,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.UNKNOWN",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6895,7 +6930,7 @@
       }
     }, {
       "id" : "mim.createEnrollment.WINDOWS",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6912,7 +6947,7 @@
       }
     }, {
       "id" : "mim.streamDevicesAppListCSVDownload",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -6929,7 +6964,7 @@
       }
     }, {
       "id" : "mim.streamDevicesCSVDownload",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2016-09-20",
@@ -7150,7 +7185,7 @@
       }
     }, {
       "id" : "omm.app.VPN.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7167,7 +7202,7 @@
       }
     }, {
       "id" : "omm.app.WIFI.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7184,7 +7219,7 @@
       }
     }, {
       "id" : "omm.app.eas.cert_based.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7201,7 +7236,7 @@
       }
     }, {
       "id" : "omm.app.eas.disabled",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7218,7 +7253,7 @@
       }
     }, {
       "id" : "omm.app.eas.settings.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7235,7 +7270,7 @@
       }
     }, {
       "id" : "omm.cma.created",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7252,7 +7287,7 @@
       }
     }, {
       "id" : "omm.cma.deleted",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7269,7 +7304,7 @@
       }
     }, {
       "id" : "omm.cma.updated",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7286,7 +7321,7 @@
       }
     }, {
       "id" : "omm.enrollment.changed",
-      "category" : "mobile-omm",
+      "category" : "device-platform",
       "description" : "",
       "info" : {
         "created" : "2017-12-28",
@@ -7313,6 +7348,1434 @@
       "internal" : false,
       "tags" : [ "admin", "org" ],
       "mappings" : [ "org.not_configured_origin.redirection.usage" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_connection.create",
+      "category" : "asa",
+      "description" : "This event is triggered after an Active Directory Connection is created for discovering servers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_connection.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after an Active Directory Connection is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_connection.update",
+      "category" : "asa",
+      "description" : "his event is triggered after an Active Directory Connection is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_task_settings.create",
+      "category" : "asa",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_task_settings.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_task_settings.update",
+      "category" : "asa",
+      "description" : "This event is triggered after settings that are related to discovering servers in an Active Directory connection are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.ad_task_settings.update_schedule",
+      "category" : "asa",
+      "description" : "This event is triggered after the schedule for discovering Active Directory servers is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.apikey.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a service user's API key is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.apikey.rotate",
+      "category" : "asa",
+      "description" : "This event is triggered after a service user's API key is rotated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.auth_token.issue",
+      "category" : "asa",
+      "description" : "This event is triggered when an ASA client has been authenticated and is issued an authentication token with elevated capabilities.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.billing_contact.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a billing contact is created for an ASA team. This event is only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client.assign",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client is assigned to an ASA user.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client.enroll",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client is enrolled with ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client is removed from a team.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client.state.update",
+      "category" : "asa",
+      "description" : "This event is triggered after the state of an ASA client is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client_enrollment_policies.create",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client enrollment policy is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client_enrollment_policies.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client enrollment policy is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client_enrollment_policies.update",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client enrollment policy is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client_enrollment_policy_token.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client enrollment token is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.client_enrollment_policy_token.rotate",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client enrollment token is rotated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.cloud_account.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a project cloud account is created for importing servers into ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.cloud_account.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a cloud account has been removed from a project.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.cloud_account.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a cloud account, which is used for importing servers into ASA, is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.entitlement_sudo.add_to_project",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo entitlement object is added to a project.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.entitlement_sudo.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo entitlement object is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.entitlement_sudo.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo entitlement object is removed.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.entitlement_sudo.remove_from_project",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo entitlement object is removed from a project.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.entitlement_sudo.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo entitlement object is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.create",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA gateway is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA gateway is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.setup_token.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a gateway setup token is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.setup_token.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a gateway setup token is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.setup_token.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a gateway setup token is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway.update",
+      "category" : "asa",
+      "description" : "This event is triggered after settings are updated on an ASA gateway.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.gateway_creds.issue",
+      "category" : "asa",
+      "description" : "This event is triggered after the gateway issues credentials for a server.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.group.bulk_membership_change",
+      "category" : "asa",
+      "description" : "This event is triggered after the members belonging to an ASA group were updated in bulk by a SCIM driver.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.group.create",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA group is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.group.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA group is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.incoming_federation.approve",
+      "category" : "asa",
+      "description" : "This event is triggered when an ASA team admin from another team has approved a request to federate identities identities from their team to this team. Only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.incoming_federation.request",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA team admin submits a request to federate identities from a different team to their team. This event is only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.member.add",
+      "category" : "asa",
+      "description" : "This event is triggered after a user is added to an ASA group.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.member.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after a user is removed from an ASA group.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.offline_disabled_event",
+      "category" : "asa",
+      "description" : "This event is triggered after disconnected mode is disabled for a group.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.offline_enabled_event",
+      "category" : "asa",
+      "description" : "This event is triggered after disconnected mode is enabled for a group.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.offline_group.secrets.rotate",
+      "category" : "asa",
+      "description" : "This event is triggered after disconnected mode credentials are rotated for a group.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.outgoing_federation.approve",
+      "category" : "asa",
+      "description" : "This event is triggered when an ASA team admin from this team has approved a request to federate identities from this team to another team. Only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.password.change",
+      "category" : "asa",
+      "description" : "This event is triggered after a user password changed. This event is only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.password.reset",
+      "category" : "asa",
+      "description" : "This event is triggered after a user password reset request is submitted. This event is only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.permission.change",
+      "category" : "asa",
+      "description" : "This event is triggered after group permissions are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.preauthorization.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a preauthorization is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.preauthorization.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a preauthorization is updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.project.add_group",
+      "category" : "asa",
+      "description" : "This event is triggered after a group is added to a project.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.project.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a project is created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.project.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a project is deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.project.remove_group",
+      "category" : "asa",
+      "description" : "This event is triggered after a group is removed from a project.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.project_group_selector.update",
+      "category" : "asa",
+      "description" : "This event is triggered after server selectors for a group assigned to a project are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server.enroll",
+      "category" : "asa",
+      "description" : "This event is triggered after a server running the Okta ASA agent has enrolled with ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server.reassign",
+      "category" : "asa",
+      "description" : "This event is triggered after a server is reassigned from one project to another.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after a server is removed from the ASA inventory.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server.ssh_login",
+      "category" : "asa",
+      "description" : "This event is triggered after a user performs an SSH login to a server.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_labels.update",
+      "category" : "asa",
+      "description" : "This event is triggered after server labels are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.service.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a service bound to a service user is created on a server.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.service.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after a service is removed from a server.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a team is created in ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_group_attribute.create",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level group attributes are created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_group_attribute.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level group attributes are deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_group_attribute.update",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level group attributes are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_invitation.create",
+      "category" : "asa",
+      "description" : "This event is triggered after an invitation to join a team is sent. This event is only applicable to legacy ASA customers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_group_attribute.create",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level group attribute overrides are created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_group_attribute.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level group attribute overrides are deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_group_attribute.update",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level group attribute overrides are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_user_attribute.create",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level user attribute overrides are created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_user_attribute.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level user attribute overrides are deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_project_user_attribute.update",
+      "category" : "asa",
+      "description" : "This event is triggered after project-level user attribute overrides are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_settings.update",
+      "category" : "asa",
+      "description" : "This event is triggered after team settings are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_user_attribute.create",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level user attributes are created.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_user_attribute.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level user attributes are deleted.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.team_user_attribute.update",
+      "category" : "asa",
+      "description" : "This event is triggered after team-level user attributes are updated.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.unbound_client.enroll",
+      "category" : "asa",
+      "description" : "This event is triggered after an ASA client is enrolled by using the 'sft fleet enroll' command.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.unmanaged_server.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a server is created in ASA directly through the API and not by an ASA agent installation.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.user.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a user is created in ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.user.remove",
+      "category" : "asa",
+      "description" : "This event is triggered after a user is removed from ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.user.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a user is updated in ASA.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.user_creds.issue",
+      "category" : "asa",
+      "description" : "This event is triggered after ASA credentials are issued to access servers.",
+      "info" : {
+        "created" : "2022-02-01",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -7371,7 +8834,7 @@
       }
     }, {
       "id" : "pki.cert.issue",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate issuance.",
       "info" : {
         "created" : "2017-10-27",
@@ -7473,7 +8936,7 @@
       }
     }, {
       "id" : "pki.cert.renew",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate renewal.",
       "info" : {
         "created" : "2017-10-27",
@@ -7490,7 +8953,7 @@
       }
     }, {
       "id" : "pki.cert.revoke",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate revocation.",
       "info" : {
         "created" : "2017-10-27",
@@ -7678,7 +9141,7 @@
     }, {
       "id" : "policy.mapping.create",
       "category" : "idx",
-      "description" : "Create policy mapping. This event is used to audit when a policy is mapped to a resource. This event is fired when a policy is mapped to a resource.",
+      "description" : "Create policy mapping. This event is used to audit when a policy is mapped to a resource. This event is fired when a policy is mapped to a resource. The isPreviousPolicy attribute within the Policy Targets' Details denotes whether or not it was the previous or new policy being mapped.",
       "info" : {
         "created" : "2021-11-10",
         "release" : "2021.12.0"
@@ -7690,7 +9153,7 @@
       "schema" : {
         "debugData" : "PolicyDebugData",
         "actor" : null,
-        "targets" : [ "PolicyResourceDetails" ]
+        "targets" : [ "PolicyMappingDetails" ]
       }
     }, {
       "id" : "policy.rule.action.execute",
@@ -8828,6 +10291,23 @@
       "mappings" : [ "app.ldap.agent.disconnected" ],
       "schema" : {
         "debugData" : "LdapDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.agent.ldap.realtimesync",
+      "category" : "directories",
+      "description" : "Fired when LDAP Delegated Authentication is used to sign in and a user profile is updated using RealTimeSync action. Can be used by admins to identify user profile changes resulting from corresponding changes in the LDAP directory. The previous name for this event was system.agent.ad.realtimesync.",
+      "info" : {
+        "created" : "2022-01-05",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AdAgentGenericDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -10889,6 +12369,23 @@
         "targets" : null
       }
     }, {
+      "id" : "system.org.rate_limit.burst",
+      "category" : "performance",
+      "description" : "Fired when burst rate limit capacity is activated. This can be used to identify when an API in the Org exceeds standard rate limits and the frequency with which the activities occur. This event is fired after a corresponding warning event. If usage continues on this API the risk is hitting a rate limit violation which will fire a corresponding violation event. The event contains a burst rate limit threshold which informs how much capacity is remaining before a violation occurs.",
+      "info" : {
+        "created" : "2022-01-10",
+        "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "BurstRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.org.rate_limit.expiration.warning",
       "category" : "performance",
       "description" : "Rate limit approaching expiration date.",
@@ -11757,7 +13254,7 @@
       }
     }, {
       "id" : "user.authentication.authenticate",
-      "category" : "mobile-device-trust",
+      "category" : "device-platform",
       "description" : "Authentication via device trust certificate.",
       "info" : {
         "created" : "2017-10-25",
@@ -11825,7 +13322,7 @@
       }
     }, {
       "id" : "user.credential.enroll",
-      "category" : "desktop-device-trust",
+      "category" : "device-platform",
       "description" : "Device Trust certificate enrollment.",
       "info" : {
         "created" : "2017-10-27",
@@ -12591,7 +14088,7 @@
     }, {
       "id" : "workflows.user.table.create",
       "category" : "wax-insights",
-      "description" : "Triggered when a user creates a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user adds a new table.",
+      "description" : "This event can be used by any admin or security team member to monitor the creation of new tables in the Workflows platform. The target fields provide information on the user that created the table and the new table. Other table lifecycle events include workflows.user.table.view, workflows.user.table.update, and workflows.user.table.delete. Note that this event doesn't fire when a table is imported.  For that, users can reference workflows.user.table.import or workflows.user.folder.import.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12608,7 +14105,7 @@
     }, {
       "id" : "workflows.user.table.delete",
       "category" : "wax-insights",
-      "description" : "Triggered when a user deletes a table in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user deletes a table.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user deletes a table from the Workflows platform. The target fields provide information on the user that deleted the table and the table itself. Other table lifecycle events include workflows.user.table.view, workflows.user.table.update, and workflows.user.table.create.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12625,7 +14122,7 @@
     }, {
       "id" : "workflows.user.table.export",
       "category" : "wax-insights",
-      "description" : "Triggered when a user exports a table from Workflows. Can be used to audit user activity in Workflows. This is triggered by exporting a table as part of a flowpack.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user exports table data from the Workflows platform using the Tables interface. The target fields provide information on the user that exported the table and the table itself. Related events include workflows.user.table.import, workflows.user.folder.import, and workflows.user.folder.export. Note that exports through the table interface include table data, while exporting tables as part of folder export does not.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12642,7 +14139,7 @@
     }, {
       "id" : "workflows.user.table.import",
       "category" : "wax-insights",
-      "description" : "Triggered when a user imports a table into Workflows. Can be used to audit user activity in Workflows. This is triggered by importing a table included in a flowpack.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user imports table data into the Workflows platform using the Tables interface. The target fields provide information on the user that imported the table and the table itself. Related events include workflows.user.table.export, workflows.user.folder.export, and workflows.user.folder.import. Note that importing through the table interface requires an existing schema and is used to import the data from a .csv file.  This event does not fire as part of workflows.user.folder.import.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12659,7 +14156,7 @@
     }, {
       "id" : "workflows.user.table.update",
       "category" : "wax-insights",
-      "description" : "Triggered when a user updates a table's schema in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user adds, removes, or renames columns.",
+      "description" : "This event can be used by any admin or security team member to monitor when a user updates a table's schema on the Workflows platform. The target fields provide information on the user that updated the table and the table itself. Other table lifecycle events include workflows.user.table.view, workflows.user.table.create, and workflows.user.table.delete. Note that this event does not include information about what was updated, only that the table name or columns were modified. It does not fire when the table data itself is updated.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12676,7 +14173,7 @@
     }, {
       "id" : "workflows.user.table.view",
       "category" : "wax-insights",
-      "description" : "Triggered when a user views a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a table is accessed by a user.",
+      "description" : "This event can be used by any admin or security team member to monitor the viewing of table data in the Workflows platform. The target fields provide information on the user that viewed the table and which table was viewed. Other table lifecycle events include workflows.user.table.create, workflows.user.table.update, and workflows.user.table.delete. Note that this event only fires when a user manually accesses a table.  It does not fire when table data is accessed using the Workflows Table functions.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -14554,6 +16051,211 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "5000", "10000", "100000" ]
+          }
+        }
+      },
+      "BurstRateLimitDebugData" : {
+        "name" : "BurstRateLimitDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "user_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:userId",
+            "examples" : [ "00ura3zeedtL1tjut0h7", "00urdiw7ulE1reI7a0h7" ]
+          },
+          "burst_rate_limit_url_pattern" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "/api/v1/authn", "/oauth2/{authorizationServerId}/v1/authorize" ]
+          },
+          "time_span" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "5", "10" ]
+          },
+          "time_unit" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MINUTES" ]
+          },
+          "burst_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "8000", "10000" ]
+          },
+          "base_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "600", "1000", "1200", "2000" ]
+          },
+          "burst_rate_limit_expiration_date" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2020-07-30T18:19:17.000Z" ]
           }
         }
       },
@@ -16528,6 +18230,22 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "flow_continuation" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "originating tab", "new tab" ]
+          },
+          "verification" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "link clicked", "code entered" ]
+          },
           "same_browser" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -18231,6 +19949,352 @@
           }
         }
       },
+      "IgaCampaignDebugData" : {
+        "name" : "IgaCampaignDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "campaign_template_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Office 365 access certification" ]
+          },
+          "campaign_template_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "icpaNbQEVJS26nGxY0g1" ]
+          },
+          "campaign_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Mid-term office 365 access certification" ]
+          },
+          "campaign_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "ici1jznGPPtkT3aOS0g3" ]
+          }
+        }
+      },
+      "IgaCampaignTemplateDebugData" : {
+        "name" : "IgaCampaignTemplateDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "campaign_template_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Office 365 access certification" ]
+          },
+          "campaign_template_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "icpaNbQEVJS26nGxY0g1" ]
+          }
+        }
+      },
       "IgaReviewerDebugData" : {
         "name" : "IgaReviewerDebugData",
         "properties" : {
@@ -18378,6 +20442,38 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "campaign_template_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Office 365 access certification" ]
+          },
+          "campaign_template_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "icpaNbQEVJS26nGxY0g1" ]
+          },
+          "campaign_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Mid-term office 365 access certification" ]
+          },
+          "campaign_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "ici1jznGPPtkT3aOS0g3" ]
+          },
           "campaign_item_principal_name" : {
             "type" : "String",
             "sensitive" : true,
@@ -18409,38 +20505,6 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "David Letterman" ]
-          },
-          "campaign_template_name" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "text",
-            "examples" : [ "Office 365 access certification" ]
-          },
-          "campaign_template_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "id",
-            "examples" : [ "ctp1jznGPPtkT3aOS0g3" ]
-          },
-          "campaign_name" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "text",
-            "examples" : [ "Mid-term office 365 access certification" ]
-          },
-          "campaign_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "id",
-            "examples" : [ "icr1jznGPPtkT3aOS0g3" ]
           },
           "campaign_item_resource_status" : {
             "type" : "String",
@@ -19684,6 +21748,38 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "resource" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "api://default" ]
+          },
+          "actor_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:x-oath:params:oauth:token-type:device-secret" ]
+          },
+          "subject_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:ietf:params:oauth:token-type:id_token" ]
+          },
+          "requested_token_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "urn:ietf:params:oauth:token-type:access_token", "urn:okta:oauth:token-type:web_sso_token" ]
           },
           "client_secret" : {
             "type" : "String",
@@ -27110,6 +29206,35 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle" ]
+          }
+        }
+      },
+      "PolicyMappingDetails" : {
+        "name" : "PolicyMappingDetails",
+        "properties" : {
+          "policy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle", "ACCESS_POLICY", "PROFILE_ENROLLMENT" ]
+          },
+          "action_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "updateUserLifecycle", "notify" ]
+          },
+          "previous_policy" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
           }
         }
       },
