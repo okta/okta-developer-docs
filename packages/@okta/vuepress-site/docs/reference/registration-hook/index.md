@@ -214,6 +214,8 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ## Sample JSON payload of request
 
+> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`, depending on your settings in the Admin Console. <!-- See [link] -->
+
 ```json
 {
   "eventId": "GOsk4z6tSSeZo6X08MvKaw",
@@ -223,6 +225,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
   "contentType": "application/json",
   "cloudEventVersion": "0.1",
   "source": "reghawlks3zOkRrau0h7",
+  "requestType": "self.service.registration",
   "data": {
     "context": {
       "request": {
