@@ -6,6 +6,8 @@ layout: Guides
 
 This guide explains how to customize and style the default Okta email notifications.
 
+<!-- huh wut -->
+
 ---
 
 **Learning outcomes**
