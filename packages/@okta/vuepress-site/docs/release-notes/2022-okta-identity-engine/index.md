@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bug fixed in 2022.04.3
 
-* When an unsupported [constraint](/docs/reference/api/policy/#constraints) was added to the Authentication policy verification method, an error wasn't returned from the Policy API.  (OKTA-434893)
+* When an unsupported [constraint](/docs/reference/api/policy/#constraints) was added to the authentication policy verification method, an error wasn't returned from the Policy API.  (OKTA-434893)
 
 ### Weekly release 2022.04.1
 
