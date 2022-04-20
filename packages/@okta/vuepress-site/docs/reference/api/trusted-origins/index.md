@@ -630,7 +630,7 @@ Updates an existing Trusted Origin
 
 #### Request example
 
-```json
+```bash
 curl -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
