@@ -55,7 +55,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
     "contentType": "application/json",
     "cloudEventVersion": "0.1",
     "source": "rul1bufGk5dJdRYw50g4",
-    "requestType": "self.service.registration",
+    "requestType": "progressive.profile",
     "data": {
         "context": {
             "request": {

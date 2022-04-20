@@ -225,7 +225,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
   "contentType": "application/json",
   "cloudEventVersion": "0.1",
   "source": "reghawlks3zOkRrau0h7",
-  "requestType": "self.service.registration",
+  "requestType": "progressive.profile",
   "data": {
     "context": {
       "request": {
