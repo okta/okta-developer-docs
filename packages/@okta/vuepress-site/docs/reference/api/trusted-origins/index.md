@@ -1004,7 +1004,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | The Scope type, which can be either "CORS" or "REDIRECT" or "IFRAME_EMBED". "IFRAME_EMBED" scope object can also have "allowedOktaApps" field of type array that can be left empty to allow embedding of sign-in pages only in an iframe, this field can also have this value ["OKTA_ENDUSER"] to allow embedding of both sign-in as well as EndUser dashboard pages in an iframe.                    | String                            | Yes      |
+| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, you can leave the `allowedOktaApps` property empty to allow the embedding of only sign-in pages in an iFrame. You can also include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow the embedding of both sign-in pages and the Okta End-User Dashboard in an iFrame.                    | String                            | Yes      |
 
 #### Scope object example (CORS)
 
