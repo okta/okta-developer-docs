@@ -83,7 +83,7 @@ curl -X POST \
 
 #### Invalid request example
 
-```json
+```bash
 curl -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
