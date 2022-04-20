@@ -42,6 +42,8 @@ The outbound call from Okta to your external service includes the following obje
 
 OTP request or event for which this transaction is being requested: self-service registration or progressive profile.
 
+Values for `requestType` are one of the following:
+
 | Enum Value | Associated Okta Event |
 |----------|-------------------------------------------------------|
 | `self.service.registration` | Self-service registration |
