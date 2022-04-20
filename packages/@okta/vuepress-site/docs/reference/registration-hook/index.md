@@ -38,6 +38,15 @@ The Okta Registration Inline Hook allows you to integrate your own custom code i
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
+### requestType
+
+OTP request or event for which this transaction is being requested: self-service registration or progressive profile.
+
+| Enum Value | Associated Okta Event |
+|----------|-------------------------------------------------------|
+| `self.service.registration` | Self-service registration |
+| `progressive.profile` | Progressive profile |
+
 ### data.userProfile
 
 This object appears in self-service registration (SSR) requests from Okta. The object contains name-value pairs for each registration-related attribute supplied by the user in the Profile Enrollment form, including:
