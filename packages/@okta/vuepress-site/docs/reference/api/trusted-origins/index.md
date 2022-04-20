@@ -19,7 +19,7 @@ Creates a new Trusted Origin
 
 #### Valid request example
 
-```json
+```bash
 curl -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
