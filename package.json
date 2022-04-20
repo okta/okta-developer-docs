@@ -35,7 +35,6 @@
     "chai": "^4.3.6",
     "chai-as-promised": "*",
     "chalk": "^2.4.2",
-    "cross-env": "^5.2.0",
     "cypress": "^9.5.3",
     "if-env": "^1.0.4",
     "jest": "^27.5.1",
