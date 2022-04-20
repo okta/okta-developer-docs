@@ -23,7 +23,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Sample code**
 
-[Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook?path=README.md)
+[Okta Registration Inline Hook Example](https://glitch.com/edit/#!/hypnotic-healthy-hadrosaurus?path=README.md%3A1%3A0)
 
 ---
 
