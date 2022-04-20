@@ -120,7 +120,7 @@ curl -X POST \
 
 #### Valid request example with iFrame embedding
 
-Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the type of Okta resource is the Okta End-User Dashboard.
+Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the type of Okta resource is both the Okta End-User Dashboard and the Okta sign-in page.
 
 
 ```bash
@@ -146,7 +146,32 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-#### Successful response example with iFrame embedding
+Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the Okta resource is the Okta sign-in page.
+
+```json
+curl -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "New Trusted Origin",
+  "origin": "http://example.com",
+  "scopes": [
+    {
+      "type": "CORS"
+    },
+    {
+      "type": "REDIRECT"
+    },
+    {
+      "type": "IFRAME_EMBED",
+      "allowedOktaApps": []
+    }
+  ]
+}' "https://${yourOktaDomain}/api/v1/trustedOrigins"
+```
+
+#### Successful response example with iFrame embedding (End-User Dashboard and Okta sign-in page)
 
 ```json
 {
@@ -164,6 +189,53 @@ curl -X POST \
         {
             "type": "IFRAME_EMBED",
             "allowedOktaApps": ["OKTA_ENDUSER"]
+        }
+    ],
+    "created": "2018-01-13T01:11:44.000Z",
+    "createdBy": "00ut5t92p6IEOi4bu0g3",
+    "lastUpdated": "2018-01-13T01:11:44.000Z",
+    "lastUpdatedBy": "00ut5t92p6IEOi4bu0g3",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/trustedOrigins/tos10hu7rkbtrFt1M0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Successful response example with iFrame embedding (Okta sign-in page)
+
+```json
+{
+    "id": "tos10hu7rkbtrFt1M0g4",
+    "name": "New Trusted Origin",
+    "origin": "http://example.com",
+    "status": "ACTIVE",
+    "scopes": [
+        {
+            "type": "CORS"
+        },
+        {
+            "type": "REDIRECT"
+        },
+        {
+            "type": "IFRAME_EMBED",
+            "allowedOktaApps": []
         }
     ],
     "created": "2018-01-13T01:11:44.000Z",
@@ -1004,7 +1076,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, you can leave the `allowedOktaApps` property empty to allow the embedding of only sign-in pages in an iFrame. You can also include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow the embedding of both sign-in pages and the Okta End-User Dashboard in an iFrame.                    | String                            | Yes      |
+| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, you can leave the `allowedOktaApps` property empty to allow the embedding of only Okta sign-in pages in an iFrame. You can also include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow the embedding of both Okta sign-in pages and the Okta End-User Dashboard in an iFrame.                    | String                            | Yes      |
 
 #### Scope object example (CORS)
 
@@ -1024,7 +1096,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 #### Scope object example (IFRAME_EMBED)
 
-Allows you to embed sign-in pages and the Okta End-User Dashboard in an iFrame
+Allows you to embed Okta sign-in pages and the Okta End-User Dashboard in an iFrame
 
 ```json
 {
@@ -1035,7 +1107,7 @@ Allows you to embed sign-in pages and the Okta End-User Dashboard in an iFrame
 
 #### Scope object example (IFRAME_EMBED)
 
-Allows you to embed only sign-in pages in an iFrame
+Allows you to embed only Okta sign-in pages in an iFrame
 
 ```json
 {
