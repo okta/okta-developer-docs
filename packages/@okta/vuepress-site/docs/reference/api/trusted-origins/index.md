@@ -148,7 +148,7 @@ curl -X POST \
 
 Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the Okta resource is the Okta sign-in page.
 
-```json
+```bash
 curl -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
@@ -1076,7 +1076,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, you can leave the `allowedOktaApps` property empty to allow the embedding of only Okta sign-in pages in an iFrame. You can also include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow the embedding of both Okta sign-in pages and the Okta End-User Dashboard in an iFrame.                    | String                            | Yes      |
+| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, you can leave the `allowedOktaApps` property empty to allow the embedding of only Okta sign-in pages in an iFrame. Include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow the embedding of both Okta sign-in pages and the Okta End-User Dashboard in an iFrame.                    | String                            | Yes      |
 
 #### Scope object example (CORS)
 
@@ -1096,7 +1096,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 #### Scope object example (IFRAME_EMBED)
 
-Allows you to embed Okta sign-in pages and the Okta End-User Dashboard in an iFrame
+Allows you to embed both Okta sign-in pages and the Okta End-User Dashboard in an iFrame
 
 ```json
 {
