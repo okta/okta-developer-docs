@@ -13,6 +13,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 **Learning outcomes**
 
 * Understand the Okta Registration Inline Hook calls and responses.
+* Understand the flows for self-service registration and progressive profile.
 * Implement a simple working example of a Registration Inline Hook with a Glitch.com project.
 * Preview and test a Registration Inline Hook.
 
