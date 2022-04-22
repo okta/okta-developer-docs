@@ -83,9 +83,7 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 | Type of Application     | OAuth 2.0 flow / grant type                      | Access Token?    | ID Token?     |
 | ----------------------- | ------------------------------------------------ | ---------------- | ------------- |
-| Server-side (aka Web)   | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) when using Identity Engine and you want your app to manage user interactions with the authorization server directly                | &#9989;          | &#9989;      |
-| Single-Page Application | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
-| Native                  | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
+| Server-side (aka Web), <br><br> Single-Page Application, <br><br> or Native | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) when using Identity Engine and you want your app to manage user interactions with the authorization server directly.                | &#9989;          | &#9989;      |
 | Trusted                 | [Resource Owner Password](#resource-owner-password-flow)            | &#9989;          | &#9989;      |
 | Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
