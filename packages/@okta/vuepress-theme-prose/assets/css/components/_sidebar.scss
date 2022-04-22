@@ -16,8 +16,30 @@
   min-height: 100%;
   padding: 29px 1rem 3rem 26px;
   font-size: 14px;
-  background: cv('body');
-
+  background: cv('body', 'sidebar');
+  &-toggle {
+    position: absolute;
+    right: 14px;
+    top: 27px;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    background-color: cv('body', 'sidebar-toggle');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      transform: rotate(180deg);
+    }
+    &.active {
+      right: 0;
+      background-color: transparent;
+      svg {
+        transform: rotate(0);
+      }
+    }
+  }
   @include media("<desktop-xl") {
     padding-left: 16px;
   }
@@ -28,6 +50,9 @@
   }
   .sections {
     margin-left: 17px;
+    &.active {
+      display: none;
+    }
     &:first-child {
       & > .link-wrap > .tree-nav-link {
         &> .text-holder {

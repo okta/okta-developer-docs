@@ -1,5 +1,18 @@
 .tree-nav {
   background-color: cv("code");
+  position: relative;
+  &-toggle {
+    svg {
+      path {
+        &:nth-child(1) {
+          fill: cv('white')
+        }
+        &:nth-child(2) {
+          fill: cv('link')
+        }
+      }
+    }
+  }
   .sections {
     .tree-nav-link {
       color: cv("link", "light");
