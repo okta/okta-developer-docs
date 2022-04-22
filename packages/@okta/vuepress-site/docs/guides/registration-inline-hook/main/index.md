@@ -12,9 +12,8 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Learning outcomes**
 
-* Understand the Okta Registration Inline Hook calls and responses.
-* Understand the flows for self-service registration and progressive profile.
-* Implement a simple working example of a Registration Inline Hook with a Glitch.com project.
+* Understand the Okta Inline Hook calls and responses for self-service registration and progressive profile.
+* Implement simple working examples of a Registration Inline Hook with a Glitch.com project.
 * Preview and test a Registration Inline Hook.
 
 **What you need**
@@ -28,7 +27,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 ---
 
-## About Registration Inline Hook implementation
+## About Registration Inline Hooks
 
 In the following example, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
 
@@ -39,7 +38,7 @@ At a high-level, the following workflow occurs:
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-## Add Progressive Profile request code
+## Add request code
 
 This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration) or update their profile (Progressive Profile).
 
@@ -100,7 +99,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 > **Note:** The method definition that begins in this code snippet is incomplete. See [Send Progressive Profile response](#send-progressive-profile-response).
 
-## Send Progressive Profile response
+## Send response
 
 The external service responds to Okta indicating whether to accept the user self-registration or profile update by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
 
