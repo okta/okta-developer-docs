@@ -1,6 +1,7 @@
 export const concepts = [
   {
     title: "Concepts",
+    path: "/docs/concepts/",
     subLinks: [
       {
         title: "Concepts overview",
@@ -123,6 +124,7 @@ export const concepts = [
 export const guides = [
   {
     title: "Guides",
+    path: "/docs/guides/",
     subLinks: [
       { title: "Guides overview", path: "/docs/guides/" },
       { title: "Quickstart", guideName: "quickstart" },
@@ -783,6 +785,7 @@ export const guides = [
 export const languagesSdk = [
   {
     title: "Languages & SDKs",
+    path: "/code/",
     subLinks: [
       { title: "Overview", path: "/code/" },
       {
@@ -821,6 +824,7 @@ export const languagesSdk = [
 export const reference = [
     {
     title: "Reference",
+    path: "/docs/reference/",
     subLinks: [
       { title: "Overview", path: "/docs/reference/" },
       {
@@ -918,7 +922,11 @@ export const reference = [
       {
         title: 'Advanced Server Access API',
         subLinks: [
-           {
+          {
+            title: "ASA Overview",
+            path: "/docs/reference/api/asa/"
+          },
+          {
             title: "Introduction to the Advanced Server Access API",
             path: "/docs/reference/api/asa/introduction/"
           },
@@ -1005,6 +1013,7 @@ export const reference = [
 export const releaseNotes = [
   {
     title: "Release Notes",
+    path: "/docs/release-notes/",
     subLinks: [
       { title: "Overview", path: "/docs/release-notes/" },
       { title: "2022", path: "/docs/release-notes/2022/" },
