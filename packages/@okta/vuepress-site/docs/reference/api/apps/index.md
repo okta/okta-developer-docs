@@ -7131,7 +7131,7 @@ The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated 
 * When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
 * When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds to the **Okta Simplified** option in the Admin Console.
 
-  > **Note:** For web and SPA app integrations, if the mode is `SPEC` or `OKTA`, you need to set `grant_types` to `authorization code`, `implicit` or `interaction code`.
+  > **Note:** For web and SPA app integrations, if the mode is `SPEC` or `OKTA`, you need to set `grant_types` to `authorization code`, `implicit`, or `interaction code`.
 
 * The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
 
