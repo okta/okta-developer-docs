@@ -1,4 +1,4 @@
-### 1: Initiate a use case requiring authentication
+### 1: Start challenge flow
 
 The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with calls to `IDXAuthenticatorWrapper.begin()`, `AuthenticationResponse.getProceedContext()`, and `IDXAuthenticatorWrapper.authenticate()`.
 
@@ -64,7 +64,7 @@ AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthentic
 
 ```
 
-### 4: Pull challenge and other data from the response
+### 4: Receive data for getting the credential
 
 The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. The code below shows an example response. Additionally, `AuthenticationResponse` returns the challenge, credential Id, and other information needed to verify the WebAuthn credentials on the user's device.
 
@@ -145,7 +145,7 @@ function strToBin(str) {
 }
 ```
 
-### 7: Get credential and create cryptographic signature
+### 7: Receive credential and create cryptographic signature
 
 Call the Web Authentication API's `navigator.credentials.get()` in the client browser and pass in the `CredentialRequestOptions` object created in the previous step.
 

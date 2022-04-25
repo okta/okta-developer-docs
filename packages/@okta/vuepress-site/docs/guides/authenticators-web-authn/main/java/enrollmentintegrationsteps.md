@@ -1,4 +1,4 @@
-### 1: Initiate a use case requiring authentication
+### 1: Start enrollment flow
 
 The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with calls to `IDXAuthenticatorWrapper.begin()`, `AuthenticationResponse.getProceedContext()`, and `IDXAuthenticatorWrapper.authenticate()`.
 
@@ -11,7 +11,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
           new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-### 2: Display WebAuthn authenticator option
+### 2: Display WebAuthn option
 
 After the user submits their password, make a call to `IDXAuthenticationWrapper.verifyAuthenticator()` to verify their password. If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `verifyAuthenticator()` returns an `AuthenticationResponse` object with `authenticationStatus` set to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and `authenticators` including a `webauthn` authenticator item.
 
@@ -52,7 +52,7 @@ Authenticator selection page example from the sample app:
 
 </div>
 
-### 3: Submit WebAuthn authenticator option
+### 3:  Submit WebAuthn option
 
 When the user selects the WebAuthn option and clicks submit, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator Id returned from `AuthenticationResponse.authenticators[n].factors[n].id` in the previous step.
 
@@ -65,7 +65,7 @@ AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthentic
 
 ```
 
-### 4: Get data for creating a new credential
+### 4: Receive data for creating a new credential
 
 The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. Additionally, `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
