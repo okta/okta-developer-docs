@@ -4,6 +4,8 @@ guides:
  - add-an-external-idp
  - archive-auth-js
  - archive-embedded-siw
+ - archive-registration-inline-hook
+ - archive-set-up-self-service-registration
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy

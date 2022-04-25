@@ -10,3 +10,8 @@ excerpt: The classic archive contains Okta classic-compatible versions of docume
 * [Sign in to SPA with Auth JS](/docs/guides/archive-sign-in-to-spa-authjs/-/main/): This guide will walk you through integrating authentication into a single-page app with the Auth JS SDK.
 * [Sign in to SPA with embedded Widget](/docs/guides/archive-sign-in-to-spa-embedded-widget/-/main/): This guide will walk you through integrating authentication into a single-page app with the Embedded Sign-In Widget.
 * [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy/): This guide explains how to add and configure Okta sign-on policies and app sign-on policies to your [Okta organization](http://localhost:8080/docs/concepts/okta-organizations/), and what the policies are used for.
+
+## Self-service registration guides
+
+* [Set up self-service registration](/docs/guides/archive-set-up-self-service-registration/main/): This guide explains how to set up Okta's self-service registration (SSR) functionality.
+* [Registration Inline Hook](/docs/guides/archive-registration-inline-hook/main/): This guide provides a working example of an Okta Registration Inline Hook.
