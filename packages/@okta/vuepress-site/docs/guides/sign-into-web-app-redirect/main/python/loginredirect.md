@@ -21,12 +21,22 @@ The sign-out button only displays if the user is signed in and vice versa.
 ```py
 @app.route("/login")
 def login():
+    # store app state and code verifier in session
+    session['app_state'] = secrets.token_urlsafe(64)
+    session['code_verifier'] = secrets.token_urlsafe(64)
+
+    # calculate code challenge
+    hashed = hashlib.sha256(session['code_verifier'].encode('ascii')).digest()
+    encoded = base64.urlsafe_b64encode(hashed)
+    code_challenge = encoded.decode('ascii').strip('=')
+
     # get request params
     query_params = {'client_id': config["client_id"],
                     'redirect_uri': config["redirect_uri"],
                     'scope': "openid email profile",
-                    'state': APP_STATE,
-                    'nonce': NONCE,
+                    'state': session['app_state'],
+                    'code_challenge': code_challenge,
+                    'code_challenge_method': 'S256',
                     'response_type': 'code',
                     'response_mode': 'query'}
 
@@ -48,11 +58,15 @@ Your login handler generates the link URI and redirects the user to Okta's hoste
 def callback():
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     code = request.args.get("code")
+    app_state = request.args.get("state")
+    if app_state != session['app_state']:
+        return "The app state does not match"
     if not code:
             return "The code was not returned or is not accessible", 403
     query_params = {'grant_type': 'authorization_code',
                     'code': code,
-                    'redirect_uri': request.base_url
+                    'redirect_uri': request.base_url,
+                    'code_verifier': session['code_verifier'],
                     }
     query_params = requests.compat.urlencode(query_params)
     exchange = requests.post(
