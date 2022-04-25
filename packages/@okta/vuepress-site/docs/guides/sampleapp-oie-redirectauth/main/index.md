@@ -151,7 +151,7 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 > **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
-#### Understand the magic link flow
+<!-- #### Understand the magic link flow
 
 Before integrating email magic links in your app, it's important to understand how your app's user journey starts and ends. An example user journey for a sign-in with email use case:
 
@@ -161,9 +161,9 @@ Before integrating email magic links in your app, it's important to understand h
 
 The following diagram illustrates these steps:
 
-![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title")
+![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
 
-#### Try the email magic link recovery flow
+Try the email magic link recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
@@ -187,8 +187,6 @@ Try out the email password recovery flow:
 ### Okta Verify recovery flow
 
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
-
-<!-- Needs a link to verify setup as recovery option -->
 
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
