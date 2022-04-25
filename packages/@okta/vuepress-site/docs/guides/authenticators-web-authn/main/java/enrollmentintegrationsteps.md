@@ -1,4 +1,4 @@
-### 1: Initiate use case requiring authentication
+### 1: Initiate a use case requiring authentication
 
 The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with calls to `IDXAuthenticatorWrapper.begin()`, `AuthenticationResponse.getProceedContext()`, and `IDXAuthenticatorWrapper.authenticate()`.
 
@@ -44,7 +44,7 @@ Use the `type` and `label` properties to show the available list of authenticato
 </tr>
 ```
 
-Authenticator selection page from the sample app:
+Authenticator selection page example from the sample app:
 
 <div class="common-image-format">
 
@@ -67,10 +67,7 @@ AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthentic
 
 ### 4: Get data for creating a new credential
 
-The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. The code below shows an example response. Additionally, `AuthenticationResponse` returns the challenge, credential Id, and other information needed to verify the WebAuthn credentials on the user's device.
-
-
-The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` contains information needed to create a WebAuthn credential on the client. Specifically, `AuthenticationResponse.webAuthnParams.currentAuthenticator.value.contextualData.activationData.challenge` contains the randomly generated challenge.
+The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. Additionally, `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
 ```json
 {
@@ -86,8 +83,8 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 					"activationData": {
 						"user": {
 							"id": "00uunttkoePFgXjQO696",
-							"name": "robnicolo+2022-jd135@gmail.com",
-							"displayName": "John Doe 135"
+							"name": "johndoe@email.com",
+							"displayName": "John Doe"
 						},
 						"challenge": "pMhDjTZmaxwBYqLe4-mpOSCVbafd..."
 					}
@@ -100,9 +97,9 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that creates the WebAuthn credentials. Allow this page access the `AuthenticationResponse` properties. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to build out the page. Specifically, the app does the following:
+Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. Using the [Thymeleaf](https://www.thymeleaf.org/) template engine, the sample app does explicitly the following:
 
-1. Calls `ModelandView.addObject` and adds the `currentAuthenticator` property. This property is used later in the page to extract the `challenge` and other information.
+1. Calls `ModelandView.addObject` and adds the `AuthenticationResponse.currentAuthenticator` property, which is used later to extract the `challenge` and other information.
 
   ```java
   modelAndView = new ModelAndView("enroll-webauthn-authenticator");
@@ -111,7 +108,7 @@ Redirect the user to a page that creates the WebAuthn credentials. Allow this pa
           enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
   ```
 
-1. Sets client-side javascript variables
+2. Sets client-side javascript variables to values originating from `currentAuthenticator`.
 
   ```javascript
     <script th:inline="javascript">
@@ -122,7 +119,7 @@ Redirect the user to a page that creates the WebAuthn credentials. Allow this pa
    </script>
   ```
 
-  As an example, the [Thymeleaf](https://www.thymeleaf.org/) template engine renders the following javascript.
+  As an example, the above javascript renders the following javascript.
 
   ```javascript
   const challenge = "ktbYamV1etMLBrLKIVD4xKvkDrL...";
@@ -133,7 +130,7 @@ Redirect the user to a page that creates the WebAuthn credentials. Allow this pa
 
 ### 6: Build parameter for creating a new credential
 
-On page load, build the parameter needed to create a new credential. Use the `challenge` and `user.id` properties to create this parameter.
+On page load, create the parameter needed to make a new credential. When creating this parameter, use the `challenge` and `user.id` properties.
 
 ```javascript
 const publicKeyCredentialCreationOptions = {
@@ -149,6 +146,10 @@ const publicKeyCredentialCreationOptions = {
     },
     pubKeyCredParams: [{alg: -7, type: "public-key"}],
 };
+
+function strToBin(str) {
+    return Uint8Array.from(atob(base64UrlSafeToBase64(str)), c => c.charCodeAt(0));
+}
 ```
 
 ### 7: Create a new credential
@@ -171,7 +172,7 @@ This call initiates the following steps:
 
 </div>
 
-2. After the user chooses the authenticator, the device's local authenticator asks the user for consent to create the credentials. In the following example, the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
+2. After the user chooses the authenticator, the device's local authenticator asks for consent to create the credentials. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 
@@ -179,7 +180,7 @@ This call initiates the following steps:
 
 </div></br>
 
-3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` that contains the public key, credential ID, and other information used to associate the new credential with the server and browser.
+3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` containing the public key, credential ID, and other information used to associate the new credential with the server and browser.
 
 ```json
 {
@@ -192,7 +193,7 @@ This call initiates the following steps:
 }
 ```
 
-### 8: Build parameter for sending the public key to the Okta server
+### 8: Build the parameter for sending the public key to the Okta server
 
 The returned `PublicKeyCredential` object contains the signature and other binary formatted data that you need to convert to strings before sending it back to the Okta servers. The sample app uses client-side javascript to convert this data into a variable.
 
@@ -227,7 +228,7 @@ fetch("/enroll-webauthn", options)
                 .then(res => {
 ```
 
-1. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature and store the credential ID and public key in association with the user's account.
+2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature and store the credential ID and public key associated with the user's account.
 
 ```java
 ProceedContext proceedContext = Util.getProceedContextFromSession(session);
@@ -236,4 +237,4 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyW
   proceedContext, webauthnRequest);
 ```
 
-1. If the enrollment was successfull, the returned `AuthenticationResponse` object should indicate an `authenticationStatus` of `SUCCESS` with token information.
+3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return `SUCCESS` for `authenticationStatus` along with token information or another status indicating there are additional remediation steps to complete.

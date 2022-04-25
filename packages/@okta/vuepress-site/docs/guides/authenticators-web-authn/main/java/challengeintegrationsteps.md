@@ -1,4 +1,4 @@
-### 1: Initiate use case requiring authentication
+### 1: Initiate a use case requiring authentication
 
 The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with calls to `IDXAuthenticatorWrapper.begin()`, `AuthenticationResponse.getProceedContext()`, and `IDXAuthenticatorWrapper.authenticate()`.
 
@@ -43,7 +43,7 @@ Use the `type` and `label` properties to show the available list of authenticato
 </tr>
 ```
 
-Authenticator selection page from the sample app:
+Authenticator selection page example from the sample app:
 
 <div class="common-image-format">
 
@@ -64,7 +64,7 @@ AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthentic
 
 ```
 
-### 4: Pull challenge and other data from response
+### 4: Pull challenge and other data from the response
 
 The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. The code below shows an example response. Additionally, `AuthenticationResponse` returns the challenge, credential Id, and other information needed to verify the WebAuthn credentials on the user's device.
 
@@ -96,9 +96,9 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `AuthenticationResponse.webAuthnParams.currentAuthenticator.contextualData.challengeData` and  `AuthenticationResponse.webAuthnParams.webauthnCredentialId`. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to build out the page. Specifically, the app does the following:
+Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `AuthenticationResponse.webAuthnParams.currentAuthenticator.contextualData.challengeData` and  `AuthenticationResponse.webAuthnParams.webauthnCredentialId`. Using the [Thymeleaf](https://www.thymeleaf.org/) template engine, the sample app specifically does the following:
 
-1. Calls `ModelandView.addObject` and adds the `challengeData` and other properties.
+1. Calls `ModelandView.addObject` and adds the `webauthnCredentialId` and `challengeData` information.
 
   ```java
   String webauthnCredentialId = enrollResponse.getWebAuthnParams().getWebauthnCredentialId();
@@ -109,7 +109,7 @@ Redirect the user to a page that verifies the WebAuthn credentials. Allow this p
           .getCurrentAuthenticator().getValue().getContextualData().getChallengeData());
   ```
 
-1. Sets client-side javascript variables
+2. Sets client-side javascript variables
 
   ```javascript
     <script th:inline="javascript">
@@ -118,7 +118,7 @@ Redirect the user to a page that verifies the WebAuthn credentials. Allow this p
    </script>
   ```
 
-  As an example, the [Thymeleaf](https://www.thymeleaf.org/) template engine renders the following javascript.
+  As an example, the above javascript renders the following javascript.
 
   ```javascript
   const challengeData = {"userVerification":"preferred","challenge":"O99tLUgxcY5fzANLKS7B5rUGZor2Kbn2",...};
@@ -139,6 +139,10 @@ const publicKeyCredentialRequestOptions = {
   userVerification: 'discouraged',
   timeout: 60000,
   };
+
+function strToBin(str) {
+    return Uint8Array.from(atob(base64UrlSafeToBase64(str)), c => c.charCodeAt(0));
+}
 ```
 
 ### 7: Get credential and create cryptographic signature
@@ -155,7 +159,7 @@ This call initiates the following steps:
 
 1. The authenticator looks up the information stored for the credential ID and checks that the domain name matches the one used during enrollment.
 
-1. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm consent.
+2. If the validations are successful, the authenticator prompts the user for consent. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm consent.
 
 <div class="common-image-format">
 
@@ -163,7 +167,7 @@ This call initiates the following steps:
 
 </div>
 
-1. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
+3. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
 
 ```json
 {
@@ -214,7 +218,7 @@ fetch('/verify-webauthn', options)
                 .then(res => { ...
 ```
 
-1. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature that corresponds to the challenge and public key.
+2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature corresponding to the challenge and public key.
 
 ```java
 ProceedContext proceedContext = Util.getProceedContextFromSession(session);
@@ -223,4 +227,4 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyW
   proceedContext, webauthnRequest);
 ```
 
-1. If the verification was successfull, the returned `AuthenticationResponse` object should indicate an `authenticationStatus` of `SUCCESS` with token information.
+3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return `SUCCESS` for `authenticationStatus` along with token information or another status indicating there are additional remediation steps to complete.
