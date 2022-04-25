@@ -5399,25 +5399,6 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
 | endpoints   | Location of authentication endpoint                                | [MTLS Endpoints Object](#mtls-endpoints-object)                   | FALSE    | FALSE    |
 | type        | The only supported value is `MTLS`                                 | String                                                            | FALSE    | TRUE     |
 
-```json
-{
-  "type": "MTLS",
-  "endpoints": {
-    "sso": {
-      "url": "https://{yourOktaDomain}.okta.com/login/cert"
-    }
-  },
-  "credentials": {
-    "trust": {
-      "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
-      "audience": null,
-      "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
-      "revocation":"CRL",
-      "revocationCacheLifetime":2880
-    }
-  }
-}
-```
 
 ##### MTLS Endpoints Object
 
@@ -5456,16 +5437,19 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 ```json
 {
-  "protocol": {
-    "type": "MTLS",
-    "credentials": {
-      "trust": {
-        "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
-        "audience": null,
-        "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
-        "revocation":"CRL",
-        "revocationCacheLifetime":2880
-      }
+  "type": "MTLS",
+  "endpoints": {
+    "sso": {
+      "url": "https://{yourOktaDomain}.okta.com/login/cert"
+    }
+  },
+  "credentials": {
+    "trust": {
+      "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
+      "audience": null,
+      "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "revocation":"CRL",
+      "revocationCacheLifetime":2880
     }
   }
 }
