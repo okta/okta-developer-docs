@@ -23,7 +23,7 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 **Sample code**
 
-[Okta Registration Inline Hook Example](https://glitch.com/edit/#!/hypnotic-healthy-hadrosaurus?path=README.md%3A1%3A0)
+[Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook-v2)
 
 ---
 
@@ -38,7 +38,10 @@ At a high-level, the following workflow occurs:
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-## Add request code
+
+
+
+## Add self-service registration request code
 
 This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration) or update their profile (Progressive Profile).
 
@@ -99,7 +102,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 > **Note:** The method definition that begins in this code snippet is incomplete. See [Send Progressive Profile response](#send-progressive-profile-response).
 
-## Send response
+## Send self-service registration response
 
 The external service responds to Okta indicating whether to accept the user self-registration or profile update by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
 
@@ -121,6 +124,17 @@ See the [response properties](/docs/reference/registration-hook/#objects-in-the-
 }
 
 ```
+
+## Add progressive profile request code
+
+
+
+
+## Send progressive profile response
+
+
+
+
 
 ## Set up, activate, and enable
 
@@ -188,12 +202,13 @@ In your Okta org, you can preview the request and response JSON right from the A
 ### Preview the Registration Inline Hook
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-2. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
-3. Click the **Preview** tab.
-4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the `data.userProfile` object.
-5. From the "Preview example Inline Hook request" block, click **Generate Request**.
+1. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
+1. Click the **Preview** tab.
+1. In the "Configure Inline Hook request" block, under "data.user.profile", select a user from your org. That is, select a value from your `data.userProfile` object.
+1. Under "requestType", select **Self-Service Registration** or **Progressive Profile**.
+1. From the "Preview example Inline Hook request" block, click **Generate Request**.
     You should see the user's request information in JSON format that is sent to the external service.
-6. From the "View service's response" block, click **View Response**.
+1. From the "View service's response" block, click **View Response**.
     You should see the response from your external service in JSON format, which either allows or denies the self-registration.
 
 ### Test the Registration Inline Hook
