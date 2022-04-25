@@ -101,7 +101,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-> **Note:** Enrollment uses the **Email Factor verification** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
+<!-- >> **Note:** Enrollment uses the **Email Factor verification** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template). -->
 
 <StackSnippet snippet="tryenrollin" />
 
@@ -145,19 +145,30 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 ## Self-service Password Recovery
 
-> **Note:** Self-service Password Recovery uses the **Forgot Password** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
+<!-- >> **Note:** Self-service Password Recovery uses the **Forgot Password** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template). -->
 
 ### Password recovery with email magic link
 
 > **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
-Try the email magic link recovery flow:
+#### Understand the magic link flow
+
+Before integrating email magic links in your app, it's important to understand how your app's user journey starts and ends. An example user journey for a sign-in with email use case:
+
+1. Using the widget, a user submits their username and password. Next, an email is sent to the user and the widget displays an OTP input page.
+1. Using a new tab in the browser, the user opens their email and clicks the magic link.
+1. In a new tab, the link redirects the browser to the app and automatically signs the user in.
+
+The following diagram illustrates these steps:
+
+![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title")
+
+#### Try the email magic link recovery flow
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
 1. Click **Send me an email**. A magic link is sent to your email address.
-1. Click **Reset password**. A new window opens. Click **Yes, it's me**.
-1. Enter a new password. Click **Reset Password**.
+1. Click **Sign In**. A new window opens and you are automatically signed in.
 
 ### Password recovery with email OTP
 
