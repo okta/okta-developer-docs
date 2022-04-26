@@ -13,7 +13,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
 
 ### 2: Display WebAuthn option
 
-After the user submits their password, make a call to `IDXAuthenticationWrapper.verifyAuthenticator()` to verify their password. If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `verifyAuthenticator()` returns an `AuthenticationResponse` object with `authenticationStatus` set to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and `authenticators` including a `webauthn` authenticator item.
+After the user submits their password, make a call to `IDXAuthenticationWrapper.verifyAuthenticator()` to verify their password. If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `verifyAuthenticator()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
 
 ```json
 {
@@ -54,7 +54,7 @@ Authenticator selection page example from the sample app:
 
 ### 3:  Submit WebAuthn option
 
-When the user selects the WebAuthn option and clicks submit, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator Id returned from `AuthenticationResponse.authenticators[n].factors[n].id` in the previous step.
+When the user selects the WebAuthn option and clicks submit, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator Id returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
 ```java
 Optional<Authenticator> authenticatorOptional =
@@ -65,7 +65,7 @@ AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthentic
 
 ```
 
-### 4: Receive data for creating a new credential
+### 4: Identify data for creating a new credential
 
 The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. Additionally, `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
@@ -97,38 +97,40 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. Using the [Thymeleaf](https://www.thymeleaf.org/) template engine, the sample app does explicitly the following:
+Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. The sample app builds this page in the following way:
 
-1. Calls `ModelandView.addObject` and adds the `AuthenticationResponse.currentAuthenticator` property, which is used later to extract the `challenge` and other information.
+1. Calls `ModelandView.addObject` to add the `AuthenticationResponse.currentAuthenticator` property, which is used later to extract the `challenge` and other information.
 
-  ```java
-  modelAndView = new ModelAndView("enroll-webauthn-authenticator");
-  modelAndView.addObject("title", "Enroll Webauthn Authenticator");
-  modelAndView.addObject("currentAuthenticator",
-          enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
-  ```
+    ```java
+    modelAndView = new ModelAndView("enroll-webauthn-authenticator");
+    modelAndView.addObject("title", "Enroll Webauthn Authenticator");
+    modelAndView.addObject("currentAuthenticator",
+            enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
+    ```
 
-2. Sets client-side javascript variables to values originating from `currentAuthenticator`.
+2. Sets client-side javascript variables to values originating from `currentAuthenticator`. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to set these variables.
 
-  ```javascript
+    ```javascript
     <script th:inline="javascript">
         const challenge = /*[[${currentAuthenticator.value.contextualData.activationData.challenge}]]*/ '';
         const userId = /*[[${currentAuthenticator.value.contextualData.activationData.user.id}]]*/ '';
         const username = /*[[${currentAuthenticator.value.contextualData.activationData.user.name}]]*/ '';
         const displayName = /*[[${currentAuthenticator.value.contextualData.activationData.user.displayName}]]*/ '';
-   </script>
-  ```
+    </script>
+    ```
 
-  As an example, the above javascript renders the following javascript.
+    As an example, the previous javascript code snippet renders the following javascript.
 
-  ```javascript
-  const challenge = "ktbYamV1etMLBrLKIVD4xKvkDrL...";
-  const userId = "00uuoauaxfdMkYw4...";
-  const username = "johndoe@gmail.com";
-  const displayName = "John Doe";
-  ```
+    ```javascript
+    <script th:inline="javascript">
+        const challenge = "ktbYamV1etMLBrLKIVD4xKvkDrL...";
+        const userId = "00uuoauaxfdMkYw4...";
+        const username = "johndoe@gmail.com";
+        const displayName = "John Doe";
+    </script>
+    ```
 
-### 6: Build parameter for creating a new credential
+### 6: Build the parameter for creating a new credential
 
 On page load, create the parameter needed to make a new credential. When creating this parameter, use the `challenge` and `user.id` properties.
 
@@ -182,16 +184,16 @@ This call initiates the following steps:
 
 3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` containing the public key, credential ID, and other information used to associate the new credential with the server and browser.
 
-```json
-{
-"id": "Aa9rTddZCalI...",
-"rawId": ..,
-"response" : {
-  "attestationObject" : Binary data ... ,
-  "clientDataJSON": Binary data ... ,
-"type": "public-key"
-}
-```
+    ```json
+    {
+    "id": "Aa9rTddZCalI...",
+    "rawId": ..,
+    "response" : {
+      "attestationObject" : Binary data ... ,
+      "clientDataJSON": Binary data ... ,
+    "type": "public-key"
+    }
+    ```
 
 ### 8: Build the parameter for sending the public key to the Okta server
 
@@ -221,20 +223,22 @@ function binToStr(bin) {
 
 ### 9: Forward signature to Okta for enrollment
 
+Forward the signature to Okta for validation. Specifically, perform the following steps:
+
 1. First, send the converted signature data to the Okta SDK. The sample app sends the data through an HTTP Post request from the client browser to the server.
 
-```javascript
-fetch("/enroll-webauthn", options)
-                .then(res => {
-```
+    ```javascript
+    fetch("/enroll-webauthn", options)
+                    .then(res => {
+    ```
 
 2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature and store the credential ID and public key associated with the user's account.
 
-```java
-ProceedContext proceedContext = Util.getProceedContextFromSession(session);
+    ```java
+    ProceedContext proceedContext = Util.getProceedContextFromSession(session);
 
-AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyWebAuthn(
-  proceedContext, webauthnRequest);
-```
+    AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyWebAuthn(
+      proceedContext, webauthnRequest);
+    ```
 
-3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return `SUCCESS` for `authenticationStatus` along with token information or another status indicating there are additional remediation steps to complete.
+3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.
