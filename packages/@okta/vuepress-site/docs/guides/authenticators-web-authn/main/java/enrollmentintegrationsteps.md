@@ -97,9 +97,9 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. The sample app builds this page in the following way:
+Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. Using the sample app as guide, access these properties with the following steps:
 
-1. Calls `ModelandView.addObject` to add the `AuthenticationResponse.currentAuthenticator` property, which is used later to extract the `challenge` and other information.
+1. Call `ModelandView.addObject()` and add `AuthenticationResponse.currentAuthenticator`, which is used later to extract the `challenge` and other data.
 
     ```java
     modelAndView = new ModelAndView("enroll-webauthn-authenticator");
@@ -108,7 +108,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
             enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
     ```
 
-2. Sets client-side javascript variables to values originating from `currentAuthenticator`. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to set these variables.
+2. Set client-side javascript variables to values originating from `currentAuthenticator`. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to set these variables.
 
     ```javascript
     <script th:inline="javascript">
@@ -119,7 +119,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-    As an example, the previous javascript code snippet renders the following javascript.
+    The following example renders the previous javascript code snippet.
 
     ```javascript
     <script th:inline="javascript">
@@ -232,7 +232,7 @@ Forward the signature to Okta for validation. Specifically, perform the followin
                     .then(res => {
     ```
 
-2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature and store the credential ID and public key associated with the user's account.
+2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn()` to have the server validate the signature and store the credential ID and public key associated with the user's account.
 
     ```java
     ProceedContext proceedContext = Util.getProceedContextFromSession(session);
@@ -241,4 +241,4 @@ Forward the signature to Okta for validation. Specifically, perform the followin
       proceedContext, webauthnRequest);
     ```
 
-3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.
+3. Depending on the org configuration, the `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.

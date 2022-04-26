@@ -96,9 +96,9 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `AuthenticationResponse.webAuthnParams.currentAuthenticator.contextualData.challengeData` and  `AuthenticationResponse.webAuthnParams.webauthnCredentialId`. Using the [Thymeleaf](https://www.thymeleaf.org/) template engine, the sample app specifically does the following:
+Redirect the user to a page that verifies the WebAuthn credentials. Allow this page access to `AuthenticationResponse.webAuthnParams.currentAuthenticator.contextualData.challengeData` and  `AuthenticationResponse.webAuthnParams.webauthnCredentialId`. Using the sample app as guide, access these properties with the following steps:
 
-1. Calls `ModelandView.addObject` and adds the `webauthnCredentialId` and `challengeData` information.
+1. Call `ModelandView.addObject()` and add `webauthnCredentialId` and `challengeData`.
 
     ```java
     String webauthnCredentialId = enrollResponse.getWebAuthnParams().getWebauthnCredentialId();
@@ -109,21 +109,22 @@ Redirect the user to a page that verifies the WebAuthn credentials. Allow this p
             .getCurrentAuthenticator().getValue().getContextualData().getChallengeData());
     ```
 
-2. Sets client-side javascript variables.
-
+2. Set client-side javascript variables. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to set these variables.
 
     ```javascript
-      <script th:inline="javascript">
-          const challengeData = /*[[${challengeData}]]*/ '';
-          const webauthnCredentialId = /*[[${webauthnCredentialId}]]*/ '';
-      </script>
+    <script th:inline="javascript">
+        const challengeData = /*[[${challengeData}]]*/ '';
+        const webauthnCredentialId = /*[[${webauthnCredentialId}]]*/ '';
+    </script>
     ```
 
-    As an example, the above javascript renders the following javascript.
+    The following example renders the previous javascript code snippet.
 
     ```javascript
-    const challengeData = {"userVerification":"preferred","challenge":"O99tLUgxcY5fzANLKS7B5rUGZor2Kbn2",...};
-    const webauthnCredentialId = "AYqpxcR9Jrw6BzVJyZf-ImP7OffDl9-pHcRV2fLD9wexskXac7-DFXrX29A7oFURAwT1oFKoI1loaud.";
+    <script th:inline="javascript">
+          const challengeData = {"userVerification":"preferred","challenge":"O99tLUgxcY5fzANLKS7B5rUGZor2Kbn2",...};
+          const webauthnCredentialId = "AYqpxcR9Jrw6BzVJyZf-ImP7OffDl9-pHcRV2fLD9wexskXac7-DFXrX29A7oFURAwT1oFKoI1loaud.";
+    </script>
     ```
 
 ### 6: Build parameter for getting a credential
@@ -221,7 +222,7 @@ Forward the signature to Okta for validation. Specifically, perform the followin
                   .then(res => { ...
     ```
 
-2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn` to have the server validate the signature corresponding to the challenge and public key.
+2. Next, send the data to `IDXAuthenticationWrapper.verifyWebAuthn()` to have the server validate the signature corresponding to the challenge and public key.
 
     ```java
     ProceedContext proceedContext = Util.getProceedContextFromSession(session);
@@ -230,4 +231,4 @@ Forward the signature to Okta for validation. Specifically, perform the followin
       proceedContext, webauthnRequest);
     ```
 
-3. Depending on the org configuration, `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.
+3. Depending on the org configuration, the `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.
