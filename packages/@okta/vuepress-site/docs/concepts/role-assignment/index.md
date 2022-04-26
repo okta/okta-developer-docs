@@ -54,63 +54,168 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 
 ### Resource sets
 
-A Resource Set is simply a collection of resources. The following resources are currently supported:
+A Resource Set is simply a collection of resources. There are two types of resource identifiers, resources can either be identified by Okta Resource Names (ORN) or by a REST URL format.
 
-* All Users
-* All Groups
-* A specific Group
-* All Users within a specific Group
-* All Apps
-* All Apps of the same type
-* A specific App
+#### Okta Resource Name (ORN)
 
-### Identifiers
+<ApiLifecycle access="ea" />
 
-#### Resource identifiers
+Okta Resource Names (ORN) is the primary resource identifier. ORNs uniquely identify Okta resources. Currently ORNs are available in early access.
 
-To specify a resource targeted by a Resource Set, you can use the REST URL of the corresponding Okta API:
+##### ORN Format
 
-* [All Users](/docs/reference/api/users/#list-users)
+ORNs generally follow a format, however each type of resource have their own specific format.
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/users
-  ```
+`orn:okta:service:service-specific-id`
 
-* [All Groups](/docs/reference/api/groups/#list-groups)
+###### service
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups
-  ```
+  The service in which the resource belongs to. Each resource only belongs to one resource.
+  The following are the supported services.
 
-* [All Apps](/docs/reference/api/apps/#list-applications)
+| Service           |  ORN service value    |
+| ----------------- | --------------------- |
+| Directory         | directory             | 
+| Identity Provider | idp                   |
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps
-  ```
+###### service-specific-id
 
-* [A specific Group](/docs/reference/api/groups/#get-group)
+Each service have their own specific format to specific a resource. For example,
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups/${targetGroupId}
-  ```
+`orn:okta:directory:${yourOrgId}:groups:${groupId}:contained_resources`
 
-* [All Users within a specific Group](/docs/reference/api/groups/#list-group-members)
+The service specific id is `${yourOrgId}:groups:${groupId}:contained_resources`. This part of the ORN is specifying
+users in a specific group in a org.
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users
-  ```
+###### contained_resources
 
-* [All Apps of specific type](/docs/reference/api/apps/#list-apps-by-name)
+`contained_resources` is an ORN specific segment which targets all of the resources in the container resource. For example,
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"
-  ```
+`orn:okta:directory:${yourOrgId}:groups:123:contained_resources`
 
-* [A specific App](/docs/reference/api/apps/#get-application)
+Group 123 is the example container resource, since `:contained_resources` is used we are targeting the users in the group, rather than the group itself.
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps/${targetAppId}
-  ```
+#### REST URL
+
+If the resource has a corresponding Okta API you can specify a resource by their REST URL as well. Not all resources will
+have a corresponding Okta API, we recommend using ORNs for such resources.
+
+#### Supported Resources
+
+The following are the supported resources.
+
+<table>
+  <tr>
+    <td>Service</td>
+    <td>Resource</td>
+    <td>REST URL Resource Identifier</td>
+  </tr>
+  <tr>
+    <td>Directory</td>
+    <td>All Users</td>
+    <td><a href="/docs/reference/api/users/#list-users">https://${yourOktaDomain}/api/v1/users</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Groups</td>
+    <td><a href="/docs/reference/api/groups/#list-groups">https://${yourOktaDomain}/api/v1/groups</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>A specific Group</td>
+    <td><a href="/docs/reference/api/groups/#get-group">https://${yourOktaDomain}/api/v1/groups/${groupId}</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Users within a specific Group</td>
+    <td><a href="/docs/reference/api/groups/#list-group-members">https://${yourOktaDomain}/api/v1/groups/${groupId}/users</a></td>
+  </tr>
+  <tr>
+    <td>Identity Provider</td>
+    <td>All Apps</td>
+    <td><a href="/docs/reference/api/apps/#list-applications">https://${yourOktaDomain}/api/v1/apps</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Apps of a specific type</td>
+    <td><a href="/docs/reference/api/apps/#list-apps-by-name">https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>A specific App</td>
+    <td><a href="/docs/reference/api/apps/#get-application">https://${yourOktaDomain}/api/v1/apps/${appId}</a></td>
+  </tr>
+</table>
+
+#### Early Access Resources
+
+<ApiLifecycle access="ea" />
+
+Note - ORN identifiers are available in early access.
+
+<table>
+  <tr><td>Service</td><td>Resource</td><td>ORN Identifier</td><td>REST URL Resource Identifier</td></tr>
+  <tr>
+    <td>Directory</td>
+    <td>All Users</td>
+    <td>orn:okta:directory:${yourOrgId}:users</td>
+    <td><a href="/docs/reference/api/users/#list-users">https://${yourOktaDomain}/api/v1/users</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Groups</td>
+    <td>orn:okta:directory:${yourOrgId}:groups</td>
+    <td><a href="/docs/reference/api/groups/#list-groups">https://${yourOktaDomain}/api/v1/groups</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>A specific Group</td>
+    <td>orn:okta:directory:${yourOrgId}:groups:${groupId}</td>
+    <td><a href="/docs/reference/api/groups/#get-group">https://${yourOktaDomain}/api/v1/groups/${groupId}</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Users within a specific Group</td>
+    <td>orn:okta:directory:${yourOrgId}:groups:${groupId}:contained_resources</td>
+    <td><a href="/docs/reference/api/groups/#list-group-members">https://${yourOktaDomain}/api/v1/groups/${groupId}/users</a></td>
+  </tr>
+  <tr>
+    <td>Identity Provider</td>
+    <td>All Apps</td>
+    <td>orn:okta:idp:${yourOrgId}:apps</td>
+    <td><a href="/docs/reference/api/apps/#list-applications">https://${yourOktaDomain}/api/v1/apps</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Apps of a specific type</td>
+    <td>orn:okta:idp:${yourOrgId}:apps:${appType}</td>
+    <td><a href="/docs/reference/api/apps/#list-apps-by-name">https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>A specific App</td>
+    <td>orn:okta:idp:${yourOrgId}:apps:${appType}:${appId}</td>
+    <td><a href="/docs/reference/api/apps/#get-application">https://${yourOktaDomain}/api/v1/apps/${appId}</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All Authorization Servers</td>
+    <td>orn:okta:idp:${yourOrgId}:authorization_servers</td>
+    <td><a href="/docs/reference/api/authorization-servers/#list-authorization-servers">https://${yourOktaDomain}/api/v1/authorizationServers</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>A specific Authorization Server</td>
+    <td>orn:okta:idp:${yourOrgId}:authorization_servers:${authorizationServerId}</td>
+    <td><a href="/docs/reference/api/authorization-servers/#get-authorization-server">https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}</a></td>
+  </tr>
+  <tr>
+    <td />
+    <td>All customizations</td>
+    <td>orn:okta:idp:${yourOrgId}:customizations</td>
+    <td />
+  </tr>
+</table>
 
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
@@ -172,3 +277,14 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 | `okta.apps.manage`                      | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+
+#### Early Access Permission types
+
+<ApiLifecycle access="ea" />
+
+| Permission type                         | Description                                                                                                                                           | Applicable resource types                    |
+| :-------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
+| `okta.authzServers.read`                | Allows the admin to read authorization servers.                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`              | Allows the admin to manage authorization servers.                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`              | Allows the admin to read customizations.                                                                                                             | All customizations |
+| `okta.customizations.manage`            | Allows the admin to manage customizations.                                                                                                           | All customizations |
