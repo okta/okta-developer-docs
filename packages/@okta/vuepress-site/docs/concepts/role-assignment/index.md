@@ -66,7 +66,16 @@ Okta Resource Names (ORN) is the primary resource identifier. ORNs uniquely iden
 
 ORNs generally follow a format, however each type of resource have their own specific format.
 
-`orn:okta:service:service-specific-id`
+`orn:${partition}:${service}:${tenantId}:${objectType}:${objectId}`
+
+###### partition
+
+The partition is specific to your Okta environment. The following are the supported partitions.
+
+| Partition               |  ORN partition value  |
+| ----------------------- | --------------------- |
+| Preview environment     | oktapreview           |
+| Every other environment | okta                  | 
 
 ###### service
 
@@ -78,14 +87,17 @@ ORNs generally follow a format, however each type of resource have their own spe
 | Directory         | directory             | 
 | Identity Provider | idp                   |
 
-###### service-specific-id
+###### tenantId
 
-Each service have their own specific format to specific a resource. For example,
+Tenant Id will be the tenant that is using the service, which currently is just your org's id.
 
-`orn:okta:directory:${yourOrgId}:groups:${groupId}:contained_resources`
+###### objectType
 
-The service specific id is `${yourOrgId}:groups:${groupId}:contained_resources`. This part of the ORN is specifying
-users in a specific group in a org.
+Object type is specific to the service, for example we have object types `groups` and `users` for the `directory` service.
+
+###### objectId
+
+The object's identifier.
 
 ###### contained_resources
 
