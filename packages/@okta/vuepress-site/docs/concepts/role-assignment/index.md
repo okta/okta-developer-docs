@@ -89,7 +89,7 @@ The partition is specific to your Okta environment. The following are the suppor
 
 ###### tenantId
 
-Tenant Id will be the tenant that is using the service, which currently is just your org's id.
+Tenant Id will be the tenant that is using the service, which currently is just your [org's id](/docs/reference/api/org/#get-org-settings).
 
 ###### objectType
 
