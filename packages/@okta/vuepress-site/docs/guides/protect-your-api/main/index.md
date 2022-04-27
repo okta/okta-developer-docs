@@ -18,7 +18,7 @@ Add authorization using Okta to protect your APIs. When you finish, you have a s
 
 **What you need**
 
-A [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs.
+A [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs
 
 <ApiAmProdWarning />
 
