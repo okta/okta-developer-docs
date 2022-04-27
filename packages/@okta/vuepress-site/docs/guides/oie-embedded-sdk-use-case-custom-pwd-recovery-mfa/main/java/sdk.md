@@ -6,7 +6,7 @@ To begin the password recovery flow, the user must
 2. Enter their **Email or Username** in the box and click **Next**.
 3. Choose **Email** as the authenticator they want to use for password recovery and click **Submit**.
 
-Okta then sends the user an email that matches the Forgot Password template you altered earlier. This follows the first three steps in the [User Password Recovery](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps) guide.
+Okta then sends the user an email that matches the Forgot Password template that was altered earlier and the app tells them either to click the link in the email or enter the OTP to continue. This follows the first three steps in the [User Password Recovery](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps) guide.
 
 <div class="common-image-format">
 
@@ -27,30 +27,37 @@ Create a callback handler method that takes the `otp` and `state` parameters in 
 public ModelAndView displayIndexOrHomePage(
     final @RequestParam(name = "state", required = false) String state,
     final @RequestParam(name = "otp", required = false) String otp,
-    final HttpSession session) {
-
-    ProceedContext proceedContext = (ProceedContext) session.getAttribute("proceedContext");
+    final HttpSession session) 
+{
+    ProceedContext proceedContext = 
+        (ProceedContext)session.getAttribute("proceedContext");
 
     // correlate received state with the client context
     if (Strings.hasText(otp) && proceedContext != null &&
-       (Strings.isEmpty(state) || !state.equals(proceedContext.getClientContext().getState())))
+        (Strings.isEmpty(state) || 
+         !state.equals(proceedContext.getClientContext().getState())))
     {
         ModelAndView mav = new ModelAndView("error");
-        mav.addObject("errors", "Could not correlate client context with the received state value " + state + " in callback");
+        mav.addObject("errors", 
+            "Could not correlate client context with the received state value " +
+            state + " in callback");
         return mav;
     }
 ```
 
-If `ProceedContext` is `null` (because the user is clicking the magic link in a different browser), advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP value to proceed.
+If `ProceedContext` is `null` (because the user is clicking the magic link in a different browser), advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP to proceed.
 
 ```java
     AuthenticationResponse authenticationResponse;
 
-    if (Strings.hasText(otp)) {
-        if (proceedContext == null) {
+    if (Strings.hasText(otp))
+    {
+        if (proceedContext == null)
+        {
             // user has clicked magic link in a different browser
             ModelAndView mav = new ModelAndView("info");
-            mav.addObject("message", "Please enter OTP " + otp + " in the original browser tab to finish the flow.");
+            mav.addObject("message", "Please enter OTP " + otp +
+                " in the original browser tab to finish the flow.");
             return mav;
         }
 ```
@@ -58,10 +65,12 @@ If `ProceedContext` is `null` (because the user is clicking the magic link in a 
 If `otp`, `state` and `ProceedContext` are valid and not `null`, call `IDXAuthenticationWrapper.verifyAuthenticator`, using its `verifyAuthenticatorOptions` parameter to pass in the `otp` value.
 
 ```java
-        VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(otp);
+        VerifyAuthenticatorOptions verifyAuthenticatorOptions = 
+            new VerifyAuthenticatorOptions(otp);
         authenticationResponse = authenticationWrapper
-                .verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
-        return responseHandler.handleKnownTransitions(authenticationResponse, session);
+            .verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+        return responseHandler
+            .handleKnownTransitions(authenticationResponse, session);
     }
 
     // In unhandled case, return to index

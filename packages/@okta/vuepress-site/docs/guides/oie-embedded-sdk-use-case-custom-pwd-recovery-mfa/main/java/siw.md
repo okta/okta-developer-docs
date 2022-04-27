@@ -6,7 +6,7 @@ To begin the password recovery flow, the user must
 2. Enter their **Email or Username** in the box and click **Next**.
 3. Choose **Email** as the authenticator they want to use for password recovery and click **Submit**.
 
-Okta then tells the user to either click the link in the email or enter the code to continue and sends them an email that matches the Forgot Password template that was altered earlier.
+Okta then sends the user an email that matches the Forgot Password template that was altered earlier and the widget tells them either to click the link in the email or enter the OTP to continue.
 
 <div class="common-image-format">
 
@@ -22,7 +22,7 @@ The **Reset Password** link in the email includes the `otp` and `request.relaySt
 
 Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as session parameters to a page that contains the Sign-In Widget. First, retrieve the current `IDXClientContext` object from the browser session and check that `state` has a value.
 
-If `state` is `null` or the browser context object is `null` (because the user is clicking the magic link in a different browser), the widget will advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP value to proceed.
+If `state` is `null` or the browser context object is `null` (because the user is clicking the magic link in a different browser), the widget will advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP to proceed.
 
 ```java
 @GetMapping("/magic-link/callback")
@@ -70,7 +70,9 @@ If both values are valid, collate all the values required by the widget and pass
   mav.addObject(CODE_CHALLENGE, idxClientContext.getCodeChallenge());
   mav.addObject(CODE_CHALLENGE_METHOD, CODE_CHALLENGE_METHOD_VALUE);
   mav.addObject(REDIRECT_URI,
-          request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/authorization-code/callback");
+    request.getScheme() + "://" + request.getServerName() + ":" +
+    request.getServerPort() + request.getContextPath() +
+    "/authorization-code/callback");
   mav.addObject(ISSUER_URI, issuer);
   session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
   return mav;
