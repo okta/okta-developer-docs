@@ -121,7 +121,6 @@ The next step is to update your app to accept the link with the `otp` and `state
 
 The following diagram illustrates the steps in the customized password recovery using a Sign-in Widget based app.
 
-
 <StackSnippet snippet="siwsummary" />
 
 <StackSnippet snippet="siw" />
@@ -131,6 +130,7 @@ The following diagram illustrates the steps in the customized password recovery 
 The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the SDK, execute the following steps to make this update. If your app uses the Sign-in Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
 
 ### Summary of steps
+
 The following diagram illustrates the steps in the customized password recovery using a SDK based app.
 
 <StackSnippet snippet="sdksummary" />
