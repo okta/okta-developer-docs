@@ -1693,9 +1693,59 @@ h1 {
   background-image: url('/img/icons/google-logo-32.png');
 }
 
+.icon.amazon::before {
+  content:'';
+  background-image: url('/img/icons/amazon-24.png');
+}
+
 .icon.azure::before {
   content: '';
   background-image: url('/img/icons/azure-ad-logo-75.png');
+}
+
+.icon.discord::before {
+  content:'';
+  background-image: url('/img/icons/discord.png');
+}
+
+.icon.github::before {
+  content:'';
+  background-image: url('/img/icons/github.png');
+}
+
+.icon.gitlab::before {
+  content:'';
+  background-image: url('/img/icons/gitlab.png');
+}
+
+.icon.paypal::before {
+  content:'';
+  background-image: url('/img/icons/paypal.png');
+}
+
+.icon.salesforce::before {
+  content:'';
+  background-image: url('/img/icons/salesforce.png');
+}
+
+.icon.spotify::before {
+  content:'';
+  background-image: url('/img/icons/spotify.png');
+}
+
+.icon.xero::before {
+  content:'';
+  background-image: url('/img/icons/xero.png');
+}
+
+.icon.yahoo::before {
+  content:'';
+  background-image: url('/img/icons/yahoo.png');
+}
+
+.icon.yahoojp::before {
+  content:'';
+  background-image: url('/img/icons/yahoojp.png');
 }
 
 .oktatookta-16::before {
