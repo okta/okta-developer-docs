@@ -79,7 +79,7 @@ The partition is specific to your Okta environment. The following are the suppor
 
 ###### service
 
-  The service in which the resource belongs to. Each resource only belongs to one resource.
+  The service in which the resource belongs to. Each resource only belongs to one service.
   The following are the supported services.
 
 | Service           |  ORN service value    |
