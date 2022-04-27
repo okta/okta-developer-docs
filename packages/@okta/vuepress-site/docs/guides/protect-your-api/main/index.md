@@ -67,7 +67,7 @@ Create a new application with a simple API endpoint to add authorization to.
 
 You need to configure the API with some information about the [authorization server](/docs/guides/customize-authz-server/) used by your Okta organization.
 
-> **Note:** This tutorial uses the **default** Custom Authorization Server to secure your protected API. You can create your own Custom Authorization Server for this purpose, but bear in mind that you'll need an appropriate license to be able to use it in production.
+> **Note:** This tutorial uses the **default** Custom Authorization Server to secure your protected API. You can create your own Custom Authorization Server for this purpose, but bear in mind that in either case you'll need an appropriate license to be able to use it in production.
 
 #### Things you need
 
