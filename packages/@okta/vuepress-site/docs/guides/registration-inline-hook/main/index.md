@@ -6,7 +6,7 @@ layout: Guides
 
 This guide provides a working example of an Okta Registration Inline Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
-<!-- >> **Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see . -->
+**Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see 
 
 ---
 
@@ -27,105 +27,95 @@ This guide provides a working example of an Okta Registration Inline Hook. It us
 
 ---
 
-## About Registration Inline Hooks
+## About Registration Inline Hook implementation
 
-In the following example, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
+You can use registration inline hooks for self-service registration or progressive profile or both.
 
-At a high-level, the following workflow occurs:
+If you select "both", you need to set up your code to handle either request type. As the end user either self-registers or updates their profile, Okta dynamically detects the request type.
 
-1. A user attempts to self-register for your Okta org.
+In the following examples, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
+
+For self-service registration, at a high-level, the following workflow occurs:
+
+1. An end user attempts to self-register for your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
+For progressive profile, at a high-level, the following workflow occurs:
 
-
+1. An end user attempts to update an existing profile in your Okta org.
+1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
+1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
+1. The external service responds to Okta with a command to allow or deny the profile update based on the email domain.
 
 ## Add self-service registration request code
 
-This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration) or update their profile (Progressive Profile).
-
-The following code allows an external service to supply values for updating attributes on a user profile.
-
-> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`.
+This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (self-service registration).
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
 ```javascript
 {
-    "eventId": "YFtkmR0US_-WRIkMgC9V-g",
-    "eventTime": "2021-12-07T22:22:05.000Z",
+    "eventId": "04Dmt8BcT_aEgM",
+    "eventTime": "2022-04-27T17:35:27.000Z",
     "eventType": "com.okta.user.pre-registration",
     "eventTypeVersion": "1.0",
     "contentType": "application/json",
     "cloudEventVersion": "0.1",
-    "source": "rul1bufGk5dJdRYw50g4",
-    "requestType": "progressive.profile",
+    "source": "regt4qeBKU29vSoPz0g3",
+    "requestType": "self.service.registration",
     "data": {
         "context": {
             "request": {
-                "id": "reqQsH_sl8TSiu9WTC3VfS7yw",
                 "method": "POST",
+                "ipAddress": "127.0.0.1",
+                "id": "123dummyId456",
                 "url": {
-                    "value": "/idp/idx/enroll/update"
-                },
-                "ipAddress": "127.0.0.1"
-            },
-            "user": {
-                "id": "00u1bspyAvImafPWz0g4",
-                "passwordChanged": "2021-10-19T19:56:22.000Z",
-                "profile": {
-                    "login": "admin@okta.com",
-                    "firstName": "Admin",
-                    "lastName": "Admin",
-                    "locale": "en",
-                    "timeZone": "America/Los_Angeles"
-                },
-                "_links": {
-                    "groups": {
-                        "href": "http://oie-local.okta1.com:1802/api/v1/users/00u1bspyAvImafPWz0g4/groups"
-                    },
-                    "factors": {
-                        "href": "http://oie-local.okta1.com:1802/api/v1/users/00u1bspyAvImafPWz0g4/factors"
-                    }
+                    "value": "/idp/idx/enroll/new"
                 }
             }
         },
-        "action": "ALLOW",
-        "userProfileUpdate": {
-            "test1": "value1",
-            "test2": "value2"
-        }
+        "userProfile": {
+            "firstName": "Brent",
+            "lastName": "schaus",
+            "login": "brent.schaus@okta.com",
+            "email": "brent.schaus@okta.com"
+        },
+        "action": "ALLOW"
     }
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send Progressive Profile response](#send-progressive-profile-response).
+> **Note:** The method definition that begins in this code snippet is incomplete. See [Send Self-Service Registration response](#send-self-service-registration-response).
 
-## Send self-service registration response
+## Send Self-Service Registration response
 
-The external service responds to Okta indicating whether to accept the user self-registration or profile update by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
+The external service responds to Okta indicating whether to accept the user self-registration or profile update by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
 
-This response example uses the `com.okta.user.progressive.profile.update` command to supply values for attributes in the response.
+This response example uses the `com.okta.user.pre-registration` command to supply values for attributes in the response.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 ```javascript
 {
-  "commands": [
-    {
-      "type": "com.okta.user.progressive.profile.update",
-      "value": {
-        "test1": "value1",
-        "test2": "value2"
-      }
-    }
-  ]
+    "error": null,
+    "commands": [
+        {
+            "type": "com.okta.user.profile.update",
+            "value": {
+                "test": "_selfRegistration"
+            }
+        }
+    ],
+    "debugContext": {}
 }
 
 ```
 
 ## Add progressive profile request code
+
+The following code allows an external service to supply values for updating attributes on a user profile.
 
 
 
