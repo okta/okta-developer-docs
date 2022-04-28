@@ -83,9 +83,9 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send Self-Service Registration response](#send-self-service-registration-response).
+> **Note:** The method definition that begins in this code snippet is incomplete. See [Send SSR response](#send-ssr-response).
 
-## Send Self-Service Registration response
+## Send SSR response
 
 The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
 
@@ -266,10 +266,14 @@ In your Okta org, you can preview the request and response JSON right from the A
 
 ### Test the Registration Inline Hook
 
-To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
+To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
 * If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
 * If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
+
+To run a test of your progressive profile Registration Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
+
+
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for information if encountering any setup or configuration difficulties.
 
