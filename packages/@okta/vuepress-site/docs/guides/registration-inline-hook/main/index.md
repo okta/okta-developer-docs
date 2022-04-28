@@ -272,11 +272,9 @@ The Registration Inline Hook is now set up with a status of active.
 
 You must [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
 
-Also, you can use Inline Hooks with progressive profile support to verify and modify user data. See [Progressive Profile support](/docs/concepts/inline-hooks/#progressive-profile-support).
-
 > **Note:** Profile enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
-To associate the Registration Inline Hook with your Profile Enrollment policy:
+To associate the Registration Inline Hook with your profile enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 
@@ -303,7 +301,7 @@ Your Registration Inline Hook is configured for Profile Enrollment. You are now 
 
 Your Okta org is set up to call the sample external service using a Registration Inline Hook, and the external service is ready to receive and respond to an Okta call.
 
-In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly with self-registering users.
+In your Okta org, you can preview the request and response JSON in the Admin Console. You can also test the code directly with self-registering or profile-updating users.
 
 ### Preview the Registration Inline Hook
 
