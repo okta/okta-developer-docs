@@ -38,57 +38,49 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 ```json
 [
   {
+    "id": "otyfnly5cQjJT9PnR0g4",
+    "displayName": "Nootype",
+    "name": "newtype",
+    "description": "Custom user type",
+    "createdBy": "00ufnlhzppWItClAI0g4",
+    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+    "created": "2019-04-10T02:00:01.000Z",
+    "lastUpdated": "2019-04-10T02:00:01.000Z",
+    "default": false,
     "_links": {
       "schema": {
+        "rel": "schema",
         "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-        "method": "GET",
-        "rel": "schema"
+        "method": "GET"
       },
       "self": {
+        "rel": "self",
         "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-        "method": "GET",
-        "rel": "self"
+        "method": "GET"
       }
-    },
-    "created": "2019-04-10T02:00:01.000Z",
-    "createdBy": "00ufnlhzppWItClAI0g4",
-    "default": false,
-    "description": "Custom user type",
-    "displayName": "Nootype",
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "lastUpdated": "2019-04-10T02:00:01.000Z",
-    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-    "name": "newtype",
-    "ref": {
-      "id": "otyfnly5cQjJT9PnR0g4",
-      "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
     }
   },
   {
+    "id": "otyfnjfba4ye7pgjB0g4",
+    "displayName": "User",
+    "name": "user",
+    "description": "Okta user profile template with default permission settings",
+    "createdBy": "00ufnlhzppWItClAI0g4",
+    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+    "created": "2019-04-10T01:48:27.000Z",
+    "lastUpdated": "2019-04-10T01:48:27.000Z",
+    "default": true,
     "_links": {
       "schema": {
+        "rel": "schema",
         "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
-        "method": "GET",
-        "rel": "schema"
+        "method": "GET"
       },
       "self": {
+        "rel": "self",
         "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
-        "method": "GET",
-        "rel": "self"
+        "method": "GET"
       }
-    },
-    "created": "2019-04-10T01:48:27.000Z",
-    "createdBy": "sprfniwUE2qTcNGP10g4",
-    "default": true,
-    "description": "Okta user profile template with default permission settings",
-    "displayName": "User",
-    "id": "otyfnjfba4ye7pgjB0g4",
-    "lastUpdated": "2019-04-10T01:48:27.000Z",
-    "lastUpdatedBy": "sprfniwUE2qTcNGP10g4",
-    "name": "user",
-    "ref": {
-      "id": "otyfnjfba4ye7pgjB0g4",
-      "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
     }
   }
 ]
@@ -118,30 +110,26 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "Nootype",
+  "name": "newtype",
+  "description": "Custom user type",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
+      "rel": "schema",
       "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "method": "GET"
     },
     "self": {
+      "rel": "self",
       "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Custom user type",
-  "displayName": "Nootype",
-  "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
-  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "newtype",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
   }
 }
 ```
@@ -178,30 +166,26 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "Display Name for UI",
+  "name": "aNewType",
+  "description": "Any description that means something useful to you",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
+      "rel": "schema",
       "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "method": "GET"
     },
     "self": {
+      "rel": "self",
       "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Any description that means something useful to you",
-  "displayName": "Display Name for UI",
-  "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
-  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "aNewType",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
   }
 }
 ```
@@ -238,30 +222,26 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "TheDisplayName",
+  "name": "aNewType",
+  "description": "Any description that means something useful to you",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
+      "rel": "schema",
       "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "method": "GET"
     },
     "self": {
+      "rel": "self",
       "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Any description that means something useful to you",
-  "displayName": "TheDisplayName",
-  "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
-  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "aNewType",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
   }
 }
 ```
@@ -334,11 +314,15 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   "created": "2013-07-02T21:36:25.344Z",
   "lastUpdated": "2013-07-02T21:36:25.344Z",
   "_links": {
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
-    },
     "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
+    },
+    "self": {
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
     }
   }
 }
