@@ -52,9 +52,9 @@ See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
 
 <!-- Need to confirm with Erica: If you configure your org to process only SSR and your end user tries to update their profile, your end user receives an error message -->
 
-## Add SSR request code
+## Parse SSR request code
 
-This step includes the code that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (SSR).
+This step includes the JSON that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (SSR).
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
@@ -92,9 +92,9 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 > **Note:** The method definition that begins in this code snippet is incomplete. See [Send response](#send-response).
 
-## Add progressive profile request code
+## Parse progressive profile request code
 
-The following code allows an external service to supply values for updating attributes on a user profile.
+The following JSON allows an external service to supply values for updating attributes on a user profile.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 

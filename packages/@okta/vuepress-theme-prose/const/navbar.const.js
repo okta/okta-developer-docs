@@ -704,10 +704,6 @@ export const guides = [
             guideName: "mfa"
           },
           {
-            title: "Set up self-service registration",
-            guideName: "archive-set-up-self-service-registration"
-          },
-          {
             title: "Registration Inline Hook",
             guideName: "archive-registration-inline-hook"
           }
