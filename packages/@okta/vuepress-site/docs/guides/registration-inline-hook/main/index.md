@@ -280,7 +280,8 @@ To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page 
 
 To run a test of your progressive profile Registration Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
 
-* If you use a valid 
+* If you use a valid additional profile attribute, the update goes through.
+* If you use an invalid profile attribute, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for information if encountering any setup or configuration difficulties.
 
