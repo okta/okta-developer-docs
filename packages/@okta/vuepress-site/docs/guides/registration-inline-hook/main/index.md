@@ -6,7 +6,7 @@ layout: Guides
 
 This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and progressive profile support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
-> **Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -80,10 +80,10 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
             }
         },
         "userProfile": {
-            "firstName": "Alex",
+            "firstName": "Rosario",
             "lastName": "Jones",
-            "login": "alex.jones@example.com",
-            "email": "alex.jones@example.com"
+            "login": "rosario.jones@example.com",
+            "email": "rosario.jones@example.com"
         },
         "action": "ALLOW"
     }
@@ -129,10 +129,10 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
                     }
                 },
                 "profile": {
-                    "firstName": "Alex",
+                    "firstName": "Rosario",
                     "lastName": "Jones",
                     "timeZone": "America/Los_Angeles",
-                    "login": "alex.jones@example.com",
+                    "login": "rosario.jones@example.com",
                     "locale": "en_US"
                 },
                 "id": "00u48gwcu01WxvNo"
