@@ -1732,15 +1732,15 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/overview/
   - from: /docs/guides/create-token-with-groups-claim/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/oin-build-provisioning-integration/index.html
     to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
@@ -1850,29 +1850,29 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
   - from: /docs/guides/create-token-with-groups-claim/-/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/-/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/-/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
   - from: /guides/create-token-with-groups-claim/-/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /guides/create-token-with-groups-claim/-/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/create-token-with-groups-claim/
