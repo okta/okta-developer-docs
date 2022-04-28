@@ -6,7 +6,7 @@ layout: Guides
 
 This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and progressive profile support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
-**Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/).
+> **Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -266,7 +266,7 @@ The Registration Inline Hook must be set up, activated, and enabled within your 
 
 The Registration Inline Hook is now set up with a status of active.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an Inline Hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Enable the Registration Inline Hook
 
@@ -312,22 +312,23 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. Under "requestType", select **Self-Service Registration** or **Progressive Profile**.
 1. From the "Preview example Inline Hook request" block, click **Generate Request**.
    You should see the user's request information in JSON format that is sent to the external service.
+   > **Note:** You can click **Edit** to update your request before previewing the response.
 1. From the "View service's response" block, click **View Response**.
-   You should see the response from your external service in JSON format, which either allows or denies the self-registration.
+   You should see the response from your external service in JSON format, which either allows or denies the self-registration or profile update.
 
 ### Test the Registration Inline Hook
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
 * If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
-* If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
+* If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 To run a test of your progressive profile Registration Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
 
 * If you use a valid additional profile attribute, the update goes through.
-* If you use an invalid profile attribute, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
+* If you use an invalid profile attribute, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
-> **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for information if encountering any setup or configuration difficulties.
+> **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
 ## Next steps
 
@@ -336,7 +337,8 @@ Review the following guides to implement other Inline or Event Hook examples:
 * [Event Hook](/docs/guides/event-hook-implementation/)
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Telephony Hook](/docs/reference/telephony-hook/)
 
 ## See also
 
-For a complete description of this Inline Hook type, see[Registration Inline Hook](/docs/reference/registration-hook/).
+For a complete description of this Inline Hook type, see [Registration Inline Hook](/docs/reference/registration-hook/).
