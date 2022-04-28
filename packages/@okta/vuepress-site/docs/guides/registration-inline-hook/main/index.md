@@ -6,7 +6,7 @@ layout: Guides
 
 This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and progressive profile support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
-<!-- **Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). -->
+**Note:** This guide is for customers using Okta Identity Engine. If you use Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/).
 
 ---
 
