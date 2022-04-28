@@ -4,7 +4,7 @@ excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
 
-This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and progressive profile support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
+This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
 > **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -12,15 +12,15 @@ This guide provides working examples of an Okta Registration Inline Hook for Sel
 
 **Learning outcomes**
 
-* Understand the Okta Inline Hook calls and responses for SSR and progressive profile support.
+* Understand the Okta Inline Hook calls and responses for SSR and Progressive Enrollment support.
 * Implement simple working examples of a Registration Inline Hook with a Glitch.com project.
-* Preview and test a Registration Inline Hook for SSR and progressive profile support.
+* Preview and test a Registration Inline Hook for SSR and Progressive Enrollment support.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-* [A profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
+* [A Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 **Sample code**
 
@@ -30,9 +30,12 @@ This guide provides working examples of an Okta Registration Inline Hook for Sel
 
 ## About Registration Inline Hook implementation
 
-In the following examples, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register (for SSR) or update their profile (for progressive profile support).
+In the following examples, the external service code parses requests from Okta and responds with commands that indicate the following:
 
-You can use Registration Inline Hooks for SSR or progressive profile support or both. If you configure "both", you need to set up your code to handle the requests of both. As the end user either self-registers or updates their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
+* Whether the end user's email domain is valid and allowed to register (for SSR)
+* Whether the end user's data for their profile update is valid (for Progressive Enrollment support)
+
+You can use Registration Inline Hooks for SSR or Progressive Enrollment support or both. If you configure "both", you need to set up your code to handle the requests of both. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
 For an SSR Inline Hook, at a high level the following workflow occurs:
 
@@ -41,10 +44,10 @@ For an SSR Inline Hook, at a high level the following workflow occurs:
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-For a progressive profile Inline Hook, at a high level the following workflow occurs:
+For a Progressive Enrollment Inline Hook, at a high level the following workflow occurs:
 
 1. An existing registered user attempts to log in to their profile.
-1. A profile enrollment policy presents a custom form that asks for additional data from the user.
+1. A Profile Enrollment policy presents a custom form that asks for additional data from the user.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
 1. The external service responds to Okta with a command to allow or deny the addition of the new data to the user's profile.
 
@@ -92,7 +95,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 > **Note:** The method definition that begins in this code snippet is incomplete. See [Send response](#send-response).
 
-## Parse progressive profile request code
+## Parse Progressive Enrollment request code
 
 The following JSON allows an external service to supply values for updating attributes on a user profile.
 
@@ -151,7 +154,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the user self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
+The external service responds to Okta indicating whether to accept the user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
@@ -270,11 +273,11 @@ The Registration Inline Hook is now set up with a status of active.
 
 ### Enable the Registration Inline Hook
 
-You must [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
+You must [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
 
-> **Note:** Profile enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
-To associate the Registration Inline Hook with your profile enrollment policy:
+To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 
@@ -289,9 +292,9 @@ To associate the Registration Inline Hook with your profile enrollment policy:
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
 1. In **Run this hook**, select when you want your inline hook to run:
-   * **When a new user is created**: This trigger occurs during a self-service registration request.
-   * **When attributes are collected for an existing user**: This trigger occurs during a progressive profile sign-in request.
-   * **Both**: This trigger occurs during a self-service registration request and a progressive profile sign-in request.
+   * **When a new user is created**: This trigger occurs during a Self-Service Registration request.
+   * **When attributes are collected for an existing user**: This trigger occurs during a Progressive Enrollment sign-in request.
+   * **Both**: This trigger occurs during a self-service registration request and a Progressive Enrollment sign-in request.
 
 1. Click **Save**.
 
@@ -320,10 +323,10 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
-* If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
+* If you use an allowable email domain, such as `rosario.jones@example.com`, the user registration goes through.
 * If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
-To run a test of your progressive profile Registration Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
+To run a test of your Progressive Enrollment Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
 
 * If you use a valid additional profile attribute, the update goes through.
 * If you use an invalid profile attribute, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
