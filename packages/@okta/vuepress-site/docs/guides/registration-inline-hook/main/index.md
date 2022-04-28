@@ -90,31 +90,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send SSR response](#send-ssr-response).
-
-## Send SSR response
-
-The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
-
-This response example uses the `com.okta.user.profile.update` command to supply values for attributes in the response.
-
-See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
-
-```javascript
-{
-    "error": null,
-    "commands": [
-        {
-            "type": "com.okta.user.profile.update",
-            "value": {
-                "test": "_selfRegistration"
-            }
-        }
-    ],
-    "debugContext": {}
-}
-
-```
+> **Note:** The method definition that begins in this code snippet is incomplete. See [Send response](#send-response).
 
 ## Add progressive profile request code
 
@@ -171,29 +147,99 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send progressive profile response](#send-progressive-profile-response).
+> **Note:** The method definition that begins in this code snippet is incomplete. See [Send response](#send-response).
 
-## Send progressive profile response
+## Send response
 
-The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
-
-This response example uses the `com.okta.user.profile.update` command to supply values for attributes in the response.
+The external service responds to Okta indicating whether to accept the user self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 ```javascript
-{
-    "error": null,
-    "commands": [
-        {
-            "type": "com.okta.user.progressive.profile.update",
-            "value": {
-                "test": "_progressiveProfiling"
+app.post('/registrationHook', async (request, response) => {
+  console.log();
+  var returnValue = {};
+
+  if (request.body.requestType === 'progressive.profile') {
+    var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
+    if (employeeNumber && employeeNumber.length === 4) {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.user.progressive.profile.update',
+            value: {
+              'employeeNumber': 'E'.concat(employeeNumber),
             }
+          }
+        ]
+      };
+    } else {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              registration: 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect employee number. Please re-enter a correct employee number of length 4.',
+          'errorCauses':[{
+            'errorSummary':'Only employee numbers of length 4 can register.',
+            'reason':'INVALID_EMPLOYEE_NUMBER',
+            'locationType':'body',
+            'location':'data.userProfile.employeeNumber',
+            'domain':'end-user'
+          }]
         }
-    ],
-    "debugContext": {}
-}
+      };
+    }
+  } else {
+    var emailRegistration = request.body.data.userProfile['email'];
+    if (emailRegistration.includes('example.com')) {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              registration: 'DENY',
+            },
+          },
+          {
+            type: 'com.okta.user.profile.update',
+            value: {
+              'login': emailRegistration,
+            }
+          }
+        ]
+      };
+    } else {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              registration: 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect email address. Please contact your admin.',
+          'errorCauses':[{
+            'errorSummary':'Only example.com emails can register.',
+            'reason':'INVALID_EMAIL_DOMAIN',
+            'locationType':'body',
+            'location':'data.userProfile.email',
+            'domain':'end-user'
+          }]
+        }
+      };
+    }
+  }
+
+  response.send(JSON.stringify(returnValue));
+})
 ```
 
 ## Set up, activate, and enable
