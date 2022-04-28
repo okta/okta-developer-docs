@@ -7741,7 +7741,7 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | bookmark            | [Add Bookmark application](#add-bookmark-application)                         |
 | oidc_client         | [Add OAuth 2.0 client application](#add-oauth-2-0-client-application)         |
 | okta_org2org        | [Add Okta Org2Org application](#add-okta-org2org-application)                 |
-| tempalte_sps        | [Add SWA application (no plugin)](#add-swa-application-no-plugin)             |
+| template_sps        | [Add SWA application (no plugin)](#add-swa-application-no-plugin)             |
 | template_basic_auth | [Add Basic Authentication application](#add-basic-authentication-application) |
 | template_swa        | [Add plugin SWA application](#add-plugin-swa-application)                     |
 | template_swa3field  | [Add plugin SWA (3 field) application](#add-plugin-swa-3-field-application)   |
