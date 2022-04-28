@@ -10,7 +10,7 @@ Client-based rate limiting applies to unauthenticated endpoints within Okta that
 
 The Classic Engine and the Identity Engine both include rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint uses a combination of the Client ID, user's IP address, and Okta device identifier to provide granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
 
-The Identity Engine includes client-based rate limiting for multiple APIs that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which implements a series of interactions and API calls between the user and authorization server.
+The Identity Engine includes client-based rate limiting for multiple APIs that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and authorization server.
 
 The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and uses a combination of the user's IP address and Okta device identifier to provide even more granular, more targeted rate limits to a user, app, script, or server.
 
@@ -97,6 +97,8 @@ The client-based rate limit framework can operate in one of three modes:
 #### Default client-based rate limit mode change
 
 In March 2022, the default client-based rate limit is set to **Enforce limit and log per client (recommended)** mode for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints. This means that if an org's client-based rate limit was previously set to **Do nothing** or **Log per client**, the setting is going to change to **Enforce limit and log per client (recommended)** mode.
+
+If your org is upgrading to the Identity Engine, the existing classic client-based rate-limit settings require no updates during the upgrade. The `/login/login.htm` setting maps to the Identity Engine client application access setting, and the OAuth 2.0 `/authorize` setting maps to the same Oauth2 /`authorize` setting on Identity Engine. The mode selection remains the same after upgrade.
 
 #### What to monitor and the action to take
 
