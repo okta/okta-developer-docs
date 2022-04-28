@@ -34,7 +34,7 @@ In the following examples, the external service code parses requests from Okta a
 
 You can use Registration Inline Hooks for SSR or progressive profile support or both. If you configure "both", you need to set up your code to handle the requests of both. As the end user either self-registers or updates their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
-Whether for SSR or progressive profile support, at a high-level the following workflow occurs:
+For self-service registration, at a high-level the following workflow occurs:
 
 1. An end user attempts to self-register for your Okta org or update an existing profile in your org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
