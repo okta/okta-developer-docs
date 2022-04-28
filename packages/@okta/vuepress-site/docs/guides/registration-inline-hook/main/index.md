@@ -41,6 +41,8 @@ Whether for SSR or progressive profile support, at a high-level the following wo
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration or profile update based on the email domain.
 
+See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
+
 <!-- Need to confirm with Erica: If you configure your org to process only SSR and your end user tries to update their profile, your end user receives an error message -->
 
 ## Add SSR request code

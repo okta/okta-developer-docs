@@ -28,24 +28,9 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [Token Inline Hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
 | [User Import Inline Hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
 | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration and Progressive Profiles. |
+| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests and progressive profile support |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony Inline Hook](/docs/reference/telephony-hook/) <ApiLifecycle access="ea" /> | Customizes Okta's flows that send SMS or Voice messages       |
-
-#### Progressive Profile support
-
-<ApiLifecycle access="ie" /><br>
-
-If you have migrated to Okta Identity Engine, you can use Inline Hooks with the Progressive Profile feature to verify and modify user data.
-
-After you create a registration Inline Hook and add it to a Profile enrollment policy, you can run the hook in one of the following ways:
-
-- When a new user is created
-- When attributes are collected for an existing user
-- Both when a new user is created and when attributes are collected for an existing user
-
-See [Create Profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) and [Enable a Registration Inline Hook in the Identity Engine](/docs/guides/registration-inline-hook/nodejs/main/#enable-a-registration-inline-hook-in-the-identity-engine).
-
+| [Telephony Inline Hook](/docs/reference/telephony-hook/) <ApiLifecycle access="ea" /> | Customizes Okta's flows that send SMS or Voice messages |
 
 ## Inline Hook process flow
 
