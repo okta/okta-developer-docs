@@ -34,12 +34,19 @@ In the following examples, the external service code parses requests from Okta a
 
 You can use Registration Inline Hooks for SSR or progressive profile support or both. If you configure "both", you need to set up your code to handle the requests of both. As the end user either self-registers or updates their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
-For self-service registration, at a high-level the following workflow occurs:
+For SSR, at a high level the following workflow occurs:
 
-1. An end user attempts to self-register for your Okta org or update an existing profile in your org.
+1. An end user attempts to self-register for your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
-1. The external service responds to Okta with a command to allow or deny the registration or profile update based on the email domain.
+1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
+
+For progressive profile support, at a high level the following workflow occurs:
+
+1. An existing registered user attempts to log in to their profile.
+1. A profile enrollment policy presents a custom form that asks for additional data from the user.
+1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
+1. The external service responds to Okta with a command to add the new data to the user's profile.
 
 See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
 
