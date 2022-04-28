@@ -14,13 +14,13 @@ This guide provides working examples of an Okta Registration Inline Hook for Sel
 
 * Understand the Okta Inline Hook calls and responses for SSR and progressive profile support.
 * Implement simple working examples of a Registration Inline Hook with a Glitch.com project.
-* Preview and test a Registration Inline Hook.
+* Preview and test a Registration Inline Hook for SSR and progressive profile support.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-<!-- include setup for SSR and PP? -->
+* [A profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 **Sample code**
 
@@ -34,19 +34,19 @@ In the following examples, the external service code parses requests from Okta a
 
 You can use Registration Inline Hooks for SSR or progressive profile support or both. If you configure "both", you need to set up your code to handle the requests of both. As the end user either self-registers or updates their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
-For SSR, at a high level the following workflow occurs:
+For an SSR Inline Hook, at a high level the following workflow occurs:
 
 1. An end user attempts to self-register for your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
 1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-For progressive profile support, at a high level the following workflow occurs:
+For a progressive profile Inline Hook, at a high level the following workflow occurs:
 
 1. An existing registered user attempts to log in to their profile.
 1. A profile enrollment policy presents a custom form that asks for additional data from the user.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-1. The external service responds to Okta with a command to add the new data to the user's profile.
+1. The external service responds to Okta with a command to allow or deny the addition of the new data to the user's profile.
 
 See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
 
@@ -280,7 +280,7 @@ To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page 
 
 To run a test of your progressive profile Registration Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
 
-
+* If you use a valid 
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for information if encountering any setup or configuration difficulties.
 
