@@ -27,7 +27,7 @@ This guide explains how to define custom Group claims for tokens that are return
 
 You can create a dynamic or [static allow list](/docs/guides/customize-tokens-static/) when you need to set Group allow lists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allow list of Groups that can then easily be referenced.
 
-Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
@@ -121,7 +121,7 @@ You can use this function anywhere to get a list of Groups of which the current 
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the **Parameter Examples** section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 You can use a dynamic group allow list with both the Okta Org Authorization Server and a Custom Authorization Server:
 
@@ -199,7 +199,7 @@ To use the Group Functions to create an ID token or an access token using a dyna
     >
     >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
     >
-    >See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+    >See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 1. Click **Create**.
 1. Select the **Scopes** tab and click **Add Scope**.
