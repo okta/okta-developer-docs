@@ -38,9 +38,28 @@ The Okta Registration Inline Hook allows you to integrate your own custom code i
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
+### requestType
+
+OTP request or event for which this transaction is being requested: self-service registration or progressive profile.
+
+Values for `requestType` are one of the following:
+
+| Enum Value | Associated Okta Event |
+|----------|-------------------------------------------------------|
+| `self.service.registration` | Self-service registration |
+| `progressive.profile` | Progressive profile |
+
 ### data.userProfile
 
-This object contains name-value pairs for each attribute supplied by the user in the Profile Enrollment form, except for the following:
+This object appears in self-service registration (SSR) requests from Okta. The object contains name-value pairs for each registration-related attribute supplied by the user in the Profile Enrollment form, including:
+
+- `lastName`
+- `firstName`
+- `login`
+- `email`
+- other custom attributes on the Sign-In Widget
+
+The following attributes aren't included in the `data.userProfile` object:
 
 - the `password` field
 - any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
@@ -49,7 +68,19 @@ Using the `com.okta.user.profile.update` commands you send in your response, you
 
 You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
 
+### data.UserProfileUpdate
+
+<ApiLifecycle access="ie" /><br>
+
+This object appears in Progressive Profile requests from Okta.  The object contains the delta between existing name-value pairs and the attributes your end user wants to update.
+
+> **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
+
+Using the `com.okta.user.progressive.profile.update` command you send in your response, you can progressively change the values of delta attributes in the user's Okta profile.
+
 ### data.action
+
+> **Note:** The `data.action` object can appear in both self-service registration (SSR) and Progressive Profile requests.
 
 The action that Okta is currently set to take, regarding whether to allow this registration attempt.
 
@@ -61,6 +92,12 @@ There are two possible values:
 The action is `ALLOW` by default (in practice, `DENY` will never be sent to your external service).
 
 Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
+
+### data.context.user
+
+<ApiLifecycle access="ie" /><br>
+
+
 
 ## Objects in response you send
 
@@ -85,16 +122,19 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. |
+| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For self-service registration (SSR) only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
+| com.okta.user.progressive.profile.update   | Change values of attributes in the user's Okta Progressive Profile (Okta Identity Engine only). |
 
 To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
 To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"}`. The default is to allow registration.
 
-Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
+In Okta Identity Engine, to set attributes in the user's Okta progressive profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the progressive profile  attributes you want to set. See [Registration Inline Hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response) for more information. <ApiLifecycle access="ie" />
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` or `com.okta.user.progressive.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
+
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. However, the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
@@ -182,6 +222,8 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 ## Sample JSON payload of request
 
+> **Note:** The `requestType` field has a value of either `self.service.registration` or `progressive.profile`. See [requestType](#requesttype).
+
 ```json
 {
   "eventId": "GOsk4z6tSSeZo6X08MvKaw",
@@ -191,6 +233,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
   "contentType": "application/json",
   "cloudEventVersion": "0.1",
   "source": "reghawlks3zOkRrau0h7",
+  "requestType": "progressive.profile",
   "data": {
     "context": {
       "request": {
