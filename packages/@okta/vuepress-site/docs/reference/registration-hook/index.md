@@ -19,11 +19,9 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
+For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-the-classic-engine).
-
-For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
+For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ## About
 
@@ -283,35 +281,44 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 }
 ```
 
-## Enable a Registration Inline Hook for Profile Enrollment in Okta Identity Engine
+## Enable a Registration Inline Hook in Okta Identity Engine
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
-
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).)
+You must [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
 
-1. Go to **Security > Profile Enrollment**.
+> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+
+To associate the Registration Inline Hook with your Profile Enrollment policy:
+
+1. In the Admin Console, go to **Security > Profile Enrollment**.
 
 1. Click the Pencil icon to edit the policy and associate it with your Registration Inline Hook.
 
-1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. Select **Allowed** for **Sign-up** in the **For new users** section.
+1. In **Profile enrollment**, click **Edit**.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users**. If you have created multiple Registration Inline Hooks, you can see all of them displayed here.
+1. Select **Allowed** for **Self-service registration**.
+
+1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#set-up-and-activate-the-registration-inline-hook).
+
+   > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
+
+1. In **Run this hook**, select when you want your inline hook to run:
+   * **When a new user is created**: This trigger occurs during a Self-Service Registration request.
+   * **When attributes are collected for an existing user**: This trigger occurs during a Progressive Enrollment sign-in request.
+   * **Both**: This trigger occurs during a self-service registration request and a Progressive Enrollment sign-in request.
 
 1. Click **Save**.
 
-Your Registration Inline Hook is now configured for Profile Enrollment.
-
-> **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
+Your Registration Inline Hook is configured for Profile Enrollment.
 
 ## Enable a Registration Inline Hook for SSR in the Classic Engine
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="deprecated" />
 
-> **Note:** Self-Service Registration only exists in the Classic Engine. For the Identity Engine, please see instructions for Profile Enrollment above.
+> **Note:** SSR in Okta Classic Engine is deprecated. See [Enable a Registration Inline Hook in Okta Identity Engine](#enable-a-registration-inline-hook-in-okta-identity-engine) for details.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
