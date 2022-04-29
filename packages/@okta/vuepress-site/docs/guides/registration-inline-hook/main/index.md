@@ -189,9 +189,9 @@ app.post('/registrationHook', async (request, response) => {
           }
         ],
         'error': {
-          'errorSummary':'Incorrect employee number. Please re-enter a correct employee number of length 4.',
+          'errorSummary':'Incorrect employee number. Enter an employee number with 4 digits.',
           'errorCauses':[{
-            'errorSummary':'Only employee numbers of length 4 can register.',
+            'errorSummary':'Only employee numbers with 4 digits can register.',
             'reason':'INVALID_EMPLOYEE_NUMBER',
             'locationType':'body',
             'location':'data.userProfile.employeeNumber',
