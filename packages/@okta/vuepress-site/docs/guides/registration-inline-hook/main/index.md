@@ -13,7 +13,7 @@ This guide provides working examples of an Okta Registration Inline Hook for Sel
 **Learning outcomes**
 
 * Understand the Okta Inline Hook calls and responses for SSR and Progressive Enrollment support.
-* Implement simple working examples of a Registration Inline Hook with a Glitch.com project.
+* Implement working examples of a Registration Inline Hook with a Glitch.com project.
 * Preview and test a Registration Inline Hook for SSR and Progressive Enrollment support.
 
 **What you need**
@@ -33,9 +33,9 @@ This guide provides working examples of an Okta Registration Inline Hook for Sel
 In the following examples, the external service code parses requests from Okta and responds with commands that indicate the following:
 
 * Whether the end user's email domain is valid and allowed to register (for SSR)
-* Whether the end user's data for their profile update is valid (for Progressive Enrollment support)
+* Whether the end user's employee number is valid and allowed to be added to their profile (for Progressive Enrollment support)
 
-You can use Registration Inline Hooks for SSR or Progressive Enrollment support or both. If you configure "both", you need to set up your code to handle the requests of both. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
+In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring "both", you need to set up your code to handle the requests of both. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
 For an SSR Inline Hook, at a high level the following workflow occurs:
 
@@ -271,6 +271,18 @@ The Registration Inline Hook is now set up with a status of active.
 
 > **Note:** You can also set up an Inline Hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
+### Set up the employee number attribute
+
+In the Progressive Enrollment example, you ask users to submit a valid employee number. `employeeNumber`, by default, is a read-only attribute. You need to change `employeeNumber` to `read-write`.
+
+1. In the Admin Console, go to **Directory** > **Profile Editor**.
+1. Select **User (default)**.
+1. Under **Attributes**, find **Employee Number** and click the information icon.
+1. In the **Employee Number** dialog, under **User permission**, select **Read-Write**.
+1. Click **Save Attribute**.
+
+Users can now update the employee number in their profile.
+
 ### Enable the Registration Inline Hook
 
 You must [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
@@ -291,10 +303,7 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
-1. In **Run this hook**, select when you want your inline hook to run:
-   * **When a new user is created**: This trigger occurs during a Self-Service Registration request.
-   * **When attributes are collected for an existing user**: This trigger occurs during a Progressive Enrollment sign-in request.
-   * **Both**: This trigger occurs during a self-service registration request and a Progressive Enrollment sign-in request.
+1. In **Run this hook**, select **Both**. For our examples, this trigger allows both a self-service registration request and a Progressive Enrollment data update request.
 
 1. Click **Save**.
 
@@ -309,14 +318,14 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 ### Preview the Registration Inline Hook
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
+1. Select the Registration Inline Hook name (in this example, **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
-1. In the "Configure Inline Hook request" block, under "data.user.profile", select a user from your org. That is, select a value from your `data.userProfile` object.
-1. Under "requestType", select **Self-Service Registration** or **Progressive Profile**.
-1. From the "Preview example Inline Hook request" block, click **Generate Request**.
+1. In the **Configure Inline Hook request** block, under **data.user.profile**, select a user from your org. That is, select a value from your `data.userProfile` object.
+1. Under **requestType**, select **Self-Service Registration** or **Progressive Profile**.
+1. From the **Preview example Inline Hook request** block, click **Generate Request**.
    You should see the user's request information in JSON format that is sent to the external service.
-   > **Note:** You can click **Edit** to update your request before previewing the response.
-1. From the "View service's response" block, click **View Response**.
+   > **Note:** You can click **Edit** to update your request before previewing the response. For this example, you can change the email domain to `@example.com`.
+1. From the **View service's response** block, click **View Response**.
    You should see the response from your external service in JSON format, which either allows or denies the self-registration or profile update.
 
 ### Test the Registration Inline Hook
