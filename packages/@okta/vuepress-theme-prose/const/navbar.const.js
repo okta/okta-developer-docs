@@ -294,8 +294,12 @@ export const guides = [
             ]
           },
           {
-            title: "Mobile techniques",
+            title: "Mobile authentication",
             subLinks: [
+              {
+                title: "Identity Engine SDK overview",
+                guideName: "mobile-idx-sdk-overview"
+              },
               {
                 title: "Unlock a mobile app with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics"
