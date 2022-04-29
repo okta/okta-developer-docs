@@ -3059,17 +3059,10 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
-
-#### Early Access Permission types
-
-<ApiLifecycle access="ea" />
-
-| Permission type                         | Description                                                                                                                                           | Applicable resource types                    |
-| :-------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
-| `okta.authzServers.read`                | Allows the admin to read authorization servers.                                                                                                      | All authorization servers, a specific authorization server |
-| `okta.authzServers.manage`              | Allows the admin to manage authorization servers.                                                                                                    | All authorization servers, a specific authorization server |
-| `okta.customizations.read`              | Allows the admin to read customizations.                                                                                                             | All customizations |
-| `okta.customizations.manage`            | Allows the admin to manage customizations.                                                                                                           | All customizations |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers.                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers.                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations.                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations.                                                                                                           | All customizations |
 
 #### Example
 
@@ -3110,122 +3103,22 @@ The following `_links` are returned:
 
 A resource has an ID and a link that points to the resource. Supported resources are:
 
-#### Supported Resources
+#### Supported REST URL resources
 
 The following are the supported resources.
 
-<table>
-  <tr>
-    <td>Service</td>
-    <td>Resource</td>
-    <td>REST URL Resource Identifier</td>
-  </tr>
-  <tr>
-    <td>Directory</td>
-    <td>All Users</td>
-    <td><a href="/docs/reference/api/users/#list-users">https://${yourOktaDomain}/api/v1/users</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Groups</td>
-    <td><a href="/docs/reference/api/groups/#list-groups">https://${yourOktaDomain}/api/v1/groups</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>A specific Group</td>
-    <td><a href="/docs/reference/api/groups/#get-group">https://${yourOktaDomain}/api/v1/groups/${groupId}</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Users within a specific Group</td>
-    <td><a href="/docs/reference/api/groups/#list-group-members">https://${yourOktaDomain}/api/v1/groups/${groupId}/users</a></td>
-  </tr>
-  <tr>
-    <td>Identity Provider</td>
-    <td>All Apps</td>
-    <td><a href="/docs/reference/api/apps/#list-applications">https://${yourOktaDomain}/api/v1/apps</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Apps of a specific type</td>
-    <td><a href="/docs/reference/api/apps/#list-apps-by-name">https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>A specific App</td>
-    <td><a href="/docs/reference/api/apps/#get-application">https://${yourOktaDomain}/api/v1/apps/${appId}</a></td>
-  </tr>
-</table>
-
-#### Early Access Resources
-
-<ApiLifecycle access="ea" />
-
-Note - ORN identifiers are available in early access.
-
-<table>
-  <tr><td>Service</td><td>Resource</td><td>ORN Identifier</td><td>REST URL Resource Identifier</td></tr>
-  <tr>
-    <td>Directory</td>
-    <td>All Users</td>
-    <td>orn:okta:directory:${yourOrgId}:users</td>
-    <td><a href="/docs/reference/api/users/#list-users">https://${yourOktaDomain}/api/v1/users</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Groups</td>
-    <td>orn:okta:directory:${yourOrgId}:groups</td>
-    <td><a href="/docs/reference/api/groups/#list-groups">https://${yourOktaDomain}/api/v1/groups</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>A specific Group</td>
-    <td>orn:okta:directory:${yourOrgId}:groups:${groupId}</td>
-    <td><a href="/docs/reference/api/groups/#get-group">https://${yourOktaDomain}/api/v1/groups/${groupId}</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Users within a specific Group</td>
-    <td>orn:okta:directory:${yourOrgId}:groups:${groupId}:contained_resources</td>
-    <td><a href="/docs/reference/api/groups/#list-group-members">https://${yourOktaDomain}/api/v1/groups/${groupId}/users</a></td>
-  </tr>
-  <tr>
-    <td>Identity Provider</td>
-    <td>All Apps</td>
-    <td>orn:okta:idp:${yourOrgId}:apps</td>
-    <td><a href="/docs/reference/api/apps/#list-applications">https://${yourOktaDomain}/api/v1/apps</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Apps of a specific type</td>
-    <td>orn:okta:idp:${yourOrgId}:apps:${appType}</td>
-    <td><a href="/docs/reference/api/apps/#list-apps-by-name">https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>A specific App</td>
-    <td>orn:okta:idp:${yourOrgId}:apps:${appType}:${appId}</td>
-    <td><a href="/docs/reference/api/apps/#get-application">https://${yourOktaDomain}/api/v1/apps/${appId}</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All Authorization Servers</td>
-    <td>orn:okta:idp:${yourOrgId}:authorization_servers</td>
-    <td><a href="/docs/reference/api/authorization-servers/#list-authorization-servers">https://${yourOktaDomain}/api/v1/authorizationServers</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>A specific Authorization Server</td>
-    <td>orn:okta:idp:${yourOrgId}:authorization_servers:${authorizationServerId}</td>
-    <td><a href="/docs/reference/api/authorization-servers/#get-authorization-server">https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}</a></td>
-  </tr>
-  <tr>
-    <td />
-    <td>All customizations</td>
-    <td>orn:okta:idp:${yourOrgId}:customizations</td>
-    <td />
-  </tr>
-</table>
+| Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
+| :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Directory               | All Users                                                           | `orn:okta:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:okta:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:okta:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:okta:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:okta:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:okta:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"`](/docs/reference/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:okta:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:okta:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:okta:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:okta:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
