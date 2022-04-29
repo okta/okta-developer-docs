@@ -209,8 +209,9 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
       `Registration cannot be completed at this time.`</br></br>
       `We found some errors. Please review the form and make corrections.` <ApiLifecycle access="ie" />
 
-* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br>
-      `Registration denied.`
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br></br>
+      `Registration denied.`</br></br>
+      `Profile update denied.` <ApiLifecycle access="ie" />
 
 > **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 

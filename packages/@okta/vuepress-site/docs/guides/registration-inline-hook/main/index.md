@@ -143,8 +143,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
         },
         "action": "ALLOW",
         "userProfileUpdate": {
-            "newly_collected_profile_attribute_2": "newly_collected_profile_attribute_value_2",
-            "newly_collected_profile_attribute_1": "newly_collected_profile_attribute_value_1"
+            "employeeNumber": "1234"
         }
     }
 }
@@ -161,9 +160,12 @@ See the [response properties](/docs/reference/registration-hook/#objects-in-the-
 ```javascript
 app.post('/registrationHook', async (request, response) => {
   console.log();
+
   var returnValue = {};
 
   if (request.body.requestType === 'progressive.profile') {
+    // For example, 'employeeNumber' is an additional attribute collected after user registration.
+    console.log('Employee number added to profile: ' + request.body.data.userProfileUpdate['employeeNumber']);
     var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
     if (employeeNumber && employeeNumber.length === 4) {
       returnValue = {
@@ -199,16 +201,11 @@ app.post('/registrationHook', async (request, response) => {
       };
     }
   } else {
+    console.log('Email for ' + request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email']);
     var emailRegistration = request.body.data.userProfile['email'];
     if (emailRegistration.includes('example.com')) {
       returnValue = {
         'commands':[
-          {
-            type: 'com.okta.action.update',
-            value: {
-              registration: 'DENY',
-            },
-          },
           {
             type: 'com.okta.user.profile.update',
             value: {
@@ -331,12 +328,21 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. Select the Registration Inline Hook name (in this example, **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
 1. In the **Configure Inline Hook request** block, under **data.user.profile**, select a user from your org. That is, select a value from your `data.userProfile` object.
-1. Under **requestType**, select **Self-Service Registration** or **Progressive Profile**.
-1. From the **Preview example Inline Hook request** block, click **Generate Request**.
-   You should see the user's request information in JSON format that is sent to the external service.
-   > **Note:** You can click **Edit** to update your request before previewing the response. For this example, you can change the email domain to `@example.com`.
+1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
+1. From the **Preview example Inline Hook request** block, select **Generate Request**.
+   You should see user's request information in JSON format that is sent to the external service.
+1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
 1. From the **View service's response** block, click **View Response**.
-   You should see the response from your external service in JSON format, which either allows or denies the self-registration or profile update.
+   You should see the response from your external service in JSON format, which either allows or denies the self-registration.
+1. To test a profile update, under **data.user.profile** select a user from your org, and under **requestType** select **Progressive Profile**.
+1. From the **Preview example Inline Hook request** block, select **Generate Request**.
+1. Click **Edit** to update `userProfileUpdate`:
+   ```javascript
+   "userProfileUpdate": {
+      "employeeNumber": "1234"
+   ```
+1. From the **View service's response** block, click **View Response**.
+   You should see the response from your external service in JSON format, which either allows or denies the profile update.
 
 ### Test the Registration Inline Hook
 
