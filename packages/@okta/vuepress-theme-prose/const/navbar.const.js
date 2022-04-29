@@ -406,6 +406,10 @@ export const guides = [
                   {
                     title: "Azure AD",
                     path: "/docs/guides/add-an-external-idp/azure/main/"
+                  },
+                  {
+                    title: "Smart Card",
+                    path: "/docs/guides/add-an-external-idp/smartcard/"
                   }
                 ]
               },
