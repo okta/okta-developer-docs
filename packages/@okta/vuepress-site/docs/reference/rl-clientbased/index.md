@@ -8,17 +8,15 @@ excerpt: >-
 
 Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. This process can include multiple API endpoints that differ based on your type of org: Okta Identity Engine or Okta Classic Engine.
 
-The Classic Engine and the Identity Engine both include rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint uses a combination of the Client ID, user's IP address, and Okta device identifier to provide granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
+The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint uses a combination of the Client ID, user's IP address, and Okta device identifier to provide granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
 
-The Identity Engine includes client-based rate limiting for multiple APIs that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and authorization server.
+The Identity Engine includes client-based rate limiting for multiple API entry points that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and authorization server.
 
-The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and uses a combination of the user's IP address and Okta device identifier to provide even more granular, more targeted rate limits to a user, app, script, or server.
+The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and uses a combination of the user's IP address and Okta device identifier to provide granular, targeted rate limits to a user, app, script, or server.
 
-Currently, the client-based rate limits apply to these endpoints on both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share a [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
+Currently, the client-based rate limits for the OAuth2 `/authorize` endpoint apply to both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share a [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
 
 Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, `/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
-
-Currently, you can't update the per client rate limit. Every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) ,  IP/device identifier combination (for the `/login/login.htm` endpoint), or Identity Engine endpoints gets 60 total requests per minute and a maximum of five concurrent requests.
 
 For example, example.com has 10 OAuth 2.0 applications running in a production environment. Bob's team is launching a new marketing portal that is a single-page OAuth 2.0 application. Unaware of the rate limits on the OAuth 2.0 `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of OAuth 2.0 `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate limit violations for the rest of the users that access the other OAuth 2.0 applications.
 
@@ -159,7 +157,7 @@ Requests would appear to come from the same IP Address. When OAuth 2.0 `/authori
 
 **Q: Can I update the per client rate limit today?**
 
-No. Today every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) gets 60 total requests per minute and a maximum of five concurrent requests.
+No. Today every client ID/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint), IP/device identifier combination (for the `/login/login.htm` endpoint), or Identity Engine endpoints gets 60 total requests per minute and a maximum of five concurrent requests.
 
 **Q: Does the org-wide rate limit still apply when I enable the client-based rate limit?**
 
