@@ -44,7 +44,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
     * An Okta Org Authorization Server authorization endpoint looks like this:
 
