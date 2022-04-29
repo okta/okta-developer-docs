@@ -40,18 +40,18 @@ The outbound call from Okta to your external service includes the following obje
 
 ### requestType
 
-OTP request or event for which this transaction is being requested: self-service registration or progressive profile.
+OTP request or event for which this transaction is being requested: Self-Service Registration (SSR) or progressive profile.
 
 Values for `requestType` are one of the following:
 
 | Enum Value | Associated Okta Event |
 |----------|-------------------------------------------------------|
-| `self.service.registration` | Self-service registration |
-| `progressive.profile` | Progressive profile |
+| `self.service.registration` | Self-Service Registration |
+| `progressive.profile` | Progressive Enrollment |
 
 ### data.userProfile
 
-This object appears in self-service registration (SSR) requests from Okta. The object contains name-value pairs for each registration-related attribute supplied by the user in the Profile Enrollment form, including:
+This object appears in SSR requests from Okta. The object contains name-value pairs for each registration-related attribute supplied by the user in the Profile Enrollment form, including:
 
 - `lastName`
 - `firstName`
@@ -80,7 +80,7 @@ Using the `com.okta.user.progressive.profile.update` command you send in your re
 
 ### data.action
 
-> **Note:** The `data.action` object can appear in both self-service registration (SSR) and Progressive Profile requests.
+> **Note:** The `data.action` object can appear in both  SSR and Progressive Profile requests.
 
 The action that Okta is currently set to take, regarding whether to allow this registration attempt.
 
@@ -122,7 +122,7 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For self-service registration (SSR) only. Invalid if used with a Progressive Profile response.  |
+| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For SSR only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
 | com.okta.user.progressive.profile.update   | Change values of attributes in the user's Okta Progressive Profile (Okta Identity Engine only). |
 
@@ -307,7 +307,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
-## Enable a Registration Inline Hook for Self-Service Registration in the Classic Engine
+## Enable a Registration Inline Hook for SSR in the Classic Engine
 
 <ApiLifecycle access="ea" />
 
