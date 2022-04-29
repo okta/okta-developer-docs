@@ -94,11 +94,11 @@ The identifier for the tenant that is using the service. This is typically your 
 ###### objectType
 
 The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. To see examples of object types see
-[Supported Resources](#supported-resources).
+[Supported Resources](#supported-rest-url-resources).
 
 ###### objectId
 
-The object's identifier. To see examples of objectIds see [Supported Resources](#supported-resources).
+The object's identifier. To see examples of objectIds see [Supported Resources](#supported-rest-url-resources).
 
 ###### contained_resources
 
@@ -108,7 +108,7 @@ The object's identifier. To see examples of objectIds see [Supported Resources](
 
 Group 123 is the example container resource. Since `:contained_resources` is specified, the resource includes the users in the group, rather than the group itself.
 
-Not all resources support this property, see [Supported Resources](#supported-resources) for container resources.
+Not all resources support this property, see [Supported Resources](#supported-rest-url-resources) for container resources.
 #### REST URL
 
 If the resource has a corresponding Okta API, you can specify the resource by their REST URL. Use the [ORN format](#orn-format) to specify resources that don't have corresponding Okta APIs.
