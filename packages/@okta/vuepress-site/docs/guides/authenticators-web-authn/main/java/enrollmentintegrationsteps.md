@@ -1,6 +1,6 @@
 ### 1: Start enrollment flow
 
-The first step is to initiate a use case that requires authentication. This guide uses the sign-in with username and password flow that is initiated with calls to `IDXAuthenticatorWrapper.begin()`, `AuthenticationResponse.getProceedContext()`, and `IDXAuthenticatorWrapper.authenticate()`.
+Start the challenge flow with calls to `IDXAuthenticatorWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send username and password to the Okta server with `IDXAuthenticatorWrapper.authenticate()`.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -13,7 +13,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(
 
 ### 2: Display WebAuthn option
 
-After the user submits their password, make a call to `IDXAuthenticationWrapper.verifyAuthenticator()` to verify their password. If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `verifyAuthenticator()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
+If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and WebAuthn is **not** already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns an `AuthenticationResponse` object with `authenticationStatus` equal to `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and a `webauthn` authenticator item in the `authenticators` array.
 
 ```json
 {
@@ -33,45 +33,47 @@ After the user submits their password, make a call to `IDXAuthenticationWrapper.
 }
 ```
 
-Use the `type` and `label` properties to show the available list of authenticators to the user. The sample app constructs a dropdown list using the [Thymeleaf](https://www.thymeleaf.org/) template engine.
+Use the `type` and `label` properties to show the available list of authenticators to the user.
 
 ```xml
 <tr th:each="authenticator : ${authenticators}">
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="authenticator-type" th:value="${authenticator.label}" checked="true">
+        <input class="form-check-input" type="radio" name="authenticator-type"
+            th:value="${authenticator.label}" checked="true">
         <label class="form-check-label" th:text="${authenticator.label}"></label>
     </div>
 </tr>
 ```
 
-Authenticator selection page example from the sample app:
+A simple authenticator selection page should look like this:
 
 <div class="common-image-format">
 
-![Page showing webauthn option in list](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
+![A page showing a list of authenticators available for the user to enroll. The WebAuthn option is labelled Security Key or Biometric.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png "A simple authenticator selection page")
 
 </div>
 
 ### 3:  Submit WebAuthn option
 
-When the user selects the WebAuthn option and clicks submit, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator Id returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
+When the user selects the WebAuthn option, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
 ```java
 Optional<Authenticator> authenticatorOptional =
-                    authenticators.stream().filter(auth -> auth.getType().equals("webauthn")).findFirst();
+    authenticators.stream().filter(auth -> auth.getType().equals("webauthn")).findFirst();
 String authId = authenticatorOptional.get().getId();
 
-AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthenticator(proceedContext, authId);
+AuthenticationResponse enrollResponse =
+  idxAuthenticationWrapper.enrollAuthenticator(proceedContext, authId);
 
 ```
 
 ### 4: Identify data for creating a new credential
 
-The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates the user must verify their WebAuthn credentials. Additionally, `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
+The `AuthenticationResponse` object returned by `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, indicating the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
 ```json
 {
-	"authenticationStatus": "AWAITING_AUTHENTICATOR_ENROLLMENT", `
+	"authenticationStatus": "AWAITING_AUTHENTICATOR_ENROLLMENT",
 	"webAuthnParams": {
 		"currentAuthenticator": {
 			"value": {
@@ -97,18 +99,18 @@ The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenti
 
 ### 5: Display page to verify WebAuthn credentials
 
-Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties. Using the sample app as guide, access these properties with the following steps:
+Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties.
 
 1. Call `ModelandView.addObject()` and add `AuthenticationResponse.currentAuthenticator`, which is used later to extract the `challenge` and other data.
 
     ```java
     modelAndView = new ModelAndView("enroll-webauthn-authenticator");
-    modelAndView.addObject("title", "Enroll Webauthn Authenticator");
+    modelAndView.addObject("title", "Enroll WebAuthn Authenticator");
     modelAndView.addObject("currentAuthenticator",
             enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
     ```
 
-2. Set client-side javascript variables to values originating from `currentAuthenticator`. The sample app uses the [Thymeleaf](https://www.thymeleaf.org/) template engine to set these variables.
+2. Set client-side javascript variables to values originating from `currentAuthenticator`. These variables are used later to create the credential.
 
     ```javascript
     <script th:inline="javascript">
@@ -119,7 +121,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-    The following example renders the previous javascript code snippet.
+    The previous javascript code snippet renders the following code:
 
     ```javascript
     <script th:inline="javascript">
@@ -156,7 +158,7 @@ function strToBin(str) {
 
 ### 7: Create a new credential
 
-Call the Web Authentication API's `navigator.credentials.create()` in the client browser and pass in the `CredentialCreationOptions` object created in the previous step.
+Call `navigator.credentials.create()` in the client browser and pass in the `CredentialCreationOptions` object created in the previous step.
 
 ```javascript
 navigator.credentials.create({
@@ -166,7 +168,7 @@ navigator.credentials.create({
 
 This call initiates the following steps:
 
-1. Browser prompts the user to choose an authenticator.
+1. The browser prompts the user to choose the type of WebAuthn authenticator they are using. For example, a portable hardware authenticator such as a USB security key, or a software-based authenticator such as a fingerprint scanner.
 
 <div class="common-image-format">
 
@@ -174,7 +176,7 @@ This call initiates the following steps:
 
 </div>
 
-2. After the user chooses the authenticator, the device's local authenticator asks for consent to create the credentials. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm the consent.
+2. After the user chooses the authenticator, the device asks for consent to create the credentials. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm the consent.
 
 <div class="common-image-format">
 
@@ -197,7 +199,7 @@ This call initiates the following steps:
 
 ### 8: Build the parameter for sending the public key to the Okta server
 
-The returned `PublicKeyCredential` object contains the signature and other binary formatted data that you need to convert to strings before sending it back to the Okta servers. The sample app uses client-side javascript to convert this data into a variable.
+The returned `PublicKeyCredential` object contains the signature and other binary-formatted data you need to convert to strings before sending it back to the Okta servers.
 
 ```javascript
 .then((assertion) => {
@@ -225,7 +227,7 @@ function binToStr(bin) {
 
 Forward the signature to Okta for validation. Specifically, perform the following steps:
 
-1. First, send the converted signature data to the Okta SDK. The sample app sends the data through an HTTP Post request from the client browser to the server.
+1. First, send the converted signature to your app using an HTTP Post request from the client browser to the server.
 
     ```javascript
     fetch("/enroll-webauthn", options)
@@ -241,4 +243,4 @@ Forward the signature to Okta for validation. Specifically, perform the followin
       proceedContext, webauthnRequest);
     ```
 
-3. Depending on the org configuration, the `AuthenticationResponse` from `idxAuthenticationWrapper.verifyWebAuthn()` can return an `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are additional remediation steps to complete.
+3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are further remediation steps to complete.
