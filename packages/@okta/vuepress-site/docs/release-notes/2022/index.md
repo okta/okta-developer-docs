@@ -1,6 +1,22 @@
 ---
 title: Okta API Products release notes 2022
 ---
+## May
+
+### Monthly release 2022.05.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improved email magic link authentication experience is EA in Preview](#improved-email-magic-link-authentication-experience-is-ea-in-preview) | May 4, 2022 |
+| [Bug fixed in 2022.05.0](#bug-fixed-in-2022.05.0) | May 4, 2022 |
+
+#### Monthly item
+
+Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+
+#### Bug fixed in 2022.05.0
+
+Post calls to the Org API endpoint, `/org/email/bounces/remove-list` that create an email bounces remove list returned an HTTP 500 Internal Server Error. (OKTA-489040)
 
 ## April
 
