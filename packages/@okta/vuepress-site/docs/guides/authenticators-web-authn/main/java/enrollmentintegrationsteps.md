@@ -121,7 +121,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-    The previous javascript code snippet renders the following code:
+    The previous javascript code snippet produces the following code in the browser:
 
     ```javascript
     <script th:inline="javascript">
@@ -172,7 +172,7 @@ This call initiates the following steps:
 
 <div class="common-image-format">
 
-![UI showing the authenticator options](/img/authenticators/authenticators-webauthn-authenticator-options.png)
+![A UI showing the available authenticator options](/img/authenticators/authenticators-webauthn-authenticator-options.png "Available webAuthn authenticators")
 
 </div>
 
@@ -180,7 +180,7 @@ This call initiates the following steps:
 
 <div class="common-image-format">
 
-![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
+![A prompt from Google Chrome asking to either use Touch ID or password to verify the user's identity](/img/authenticators/authenticators-webauthn-user-consent.png "Verify your identity prompt")
 
 </div></br>
 

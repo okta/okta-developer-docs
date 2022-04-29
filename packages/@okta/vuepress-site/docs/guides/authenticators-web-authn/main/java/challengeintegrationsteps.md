@@ -119,7 +119,7 @@ Redirect the user to a page that verifies the WebAuthn credentials returned in t
     </script>
     ```
 
-    The javascript sent to your browser will look similar to the following snippet:
+    The previous javascript code snippet produces the following code in the browser:
 
     ```javascript
     <script th:inline="javascript">
