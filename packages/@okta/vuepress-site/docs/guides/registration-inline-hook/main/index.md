@@ -285,25 +285,35 @@ Users can now update the employee number in their profile.
 
 ### Enable the Registration Inline Hook
 
-You must [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
+To enable the Registration Inline Hook, you must associate it with a Profile Enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for more details.
 
 > **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
-To associate the Registration Inline Hook with your Profile Enrollment policy:
+To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 
-1. Click the Pencil icon to edit the policy and associate it with your Registration Inline Hook.
+1. Click **Add Profile Enrollment Policy**.
+
+1. Give your policy a name (in this example, "Inline Hook"), and then click **Save**.
+
+1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
+
+1. Click **Manage Apps**, then click **Add Apps to this Policy**.
+
+1. Locate the **Okta Admin Console**, click **Apply**, then click **Close**.
+
+1. Click **Back to Profile Enrollment Policy**.
 
 1. In **Profile enrollment**, click **Edit**.
 
-1. Select **Allowed** for **Self-service registration**.
+1. For **Self-service registration**, select **Allowed**.
 
 1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](#set-up-and-activate-the-registration-inline-hook).
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
-1. In **Run this hook**, select **Both**. For our examples, this trigger allows both a self-service registration request and a Progressive Enrollment data update request.
+1. In **Run this hook**, select **Both**. For our examples, this trigger allows both an SSR request and a Progressive Enrollment data update request.
 
 1. Click **Save**.
 
