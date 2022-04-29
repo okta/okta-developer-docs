@@ -314,6 +314,14 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 1. Click **Save**.
 
+1. Under **Profile Enrollment Form**, click **Add form input**.
+
+1. From the drop-down menu, select **Employee number**.
+
+1. In the **Add form input** dialog, under **Customize form input**, set **Input requirement** as **Optional**.
+
+1. Slick **Save**.
+
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
 ## Preview and test
@@ -347,14 +355,23 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 ### Test the Registration Inline Hook
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
+> **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
 
 * If you use an allowable email domain, such as `rosario.jones@example.com`, the user registration goes through.
 * If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
-To run a test of your Progressive Enrollment Inline Hook, go to the Okta sign-in page for your Okta org and attempt to sign in.
+To run a test of your Progressive Enrollment Inline Hook:
 
-* If you use a valid additional profile attribute, the update goes through.
-* If you use an invalid profile attribute, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+1. Sign in to the Okta Admin Console as an admin.
+1. Go to **Security** > **Profile Enrollment**.
+1. Under **Profile enrollment form**, find **Employee number** and click **Edit**.
+1. Set the **Input requirement** to **Required**.
+1. Click **Save**.
+1. Log out from the Admin Console and sign in with your new `@example.com` credentials.
+
+* If you use a valid login, the **Employee number** field appears on the next screen.
+* If you enter an employee number in a valid format (4 digits), the update goes through.
+* If you enter an employee number in an invalid format, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
