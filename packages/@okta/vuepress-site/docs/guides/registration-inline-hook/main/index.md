@@ -350,7 +350,7 @@ To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page 
 
 1. Sign in to the Okta Admin Console as an admin.
 1. Go to **Security** > **Profile Enrollment**.
-1. Under **Profile enrollment form**, find **Employee number** and click **Edit**.
+1. Under **Profile enrollment form**, find **Employee number** and then click **Edit**.
 1. Set the **Input requirement** to **Required**.
 1. Click **Save**.
 1. Log out from the Admin Console and sign in with your new `@example.com` credentials.
