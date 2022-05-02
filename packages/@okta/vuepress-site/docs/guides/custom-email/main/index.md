@@ -273,7 +273,9 @@ You can also include any relevant macro from the Velocity Templating Language (V
 
 For example, in an Identity Engine org, you could compose the `${resetPasswordLink}` statement for the forgot password email template as:
 
-   `https://example.com/login/callback?otp=${oneTimePassword}&state=${request.relayState}&location=${request.location}&ip=${request.ipAddress}&browser=${request.browser}`
+```http
+https://example.com/login/callback?otp=${oneTimePassword}&state=${request.relayState}&location=${request.location}&ip=${request.ipAddress}&browser=${request.browser}`
+```
 
 After you create your custom statement for the forgot password link, you need to modify the **Forgot Password** email template:
 
