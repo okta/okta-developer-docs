@@ -40,16 +40,16 @@ In these examples, you set up your Registration Inline Hook to handle both SSR a
 For an SSR Inline Hook, at a high level the following workflow occurs:
 
 1. An end user attempts to self-register for your Okta org.
-1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
+1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
+1. The external service evaluates the Okta call to make sure the end user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
 For a Progressive Enrollment Inline Hook, at a high level the following workflow occurs:
 
-1. An existing registered user attempts to log in to their profile.
-1. A Profile Enrollment policy presents a custom form that asks for additional data from the user.
-1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-1. The external service responds to Okta with a command to allow or deny the addition of the new data to the user's profile.
+1. An existing registered end user attempts to log in to their profile.
+1. A Profile Enrollment policy presents a custom form that asks for additional data from the end user.
+1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
+1. The external service responds to Okta with a command to allow or deny the addition of the new data to the end user's profile.
 
 See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
 
@@ -95,7 +95,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Parse Progressive Enrollment request code
 
-The following JSON allows an external service to supply values for updating attributes on a user profile.
+The following JSON allows an external service to supply values for updating attributes on an end user's profile.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
@@ -151,7 +151,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register or update their profile.
+The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the end user should either be denied or allowed to self-register or update their profile.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
@@ -162,7 +162,7 @@ app.post('/registrationHook', async (request, response) => {
   var returnValue = {};
 
   if (request.body.requestType === 'progressive.profile') {
-    // For example, 'employeeNumber' is an additional attribute collected after user registration.
+    // For example, 'employeeNumber' is an additional attribute collected after end user registration.
     console.log('Employee number added to profile: ' + request.body.data.userProfileUpdate['employeeNumber']);
     var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
     if (employeeNumber && employeeNumber.length === 4) {
@@ -268,7 +268,7 @@ The Registration Inline Hook is now set up with a status of active.
 
 ### Set up the employee number attribute
 
-In the Progressive Enrollment example, you ask users to submit a valid employee number. `employeeNumber`, by default, is a read-only attribute. You need to change `employeeNumber` to `read-write`.
+In the Progressive Enrollment example, you ask end users to submit a valid employee number. `employeeNumber`, by default, is a read-only attribute. You need to change `employeeNumber` to `read-write`.
 
 1. In the Admin Console, go to **Directory** > **Profile Editor**.
 1. Select **User (default)**.
@@ -276,7 +276,7 @@ In the Progressive Enrollment example, you ask users to submit a valid employee 
 1. In the **Employee Number** dialog, under **User permission**, select **Read-Write**.
 1. Click **Save Attribute**.
 
-Users can now update the employee number in their profile.
+End users can now update the employee number in their profile.
 
 ### Enable the Registration Inline Hook
 
@@ -317,14 +317,14 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Select the Registration Inline Hook name (in this example, **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
-1. In the **Configure Inline Hook request** block, under **data.user.profile**, select a user from your org. That is, select a value from your `data.userProfile` object.
+1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.userProfile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
-   You should see user's request information in JSON format that is sent to the external service.
+   You should see the end user's request information in JSON format that is sent to the external service.
 1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
 1. From the **View service's response** block, click **View Response**.
    You should see the response from your external service in JSON format, which either allows or denies the self-registration.
-1. To test a profile update, under **data.user.profile** select a user from your org, and under **requestType** select **Progressive Profile**.
+1. To test a profile update, under **data.user.profile** select an end user from your org, and under **requestType** select **Progressive Profile**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
 1. Click **Edit** to update `userProfileUpdate`:
    ```javascript
@@ -336,15 +336,15 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 
 ## Test
 
-You can also test the code directly with self-registering or profile-updating users.
+You can also test the code directly with self-registering or profile-updating end users.
 
 ### Test the SSR Inline Hook
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
 
-* If you use an allowable email domain, such as `rosario.jones@example.com`, the user registration goes through.
-* If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+* If you use an allowable email domain, such as `rosario.jones@example.com`, the end user registration goes through.
+* If you use an incorrect email domain, the end user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 ### Test the Progressive Enrollment Inline Hook
 
