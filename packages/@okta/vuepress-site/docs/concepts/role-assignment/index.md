@@ -54,13 +54,13 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 
 ### Resource Sets
 
-A Resource Set is simply a collection of resources. There are two types of resource identifiers, resources can either be identified by Okta Resource Names (ORN) or by a REST URL format.
+A Resource Set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
 
 #### Okta Resource Name (ORN)
 
 <ApiLifecycle access="ea" />
 
-Okta Resource Names (ORN) is the primary resource identifier. ORNs uniquely identify Okta resources.
+The primary resource identifier is the Okta Resource Name (ORN). ORNs uniquely identify Okta resources.
 
 ##### ORN format
 
@@ -70,22 +70,22 @@ ORN identifiers are in the following format:
 
 ###### partition
 
-The partition is specific to your Okta environment. The following are the supported partitions.
+The partition is specific to your Okta environment. The following are the supported partitions:
 
 | Partition               |  ORN partition value  |
 | ----------------------- | --------------------- |
-| Preview environments    | oktapreview           |
-| Production environments | okta                  | 
+| Preview environments    | `oktapreview`         |
+| Production environments | `okta`                | 
 
 ###### service
 
   The service that the resource belongs to. Each resource belongs to only one service.
-  The following are the supported services.
+  The following are the supported services:
 
-| Service           |  ORN service value    |
-| ----------------- | --------------------- |
-| Directory         | directory             | 
-| Identity Provider | idp                   |
+| Service           |  ORN service value      |
+| ----------------- | ----------------------- |
+| Directory         | `directory`             | 
+| Identity Provider | `idp`                   |
 
 ###### tenantId
 
@@ -93,27 +93,27 @@ The identifier for the tenant that is using the service. This is typically your 
 
 ###### objectType
 
-The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. To see examples of object types see
-[Supported Resources](#supported-rest-url-resources).
+The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see
+[Supported resources](#supported-resources).
 
 ###### objectId
 
-The object's identifier. To see examples of objectIds see [Supported Resources](#supported-rest-url-resources).
+The object's identifier. For examples of object identifiers, see [Supported resources](#supported-resources).
 
 ###### contained_resources
 
-`contained_resources` is an ORN property that indicates to target all resources within the container resource. For example,
+`contained_resources` is an ORN property that indicates to target all resources within the container resource. For example:
 
 `orn:okta:directory:${yourOrgId}:groups:123:contained_resources`
 
 Group 123 is the example container resource. Since `:contained_resources` is specified, the resource includes the users in the group, rather than the group itself.
 
-Not all resources support this property, see [Supported Resources](#supported-rest-url-resources) for container resources.
+Not all resources support this property, see [Supported resources](#supported-resources) for container resources.
 #### REST URL
 
 If the resource has a corresponding Okta API, you can specify the resource by their REST URL. Use the [ORN format](#orn-format) to specify resources that don't have corresponding Okta APIs.
 
-#### Supported REST URL resources
+#### Supported resources
 
 The following are the supported resources.
 
@@ -190,7 +190,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 | `okta.apps.manage`                                          | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`                               | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.profilesource.import.run`                             | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
-| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers.                                                                                                      | All authorization servers, a specific authorization server |
-| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers.                                                                                                    | All authorization servers, a specific authorization server |
-| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations.                                                                                                             | All customizations |
-| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations.                                                                                                           | All customizations |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |

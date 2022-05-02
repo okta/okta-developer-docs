@@ -3059,10 +3059,10 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
-| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers.                                                                                                      | All authorization servers, a specific authorization server |
-| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers.                                                                                                    | All authorization servers, a specific authorization server |
-| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations.                                                                                                             | All customizations |
-| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations.                                                                                                           | All customizations |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
 
 #### Example
 
@@ -3103,7 +3103,7 @@ The following `_links` are returned:
 
 A resource has an ID and a link that points to the resource. Supported resources are:
 
-#### Supported REST URL resources
+#### Supported resources
 
 The following are the supported resources.
 
