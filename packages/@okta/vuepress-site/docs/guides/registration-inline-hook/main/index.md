@@ -1,5 +1,5 @@
 ---
-title: Registration Inline Hook
+title: Configure a Registration Inline Hook
 excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
