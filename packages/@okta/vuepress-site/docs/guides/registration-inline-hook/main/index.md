@@ -4,7 +4,7 @@ excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
 
-This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
+This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service to receive and respond to Registration Inline Hook calls.
 
 > **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -52,8 +52,6 @@ For a Progressive Enrollment Inline Hook, at a high level the following workflow
 1. The external service responds to Okta with a command to allow or deny the addition of the new data to the user's profile.
 
 See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
-
-<!-- Need to confirm with Erica: If you configure your org to process only SSR and your end user tries to update their profile, your end user receives an error message -->
 
 ## Parse SSR request code
 
@@ -244,7 +242,7 @@ app.post('/registrationHook', async (request, response) => {
 
 ## Set up, activate, and enable
 
-The Registration Inline Hook must be set up, activated, and enabled within your Okta Admin Console.
+You must set up, activate, and enable the Registration Inline Hook within your Okta Admin Console.
 
 ### Set up and activate the Registration Inline Hook
 
