@@ -11,8 +11,7 @@ All four flows start with the same steps that enable a user to sign in with a us
 
 <div class="common-image-format">
 
-![Sequence diagram showing the shared sign-in initiation flow for Okta Verify challenge and enrollment](/img/authenticators/dotnet-authenticators-okta-verify-shared-code-initiate-signin.png "All steps in the shared sign-in flow")
-**TODO:** Create Java version of this
+![Sequence diagram showing the shared sign-in initiation flow for Okta Verify challenge and enrollment](/img/authenticators/java-authenticators-okta-verify-shared-code-initiate-signin.png "All steps in the shared sign-in flow")
 
 </div>
 

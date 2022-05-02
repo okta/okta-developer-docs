@@ -30,7 +30,7 @@ Display the he instructions and QR code to the user, similar to the following sc
 
 <div class="common-image-format">
 
-![A QR code to be scanned into Okta Verify to complete enrollment](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-scan-qr-code.png "A sample QR code to be scanned in Okta Verify")
+![A QR code to be scanned into Okta Verify to complete enrollment](/img/authenticators/java-authenticators-okta-verify-enrollment-scan-qr-code.png "A sample QR code to be scanned in Okta Verify")
 
 </div>
 
