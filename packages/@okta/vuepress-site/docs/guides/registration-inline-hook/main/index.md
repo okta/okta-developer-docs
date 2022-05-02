@@ -324,13 +324,11 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
-## Preview and test
+## Preview the Registration Inline Hook
 
 Your Okta org is set up to call the sample external service using a Registration Inline Hook, and the external service is ready to receive and respond to an Okta call.
 
-In your Okta org, you can preview the request and response JSON in the Admin Console. You can also test the code directly with self-registering or profile-updating users.
-
-### Preview the Registration Inline Hook
+In your Okta org, you can preview the request and response JSON in the Admin Console.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Select the Registration Inline Hook name (in this example, **Guide Registration Hook Code**).
@@ -352,7 +350,11 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. From the **View service's response** block, click **View Response**.
    You should see the response from your external service in JSON format, which either allows or denies the profile update.
 
-### Test the Registration Inline Hook
+## Test
+
+You can also test the code directly with self-registering or profile-updating users.
+
+### Test the SSR Registration Inline Hook
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
@@ -360,7 +362,7 @@ To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page 
 * If you use an allowable email domain, such as `rosario.jones@example.com`, the user registration goes through.
 * If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
-To run a test of your Progressive Enrollment Inline Hook:
+### Test the Progressive Enrollment Inline Hook
 
 1. Sign in to the Okta Admin Console as an admin.
 1. Go to **Security** > **Profile Enrollment**.
