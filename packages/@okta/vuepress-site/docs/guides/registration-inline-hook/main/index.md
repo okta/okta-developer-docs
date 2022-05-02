@@ -354,7 +354,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 
 You can also test the code directly with self-registering or profile-updating users.
 
-### Test the SSR Registration Inline Hook
+### Test the SSR Inline Hook
 
 To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
