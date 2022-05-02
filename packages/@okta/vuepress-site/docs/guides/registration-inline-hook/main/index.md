@@ -35,7 +35,7 @@ In the following examples, the external service code parses requests from Okta a
 * Whether the end user's email domain is valid and allowed to register (for SSR)
 * Whether the end user's employee number is valid and allowed to be added to their profile (for Progressive Enrollment support)
 
-In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring "both", you need to set up your code to handle the requests of both. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
+In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring "both", you need to set up your code to handle the requests of each workflow. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
 For an SSR Inline Hook, at a high level the following workflow occurs:
 
@@ -287,37 +287,23 @@ To enable the Registration Inline Hook, you must associate it with a Profile Enr
 To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
-
 1. Click **Add Profile Enrollment Policy**.
-
 1. Give your policy a name (in this example, "Inline Hook"), and then click **Save**.
-
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
-
-1. Click **Manage Apps**, then click **Add Apps to this Policy**.
-
-1. Locate the **Okta Admin Console**, click **Apply**, then click **Close**.
-
+1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
+1. Locate the **Okta Admin Console**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
-
 1. In **Profile enrollment**, click **Edit**.
-
 1. For **Self-service registration**, select **Allowed**.
-
 1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](#set-up-and-activate-the-registration-inline-hook).
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
 1. In **Run this hook**, select **Both**. For our examples, this trigger allows both an SSR request and a Progressive Enrollment data update request.
-
 1. Click **Save**.
-
 1. Under **Profile Enrollment Form**, click **Add form input**.
-
 1. From the drop-down menu, select **Employee number**.
-
 1. In the **Add form input** dialog, under **Customize form input**, set **Input requirement** as **Optional**.
-
 1. Slick **Save**.
 
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
