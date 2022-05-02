@@ -1,3 +1,5 @@
+<!-- Note: this file isn't necessary for the latest version of the registration inline hook guide. I'm keeping it her for future reference, that is, if we document SDKs other than the Node.js SDK -->
+
 ### Send self-service registration (SSR) response
 
 For this example, only emails containing "example.com" are allowed and can self-register. You can also include an `error` object in the response for those users denied registration.

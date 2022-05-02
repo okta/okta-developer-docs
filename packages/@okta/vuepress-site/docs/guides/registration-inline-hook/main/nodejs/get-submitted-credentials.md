@@ -1,3 +1,6 @@
+<!-- Note: this file isn't necessary for the latest version of the registration inline hook guide. I'm keeping it her for future reference, that is, if we document SDKs other than the Node.js SDK -->
+
+
 ### Add self-service registration (SSR) request code
 
 The following code represents a check on the `lastName`, `firstName`, `test`, `login`, and `email` properties of an incoming request from Okta; that is, the basic credentials used in self-serfice registration (SSR). The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
