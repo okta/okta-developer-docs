@@ -46,7 +46,7 @@ This step includes the code that parses the body of the request received from Ok
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the user should either be denied or allowed to self-register.
+The external service responds to Okta indicating whether to accept the user self-registration by returning a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied self-registration with Okta. 
 
 <StackSelector snippet="send-response" noSelector/>
 
