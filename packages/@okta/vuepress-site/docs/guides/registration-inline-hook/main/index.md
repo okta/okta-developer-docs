@@ -246,7 +246,7 @@ You must set up, activate, and enable the Registration Inline Hook within your O
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
-1. Add a name for the hook (in this example, "Guide Registration Hook Code").
+1. Add a name for the hook (in this example, use "Guide Registration Hook Code").
 1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHook`):
 
    `https://your-glitch-projectname.glitch.me/registrationHook`
