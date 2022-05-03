@@ -52,7 +52,7 @@ The external service responds to Okta indicating whether to accept the user self
 
 ## Activate and enable
 
-The Registration Inline Hook must be set up and activated and enabled within your Okta Admin Console.
+The Registration Inline Hook must be set up, activated, and enabled within your Okta Admin Console.
 
 To set up and activate the Registration Inline Hook:
 
