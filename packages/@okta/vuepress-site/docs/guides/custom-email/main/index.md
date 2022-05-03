@@ -57,6 +57,8 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
+> **Note:** You can customize any default email template. However, when you edit a default template, Okta stops sending the default message in other languages. You are responsible for adding translations of your customized message.
+
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
@@ -260,8 +262,6 @@ Okta can send an email notification to an end user who has forgotten their passw
 If you are using an [embedded authentication](/docs/concepts/redirect-vs-embedded/) deployment model for your application's sign-in flow, you can create a customized email magic link for your **Forgot Password** email template.
 
 The option to send a forgotten password recovery email with a custom link is available only to OIDC applications on Identity Engine organizations.
-
-You can customize any default email template. However, when you edit a default template, Okta stops sending the default message in other languages. You are responsible for adding translations of your customized message.
 
 The custom link for forgotten passwords has several required elements:
 
