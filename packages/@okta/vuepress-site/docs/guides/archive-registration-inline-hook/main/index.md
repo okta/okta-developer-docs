@@ -68,7 +68,7 @@ To set up and activate the Registration Inline Hook:
 
 The Registration Inline Hook is now set up with an active status.
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Enable the Registration Inline Hook
 
