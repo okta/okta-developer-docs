@@ -21,7 +21,7 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
+For an example implementation of this Inline Hook, see [Configure a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ## About
 
