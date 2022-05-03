@@ -7601,9 +7601,9 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
 | Property                   | Description                                                       | DataType | Nullable |
 | -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
 | rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
-| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
+| leeway                     | The leeway, in seconds, allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the specified period of time so clients can get the new token.                                           | Number               | TRUE |
 
-* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
+* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties when you create an app integration, the default values are used. When you update an app integration, your previously configured values are used.
 
 * The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
 
@@ -7620,7 +7620,7 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
 }
 ```
 
-> **Note:** A leeway of 0 does not necessarily mean that the previous token is immediately invalidated. There is still a minimal window where the previous token can be reused.
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
 ### Application object
 
