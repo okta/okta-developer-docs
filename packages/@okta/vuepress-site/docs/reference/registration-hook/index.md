@@ -290,7 +290,7 @@ To activate the Inline Hook, you first need to register your external service en
 
 You must [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) to implement a Registration Inline Hook.
 
-> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/) version 4.5 or later.
 
 To associate the Registration Inline Hook with your Profile Enrollment policy:
 
