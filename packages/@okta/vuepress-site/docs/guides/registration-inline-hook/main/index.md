@@ -94,7 +94,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Parse Progressive Enrollment request code
 
-The following JSON allows an external service to supply values for updating attributes on an end user's profile.
+The following JSON example provides the end user's profile data to the external service for evaluation.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
