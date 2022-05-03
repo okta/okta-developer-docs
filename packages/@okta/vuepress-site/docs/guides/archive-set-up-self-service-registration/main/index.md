@@ -107,7 +107,7 @@ With Okta, new users are prompted to choose a security image and optionally an a
 
 2. In the **Optional User Account Fields** section, click **Edit**.
 
-3. Select **Disabled** from the **Security image** drop-down box, and then click **Save**.
+3. Select **Disabled** from the **Security image** dropdown menu, and then click **Save**.
 
 If you don't have any policies configured or your org doesn't allow you to disable additional self-service recovery options, you can skip the following steps. Disabling additional self-service recovery options is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
