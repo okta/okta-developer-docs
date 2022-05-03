@@ -4,7 +4,7 @@ excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Registration Inline Hook Guide](/docs/guides/registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Configure a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide provides a working example of an Okta Registration Inline Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Registration Inline Hook calls.
 
