@@ -293,7 +293,7 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
-1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](#set-up-and-activate-the-registration-inline-hook).
+1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Set up and activate the Registration Inline Hook](#set-up-and-activate-the-registration-inline-hook).
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
