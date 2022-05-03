@@ -58,7 +58,7 @@ This response example uses the `com.okta.user.progressive.profile.update` comman
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
-```javascript
+```json
 {
   "commands": [
     {
