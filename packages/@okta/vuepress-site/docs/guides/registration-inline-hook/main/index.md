@@ -53,7 +53,7 @@ The following is a high-level workflow for a Progressive Enrollment Inline Hook:
 
 See [Inline Hooks](/docs/concepts/inline-hooks/) for Okta Inline Hook concepts.
 
-## Parse SSR request code
+## SSR request
 
 This step includes the JSON that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (SSR).
 
