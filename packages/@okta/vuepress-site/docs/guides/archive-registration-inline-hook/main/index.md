@@ -110,7 +110,7 @@ To enable the Registration Inline Hook on the self-service registration page:
 
 1. Click **Edit**.
 
-1. From the **Extension** field drop-down menu, select the hook that you set up and activated previously ("Guide Registration Hook Code").
+1. From the **Extension** dropdown menu, select the hook that you set up and activated previously ("Guide Registration Hook Code").
 
 1. Click **Save**.
 
