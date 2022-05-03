@@ -59,7 +59,7 @@ This step includes the JSON that parses the body of the request received from Ok
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
-```javascript
+```json
 {
     "eventId": "04Dmt8BcT_aEgM",
     "eventTime": "2022-04-25T17:35:27.000Z",
