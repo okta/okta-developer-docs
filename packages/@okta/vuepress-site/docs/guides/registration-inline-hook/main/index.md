@@ -300,7 +300,7 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 1. In **Run this hook**, select **Both**. For our examples, this trigger allows both an SSR request and a Progressive Enrollment data update request.
 1. Click **Save**.
 1. Under **Profile Enrollment Form**, click **Add form input**.
-1. From the drop-down menu, select **Employee number**.
+1. From the dropdown menu, select **Employee number**.
 1. In the **Add form input** dialog, under **Customize form input**, set **Input requirement** as **Optional**.
 1. Slick **Save**.
 
