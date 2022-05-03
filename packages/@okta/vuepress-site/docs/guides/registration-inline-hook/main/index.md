@@ -92,7 +92,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 ```
 
 
-## Parse Progressive Enrollment request code
+## Progressive Enrollment request
 
 The following JSON example provides the end user's profile data to the external service for evaluation.
 
