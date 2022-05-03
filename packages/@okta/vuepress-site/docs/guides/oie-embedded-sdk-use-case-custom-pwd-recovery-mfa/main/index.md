@@ -106,7 +106,7 @@ When users initiate a password recovery, they are sent an email based on the **F
       | otp            | *${oneTimePassword}*    |
       | state          | *${request.relayState}* |
 
-      After your updates the URL should take the following format: `http://[your app's address]?otp=${oneTimePassword}&state=${request.relayState}`.
+      After your updates the URL should take the following format: `http://${yourOktaDomain}?otp=${oneTimePassword}&state=${request.relayState}`.
 
       <StackSnippet snippet="emailtemplate" />
 

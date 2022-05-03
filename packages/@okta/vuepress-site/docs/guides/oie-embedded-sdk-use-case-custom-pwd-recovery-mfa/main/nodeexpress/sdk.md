@@ -10,7 +10,7 @@ The next step is to open the Okta email and click its reset password link.
 
 <div class="common-image-format">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
 
 </div>
 

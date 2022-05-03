@@ -3,4 +3,5 @@
 1. Build an app with the Embedded Sign-in Widget or SDK.
     * For Sign-in Widget based apps, implement [Basic sign-in flow](docs/guides/oie-embedded-widget-use-case-basic-sign-in/nodejs/main/).
     * For SDK based apps, implement [User Password Recovery](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
-1. If you want to test the flows without building an app, use the provided sample apps, which have prebuilt support for password recovery email customizations.
+
+If you want to test the flows without building an app, use the provided sample apps, which have prebuilt support for password recovery email customizations.

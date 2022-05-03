@@ -3,4 +3,5 @@
 1. Build an app with the Embedded Sign-In Widget or SDK.
     * For embedded Sign-In Widget based apps, implement the [basic sign-in flow](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/).
     * For SDK-based apps, implement [user password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
-1. If you want to test the flows without building an app, use the provided sample apps. They have prebuilt support for password recovery email customizations.
+
+If you want to test the flows without building an app, use the provided sample apps. They have prebuilt support for password recovery email customizations.

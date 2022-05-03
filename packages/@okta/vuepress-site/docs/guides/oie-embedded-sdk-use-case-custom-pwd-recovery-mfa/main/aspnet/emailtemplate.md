@@ -1,4 +1,4 @@
-If you're using the Sign-In Widget sample app or the SDK sample app use `https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}`. The following snippet shows how the URL looks in the HTML message:
+If you're using the Sign-In Widget sample app or the SDK sample app use `https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}`. The following shows the resulting `<a>` element in the email template:
 
 ```html
   <a id="reset-password-link"

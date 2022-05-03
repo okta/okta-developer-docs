@@ -1,26 +1,24 @@
 ### 1: Start password recovery
 
-To begin the password recovery flow, the user must:
+The user starts the password recovery flow with the following steps:
 
-1. Click the **Forgot Password?** link on the sign-in page.
-2. Enter their **Email or Username** in the box and click **Next**.
-3. Choose **Email** as the authenticator they want to use for password recovery and click **Submit**.
+1. Clicks the **Forgot Password?** link on the sign-in page.
+2. Enters their **Email or Username** in the dialog and then clicks **Next**.
+3. Chooses **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
 
-Okta then sends the user an email that matches the Forgot Password template that you altered earlier, and the app tells them to click the link in the email or to enter the OTP to continue. This follows the first three steps in the [User Password Recovery](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps) guide.
+Okta then sends an email to the email address that matches the Forgot Password template that was altered earlier.
 
 <div class="common-image-format">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password Recovery Email")
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
 
 </div>
 
-The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For example,
-
-`http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as parameters to the `IdxAuthenticationWrapper.verifyAuthenticator` method. First, check that the `otp` and `state` parameters have values. If either parameters are `null` or `state` does not match the state stored in the current `ProceedContext` session variable, throw an error.
+Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as parameters to the `IdxAuthenticationWrapper.verifyAuthenticator()` method. Before calling the method, check that the `otp` and `state` parameters have values. If either parameter is `null` or the value of `state` does not match the state stored in the current `ProceedContext` session variable, throw an error.
 
 ```java
 @RequestMapping(value = {"magic-link/callback"}, method = RequestMethod.GET)
@@ -45,7 +43,7 @@ public ModelAndView displayIndexOrHomePage(
     }
 ```
 
-If `ProceedContext` is `null` (because the user is clicking the magic link in a different browser), advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP to proceed.
+If `ProceedContext` is `null` (because the user clicked the magic link from a different browser), advise the user to return to the original tab in the browser, where they requested the password reset, and enter the OTP to proceed.
 
 ```java
     AuthenticationResponse authenticationResponse;
@@ -62,7 +60,7 @@ If `ProceedContext` is `null` (because the user is clicking the magic link in a 
         }
 ```
 
-If `otp`, `state` and `ProceedContext` are valid and not `null`, call `IDXAuthenticationWrapper.verifyAuthenticator`, using its `verifyAuthenticatorOptions` parameter to pass in the `otp` value.
+If `otp`, `state` and `ProceedContext` are valid and not `null`, call `IDXAuthenticationWrapper.verifyAuthenticator()`, using the `verifyAuthenticatorOptions` parameter to pass in the `otp` value.
 
 ```java
         VerifyAuthenticatorOptions verifyAuthenticatorOptions = 
@@ -80,7 +78,7 @@ If `otp`, `state` and `ProceedContext` are valid and not `null`, call `IDXAuthen
 
 ### 3: Handle the response from the recovery flow
 
-If the `otp` and `state` values are valid, Okta verifies a password recovery is in progress and returns a status of `AWAITING_PASSWORD_RESET`. This status indicates that you can redirect the user to your password reset page.
+If the `otp` and `state` values are valid, Okta verifies that a password recovery is in progress and returns a status of `AWAITING_PASSWORD_RESET`. This status indicates that you can redirect the user to your password reset page.
 
 ```java
 public ModelAndView handleKnownTransitions(
@@ -103,7 +101,7 @@ public ModelAndView handleKnownTransitions(
 
 ### 4: Display password reset page and continue the password recovery flow
 
-Display the password reset page and continue the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/).
+Display the password reset page and continue the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
 <div class="common-image-format">
 
