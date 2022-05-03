@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## April
 
+### Weekly release 2022.04.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.04.3](#bug-fixed-in-2022-04-3) | April 20, 2022 |
+
+#### Bug fixed in 2022.04.3
+
+* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](/docs/reference/api/asa/projects/#create-a-project) endpoint from the ASA Projects API. (OKTA-489376)
+
 ### Weekly release 2022.04.1
 
 | Change | Expected in Preview Orgs |

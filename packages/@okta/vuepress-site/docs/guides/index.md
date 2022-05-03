@@ -42,6 +42,7 @@ guides:
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
+ - mobile-idx-sdk-overview
  - oin-oidc-overview
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy

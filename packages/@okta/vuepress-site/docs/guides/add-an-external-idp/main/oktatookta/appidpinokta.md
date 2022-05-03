@@ -3,7 +3,7 @@
 * **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Scopes**: Leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+    > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
 In the **Endpoints** section:
 

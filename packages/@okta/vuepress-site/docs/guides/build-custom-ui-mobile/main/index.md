@@ -4,6 +4,8 @@ excerpt: Learn how to build a custom sign-in UI in your mobile app.
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
 <EmbeddedBrowserWarning />
