@@ -251,7 +251,7 @@ You must set up, activate, and enable the Registration Inline Hook within your O
 
    `https://your-glitch-projectname.glitch.me/registrationHook`
 
-   * If using Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix. To find the live site link, click **Share**.
+   If you use Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix. To find the live site link, click **Share**.
 
 1. Include the authentication field and secret. In this example:
 
