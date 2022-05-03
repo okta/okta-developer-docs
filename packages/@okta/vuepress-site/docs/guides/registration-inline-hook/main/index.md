@@ -4,7 +4,7 @@ excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
 
-This guide provides working examples of an Okta Registration Inline Hook for Self-Service Registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service to receive and respond to Registration Inline Hook calls.
+This guide provides working examples of an Okta Registration Inline Hook for self-service registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service to receive and respond to Registration Inline Hook calls.
 
 > **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Registration Inline Hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
