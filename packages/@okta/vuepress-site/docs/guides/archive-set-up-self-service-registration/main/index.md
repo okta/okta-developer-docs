@@ -26,7 +26,7 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
-Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
+Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
 
 Self-service registration supports these registration workflows:
 
