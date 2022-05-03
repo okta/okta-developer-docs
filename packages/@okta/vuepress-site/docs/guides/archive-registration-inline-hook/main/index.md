@@ -133,7 +133,7 @@ To preview the Registration Inline Hook:
 5. From the "Preview example Inline Hook request" block, click **Generate Request**.
     The user's request information in JSON format that is sent to the external service appears.
 6. From the "View service's response" block, click **View Response**.
-    You should see the response from your external service in JSON format, which either allows or denies the self-registration.
+    The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
 
 ### Test
 
