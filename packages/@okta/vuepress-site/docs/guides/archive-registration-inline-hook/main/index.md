@@ -66,7 +66,7 @@ To set up and activate the Registration Inline Hook:
     * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 6. Click **Save**.
 
-The Registration Inline Hook is now set up with a status of active.
+The Registration Inline Hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
