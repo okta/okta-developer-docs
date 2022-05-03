@@ -120,7 +120,7 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. For SSR only. Invalid if used with a Progressive Profile response.  |
+| com.okta.user.profile.update | Change attribute values in the user's Okta user profile. For SSR only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
 | com.okta.user.progressive.profile.update   | Change attribute values in the user's Okta Progressive Profile. <ApiLifecycle access="ie" /> |
 
