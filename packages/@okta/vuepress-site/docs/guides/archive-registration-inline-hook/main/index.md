@@ -89,7 +89,7 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. Select **Allowed** for **Sign-up** in the **For new users** section.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users** that you set up and activated previously ("Guide Registration Hook Code"). The drop-down menu displays all the Registration Inline Hooks that you have created.
+1. Select your hook from the dropdown menu for **Use the following inline hook** under the options for **For new users** that you set up and activated previously ("Guide Registration Hook Code"). The dropdown menu displays all the Registration Inline Hooks that you have created.
 
 1. Click **Save**.
 
