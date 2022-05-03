@@ -7,14 +7,14 @@ title: Okta API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Email Address Bounces API is GA in Preview](#email-address-bounces-API) | March 2, 2022 |
-| [Trusted Origins for iFrame embedding is EA in Preview](#email-address-bounces-API) | ???? |
-| [Authorize requests to generic OIDC IdPs now include nonce parameter](#email-address-bounces-API) | ??? |
-| [Signed request support for generic OIDC IdP is GA in Production](#email-address-bounces-API) | March 2, 2022 |
-| [Client secret rotation and key management is GA in Production](#email-address-bounces-API) | February 3, 2022 |
-| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Production](#email-address-bounces-API) | ??? |
-| [New permissions for custom admin roles](#email-address-bounces-API) | May 4, 2022 |
-| [Bugs fixed in 2022.05.0](#bug-fixed-in-2022.05.0) | May 4, 2022 |
+| [Email Address Bounces API is GA in Preview](#email-address-bounces-api-is-ga-in-preview) | March 2, 2022 |
+| [Trusted Origins for iFrame embedding is EA in Preview](#trusted-origins-for-iframe-embedding-is-ea-in-preview) | May 4, 2022|
+| [Authorize requests to generic OIDC IdPs now include nonce parameter](#authorize-requests-to-generic-oidc-idps-now-include-nonce-parameter) | May 4, 2022 |
+| [Signed request support for generic OIDC IdP is GA in Production](#signed-request-support-for-generic-oidc-idp-is-ga-in-production) | March 2, 2022 |
+| [Client secret rotation and key management is GA in Production](#client-secret-rotation-and-key-management-is-ga-in-production) | February 3, 2022 |
+| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Production](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-production) | February 16, 2022 |
+| [New permissions for custom admin roles](#new-permissions-for-custom-admin-roles) | May 4, 2022 |
+| [Bugs fixed in 2022.05.0](#bugs-fixed-in-2022-05-0) | May 4, 2022 |
 
 #### Email Address Bounces API is GA in Preview
 
@@ -55,7 +55,7 @@ The authorization server permissions can be scoped to a subset of the org’s au
 
 * Post calls to the Org API endpoint, `/org/email/bounces/remove-list` that create an email bounces remove list returned an HTTP 500 Internal Server Error. (OKTA-489040)
 
-* If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles#response-example-37)) endpoints contained an invalid role type, an HTTP 500 Internal Server error was returned. (OKTA-393032)
+* If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-group)) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
 
 * Custom email address attribute mapping for the GitHub IdP failed due to a conflict in the `id` external attribute. (OKTA-460058)
 
