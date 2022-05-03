@@ -7114,6 +7114,7 @@ curl -v -X PUT \
 ## Models
 
 * [Idp-Initiated Login object](#idp-initiated-login-object)
+* [Refresh Token object](#refresh-token-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
 * [Appliction Group object](#application-group-object)
@@ -7593,6 +7594,34 @@ curl -X POST \
 }
 ```
 
+### Refresh token object
+
+Determines the refresh token rotation configuration for the OAuth 2.0 client.
+
+| Property                   | Description                                                       | DataType | Nullable |
+| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
+| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
+| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
+
+* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
+
+* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
+
+* The `rotation_type` property is required if the request contains the `refresh_token` object.
+
+* The `leeway` property value can be between 0 and 60. The default value is `30`.
+
+```json
+{
+  "refresh_token": {
+    "rotation_type": "ROTATE",
+    "leeway": "20"
+  }
+}
+```
+
+> **Note:** A leeway of 0 does not necessarily mean that the previous token is immediately invalidated. There is still a minimal window where the previous token can be reused.
+
 ### Application object
 
 #### Example
@@ -7948,32 +7977,6 @@ Determines the [key](#application-key-credential-object) used for signing assert
 {
   "signing": {
     "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4"
-  }
-}
-```
-
-#### Refresh token object
-
-Determines the refresh token rotation configuration for the OAuth 2.0 client.
-
-| Property                   | Description                                                       | DataType | Nullable |
-| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
-| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
-| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
-
-* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
-
-* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
-
-* The `rotation_type` property is required if the request contains the `refresh_token` object.
-
-* The `leeway` property value can be between 0 and 60. The default value is `30`.
-
-```json
-{
-  "refresh_token": {
-    "rotation_type": "ROTATE",
-    "leeway": "20"
   }
 }
 ```
