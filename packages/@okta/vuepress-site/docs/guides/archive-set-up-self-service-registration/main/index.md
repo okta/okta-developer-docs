@@ -166,4 +166,4 @@ Now that you understand how to set up self-service registration, you can learn h
 
 ## See also
 
-* [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/)
+* [Embedded Okta Sign-In Widget fundamentals](docs/guides/archive-embedded-siw/)
