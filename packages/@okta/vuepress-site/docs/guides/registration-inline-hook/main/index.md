@@ -91,7 +91,6 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send response](#send-response).
 
 ## Parse Progressive Enrollment request code
 
