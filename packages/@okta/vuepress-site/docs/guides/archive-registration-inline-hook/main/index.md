@@ -154,4 +154,4 @@ Review the following guides to implement other Inline or Event Hook examples:
 
 ## See also
 
-For a complete description of this Inline Hook type, see[Registration Inline Hook](/docs/reference/registration-hook/).
+For a complete description of this Inline Hook type, see the [Registration Inline Hook Reference](/docs/reference/registration-hook/).
