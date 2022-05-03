@@ -150,7 +150,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response, using a specified syntax within the object to indicate to Okta that the end user should either be denied or allowed to self-register or update their profile.
+The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta. 
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
