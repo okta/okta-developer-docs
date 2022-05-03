@@ -55,7 +55,7 @@ See [Inline Hooks](/docs/concepts/inline-hooks/) for Okta Inline Hook concepts.
 
 ## SSR request
 
-This step includes the JSON that parses the body of the request received from Okta. These properties contain the credentials submitted by the end user who is trying to self register (SSR).
+The following is an example of a JSON request received from Okta. The request properties contain data submitted by the end user who is trying to self register.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
