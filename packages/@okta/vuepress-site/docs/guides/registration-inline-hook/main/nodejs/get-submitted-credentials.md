@@ -96,4 +96,4 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 }
 ```
 
-> **Note:** The method definition that begins in this code snippet is incomplete. See [Send Progressive Profile response](#send-progressive-profile-response).
+> **Note:** See [Send Progressive Profile response](#send-progressive-profile-response) for details.
