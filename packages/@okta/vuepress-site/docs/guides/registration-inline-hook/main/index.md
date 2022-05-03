@@ -318,7 +318,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.userProfile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
-   You should see the end user's request information in JSON format that is sent to the external service.
+   The end user's request information in JSON format, that is sent to the external service, appears.
 1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
 1. From the **View service's response** block, click **View Response**.
    You should see the response from your external service in JSON format, which either allows or denies the self-registration.
