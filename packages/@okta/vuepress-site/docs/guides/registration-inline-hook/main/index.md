@@ -321,7 +321,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
    The end user's request information in JSON format, that is sent to the external service, appears.
 1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
 1. From the **View service's response** block, click **View Response**.
-   You should see the response from your external service in JSON format, which either allows or denies the self-registration.
+   The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
 1. To test a profile update, under **data.user.profile** select an end user from your org, and under **requestType** select **Progressive Profile**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
 1. Click **Edit** to update `userProfileUpdate`:
