@@ -330,7 +330,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
       "employeeNumber": "1234"
    ```
 1. From the **View service's response** block, click **View Response**.
-   You should see the response from your external service in JSON format, which either allows or denies the profile update.
+   The response from your external service in JSON format appears, which indicates that the profile update was either allowed or denied.
 
 ## Test
 
