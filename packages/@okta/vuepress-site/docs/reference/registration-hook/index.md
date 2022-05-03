@@ -74,7 +74,7 @@ This object appears in Progressive Profile requests from Okta.  The object conta
 
 > **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
 
-Using the `com.okta.user.progressive.profile.update` command you send in your response, you can progressively change the values of delta attributes in the user's Okta profile.
+Use the `com.okta.user.progressive.profile.update` command in your response to progressively change the values of delta attributes in the user's Okta profile.
 
 ### data.action
 
