@@ -15,4 +15,4 @@ excerpt: The classic archive contains Okta classic-compatible versions of docume
 ## Self-service registration guides
 
 <!-- * [Set up self-service registration](/docs/guides/archive-set-up-self-service-registration/main/): This guide explains how to set up Okta's self-service registration (SSR) functionality. -->
-* [Registration Inline Hook](/docs/guides/archive-registration-inline-hook/main/): This guide provides a working example of an Okta Registration Inline Hook.
+* [Registration Inline Hook](/docs/guides/archive-registration-inline-hook/): This guide provides a working example of an Okta Registration Inline Hook.
