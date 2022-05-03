@@ -37,7 +37,7 @@ In the following examples, the external service code parses requests from Okta a
 
 In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring both, you need to set up your code to handle the requests of each workflow. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
-For an SSR Inline Hook, at a high level the following workflow occurs:
+The following is a high-level workflow for an SSR Inline Hook:
 
 1. An end user attempts to self-register for your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
