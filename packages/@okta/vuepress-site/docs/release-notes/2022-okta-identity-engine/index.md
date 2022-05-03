@@ -15,10 +15,10 @@ title: Okta Identity Engine API Products release notes 2022
 | [Authorize requests to generic OIDC IdPs now include nonce parameter](#authorize-requests-to-generic-oidc-idps-now-include-nonce-parameter) | May 4, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Production](#signed-request-support-for-generic-oidc-idp-is-ga-in-production) | March 2, 2022 |
 | [Client secret rotation and key management is GA in Production](#client-secret-rotation-and-key-management-is-ga-in-production) | February 3, 2022 |
-| [Okta API access with OAuth 2.0 for Org2Org is GA in Production](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-production) | February 16, 2022 |
+| [Okta API access with OAuth 2.0 for Org2Org is GA in Production](#okta-api-access-with-oauth-2-0-for-org2org-is-ga-in-production) | February 16, 2022 |
 | [New permissions for custom admin roles](#new-permissions-for-custom-admin-roles) | May 4, 2022 |
 | [Password as an optional authenticator is EA in Preview](#password-as-an-optional-authenticator-is-ea-in-preview) | March 30, 2022 |
-| [Bugs fixed in 2022.05.0](#bug-fixed-in-2022.05.0) | March 30, 2022 |
+| [Bugs fixed in 2022.05.0](#bugs-fixed-in-2022-05-0) | May 4, 2022 |
 
 #### Email Address Bounces API is GA in Preview
 

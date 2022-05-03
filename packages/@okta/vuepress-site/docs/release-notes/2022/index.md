@@ -12,9 +12,9 @@ title: Okta API Products release notes 2022
 | [Authorize requests to generic OIDC IdPs now include nonce parameter](#authorize-requests-to-generic-oidc-idps-now-include-nonce-parameter) | May 4, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Production](#signed-request-support-for-generic-oidc-idp-is-ga-in-production) | March 2, 2022 |
 | [Client secret rotation and key management is GA in Production](#client-secret-rotation-and-key-management-is-ga-in-production) | February 3, 2022 |
-| [Okta API access with OAuth 2.0 for Org2Org is GA in Production](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-production) | February 16, 2022 |
+| [Okta API access with OAuth 2.0 for Org2Org is GA in Production](#okta-api-access-with-oauth-2-0-for-org2org-is-ga-in-production) | February 16, 2022 |
 | [New permissions for custom admin roles](#new-permissions-for-custom-admin-roles) | May 4, 2022 |
-| [Multi-optional authenticator enrollment is GA in Production](#new-permissions-for-custom-admin-roles) | May 4, 2022 |
+| [Multi-optional authenticator enrollment is GA in Production](#multi-optional-authenticator-enrollment-is-ga-in-production) | May 4, 2022 |
 | [Bugs fixed in 2022.05.0](#bugs-fixed-in-2022-05-0) | May 4, 2022 |
 
 #### Email Address Bounces API is GA in Preview
@@ -58,7 +58,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Bugs fixed in 2022.05.0
 
-* Post calls to the Org API endpoint, `/org/email/bounces/remove-list` that create an email bounces remove list returned an HTTP 500 Internal Server Error. (OKTA-489040)
+* Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) returned an HTTP 500 Internal Server Error. (OKTA-489040)
 
 * If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-group)) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
 
@@ -175,7 +175,7 @@ When the [List email templates](/docs/reference/api/brands/#list-email-templates
 | [Email Address Bounces API is EA in Preview](#email-address-bounces-api-is-ea-in-preview) | March 2, 2022 |
 | [Enhanced email macros for email template customization](#enhanced-email-macros-for-email-template-customization) | March 2, 2022 |
 | [Signed request support for generic OIDC IdP is EA in Preview](#signed-request-support-for-generic-oidc-idp-is-ea-in-preview) | March 2, 2022 |
-| [Multi-optional authenticator enrollment is GA in Preview](#bugs-fixed-in-2022-03-0)         | March 2, 2022           |
+| [Multi-optional authenticator enrollment is GA in Preview](#multi-optional-authenticator-enrollment-is-ga-in-preview)         | March 2, 2022           |
 | [Bugs fixed in 2022.03.0](#bugs-fixed-in-2022-03-0)         | March 2, 2022           |
 
 #### Authentication timestamp is added as an access token claim
