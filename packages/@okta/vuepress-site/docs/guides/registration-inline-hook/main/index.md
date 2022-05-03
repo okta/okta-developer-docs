@@ -286,7 +286,7 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
-1. Give your policy a name (in this example, "Inline Hook"), and then click **Save**.
+1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Admin Console**, click **Apply**, and then click **Close**.
