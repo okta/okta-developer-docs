@@ -78,7 +78,7 @@ Using the `com.okta.user.progressive.profile.update` command you send in your re
 
 ### data.action
 
-> **Note:** The `data.action` object can appear in both  SSR and Progressive Profile requests.
+> **Note:** The `data.action` object can appear in both SSR and Progressive Profile requests.
 
 The action that Okta is currently set to take, regarding whether to allow this registration attempt.
 
