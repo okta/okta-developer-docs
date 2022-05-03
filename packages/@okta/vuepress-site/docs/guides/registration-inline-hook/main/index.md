@@ -313,7 +313,7 @@ Your Okta org is set up to call the sample external service using a Registration
 In your Okta org, you can preview the request and response JSON in the Admin Console.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the Registration Inline Hook name (in this example, **Guide Registration Hook Code**).
+1. Select the Registration Inline Hook name (in this example, select **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
 1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.userProfile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
