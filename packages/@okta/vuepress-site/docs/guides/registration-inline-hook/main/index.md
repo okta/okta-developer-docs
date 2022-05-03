@@ -51,7 +51,7 @@ The following is a high-level workflow for a Progressive Enrollment Inline Hook:
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
 1. The external service responds to Okta with a command to allow or deny the addition of the new data to the end user's profile.
 
-See [Inline Hooks](/docs/concepts/inline-hooks/) for more general information.
+See [Inline Hooks](/docs/concepts/inline-hooks/) for Okta Inline Hook concepts.
 
 ## Parse SSR request code
 
