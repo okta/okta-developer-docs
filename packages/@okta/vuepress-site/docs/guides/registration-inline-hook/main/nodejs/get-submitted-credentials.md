@@ -3,7 +3,7 @@
 
 ### Add self-service registration (SSR) request code
 
-The following code represents a check on the `lastName`, `firstName`, `test`, `login`, and `email` properties of an incoming request from Okta; that is, the basic credentials used in self-serfice registration (SSR). The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
+The following is a JSON example of an incoming SSR request from Okta that shows the user's profile data in the userProfile property. The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
