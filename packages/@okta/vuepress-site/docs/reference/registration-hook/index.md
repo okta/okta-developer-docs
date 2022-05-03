@@ -302,7 +302,7 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 1. Select **Allowed** for **Self-service registration**.
 
-1. In **Inline hook**, from the drop-down menu select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#set-up-and-activate-the-registration-inline-hook).
+1. From the **Inline hook** dropdown menu, select the hook that you set up and activated. See [Set up and activate the Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#set-up-and-activate-the-registration-inline-hook).
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
