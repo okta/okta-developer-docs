@@ -64,7 +64,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
         * To include more fields: click **Add Field** and select an existing profile attribute from the list.
 
-          > **Note:** If you want to add new profile attributes, click **Configure the Okta user profile** to add them to the Okta user profile. They are then available in the list on this page. Be sure to set the **User permission** drop-down box to **Read - Write** if you want your users to be able to modify the new attributes after registration.
+          > **Note:** If you want to add new profile attributes, click **Configure the Okta user profile** to add them to the Okta user profile. They are then available in the list on this page. Be sure to set the **User permission** dropdown menu to **Read - Write** if you want your users to be able to modify the new attributes after registration.
 
         * To make a field mandatory: Select the **Required** check box.
         * To change the order of the fields on the form: Grab the dotted vertical bar on the left to drag a field to a new location.
