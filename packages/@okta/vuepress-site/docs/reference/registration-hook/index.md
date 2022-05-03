@@ -306,7 +306,7 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
    > **Note:** You can associate only one Inline Hook at a time with your Profile Enrollment policy.
 
-1. In **Run this hook**, select when you want your inline hook to run:
+1. In **Run this hook**, select when you want your Inline Hook to run:
    * **When a new user is created**: This trigger occurs during a Self-Service Registration request.
    * **When attributes are collected for an existing user**: This trigger occurs during a Progressive Enrollment sign-in request.
    * **Both**: This trigger occurs during a self-service registration request and a Progressive Enrollment sign-in request.
