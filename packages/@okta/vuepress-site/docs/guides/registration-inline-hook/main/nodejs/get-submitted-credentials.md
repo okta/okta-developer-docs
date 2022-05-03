@@ -44,7 +44,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 ### Add Progressive Profile request code
 
 <ApiLifecycle access="ie" />
-The following code allows an external service to supply values for updating attributes on a user profile.
+The following JSON example is a Progressive Profile request to the external service.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
