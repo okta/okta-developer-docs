@@ -140,7 +140,7 @@ config['authScheme'] = 'SESSION';
 
 4. Click **Save and Publish**.
 
-### Configure self-service registration in an embedded or self-hosted Widget
+### Configure self-service registration in an embedded or self-hosted widget
 
 Before you can configure self-service registration in your embedded or self-hosted Widget, ensure that you first enable [self-service registration](#enable-and-configure-a-self-service-registration-policy). Then you can set `feature.registration` in the Widget to `true`.
 
