@@ -16,7 +16,7 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 **What you need**
 
-* The SSR to be enabled. This is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature. Contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it.
+* SSR enabled in your Okta org. <ApiLifecycle access="ea" /> Contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable this [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature.
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
 * Widget version 2.9 or later if you are hosting a [customized Widget](/code/javascript/okta_sign-in_widget/)
 
