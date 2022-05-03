@@ -48,7 +48,7 @@ The following code allows an external service to supply values for updating attr
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
-```javascript
+```json
 {
     "eventId": "YFtkmR0US_-WRIkMgC9V-g",
     "eventTime": "2021-12-07T22:22:05.000Z",
