@@ -15,7 +15,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Authorize requests to generic OIDC IdPs now include nonce parameter](#authorize-requests-to-generic-oidc-idps-now-include-nonce-parameter) | May 4, 2022 |
 | [Signed request support for generic OIDC IdP is GA in Production](#signed-request-support-for-generic-oidc-idp-is-ga-in-production) | March 2, 2022 |
 | [Client secret rotation and key management is GA in Production](#client-secret-rotation-and-key-management-is-ga-in-production) | February 3, 2022 |
-| [Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Production](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-production) | February 16, 2022 |
+| [Okta API access with OAuth 2.0 for Org2Org is GA in Production](#okta-org2org-integration-supporting-okta-api-access-using-an-oauth-2-0-client-is-ga-in-production) | February 16, 2022 |
 | [New permissions for custom admin roles](#new-permissions-for-custom-admin-roles) | May 4, 2022 |
 | [Password as an optional authenticator is EA in Preview](#password-as-an-optional-authenticator-is-ea-in-preview) | March 30, 2022 |
 | [Bugs fixed in 2022.05.0](#bug-fixed-in-2022.05.0) | March 30, 2022 |
@@ -26,7 +26,7 @@ Okta admins can now control the bounced email address list through the Email Add
 
 #### Trusted Origins for iFrame embedding is EA in Preview
 
-You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which does not let you distinguish between secure and non-secure origins. Trusted Origins under **Security** > **API** allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-494132 -->
+You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-494132 -->
 
 #### Authorize requests to generic OIDC IdPs now include nonce parameter
 
@@ -34,13 +34,13 @@ For generic OIDC IdPs, a  randomized `nonce` parameter is now included in all au
 
 #### Signed request support for generic OIDC IdP is GA in Production
 
-When customers integrate Okta with an OpenID Connect-based Identity Provider, Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new Signed Request Object allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OpenID Connect provider or authorization server. <!-- OKTA-489014 -->
+When customers integrate Okta with an OIDC-based IdP, Okta asks the IdP to authenticate the user with request elements that are passed as query parameters in the URL. The new Signed Request Object allows customers to send these parameters encoded in a JWT instead, improving security on the authorization request sent to the OIDC provider or authorization server. <!-- OKTA-489014 -->
 
 #### Client secret rotation and key management is GA in Production
 
 Rotating client secrets without service or application downtime is a challenge. Additionally, JSON Web Key management can be cumbersome. To make [client secret rotation](/docs/guides/client-secret-rotation-key/main/) a seamless process and improve JWK management, you can now create overlapping client secrets and manage JWK key pairs in the Admin Console. You can also create JWK key pairs from the Admin Console without having to use an external tool. <!-- OKTA-489016 -->
 
-#### Okta Org2Org integration supporting Okta API access using an OAuth 2.0 client is GA in Production
+#### Okta API access with OAuth 2.0 for Org2Org is GA in Production
 
 The Okta Org2Org integration enables you to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. You can now [configure the Org2Org integration](/docs/guides/secure-oauth-between-orgs/) to access the Okta API as an [OAuth 2.0 client](/docs/reference/api/apps/#token-based-provisioning-connection-profile-properties). This increases security by limiting the scope of access and providing a better mechanism to rotate credentials. <!-- OKTA-493694 -->
 
