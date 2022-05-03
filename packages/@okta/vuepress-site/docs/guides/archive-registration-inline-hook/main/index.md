@@ -35,7 +35,7 @@ At a high-level, the following workflow occurs:
 
 1. A user attempts to self-register with your Okta org.
 1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-1. The external service evaluates the Okta call to make sure the user is from domain `example.com`.
+1. The external service evaluates the Okta call to ensure the user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
 ## Add request code
