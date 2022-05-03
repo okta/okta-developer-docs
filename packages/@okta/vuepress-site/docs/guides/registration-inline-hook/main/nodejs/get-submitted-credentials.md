@@ -8,7 +8,7 @@ The following code represents a check on the `lastName`, `firstName`, `test`, `l
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
 
-```javascript
+```json
 {
    "eventId":"16Ja0HcdSYy602188z6gIg",
    "eventTime":"2021-12-03T20:08:10.000Z",
