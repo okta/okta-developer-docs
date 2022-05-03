@@ -280,7 +280,7 @@ End users can now update the employee number in their profile.
 
 To enable the Registration Inline Hook, you must associate it with a Profile Enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for more details.
 
-> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/) version 4.5 or later.
 
 To associate the Registration Inline Hook with a Profile Enrollment policy:
 
