@@ -35,7 +35,7 @@ In the following examples, the external service code parses requests from Okta a
 * Whether the end user's email domain is valid and allowed to register (for SSR)
 * Whether the end user's employee number is valid and allowed to be added to their profile (for Progressive Enrollment support)
 
-In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring "both", you need to set up your code to handle the requests of each workflow. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
+In these examples, you set up your Registration Inline Hook to handle both SSR and Progressive Enrollment support. It is possible to configure one workflow and not the other. However, by configuring both, you need to set up your code to handle the requests of each workflow. When the end user attempts to self-register or update their profile, Okta dynamically detects the request type. See [Enable the Registration Inline Hook](#enable-the-registration-inline-hook).
 
 For an SSR Inline Hook, at a high level the following workflow occurs:
 
