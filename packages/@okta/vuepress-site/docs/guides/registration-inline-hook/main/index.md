@@ -44,7 +44,7 @@ The following is a high-level workflow for an SSR Inline Hook:
 1. The external service evaluates the Okta call to ensure that the end user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-For a Progressive Enrollment Inline Hook, at a high level the following workflow occurs:
+The following is a high-level workflow for a Progressive Enrollment Inline Hook:
 
 1. An existing registered end user attempts to sign in to their profile.
 1. A Profile Enrollment policy presents a custom form that asks for additional data from the end user.
