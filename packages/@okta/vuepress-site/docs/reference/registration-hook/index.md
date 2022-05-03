@@ -38,7 +38,7 @@ The outbound call from Okta to your external service includes the following obje
 
 ### requestType
 
-OTP request or event for which this transaction is being requested: Self-Service Registration (SSR) or progressive profile.
+OTP request or event for which this transaction is being requested: self-service registration (SSR) or Progressive Enrollment.
 
 Values for `requestType` are one of the following:
 
