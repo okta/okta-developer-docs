@@ -123,7 +123,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 ## Configure registration in the Okta Sign-In Widget
 
-### Configure registration in a custom sign-in page in the Okta-hosted Widget
+### Configure registration in a custom sign-in page in the Okta-hosted widget
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) check box clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
