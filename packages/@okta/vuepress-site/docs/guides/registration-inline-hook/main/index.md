@@ -98,7 +98,7 @@ The following JSON example provides the end user's profile data to the external 
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
-```javascript
+```json
 {
     "eventId": "vzYp_zMwQu2htIWRbNJdfw",
     "eventTime": "2022-04-25T04:04:41.000Z",
