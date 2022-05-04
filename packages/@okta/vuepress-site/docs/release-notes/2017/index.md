@@ -65,7 +65,7 @@ This parameter allows you to force the validation of the password policy's `minA
 
 The following bug fixes will be available on preview orgs starting Dec 13, 2017, and will be available on production orgs starting December 19, 2017:
 
-* When using the [Zones API](/docs/reference/api/zones/#update-an-ip-zone), erasing all IP addresses in the Default IP Blacklist zone caused an error. (OKTA-145602)
+* When using the [Zones API](/docs/reference/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
 
 
 ## 2017.49
