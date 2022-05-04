@@ -53,9 +53,9 @@ Okta is focused on the adoption of inclusive language and communication. Some lo
 
 In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allowlist":
 
-- [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allowlist)
+- [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
 
-- [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allowlist-with-the-org-authorization-server)
+- [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
 
 Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 

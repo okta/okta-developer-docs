@@ -121,12 +121,12 @@ You can use this function anywhere to get a list of Groups of which the current 
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter Examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists) for more information on the parameters used in this Group function.
+>See the Parameter Examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 You can use a dynamic group allowlist with both the Okta Org Authorization Server and a Custom Authorization Server:
 
 * [Use a dynamic group allowlist with the Org Authorization Server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
-* [Use a dynamic group allowlist with a Custom Authorization Server](#use-a-dynamic-group-allowlist-with-a-custom-authorization-server)
+* [Use a dynamic group allowlist with a Custom Authorization Server](#use-a-dynamic-group-allow-list-with-a-custom-authorization-server)
 
 ## Use a dynamic group allowlist with the Org Authorization Server
 
@@ -199,7 +199,7 @@ To use the Group Functions to create an ID token or an access token using a dyna
     >
     >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
     >
-    >See the Parameter Examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allowlists) for more information on the parameters used in this Group function.
+    >See the Parameter Examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 1. Click **Create**.
 1. Select the **Scopes** tab and click **Add Scope**.
