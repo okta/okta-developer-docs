@@ -173,7 +173,7 @@ Yes. When the cumulative total request or maximum concurrent requests from every
 
 **Q: Would the rate limit headers returned by Okta on the OAuth 2.0 /authorize or /login/login.htm endpoint reflect client-specific rate limits?**
 
-Yes. The header value is specific to a given client rather than the org-wide rate limit values.
+Yes. The header values are specific to a given client rather than the org-wide rate limit values.
 
 **Q: How can I find out if the client-based rate limit would be effective for my Okta tenant?**
 
