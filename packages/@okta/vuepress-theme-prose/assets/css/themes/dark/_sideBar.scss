@@ -12,14 +12,61 @@
         }
       }
     }
+    &:before {
+      background: linear-gradient(-90deg, cv('code'), transparent);
+    }
+  }
+  .children-active > a {
+    color: cv('link') !important;
+  }
+  & > .sections > .link-wrap > .tree-nav-link a {
+    color: cv('white');
   }
   .sections {
+    .link-wrap {
+      a {
+        color: cv('white');
+        &.router-link-active {
+          span {
+            color: cv('link');
+          }
+        }
+      }
+      span {
+        color: cv('white');
+      }
+      &.subnav-active > .sections > li.subnav-active > .sections:before {
+        background-color: #26262D;
+      }
+    }
     .tree-nav-link {
       color: cv("link", "light");
+      &-parent a,
+      &-parent span {
+        color: cv('white');
+      }
+      i.opened {
+        svg {
+          path {
+            fill: cv('link');
+          }
+        }
+        & + span {
+          color: cv('link');
+          font-weight: 500;
+        }
+        & + a {
+          color: cv('link');
+          font-weight: 500;
+          span {
+            color: cv('link');
+            font-weight: 500;
+          }
+        }
+      }
       & > i.parent svg {
-        transform: scale(0.8);
         path {
-          fill: cv("blue", "darker");
+          fill: cv("link");
         }
       }
     }
@@ -34,8 +81,19 @@
     .tree-nav-link.router-link-active {
       color: cv("action");
       &:before {
-        width: 1px;
-        background-color: cv("blue", "darker");
+        background-color: cv('link');
+        -webkit-mask: url('/img/icons/angle-right.svg') no-repeat center center;
+        mask: url('/img/icons/angle-right.svg') no-repeat center center;
+        background-image: none !important;
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+    }
+  }
+  .scroll-up {
+    svg {
+      path {
+        fill: cv('link');
       }
     }
   }
@@ -45,6 +103,9 @@
     .sidebar-area {
       box-shadow: 0px 4px 100px rgba(0, 0, 0, 0.25);
       z-index: 1;
+    }
+    .sidebar-fade {
+      background: linear-gradient(3.53deg, cv('code') 38.14%, rgba(247, 250, 255, 0) 83.09%);
     }
   }
 }
