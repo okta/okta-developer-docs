@@ -47,7 +47,7 @@ Thus, you can create chains of relationships (Jane > Bob > Joe > Frank) or termi
 
 Then, if you create another Linked Object relationship for scrum team membership, you could assign relationships to the same four users:
 
-* Bob is the scrum master for the Identity Scrum team.
+* Bob is the scrum lead for the Identity Scrum team.
 * Joe and Frank are both contributors to the team.
 
 Bob can be the `primary` for a Manager:Subordinate, an `associated` user for that same Linked Object definition, and also the `primary` for the Scrummaster:Contributor Linked Object definition.
