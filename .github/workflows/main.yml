@@ -6,9 +6,13 @@ name: Fixit-2022-Test
 
 # Controls when the workflow will run.
 on:
+  push:
+    branches:
+      - mds/fixit-2022/preview-test
+
   # Triggers the workflow on pull request label change events
-  pull_request:
-    types: [ labeled ]
+#  pull_request:
+#    types: [ labeled ]
 
   # Enable running this workflow manually from the Actions tab.
   workflow_dispatch:
@@ -18,7 +22,7 @@ jobs:
   # This workflow contains a single job called "build".
   build:
     # Run only if the label is final edit ready.
-    if: ${{ github.event.label.name == 'final edit ready' }}
+#    if: ${{ github.event.label.name == 'final edit ready' }}
     # Run the job on the latest Ubuntu.
     runs-on: ubuntu-latest
 
