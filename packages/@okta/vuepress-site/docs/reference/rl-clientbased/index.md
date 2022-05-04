@@ -10,7 +10,7 @@ excerpt: >-
 
 * An OAuth 2.0 application, which uses a combination of client ID, IP address, or device identifier for rate-limiting
 
-* A non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm` endpoint), which uses the IP address and device identifier for rate-limiting.
+* A non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm` endpoint), which uses the IP address and device identifier for rate-limiting
 
 The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Okta Classic Engine.
 
