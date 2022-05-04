@@ -6,19 +6,19 @@ excerpt: >-
 
 # Client-based rate limits
 
- Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. This applies to two types of clients:
+ Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. This applies to two types of client access:
 
-* An OAuth 2.0 application, which uses a combination of client ID, IP address, or device identifier for rate-limiting
+* A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, or device identifier for rate-limiting.
 
-* A non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm` endpoint), which uses the IP address and device identifier for rate-limiting
+* A client accessing a non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm`),  which uses the IP address or device identifier for rate-limiting.
 
 The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Okta Classic Engine.
 
-The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint uses a combination of client ID, user's IP address, and Okta device identifier to provide granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring that valid users and applications don't run into rate limit violations.
+The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint provides granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint, and this framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring that valid users and applications don't run into rate limit violations.
 
 The Identity Engine includes client-based rate limiting for multiple API entry points that implement the [Interaction Code grant type](/docs/concepts/interaction-code/), which performs a series of interactions and API calls between the user and authorization server.
 
-The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and uses a combination of the user's IP address and Okta device identifier to provide granular, targeted rate limits to a user, app, script, or server.
+The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and provides granular, targeted rate limits to a user, app, script, or server.
 
 The client-based rate limits for the OAuth 2.0 `/authorize` endpoint apply to both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share the same [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
 
