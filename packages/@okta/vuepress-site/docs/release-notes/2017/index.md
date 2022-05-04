@@ -1429,7 +1429,7 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+* Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
 
