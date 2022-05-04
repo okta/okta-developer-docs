@@ -34,9 +34,9 @@ Display the instructions and QR code to the user, similar to the following scree
 
 </div>
 
-> **Note:** There is a link to select an enrollment channel other than the QR code above ("Can't scan?"). The code for this and enrolling Okta Verify using other channels is in the [Integrate enrollment using other channels](#Integrate-enrollment-using-other-channels) section.
+> **Note:** There is a link to select an enrollment channel other than the QR code above ("Can't scan?"). The code for this and enrolling Okta Verify using other channels is in the [Integrate enrollment using other channels](#integrate-enrollment-using-other-channels) section.
 
-The polling logic and code is common across all the flows that use it and is covered in the [Polling Okta](#Polling-okta) section.
+The [Polling Okta](#polling-okta) section covers all the polling logic and code common across all the flows that use it.
 
 #### 4: Open Okta Verify
 
