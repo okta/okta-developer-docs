@@ -125,7 +125,7 @@ You can use this function anywhere to get a list of Groups of which the current 
 
 You can use a dynamic group allowlist with both the Okta Org Authorization Server and a Custom Authorization Server:
 
-* [Use a dynamic group allowlist with the Org Authorization Server](#use-a-dynamic-group-allowlist-with-the-org-authorization-server)
+* [Use a dynamic group allowlist with the Org Authorization Server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
 * [Use a dynamic group allowlist with a Custom Authorization Server](#use-a-dynamic-group-allowlist-with-a-custom-authorization-server)
 
 ## Use a dynamic group allowlist with the Org Authorization Server
