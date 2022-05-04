@@ -165,7 +165,7 @@ Requests would appear to come from the same IP Address. When OAuth 2.0 `/authori
 
 **Q: Can I update the per client rate limit today?**
 
-No. Today every client gets 60 total requests per minute and a maximum of five concurrent requests.
+No. Today every client is allowed 60 total requests per minute and a maximum of five concurrent requests.
 
 **Q: Does the org-wide rate limit still apply when I enable the client-based rate limit?**
 
