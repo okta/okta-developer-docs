@@ -5,18 +5,28 @@
   &> i.parent {
     svg {
       path {
-        fill: cv('text', 'darker');
+        fill: cv('link', 'darker');
       }
     }
   }
+}
+
+.sidebar-inner {
+  height: 100%;
 }
 
 .tree-nav {
   width: 100%;
   min-height: 100%;
   padding: 29px 1rem 3rem 26px;
-  font-size: 14px;
   background: cv('body', 'sidebar');
+  margin-bottom: -176px;
+  & > .sections > .link-wrap > .tree-nav-link,
+  & > .sections > .link-wrap > .tree-nav-link a {
+    color: cv('link', 'darker');
+    font-weight: 500;
+    font-size: 16px;
+  }
   &-toggle {
     position: absolute;
     right: 14px;
@@ -29,7 +39,18 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    &:before {
+      content: '';
+      position: absolute;
+      right: 15px;
+      width: 60px;
+      background: linear-gradient(-90deg, cv('body', 'sidebar'), transparent);
+      height: 20px;
+      z-index: 2;
+    }
     svg {
+      position: relative;
+      z-index: 3;
       transform: rotate(180deg);
     }
     &.active {
@@ -50,8 +71,21 @@
   }
   .sections {
     margin-left: 17px;
-    &.active {
-      display: none;
+    & > li.subnav-active > .sections {
+      position: relative;
+      & > li.subnav-active > .sections {
+        margin-left: 22px;
+        &:before {
+          content: '';
+          position: absolute;
+          left: -22px;
+          top: 4px;
+          height: calc(100% - 8px);
+          width: 10px;
+          border-radius: 10px;
+          background-color: #E7EDF9;
+        }
+      }
     }
     &:first-child {
       & > .link-wrap > .tree-nav-link {
@@ -67,6 +101,29 @@
     }
     .link-wrap {
       margin-top: 12px;
+      a {
+        color: cv('link', 'bluelight');
+        font-size: 14px;
+        &.router-link-active {
+          padding-left: 13px;
+          span {
+            color: cv('link', 'darker');
+            font-weight: 500;
+          }
+          &:before {
+            background-image: none !important;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: cv("link", "active-router") !important;
+            -webkit-mask-image: url("/img/icons/angle-right.svg");
+            mask-image: url("/img/icons/angle-right.svg");
+          }
+        }
+      }
+      span {
+        color: cv('link', 'darker');
+        font-size: 14px;
+      }
       .blank-divider {
         cursor: default;
         margin-top: 12px;
@@ -83,6 +140,31 @@
       text-decoration: none;
       color: cv('text');
       cursor: pointer;
+      &-parent a {
+        color: cv('link', 'darker');
+        font-size: 14px;
+      }
+      i.opened {
+        margin-bottom: 2px;
+        svg {
+          min-width: 5px;
+          path {
+            color: cv('link', 'darker');
+          }
+        }
+        & + span {
+          color: cv('link', 'darker');
+          font-weight: 500;
+        }
+        & + a {
+          color: cv('link', 'darker');
+          font-weight: 500;
+          span {
+            color: cv('link', 'darker');
+            font-weight: 500;
+          }
+        }
+      }
       &:hover {
         color: cv('text', 'darker');
       }
@@ -95,14 +177,11 @@
         &::before {
           position: absolute;
           content: '';
-          background: cv('link');
-          left: -18px;
-          top: 6px;
-          width: 2px;
+          background: url('/img/icons/angle-right.svg') no-repeat center center;
+          left: 0;
+          top: 5px;
+          width: 5px;
           height: 9px;
-          @include media("<desktop-xl") {
-            left: -13px;
-          }
         }
       }
       > span.text-holder {
@@ -114,6 +193,11 @@
         top: 4px;
         font-size: 9px;
         padding-right: 5px;
+        svg {
+          path {
+            fill: rgba(0, 41, 122, .3);
+          }
+        }
         @include media("<desktop-xl") {
           left: -14px;
         }
@@ -131,4 +215,15 @@
   .hidden {
     display: none;
   }
+  .scroll-up {
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+    bottom: -16px;
+    display: none;
+  }
+}
+
+.aside-hidden .sections {
+  display: none;
 }
