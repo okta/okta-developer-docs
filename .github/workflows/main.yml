@@ -1,0 +1,38 @@
+# NOTE: This is a proof of concept workflow for investigating possible use for:
+#       - Notifying email/slack/... on adding the "final edit ready" to a PR
+#       - A shorter workflow for creating Preview builds and finding the deployment URL
+
+name: Fixit-2022-Test
+
+# Controls when the workflow will run.
+on:
+  # Triggers the workflow on pull request label change events
+  pull_request:
+    types: [ labeled ]
+
+  # Enable running this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
+jobs:
+  # This workflow contains a single job called "build".
+  build:
+    # Run only if the label is final edit ready.
+    if: ${{ github.event.label.name == 'final edit ready' }}
+    # Run the job on the latest Ubuntu.
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
