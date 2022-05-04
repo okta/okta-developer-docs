@@ -6,7 +6,7 @@ excerpt: >-
 
 # Client-based rate limits
 
- Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. A client being, in this context, one of two types:
+ Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. This applies to two types of clients:
 
 * An OAuth 2.0 application, which uses a combination of client ID, IP address, or device identifier for rate-limiting.
 
