@@ -615,7 +615,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allowlisted as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
