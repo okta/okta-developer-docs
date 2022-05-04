@@ -112,7 +112,7 @@ If an org's client-based limit was previously set to **Enforce limit and log per
 
 ### Check your rate limits with Okta Rate Limit headers
 
-The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
+The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header values are specific to a given client rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
 
 > **Note:** If a client-based rate limit is in **Log per client** or **Do nothing** mode, headers that are returned still reflect the org-wide rate limits.
 
