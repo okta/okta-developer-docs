@@ -94,7 +94,7 @@ The user opens the email on their mobile device and taps **Activate Okta Verify 
 
 <div class="common-image-format">
 
-![A prompt for a user to install Okta Verify and activate it](/img/authenticators/java-authenticators-okta-verify-enrollment-email-prompt-user-to-check-email.png "An activation prompt for Okta Verify")
+![A prompt for a user to install Okta Verify and activate it](/img/authenticators/java-enrollment-email-prompt-user-to-check-email.png "An activation prompt for Okta Verify")
 
 </div>
 
