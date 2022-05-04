@@ -8,9 +8,9 @@ excerpt: >-
 
  Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the client application access process. This applies to two types of client access:
 
-* A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, or device identifier for rate-limiting.
+* A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, and device identifier for rate-limiting.
 
-* A client accessing a non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm`),  which uses the IP address or device identifier for rate-limiting.
+* A client accessing a non-OAuth 2.0 application (as is the case for a Classic org `/login/login.htm`), which uses the IP address and device identifier for rate-limiting.
 
 The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Okta Classic Engine.
 
@@ -23,8 +23,6 @@ The Classic Engine also includes client-based rate limiting for the `/login/logi
 The client-based rate limits for the OAuth 2.0 `/authorize` endpoint apply to both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share the same [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
 
 Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, `/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
-
-You can't update the per client rate limit. Every client is allowed 60 total requests per minute and a maximum of five concurrent requests.
 
 For example, example.com has 10 OAuth 2.0 applications running in a production environment. Bob's team is launching a new marketing portal that is a single-page OAuth 2.0 application. Unaware of the rate limits on the OAuth 2.0 `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of OAuth 2.0 `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate limit violations for the rest of the users that access the other OAuth 2.0 applications.
 
@@ -131,7 +129,7 @@ X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
 ```
 
-When a specific client exceeds either the 60 requests per minute limit or the concurrent limit (five concurrent requests), then the respective OAuth 2.0 `/authorize` or `/login/login.htm`  request returns an HTTP 429 error.
+When a specific client exceeds either the 60 requests per minute limit or the concurrent limit (five concurrent requests), then the respective requests return an HTTP 429 error.
 
 ### How to enable this feature
 
@@ -151,13 +149,7 @@ To configure the client-based rate limit for existing orgs:
 
 **Q: Which endpoints are covered under the client-based rate limit?**
 
-Currently, a client-based rate limit applies to an authorization server's OAuth 2.0 `/authorize` or `/login/login.htm` endpoint for Classic Engine orgs, and the OAuth 2.0 `/authorize` and Interaction Code flow endpoints for Identity Engine orgs.
-
-**Q: How is the client-specific rate limit determined?**
-
-For the OAuth 2.0 `/authorize` endpoint, the client rate limit framework calculates the per client rate limit based on the OAuth 2.0 client ID, the user's IP address, and the Okta device identifier (the Okta device identifier that Okta sets in the browser).
-
-For the `/login/login.htm` endpoint, the client rate limit framework calculates the per client rate limit based on the user's IP address and the Okta device identifier (the Okta device identifier that Okta sets in the browser).
+Currently, a client-based rate limit applies to an authorization server's OAuth 2.0 `/authorize` endpoint for Identity Engine and Classic Engine orgs. Client-based rate limits also apply to the Interaction Code flow endpoints for Identity Engine orgs, and the `/login/login.htm` endpoint for Classic Engine orgs.
 
 **Q: What happens if my network contains a proxy server through which the requests are proxied?**
 
