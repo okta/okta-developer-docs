@@ -6,16 +6,15 @@ name: Fixit-2022-Test
 
 # Controls when the workflow will run.
 on:
-  push:
-    branches:
-      - mds/fixit-2022/preview-test
-
   # Triggers the workflow on pull request label change events
 #  pull_request:
-#    types: [ labeled ]
+#  types: [ labeled ]
 
-  # Enable running this workflow manually from the Actions tab.
+  # Enable running this workflow from the Actions tab.
   workflow_dispatch:
+
+# Only allow running the workflow for those those with write access
+permissions: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
@@ -31,12 +30,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Request a preview build
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          "${GITHUB_WORKSPACE}/scripts/build-pr-preview.sh"
