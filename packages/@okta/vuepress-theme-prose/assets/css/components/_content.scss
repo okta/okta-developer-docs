@@ -62,6 +62,7 @@
     width: 266px;
     position: sticky;
     overflow: auto;
+    overflow-x: hidden;
     background: cv('body');
     top: 142px;
     @include media("<desktop-xl") {
@@ -70,8 +71,25 @@
     @include media("<desktop") {
       display: none;
     }
-    &.active {
-      width: 77px;
+    .sidebar-fade {
+      display: block;
+      position: sticky;
+      width: 266px;
+      height: 176px;
+      background: linear-gradient(3.53deg, #F7FAFF 38.14%, rgba(247, 250, 255, 0) 83.09%);
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+    }
+    &.no-fade {
+      .sidebar-fade {
+        display: none;
+      }
+    }
+    &.show-scroll-up {
+      .scroll-up {
+        display: block;
+      }
     }
   }
 
@@ -79,9 +97,6 @@
     flex: 1;
     max-width: calc(82% - 266px);
     padding: 23px 59px;
-    &.active {
-      max-width: calc(100% - 77px);
-    }
     @include media("<desktop-xl") {
       max-width: calc(100% - 266px);
       padding: 30px 57px;
@@ -264,4 +279,11 @@
       display: none;
     }
   }
+}
+
+.aside-hidden .sidebar-area {
+  width: 77px;
+}
+.aside-hidden .content-area {
+  max-width: calc(100% - 77px);
 }
