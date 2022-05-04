@@ -14,10 +14,10 @@ case AWAITING_AUTHENTICATOR_SELECTION:
 
 The next response status will be `AWAITING_CHALLENGE_POLL` and should be handled using the common polling logic in the [Polling Okta](#polling-okta) section.
 
-#### 6. Click prompt and complete challenge
+#### 3. Click prompt and complete challenge
 
 The user opens Okta Verify on their device and clicks **Yes it's me** to complete the challenge and finish authenticating themselves.
 
-#### 7. Exit Polling
+#### 4. Exit Polling
 
 The next polling request returns a status of `SUCCESS` along with access and ID tokens. The user is now authenticated.
