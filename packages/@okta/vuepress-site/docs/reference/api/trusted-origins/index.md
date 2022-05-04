@@ -140,12 +140,6 @@ curl -X POST \
   "origin": "http://example.com",
   "scopes": [
     {
-      "type": "CORS"
-    },
-    {
-      "type": "REDIRECT"
-    },
-    {
       "type": "IFRAME_EMBED",
       "allowedOktaApps": [“OKTA_ENDUSER”]
     }
@@ -167,12 +161,6 @@ curl -X POST \
   "origin": "http://example.com",
   "scopes": [
     {
-      "type": "CORS"
-    },
-    {
-      "type": "REDIRECT"
-    },
-    {
       "type": "IFRAME_EMBED",
       "allowedOktaApps": []
     }
@@ -191,12 +179,6 @@ curl -X POST \
     "origin": "http://example.com",
     "status": "ACTIVE",
     "scopes": [
-        {
-            "type": "CORS"
-        },
-        {
-            "type": "REDIRECT"
-        },
         {
             "type": "IFRAME_EMBED",
             "allowedOktaApps": ["OKTA_ENDUSER"]
@@ -240,12 +222,6 @@ curl -X POST \
     "origin": "http://example.com",
     "status": "ACTIVE",
     "scopes": [
-        {
-            "type": "CORS"
-        },
-        {
-            "type": "REDIRECT"
-        },
         {
             "type": "IFRAME_EMBED",
             "allowedOktaApps": []
@@ -291,12 +267,6 @@ curl -X POST \
   "name": "Trusted Origin with Invalid Origin Value",
   "origin": "example.com",
   "scopes": [
-    {
-      "type": "CORS"
-    },
-    {
-      "type": "REDIRECT"
-    },
     {
       "type": "IFRAME_EMBED",
       "allowedOktaApps": ["OKTA_ENDUSER"]
@@ -402,12 +372,6 @@ curl -X GET \
         "name": "Example Trusted Origin",
         "origin": "http://example.com",
         "scopes": [
-            {
-                "type": "CORS"
-            },
-            {
-                "type": "REDIRECT"
-            },
             {
                 "type": "IFRAME_EMBED",
                 "allowedOktaApps": ["OKTA_ENDUSER"]
@@ -827,12 +791,6 @@ curl -X PUT \
   "origin": "http://updated.example.com",
   "scopes": [
     {
-      "type": "CORS"
-    },
-    {
-      "type": "REDIRECT"
-    },
-    {
       "type": "IFRAME_EMBED",
       "allowedOktaApps": ["OKTA_ENDUSER"]
     }
@@ -875,12 +833,6 @@ curl -X PUT \
     "name": "Updated Example Trusted Origin",
     "origin": "http://updated.example.com",
     "scopes": [
-        {
-            "type": "CORS"
-        },
-        {
-            "type": "REDIRECT"
-        },
         {
             "type": "IFRAME_EMBED",
             "allowedOktaApps": ["OKTA_ENDUSER"]
