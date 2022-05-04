@@ -100,4 +100,4 @@ The user opens the email on their mobile device and taps **Activate Okta Verify 
 
 #### 11. Exit polling
 
-After the user completes the setup and finishes enrolling their account, the next time the polling method is called, it returns a status of `SUCCESS` along with access and ID tokens. The user is now authenticated.
+After the user completes the setup and finishes enrolling their account, the next polling request returns a status of `SUCCESS` along with access and ID tokens. The user is now authenticated.
