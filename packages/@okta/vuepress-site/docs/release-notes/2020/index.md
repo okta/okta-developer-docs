@@ -51,11 +51,11 @@ The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions
 
 Okta is focused on the adoption of inclusive language and communication. Some long-standing industry terminology and expressions have been updated in this release. More updates will be made in future releases.
 
-In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allow list":
+In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allowlist":
 
-- [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
+- [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allowlist)
 
-- [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
+- [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allowlist-with-the-org-authorization-server)
 
 Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 
@@ -257,7 +257,7 @@ If a user was converted to use an [external Federated IdP instead of Okta](/docs
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
-| [Bugs fixed in 2020.09.1](#bugs-fixed-in-2020-09-1)       | September 10, 2020           |
+| [Bugs fixed in 2020.09.1](#bugs-fixed-in-2020-09-1)       | September 10, 2020       |
 
 #### Bugs fixed in 2020.09.1
 
