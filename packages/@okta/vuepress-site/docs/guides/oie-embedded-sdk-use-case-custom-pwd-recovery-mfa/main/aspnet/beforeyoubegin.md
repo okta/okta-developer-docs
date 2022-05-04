@@ -1,7 +1,7 @@
-1. Create an Okta org and configure it as described in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. Create and configure your Okta org as described in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. [Set up the SDK and Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 1. Build an app with the Embedded Sign-In Widget or SDK.
-    * For embedded Sign-In Widget based apps, implement the [basic sign-in flow](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/).
-    * For SDK-based apps, implement [user password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
+    * For apps using the embedded Sign-In Widget, implement the [basic sign-in flow](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/).
+    * For apps using the SDK, implement [user password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
-If you want to test the flows without building an app, use the provided sample apps. They have prebuilt support for password recovery email customizations.
+To test the flows without creating an app, use the following sample apps. The apps provide support for password recovery and email customizations.

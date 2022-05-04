@@ -1,10 +1,10 @@
 ### 1: Start password recovery
 
-The user starts the password recovery flow with the following steps:
+The user starts the password recovery flow by completing these steps:
 
-1. Clicks the **Forgot Password?** link on the sign-in page.
-2. Enters their **Email or Username** in the dialog and then clicks **Next**.
-3. Chooses **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
+1. Click the **Forgot Password?** link on the sign-in page.
+2. Enter their **Email or Username** in the dialog and then clicks **Next**.
+3. Choose **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
 
 Okta then tells the user to either click the link in the email or enter the code to continue and sends an email to their email address matching the Forgot Password template that was altered earlier.
 
@@ -18,9 +18,9 @@ The email's **Reset Password** link includes the `otp` and `request.relayState` 
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as session parameters to a page that contains the Sign-In Widget. Before calling the callback handler method, retrieve the current `IDXClientContext` object from the browser session and check that `state` has a value.
+Create a callback handler that takes the `otp` and `state` parameters from the query string,  attempts to retrieve the current `IDXClientContext` object from the browser session, and then passes them all as session parameters to a page that contains the Sign-In Widget for processing.
 
-If `state` is `null` or the browser context object is `null` (because the user clicked the magic link from a different browser), the widget instructs advise the user to return to the original tab in the browser where they requested a password reset and enter the OTP to proceed.
+If either the browser context object is `null` (because the user clicked the magic link from a different browser) or `state` is `null`, redirect to an error page instead.
 
 ```java
 @GetMapping("/magic-link/callback")
@@ -48,11 +48,6 @@ public ModelAndView handleMagicLinkCallback(
       return new ModelAndView("redirect:" + oktaOAuth2Properties.getRedirectUri());
   }
 
-```
-
-If both values are valid, pass them (along with all the values required by the widget) to the page hosting the widget in your application.
-
-```java
   String issuer = oktaOAuth2Properties.getIssuer();
   // the widget needs the base url, just grab the root of the issuer
   String orgUrl = new URL(new URL(issuer), "/").toString();
@@ -77,7 +72,7 @@ If both values are valid, pass them (along with all the values required by the w
 }
 ```
 
-You can pass the values to the widget using the widget's `config` object.
+Pass the values using the widget's `config` object.
 
 ```html
   <div id="sign-in-widget"></div>
@@ -113,7 +108,7 @@ You can pass the values to the widget using the widget's `config` object.
 
 ### 3: Displays password reset prompt and complete password recovery flow
 
-When the widget loads, it checks whether the `state` and `otp` values are valid with the Okta server. If the values are valid, the following reset password page appears for the user to enter their new password. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
+The widget loads and then checks the validity of state and otp with the Okta server. If the values are valid, the user is prompted to reset their password, as shown below. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
 <div class="common-image-format">
 

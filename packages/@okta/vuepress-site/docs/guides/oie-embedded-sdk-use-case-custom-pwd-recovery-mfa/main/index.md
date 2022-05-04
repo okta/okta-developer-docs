@@ -106,7 +106,7 @@ When users initiate a password recovery, they are sent an email based on the **F
       | otp            | *${oneTimePassword}*    |
       | state          | *${request.relayState}* |
 
-      After your updates the URL should take the following format: `http://${yourOktaDomain}?otp=${oneTimePassword}&state=${request.relayState}`.
+      The URL should have the following format: `http://${yourAppDomain}?otp=${oneTimePassword}&state=${request.relayState}`.
 
       <StackSnippet snippet="emailtemplate" />
 
@@ -119,7 +119,7 @@ The next step is to update your app to accept the link with the `otp` and `state
 
 ### Summary of steps
 
-The following diagram illustrates the steps in the customized password recovery using a Sign-in Widget based app.
+The following diagram shows the steps for a customized password recovery in an app that uses the Sign-In Widget.
 
 <StackSnippet snippet="siwsummary" />
 
@@ -127,11 +127,11 @@ The following diagram illustrates the steps in the customized password recovery 
 
 ## Update your SDK integration
 
-The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the SDK, execute the following steps to make this update. If your app uses the Sign-in Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
+Next, update your app to accept the link that contains the `otp` and `state` parameters. If you're using the SDK, execute the following steps to make this update. If your app uses the Sign-in Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
 
 ### Summary of steps
 
-The following diagram illustrates the steps in the customized password recovery using a SDK based app.
+The following diagram shows the steps for a customized password recovery in an app that uses the SDK.
 
 <StackSnippet snippet="sdksummary" />
 

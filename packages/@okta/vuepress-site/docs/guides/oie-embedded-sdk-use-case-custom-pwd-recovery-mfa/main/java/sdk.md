@@ -1,12 +1,12 @@
 ### 1: Start password recovery
 
-The user starts the password recovery flow with the following steps:
+The user starts the password recovery flow by completing these steps:
 
-1. Clicks the **Forgot Password?** link on the sign-in page.
-2. Enters their **Email or Username** in the dialog and then clicks **Next**.
-3. Chooses **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
+1. Click the **Forgot Password?** link on the sign-in page.
+2. Enter their **Email or Username** in the dialog and then clicks **Next**.
+3. Choose **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
 
-Okta then sends an email to the email address that matches the Forgot Password template that was altered earlier.
+After the user completes these steps, Okta verifies that an account exists for the user using the information they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
 
 <div class="common-image-format">
 
@@ -18,7 +18,12 @@ The email's **Reset Password** link includes the `otp` and `request.relayState` 
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler method that takes the `otp` and `state` parameters in the query string and passes them as parameters to the `IdxAuthenticationWrapper.verifyAuthenticator()` method. Before calling the method, check that the `otp` and `state` parameters have values. If either parameter is `null` or the value of `state` does not match the state stored in the current `ProceedContext` session variable, throw an error.
+Create a callback handler that takes the `otp` and `state` parameters from the query string, and makes the following checks their values are valid:
+
+1. Check `otp` and `state` are not `null`.
+2. Check `state` matches the state stored in the current `ProceedContext` session variable.
+
+If either check returns false, throw an error.
 
 ```java
 @RequestMapping(value = {"magic-link/callback"}, method = RequestMethod.GET)
