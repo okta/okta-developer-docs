@@ -15,11 +15,6 @@ export default {
   inject: ["appContext"],
   components: {
     HeaderNavItem: () => import("../components/HeaderNavItem.vue")
-  },
-  data() {
-    return {
-      usingFile: false,
-    };
-  },
+  }
 }
 </script>
