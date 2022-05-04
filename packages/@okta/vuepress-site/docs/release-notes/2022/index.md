@@ -50,7 +50,7 @@ Super admins can now assign these new permissions to their custom admin roles:
 * Manage customizations
 * View customizations
 
-The authorization server permissions can be scoped to a subset of the org’s authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org’s customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/) concept and the [Resource Set object in the Administrator Roles API](/docs/reference/api/roles/#resource-set-object). <!--  OKTA-487349 -->
+The authorization server permissions can be scoped to a subset of the org’s authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org’s customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/#okta-resource-name-orn) concept and the [Resource Set object in the Administrator Roles API](/docs/reference/api/roles/#resource-set-object). <!--  OKTA-487349 -->
 
 #### Multi-optional authenticator enrollment is GA in Production
 
