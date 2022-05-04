@@ -1,5 +1,5 @@
 ---
-title: Customize tokens returned from Okta with a dynamic allow list
+title: Customize tokens returned from Okta with a dynamic allowlist
 excerpt: Define Groups claims for tokens returned from Okta.
 layout: Guides
 sections:

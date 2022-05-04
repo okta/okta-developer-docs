@@ -150,8 +150,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
-    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
+    * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
+    * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 

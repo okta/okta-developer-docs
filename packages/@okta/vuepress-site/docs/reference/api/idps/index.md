@@ -5637,10 +5637,10 @@ The Group provisioning action for an IdP User:
 
 | Action      | Description                                                                                                                                                        | Existing OKTA_GROUP Memberships                                                               | Existing APP_GROUP Memberships                     | Existing BUILT_IN Memberships                |
 | ----------- | ---------------------------------                                                                                                                                  | ------------------------------------------------------                                        | -------------------------------------------------- | -------------------------------------------- |
-| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
+| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the allowlisted Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
-| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
+| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the allowlisted Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
 
 > **Note:** Group provisioning action is processed independently from profile mastering. You can sync Group memberships through SAML with profile mastering disabled.
 
@@ -5834,11 +5834,11 @@ Specifies Group memberships to restrict which Users are available for account li
 
 ###### Groups Account Link Filter object
 
-Defines an allow list of Group membership to restrict which Users are available for account linking by an IdP.
+Defines an allowlist of Group membership to restrict which Users are available for account linking by an IdP.
 
 | Property | Description                                                   | DataType                     | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ---------------------------- | -------- | -------- |
-| include  | Specifies the allow list of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
+| include  | Specifies the allowlist of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
 
 > **Note:** Group memberships are restricted to type `OKTA_GROUP`.
 

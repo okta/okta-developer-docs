@@ -169,7 +169,7 @@ curl --location --request GET 'https://${yourOktaDomain}/api/v1/groups' \
 
 ### Add a list of Groups to the client App profile
 
-If your allowlist has a lot of Groups, you can store the Group IDs as a string array property in the client App's profile. You can add App Groups, User Groups, or both to the Group allowlist specified as an array of IDs. If you only have one or two Groups to specify, simply add the Group IDs to the first parameter of the `getFilteredGroups` function described in the [next step](#use-a-static-group-allow-list-with-the-org-authorization-server).
+If your allowlist has a lot of Groups, you can store the Group IDs as a string array property in the client App's profile. You can add App Groups, User Groups, or both to the Group allowlist specified as an array of IDs. If you only have one or two Groups to specify, simply add the Group IDs to the first parameter of the `getFilteredGroups` function described in the [next step](#use-a-static-group-allowlist-with-the-org-authorization-server).
 
 The following example names the group allowlist `groupallowlist`, but you can name it anything.
 
@@ -222,9 +222,9 @@ The `profile` property that contains the allowlist is at the bottom of the reque
 }
 ```
 
-To use the group allowlist for every client that gets this claim in a token, put the attribute name of the allowlist in the first parameter of the `getFilteredGroups` function described in the [next section](#use-a-static-group-allow-list-with-the-org-authorization-server).
+To use the group allowlist for every client that gets this claim in a token, put the attribute name of the allowlist in the first parameter of the `getFilteredGroups` function described in the [next section](#use-a-static-group-allowlist-with-the-org-authorization-server).
 
-> **Note:** The following **Use group functions for static group allowlists** section goes into more detail on using group functions with static group allowlists. To continue with creating a Groups claim with a static allowlist, [next section](#use-a-static-group-allow-list-with-the-org-authorization-server).
+> **Note:** The following **Use group functions for static group allowlists** section goes into more detail on using group functions with static group allowlists. To continue with creating a Groups claim with a static allowlist, [next section](#use-a-static-group-allowlist-with-the-org-authorization-server).
 
 #### Use group functions for static group allowlists
 
@@ -264,7 +264,7 @@ The allowlist parameter must evaluate to a list of group IDs that are returned f
 
 ## Use a static group allowlist with the Org Authorization Server
 
-For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the [Use a static group allowlist with a Custom Authorization Server](#use-a-static-group-allow-list-with-a-custom-authorization-server) section.
+For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the [Use a static group allowlist with a Custom Authorization Server](#use-a-static-group-allowlist-with-a-custom-authorization-server) section.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
