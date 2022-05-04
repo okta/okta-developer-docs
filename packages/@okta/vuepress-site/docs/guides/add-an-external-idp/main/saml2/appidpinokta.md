@@ -16,6 +16,6 @@ We recommend that if the external IdP requires information from Okta for setup b
 
 * **IdP Issuer URI**: The issuer. The Identity Provider provides this value.
 
-* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the **Request Signature** option, but don't specify a destination in the **Destination** field (see [Advanced Settings](#social-identity-provider-settings)), Okta automatically sends the authN request to the Identity Provider Single Sign-On URL.
+* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the **Request Signature** option, but don't specify a destination in the **Destination** field, Okta automatically sends the authN request to the Identity Provider Single Sign-On URL.
 
 * **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the Identity Provider used to sign the assertion.
