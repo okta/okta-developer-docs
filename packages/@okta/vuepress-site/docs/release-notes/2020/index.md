@@ -264,7 +264,7 @@ If a user was converted to use an [external Federated IdP instead of Okta](/docs
 * When attempting to reset a user's password using the `lifecycle/reset_password` endpoint, admins received an HTTP 500 error code rather than a valid error message if the user's email address was invalid. (OKTA-307089)
 * If a `Groups` claim returned more than 100 groups, then tokens couldn't be minted, which generated an HTTP 500 error code instead of an HTTP 400 error code. (OKTA-321988)
 * If an Identity Provider returned an error response during authentication, the `/introspect` endpoint returned an HTTP 500 error code. (OKTA-324419)
-* When a geographical network zone that included Okta routers was added to an IP blacklist zone, all requests to the org were blocked. (OKTA-326955)
+* When a geographical network zone that included Okta routers was added to an IP blocklist zone, all requests to the org were blocked. (OKTA-326955)
 
 
 ## August
