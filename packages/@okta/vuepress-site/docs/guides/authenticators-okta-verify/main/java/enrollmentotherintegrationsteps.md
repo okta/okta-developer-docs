@@ -86,7 +86,7 @@ After the user submits their email or mobile phone number, Okta sends an activat
 
 #### 9. Prompt user to check email and start polling
 
-Prompt the user to check their email or phone to continue logging in, then continue to poll as defined in the [common steps](#polling-okta) section.
+Prompt the user to check their email or phone to continue signing in, then continue to poll as defined in the [common steps](#polling-okta) section.
 
 #### 10. Click the link in the email and complete Okta Verify setup
 
