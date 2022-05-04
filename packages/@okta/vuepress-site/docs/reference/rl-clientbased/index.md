@@ -104,7 +104,7 @@ The client-based rate limit framework can operate in one of three modes:
 
 In March 2022, the default client-based rate limit is set to **Enforce limit and log per client (recommended)** mode for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints. This means that if an org's client-based rate limit was previously set to **Do nothing** or **Log per client**, the setting is going to change to **Enforce limit and log per client (recommended)** mode.
 
-If your org is upgrading to the Identity Engine, the existing classic client-based rate-limit settings require no updates during the upgrade. The `/login/login.htm` setting maps to the Identity Engine client application access setting, and the OAuth 2.0 `/authorize` setting maps to the same Oauth2 /`authorize` setting on Identity Engine. The mode selection remains the same after upgrade.
+If your org is upgrading to the Identity Engine, the existing Classic Engine client-based rate-limit settings require no updates during the upgrade. The `/login/login.htm` setting maps to the Identity Engine client application access setting, and the OAuth 2.0 `/authorize` setting maps to the same OAuth 2.0 /`authorize` setting on Identity Engine. The mode selection remains the same after the upgrade.
 
 #### What to monitor and the action to take
 
