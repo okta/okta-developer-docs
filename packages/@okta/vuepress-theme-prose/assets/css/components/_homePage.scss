@@ -28,9 +28,6 @@
       flex-basis: 100%;
       max-width: 100%;
     }
-    &.active {
-      max-width: calc(100% - 77px);
-    }
   }
 
   .row {
@@ -461,4 +458,11 @@
   }
   to {
   }
+}
+
+.isHome .width-adjuster {
+  max-width: 100%;
+}
+.aside-hidden .width-adjuster {
+  max-width: calc(100% - 77px);
 }
