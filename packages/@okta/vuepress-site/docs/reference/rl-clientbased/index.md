@@ -120,7 +120,7 @@ For client-specific rate limits, the three headers show the limit that is being 
 
 * `X-Rate-Limit-Limit`: The rate limit ceiling that is applicable for the current request to the specific client.
 * `X-Rate-Limit-Remaining`: The number of requests left until the limit is hit for the specific client during the current rate limit window
-* `X-Rate-Limit-Reset` &ndash; The time when the rate limit resets, specified in [UTC epoch time](https://www.epochconverter.com/) for the specific client.
+* `X-Rate-Limit-Reset`: The time when the rate limit resets, specified in [UTC epoch time](https://www.epochconverter.com/) for the specific client.
 
 For example:
 
