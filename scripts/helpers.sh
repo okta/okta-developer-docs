@@ -112,6 +112,9 @@ function check_for_quickstart_pages_in_sitemap() {
     fi
 }
 
+# MDS INFO: Set name to the first argument
+#           set command to the 2nd and following arguments
+#           Execute the command
 function fold() {
     local name=$1
     local command="${@:2}"
