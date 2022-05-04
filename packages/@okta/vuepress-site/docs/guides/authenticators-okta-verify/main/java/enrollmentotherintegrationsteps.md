@@ -1,6 +1,6 @@
 #### 1. Initiate sign-in flow and return a list of authenticators
 
-The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
+The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-flow-and-return-a-list-of-authenticators) section.
 
 #### 2 - 3. Retrieve QR code, display QR code
 
@@ -50,7 +50,7 @@ private AuthenticationResponse selectAuthenticatorToEnroll(AuthenticationRespons
 
 #### 5. Initiate email or SMS enrollment on server-side
 
-When the user selects **Email** or **SMS** in the previous section the response authentication status will be `AWAITING_CHANNEL_DATA_ENROLLMENT`, you will need return additional information about the factor:
+When the user selects **Email** or **SMS** in the previous section, the response authentication status will be `AWAITING_CHANNEL_DATA_ENROLLMENT`. You will need return additional information about the factor:
 
 - SMS - requires a phone number in an international format (e.g. `+12025551234`).
 - Email - requires the email address associated with the user's account.
@@ -63,7 +63,7 @@ case AWAITING_CHANNEL_DATA_ENROLLMENT:
     // prompt user for additional information
     if ("email".equals(this.selectedEnrollFactor.getChannel())) {
         console.writer().println("Check your Email for instructions");
-        channelValue = username; // use the username from the initial login, if they are email addresses
+        channelValue = username; // use the username from the initial sign-in, if they are email addresses
     }
     else if ("sms".equals(this.selectedEnrollFactor.getChannel())) {
         channelName = "phoneNumber";

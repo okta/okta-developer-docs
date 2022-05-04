@@ -1,6 +1,6 @@
 #### 1. Initiate sign-in flow and return a list of authenticators
 
-The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
+The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-flow-and-return-a-list-of-authenticators) section.
 
 #### 2 - 3. Retrieve and display a list of challenge methods
 
@@ -31,7 +31,7 @@ case AWAITING_AUTHENTICATOR_SELECTION:
 
 #### 4. Prompt the user for the TOTP in Okta Verify
 
-If the use selected "Enter a code" prompt they will open Okta Verify on their device, and enter the TOTP code that appears:
+If the user clicks the link to "Enter a code", they will open Okta Verify on their device, and enter the TOTP code that appears:
 
 ```java
 case AWAITING_AUTHENTICATOR_VERIFICATION:

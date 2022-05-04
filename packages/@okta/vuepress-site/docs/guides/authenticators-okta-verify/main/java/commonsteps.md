@@ -1,6 +1,6 @@
 Since several steps in the enrollment and challenge flows are nearly identical, it's recommended to componentize the logic to reduce duplicate code and increase reusability. Specifically, the common areas include:
 
-* [Initiating sign-in and returning a list of authenticators to the user](#initiate-sign-in-and-return-a-list-of-authenticators)
+* [Initiating sign-in and returning a list of authenticators to the user](#initiate-sign-in-flow-and-return-a-list-of-authenticators)
 * [Polling Okta](#polling-okta)
 
 A description and step-by-step integration for each of these common steps follow.
@@ -17,7 +17,7 @@ All four flows start with the same steps that enable a user to sign in with a us
 
 #### 1: Authenticate the user credentials
 
-After a user initiates the sign-in flow by submitting their username and password add the following code:
+After a user initiates the sign-in flow by submitting their username and password, add the following code:
 
 ```java
 // create an IDX Authentication Wrapper (can be an application scoped singleton)
@@ -74,7 +74,7 @@ private AuthenticationResponse selectAuthenticator(AuthenticationResponse authen
 }
 ```
 
-The available authenticators are listed along with Okta Verify.
+Okta Verify is listed with the other valid, enabled authenticators.
 
 At this point, the next steps differ depending on whether you are working with an enrollment flow or a challenge flow. Go to the specific flows (enroll with [QR Code](#integrate-enrollment-using-qr-code) or enroll with [other channels](#integrate-enrollment-using-other-channels)) to understand how.
 
@@ -82,7 +82,7 @@ At this point, the next steps differ depending on whether you are working with a
 
 Polling is used during enrollment using a [QR Code](#integrate-enrollment-using-qr-code), enrollment using [other channels](#integrate-enrollment-using-other-channels), and challenge using [push notification flows](#integrate-challenge-using-push-notification-option) to determine when the user completes the verification action in Okta Verify.
 
-The user steps out of your app during these flows to complete actions within Okta Verify. While your app waits for the user, it should poll Okta using the SDK to determine when they finish with Okta Verify. Once polling has finished the status will be updated to `SUCCESS`, or another state indication more information is needed.
+The user steps out of your app during these flows to complete actions within Okta Verify. While your app waits for the user, it should poll Okta using the SDK to determine when they finish with Okta Verify. Once polling has finished the authentication status will be updated to `SUCCESS`, or another state indication more information is needed.
 
 #### Poll the Okta Server for current state of flow
 
@@ -101,5 +101,5 @@ Once polling is complete the `authenticationStatus` property should be one of th
 * **AWAITING_AUTHENTICATOR_ENROLLMENT** : The user successfully enrolled Okta Verify, but there are other authenticators that the user could enroll.
 * **AWAITING_CHALLENGE_AUTHENTICATOR_SELECTION** : The user has successfully enrolled Okta Verify and all other authenticators. The user now needs to select an authenticator to sign in with.
 
-This common code is shared by all the flows documented below that use the polling mechanism.
+All the flows that use the polling mechanism share this common code.
 
