@@ -1,6 +1,6 @@
 ### 1. Authenticate the user credentials
 
-After a user has initiated the sign-in process by entering the username and password, create an `AuthenticationOptions` object and set its `username` and `password` fields to the values set by the user. Pass this object as a parameter to the `authenticate` method on the `IdxAuthenticationWrapper` that you have instantiated.
+After a user starts the sign-in process by entering the username and password, create an `AuthenticationOptions` object and set its `username` and `password` fields to the values set by the user. Pass this object as a parameter to the `authenticate()` method on the `IdxAuthenticationWrapper` that you have instantiated.
 
 ```java
 // Begin the authentication flow
@@ -19,7 +19,7 @@ authenticationResponse = idxAuthenticationWrapper.authenticate(authenticationOpt
 
 ### 2. Handle the response from the sign-in flow
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `authenticate()` to discover the current status of the authentication process.
+Query the `AuthenticationStatus` property of `AuthenticationResponse` returned by `authenticate()` to discover the current status of the authentication process.
 
 ```java
 // Update the context each time a request is made to Okta
@@ -65,11 +65,11 @@ When the email authenticator is selected, an email will be sent to the user.
 
 ### 4. Check authenticator status
 
-The next authentication status will be `AWAITING_AUTHENTICATOR_VERIFICATION` which indicates information is needed. A client can either accept a TOTP code from the email address or poll until the user has completed the flow in different browser window.
+The next authentication status will be `AWAITING_AUTHENTICATOR_VERIFICATION` which indicates information is needed. A client can either accept a TOTP code from the email address or poll until the user has completed the flow in a different browser window.
 
 ### 5. Display OTP input page or poll
 
-The user needs to leave your application and check their email. While they are doing this your application can continue to poll Okta, and accept the input of a TOTP code:
+The user needs to leave your application and check their email. While they are doing this, your application can continue to poll Okta, and accept the input of a TOTP code:
 
 ```java
 case AWAITING_AUTHENTICATOR_VERIFICATION:
