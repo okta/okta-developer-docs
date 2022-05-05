@@ -6,9 +6,9 @@ category: management
 
 > This API is an <ApiLifecycle access="ea" /> feature.
 
-The Okta Zones API provides operations to manage Zones in your organization. There are two usage Zone types: Policy Network Zones and Block List Network Zones. Policy Network Zones are used to guide policy decisions. Block List Network Zones are used to deny access from certain IP addresses, locations, proxy types, or Autonomous System Numbers (ASNs) before policy evaluation.
+The Okta Zones API provides operations to manage Zones in your organization. There are two usage Zone types: Policy Network Zones and Blocklist Network Zones. Policy Network Zones are used to guide policy decisions. Blocklist Network Zones are used to deny access from certain IP addresses, locations, proxy types, or Autonomous System Numbers (ASNs) before policy evaluation.
 
-A default system Policy Network Zone is provided in your Okta org. You can use the Zones API to modify the default Policy Network Zone or to create a custom Policy or Block List Network Zone. When you create your custom Zone, you can specify if the Zone is an IP Zone or a Dynamic Zone. An IP Zone allows you to define network perimeters around a set of IPs, whereas a Dynamic Zone allows you to define network perimeters around location, IP type, and ASNs.
+A default system Policy Network Zone is provided in your Okta org. You can use the Zones API to modify the default Policy Network Zone or to create a custom Policy or Blocklist Network Zone. When you create your custom Zone, you can specify if the Zone is an IP Zone or a Dynamic Zone. An IP Zone allows you to define network perimeters around a set of IPs, whereas a Dynamic Zone allows you to define network perimeters around location, IP type, and ASNs.
 
 ## Zone object
 
@@ -32,7 +32,7 @@ One of the following attributes must be defined. These attributes are defined by
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>1000 (entries for IP Block List Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
+| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>1000 (entries for IP Blocklist Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
 | proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
 
 #### Address object
