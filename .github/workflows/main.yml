@@ -2,19 +2,22 @@
 #       - Notifying email/slack/... on adding the "final edit ready" to a PR
 #       - A shorter workflow for creating Preview builds and finding the deployment URL
 
+
 name: Fixit-2022-Test
 
 # Controls when the workflow will run.
 on:
   # Triggers the workflow on pull request label change events
-#  pull_request:
-#  types: [ labeled ]
+  pull_request:
+  types: [ labeled ]
+
+  # Trigger when a comment is made
 
   # Enable running this workflow from the Actions tab.
   workflow_dispatch:
 
 # Only allow running the workflow for those those with write access
-permissions: write
+# permissions: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
@@ -22,6 +25,9 @@ jobs:
   build:
     # Run only if the label is final edit ready.
 #    if: ${{ github.event.label.name == 'final edit ready' }}
+
+    if: ${{ github.event.label.name == 'PR Preview Build' }}
+
     # Run the job on the latest Ubuntu.
     runs-on: ubuntu-latest
 
