@@ -23,7 +23,7 @@ This guide explains how to define custom Groups claims for tokens that are retur
 
 ---
 
-## About the static allowlist
+## About the static allow list
 
 You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set Group allowlists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
 
