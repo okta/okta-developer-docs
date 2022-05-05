@@ -182,7 +182,7 @@ The decoded JWT looks something like this:
 }
 ```
 
-## Use a dynamic group allowlist with a Custom Authorization Server
+## Use a dynamic group allow list with a Custom Authorization Server
 
 To use the Group Functions to create an ID token or an access token using a dynamic group allowlist, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
 
