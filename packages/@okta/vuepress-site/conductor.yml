@@ -1895,6 +1895,8 @@ redirects:
     to: /docs/guides/submit-app/-/main/#understand-the-submission-process
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
+  - from: /docs/guides/build-provisioning-integration/-/overview/
+    to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/build-sso-integration/integrate/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#create-your-integration
   - from: /docs/guides/build-sso-integration/get-help/index.html
