@@ -5838,7 +5838,7 @@ Defines an allow list of Group membership to restrict which Users are available 
 
 | Property | Description                                                   | DataType                     | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ---------------------------- | -------- | -------- |
-| include  | Specifies the allowlist of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
+| include  | Specifies the allow list of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
 
 > **Note:** Group memberships are restricted to type `OKTA_GROUP`.
 
