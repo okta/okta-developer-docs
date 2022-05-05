@@ -55,7 +55,7 @@ Fetches the current user's all email information, a collection of links for each
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -158,7 +158,7 @@ Fetches the current user's email information by id, a collection of links descri
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -234,7 +234,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -253,6 +253,14 @@ This API requires a [My Email Request object](#my-email-request-object) as its r
 #### Response body
 
 The requested [My Email object](#my-email-object)
+
+#### Error Responses
+
+If an invalid email is passed to `profile` in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+
+If the email operation is not enabled for the request `role` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+
+If the email already exists for the current user, the response will return a 409 CONFLICT with error code E0000157.
 
 #### Usage example
 
@@ -312,7 +320,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -335,6 +343,12 @@ N/A
 #### Response body
 
 The requested [My Email Challenge Response object](#my-email-challenge-response-object)
+
+#### Error Responses
+
+If the email operation is not enabled on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+
+If an invalid emailId is requested for challenge, the response will return a 404 NOT FOUND with error code E0000007.
 
 #### Usage example
 
@@ -393,7 +407,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -419,6 +433,16 @@ This request requires the `verificationCode` property as its request body.
 
 #### Response body
 
+N/A
+
+#### Error Responses
+
+if the requested `verificationCode` is invalid, the response will return a 401 UNAUTHORIZED with error code E0000004.
+
+If the email operation is not enabled on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+
+If an invalid challengeId is requested for verification, the response will return a 404 NOT FOUND with error code E0000007.
+
 #### Usage example
 
 Any non-admin user with a valid bearer token can issue this request to verify their emails.
@@ -432,6 +456,7 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 Returns an empty HTTP 204 status code response.
 
 ### Poll My Email Challenge
@@ -445,7 +470,7 @@ Fetches the email challenge's status
 An Okta scope of `okta.myAccount.email.read` is required to use this endpoint.
 
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -502,7 +527,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
 #### API Versioning
-An valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
@@ -521,6 +546,12 @@ N/A
 
 N/A
 
+#### Error Responses
+
+If an invalid emailId is requested for deletion, the response will return a 404 NOT FOUND with error code E0000007.
+
+If the email for deletion is an already verified email, the response will return a 400 BAD REQUEST with error code E0000001.
+
 #### Usage example
 
 Any non-admin user with a valid bearer token can issue this request to delete their UNVERIFIED emails.
@@ -534,6 +565,7 @@ curl -v -X DELETE \
 ```
 
 ##### Response
+
 Returns an empty HTTP 204 status code response.
 
 #### Error Responses
@@ -594,7 +626,9 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header.
+
 ```json
 {
     "id": "sms1bueyI0w0HHwro0g4",
@@ -899,6 +933,17 @@ Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/r
 
 > **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
 
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.profile.read` or `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
+
+#### API Versioning
+A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 
 N/A
@@ -919,8 +964,8 @@ Any user with a valid session can issue this request to get the Schema for their
 
 ```bash
 curl -v -X GET \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+-H "Authorization: Bearer ${api_token}" \
+"https://${yourOktaDomain}/idp/myaccount/profile/schema"
 ```
 
 ##### Response
@@ -929,10 +974,7 @@ curl -v -X GET \
 {
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
-        },
-        "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile/schema"
         }
     },
     "properties": {
@@ -988,6 +1030,16 @@ curl -v -X GET \
 
 Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get My User Profile Schema](#get-my-user-profile-schema)
 
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.profile.read` or `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
+
+#### API Versioning
+A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
 
 #### Request query parameters
 
@@ -1010,8 +1062,8 @@ This request would retriever the requesting User's Profile.
 
 ```bash
 curl -v -X GET \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
+-H "Authorization: Bearer ${api_token}" \
+"https://${yourOktaDomain}/idp/myaccount/profile"
 ```
 
 ##### Response
@@ -1020,13 +1072,10 @@ curl -v -X GET \
 {
     "_links": {
         "describedBy": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
-        },
-        "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile/schema"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
@@ -1053,6 +1102,17 @@ Updates the caller's User Profile.
 
 > **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update (PATCH request).  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
+
+#### API Versioning
+A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
+
 #### Request path parameters
 
 N/A
@@ -1073,6 +1133,10 @@ This API requires the `profile` property of a [User Profile](#user-profile-objec
 
 Returns the result of applying the update, as if the caller had invoked the GET User Profile operation.
 
+#### Error Responses
+
+if provided profile attributes for update is invalid, the response will return a 400 BAD REQUEST with error code E0000001.
+
 #### Usage example
 
 ##### Request
@@ -1080,7 +1144,7 @@ Returns the result of applying the update, as if the caller had invoked the GET 
 This request would update the user profile of the caller to have exactly the values specified.
 
 ```bash
-curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
+curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: Bearer {token}' -H 'Content-Type: application/json' --data '{
      "profile": {
          "customBoolean": false,
          "foo": "bar",
@@ -1097,13 +1161,10 @@ curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Aut
 {
     "_links": {
         "describedBy": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
-        },
-        "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile/schema"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
@@ -1162,6 +1223,8 @@ Returns a JSON object containing a link to verify the challenged phone, with an 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
 | `_links` | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
+
+#### Error Responses
 
 Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
 
@@ -1239,6 +1302,8 @@ This request requires the `verificationCode` property as its request body.
 #### Response body
 
 Returns an empty response with an HTTP 204 status code.
+
+#### Error Responses
 
 Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
 
@@ -1477,6 +1542,7 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authori
 ```
 
 ### Me object
+<ApiLifecycle access="deprecated" />
 
 #### Me properties
 
@@ -1525,10 +1591,7 @@ The User Profile Schema object has several properties:
 {
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
-        },
-        "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile/schema"
         }
     },
     "properties": {
@@ -1598,13 +1661,10 @@ The User Profile object has several properties:
 {
     "_links": {
         "describedBy": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/profile/schema"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile/schema"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount/directoryProfile"
-        },
-        "user": {
-            "href": "https://${yourOktaDomain}/api/v1/myaccount"
+            "href": "https://${yourOktaDomain}/idp/myaccount/profile"
         }
     },
     "createdAt": "2020-01-14T20:05:32.000Z",
