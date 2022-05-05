@@ -128,7 +128,7 @@ You can use a dynamic group allowlist with both the Okta Org Authorization Serve
 * [Use a dynamic group allowlist with the Org Authorization Server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
 * [Use a dynamic group allowlist with a Custom Authorization Server](#use-a-dynamic-group-allow-list-with-a-custom-authorization-server)
 
-## Use a dynamic group allowlist with the Org Authorization Server
+## Use a dynamic group allow list with the Org Authorization Server
 
 To use the Group Functions to create a token using a dynamic group allowlist, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
 
