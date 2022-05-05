@@ -262,7 +262,7 @@ The allowlist parameter must evaluate to a list of group IDs that are returned f
   * Integer between 1 and 100, inclusive. For example: `50`
   * Okta EL expression that contains a condition that evaluates to an integer: `app.profile.maxLimit < 100 ? app.profile.maxLimit : 100`. If the maximum group limit in the profile is less than 100, return that number of Groups. Otherwise, return a maximum of 100 Groups. If there are more Groups returned than the specified limit, an error is returned.
 
-## Use a static group allowlist with the Org Authorization Server
+## Use a static group allow list with the Org Authorization Server
 
 For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the [Use a static group allowlist with a Custom Authorization Server](#use-a-static-group-allow-list-with-a-custom-authorization-server) section.
 
