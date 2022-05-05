@@ -105,7 +105,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
 
-## Add a Groups claim with a static allowlist
+## Add a Groups claim with a static allow list
 
 You can create a static allowlist when you need to set group allowlists on a per-application basis. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created.
 
