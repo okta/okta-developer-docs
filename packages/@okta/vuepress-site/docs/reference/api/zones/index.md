@@ -305,7 +305,7 @@ curl -X POST \
 }
 ```
 
-### Create a Blocklist Network Zone
+### Create a Block List Network Zone
 
 
 <ApiOperation method="post" url="/api/v1/zones" />
