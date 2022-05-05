@@ -437,7 +437,7 @@ N/A
 
 #### Error Responses
 
-if the requested `verificationCode` is invalid, the response will return a 401 UNAUTHORIZED with error code E0000004.
+If the requested `verificationCode` is invalid, the response will return a 401 UNAUTHORIZED with error code E0000004.
 
 If the email operation is not enabled on the org, the response will return a 403 FORBIDDEN with error code E0000038.
 
@@ -1135,7 +1135,7 @@ Returns the result of applying the update, as if the caller had invoked the GET 
 
 #### Error Responses
 
-if provided profile attributes for update is invalid, the response will return a 400 BAD REQUEST with error code E0000001.
+If provided profile attributes for update is invalid, the response will return a 400 BAD REQUEST with error code E0000001.
 
 #### Usage example
 
