@@ -5834,7 +5834,7 @@ Specifies Group memberships to restrict which Users are available for account li
 
 ###### Groups Account Link Filter object
 
-Defines an allowlist of Group membership to restrict which Users are available for account linking by an IdP.
+Defines an allow list of Group membership to restrict which Users are available for account linking by an IdP.
 
 | Property | Description                                                   | DataType                     | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ---------------------------- | -------- | -------- |
