@@ -86,7 +86,7 @@ The call to `navigator.credentials.get` calls WebAuthn APIs in the browser and p
 
 If the validations are successful, the user sees the authenticator challenge dialog.
 
-![The authenticator challenge dialog](/img/authenticators/dotnet-Authenticators-WebAuthn-Challenge_Prompt.png)
+![The authenticator challenge dialog](/img/authenticators/dotnet-authenticators-webauthn-challenge_prompt.png)
 
 After the authenticator validates the user, it returns an assertion object that proves the user is who they say they are.
 

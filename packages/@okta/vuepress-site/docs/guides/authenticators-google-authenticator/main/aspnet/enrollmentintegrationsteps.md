@@ -139,7 +139,7 @@ The `viewModel` parameter is then consumed in a Razor page.
 
 In this use case, only Google Authenticator appears, as shown in the following screenshot.
 
-![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-Authenticators-Google-AuthenticatorList.png)
+![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-authenticators-google-authenticatorlist.png)
 
 ### 5: Retrieve shared secret and QR Code
 
@@ -239,7 +239,7 @@ This ViewModel is then consumed in a Razor page
 
 The user sees the following
 
-![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-Authenticators-Google-EnrollPage.png)
+![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enrollpage.png)
 
 ### 7: Copy shared secret to Google Authenticator
 
@@ -282,7 +282,7 @@ Build a form that allows the user to enter the TOTP they have received from thei
 
 The user sees the following:
 
-![A form for the user to enter their one-time password](/img/authenticators/dotnet-Authenticators-Google-ChallengeFlowPage.png)
+![A form for the user to enter their one-time password](/img/authenticators/dotnet-authenticators-google-challengeflowpage.png)
 
 ### 9: Process the one-time password
 
