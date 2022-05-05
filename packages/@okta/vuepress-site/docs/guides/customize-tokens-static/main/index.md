@@ -226,7 +226,7 @@ To use the group allowlist for every client that gets this claim in a token, put
 
 > **Note:** The following **Use group functions for static group allowlists** section goes into more detail on using group functions with static group allowlists. To continue with creating a Groups claim with a static allowlist, [next section](#use-a-static-group-allow-list-with-the-org-authorization-server).
 
-#### Use group functions for static group allowlists
+#### Use group functions for static group allow lists
 
 This section discusses the `getFilteredGroups` group function and how it helps you use a static group allowlist.
 
