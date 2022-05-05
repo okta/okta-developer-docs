@@ -105,7 +105,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
 
-## Add a Groups claim with a dynamic allowlist
+## Add a Groups claim with a dynamic allow list
 
 You can use Okta Expression Language Group Functions with dynamic allowlists. Three Group functions help you use dynamic group allowlists: `contains`, `startsWith`, and `endsWith`. These functions return all of the Groups that match the specified criteria without needing to have Groups specified in the app.
 
