@@ -330,7 +330,7 @@ The ID token contains the group "IT", so the audience (`aud`) has access to the 
 
 If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
 
-## Use a static group allowlist with a Custom Authorization Server
+## Use a static group allow list with a Custom Authorization Server
 
 Add a Groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
 
