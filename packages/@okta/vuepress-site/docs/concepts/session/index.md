@@ -52,4 +52,4 @@ See [Sign users out > Sign users out of Okta](/docs/guides/sign-users-out/-/main
 
 > **Note:** In the SAML world, app-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
 
-Explore [Okta sample apps](/docs/guides/quickstart/cli/main/#start-from-a-sample-app) for sample code with non-privileged access implementations.
+Explore [Okta sample apps](/docs/guides/quickstart/) for sample code with non-privileged access implementations.

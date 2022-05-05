@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
-![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
+![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-SignInForm.png)
 
 ### 2: Authenticate the user credentials
 

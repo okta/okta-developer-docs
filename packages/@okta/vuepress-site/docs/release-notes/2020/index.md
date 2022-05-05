@@ -291,7 +291,7 @@ If a user was converted to use an [external Federated IdP instead of Okta](/docs
 
 #### Apple as an Identity Provider is now GA in Production
 
-Apple as an Identity Provider is now Generally Available in Production. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/). <!-- OKTA-302300 -->
+Apple as an Identity Provider is now Generally Available in Production. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/main/). <!-- OKTA-302300 -->
 
 #### OAuth 2.0 authorization code length has been increased
 
@@ -329,7 +329,7 @@ To better align with [security best practices](https://tools.ietf.org/html/rfc68
 
 #### Apple as an Identity Provider is now GA in Preview
 
-Apple as an Identity Provider is now Generally Available in Preview. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/). <!-- OKTA-302300 -->
+Apple as an Identity Provider is now Generally Available in Preview. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/main/). <!-- OKTA-302300 -->
 
 #### YubiKey OTP Token operations added
 
