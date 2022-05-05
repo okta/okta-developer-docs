@@ -310,7 +310,7 @@ curl -X POST \
 
 <ApiOperation method="post" url="/api/v1/zones" />
 
-Creates a new Blocklist Network Zone
+Creates a new Block List Network Zone
 
 #### Request example
 
