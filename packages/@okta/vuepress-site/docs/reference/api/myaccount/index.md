@@ -19,6 +19,7 @@ All operations in this API implicitly refer to the user making the API call.  No
 
 Explore the MyAccount API:
 > **Note:** To run this Postman collection, you need an end-user access token. Use a password grant type or SDK to get the token. See [Embedded Auth with SDKs React](https://github.com/okta/okta-auth-js/tree/master/test/apps/react-oie) for a sample app that provides an access token.
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
 ## MyAccount Operations
