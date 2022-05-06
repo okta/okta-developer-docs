@@ -91,6 +91,8 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 }
 ```
 
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
+
 See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
@@ -279,7 +281,7 @@ Read more about the SDKs that support refresh token rotation and reuse detection
 * [Okta Auth SDK Guide - JavaScript](/docs/guides/auth-js/main/)
 * [Okta Sign-in Widget Guide - JavaScript](/docs/guides/embedded-siw/main/)
 * [Okta Sign-in Widget and Angular](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
-* [Okta Auth JS and Angular](/#)  (coming soon)
+* [Okta Auth JS and Angular](/docs/guides/sign-in-to-spa-authjs/angular/main/)
 * [Okta Sign-in Widget and React](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
 * [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main/)
 * [Okta Sign-in Widget and Vue](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/)

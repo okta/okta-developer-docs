@@ -1,5 +1,3 @@
-> **Note:** Be sure to select **Add OpenID Connect IdP** as the type of Identity Provider that you want to create for Azure AD in Okta.
-
 * **Name**: Enter a name for the Identity Provider configuration.
 * **Client Id**: Paste the client ID that you obtained from Azure AD when you configured the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.

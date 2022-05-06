@@ -6,6 +6,7 @@ meta:
 showStackSelector: False
 ---
 
+
 ## <StackSnippet snippet="idp" inline />
 
 This document explains how to configure <StackSnippet snippet="idp" inline /> as an external Identity Provider for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
@@ -44,13 +45,13 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
-1. Select **Add Identity Provider** and then select **<StackSnippet snippet="idp" inline />**.
+1. Select **Add Identity Provider** and then select **<StackSnippet snippet="idpoption" inline /> IdP**. Click **Next**.
 
-1. In the **Add an Identity Provider** dialog, define the following:
+1. In the **Configure <StackSnippet snippet="idpoption" inline /> IdP** dialog, define the following:
 
     <StackSnippet snippet="appidpinokta" />
 
-1. Click **Add Identity Provider**. The Identity Providers page appears.
+1. Click **Finish**. The Identity Providers page appears.
 
 1. Locate the Identity Provider that you just added and click the arrow next it to expand.
 

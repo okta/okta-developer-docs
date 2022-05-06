@@ -7,11 +7,7 @@
       <div class="width-adjuster">
         <AnnouncementBanner>
           <template v-slot:description>
-            <SmartLink :item="{ link: '/signup/' }">Developer sign ups</SmartLink>
-            now utilize Okta Identity Engine beginning March 1st, 2022.
-            <SmartLink :item="{ link: '/docs/guides/oie-intro/' }">Click here</SmartLink>
-            to learn more about how this impacts our developer experience &amp
-            documentation.
+            For more information and frequently asked questions regarding the January 2022 security incident, <a href="https://support.okta.com/help/s/article/Frequently-Asked-Questions-Regarding-January-2022-Compromise?language=en_US#" target="_blank" rel="noopener noreferrer">read more</a>.
           </template>
         </AnnouncementBanner>
         <div class="justify-content-center">

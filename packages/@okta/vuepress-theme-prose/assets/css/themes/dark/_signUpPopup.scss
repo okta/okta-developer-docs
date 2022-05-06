@@ -1,0 +1,68 @@
+.marketing-c .gdpr-condition {
+  input[type="checkbox"] {
+    position: relative;
+    min-width: 1rem;
+    min-height: 1rem;
+    border: 1px solid cv("border", "checkbox");
+    background-color: cv("code");
+    border-radius: 4px;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 1px;
+      left: 5px;
+      width: 5px;
+      height: 10px;
+      border-style: solid;
+      border-color: cv("action");
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+    &:checked {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.dialog {
+  background-color: cv("body");
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+  &--header,
+  p,
+  .terms-conditions-btns,
+  &-text {
+    color: cv("text") !important;
+  }
+  &-backdrop {
+    background-color: rgba(29, 29, 33, 0.95);
+  }
+  a {
+    color: cv("text");
+  }
+  select {
+    color: cv("text");
+    background-color: cv("code");
+    border-color: cv("body", "obscure");
+  }
+  .terms-conditions-btns .btn-container {
+    .btn:not(.social-btn) {
+      border-color: transparent;
+      color: cv("text");
+    }
+    .btn {
+      border-color: cv("link");
+      color: cv("link");
+      font-weight: 500;
+    }
+  }
+  &-text .marketing-c .gdpr-condition {
+    background-color: cv("body");
+  }
+}

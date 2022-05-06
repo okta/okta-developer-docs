@@ -25,7 +25,7 @@ This guide explains how to add a Groups claim to ID tokens for any combination o
 
 You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For groups not mastered in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
 
-Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allow list when you need to set group allow lists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
+Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set group allowlists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
@@ -98,7 +98,7 @@ To test the full authentication flow that returns an ID token or an access token
     **Access token**
 
     ```bash
-https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
+    https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
 5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
@@ -143,7 +143,7 @@ The decoded JWT looks something like this:
 {
   "sub": "00uixa271s6x7qt8I0h7",
   "ver": 1,
-  "iss": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}",
   "aud": "0oaoiuhhch8VRtBnC0h7",
   "iat": 1574201516,
   "exp": 1574205116,
@@ -177,7 +177,7 @@ Use these steps to add a Groups claim to ID tokens and access tokens to perform 
 5. Select **Groups** as the **Value type**.
 6. In the **Filter** drop-down box, select **Matches regex** and then enter the following expression as the **Value**: `.*`
 
-    > **Note:** For more fine-grained filtering information, see the steps for adding a Groups claim with a [dynamic](/docs/guides/customize-tokens-dynamic/) allow list.
+    > **Note:** For more fine-grained filtering information, see the steps for adding a Groups claim with a [dynamic](/docs/guides/customize-tokens-dynamic/) allowlist.
 
 7. Click **Create**.
 
@@ -205,8 +205,8 @@ The decoded JWT looks something like this:
 {
   "ver": 1,
   "jti": "AT.BYBJNkCefidrwo0VtGLHIZCYfSAeOyB0tVPTB6eqFss",
-  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
-  "aud": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+  "aud": "https://{yourOktaDomain}",
   "iat": 1617301739,
   "exp": 1617305339,
   "cid": "0oaipnnzumvqt5tiu1d6",
@@ -228,5 +228,5 @@ Take a look at other ways that you can customize claims and tokens:
 
 * [Add a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token)
 * [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim)
-* [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-* [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
+* [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
+* [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)

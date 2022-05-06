@@ -41,7 +41,11 @@ The following are the high-level steps required to perform the Client Credential
 
 ## Create a service app integration
 
-Create an OAuth 2.0 service app integration.
+Create an OAuth 2.0 service app integration using the Admin Console.
+
+  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API. 
+  >
+  >You can also add additional JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
@@ -49,15 +53,47 @@ Create an OAuth 2.0 service app integration.
 
 3. On the Create a new app integration page, select **API Services** as the **Sign-in method** and click **Next**.
 
-    > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, generate your public/private JWKS key pair first.
-
 4. Enter a name for your app integration and click **Save**.
 
-## Generate the JWK in the Admin Console
+## Generate the JWK using the API
+
+The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
+
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. We recommend generating the public/private key pair first before creating the OAuth service app.
+
+1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
+
+    * Key size: 2048
+    * Key use: signature
+    * Algorithm: RSA256
+    * Key ID: This can be any random value.
+
+> **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
+
+2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
+
+> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, after you have generated the key pair, copy the public/private key pair into a [JWK to PEM Convertor tool](https://8gwifi.org/jwkconvertfunctions.jsp) and copy the private key to use when signing the JWT.
+
+The JWKS should look something like this:
+
+```JSON
+"keys": [
+      {
+    "kty": "RSA",
+    "e": "AQAB",
+    "use": "sig",
+    "kid": "my_key_id",
+    "alg": "RS256",
+    "n": "u0VYW2-76A_lYg5NQihhcPJYYU9-NHbNaO6LFERWnOUbU7l3MJdmCailwSzjO76O-2GdLE-Hn2kx04jWCCPofnQ8xNmFScNo8UQ1dKVq0UkFK-sl-Z0Uu19GiZa2fxSWwg_1g2t-ZpNtKCI279xGBi_hTnupqciUonWe6CIvTv0FfX0LiMqQqjARxPS-6fdBZq8WN9qLGDwpjHK81CoYuzASOezVFYDDyXYzV0X3X_kFVt2sqL5DVN684bEbTsWl91vV-bGmswrlQ0UVUq6t78VdgMrj0RZBD-lFNJcY7CwyugpgLbnm4HEJmCOWJOdjVLj3hFxVVblNJQQ1Z15UXw"
+      }
+    ]
+```
+
+## Generate the JWK using the Admin Console
 
 <ApiLifecycle access="ea" />
 
-Generate a public/private key pair using the Admin Console.
+Generate a public/private key pair using the Admin Console. Since this is an Early Access feature, contact [Support](mailto:support@okta.com) to have it enabled for your org.
 
 > **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
@@ -157,7 +193,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
-* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#create-a-service-app-and-grant-scopes). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
+* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to
 * `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti`: (Optional) The token's unique identifier. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
@@ -183,7 +219,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     }
     ```
 
-2. In the **Signing Key** box, paste the public and private key that you generated in the [Create a public/private key pair](#create-a-public-private-key-pair) step.
+2. In the **Signing Key** box, paste the public and private key that you generated in the [Generate the JWK using the Admin Console](#generate-the-jwk-using-the-admin-console) step.
 
 3. For the key format, use either the default of **JWT** or switch to **PEM**, and then click **Generate JWT**.
 

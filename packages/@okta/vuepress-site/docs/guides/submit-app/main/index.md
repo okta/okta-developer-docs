@@ -7,7 +7,7 @@ layout: Guides
 ---
 
 
-This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparation, configuration, and updating published integrations.
+This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparing and configuring new integrations and updating previously published integrations.
 
 ---
 
@@ -18,7 +18,7 @@ This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0
 
 **What you need**
 
-A functional integration created and tested in accordance with one of our OIN guides &mdash; [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) or [Build a Single-Sign On integration](/docs/guides/build-sso-integration/).
+A functional integration created and tested in accordance with one of our OIN guides &mdash; [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) or [Build a Single-Sign On integration](/docs/guides/build-sso-integration/).
 
 ---
 
@@ -50,7 +50,7 @@ After you have built a functioning app integration, a few steps are required to 
 1. Create a customer-facing configuration guide.
     >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
-    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact <developers@okta.com> to have this capability temporarily activated when submitting a SCIM app integration.
+    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta rep or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
 
 1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
 
@@ -187,13 +187,13 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ### Test account
 
-The Okta OIN team requires a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot a submission.
+The Okta OIN team requires a dedicated account on your application to run their tests. This test account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot your app integration.
 
-* **Test account URL**: This is a static URL for Okta to sign in to your application. The account credentials that you provide below must work for this URL.
+* **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member navigates to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
 
-* **Test account username or email**: The account name for Okta to use to sign in to your application. Our preferred account name is `isvtest@okta.com`.
+* **Test account username or email**: The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
 
-* **Test account password**: Password for the test account.
+* **Test account password**: The password for your application test account.
 
 * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 

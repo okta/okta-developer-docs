@@ -4,8 +4,6 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
 ---
@@ -35,10 +33,7 @@ If you need help or have an issue, post a question on the [Okta Developer Forum]
 
 ## Before you begin
 
-This guide assumes that you:
-
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **OpenID Connect Native SSO** slider, and slide to enable.
+This guide assumes that you have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 ## Native SSO flow
 
@@ -130,6 +125,8 @@ To generate a new set of tokens:
 * Exchange the existing tokens from client 1 for new tokens for client 2.
 
 In this example, you want to SSO to multiple apps that are created by the same company. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
+
+> **Note:** Performing Native SSO token exchange with an application that has a low assurance policy configured and another application that has a high assurance policy results in an error.
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 

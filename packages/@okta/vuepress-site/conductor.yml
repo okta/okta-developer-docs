@@ -338,7 +338,7 @@ redirects:
   - from: /docs/guides/add_mfa.html
     to: /docs/guides/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
-    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+    to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
     to: /docs/reference/api/apps/
   - from: /docs/reference/api/users.html
@@ -374,7 +374,7 @@ redirects:
   - from: /docs/reference/api/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/guides/okta_mobile_connect
-    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+    to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/reference/okta-expression-language/index
     to: /docs/reference/okta-expression-language/
   - from: /docs/reference/api-overview/getting_a_token/index.html
@@ -514,7 +514,7 @@ redirects:
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/social-login/social-settings/index.html
-    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
+    to: /docs/guides/social-login/
   - from: /authentication-guide/social-login/index.html
     to: /docs/concepts/social-login/
   - from: /authentication-guide/index.html
@@ -1362,7 +1362,13 @@ redirects:
   - from: /guides/sign-in-with-microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
   - from: /guides/sign-into-mobile-app/index.html
-    to: /docs/guides/sign-into-mobile-app-redirect/
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
+  - from: /guides/sign-into-mobile-app
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
+  - from: /docs/guides/sign-into-mobile-app/create-okta-application
+    to: /docs/guides/sign-into-mobile-app-redirect/android/main/#create-an-okta-integration-for-your-app
   - from: /guides/sign-into-spa/index.html
     to: /docs/guides/sign-into-spa-redirect/
   - from: /guides/sign-into-web-app/index.html
@@ -1484,9 +1490,9 @@ redirects:
   - from: /docs/guides/sign-in-with-facebook/add-redirect-uri/index.html
     to: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
-    to:  /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
-    to:  /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/guides/sign-in-with-facebook/register-oidc-app/index.html
     to: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/
   - from: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/index.html
@@ -1726,15 +1732,15 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/overview/
   - from: /docs/guides/create-token-with-groups-claim/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/oin-build-provisioning-integration/index.html
     to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
@@ -1812,7 +1818,7 @@ redirects:
   - from: /docs/guides/oauth-for-okta/-/create-oauth-app/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#create-an-oauth-2-0-app-in-okta
   - from: /docs/guides/oauth-for-okta/-/use-client-credentials-grant-flow/index.html
-    to:  /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
+    to: /docs/guides/implement-oauth-for-okta/main/#get-an-access-token-and-make-a-request
   - from: /docs/guides/oauth-for-okta/-/define-allowed-scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/main/#define-allowed-scopes
   - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
@@ -1844,29 +1850,29 @@ redirects:
   - from: /docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
   - from: /docs/guides/create-token-with-groups-claim/-/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /docs/guides/create-token-with-groups-claim/-/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/create-token-with-groups-claim/-/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
   - from: /guides/create-token-with-groups-claim/-/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/main/#add-a-groups-claim-with-a-static-allow-list
   - from: /guides/create-token-with-groups-claim/-/send-test-request/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/-/verify-jwt/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/main/#use-a-static-group-allow-list-with-the-org-authorization-server
   - from: /guides/create-token-with-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/create-token-with-groups-claim/
@@ -2280,9 +2286,9 @@ redirects:
   - from: /docs/reference/api/oie-policy-types/index.html
     to: /docs/reference/api/policy/
   - from: /docs/concepts/ie-intro/index.html
-    to: https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie/
+    to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/concepts/ie-intro
-    to: https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie/
+    to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/guides/sign-into-web-app-remediation/-/before-you-begin/index.html
     to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
   - from: /docs/guides/sign-into-web-app-remediation/-/configure-packages/index.html
@@ -2351,6 +2357,10 @@ redirects:
     to: /signup/
   - from: /signup/oie-preview.html
     to: /signup/
+  - from: /docs/guides/migrate-to-oie/index.html
+    to: /docs/guides/oie-upgrade-overview/
+  - from: /docs/guides/migrate-to-oie
+    to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
     to: /docs/reference/core-okta-api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
@@ -2358,13 +2368,13 @@ redirects:
   - from: /docs/guides/oie-embedded-sdk-overview/main/index.html
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-run-sample/-/main
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-run-sample/-/main/index.html
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-overview/main
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-overview/main/index.html
-    to:  /docs/guides/oie-embedded-common-run-samples/-/main/
+    to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main/index.html
@@ -2383,10 +2393,14 @@ redirects:
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/-/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
+    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta
+    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/-/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/index.html
@@ -2839,8 +2853,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application
-    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page
@@ -2859,8 +2871,6 @@ redirects:
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/
   - from: /docs/guides/sign-into-mobile-app/react-native/define-callback/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-mobile-app/react-native/create-okta-application/index.html
-    to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#create-an-okta-integration-for-your-app
   - from: /docs/guides/sign-into-mobile-app/react-native/configure-packages/index.html
     to: /docs/guides/sign-into-mobile-app-redirect/react-native/main/#add-packages
   - from: /docs/guides/sign-into-mobile-app/react-native/sign-in-page/index.html
@@ -5500,34 +5510,34 @@ redirects:
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
   - from: /code/angular/okta_angular_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/
+    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js
-    to:  /docs/guides/archive-sign-in-to-spa-authjs/angular/
-  - from:  /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
+  - from: /code/javascript/okta_sign-in_widget/index.html
     to: /docs/guides/embedded-siw
-  - from:  /code/javascript/okta_sign-in_widget
+  - from: /code/javascript/okta_sign-in_widget
     to: /docs/guides/embedded-siw
   - from: /code/javascript/okta_auth_sdk/index.html
     to: /docs/guides/auth-js
   - from: /code/javascript/okta_auth_sdk
-    to:  /docs/guides/auth-js
-  - from:  /code/react/okta_react_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
-  - from:  /code/react/okta_react_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/
-  - from:  /code/react/okta_react/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/react/
-  - from:  /code/react/okta_react
-    to:  /docs/guides/sign-in-to-spa-authjs/react/
-  - from:  /code/vue/okta_vue_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
-  - from:  /code/vue/okta_vue_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/
-  - from:  /code/vue/okta_vue/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/vue/
-  - from:  /code/vue/okta_vue
-    to:  /docs/guides/sign-in-to-spa-authjs/vue/
+    to: /docs/guides/auth-js
+  - from: /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/

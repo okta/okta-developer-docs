@@ -35,9 +35,9 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 * Favicon
 * Background image
 
-## Important: Overriding themes in the code template editors
+## Override themes in the code template editors
 
-You can customize individual parts of your Okta org experience using the various code editors available in the Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). However, if you use the Brands API to delete or augment any of the [branding variables](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-variables), the API calls override any changes you make using the Admin Console.
+You can customize individual parts of your Okta org experience using the various code editors available in the Admin Console (for example, **Customizations** > **Sign-in page code editor** to customize the Okta-hosted sign-in page). However, if you use the Brands API to delete or augment any [branding variables](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-variables), the API calls override any changes you make using the Admin Console.
 
 For example, if you update the sign-in page code using the editor and change the background image or logo setting, your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings. See [Edit email templates](/docs/guides/custom-email/main/#edit-email-templates).
 
@@ -139,7 +139,7 @@ A successful response results in a JSON object that contains the `url` of the up
 
 ``` json
 {
-  "url": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
+  "url": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
 }
 ```
 

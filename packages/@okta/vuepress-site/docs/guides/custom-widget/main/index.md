@@ -43,9 +43,14 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers both basic and advanced customization options to create a completely transformed sign-in experience. To access this page, in the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
+The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
 
-> **Note**: In Okta Identity Engine, select **Customizations** and then **Sign-in page code editor** to find the Sign-In Widget editor.
+> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+
+To access this page:
+
+* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Sign-in page code editor**.
+* Okta Classic Engine: In the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
 
 ### Change the Okta Sign-In Widget version
 
@@ -150,7 +155,7 @@ Here's what is returned from `getRequestContext()`:
     "issuer": {
       "name": "default",
       "id": "ausblkmh242Vtu5430h2",
-      "uri": "https://${yourOktaDomain}/oauth2/default"
+      "uri": "https://{yourOktaDomain}/oauth2/default"
     }
   }
 }
@@ -193,8 +198,6 @@ Example:
 ## Style the self-hosted Sign-In Widget
 
 This section discusses the customization options that you have when you are self-hosting the Sign-In Widget.
-
-> **Note:** You can try all of these customizations yourself using our [Live Widget](https://developer.okta.com/live-widget/).
 
 ### Initial sign-in page
 
@@ -358,10 +361,6 @@ Position:
 For a more in-depth look at styling the widget, you can watch this video:
 
 <iframe width="100%" class="video-tutorial" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Live Widget
-
-You can also play with the Sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ### Modify strings
 

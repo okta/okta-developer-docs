@@ -42,6 +42,7 @@ guides:
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
+ - mobile-idx-sdk-overview
  - oin-oidc-overview
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
@@ -77,6 +78,7 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
+ - telephony-inline-hook
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -104,7 +106,15 @@ guides:
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
-
+ - authenticators-overview
+ - authenticators-google-authenticator
+ - authenticators-web-authn
+ - device-context
+ - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
+ - authenticators-okta-verify
+ - authenticators-okta-email
+ - oie-embedded-sdk-use-case-new-user-activation
+ - advanced-use-case-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -140,8 +150,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
-    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
+    * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
+    * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 

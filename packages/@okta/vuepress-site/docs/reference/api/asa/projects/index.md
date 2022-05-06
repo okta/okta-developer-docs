@@ -72,7 +72,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `self`   |  boolean | (Optional) If `true`, only lists the Projects that the ASA User making this request has been assigned. |
 
@@ -88,16 +88,16 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `create_server_users`   | boolean | (Optional) Whether to create Server Users for ASA Users in this Project. Defaults to `false`. If left `false`, the ASA User is responsible for ensuring that users that match the names of the Server Users in ASA exist on the server. |
 | `deleted_at`   | string | Time of deletion. `null` if not deleted. |
 | `force_shared_ssh_users`   | boolean | (Optional) If `true`, new Server Users will not be created for each ASA User in the Project. Instead they share a single standard user and a single admin user. Default is `false`. |
-| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `id`   | string | The UUID of the Project |
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Optional) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | (Currently not supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
-| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
 
 #### Usage example
@@ -172,16 +172,17 @@ This endpoint requires an object with the following fields.
 | `create_server_users`   | boolean | (Optional) Whether to create Server Users for ASA Users in this Project. Defaults to `false`. If left `false`, the ASA User is responsible for ensuring that users that match the names of the Server Users in ASA exist on the server. |
 | `deleted_at`   | string | Time of deletion. `null` if not deleted. |
 | `force_shared_ssh_users`   | boolean | (Optional) If `true`, new Server Users will not be created for each ASA User in the Project. Instead they share a single standard user and a single admin user. Default is `false`. |
-| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `id`   | string | The UUID of the Project |
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Optional) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | (Currently not supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
-| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `ssh_certificate_type`   | string | (Optional) The type of signature algorithm used for authentication keys. Supported values: `CERT_TYPE_ED25519_01` and `CERT_TYPE_RSA_01`. Default is `CERT_TYPE_ED25519_01`. |
+| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
 
 #### Response body
@@ -191,16 +192,16 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | `create_server_users`   | boolean | (Optional) Whether to create Server Users for ASA Users in this Project. Defaults to `false`. If left `false`, the ASA User is responsible for ensuring that users that match the names of the Server Users in ASA exist on the server. |
 | `deleted_at`   | string | Time of deletion. `null` if not deleted. |
 | `force_shared_ssh_users`   | boolean | (Optional) If `true`, new Server Users will not be created for each ASA User in the Project. Instead they share a single standard user and a single admin user. Default is `false`. |
-| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `id`   | string | The UUID of the Project |
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Optional) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | (Currently not supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
-| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
 
 #### Usage example
@@ -274,16 +275,16 @@ This endpoint returns an object with the following fields and a `200` code on a 
 |----------|-------------|----------------------|
 | `create_server_users`   | boolean | (Optional) Whether to create Server Users for ASA Users in this Project. Defaults to `false`. If left `false`, the ASA User is responsible for ensuring that users that match the names of the Server Users in ASA exist on the server. |
 | `force_shared_ssh_users`   | boolean | (Optional) If `true`, new Server Users will not be created for each ASA User in the Project. Instead they share a single standard user and a single admin user. Default is `false`. |
-| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `id`   | string | The UUID of the Project |
 | `name`   | string | The name of the Project |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | (Optional) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | (Currently not supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
-| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
 
 #### Usage example
@@ -379,12 +380,13 @@ This endpoint requires an object with the following fields.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `create_server_users`   | boolean | (Optional) Whether to create Server Users for ASA Users in this Project. Defaults to `false`. If left `false`, the ASA User is responsible for ensuring that Users that match the Server User names in ASA exist on the server. |
-| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `forward_traffic`   | boolean | Whether to require that all traffic in the Project be forwarded through selected Gateways. Default is `false`. |
 | `next_unix_gid`   | number | (Optional) The GID to use when creating a new server user. |
 | `next_unix_uid`   | number | (Optional) The UID to use when creating a new server user. |
-| `rdp_session_recording`   | boolean | Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | (Currently not supported, reserved for future use) Whether to enable remote desktop protocol (rdp) recording on all Servers in this Project. Default is `false`. |
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
-| `ssh_session_recording`   | boolean | Whether to enable ssh recording on all Servers in this Project. Default is `false`. **Warning:** Requires a feature flag to be enabled. |
+| `ssh_certificate_type`   | string | (Optional) The type of signature algorithm used for authentication keys. Supported values: `CERT_TYPE_ED25519_01` and `CERT_TYPE_RSA_01`. Default is `CERT_TYPE_ED25519_01`. |
+| `ssh_session_recording`   | boolean | Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -1097,7 +1099,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | (Not supported) This field will be removed in a future release of ASA. It's only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1152,7 +1154,6 @@ This endpoint requires an object with the following fields.
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Response body
@@ -1173,7 +1174,6 @@ curl -v -X POST \
 	"projects": [
 		"the-sound-and-the-fury"
 	],
-	"servers": null,
 	"user_name": "jason.compson"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
@@ -1207,7 +1207,7 @@ This endpoint requires one of the following roles: `access_admin`, or `preauthor
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_expired`   |  boolean | (Optional) If `true`, includes expired preauthorizations |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project`   |  string | (Optional) If a value is provided, filters for the specified Project. This doesn`t apply if used against a Project-specific endpoint. |
 
@@ -1224,7 +1224,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | (Not supported) This field will be removed in a future release of ASA. It's only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1282,7 +1282,6 @@ This endpoint requires an object with the following fields.
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Response body
@@ -1293,7 +1292,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `expires_at`   | string | The Preauthorization ceases to work after the `expires_at` date |
 | `id`   | string | The UUID of the Preauthorization |
 | `projects`   | array | The Projects that the Preauthorization is valid for |
-| `servers`   | array | The Servers that the Preauthorization is valid for |
+| `servers`   | array | (Not supported) This field will be removed in a future release of ASA. It's only documented for backward compatibility with legacy clients. |
 | `user_name`   | string | The username of the ASA User that the Preauthorization is for |
 
 #### Usage example
@@ -1310,7 +1309,6 @@ curl -v -X PUT \
 	"projects": [
 		"the-sound-and-the-fury"
 	],
-	"servers": null,
 	"user_name": "jason.compson"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}

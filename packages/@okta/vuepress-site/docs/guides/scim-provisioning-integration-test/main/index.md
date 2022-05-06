@@ -17,7 +17,7 @@ This second suite of [Runscope](https://www.runscope.com) tests checks that your
 
 ## Profile Sourcing activation
 
-The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact <developers@okta.com> with the name of your app integration and your org ID to have Profile Sourcing temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, inform Developer Support of your time requirements in your email.
+The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact your Okta rep or post on our [forum](https://devforum.okta.com/) to request that Profile Sourcing be temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
 
 ## Runscope tests for CRUD
 
@@ -55,7 +55,9 @@ To configure and run the SCIM CRUD tests:
 1. Add the following variables with values that match your SCIM integration:
     * `oktaAppId` - the unique identifier randomly assigned to your Okta integration. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
     * `oktaOrgUrl` - the base URL for your Okta org. Include the `https://` prefix.
-    ![Dev Window](/img/oin/scim_crud-test-identifiers.png "Browser bar showing the oktaOrgUrl location")
+
+        ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png "Dev Window")
+
     * `oktaToken` - the security token used to connect to your API. You can generate a token for your integration inside your Okta org:
         * Click **Security** > **API**.
         * Click **Tokens** and **Create Token**.
@@ -65,7 +67,8 @@ To configure and run the SCIM CRUD tests:
     * `SCIMAuth` - the Basic or OAuth authorization token used to access your SCIM API.
 
     The final Runscope values should look similar to the following:
-    ![Runscope Initial Variables](/img/oin/scim_crud-variables.png "Sample values for CRUD test variables")
+
+    ![Sample values for CRUD test variables.Runscope Initial Variables](/img/oin/scim_crud-variables-d.png "Runscope Initial Variables")
 
 1. Click **Test Settings** and then click **Initial Script**.
 1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.

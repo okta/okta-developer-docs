@@ -131,23 +131,6 @@ export const guides = [
         subLinks: [
           { title: "Overview", guideName: "sign-in-overview" },
           {
-            title: "Set up to run Identity Engine sample apps",
-            subLinks: [
-              {
-                title: "Get set up",
-                guideName: "oie-embedded-common-org-setup",
-              },
-              {
-                title: "Download and set up the sample app",
-                guideName: "oie-embedded-common-download-setup-app",
-              },
-              {
-                title: "Run the sample apps",
-                guideName: "oie-embedded-common-run-samples",
-              },
-            ]
-          },
-          {
             title: "Redirect authentication",
             subLinks: [
               {
@@ -175,6 +158,23 @@ export const guides = [
           {
             title: "Embedded authentication",
             subLinks: [
+              {
+                title: "Get set up",
+                subLinks: [
+                  {
+                    title: "Set up your Okta org",
+                    guideName: "oie-embedded-common-org-setup",
+                  },
+                  {
+                    title: "Download and set up the SDK, Sign-In Widget, and sample apps",
+                    guideName: "oie-embedded-common-download-setup-app",
+                  },
+                  {
+                    title: "Run the sample apps",
+                    guideName: "oie-embedded-common-run-samples",
+                  },
+                ]
+              },
               {
                 title: "Auth JS fundamentals",
                 guideName: "auth-js"
@@ -211,6 +211,10 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-self-reg",
                   },
                   {
+                    title: "New user activation",
+                    guideName: "oie-embedded-sdk-use-case-new-user-activation"
+                  },
+                  {
                     title: "Sign in with password and email factors",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
@@ -244,12 +248,58 @@ export const guides = [
                     guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   }
                 ]
+              },
+            ]
+          },
+          {
+            title: "Authenticators",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "authenticators-overview"
+              },
+              {
+                title: "Okta email",
+                guideName: "authenticators-okta-email"
+              },
+              {
+                title: "Okta Verify",
+                guideName: "authenticators-okta-verify"
+              },
+              {
+                title: "Google authenticator",
+                guideName: "authenticators-google-authenticator"
+              },
+              {
+                title: "Web Authentication",
+                guideName: "authenticators-web-authn"
+              },
+            ]
+          },
+          {
+            title: "Advanced use cases",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "advanced-use-case-overview"
+              },
+              {
+                title: "Custom password recovery",
+                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
+              },
+              {
+                title: "Device Context",
+                guideName: "device-context"
               }
             ]
           },
           {
-            title: "Mobile techniques",
+            title: "Mobile authentication",
             subLinks: [
+              {
+                title: "Identity Engine SDK overview",
+                guideName: "mobile-idx-sdk-overview"
+              },
               {
                 title: "Unlock a mobile app with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics"
@@ -360,13 +410,16 @@ export const guides = [
                   {
                     title: "Azure AD",
                     path: "/docs/guides/add-an-external-idp/azure/main/"
+                  },
+                  {
+                    title: "Smart Card",
+                    path: "/docs/guides/add-an-external-idp/smartcard/"
                   }
                 ]
               },
             ]
           },
           { title: "Sign users out", guideName: "sign-users-out" },
-          { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Basics",
             subLinks: [
@@ -620,6 +673,10 @@ export const guides = [
           guideName: "registration-inline-hook"
           },
           {
+            title: "Telephony Inline Hook",
+          guideName: "telephony-inline-hook"
+          },
+          {
             title: "Token Inline Hook",
           guideName: "token-inline-hook"
           },
@@ -649,7 +706,11 @@ export const guides = [
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget"
-          }
+          },
+          {
+            title: "Add multifactor authentication",
+            guideName: "mfa"
+          },
         ]
       }
     ]
@@ -854,7 +915,7 @@ export const reference = [
               { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
               { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
               { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-              { title: "Telephony Hook", guideName: "/docs/reference/telephony-inline-hook/", hidden: true},
+              { title: "Telephony Hook", path: "/docs/reference/telephony-hook/" },
               { title: "Token Hook", path: "/docs/reference/token-hook/" },
               { title: "User Import Hook", path: "/docs/reference/import-hook/"}
           ]},

@@ -2,7 +2,7 @@
 title: Okta Expression Language in Okta Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of the Okta Expression Language in Okta Identity Engine.
+  content: Learn more about the features and syntax of Okta Expression Language in Okta Identity Engine.
 ---
 
 # Okta Expression Language in Okta Identity Engine
@@ -35,6 +35,8 @@ The following operators and functionality offered by SpEL aren't supported in Ok
 ### Okta User Profile
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
+
+> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -101,7 +103,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
 |                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
 
-**Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
+> **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
 ### Array functions
 
@@ -247,7 +249,7 @@ The following functions are supported in conditions:
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>
 
-**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
+> **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
 **Examples**
 

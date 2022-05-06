@@ -19,6 +19,7 @@
 // Layouts
 @import "layouts/layout.scss";
 @import "layouts/authorizationLayout.scss";
+@import "layouts/darktheme.scss";
 
 // Components
 @import "components/announcementBanner";
@@ -60,6 +61,7 @@
 @import "components/oktaIntegrationNetwork";
 @import "components/terms";
 @import "components/thankYou";
+@import "components/themeModeToggle";
 @import "components/liveWidget";
 @import "components/errors";
 @import "components/dialogWindow";
@@ -68,4 +70,4 @@
 
 //Pages
 @import "okta/pages/multi-tenancy";
-@import 'okta/pages/oie-embedded-sdk';
+@import "okta/pages/oie-embedded-sdk";

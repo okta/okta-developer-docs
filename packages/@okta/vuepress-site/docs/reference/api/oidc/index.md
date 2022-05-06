@@ -24,6 +24,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | Endpoint                                                                          | Use                                                                                     |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
+| [/par](#par)                                                                      | Push an authorization request payload directly to the authorization server that responds with a request URI value for use in subsequent authorization requests to the `/authorize` endpoint. <ApiLifecycle access="ie" />                     |
 | [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
@@ -95,6 +96,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
 | response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
 | response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
+| request_uri                      | Location where the authorization request payload data is referenced in an authorization request to the `/authorize` endpoint.         | Query       | JWT       | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
@@ -175,7 +177,7 @@ Irrespective of the response type, the contents of the response are as described
 | code                | An opaque value that can be used to redeem tokens from the [token endpoint](#token). `code` is returned if the `response_type` includes `code`. The code has a lifetime of 300 seconds.   | String   |
 | error               | The error code, if something went wrong.                                                                                                                                                 | String   |
 | error_description   | Additional error information (if any).                                                                                                                                                   | String   |
-| expires_in          | Number of seconds until the `access_token` expires. This is only returned if the response included an `access_token`.                                                                    | String   |
+| expires_in          | Number of seconds until the `access_token` expires. This is only returned if the response included an `access_token`.                                                                    | Number   |
 | id_token            | An [ID token](#id-token).  This is returned if the `response_type` included `id_token`.                                                                                                  | String   |
 | scope               | Scopes specified in the `access_token`. Returned only if the response includes an `access_token`.                                                                                        | String   |
 | state               | The unmodified `state` value from the request.                                                                                                                                           | String   |
@@ -255,6 +257,85 @@ The requested scope is invalid:
 https://www.example.com/#error=invalid_scope&error_description=The+requested+scope+is+invalid%2C+unknown%2C+or+malformed
 ```
 
+### /par
+
+<ApiLifecycle access="ie" />
+
+<ApiOperation method="post" url="${baseUrl}/v1/par" />
+
+> **Note:** This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing your base URL](#composing-your-base-url).
+
+The pushed authorization request endpoint (`/par`) promotes OAuth security by allowing the authorization server to authenticate the client before any user interaction happens. The increased confidence in the client's identity during the authorization process means the authorization server can refuse illegitimate requests much earlier in the process. This process prevents attempts to spoof clients or otherwise tamper with or misuse an authorization request and provides a simple way to make a confidential and integrity-protected authorization request.
+
+The `/par` endpoint allows an OAuth 2.0 client to push the payload of an authorization request directly to the authorization server. The authorization server provides a request URI value in the response. The request URI is a reference to the authorization request payload data in a subsequent call to the `/authorize` endpoint through a user agent.
+
+#### Request Parameters
+
+The endpoint accepts the same request parameters as the [/authorize](#authorize) endpoint, except for the `request_uri` parameter.
+
+#### Response properties
+
+| Property            | Description                                                                                                          | DataType |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------- | :------- |
+| request_uri         | Location where the authorization request payload data is referenced in authorization requests to the `/authorize` endpoint                                                                                                                  | String   |
+| expires_in          | Number of seconds until the `request_uri` expires                                                                  | Number   |
+
+##### Possible errors
+
+These APIs are compliant with the OpenID Connect and OAuth 2.0 specification with some Okta-specific extensions.
+
+[OAuth 2.0 spec error codes](https://tools.ietf.org/html/rfc6749#section-4.1.2.1)
+
+| Error Id                    | Details                                                                                                                                                                                                            |
+| :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| access_denied               | The server denied the request.    |
+| invalid_client              | The specified client ID is invalid.                                               |
+| invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.       |
+| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                 |
+| invalid_scope               | The scopes list contains an invalid or unsupported value.                                                 |
+| invalid_token               | The provided access token is invalid.                                                                                   |
+| server_error                | The server encountered an internal error.                                                                          |
+| temporarily_unavailable     | The server is temporarily unavailable, but should be able to process the request at a later time.                          |
+| unsupported_response_type   | The specified response type is invalid or unsupported.                                                                                     |
+| unsupported_response_mode   | The specified response mode is invalid or unsupported. This error is also thrown for disallowed response modes. For example, if the query response mode is specified for a response type that includes `id_token`. |
+
+[OpenID Connect spec error codes](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
+
+| Error Id             | Details                                                                                           |
+| :------------------- | :------------------------------------------------------------------------------------------------ |
+| insufficient_scope   | The access token provided doesn't contain the necessary scopes to access the resource.           |
+
+#### Request examples
+
+The following pushed authorization request initiates the flow. The request returns a `request_uri` that you can use as the `request_uri` parameter in the authorization request.
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+"https://${yourOktaDomain}/oauth2/default/v1/par" \
+-d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
+```
+
+#### Response example (success)
+
+```json
+{
+  "request_uri": "urn:okta:Y1hIQ3ZqYjFodEZMOVJ3TUF4ZHRPZjJuNFZRV2ZWQ044MmFoX2VIT2oyNDo",
+  "expires_in": 3600
+}
+```
+
+#### Response example (error)
+
+The requested scope is invalid:
+
+```json
+{
+  "error_description": "One or more scopes are not configured for the authorization server resource.",
+  "error": "invalid_scope"
+}
+```
+
 ### /device/authorize
 
 <ApiOperation method="post" url="${baseUrl}/v1/device/authorize" /><ApiLifecycle access="ea" />
@@ -311,8 +392,8 @@ curl -v -X POST \
   "user_code": "RGTCFDTL",
   "device_code": "5cbeb234-7e00-4ff7-9aa2-b1a4558a75d2",
   "interval": 5,
-  "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=RGTCFDTL",
-  "verification_uri": "https://${yourOktaDomain}/activate",
+  "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=RGTCFDTL",
+  "verification_uri": "https://{yourOktaDomain}/activate",
   "expires_in": 600
 }
 ```
@@ -495,8 +576,8 @@ Based on the type of token and whether it is active, the returned JSON contains 
     "exp" : 1451606400,
     "iat" : 1451602800,
     "sub" : "john.doe@example.com",
-    "aud" : "https://${yourOktaDomain}",
-    "iss" : "https://${yourOktaDomain}/oauth2/orsmsg0aWLdnF3spV0g3",
+    "aud" : "https://{yourOktaDomain}",
+    "iss" : "https://{yourOktaDomain}/oauth2/orsmsg0aWLdnF3spV0g3",
     "jti" : "AT.7P4KlczBYVcWLkxduEuKeZfeiNYkZIC9uGJ28Cc-YaI",
     "uid" : "00uid4BxXw6I6TV4m0g3"
 }
@@ -850,11 +931,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
-    "authorization_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize",
-    "token_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/token",
-    "registration_endpoint": "https://${yourOktaDomain}/oauth2/v1/clients",
-    "jwks_uri": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys",
+    "issuer": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize",
+    "token_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/token",
+    "registration_endpoint": "https://{yourOktaDomain}/oauth2/v1/clients",
+    "jwks_uri": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/keys",
     "response_types_supported": [
         "code",
         "token",
@@ -910,7 +991,7 @@ curl -X GET \
     "code_challenge_methods_supported": [
         "S256"
     ],
-    "introspection_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/introspect",
+    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -918,7 +999,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/revoke",
+    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -926,7 +1007,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/logout",
+    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1007,11 +1088,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://${yourOktaDomain}",
-    "authorization_endpoint": "https://${baseUrl}/authorize",
-    "token_endpoint": "https://${baseUrl}/token",
-    "userinfo_endpoint": "https://${baseUrl}/userinfo",
-    "registration_endpoint": "https://${baseUrl}/clients",
+    "issuer": "https://{yourOktaDomain}",
+    "authorization_endpoint": "https://{baseUrl}/authorize",
+    "token_endpoint": "https://{baseUrl}/token",
+    "userinfo_endpoint": "https://{baseUrl}/userinfo",
+    "registration_endpoint": "https://{baseUrl}/clients",
     "jwks_uri": "https://${baseUrl}/keys",
     "response_types_supported": [
         "code",
@@ -1149,7 +1230,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 * `openid` is required for any OpenID request connect flow. If the `openid` scope value isn't present, the request may be a valid OAuth 2.0 request, but it's not an OpenID Connect request.
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
-* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. 
+* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
 * For more information about `device_sso`, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
@@ -1242,7 +1323,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
 {
   "ver": 1,
   "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
   "aud": "https://api.example.com",
   "sub": "00ujmkLgagxeRrAg20g3",
   "iat": 1467145094,
@@ -1371,7 +1452,7 @@ The ID token consists of three period-separated, Base64 URL-encoded JSON segment
 {
   "ver": 1,
   "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
   "exp": 1449627626,

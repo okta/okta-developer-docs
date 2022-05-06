@@ -43,6 +43,7 @@ module.exports = ctx => ({
   head: [
     ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.8959/14/css/CoveoFullSearch.min.css', integrity: 'sha512-DzuDVtX/Dud12HycdAsm2k9D1UQ8DU7WOj7cBRnSsOKQbKfkI94g0VM9hplM0BkQ0VXdDiQYU9GvUzMmw2Khaw==', crossorigin: 'anonymous' }],
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
+    ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
@@ -327,7 +328,7 @@ module.exports = ctx => ({
               '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
               '/docs/guides/oie-upgrade-sign-in-widget-styling/',
               '/docs/guides/oie-upgrade-mfa-enroll-policy/',
-              '/docs/reference/telephony-hook/'
+              '/docs/reference/csi-delauth-hook/'
           ]
         }
       ]

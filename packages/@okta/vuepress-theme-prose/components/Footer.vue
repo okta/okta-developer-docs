@@ -4,7 +4,7 @@
       <div class="footer--column need-support">
         <h4 class="column--header">{{ config.footer_nav.need_support.heading }}</h4> 
         <p>
-          You can reach us directly at developers@okta.com or you can also ask us on the 
+          You can contact your Okta rep or ask us on our
           <SmartLink
             :item="{ link: config.forum_url, target: '_self' }"
             classes="link"
