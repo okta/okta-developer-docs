@@ -15,12 +15,11 @@ The Okta MyAccount API allows end users (with or without administrator access) t
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
 
-<!--
 ## Get started
 
 Explore the MyAccount API:
-
--->
+> **Note:** To run this Postman collection, you need an end-user access token. Use a password grant type or SDK to get the token. See [Embedded Auth with SDKs React](https://github.com/okta/okta-auth-js/tree/master/test/apps/react-oie) for a sample app that provides an access token.
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
 ## MyAccount Operations
 
@@ -33,16 +32,16 @@ The MyAccount API has the following operations:
 * [Verify My Email](#verify-my-email)
 * [Poll My Email Challenge](#poll-my-email-challenge)
 * [Delete My Email](#delete-my-email)
-* [Add My Phone](#add-my-phone)
-* [Get My Phone](#get-my-phone)
 * [Get My Phones](#get-my-phones)
+* [Get My Phone](#get-my-phone)
+* [Add My Phone](#add-my-phone)
+* [Challenge My Phone](#challenge-my-phone)
+* [Verify My Phone](#verify-my-phone)
 * [Delete My Phone](#delete-my-phone)
-* [Send Phone challenge](#send-phone-challenge)
-* [Verify Phone challenge](#verify-phone-challenge)
 * [Get data about Me](#get-me)
-* [Get my User Profile Schema](#get-my-user-profile-schema)
-* [Get my User Profile](#get-my-user-profile)
-* [Update my User Profile](#update-my-user-profile)
+* [Get My User Profile Schema](#get-my-user-profile-schema)
+* [Get My User Profile](#get-my-user-profile)
+* [Update My User Profile](#update-my-user-profile)
 
 ### Get My Emails
 
@@ -571,6 +570,166 @@ Returns an empty HTTP 204 status code response.
 #### Error Responses
 If an invalid email id is passed to the request, the response will return a 404 NOT FOUND with error code E0000007.
 
+### Get My Phones
+
+<ApiOperation method="get" url="/idp/myaccount/phones" />
+
+Fetches the current user's all phone information, along with a collection of links for each phone describing the operations can be performed.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+A list of the requested [My Phone object](#my-phone-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their phones.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones"
+```
+
+##### Response
+
+```json
+[
+    {
+        "id": "sms1bueyI0w0HHwro0g4",
+        "status": "UNVERIFIED",
+        "profile": {
+            "phoneNumber": "+15555555555"
+        },
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE",
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "clf1639iP89ovYrhQ0g4",
+        "status": "VERIFIED",
+        "profile": {
+            "phoneNumber": "+15555555556"
+        },
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "challenge": {
+                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4/challenge",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Get My Phone
+
+<ApiOperation method="get" url="/idp/myaccount/phones/{id}" />
+
+Fetches the current user's phone information by id, along with a collection of links describing the operations can be performed to the phone.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+
+#### Request path parameters
+
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+The requested [My Phone object](#my-phone-object)
+
+#### Usage example
+
+Any user with a valid bearer token can issue this request to get their phone.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+"https://${yourOktaDomain}/idp/myaccount/phones/{id}"
+```
+
+##### Response
+
+```json
+{
+    "id": "sms1bueyI0w0HHwro0g4",
+    "status": "UNVERIFIED",
+    "profile": {
+        "phoneNumber": "+15555555555"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "challenge": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
 ### Add My Phone
 
 <ApiOperation method="post" url="/idp/myaccount/phones" />
@@ -666,63 +825,81 @@ Returns an HTTP 201 status code response, with a location URL referring to the n
 }
 ```
 
-### Get My Phone
+### Challenge My Phone
 
-<ApiOperation method="get" url="/idp/myaccount/phones/{id}" />
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
 
-Fetches the current user's phone information by id, along with a collection of links describing the operations can be performed to the phone.
+Sends a phone challenge using one of two methods: `SMS` or `CALL`. This request can also handle a resend challenge (retry).
+
+Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in 5 minutes.
+
+> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/challenge` endpoint more often than once very 30 seconds, or at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
 
 #### Required scope and role
 
-An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
+
+#### Required scope and role
 
 #### Request path parameters
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
 
 #### Request query parameters
 
 N/A
 
+#### Request body
+
+This request requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `method`  | String | The method with which the challenge should be sent, valid values are `SMS` and `CALL` |
+| `retry`  | Boolean | An optional property that indicates whether this is a normal challenge or retry |
+
 #### Response body
 
-The requested [My Phone object](#my-phone-object)
+Returns a JSON object containing a link to verify the challenged phone, with an HTTP 200 status code.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `_links` | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
+
+Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
+
+Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
+Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
+Call providers failing to send the out of band OTP challenge returns 500 with error code E0000138.
 
 #### Usage example
 
-Any user with a valid bearer token can issue this request to get their phone.
-
 ##### Request
 
+This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
+
 ```bash
-curl -v -X GET \
--H "Authorization: Bearer ${token}" \
-"https://${yourOktaDomain}/idp/myaccount/phones/{id}"
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+     "method": "SMS",
+     "retry": false
+ }'
 ```
 
 ##### Response
 
-```json
+Returns an HTTP 200 status code response.
+
+```bash
 {
-    "id": "sms1bueyI0w0HHwro0g4",
-    "status": "UNVERIFIED",
-    "profile": {
-        "phoneNumber": "+15555555555"
-    },
     "_links": {
-        "self": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
-            "hints": {
-                "allow": [
-                    "GET",
-                    "DELETE"
-                ]
-            }
-        },
-        "challenge": {
-            "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
+        "verify": {
+            "href": 'http://${yourOktaDomain}/idp/myaccount/phones/smsa7gpDMs5V6C0LT0g4/verify',
             "hints": {
                 "allow": [
                     "POST"
@@ -733,97 +910,68 @@ curl -v -X GET \
 }
 ```
 
-### Get My Phones
+### Verify My Phone
 
-<ApiOperation method="get" url="/idp/myaccount/phones" />
+<ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
 
-Fetches the current user's all phone information, along with a collection of links for each phone describing the operations can be performed.
+Verify the phone number with the verification code that the user receives via `SMS` or `CALL`. The phone number is active upon a successful verification.
+
+> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/verify` endpoint at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
 
 #### Required scope and role
 
-An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is required to use this endpoint.
+An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+
+> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
+
+#### Required scope and role
 
 #### Request path parameters
 
-N/A
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
 
 #### Request query parameters
 
 N/A
 
+#### Request body
+
+This request requires the `verificationCode` property as its request body.
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `verificationCode`  | String | A 6-digit verification code that the user receives via `SMS` or `CALL` |
+
 #### Response body
 
-A list of the requested [My Phone object](#my-phone-object)
+Returns an empty response with an HTTP 204 status code.
+
+Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
+Disabling the `IDP_MY_ACCOUNT_API` feature flag on the org returns a 401 UNAUTHORIZED with error code E0000015.
+
+Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
+
+Passing an invalid `verificationCode` returns a 400 BAD REQUEST with error code E0000001.
+
+Passing a valid `verificationCode` again (verifying a phone number that has been verified) results a no-op.
+
+In an extremely rare case, verifying a phone number when the challenge is about to expire returns a 409 CONFLICT with error code E0000157.
+
+Failing to answer the challenge (possibly due to invalid `verificationCode`) returns a 401 UNAUTHORIZED with error code E0000004.
 
 #### Usage example
 
-Any user with a valid bearer token can issue this request to get their phones.
-
 ##### Request
 
+The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
+
 ```bash
-curl -v -X GET \
--H "Authorization: Bearer ${token}" \
-"https://${yourOktaDomain}/idp/myaccount/phones"
-```
-
-##### Response
-
-```json
-[
-    {
-        "id": "sms1bueyI0w0HHwro0g4",
-        "status": "UNVERIFIED",
-        "profile": {
-            "phoneNumber": "+15555555555"
-        },
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "DELETE",
-                    ]
-                }
-            },
-            "challenge": {
-                "href": "https://${yourOktaDomain}/idp/myaccount/phones/sms1bueyI0w0HHwro0g4/challenge",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            }
-        }
-    },
-    {
-        "id": "clf1639iP89ovYrhQ0g4",
-        "status": "VERIFIED",
-        "profile": {
-            "phoneNumber": "+15555555556"
-        },
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "DELETE"
-                    ]
-                }
-            },
-            "challenge": {
-                "href": "https://${yourOktaDomain}/idp/myaccount/phones/clf1639iP89ovYrhQ0g4/challenge",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            }
-        }
-    }
-]
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+     "verificationCode": "796672"
+ }'
 ```
 
 ### Delete My Phone
@@ -1178,160 +1326,6 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
     }
 }
 ```
-
-### Send Phone Challenge
-
-<ApiOperation method="post" url="/idp/myaccount/phones/{id}/challenge"/>
-
-Sends a phone challenge using one of two methods: `SMS` or `CALL`. This request can also handle a resend challenge (retry).
-
-Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in 5 minutes.
-
-> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/challenge` endpoint more often than once very 30 seconds, or at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
-
-#### Required scope and role
-
-An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
-
-#### Required scope and role
-
-#### Request path parameters
-
-| Parameter  | Type   | Description                                       |
-| ---------- | ------ | ------------------------------------------------- |
-| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
-
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-This request requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
-
-| Property | Type                     | Description                          |
-| -------- | -------------------------|--------------------------------------|
-| `method`  | String | The method with which the challenge should be sent, valid values are `SMS` and `CALL` |
-| `retry`  | Boolean | An optional property that indicates whether this is a normal challenge or retry |
-
-#### Response body
-
-Returns a JSON object containing a link to verify the challenged phone, with an HTTP 200 status code.
-
-| Property | Type                     | Description                          |
-| -------- | -------------------------|--------------------------------------|
-| `_links` | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
-
-#### Error Responses
-
-Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
-
-Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
-
-Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
-
-Call providers failing to send the out of band OTP challenge returns 500 with error code E0000138.
-
-#### Usage example
-
-##### Request
-
-This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
-
-```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
-     "method": "SMS",
-     "retry": false
- }'
-```
-
-##### Response
-
-Returns an HTTP 200 status code response.
-
-```bash
-{
-    "_links": {
-        "verify": {
-            "href": 'http://${yourOktaDomain}/idp/myaccount/phones/smsa7gpDMs5V6C0LT0g4/verify',
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        }
-    }
-}
-```
-### Verify Phone Challenge
-
-<ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
-
-Verify the phone number with the verification code that the user receives via `SMS` or `CALL`. The phone number is active upon a successful verification.
-
-> **Note:** Sending requests to the `/idp/myaccount/phones/{id}/verify` endpoint at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
-
-#### Required scope and role
-
-An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
-
-#### Required scope and role
-
-#### Request path parameters
-
-| Parameter  | Type   | Description                                       |
-| ---------- | ------ | ------------------------------------------------- |
-| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
-
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-This request requires the `verificationCode` property as its request body.
-
-| Property | Type                     | Description                          |
-| -------- | -------------------------|--------------------------------------|
-| `verificationCode`  | String | A 6-digit verification code that the user receives via `SMS` or `CALL` |
-
-#### Response body
-
-Returns an empty response with an HTTP 204 status code.
-
-#### Error Responses
-
-Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
-
-Disabling the `IDP_MY_ACCOUNT_API` feature flag on the org returns a 401 UNAUTHORIZED with error code E0000015.
-
-Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
-
-Passing an invalid `verificationCode` returns a 400 BAD REQUEST with error code E0000001.
-
-Passing a valid `verificationCode` again (verifying a phone number that has been verified) results a no-op.
-
-In an extremely rare case, verifying a phone number when the challenge is about to expire returns a 409 CONFLICT with error code E0000157.
-
-Failing to answer the challenge (possibly due to invalid `verificationCode`) returns a 401 UNAUTHORIZED with error code E0000004.
-
-#### Usage example
-
-##### Request
-
-The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
-
-```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
-     "verificationCode": "796672"
- }'
-```
-
-
 
 ## MyAccount API objects
 
