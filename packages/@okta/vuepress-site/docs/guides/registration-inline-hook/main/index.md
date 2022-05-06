@@ -1,5 +1,5 @@
 ---
-title: Configure a Registration Inline Hook
+title: Registration Inline Hook
 excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 ---
@@ -40,7 +40,7 @@ In these examples, you set up your Registration Inline Hook to handle both SSR a
 The following is a high-level workflow for an SSR Inline Hook:
 
 1. An end user attempts to self-register with your Okta org.
-1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
+1. A Registration Inline Hook triggers during this process and sends a call to the external service with the end user's data.
 1. The external service evaluates the Okta call to ensure that the end user is from domain `example.com`.
 1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
@@ -48,10 +48,8 @@ The following is a high-level workflow for a Progressive Enrollment Inline Hook:
 
 1. An existing registered end user attempts to sign in to their profile.
 1. A Profile Enrollment policy presents a custom form that asks for additional data from the end user.
-1. A Registration Inline Hook fires during this process and sends a call to the external service with the end user's data.
+1. A Registration Inline Hook triggers during this process and sends a call to the external service with the end user's data.
 1. The external service responds to Okta with a command to allow or deny the addition of the new data to the end user's profile.
-
-See [Inline Hooks](/docs/concepts/inline-hooks/) for Okta Inline Hook concepts.
 
 ## SSR request
 
@@ -149,7 +147,9 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Send response
 
-The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta. 
+The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
+
+In our sample Glitch project, you can see this response in the [server.js](https://glitch.com/embed/#!/okta-inlinehook-registrationhook-v2?path=server.js%3A27%3A50) file.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-response-you-send) of a Registration Inline Hook for full details.
 
@@ -242,16 +242,24 @@ app.post('/registrationHook', async (request, response) => {
 
 You must set up, activate, and enable the Registration Inline Hook within your Okta Admin Console.
 
+### Set up your Glitch project
+
+You need to remix your own version of the Okta sample Glitch project and confirm that it is live.
+
+1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook-v2).
+1. Click **Remix your own**.
+1. Click **Share**.
+1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
+1. Update the project with your own code. For example, you can use the [Send response](#send-response) sample in the `server.js` file.
+
 ### Set up and activate the Registration Inline Hook
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
 1. Add a name for the hook (in this example, use "Guide Registration Hook Code").
-1. Add your external service URL, and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHook`):
+1. Add your external service URL (see [Set up your Glitch project](#set-up-your-glitch-project)), and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHook`):
 
    `https://your-glitch-projectname.glitch.me/registrationHook`
-
-   If you use Glitch, your project needs to be live to work. For a live project, edit the sample code and create a Glitch remix. To find the live site link, click **Share**.
 
 1. Include the authentication field and secret. In this example:
 
@@ -259,6 +267,7 @@ You must set up, activate, and enable the Registration Inline Hook within your O
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
 1. Click **Save**.
+1. In your Glitch project, click **Logs**. If your set up is successful, you see a message that says "Your app is listening on port {XXXX}".
 
 The Registration Inline Hook is now set up with an active status.
 
