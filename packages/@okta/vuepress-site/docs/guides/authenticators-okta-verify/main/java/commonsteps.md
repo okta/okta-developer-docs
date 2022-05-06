@@ -23,12 +23,21 @@ After a user initiates the sign-in flow by submitting their username and passwor
 // create an IDX Authentication Wrapper (can be an application scoped singleton)
 IDXAuthenticationWrapper idxAuthenticationWrapper = new IDXAuthenticationWrapper();
 // begin transaction
-// The proceedContext needs to be persisted between interactions (for example, stored in a HttpSession for web apps)
-ProceedContext proceedContext = idxAuthenticationWrapper.begin().getProceedContext();  // TODO this needs request context
+
+// Begin the authentication flow
+AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
+        new RequestContext()
+                .setIpAddress("11.22.333.4") // ip address of request
+                .setUserAgent("Mozilla/5.0 ..."));
+
+// The proceedContext needs to be persisted between interactions (for example,
+// stored in a HttpSession for web apps)
+ProceedContext proceedContext = authenticationResponse.getProceedContext();
+
 // set the user's credentials
 AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
 // start authentication flow
-AuthenticationResponse authenticationResponse =
+authenticationResponse =
     idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
@@ -90,7 +99,7 @@ The `AuthenticationResponse` object contains information on the frequency a clie
 
 ```java
 private AuthenticationResponse poll(AuthenticationResponse authenticationResponse) {
-    sleep(Integer.parseInt(authenticationResponse.getProceedContext().getRefresh())); // TODO this string typing should be fixed in: https://github.com/okta/okta-idx-java/issues/316
+    sleep(Integer.parseInt(authenticationResponse.getProceedContext().getRefresh()));
     return idxAuthenticationWrapper.poll(proceedContext);
 }
 ```

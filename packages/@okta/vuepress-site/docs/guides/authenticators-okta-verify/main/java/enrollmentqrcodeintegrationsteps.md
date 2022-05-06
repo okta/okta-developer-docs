@@ -20,7 +20,7 @@ When the user selects to enroll the Okta Verify `Authenticator` the form posts b
 ```java
 case AWAITING_POLL_ENROLLMENT:
   // show user QR code
-  String imageData = authenticationResponse.getContextualData().getQrcode().getHref(); // TODO this should be fixed in the SDK, this is NOT an hreff
+  String imageData = authenticationResponse.getContextualData().getQrcode().getHref();
 
   // After displaying the QR code, poll while the user opens Okta Verify and scans the QR code
   return poll(authenticationResponse);

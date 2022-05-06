@@ -22,7 +22,7 @@ private AuthenticationResponse selectAuthenticatorToEnroll(AuthenticationRespons
 
     // If a QR Code is avialble, show it to the user
     if (selectAuthenticatorResponse.getContextualData().getQrcode() != null) {
-        String imageData = selectAuthenticatorResponse.getContextualData().getQrcode().getHref(); // TODO this should be fixed in the SDK, this is NOT an href
+        String imageData = selectAuthenticatorResponse.getContextualData().getQrcode().getHref();
         console.writer().println("QR Code image data: " + imageData);
     }
 
