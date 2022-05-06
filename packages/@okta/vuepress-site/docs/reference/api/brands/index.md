@@ -2094,7 +2094,7 @@ HTTP/1.1 200 OK
 
 ### Email Template Settings
 
-This API lets you manage email template settings for each customizable email template.
+This API lets you manage the settings of each customizable email template.
 ### Get Email Template Settings
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
@@ -2163,7 +2163,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
 
-Updates an email customization
+Updates the settings associated with the template
 
 #### Request path parameters
 
@@ -2180,16 +2180,15 @@ The [Email Template Settings Object](#email-template-settings-object) resource t
 
 The [Email Template Settings Object](#email-template-settings-object) resource that was updated.
 
-Returns a `422 Unprocessable Entity` if:
-- the template does not support recipients value.
+Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
 
-> **NOTE**: The templates that do not support all recipient values are the security templates, and the Change Email Confirmation template.
+> **NOTE**: The templates that do not support all recipient values are New Sign-On Notification, Authenticator Enrolled, Authenticator Reset, Password Changed and the Change Email Confirmation templates.
 
-Passing an invalid `brandId`, or `templateName`returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
 #### Use examples
 
-The following example updates a customization for the `UserActivation` email template.
+The following example disables the `UserActivation` email from being sent.
 
 ##### Request
 
