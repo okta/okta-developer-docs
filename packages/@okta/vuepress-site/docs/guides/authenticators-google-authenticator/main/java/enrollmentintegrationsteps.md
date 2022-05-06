@@ -12,10 +12,14 @@ After a user initiates the sign-in flow by entering their username and password 
 // create an IDX Authentication Wrapper (can be an application scoped singleton)
 IDXAuthenticationWrapper idxAuthenticationWrapper = new IDXAuthenticationWrapper();
 
-// begin transaction
+// Begin transaction
+AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
+        new RequestContext()
+                .setIpAddress("11.22.333.4") // ip address of request
+                .setUserAgent("Mozilla/5.0 ..."));
+
 // The proceedContext needs to be persisted between interactions (e.g. stored in a HttpSession for web apps)
-ProceedContext proceedContext = idxAuthenticationWrapper.begin().getProceedContext();
-// TODO: add device context
+ProceedContext proceedContext = authenticationResponse.getProceedContext();
 
 // set the user's credentials
 AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
