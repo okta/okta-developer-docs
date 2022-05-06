@@ -4,8 +4,10 @@ After a user starts the sign-in process by entering the username and password, c
 
 ```java
 // Begin the authentication flow
-AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin();
-// TODO: add device info
+AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
+        new RequestContext()
+                .setIpAddress("11.22.333.4") // ip address of request
+                .setUserAgent("Mozilla/5.0 ..."));
 
 // remember the user's state
 proceedContext = authenticationResponse.getProceedContext();
@@ -87,7 +89,8 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
 
       // poll the server looking for updates, the emails also contain a TOTP code,
       // you could implement both polling and the ability to enter a code.
-      sleep(Integer.parseInt(authenticationResponse.getCurrentAuthenticatorEnrollment().getValue().getPoll().getRefresh())); // TODO this should be fixed in: https://github.com/okta/okta-idx-java/issues/316
+      sleep(Integer.parseInt(authenticationResponse.getCurrentAuthenticatorEnrollment().getValue().getPoll().getRefresh()));
+
       return idxAuthenticationWrapper.poll(proceedContext);
     }
 
