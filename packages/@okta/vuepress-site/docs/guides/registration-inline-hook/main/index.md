@@ -315,7 +315,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Select the Registration Inline Hook name (in this example, select **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
-1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.userProfile` object.
+1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.user.profile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
    The end user's request information in JSON format, that is sent to the external service, appears.
@@ -329,6 +329,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
    "userProfileUpdate": {
       "employeeNumber": "1234"
    ```
+   > **Note:** Make sure that you delete the comma after the value you enter for an employee number. It isn't valid JSON otherwise.
 1. From the **View service's response** block, click **View Response**.
    The response from your external service in JSON format appears, which indicates that the profile update was either allowed or denied.
 
