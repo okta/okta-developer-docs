@@ -154,6 +154,8 @@ In our sample Glitch project, you can see this response in the [server.js](https
 See the [response properties](/docs/reference/registration-hook/#objects-in-response-you-send) of a Registration Inline Hook for full details.
 
 ```javascript
+// Registration Inline Hook code to parse the incoming Okta request 
+
 app.post('/registrationHook', async (request, response) => {
   console.log();
 
@@ -161,7 +163,7 @@ app.post('/registrationHook', async (request, response) => {
 
   if (request.body.requestType === 'progressive.profile') {
     // For example, 'employeeNumber' is an additional attribute collected after end user registration.
-    console.log('Employee number added to profile: ' + request.body.data.userProfileUpdate['employeeNumber']);
+    console.log('Employee number added to profile ' + request.body.data.context.user.profile['login'] + ': ' + request.body.data.userProfileUpdate['employeeNumber']);
     var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
     if (employeeNumber && employeeNumber.length === 4) {
       returnValue = {
@@ -169,7 +171,7 @@ app.post('/registrationHook', async (request, response) => {
           {
             type: 'com.okta.user.progressive.profile.update',
             value: {
-              'employeeNumber': 'E'.concat(employeeNumber),
+              'employeeNumber': employeeNumber,
             }
           }
         ]
@@ -197,7 +199,7 @@ app.post('/registrationHook', async (request, response) => {
       };
     }
   } else {
-    console.log('Email for ' + request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email']);
+    console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
     var emailRegistration = request.body.data.userProfile['email'];
     if (emailRegistration.includes('example.com')) {
       returnValue = {
@@ -211,6 +213,7 @@ app.post('/registrationHook', async (request, response) => {
         ]
       };
     } else {
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " denied registration!");
       returnValue = {
         'commands':[
           {
@@ -324,14 +327,14 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Select the Registration Inline Hook name (in this example, select **Guide Registration Hook Code**).
 1. Click the **Preview** tab.
-1. In the **Configure Inline Hook request** block, under **data.user.profile**, select an end user from your org. That is, select a value from your `data.user.profile` object.
+1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
    The end user's request information in JSON format, that is sent to the external service, appears.
 1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
 1. From the **View service's response** block, click **View Response**.
    The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
-1. To test a profile update, under **data.user.profile** select an end user from your org, and under **requestType** select **Progressive Profile**.
+1. To test a profile update, select an end user from your org in the **data.userProfile** field, and then under **requestType** select **Progressive Profile**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
 1. Click **Edit** to update `userProfileUpdate`:
    ```javascript
