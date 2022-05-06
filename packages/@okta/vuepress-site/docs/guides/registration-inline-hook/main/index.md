@@ -351,7 +351,7 @@ You can also test the code directly with self-registering or profile-updating en
 
 ### Test the SSR Inline Hook
 
-To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
+To run a test of your SSR Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
 
 * If you use an allowable email domain, such as `rosario.jones@example.com`, the end user registration goes through.
@@ -359,11 +359,16 @@ To run a test of your SSR Registration Inline Hook, go to the Okta sign-in page 
 
 ### Test the Progressive Enrollment Inline Hook
 
+To test the Progressive Enrollment Inline Hook, you need to make "Employee number" a required input and manually add a user with password.
+
 1. Sign in to the Okta Admin Console as an admin.
 1. Go to **Security** > **Profile Enrollment**.
 1. Under **Profile enrollment form**, find **Employee number** and then click **Edit**.
 1. Set the **Input requirement** to **Required**.
 1. Click **Save**.
+1. Go to **Directory** > **People**, and then click **Add person**.
+1. Enter the credentials for your test user and select **I will set password**.
+1. Enter a password, and then click **Save**.
 1. Log out from the Admin Console and sign in with your new `@example.com` credentials.
 
 * If you use valid sign-in credentials, the **Employee number** field appears on the next screen.
