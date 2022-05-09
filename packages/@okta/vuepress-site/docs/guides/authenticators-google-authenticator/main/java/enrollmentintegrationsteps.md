@@ -63,8 +63,8 @@ Display a selector with the list of available authenticators:
 ```java
 case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
 
-    // There are multiple potential factors, for this example we are going to
-    // assume Google Authenticator (OTP) is used
+    // There are multiple potential factors, for this it is assumed that
+    // Google Authenticator (OTP) is used
     Authenticator authenticator = authenticationResponse.getAuthenticators().stream()
             .filter(auth -> auth.getType().equals("otp"))
             .findFirst() // find the first "otp" factor or throw an exception
