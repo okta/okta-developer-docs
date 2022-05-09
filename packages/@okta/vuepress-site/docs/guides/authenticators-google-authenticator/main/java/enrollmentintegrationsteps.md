@@ -30,7 +30,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authent
 
 ### 3: Handle the response from the sign-in flow
 
-The `AuthenticationResponse` contains the current state of the authentication process, it could be a `SUCCESS` or may indicate more information is needed to complete the flow, for example, require an additional factor.
+Call `AuthenticationResponse.getAuthenticationStatus()` to find the current state of the authentication process. The value of the returned `AuthenticationStatus `may indicate that authentication is successful with a value of `SUCCESS`, or that more information is required, such as the requirement for another factor.
 
 Query the `authenticationStatus` property of the `AuthenticationResponse` object returned by `authenticate` to discover the current status of the authentication process.
 
