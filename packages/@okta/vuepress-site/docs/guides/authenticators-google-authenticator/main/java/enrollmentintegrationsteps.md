@@ -32,7 +32,6 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authent
 
 Call `AuthenticationResponse.getAuthenticationStatus()` to find the current state of the authentication process. The value of the returned `AuthenticationStatus `may indicate that authentication is successful with a value of `SUCCESS`, or that more information is required, such as the requirement for another factor.
 
-Query the `authenticationStatus` property of the `AuthenticationResponse` object returned by `authenticate` to discover the current status of the authentication process.
 
 ```java
 // Update the context each time a request is made to Okta
