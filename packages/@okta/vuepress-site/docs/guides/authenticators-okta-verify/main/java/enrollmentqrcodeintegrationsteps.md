@@ -1,4 +1,4 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start enrollment, retrieve and display authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-flow-and-return-a-list-of-authenticators) section.
 
