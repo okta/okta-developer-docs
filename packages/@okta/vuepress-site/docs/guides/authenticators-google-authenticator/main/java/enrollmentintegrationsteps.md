@@ -60,7 +60,6 @@ The names of the available authenticators are found in the `authenticators` coll
 
 Display a selector with the list of available authenticators:
 
-> **Note:** The `isChallengeFlow` session variable is set to `false` if the user needs to enroll Google Authenticator first, and `true` if they have already done so.
 
 ```java
 case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
