@@ -51,7 +51,7 @@ switch (authenticationStatus) {
 
 ### 4: Select a possible authenticator factor
 
-If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario in addition to `SUCCESS` and `PASSWORD_EXPIRED`:
+You need to handle two other authenticator status values in addition to `SUCCESS` and `PASSWORD_EXPIRED` for an Okta org that is configured using this guide:
 
 * `AWAITING_PROFILE_ENROLLMENT` that is covered in this section
 * `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` that is covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge).
