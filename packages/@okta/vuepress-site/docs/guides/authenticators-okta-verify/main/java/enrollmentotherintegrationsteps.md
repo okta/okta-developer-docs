@@ -76,7 +76,7 @@ case AWAITING_CHANNEL_DATA_ENROLLMENT:
     return idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyChannelDataOptions);
 ```
 
-After the user submits their email or mobile phone number, Okta sends an activation link to that address.
+After the user submits their email or mobile phone number, Okta sends an activation link to that address or number.
 
 <div class="common-image-format">
 
