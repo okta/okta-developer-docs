@@ -36,7 +36,7 @@ Query the `authenticationStatus` property of the `AuthenticationResponse` object
 
 ```java
 // Update the context each time a request is made to Okta
-// make sure it is persisted for web applications
+// For web applications, ProceedContext must be persistent between requests.
 proceedContext = authenticationResponse.getProceedContext();
 
 // get the authenticationStatus
