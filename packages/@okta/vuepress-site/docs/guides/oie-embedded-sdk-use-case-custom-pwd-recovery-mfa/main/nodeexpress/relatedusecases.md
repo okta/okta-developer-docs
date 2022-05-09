@@ -1,1 +1,1 @@
-* [User Password Recovery ](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/)
+* [User password recovery ](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/)
