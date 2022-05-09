@@ -34,7 +34,7 @@ Call `AuthenticationResponse.getAuthenticationStatus()` to find the current stat
 
 
 ```java
-// Update the context each time a request is made to Okta
+// Update the context each time a request is made to Okta.
 // For web applications, ProceedContext must be persistent between requests.
 proceedContext = authenticationResponse.getProceedContext();
 
