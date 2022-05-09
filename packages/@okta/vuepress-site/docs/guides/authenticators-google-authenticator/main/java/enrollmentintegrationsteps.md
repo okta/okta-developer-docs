@@ -76,7 +76,7 @@ case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
                 return new RuntimeException("OTP factor not found, existing options: " + availableFactors);
             });
 
-    // Tell Okta which factor was selected, and go back into the state machine with the new response
+    // Update the response with the selected authenticator and send the result back to the server.
     authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
