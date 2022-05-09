@@ -17,7 +17,7 @@ case AWAITING_AUTHENTICATOR_SELECTION:
     // get the possible list of factors and have the user select one
     // authenticationResponse.getAuthenticators()
 
-    // continue with the selected factor
+    // Continue with the selected factor.
     authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
