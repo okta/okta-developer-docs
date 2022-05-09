@@ -14,15 +14,15 @@ You can also do this with the [gin-cors](https://github.com/itsjamie/gin-cors) m
 
 2. Add the following to your routing code:
 
-```go
-// Apply the middleware to the router (works with groups too)
-router.Use(cors.Middleware(cors.Config{
-    Origins:         "*",
-    Methods:         "GET, PUT, POST, DELETE",
-    RequestHeaders:  "Origin, Authorization, Content-Type",
-    ExposedHeaders:  "",
-    MaxAge:          50 * time.Second,
-    Credentials:     true,
-    ValidateHeaders: false,
-}))
-```
+   ```go
+   // Apply the middleware to the router (works with groups too)
+   router.Use(cors.Middleware(cors.Config{
+      Origins:         "*",
+      Methods:         "GET, PUT, POST, DELETE",
+      RequestHeaders:  "Origin, Authorization, Content-Type",
+      ExposedHeaders:  "",
+      MaxAge:          50 * time.Second,
+      Credentials:     true,
+      ValidateHeaders: false,
+   }))
+   ```
