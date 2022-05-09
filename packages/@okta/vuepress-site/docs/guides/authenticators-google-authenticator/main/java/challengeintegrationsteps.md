@@ -14,14 +14,14 @@ When the user selects Google Authenticator, update Okta with the chosen factor b
 
 ```java
 case AWAITING_AUTHENTICATOR_SELECTION:
-    // get the possible list of factors and have the user select one
+    // Request the list of authenticators, and then present a selection list to the user.
     // authenticationResponse.getAuthenticators()
 
     // Continue with the selected factor.
     authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-> **NOTE:** If your application's sign-on policy only contains one factor, this state will be skipped.
+> **NOTE:**  This state is skipped if your application's sign-on policy contains only one factor.
 
 ### 6: Get one-time password from Google Authenticator
 
