@@ -49,4 +49,4 @@ The code changes to configure Okta are shown below.
 
 3. Replace the placeholders in the above code with your domain, and with your values from the `.okta.env` file.
 
-> **Note**: If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.
+   > **Note**: If you use `okta start express` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [dotenv](https://github.com/motdotla/dotenv) to load its configuration from this file.

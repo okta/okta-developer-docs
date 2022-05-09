@@ -58,19 +58,19 @@ You can add a Gin middleware to handle this.
    authorized.GET("/another-route", RouteHandler)
    ```
 
-You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data:
+   You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data:
 
-```go
-func IndexHandler(c *gin.Context) {
-  …
+   ```go
+   func IndexHandler(c *gin.Context) {
+     ...
 
-  c.HTML(
-      …
-    gin.H{
-      "Profile":         profile,
-      "IsAuthenticated": isAuthenticated(c.Request),
-      "Error":           errorMsg,
-    },
-  )
-}
-```
+     c.HTML(
+        ...
+       gin.H{
+         "Profile":         profile,
+         "IsAuthenticated": isAuthenticated(c.Request),
+         "Error":           errorMsg,
+       },
+     )
+   }
+   ```
