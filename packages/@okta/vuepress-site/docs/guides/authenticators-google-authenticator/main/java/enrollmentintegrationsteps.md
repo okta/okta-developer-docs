@@ -21,7 +21,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
 // The proceedContext needs to be persisted between interactions (e.g. stored in a HttpSession for web apps)
 ProceedContext proceedContext = authenticationResponse.getProceedContext();
 
-// Set the user's credentials
+// Set the user's credentials.
 AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
 
 // Start the authentication flow.
@@ -30,7 +30,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authent
 
 ### 3: Handle the response from the sign-in flow
 
-Call `AuthenticationResponse.getAuthenticationStatus()` to find the current state of the authentication process. The value of the returned `AuthenticationStatus `may indicate that authentication is successful with a value of `SUCCESS`, or that more information is required, such as the requirement for another factor.
+Find the current state of the authentication process by calling `AuthenticationResponse.getAuthenticationStatus()`. The return value either indicates a successful authentication (`SUCCESS`), or that more information is required, such as an additional authenticator.
 
 
 ```java
@@ -42,9 +42,9 @@ AuthenticationStatus authenticationStatus = authenticationResponse.getAuthentica
 
 switch (authenticationStatus) {
     case SUCCESS:
-        … your code …
+        // Handle a successful sign-in.
     case PASSWORD_EXPIRED:
-        … your code …
+        // Handle an expired password error.
 }
 ```
 
