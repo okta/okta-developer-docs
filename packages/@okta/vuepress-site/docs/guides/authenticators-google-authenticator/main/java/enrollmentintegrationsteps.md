@@ -21,7 +21,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
 // The proceedContext needs to be persisted between interactions (e.g. stored in a HttpSession for web apps)
 ProceedContext proceedContext = authenticationResponse.getProceedContext();
 
-// set the user's credentials
+// Set the user's credentials
 AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
 
 // start authentication flow
