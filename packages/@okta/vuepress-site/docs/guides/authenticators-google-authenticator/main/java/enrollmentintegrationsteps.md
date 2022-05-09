@@ -24,7 +24,7 @@ ProceedContext proceedContext = authenticationResponse.getProceedContext();
 // Set the user's credentials
 AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
 
-// start authentication flow
+// Start the authentication flow.
 AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
