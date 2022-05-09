@@ -5,7 +5,7 @@ category: management
 
 # MyAccount API v1 (Deprecated)
 
-> **Note:** This version of the MyAccount API is deprecated. It uses a namespace (`/api/v1/`) that isn't supported. For the latest version of the MyAccount API, see the [reference documentation](/docs/reference/api/myaccount/).
+> **Note:** This version of the MyAccount API is deprecated. For the latest version of the API, see the [reference documentation](/docs/reference/api/myaccount/).
 
 <ApiLifecycle access="deprecated" />
 
