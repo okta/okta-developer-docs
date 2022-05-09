@@ -6,7 +6,7 @@ Build a sign-in page that capture's the user's name and password, as shown in th
 
 ### 2: Authenticate the user credentials
 
-After a user initiates the sign-in flow by entering their username and password and then clicking **Sign In**, add the following code:
+Add the following code to initiate the sign-in flow using the credentials collected from the user.
 
 ```java
 // create an IDX Authentication Wrapper (can be an application scoped singleton)
