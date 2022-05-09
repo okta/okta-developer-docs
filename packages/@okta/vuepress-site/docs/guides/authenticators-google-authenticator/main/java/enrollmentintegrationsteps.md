@@ -95,7 +95,7 @@ authenticationResponse.getContextualData().getQrcode()
 Prompt the user for a OTP code, and continue the authentication flow:
 
 ```java
-// send the code to Okta, and go back into the state machine with the new response
+// Send the code to Okta and handle the next response.
 authenticationResponse = idxAuthenticationWrapper
     .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
