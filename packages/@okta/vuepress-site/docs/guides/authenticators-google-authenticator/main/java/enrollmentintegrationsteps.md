@@ -39,7 +39,6 @@ Query the `authenticationStatus` property of the `AuthenticationResponse` object
 // For web applications, ProceedContext must be persistent between requests.
 proceedContext = authenticationResponse.getProceedContext();
 
-// get the authenticationStatus
 AuthenticationStatus authenticationStatus = authenticationResponse.getAuthenticationStatus();
 
 switch (authenticationStatus) {
