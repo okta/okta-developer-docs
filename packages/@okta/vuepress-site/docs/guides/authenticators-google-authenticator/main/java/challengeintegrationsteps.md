@@ -11,7 +11,6 @@ The challenge flow follows the same first four steps as the [enrollment flow](#i
 
 When the user selects Google Authenticator, update Okta with the chosen factor by calling the `selectAuthenticator()` method.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 
 ```java
 case AWAITING_AUTHENTICATOR_SELECTION:
