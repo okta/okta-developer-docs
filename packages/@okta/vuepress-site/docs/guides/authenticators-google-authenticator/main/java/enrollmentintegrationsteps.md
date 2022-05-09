@@ -56,7 +56,9 @@ You need to handle two other authenticator status values in addition to `SUCCESS
 * `AWAITING_PROFILE_ENROLLMENT` that is covered in this section
 * `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` that is covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge).
 
-The names of the authenticators available for enrollment or challenge can be found in the `AuthenticationResponse` object's `authenticators` collection. Display a list of authenticators to select the Google Authenticator for enrollment.
+The names of the available authenticators are found in the `authenticators` collection of the `AuthenticationResponse`.
+
+Display a selector with the list of available authenticators:
 
 > **Note:** The `isChallengeFlow` session variable is set to `false` if the user needs to enroll Google Authenticator first, and `true` if they have already done so.
 
