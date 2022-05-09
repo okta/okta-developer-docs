@@ -3,6 +3,19 @@ title: Okta API Products release notes 2022
 ---
 ## May
 
+### Weekly release 2022.05.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+
+| [Bugs fixed in 2022.05.1](#bugs-fixed-in-2022-05-1) | May 7, 2022 |
+
+#### Bugs fixed in 2022.05.1
+
+* When a security question was set using requests to the `/api/v1/users/{userId}` or `/api/v1/users/{userId}/credentials/change_recovery_question` endpoints, the answer could contain part of the question if the security question was disabled in the Default Policy. (OKTA-469369)
+
+* When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
+
 ### Monthly release 2022.05.0
 
 | Change | Expected in Preview Orgs |

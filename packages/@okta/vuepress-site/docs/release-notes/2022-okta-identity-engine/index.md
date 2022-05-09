@@ -6,6 +6,17 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## May
 
+### Weekly release 2022.05.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+
+| [Bug fixed in 2022.05.1](#bug-fixed-in-2022-05-1) | May 7, 2022 |
+
+#### Bug fixed in 2022.05.1
+
+When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
+
 ### Monthly release 2022.05.0
 
 | Change | Expected in Preview Orgs |
