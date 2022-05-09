@@ -115,7 +115,7 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 ### Interaction Code flow
 
-The Interaction Code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow is an extension to the OAuth 2. and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
@@ -267,39 +267,11 @@ OClient -> rs: Makes a resource request with the access token to the resource se
 
 For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).
 
-### Authorization Code flow
-
-The Authorization Code flow is best used by server-side apps where the source code isn't publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which has to be stored in your client. The server-side app requires an end user, however, because it relies on interaction with the end user's web browser, which redirects the user and then receives the authorization code.
-
-![Auth Code flow width:](/img/oauth_auth_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow")
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-@startuml
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Web App" as client
-participant "Authorization Server (Okta) " as okta
-participant "Resource Server (Your App) " as app
-
-client -> okta: Authorization Code Request to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Authorization Code Response
-client -> okta: Send authorization code + client secret to /token
-okta -> client: Access token (and optionally Refresh Token)
-client -> app: Request with access token
-app -> client: Response
-@enduml
-
--->
-
-For information on how to set up your application to use this flow, see [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/).
-
 ### Implicit flow
 
-The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
+ > **Note:** The Implicit flow is a legacy flow used only for SPAs that can’t support PKCE.
+
+ The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
 
 > **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
