@@ -10,10 +10,7 @@
   }
 
   .bordered-image > p > img {
-    border: 1px solid cv('gray', '700');
-    border-radius: 20px;
-    width:auto;
-    max-width:100%;
-    height:auto;
+    border: 1px solid cv('gray', '200');
+    border-radius: 46px;
   }
 }
