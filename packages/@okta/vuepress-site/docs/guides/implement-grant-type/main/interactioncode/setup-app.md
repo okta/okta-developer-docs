@@ -6,9 +6,7 @@
 
 > **Note:**  Remember to add the appropriate path in your app for redirection.
 
-On the **General** tab, the **Client Credentials** section contains the **Client ID** for your app integration. For native and single-page applications, it also shows the **Client authentication** that defaults to **None**. The use of **None** for client authentication requires the use of a Proof Key for Code Exchange (PKCE) for additional verification. PKCE ensures that only the client that requests the access token can redeem it.
-
-Save the generated **Client ID** value to implement your authorization flow. If you have a web application, you also need to save the **Client secret** value.
+From the **General** tab of your app integration, save the generated **Client ID** value to implement your authorization flow. If you have a web application, you also need to save the **Client secret** value.
 
 ### Enable the Interaction Code grant on an application
 
