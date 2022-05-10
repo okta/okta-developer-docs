@@ -60,7 +60,7 @@ The first policy and rule that matches the client request is applied and no furt
 
 Rules define particular token lifetimes for a given combination of grant type, user, and scope. They are evaluated in priority order and once a matching rule is found no other rules are evaluated. If no matching rule is found, then the authorization request fails.
 
-Access policy rules are allow lists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case that you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying that if:
+Access policy rules are allowlists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case that you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying that if:
 
 * A request is made using the `implicit` grant type
 * The user is a member of the `admin` group

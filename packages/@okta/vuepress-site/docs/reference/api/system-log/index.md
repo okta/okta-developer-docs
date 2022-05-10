@@ -519,7 +519,7 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 | Event                    | Description                                                                                   |
 | :-------------------     | :----------------------------------                                                           |
-| security.request.blocked | A request is blocked due to a block list rule (such as an IP network zone or location rule). |
+| security.request.blocked | A request is blocked due to a blocklist rule (such as an IP network zone or location rule). |
 
 ### User events
 

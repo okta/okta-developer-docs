@@ -1,6 +1,6 @@
 {
-  "release" : "2022.04.1",
-  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
+  "release" : "2022.05.1",
+  "build" : "2022.05.1-begin-118-g19837ccce441",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -50,6 +50,9 @@
     "id" : "developer-platform",
     "name" : "Developer Platform"
   }, {
+    "id" : "globalization-core",
+    "name" : "Globalization Core"
+  }, {
     "id" : "okta-personal",
     "name" : "Okta Personal"
   }, {
@@ -76,6 +79,9 @@
   }, {
     "id" : "idx",
     "name" : "Identity Experience"
+  }, {
+    "id" : "id-fabric",
+    "name" : "ID Fabric"
   }, {
     "id" : "honey-badger",
     "name" : "Honey Badger"
@@ -134,14 +140,8 @@
     "id" : "ui-core",
     "name" : "UI Core"
   }, {
-    "id" : "up",
-    "name" : "UP"
-  }, {
     "id" : "wax-insights",
     "name" : "WAX Insights"
-  }, {
-    "id" : "id-fabric",
-    "name" : "ID Fabric"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -579,6 +579,10 @@
     "id" : "attestation",
     "description" : "Identity Attestation.",
     "tags" : [ ]
+  }, {
+    "id" : "oauth2-api-resource",
+    "description" : "OAuth2 API Resource.",
+    "tags" : [ "oauth2" ]
   }, {
     "id" : "app-generic-provision",
     "description" : "",
@@ -1385,6 +1389,57 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "OAuth2ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.api_resource.create",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is created. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting created under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.api_resource.delete",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is deleted. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting deleted under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.api_resource.update",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is updated. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting updated under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
       }
     }, {
       "id" : "app.oauth2.as.authorize",
@@ -9651,7 +9706,7 @@
     }, {
       "id" : "security.threat.detected",
       "category" : "adaptive",
-      "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW' or 'DENY' based on whether Okta Threat Insight is configured in log mode or log and block mode, where 'ALLOW' means the request continued and 'DENY' means the request was blocked.",
+      "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW', 'DENY' or 'RATE_LIMIT' based on whether Okta Threat Insight is configured in log mode or log and enforce mode, where 'ALLOW' means the request continued, 'DENY' means the request was blocked and 'RATE_LIMIT' means we protected your org from exceeding your rate limit by not allowing suspicious activity to count towards your rate limit.",
       "info" : {
         "created" : "2019-02-11",
         "release" : "2019.02.2"
@@ -10869,6 +10924,23 @@
       "mappings" : [ "system.email.challenge_factor_redeemed" ],
       "schema" : {
         "debugData" : "EmailFactorChallengeDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email.delivery",
+      "category" : "core",
+      "description" : "An email's delivery status was updated. Used to notify admins of a bounced or dropped email. See the event debugData for help identifying a remediation, such as updating an incorrect email address.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "EmailDeliveryDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -12777,17 +12849,17 @@
         "targets" : [ "SystemTaskResourceDetails" ]
       }
     }, {
-      "id" : "user.account.access_super_user_app",
+      "id" : "user.account.access_support_user_app",
       "category" : "authn",
-      "description" : "Access super user in Okta.",
+      "description" : "Access support user in Okta.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
-      "beta" : false,
+      "beta" : true,
       "internal" : false,
       "tags" : [ "account", "user" ],
-      "mappings" : [ "core.user_auth.super_user_app_accessed" ],
+      "mappings" : [ "core.user_auth.support_user_app_accessed" ],
       "schema" : {
         "debugData" : "UserAccessDebugData",
         "actor" : null,
@@ -18080,6 +18152,27 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "{Attribute : SaasUser,Expression : 'Y'}", "{Attribute : userName,Expression : active_directory.employeeNumber}", "{Attribute : firstName,Expression : appuser.firstName},{Attribute : lastName,Expression : appuser.lastName},{Attribute : idpGroupArray,Expression : appuser.Groups},{Attribute : SaasUser,Expression : 'Y'},{Attribute : idpUserId,Expression : appuser.PartnerUserId},{Attribute : email,Expression : appuser.email},{Attribute : idpCode,Expression : 'foo.company.com'}", "{Attribute : MDM,Expression : appuser.extensionAttribute1}" ]
+          }
+        }
+      },
+      "EmailDeliveryDebugData" : {
+        "name" : "EmailDeliveryDebugData",
+        "properties" : {
+          "provider_message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "email_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SES", "Sendgrid" ]
           }
         }
       },
@@ -28334,6 +28427,22 @@
       "AuthorizationServerResourceDetails" : {
         "name" : "AuthorizationServerResourceDetails",
         "properties" : {
+          "OAuth2ApiResourceIdentifier" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "api.bookings.com", "https://api.bookings.com", "http://api.bookings.com", "Bookings API", "BookingsAPI" ]
+          },
+          "OAuth2ApiResourceName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Payments API", "BookingsAPI", "Atko API - Bookings" ]
+          },
           "OAuth2ScopeDescription" : {
             "type" : "String",
             "sensitive" : false,
