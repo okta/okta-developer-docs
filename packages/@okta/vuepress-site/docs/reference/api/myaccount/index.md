@@ -8,12 +8,10 @@ category: management
 <ApiLifecycle access="ea" />
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
->
->To use the new endpoint, move the `version` from the path to the `Accept` header. Use a value of `application/json; okta-version=1.0.0`.
 
-The Okta MyAccount API allows end users to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
+The Okta MyAccount API allows end users to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user shouldn't have access to, and it doesn't support lifecycle operations.
 
-All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
+All operations in this API implicitly refer to the user making the API call.  No user ID is needed, or even accepted.
 
 ## Get started
 
@@ -21,6 +19,14 @@ Explore the MyAccount API:
 > **Note:** To run this Postman collection, you need an end-user access token. Use a password grant type or SDK to get the token. See [Embedded Auth with SDKs React](https://github.com/okta/okta-auth-js/tree/master/test/apps/react-oie) for a sample app that provides an access token.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
+
+#### API Versioning
+
+A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+
+```json
+Accept: application/json; okta-version=1.0.0
+```
 
 ## MyAccount Operations
 
@@ -53,13 +59,6 @@ Fetches all of the current user's email information: a collection of links for e
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
-
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 N/A
@@ -157,13 +156,6 @@ Fetches the current user's email information by id, a collection of links descri
 
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
@@ -233,12 +225,6 @@ Add a PRIMARY or SECONDARY email address to the user's account. The new email ad
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 N/A
@@ -319,12 +305,6 @@ In addition, user also receives a - 'Notice of pending email address change' ema
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -406,12 +386,6 @@ Verify the email challenge with the verification code that the user receives fro
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -469,13 +443,6 @@ Fetches the email challenge's status
 
 An Okta scope of `okta.myAccount.email.read` is required to use this endpoint.
 
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
@@ -526,12 +493,6 @@ Delete the current user's email information by id, only UNVERIFIED primary and s
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
-#### API Versioning
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -1034,13 +995,6 @@ Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/r
 
 An Okta scope of `okta.myAccount.profile.read` or `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
 
-#### API Versioning
-A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
 #### Request path parameters
 
 N/A
@@ -1131,13 +1085,6 @@ Fetches the caller's Okta User Profile, excluding any attribute also excluded by
 
 An Okta scope of `okta.myAccount.profile.read` or `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
 
-#### API Versioning
-A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
-
 #### Request query parameters
 
 | Parameter | Type        | Description                                                                                            |
@@ -1203,13 +1150,6 @@ Updates the caller's User Profile.
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.profile.manage` is required to use the new `/idp/myaccount` endpoint.
-
-#### API Versioning
-A valid API version in the `Accept` header is required to access the new `/idp/myaccount` API. Current version V1.0.0
-
-```json
-Accept: application/json; okta-version=1.0.0
-```
 
 #### Request path parameters
 
