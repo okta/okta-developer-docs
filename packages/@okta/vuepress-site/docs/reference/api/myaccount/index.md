@@ -924,7 +924,6 @@ An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
 > **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
 
-#### Required scope and role
 
 #### Request path parameters
 
