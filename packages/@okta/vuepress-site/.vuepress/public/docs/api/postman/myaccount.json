@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "d4a57497-b5ce-4bd2-b4a8-040413e3c2ef",
 		"name": "MyAccount (Okta API)",
-		"description": "The [Okta MyAccount API](https://developer.okta.com/docs/reference/api/myaccount/) provides operations to allow end users (with or without administrator access) in your organization to fetch and update their own Okta user profiles.",
+		"description": "The [Okta MyAccount API](https://developer.okta.com/docs/reference/api/myaccount/) provides operations to allow end users in your organization to fetch and update their own Okta user profiles.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
