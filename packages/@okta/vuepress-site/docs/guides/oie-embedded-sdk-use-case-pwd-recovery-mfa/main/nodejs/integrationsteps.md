@@ -1,10 +1,10 @@
 ### 1. Select the password recovery link
 
-First, the user selects a password reovery link located on the sign-in page. Add a link that points to the passowrd recovery screen. An example link, named **Forgot password?** is shown in the following screenshot.
+First, the user selects a password recovery link located on the sign-in page. Add a link that points to the password recovery page. An example link named **Forgot password?** is shown in the following screenshot.
 
 <div class="common-image-format">
 
-![Page displaying the sign-in page with a 'Forgot password?' link that the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Screenshot showing a page displaying the sign-in page with a 'Forgot password?' link where users can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
@@ -14,13 +14,13 @@ Next, show the password recovery page to the user. Create a page that accepts th
 
 <div class="common-image-format">
 
-![Page displaying the Reset Password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
+![Screenshot showing a page displaying the reset password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
 
 </div>
 
 ### 3. Submit username
 
-On the password recovery page the user enters their username and selects **Next**. At this time call `OktaAuth.idx.recoverPassword()` passing in the username.
+The user enters their username on the password recovery page and selects **Next** to start the recovery process.  At this time, call `OktaAuth.idx.recoverPassword()`, passing in the username.
 
 ```javascript
 try {
@@ -31,7 +31,7 @@ try {
 }
 ```
 
-### 4. Display list of available authenticators
+### 4. Display a list of available authenticators
 
 `OktaAuth.idx.recoverPassword()` returns a response indicating that the next step is to select an authenticator. Specifically, `IdxTransaction` returns a `status` of `PENDING`, `nextStep.name` equal to `select-authenticator-authenticate`, and a `option` item with a `value` of `okta_email` in the `nextstep.inputs[n].options` array.
 
@@ -64,13 +64,13 @@ Using this response, display a list of authenticators to the user. If you've con
 
 <div class="common-image-format">
 
-![Page displaying a list of authenticators including the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
+![Screenshot of a page displaying a list of authenticators including the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
 
 </div>
 
 ### 5. Verify identity with the email authenticator
 
-Next, the user selects and verifies their identity with the email authenticator. The email authenticator supports OTP and magic links and you can integrate both methods into your application. Learn more about integrating the email authenticator by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+Next, the user selects and verifies their identity with the email authenticator challenge. The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
 ### 6. Display password reset page
 
@@ -98,7 +98,7 @@ Using this response, create a password reset page that allows the user to enter 
 
 <div class="common-image-format">
 
-![Page allowing the user to enter their new password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
+![Screenshot of a page allowing the user to enter their new password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
 
 </div>
 
@@ -115,4 +115,4 @@ Next, the user enters and submits their new password. Send the new password to `
 
 >**Note:** Review the complete use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword).
 
-If the call to `OktaAuth.idx.recoverPassword()` is successful, `IdxTransaction` returns a `status` of `SUCCESS` along with Id and access tokens. The password reset is completed and you can redirect the user to the default home page.
+If the call to `OktaAuth.idx.recoverPassword()` is successful, `IdxTransaction` returns a `status` of `SUCCESS` along with Id and access tokens. The password reset is now complete and you can redirect the user to the default home page.
