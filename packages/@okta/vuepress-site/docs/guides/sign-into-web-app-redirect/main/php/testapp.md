@@ -1,8 +1,8 @@
 1. Start your app with the built-in PHP server:
 
-```shell
-php -s 127.0.0.1:8080 -t public
-```
+   ```shell
+   php -s 127.0.0.1:8080 -t public
+   ```
 
 2. Open a browser and navigate to `http://localhost:8080`.
 

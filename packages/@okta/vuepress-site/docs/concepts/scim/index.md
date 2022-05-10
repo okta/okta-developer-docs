@@ -122,8 +122,8 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
-* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
-* [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts)
+* [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
 * IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
 
 For setting up Active Directory or LDAP for profile sourcing:
