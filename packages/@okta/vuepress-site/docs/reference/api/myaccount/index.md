@@ -7,9 +7,9 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-> **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated.
+> **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
 >
->Also, to use the new endpoint, move the `version` from the path to the `Accept` header. Use a value of `application/json; okta-version=1.0.0`.
+>To use the new endpoint, move the `version` from the path to the `Accept` header. Use a value of `application/json; okta-version=1.0.0`.
 
 The Okta MyAccount API allows end users to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
 
