@@ -9,9 +9,11 @@ category: management
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
 
-The Okta MyAccount API allows end users to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user shouldn't have access to, and it doesn't support lifecycle operations.
+The Okta MyAccount API allows end users to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences:
 
-All operations in this API implicitly refer to the user making the API call.  No user ID is needed, or even accepted.
+* The API doesn't expose information an end user shouldn't have access to.
+* The API doesn't support lifecycle operations.
+* All operations in this API implicitly refer to the user making the API call.  No user ID is needed, or even accepted.
 
 ## Get started
 
@@ -61,6 +63,7 @@ Fetches all of the current user's email information: a collection of links for e
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
 #### Request path parameters
+
 N/A
 
 #### Request query parameters
@@ -150,7 +153,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/idp/myaccount/emails/{id}" />
 
-Fetches the current user's email information by id, a collection of links describing the operations can be performed to the email.
+Fetches the current user's email information by id: a collection of links describing the operations that can be performed on the email.
 
 #### Required scope and role
 
@@ -218,13 +221,13 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/idp/myaccount/emails" />
 
-Add a PRIMARY or SECONDARY email address to the user's account. The new email address will be in UNVERIFIED status.
+Add a `PRIMARY` or `SECONDARY` email address to the user's account. The new email address is in UNVERIFIED status.
 
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails` POST endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails` POST endpoint.
 
 #### Request path parameters
 N/A
@@ -234,6 +237,7 @@ N/A
 N/A
 
 #### Request body
+
 This API requires a [My Email Request object](#my-email-request-object) as its request body.
 
 #### Response body
@@ -242,11 +246,11 @@ The requested [My Email object](#my-email-object)
 
 #### Error Responses
 
-If an invalid email is passed to `profile` in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+If an invalid email is passed to `profile` in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
 
-If the email operation is not enabled for the request `role` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+If the email operation isn't enabled for the request `role` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If the email already exists for the current user, the response will return a 409 CONFLICT with error code E0000157.
+If the email already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
 #### Usage example
 
@@ -304,7 +308,7 @@ In addition, user also receives a - 'Notice of pending email address change' ema
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -326,9 +330,9 @@ The requested [My Email Challenge Response object](#my-email-challenge-response-
 
 #### Error Responses
 
-If the email operation is not enabled on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+If the email operation isn't enabled on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If an invalid emailId is requested for challenge, the response will return a 404 NOT FOUND with error code E0000007.
+If an invalid emailId is requested for challenge, the response returns a 404 NOT FOUND with error code E0000007.
 
 #### Usage example
 
@@ -385,7 +389,7 @@ Verify the email challenge with the verification code that the user receives fro
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -411,11 +415,11 @@ N/A
 
 #### Error Responses
 
-If the requested `verificationCode` is invalid, the response will return a 401 UNAUTHORIZED with error code E0000004.
+If the requested `verificationCode` is invalid, the response returns a 401 UNAUTHORIZED with error code E0000004.
 
-If the email operation is not enabled on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+If the email operation isn't enabled on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If an invalid challengeId is requested for verification, the response will return a 404 NOT FOUND with error code E0000007.
+If an invalid challengeId is requested for verification, the response returns a 404 NOT FOUND with error code E0000007.
 
 #### Usage example
 
@@ -492,7 +496,7 @@ Delete the current user's email information by id, only UNVERIFIED primary and s
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
 
 #### Request path parameters
 | Parameter  | Type   | Description                                       |
@@ -509,9 +513,9 @@ N/A
 
 #### Error Responses
 
-If an invalid emailId is requested for deletion, the response will return a 404 NOT FOUND with error code E0000007.
+If an invalid emailId is requested for deletion, the response returns a 404 NOT FOUND with error code E0000007.
 
-If the email for deletion is an already verified email, the response will return a 400 BAD REQUEST with error code E0000001.
+If the email for deletion is an already verified email, the response returns a 400 BAD REQUEST with error code E0000001.
 
 #### Usage example
 
@@ -530,7 +534,7 @@ curl -v -X DELETE \
 Returns an empty HTTP 204 status code response.
 
 #### Error Responses
-If an invalid email id is passed to the request, the response will return a 404 NOT FOUND with error code E0000007.
+If an invalid email id is passed to the request, the response returns a 404 NOT FOUND with error code E0000007.
 
 ### Get My Phones
 
@@ -702,7 +706,7 @@ Create an UNVERIFIED status phone for either `SMS` or `CALL` method to user's My
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones` POST endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones` POST endpoint.
 
 #### Request path parameters
 
@@ -722,17 +726,17 @@ The requested [My Phone object](#my-phone-object)
 
 #### Error Responses
 
-If an invalid phone number is passed to `profile` in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+If an invalid phone number is passed to `profile` in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
 
-If an invalid `method` is passed in the request body, the response will return a 400 BAD REQUEST with error code E0000001.
+If an invalid `method` is passed in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
 
-If the phone authenticator is not enabled for `method` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+If the phone authenticator isn't enabled for `method` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response will return a 500 INTERNAL SERVER ERROR with error code E0000009.
+If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 500 INTERNAL SERVER ERROR with error code E0000009.
 
-If the phone number already exists for the current user, the response will return a 409 CONFLICT with error code E0000157.
+If the phone number already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
-If the call providers fails to send challenge when `sendCode` is true,  the response will return 500 with error code E0000138.
+If the call providers fails to send challenge when `sendCode` is true,  the response returns 500 with error code E0000138.
 
 #### Usage example
 
@@ -801,7 +805,7 @@ Upon a successful challenge, the user receives a verification code by `SMS` or `
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
 
 
 #### Request path parameters
@@ -883,7 +887,7 @@ Verify the phone number with the verification code that the user receives via `S
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
 
 
 #### Request path parameters
@@ -944,8 +948,10 @@ Delete the current user's phone information by id.
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users are not allowed to call the `/idp/myaccount/phones/{id}/` DELETE endpoint.
+> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/` DELETE endpoint.
+
 #### Request path parameters
+
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
@@ -976,9 +982,9 @@ Returns an empty HTTP 204 status code response.
 
 #### Error Responses
 
-If the phone authenticator is not enabled for `method` on the org, the response will return a 403 FORBIDDEN with error code E0000038.
+If the phone authenticator isn't enabled for `method` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If an invalid phone id is passed to the request, the response will return a 404 NOT FOUND with error code E0000008.
+If an invalid phone id is passed to the request, the response returns a 404 NOT FOUND with error code E0000008.
 
 ### Get My User Profile Schema
 
@@ -989,7 +995,7 @@ If an invalid phone id is passed to the request, the response will return a 404 
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
 
-> **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
+> **Note:** If a property's value isn't visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition is also hidden in the output of this API.
 
 #### Required scope and role
 
@@ -1145,7 +1151,7 @@ curl -v -X GET \
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update (PATCH request).  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also doesn't support partial update (PATCH request).  All values returned from fetching User Profile must be passed to this API, or the update doesn't pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Required scope and role
 
@@ -1173,7 +1179,7 @@ Returns the result of applying the update, as if the caller had invoked the GET 
 
 #### Error Responses
 
-If provided profile attributes for update is invalid, the response will return a 400 BAD REQUEST with error code E0000001.
+If provided profile attributes for update is invalid, the response returns a 400 BAD REQUEST with error code E0000001.
 
 #### Usage example
 
@@ -1499,7 +1505,7 @@ The User Profile object has several properties:
 
 | Property   | Type                                                           | Description                                                                                                |
 | ---------- | ---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------- |
-| `_embedded`  | Object                                   | If `expand`=`schema` is included in the request, the [User Profile Schema](#user-profile-schema-object) will be included in the response. |
+| `_embedded`  | Object                                   | If `expand`=`schema` is included in the request, the [User Profile Schema](#user-profile-schema-object) is included in the response. |
 | `_links`     | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the caller's user profile schema                                         |
 | `createdAt`  | String (ISO-8601)                                                        | The timestamp the caller's account was created                                                             |
 | `modifiedAt` | String (ISO-8601)                                                        | The timestamp the caller's account was last updated                                                        |
