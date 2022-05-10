@@ -2149,7 +2149,6 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | TRUE   | TRUE     |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-| format                         | validates the type of the property      | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description details
 
@@ -2157,57 +2156,27 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 
 - `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
- ```json
-{
-  "const": "enumValue",
-  "title": "display name"
-}
- ```
+  ```json
+  {
+    "const": "enumValue",
+    "title": "display name"
+  }
+  ```
 
-In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
+  In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
 
-```json
-{"enum": ["S","M","L","XL"],
-  "oneOf": [
-    {"const": "S", "title": "Small"},
-    {"const": "M", "title": "Medium"},
-    {"const": "L", "title": "Large"},
-    {"const": "XL", "title": "Extra Large"}
-  ]
-}
- ```
+  ```json
+  {"enum": ["S","M","L","XL"],
+    "oneOf": [
+      {"const": "S", "title": "Small"},
+      {"const": "M", "title": "Medium"},
+      {"const": "L", "title": "Large"},
+      {"const": "XL", "title": "Extra Large"}
+    ]
+  }
+  ```
 
-`oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
-
-- `format`: Okta supports the `format` keyword and validates the following formats: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. 
-
-##### Request example using format
-
-```bash
-curl --location --request POST 'https://xxx.okta.com/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: SSWS _SCRUBED_' \
---header 'Cookie: JSESSIONID=xxx' \
---data-raw '{
-    "definitions": {
-        "custom": {
-            "id": "#custom",
-            "type": "object",
-            "properties": {
-                "CustomCountryCode": {
-                    "title": "Custom Country Code",
-                    "description": "Custom Country Code",
-                    "type": "string",
-                    "required": false,
-                    "format": "country-code"
-                }
-            },
-            "required": []
-        }
-    }
-}'
-```
+  `oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
 
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
@@ -2259,7 +2228,6 @@ Specific property types support a subset of [JSON Schema validations](https://to
 | `integer`     | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with 32-bit signed two's complement integer constraint           | `minimum` and `maximum`     |
 | `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
 
-
 #### Schema property permission object
 
 A given Schema property can be assigned a permission for a principal that restricts access to the property.
@@ -2268,7 +2236,6 @@ A given Schema property can be assigned a permission for a principal that restri
 | :----------| :---------------------------------------------------------------- | :------------------------------------------------------------------ |:--------- | :------ | :-------- |
 | principal | security principal                                               | `SELF` (end user)                                                  | FALSE    | TRUE   | FALSE    |
 | action    | determines whether the principal can view or modify the property | `HIDE`, `READ_ONLY`, `READ_WRITE`                                  | FALSE    | FALSE  | FALSE    |
-
 
 ## App User Schema object
 
@@ -2436,34 +2403,62 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
+| format                         | validates the format type of the property      | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description Details
 
-* `enum`: The value of the property is limited to one of the values specified in the `enum` definition.  The list of values for `enum` has to be made up of unique elements.
+- `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for the `enum` must be made up of unique elements.
 
-* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+- `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
- ```json
-{
-  "const": "enumValue",
-  "title": "display name"
-}
- ```
+  ```json
+  {
+    "const": "enumValue",
+    "title": "display name"
+  }
+  ```
 
-In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
+  In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
 
-```json
-{"enum": ["S","M","L","XL"],
-  "oneOf": [
-    {"const": "S", "title": "Small"},
-    {"const": "M", "title": "Medium"},
-    {"const": "L", "title": "Large"},
-    {"const": "XL", "title": "Extra Large"}
-  ]
-}
- ```
+  ```json
+  {"enum": ["S","M","L","XL"],
+    "oneOf": [
+      {"const": "S", "title": "Small"},
+      {"const": "M", "title": "Medium"},
+      {"const": "L", "title": "Large"},
+      {"const": "XL", "title": "Extra Large"}
+    ]
+  }
+  ```
 
-`oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
+  `oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
+
+- `format`: Okta supports the `format` keyword and validates the following format attributes: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
+
+  ```bash
+  curl --location --request POST 'https://{$yourOktaDomain}/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: SSWS ${api_token}' \
+  --data-raw '{
+      "definitions": {
+          "custom": {
+              "id": "#custom",
+              "type": "object",
+              "properties": {
+                  "CustomCountryCode": {
+                      "title": "Custom Country Code",
+                      "description": "Custom Country Code",
+                      "type": "string",
+                      "required": false,
+                      "format": "country-code"
+                  }
+              },
+              "required": []
+          }
+      }
+  }'
+  ```
 
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
