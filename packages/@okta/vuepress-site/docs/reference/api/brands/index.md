@@ -2091,11 +2091,15 @@ HTTP/1.1 200 OK
 }
 ```
 
+<ApiLifecycle access="ea" />
 
 ### Email Template Settings
 
 This API lets you manage the settings of each customizable email template.
 ### Get Email Template Settings
+
+> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
+
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
 
@@ -2552,6 +2556,10 @@ The Email Customization resource defines the following properties:
 | `body`         | String                  | The body of the customization               |
 | `_links`       | [Links](#links-object)  | Link relations for this object              |
 
+<ApiLifecycle access="ea" />
+
+> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
+
 ### Email Template Settings Object
 
 The Email Template Settings Object resource defines the following properties:
@@ -2568,6 +2576,10 @@ The Email Template Settings Object resource defines the following properties:
 | `ALL_USERS`                     | Send emails to all users (default)              |
 | `ADMINS_ONLY`                   | Send emails to administrators only              |
 | `NO_USERS`                      | Do not send emails to any user                  |
+
+
+> **Note:** The following email templates only allow the following Enum values: NO_USERS, ALL_USERS - `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, `AuthenticatorReset`
+The `ChangeEmailConfirmation` only allows following enum values: ALL_USERS, ADMIN ONLY
 
 ## Links object
 
