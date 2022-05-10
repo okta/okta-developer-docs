@@ -2139,7 +2139,7 @@ HTTP/1.1 200 OK
     "recipients": "ALL_USERS",
     "_links": {
       "template": {
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brand}/templates/email/UserActivation",
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
             "hints": {
                 "allow": [
                     "GET"
@@ -2147,7 +2147,7 @@ HTTP/1.1 200 OK
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brand}/templates/email/UserActivation/settings",
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
             "hints": {
                 "allow": [
                     "GET",
@@ -2214,7 +2214,7 @@ HTTP/1.1 200 OK
     "recipients": "NO_USERS",
     "_links": {
         "template": {
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brand}/templates/email/UserActivation",
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
             "hints": {
                 "allow": [
                     "GET"
@@ -2222,7 +2222,7 @@ HTTP/1.1 200 OK
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brand}/templates/email/UserActivation/settings",
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
             "hints": {
                 "allow": [
                     "GET",
