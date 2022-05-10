@@ -70,7 +70,7 @@ This ViewModel is then consumed in a Razor page.
 
 The available channels are listed, as shown in the following screenshot.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A list showing Okta Verify enrollment channels available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-other-enrollment-options.png "A list of the available Okta Verify enrollment channels")
 
@@ -140,7 +140,7 @@ Build a page that displays a prompt for the user's email address. For example, i
 
 This prompt is rendered as shown in the following screenshot:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A prompt for a user to enter and submit their email address to Okta Verify](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-for-address.png "A prompt for an email address")
 
@@ -175,7 +175,7 @@ public async Task<ActionResult> EnrollWithEmail(OktaVerifyEnrollWithEmailModel e
 
 After the user submits their email, Okta sends an activation link to that address.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![An email that contains the Okta Verify Push activation link](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-text.png "An email containing the activation link")
 
@@ -224,7 +224,7 @@ The polling logic and code is common across all the flows that use it and is cov
 
 The user opens the email on their mobile device and taps **Activate Okta Verify Push** that sends them to Okta Verify to complete the account setup.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A prompt for a user to install Okta Verify and activate it](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-email-prompt-user-to-check-email.png "An activation prompt for Okta Verify")
 

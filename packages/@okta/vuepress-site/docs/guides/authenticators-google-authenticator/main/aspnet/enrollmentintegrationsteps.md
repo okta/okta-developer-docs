@@ -2,7 +2,11 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
+<div class="common-image-format bordered-image">
+
 ![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
+
+</div>
 
 ### 2: Authenticate the user credentials
 
@@ -139,7 +143,11 @@ The `viewModel` parameter is then consumed in a Razor page.
 
 In this use case, only Google Authenticator appears, as shown in the following screenshot.
 
+<div class="common-image-format bordered-image">
+
 ![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-authenticators-google-authenticatorlist.png)
+
+</div>
 
 ### 5: Retrieve shared secret and QR Code
 
@@ -239,13 +247,21 @@ This ViewModel is then consumed in a Razor page
 
 The user sees the following
 
+<div class="common-image-format bordered-image">
+
 ![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enrollpage.png)
+
+</div>
 
 ### 7: Copy shared secret to Google Authenticator
 
 After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time password (TOTP) for the newly added account.
 
+<div class="common-image-format">
+
 ![A time-based one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
+
+</div>
 
 ### 8: Display challenge page
 
@@ -282,7 +298,11 @@ Build a form that allows the user to enter the TOTP they have received from thei
 
 The user sees the following:
 
+<div class="common-image-format bordered-image">
+
 ![A form for the user to enter their one-time password](/img/authenticators/dotnet-authenticators-google-challengeflowpage.png)
+
+</div>
 
 ### 9: Process the one-time password
 

@@ -88,7 +88,7 @@ After set up, render the client site page and pass the configurations to the wid
 
 After the widget is loaded, the following reset page is appears:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 

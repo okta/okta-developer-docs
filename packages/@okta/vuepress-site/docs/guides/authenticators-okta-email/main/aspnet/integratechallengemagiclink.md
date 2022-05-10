@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A simple sign-in form with username and password fields](/img/authenticators/dotnet-authenticators-signinform.png)
 
@@ -135,7 +135,7 @@ This viewModel is then consumed in a Razor page.
 
 For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they see the following:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A list of enrolled authenticators for the user to choose from](/img/authenticators/dotnet-authenticators-email-challenge-auth-list.png)
 
@@ -227,7 +227,7 @@ This viewmodel is then consumed in a Razor page.
 
 Typically, the email authenticator only uses the proof by email challenge method.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A list of authentication methods for the user to choose from](/img/authenticators/dotnet-authenticators-email-challenge-auth-method-list.png)
 
