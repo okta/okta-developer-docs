@@ -160,6 +160,7 @@ Fetches the current user's email information by id: a collection of links descri
 An Okta scope of `okta.myAccount.email.read` or `okta.myAccount.email.manage` is required to use this endpoint.
 
 #### Request path parameters
+
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
@@ -230,6 +231,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails` POST endpoint.
 
 #### Request path parameters
+
 N/A
 
 #### Request query parameters
@@ -311,6 +313,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
 
 #### Request path parameters
+
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
@@ -320,6 +323,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 N/A
 
 #### Request body
+
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
 | `state` | String | (Optional) The state parameter, the state of the client |
@@ -392,6 +396,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
 
 #### Request path parameters
+
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
@@ -499,6 +504,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
 
 #### Request path parameters
+
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
@@ -534,6 +540,7 @@ curl -v -X DELETE \
 Returns an empty HTTP 204 status code response.
 
 #### Error Responses
+
 If an invalid email id is passed to the request, the response returns a 404 NOT FOUND with error code E0000007.
 
 ### Get My Phones
@@ -807,7 +814,6 @@ An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
 
-
 #### Request path parameters
 
 | Parameter  | Type   | Description                                       |
@@ -888,7 +894,6 @@ Verify the phone number with the verification code that the user receives via `S
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
 > **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
-
 
 #### Request path parameters
 
@@ -1140,7 +1145,6 @@ curl -v -X GET \
     }
 }
 ```
-
 
 ### Update My User Profile
 
@@ -1422,6 +1426,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 |
 
 #### My Phone Request example
+
 ```json
 {
   "profile": {
@@ -1510,7 +1515,6 @@ The User Profile object has several properties:
 | `createdAt`  | String (ISO-8601)                                                        | The timestamp the caller's account was created                                                             |
 | `modifiedAt` | String (ISO-8601)                                                        | The timestamp the caller's account was last updated                                                        |
 | `profile`    | Object                                       | The properties defined in the [User Profile Schema](#user-profile-schema-object)                                                                       |
-
 
 #### User Profile example
 
