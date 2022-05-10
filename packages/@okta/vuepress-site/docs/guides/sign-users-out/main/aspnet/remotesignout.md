@@ -24,4 +24,4 @@ using Microsoft.Owin.Security.Cookies;
 using Okta.AspNet;
 ```
 
-After users sign out of Okta, they are redirected to the location defined in [Define the signout callback](#define-the-sign-out-callback) section.
+After users sign out of Okta, they are redirected to the location defined in [Define the sign-out callback](#define-the-sign-out-callback) section.

@@ -2497,7 +2497,7 @@ curl -v -X PUT \
 
 Removes an IdP from your organization
 
-* All existing IdP users are unlinked with the highest order profile master taking precedence for each IdP user.
+* All existing IdP users are unlinked with the highest order profile source taking precedence for each IdP user.
 * Unlinked users keep their existing authentication provider such as `FEDERATION` or `SOCIAL`.
 
 ##### Request parameters
@@ -5604,7 +5604,7 @@ Specifies the User provisioning action during authentication when an IdP User is
 | ------------------  | ---------------------------------------------------                                                         | ------------------------------------                              | -------- | -------- | --------- | --------- |
 | action              | Provisioning action for the IdP User's Group memberships                                                        | [Group Provisioning Action Type](#group-provisioning-action-type) | FALSE    | FALSE    |           |           |
 | assignments         | List of `OKTA_GROUP` Group identifiers to add an IdP User as a member with the `ASSIGN` action              | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
-| filter              | Whitelist of `OKTA_GROUP` Group identifiers that are allowed for the `APPEND` or `SYNC` provisioning action | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
+| filter              | Allowlist of `OKTA_GROUP` Group identifiers for the `APPEND` or `SYNC` provisioning action | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
 | sourceAttributeName | IdP User profile attribute name (case-insensitive) for an array value that contains Group memberships       | String                                                            | TRUE     | FALSE    | 0         | 1024      |
 
 ```json
@@ -5640,9 +5640,9 @@ The Group provisioning action for an IdP User:
 | `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
-| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
+| `SYNC`      | Group memberships are sourced by the IdP as a value of the `sourceAttributeName` array that matches the name of the Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
 
-> **Note:** Group provisioning action is processed independently from profile mastering. You can sync Group memberships through SAML with profile mastering disabled.
+> **Note:** Group provisioning action is processed independently from profile sourcing. You can sync Group memberships through SAML with profile sourcing disabled.
 
 ###### Group provisioning action examples
 
@@ -5755,7 +5755,7 @@ Specifies the behavior for linking an IdP User to an existing Okta User.
 | --------                                     | ----------------------------------------------------- | --------------------------------------------------------- | -------- | -------- |
 | action                                       | Specifies the account linking action for an IdP User  | [Account Link Action Type](#account-link-action-type)     | FALSE    | FALSE    |
 | callout <ApiLifecycle access="deprecated" /> | Webhook settings for the `CALLOUT` action             | [Callout object](#callout-object)                         | TRUE     | FALSE    |
-| filter                                       | Whitelist for link candidates                         | [Account Link Filter object](#account-link-filter-object) | TRUE     | FALSE    |
+| filter                                       | Allowlist for link candidates                         | [Account Link Filter object](#account-link-filter-object) | TRUE     | FALSE    |
 
 ```json
 {

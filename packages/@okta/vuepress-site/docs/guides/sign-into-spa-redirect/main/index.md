@@ -35,19 +35,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+   ```
+   Your Okta Domain: https://dev-xxxxxxx.okta.com
+   To set your password open this link:
+   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+   ```
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/):
 
-```
-okta login
-```
+   ```
+   okta login
+   ```
 
 ## Create an Okta integration for your app
 
@@ -57,9 +57,9 @@ To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-```
-okta apps create spa
-```
+   ```
+   okta apps create spa
+   ```
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
@@ -74,7 +74,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
-    > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
@@ -82,7 +82,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
 1. Verify that **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, [refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is automatically set as the default refresh token behavior.
-    > **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
+   > **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period. However, a grace period of 0 doesn't necessarily mean that the previous refresh token is immediately invalidated. That token is invalidated after the new one is generated and returned in the response.
 1. In the **Login** section, specify an **Initiate login URI** to have Okta initiate the sign-in flow. When Okta redirects to this URI (for example, `https://example.com:xxxx/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 1. Click **Save**.
 
@@ -195,9 +195,9 @@ Alternatively, you can renew tokens by hitting the `/authorize` endpoint. See [G
 
 Learn more about session management, securing your APIs, and ways that you can integrate with Okta.
 
-*  To protect the API that your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
+*  To protect the API that your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/)
 * To customize your Okta org domain name, see [Customize the Okta URL and email notification domains](https://developer.okta.com/docs/guides/custom-url-domain/main/)
-* To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+* To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
 * For resources to create a fully customized sign-in experience, see [Languages & SDKs Overview](https://developer.okta.com/code/)
 * To secure your mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
 * To support multi-tenancy, see [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/)

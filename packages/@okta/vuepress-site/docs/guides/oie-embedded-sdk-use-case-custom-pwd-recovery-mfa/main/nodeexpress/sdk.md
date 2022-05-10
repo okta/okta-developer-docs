@@ -75,7 +75,7 @@ If the `otp` and `state` are valid, `OktaAuth.idx.handleEmailVerifyCallback()` r
 
 ### 6: Display password reset page and continue the password recovery flow
 
-Based on the `IdxTransaction` response, display the password reset page and continue the password recovery flow described in the [User password recovery guide](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+Based on the `IdxTransaction` response, display the password reset page and continue the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
 <div class="common-image-format">
 

@@ -76,9 +76,9 @@ You can perform a search or filter your table list by making an entry in the Sea
 
 #### Client-based rate limiting
 
-You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to Okta's `/login/login.htm` and OAuth 2.0 `/authorize` APIs. For each of these APIs, select from these options:
+You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to Okta's authentication and access APIs. See [Client-based rate limits](/docs/reference/rl-clientbased/). For these APIs, select from the following options:
 
-* **Enforce and log per client (recommended)** &mdash; Enables client-based rate limiting for all clients
+* **Enforce and log per client (recommended)** &mdash; Enables client-based rate limiting for all clients (default setting)
 * **Log per client** &mdash; Enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
 * **Do nothing (not recommended)** &mdash; Disables client-based rate limiting
 

@@ -91,6 +91,8 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 }
 ```
 
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
+
 See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime

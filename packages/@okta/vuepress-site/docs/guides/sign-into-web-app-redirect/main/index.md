@@ -31,19 +31,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+   ```
+   Your Okta Domain: https://dev-xxxxxxx.okta.com
+   To set your password open this link:
+   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+   ```
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
 
-```
-okta login
-```
+   ```
+   okta login
+   ```
 
 ## Create an Okta integration for your app
 
@@ -53,9 +53,9 @@ To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-```
-okta apps create web
-```
+   ```
+   okta apps create web
+   ```
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required Redirect URI values:
@@ -70,7 +70,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**, then click **Next**.
 1. Select an **Application type** of **Web Application**, then click **Next**.
-    > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
 1. Enter the **Sign-in redirect URIs** for local development, such as `http://localhost:xxxx/authorization-code/callback`.
 1. Enter the **Sign-out redirect URIs** for both local development, such as `http://localhost:xxxx/signout/callback`. For more information on callback URIs, see [Define  callback route](#define-a-callback-route).
@@ -105,7 +105,7 @@ If you don't have your configuration values handy, you can find them in the Admi
 * **Client Secret**: Found on the **General** tab in the **Client Credentials** section.
 * **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
 
-> **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
+  > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
 
 ### Redirect to the sign-in page
 
