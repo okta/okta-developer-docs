@@ -315,6 +315,65 @@ export const guides = [
             ]
           },
           {
+            title: "Okta Identity Engine upgrade",
+            subLinks: [
+              {
+                title: "Okta Identity Engine Upgrade Overview",
+                guideName: "oie-upgrade-overview"
+              },
+              {
+                title: "Planning embedded auth app upgrades",
+                guideName: "oie-upgrade-planning-embedded-upgrades"
+              },
+              {
+                title: "Sign-In Widget upgrade",
+                subLinks: [
+                  {
+                    title: "Upgrade your Okta Sign-In Widget",
+                    guideName: "oie-upgrade-sign-in-widget"
+                  },
+                  {
+                    title: "Deprecated JavaScript methods in the Sign-In Widget",
+                    guideName: "oie-upgrade-sign-in-widget-deprecated-methods"
+                  },
+                  {
+                    title: "Updates to the Sign-In Widget styling",
+                    guideName: "oie-upgrade-sign-in-widget-styling"
+                  },
+                  {
+                    title: "Updates to the Sign-In Widget i18n properties",
+                    guideName: "oie-upgrade-sign-in-widget-i18n"
+                  }
+                ]
+              },
+              {
+                title: "Identity Engine SDK upgrade",
+                subLinks: [
+                  {
+                    title: "Add the Identity Engine SDK to your app",
+                    guideName: "oie-upgrade-add-sdk-to-your-app"
+                  },
+                  {
+                    title: "Upgrade your application to the Okta Identity Engine SDK",
+                    guideName: "oie-upgrade-api-sdk-to-oie-sdk"
+                  },
+                  {
+                    title: "Understand how sessions work after the upgrade to Okta Identity Engine",
+                    guideName: "oie-upgrade-sessions-api"
+                  }
+                ]
+              },
+              {
+                title: "Understand MFA enrollment policy API changes after the upgrade to Okta Identity Engine",
+                guideName: "oie-upgrade-mfa-enroll-policy"
+              },
+              {
+                title: "Okta Identity Engine Limitations",
+                guideName: "ie-limitations"
+              }
+            ]
+          },
+          {
             title: "Configure an access policy",
             guideName: "configure-access-policy"
           },

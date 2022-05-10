@@ -100,12 +100,17 @@ guides:
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
+ - oie-upgrade-overview
+ - oie-upgrade-planning-embedded-upgrades
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
+ - oie-upgrade-sessions-api
  - oie-upgrade-sign-in-widget-deprecated-methods
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - oie-upgrade-mfa-enroll-policy
+ - ie-limitations
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
