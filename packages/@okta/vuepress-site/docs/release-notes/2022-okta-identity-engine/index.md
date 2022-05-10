@@ -21,7 +21,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 #### Progressive Enrollment is EA in Preview
 
-Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users]() and [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
+Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 #### The API for suppressing email notifications is EA in Preview
 
