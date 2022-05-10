@@ -1019,56 +1019,6 @@ If the phone authenticator is not enabled for `method` on the org, the response 
 
 If an invalid phone id is passed to the request, the response will return a 404 NOT FOUND with error code E0000008.
 
-### Get Me
-
-<ApiOperation method="get" url="/api/v1/myaccount" />
-<ApiLifecycle access="deprecated" />
-
-Fetches the current user's Me object, a collection of links to information describing the user.
-
-#### Request path parameters
-
-N/A
-
-#### Request query parameters
-
-N/A
-
-#### Response body
-
-The requested [Me object](#me-object)
-
-#### Usage example
-
-Any user with a valid bearer token can issue this request to get basic information about their account.
-
-##### Request
-
-```bash
-curl -v -X GET \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/myaccount"
-```
-
-##### Response
-
-```json
-{
-    "_links": {
-        "directoryProfile": {
-            "href": "https://{yourOktaDomain}/api/v1/myaccount/directoryProfile"
-        },
-        "self": {
-            "href": "https://{yourOktaDomain}/api/v1/myaccount"
-        }
-    },
-    "createdAt": "2020-01-14T20:05:32.000Z",
-    "id": "00u21l3rOYRXX1tnI0g4",
-    "modifiedAt": "2020-10-13T03:17:09.000Z"
-}
-```
-
-
 ### Get My User Profile Schema
 
 | Endpoint | Lifecycle Status |
@@ -1536,39 +1486,6 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 }
 ```
 
-### Me object
-<ApiLifecycle access="deprecated" />
-
-#### Me properties
-
-The Me object has several properties:
-
-| Property           | Type                                                            | Description                                                                                                       |
-| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's account |
-| `createdAt`          | String (ISO-8601)                                                         | The timestamp the caller's account was created         |
-| `id`                 | String                                                            | The caller's user ID                                   |
-| `modifiedAt`         | String (ISO-8601)                                                         | The timestamp the caller's account was last updated    |
-
-
-#### Me example
-
-```json
-{
-    "_links": {
-        "directoryProfile": {
-            "href": "https://{yourOktaDomain}/api/v1/myaccount/directoryProfile"
-        },
-        "self": {
-            "href": "https://{yourOktaDomain}/api/v1/myaccount"
-        }
-    },
-    "createdAt": "2020-01-14T20:05:32.000Z",
-    "id": "00u21l3rOYRXX1tnI0g4",
-    "modifiedAt": "2020-10-13T03:17:09.000Z"
-}
-```
-
 ### User Profile Schema object
 
 #### User Profile Schema properties
@@ -1633,8 +1550,6 @@ The User Profile Schema object has several properties:
     }
 }
 ```
-
-
 
 ### User Profile object
 
