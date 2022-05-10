@@ -18,9 +18,12 @@ The email's **Reset Password** link includes the `otp` and `request.relayState` 
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler that takes the `otp` and `state` parameters from the query string,  attempts to retrieve the current `IDXClientContext` object from the browser session, and then passes them all as session parameters to a page that contains the Sign-In Widget for processing.
+Create a mapping that maps a request for the magic link URL to a method that takes the `otp` and `state` parameters from the query string, and makes the following checks:
 
-If either the browser context object is `null` (because the user clicked the magic link from a different browser) or `state` is `null`, redirect to an error page instead.
+1. That the current session `IdxClientContext` is not `null` (because the user clicked the magic link from a different browser).
+2. That `state` is not `null`.
+
+If either check returns false, redirect to an error page. If both checks return true, pass `IdxClientContext`, `otp`, and `state` as session parameters to a page that contains the Sign-In Widget for processing.
 
 ```java
 @GetMapping("/magic-link/callback")

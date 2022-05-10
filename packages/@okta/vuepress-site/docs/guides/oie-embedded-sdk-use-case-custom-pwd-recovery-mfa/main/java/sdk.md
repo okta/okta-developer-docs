@@ -18,10 +18,10 @@ The email's **Reset Password** link includes the `otp` and `request.relayState` 
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler that takes the `otp` and `state` parameters from the query string, and makes the following checks their values are valid:
+Create a mapping that maps a request for the magic link URL to a method that takes the `otp` and `state` parameters from the query string, and makes the following checks:
 
-1. Check `otp` and `state` are not `null`.
-2. Check `state` matches the state stored in the current `ProceedContext` session variable.
+1. That `otp` and `state` are not `null`.
+2. That `state` matches the state stored in the current `ProceedContext` session variable.
 
 If either check returns false, throw an error.
 

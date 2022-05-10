@@ -106,7 +106,7 @@ When users initiate a password recovery, they are sent an email based on the **F
       | otp            | *${oneTimePassword}*    |
       | state          | *${request.relayState}* |
 
-      The URL should have the following format: `http://${yourAppDomain}?otp=${oneTimePassword}&state=${request.relayState}`.
+      After your changes, the URL takes the form `http://${yourAppDomain}?otp=${oneTimePassword}&state=${request.relayState}` where `${yourAppDomain}` is the domain of your application.
 
       <StackSnippet snippet="emailtemplate" />
 
