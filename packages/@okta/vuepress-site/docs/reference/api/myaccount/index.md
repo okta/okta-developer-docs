@@ -1040,7 +1040,7 @@ The requested [Me object](#me-object)
 
 #### Usage example
 
-Any user with a valid session can issue this request to get basic information about their account.
+Any user with a valid bearer token can issue this request to get basic information about their account.
 
 ##### Request
 
@@ -1105,7 +1105,7 @@ The [User Profile Schema](#user-profile-schema-object) for the caller.
 
 #### Usage example
 
-Any user with a valid session can issue this request to get the Schema for their User Profile.
+Any user with a valid bearer token can issue this request to get the Schema for their User Profile.
 
 ##### Request
 
@@ -1201,7 +1201,7 @@ Returns a [User Profile](#user-profile-object).
 
 #### Usage example
 
-Any user with a valid session can issue this request to get their User Profile.
+Any user with a valid bearer token can issue this request to get their User Profile.
 
 ##### Request
 
