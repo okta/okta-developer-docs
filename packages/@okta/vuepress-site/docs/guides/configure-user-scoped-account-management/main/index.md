@@ -255,4 +255,4 @@ Returns an HTTP 201 status code response, with a location URL referring to the n
 
 ## See also
 
-* MyAccount API reference documentation
+* [MyAccount API](/docs/reference/api/myaccount/) reference documentation
