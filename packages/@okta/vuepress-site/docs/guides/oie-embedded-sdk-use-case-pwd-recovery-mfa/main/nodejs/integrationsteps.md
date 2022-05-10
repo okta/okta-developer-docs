@@ -2,7 +2,7 @@
 
 First, the user selects a password recovery link located on the sign-in page. Add a link that points to the password recovery page. An example link named **Forgot password?** is shown in the following screenshot.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot showing a page displaying the sign-in page with a 'Forgot password?' link where users can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
@@ -12,7 +12,7 @@ First, the user selects a password recovery link located on the sign-in page. Ad
 
 Next, show the password recovery page to the user. Create a page that accepts the account's username and includes a **Next** button that starts the recovery flow.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot showing a page displaying the reset password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
 
@@ -62,7 +62,7 @@ try {
 
 Using this response, display a list of authenticators to the user. If you've configured your org as described in [Configuration updates](#configuration-updates), email is included in the list of available authenticators.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of a page displaying a list of authenticators including the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
 
@@ -96,7 +96,7 @@ After the user verifies their email, `OktaAuth.idx.proceed()` returns a response
 
 Using this response, create a password reset page that allows the user to enter their new password.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of a page allowing the user to enter their new password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
 
