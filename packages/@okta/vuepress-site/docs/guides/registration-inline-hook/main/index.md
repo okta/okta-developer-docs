@@ -151,7 +151,7 @@ The external service responds to Okta indicating whether to accept the end user'
 
 In our sample Glitch project, you can see this response in the [server.js](https://glitch.com/embed/#!/okta-inlinehook-registrationhook-v2?path=server.js%3A27%3A50) file.
 
-See the [response properties](/docs/reference/registration-hook/#objects-in-response-you-send) of a Registration Inline Hook for full details.
+See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a Registration Inline Hook for full details.
 
 ```javascript
 // Registration Inline Hook code to parse the incoming Okta request 
