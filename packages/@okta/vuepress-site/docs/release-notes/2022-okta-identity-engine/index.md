@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [User-scoped MyAccount API is EA in Preview](#user-scoped-myaccount-api-is-ea-in-preview) | May 7, 2022 |
 | [Progressive Enrollment is EA in Preview](#progressive-enrollment-is-ea-in-preview) | May 7, 2022 |
-| The API for suppressing email notifications is EA in Preview | May 7, 2022 |
+| [The API for suppressing email notifications is EA in Preview](#the-api-for-suppressing-email-notifications-is-ea-in-preview) | May 7, 2022 |
 | [Bug fixed in 2022.05.1](#bug-fixed-in-2022-05-1) | May 7, 2022 |
 
 #### User-scoped MyAccount API is EA in Preview
@@ -26,6 +26,10 @@ Typically, collecting end-user data during the initial sign-up process creates f
 #### The API for suppressing email notifications is EA in Preview
 
 This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios which warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).
+
+#### Bug fixed in 2022.05.1
+
+When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
 
 ### Monthly release 2022.05.0
 
