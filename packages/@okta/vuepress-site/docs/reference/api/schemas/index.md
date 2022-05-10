@@ -13,7 +13,6 @@ Okta adopts a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-
 For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
 
-
 > **Note:** Okta implements only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html). This document describes which parts apply to Okta, and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 
 ## Getting started
@@ -30,23 +29,19 @@ The request examples below all use the `default` form, as all orgs include a def
 
 ### Get User Schema
 
-
 <ApiOperation method="get" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Fetches the schema for a User Type
 
 ##### Request parameters
 
-
 N/A
 
 ##### Response parameters
 
-
 [User Schema](#user-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -2149,18 +2144,18 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-| title                          | User-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
+| title                          | user-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
 | description                    | description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | TRUE   | TRUE     |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-
+| format                         | validates the type of the property      | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description details
 
-* `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for the `enum` must be made up of unique elements.
+- `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for the `enum` must be made up of unique elements.
 
-* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+- `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json
 {
@@ -2184,12 +2179,42 @@ In case `enum` is used in conjunction with `oneOf`, the set of enumerated values
 
 `oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
 
+- `format`: Okta supports the `format` keyword and validates the following formats: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. 
+
+##### Request example using format
+
+```bash
+curl --location --request POST 'https://xxx.okta.com/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS _SCRUBED_' \
+--header 'Cookie: JSESSIONID=xxx' \
+--data-raw '{
+    "definitions": {
+        "custom": {
+            "id": "#custom",
+            "type": "object",
+            "properties": {
+                "CustomCountryCode": {
+                    "title": "Custom Country Code",
+                    "description": "Custom Country Code",
+                    "type": "string",
+                    "required": false,
+                    "format": "country-code"
+                }
+            },
+            "required": []
+        }
+    }
+}'
+```
+
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | required                            | Determines whether the property is required                       | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| [unique](#unique-attribute)         | Determines whether property values must be unique                 | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| [unique](#unique-attributes)         | Determines whether property values must be unique                 | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
 | permissions                         | Access control permissions for the property                       | Array of [Schema property permission](#schema-property-permission-object) | FALSE    | FALSE  | FALSE    |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on the [User Profile Subschemas](#user-profile-subschemas).
@@ -2784,7 +2809,7 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 | Property                       | Description                                                                      | DataType                    | Nullable | Unique | Readonly |
 | :----------------------------- | :------------------------------------------------------------------------------- | :-------------------------- | :------- | :----- | :------- |
 | required                       | Determines whether the property is required                                      | Boolean                     | FALSE    | FALSE  | FALSE    |
-| [unique](#unique-attribute)    | Determines whether property values must be unique                                | Boolean                     | FALSE    | FALSE  | FALSE    |
+| [unique](##unique-attributes)    | Determines whether property values must be unique                                | Boolean                     | FALSE    | FALSE  | FALSE    |
 | scope                          | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`              | FALSE    | FALSE  | TRUE     |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
