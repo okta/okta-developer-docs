@@ -270,7 +270,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
 1. Click **Save**.
-1. In your Glitch project, click **Logs**. If your set up is successful, you see a message that says "Your app is listening on port {XXXX}".
+1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.
 
 The Registration Inline Hook is now set up with an active status.
 
