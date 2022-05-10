@@ -278,7 +278,7 @@ The Registration Inline Hook is now set up with an active status.
 
 ### Set up the employee number attribute
 
-In the Progressive Enrollment example, you ask end users to submit a valid employee number. `employeeNumber`, by default, is a read-only attribute. You need to change `employeeNumber` to `read-write`.
+In the Progressive Enrollment example, end users are requested to submit a valid employee number. The `employeeNumber` attribute is a read-only by default. You need to change `employeeNumber` to read-write.
 
 1. In the Admin Console, go to **Directory** > **Profile Editor**.
 1. Select **User (default)**.
