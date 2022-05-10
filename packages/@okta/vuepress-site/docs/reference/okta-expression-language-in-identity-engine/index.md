@@ -11,7 +11,7 @@ meta:
 
 ## Overview
 
-This document details the features and syntax of Okta Expression Language used in the Identity Engine. Expressions used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of Okta Expression Language used in the application policies of the  Identity Engine. Expressions used outside of the application policies on Identity Engine orgs should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported features
 
