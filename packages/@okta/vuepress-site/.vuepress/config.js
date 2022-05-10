@@ -265,19 +265,6 @@ module.exports = ctx => ({
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
-
-    /*
-     * Copy *.scss from Sign-In Widget for use in /live-widget.
-     * See /components/LiveWidget.vue for usage
-     */
-    config.plugin('copy-sass')
-      .use(CopyWebpackPlugin, [
-        [{
-           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
-           to: Path.join(outputDir, 'assets/widget-sass/'),
-         },
-        ]
-      ]);
   },
 
   evergreen: false,

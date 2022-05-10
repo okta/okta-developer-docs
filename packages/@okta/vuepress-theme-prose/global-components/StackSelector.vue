@@ -158,7 +158,7 @@
     padding: 10px;
   }
   .no-selector {
-    & /deep/ ol[start] {
+    &::v-deep ol[start] {
       margin-top: -0.75rem;
     }
   }
@@ -173,7 +173,7 @@
     .stack-content {
       display: inline;
 
-      & > div, & /deep/ p {
+      & > div, &::v-deep p {
         display: inline;
       }
     }
