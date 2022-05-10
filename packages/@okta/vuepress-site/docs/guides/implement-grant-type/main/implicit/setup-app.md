@@ -7,4 +7,6 @@
 7. Specify the **Sign-in redirect URIs** where the User is directed to along with the access token.
 8. Fill in the remaining details for your app integration, then click **Save**.
 
-From the **General** tab of your app integration, save the generated **Client ID** value to implement your authorization flow.
+On the **General** tab, the **Client Credentials** section contains the **Client ID** for your app integration. It also shows the **Client authentication** that defaults to **None**. The use of **None** for client authentication requires the use of a Proof Key for Code Exchange (PKCE) for additional verification. PKCE ensures that only the client that requests the access token can redeem it.
+
+Save the generated **Client ID** value to implement your authorization flow.

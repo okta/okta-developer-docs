@@ -5,4 +5,6 @@
 8. On the **General** tab, click **Edit** in the the **Client Credentials** section.
 9. Select **Use Client Authentication**, then click **Save**.
 
-From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values to implement your authorization flow.
+On the **General** tab, the **Client Credentials** section contains the **Client ID** for your app integration. It also shows the **Client authentication** that defaults to **None**. The use of **None** for client authentication requires the use of a Proof Key for Code Exchange (PKCE) for additional verification. PKCE ensures that only the client that requests the access token can redeem it.
+
+Save the generated **Client ID** value to implement your authorization flow.
