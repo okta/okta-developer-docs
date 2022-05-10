@@ -16,6 +16,7 @@ guides:
  - configure-access-policy
  - configure-native-sso
  - configure-signon-policy
+ - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email
  - custom-error-pages
