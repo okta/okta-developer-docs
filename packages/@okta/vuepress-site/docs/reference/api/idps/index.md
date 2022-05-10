@@ -7,20 +7,11 @@ category: management
 
 The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Apple, Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
+See [Add and external Identity Provider](/docs/guides/identity-providers/) for detailed IdP set up guides.
+
 ## Get started
 
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
-
-## Setup guides
-
-Each IdP requires some setup. Use the Okta setup guide for your IdP:
-
-* [Apple](/docs/guides/add-an-external-idp/apple/main/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
-* [Google](/docs/guides/add-an-external-idp/google/main/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
-* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/main/)
 
 ## Identity Provider operations
 
