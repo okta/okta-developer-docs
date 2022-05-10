@@ -88,7 +88,7 @@ If the validations are successful, the user sees the authenticator challenge dia
 
 <div class="common-image-format">
 
-![The authenticator challenge dialog](/img/authenticators/dotnet-authenticators-webauthn-challenge_prompt.png)
+![The authenticator challenge dialog](/img/authenticators/dotnet-authenticators-webauthn-challenge-prompt.png)
 
 </div>
 

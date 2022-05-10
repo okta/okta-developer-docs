@@ -4,7 +4,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 <div class="common-image-format bordered-image">
 
-![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-signinform.png)
+![Basic sign-in dialog](/img/authenticators/dotnet-authenticators-sign-in-form.png)
 
 </div>
 
@@ -145,7 +145,7 @@ In this use case, only Google Authenticator appears, as shown in the following s
 
 <div class="common-image-format bordered-image">
 
-![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-authenticators-google-authenticatorlist.png)
+![An authenticator list showing Google Authenticator available for use](/img/authenticators/dotnet-authenticators-google-authenticator-list.png)
 
 </div>
 
@@ -249,7 +249,7 @@ The user sees the following
 
 <div class="common-image-format bordered-image">
 
-![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enrollpage.png)
+![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enroll-page.png)
 
 </div>
 
@@ -300,7 +300,7 @@ The user sees the following:
 
 <div class="common-image-format bordered-image">
 
-![A form for the user to enter their one-time password](/img/authenticators/dotnet-authenticators-google-challengeflowpage.png)
+![A form for the user to enter their one-time password](/img/authenticators/dotnet-authenticators-google-challenge-flow-page.png)
 
 </div>
 

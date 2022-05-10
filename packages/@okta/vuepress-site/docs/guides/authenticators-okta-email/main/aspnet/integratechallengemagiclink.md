@@ -4,7 +4,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 <div class="common-image-format bordered-image">
 
-![A simple sign-in form with username and password fields](/img/authenticators/dotnet-authenticators-signinform.png)
+![A simple sign-in form with username and password fields](/img/authenticators/dotnet-authenticators-sign-in-form.png)
 
 </div>
 
