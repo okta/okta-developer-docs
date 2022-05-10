@@ -277,6 +277,10 @@ export const guides = [
             ]
           },
           {
+            title: "Configure User-Scoped account management",
+            guideName: "configure-user-scoped-account-management"
+          },
+          {
             title: "Advanced use cases",
             subLinks: [
               {
