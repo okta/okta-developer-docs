@@ -8,7 +8,7 @@ title: Okta API Products release notes 2022
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [User-scoped MyAccount API is EA in Preview](#user-scoped-myaccount-api-is-ea-in-preview) | May 7, 2022 |
-| The API for suppressing email notifications is EA in Preview | May 7, 2022 |
+| [The API for suppressing email notifications is EA in Preview](#the-api-for-suppressing-email-notifications-is-ea-in-preview) | May 7, 2022 |
 | [Bugs fixed in 2022.05.1](#bugs-fixed-in-2022-05-1) | May 7, 2022 |
 
 #### User-scoped MyAccount API is EA in Preview
