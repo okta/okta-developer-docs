@@ -947,7 +947,7 @@ curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authori
 
 <ApiOperation method="delete" url="/idp/myaccount/phones/{id}" />
 
-Delete the current user's phone information by id.
+Delete the current user's phone information by ID.
 
 #### Required scope and role
 
