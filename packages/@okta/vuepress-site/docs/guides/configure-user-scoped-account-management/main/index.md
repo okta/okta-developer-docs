@@ -42,7 +42,7 @@ It is up to you how you set up users to call the MyAccount API to manage their a
 
 > **Note:** To run the Postman collection, you need an end-user access token. Use a password grant type or [SDK](/docs/guides/auth-js/-/main/) to get the token.
 
-## API Versioning
+## API versioning
 
 A valid API version in the `Accept` header is required to access the API. Current version: V1.0.0
 
