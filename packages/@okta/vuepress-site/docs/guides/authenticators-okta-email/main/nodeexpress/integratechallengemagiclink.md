@@ -44,7 +44,7 @@ If the user is already enrolled in Email Authenticator, calling `OktaAuth.idx.au
 
 Using this response, display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. See [Integrate a different browser and device scenario](#integrate-different-browser-and-device-scenario).
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of OTP in challenge page](/img/authenticators/authenticators-email-challenge-auth.png)
 
