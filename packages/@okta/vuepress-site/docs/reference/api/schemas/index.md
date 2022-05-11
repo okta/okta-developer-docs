@@ -2403,7 +2403,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-| format                         | validates the format type of the property      | string                                            | TRUE     | TRUE   | FALSE    |
+| format                         | identifies the format type of the property      | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description Details
 
@@ -2433,7 +2433,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 
   `oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
 
-- `format`: Okta supports the `format` keyword and validates the following format attributes: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
+- `format`: Okta uses this keyword to identify the property as one of the following formats: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
 
   ```bash
   curl --location --request POST 'https://{$yourOktaDomain}/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
