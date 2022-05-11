@@ -911,7 +911,7 @@ This request requires the `verificationCode` property as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `verificationCode`  | String | A 6-digit verification code that the user receives via `SMS` or `CALL` |
+| `verificationCode`  | String | A 6-digit verification code that the user receives through `SMS` or `CALL` |
 
 #### Response body
 
