@@ -80,7 +80,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 5. In the **POST REGISTRATION** section, complete these fields:
 
-    * **Activation requirements:** (Optional) Select the check box to automatically send users a register activation email. If you don't select the check box, and users aren't required to verify their email address for activation, a Registration Verification email that uses the Okta email template is sent.
+    * **Activation requirements:** Optional. Select the checkbox to automatically send users a register activation email. If you don't select the checkbox, and users aren't required to verify their email address for activation, a Registration Verification email that uses the Okta email template is sent.
 
     * **Default redirect:** After registration, users are redirected to the app that sent them to the registration form. In the event that no app context is provided, they are redirected to the location that you select here.
 
