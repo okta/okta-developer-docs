@@ -13,7 +13,7 @@ The Okta MyAccount API allows end users to fetch and update their own Okta user 
 
 * The API doesn't expose information an end user shouldn't have access to.
 * The API doesn't support lifecycle operations.
-* All operations in this API implicitly refer to the user making the API call.  No user ID is needed, or even accepted.
+* All operations in this API implicitly refer to the user making the API call. No user ID is needed or even accepted.
 
 ## Get started
 
