@@ -1422,7 +1422,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `profile`          | Object                                                            | The Profile object defines the phone number on the profile.|
 | `sendCode`         | Boolean                                                           | Whether to send a challenge to the newly added phone. The default is `true`.|
-| `method`           | String                                                            | The method of the challenge sent to the newly added phone, either "SMS" or "CALL", applicable when `sendCode` is true.|
+| `method`           | String                                                            | The method of the challenge sent to the newly added phone, either "SMS" or "CALL". Applicable when `sendCode` is `true`.|
 |
 
 #### My Phone Request example
