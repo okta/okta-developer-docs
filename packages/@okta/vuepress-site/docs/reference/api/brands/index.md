@@ -2183,7 +2183,7 @@ The [Email Template Settings Object](#email-template-settings-object) resource t
 
 #### Response body
 
-The [Email Template Settings Object](#email-template-settings-object) resource that was updated.
+The [Email Template Settings Object](#email-template-settings-object) resource that was updated
 
 Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
 
