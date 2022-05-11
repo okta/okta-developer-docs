@@ -713,7 +713,7 @@ Create an UNVERIFIED status phone for either `SMS` or `CALL` method to user's My
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones` POST endpoint.
+> **Note:**  Admin users aren't allowed to make a POST request to the`/idp/myaccount/phones` endpoint.
 
 #### Request path parameters
 
@@ -812,7 +812,7 @@ Upon a successful challenge, the user receives a verification code by `SMS` or `
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/challenge` endpoint.
+> **Note:** Admin users aren't allowed to make requests to the `/idp/myaccount/phones/{id}/challenge` endpoint.
 
 #### Request path parameters
 
@@ -893,7 +893,7 @@ Verify the phone number with the verification code that the user receives via `S
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/verify` endpoint.
+> **Note:** Admin users aren't allowed to make requests to the `/idp/myaccount/phones/{id}/verify` endpoint.
 
 #### Request path parameters
 
@@ -953,7 +953,7 @@ Delete the current user's phone information by id.
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones/{id}/` DELETE endpoint.
+> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/phones/{id}/` endpoint.
 
 #### Request path parameters
 
