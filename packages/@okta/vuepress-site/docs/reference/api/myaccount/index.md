@@ -804,7 +804,7 @@ Returns an HTTP 201 status code response with a location URL that refers to the 
 
 Sends a phone challenge using one of two methods: `SMS` or `CALL`. This request can also handle a resend challenge (retry).
 
-Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in 5 minutes.
+Upon a successful challenge, the user receives a verification code by `SMS` or `CALL`. Send a `POST` request to the `/idp/myaccount/phones/{id}/verify` endpoint to use the verification code to verify the phone number. The verification code expires in five minutes.
 
 > **Note:** Sending requests to the `/idp/myaccount/phones/{id}/challenge` endpoint more often than once very 30 seconds, or at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
 
