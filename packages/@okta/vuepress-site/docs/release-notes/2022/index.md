@@ -13,7 +13,7 @@ title: Okta API Products release notes 2022
 
 #### User-scoped MyAccount API is EA in Preview
 
-The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, once a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/).
+The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/).
 
 #### The API for suppressing email notifications is EA in Preview
 
