@@ -375,7 +375,7 @@ To test the Progressive Enrollment Inline Hook, you need to make "Employee numbe
 
 * If you use valid sign-in credentials, the **Employee number** field appears on the next screen.
 * If you enter an employee number in a valid format (4 digits), the update goes through.
-* If you enter an employee number in an invalid format, the update is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+* If you enter an employee number in an invalid format, the update is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
