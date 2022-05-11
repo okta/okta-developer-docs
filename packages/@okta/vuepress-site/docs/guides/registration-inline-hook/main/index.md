@@ -372,7 +372,7 @@ To test the Progressive Enrollment Inline Hook, you need to make **Employee numb
 1. Go to **Directory** > **People**, and then click **Add person**.
 1. Enter the credentials for your test user and select **I will set password**.
 1. Enter a password, and then click **Save**.
-1. Log out from the Admin Console and sign in with your new `@example.com` credentials.
+1. Sign out from the Admin Console and sign in with your new `@example.com` credentials.
 
 * If you use valid sign-in credentials, the **Employee number** field appears on the next screen.
 * If you enter an employee number in a valid format (4 digits), the update goes through.
