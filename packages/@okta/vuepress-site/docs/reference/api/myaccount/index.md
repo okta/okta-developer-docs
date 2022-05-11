@@ -56,7 +56,7 @@ The MyAccount API has the following operations:
 
 <ApiOperation method="get" url="/idp/myaccount/emails" />
 
-Fetches all of the current user's email information: a collection of links for each email describing the operations that can be performed.
+Fetches all of the current user's email information: a collection of links for each email describing the operations that can be performed
 
 #### Required scope and role
 
