@@ -111,7 +111,7 @@ The requested [My Email object](#my-email-object)
 
 If an invalid email is passed to `profile` in the request body, the response returns a 400 BAD REQUEST with error code E0000001.
 
-If the email operation isn't enabled for the request `role` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
+If the email operation isn't enabled for the request `role` in the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
 If the email already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
