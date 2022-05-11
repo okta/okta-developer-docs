@@ -919,7 +919,7 @@ Returns an empty response with an HTTP 204 status code.
 
 Disabling the factor type of the corresponding method in the org returns a 403 FORBIDDEN with error code E0000038.
 
-Disabling the `IDP_MY_ACCOUNT_API` feature flag on the org returns a 401 UNAUTHORIZED with error code E0000015.
+Disabling the `IDP_MY_ACCOUNT_API` feature flag in the org returns a 401 UNAUTHORIZED with error code E0000015.
 
 Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
 
