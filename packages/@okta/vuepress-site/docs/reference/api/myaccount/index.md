@@ -541,7 +541,7 @@ Returns an empty HTTP 204 status code response
 
 #### Error Responses
 
-If an invalid email id is passed to the request, the response returns a 404 NOT FOUND with error code E0000007.
+If an invalid email ID is passed to the request, the response returns a 404 NOT FOUND with error code E0000007.
 
 ### Get My Phones
 
