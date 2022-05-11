@@ -342,6 +342,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
    ```javascript
    "userProfileUpdate": {
       "employeeNumber": "1234"
+      }
    ```
    > **Note:** Make sure that you delete the comma after the value you enter for an employee number. It isn't valid JSON otherwise.
 1. From the **View service's response** block, click **View Response**.
