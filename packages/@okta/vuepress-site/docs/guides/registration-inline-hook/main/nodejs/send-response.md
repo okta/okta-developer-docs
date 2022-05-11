@@ -2,7 +2,7 @@
 
 ### Send self-service registration (SSR) response
 
-For this example, only emails containing "example.com" are allowed and can self-register. You can also include an `error` object in the response for those users who were denied registration.
+For this example, only users with emails that contain `example.com` are allowed and can self-register. You can also include an `error` object in the response for those users who were denied registration.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
