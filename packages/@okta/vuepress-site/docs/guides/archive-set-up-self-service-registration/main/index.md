@@ -115,7 +115,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 2. Select a policy from the left, click **Edit**, and scroll down to **ACCOUNT RECOVERY**.
 
-3. Clear the **Security question** check box in the **Additional self-service recovery** section.
+3. Clear the **Security question** checkbox in the **Additional self-service recovery** section.
 
 4. Click **Update Policy**.
 
