@@ -2579,7 +2579,9 @@ The Email Template Settings Object resource defines the following properties:
 | `NO_USERS`                      | Do not send emails to any user                  |
 
 
-> **Note:** The following email templates only allow the following Enum values: NO_USERS, ALL_USERS - `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, `AuthenticatorReset`
+> **Note:** The following list shows the email templates certain Enum values:
+> * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
+> * `ALL_USERS, ADMIN ONLY`: `ChangeEmailConfirmation`
 The `ChangeEmailConfirmation` only allows following enum values: ALL_USERS, ADMIN ONLY
 
 ## Links object
