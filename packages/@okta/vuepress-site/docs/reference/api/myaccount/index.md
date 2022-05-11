@@ -304,7 +304,7 @@ curl -v -X POST \
 <ApiOperation method="post" url="/idp/myaccount/emails/{id}/challenge" />
 
 Sends a challenge to the email and the user receives a "Confirm email address change" email with a one-time passcode to verify the email.
-In addition, user also receives a - 'Notice of pending email address change' email. Once challenge verified, the email becomes active.
+In addition, the user also receives a "Notice of pending email address change" email. After the challenge is verified, the email becomes active.
 
 #### Required scope and role
 
