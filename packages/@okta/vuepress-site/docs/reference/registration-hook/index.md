@@ -315,7 +315,7 @@ To associate the Registration Inline Hook with your Profile Enrollment policy:
 
 Your Registration Inline Hook is configured for Profile Enrollment.
 
-## Enable a Registration Inline Hook for SSR in the Classic Engine
+## Enable a Registration Inline Hook for SSR in Classic Engine
 
 <ApiLifecycle access="deprecated" />
 
