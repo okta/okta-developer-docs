@@ -49,7 +49,7 @@ Values for `requestType` are one of the following:
 
 ### data.userProfile
 
-This object appears in SSR requests from Okta. The object contains name-value pairs for each registration-related attribute supplied by the user in the Profile Enrollment form, including:
+This object appears in SSR requests from Okta. The object contains name-value pairs for each registration related attribute supplied by the user in the Profile Enrollment form, including:
 
 - `lastName`
 - `firstName`
