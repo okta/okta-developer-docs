@@ -640,7 +640,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/idp/myaccount/phones/{id}" />
 
-Fetches the current user's phone information by id, along with a collection of links describing the operations can be performed to the phone.
+Fetches the current user's phone information by ID, along with a collection of links describing the operations that can be performed to the phone.
 
 #### Required scope and role
 
