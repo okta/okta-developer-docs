@@ -228,7 +228,7 @@ Add a `PRIMARY` or `SECONDARY` email address to the user's account. The new emai
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails` POST endpoint.
+> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
 
 #### Request path parameters
 
