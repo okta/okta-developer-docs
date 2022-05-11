@@ -3,7 +3,7 @@
 
 ### Add self-service registration (SSR) request code
 
-The following is a JSON example of an incoming SSR request from Okta that shows the user's profile data in the userProfile property. The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
+The following is a JSON example of an incoming SSR request from Okta that shows the user's profile data in the `userProfile` property. The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
 
 See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
 
