@@ -101,7 +101,7 @@ To preview the Registration Inline Hook:
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Select the Registration Inline Hook name (in this example, select "Guide Registration Hook Code").
 3. Click the **Preview** tab.
-4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the `data.userProfile` object.
+4. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 5. From the **Preview example Inline Hook request** block, click **Generate Request**.
     The user's request information in JSON format that is sent to the external service appears.
 6. From the **View service's response** block, click **View Response**.
