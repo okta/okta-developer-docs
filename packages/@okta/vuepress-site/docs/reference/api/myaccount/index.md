@@ -835,7 +835,7 @@ This request requires the `method` property as its request body. You can use an 
 
 #### Response body
 
-Returns a JSON object containing a link to verify the challenged phone, with an HTTP 200 status code.
+Returns a JSON object that contains a link to verify the challenged phone with an HTTP 200 status code.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
