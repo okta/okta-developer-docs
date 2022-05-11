@@ -206,40 +206,6 @@ HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
 
-```json
-{
-    "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri",
-    "client_id": "0oanq59zytBKVwQQ80h7",
-    "client_id_issued_at": 1570131438,
-    "client_name": "Example Service Client",
-    "client_uri": null,
-    "logo_uri": null,
-    "redirect_uris": [],
-    "response_types": [
-        "token"
-    ],
-    "grant_types": [
-        "client_credentials"
-    ],
-    "token_endpoint_auth_method": "private_key_jwt",
-    "application_type": "service"
-}
-```
-
-##### Response example: Duplicate client name
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-```
-
-```json
-{
-    "error": "invalid_client_metadata",
-    "error_description": "client_name: An object with this field already exists in the current organization"
-}
-```
-
 ### List client Applications
 
 <ApiOperation method="get" url="/oauth2/v1/clients" />
@@ -800,7 +766,7 @@ Client Applications have the following properties:
 | application_type                        | The type of client application. Default value: `web`    | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE      |
 | client_id                               | Unique key for the client application                                                                                        | String                                                                                         | FALSE      | TRUE     | TRUE      |
 | client_id_issued_at                     | Time at which the client_id was issued (measured in unix seconds)                                                            | Number                                                                                         | TRUE       | FALSE    | TRUE      |
-| client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | TRUE     | FALSE     |
+| client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | FALSE     | FALSE     |
 | client_secret                           | OAuth 2.0 client secret string (used for confidential clients)                                                               | String                                                                                         | TRUE       | TRUE     | TRUE      |
 | client_secret_expires_at                | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                             | Number                                                                                         | TRUE       | FALSE    | TRUE      |
 | grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />   | TRUE       | FALSE    | FALSE     |

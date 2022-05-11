@@ -27,7 +27,7 @@ The `IdxTransaction` response from the last step in [Initiate sign-in flow for O
 
 Using the `IdxTransaction` response, display a page to input the TOTP.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Page displaying TOTP input field](/img/authenticators/authenticators-oktaverify-challenge-otp.png)
 

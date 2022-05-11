@@ -1,6 +1,6 @@
 ### 1: Initiate password recovery
 
-The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
 Before sending the email, Okta builds the message based on the **Forgot Password** template. The `otp` and `request.relayState` variables are translated into actual values. For example,`http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
@@ -88,7 +88,7 @@ After set up, render the client site page and pass the configurations to the wid
 
 After the widget is loaded, the following reset page is appears:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 

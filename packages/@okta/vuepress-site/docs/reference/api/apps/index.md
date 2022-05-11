@@ -7114,6 +7114,7 @@ curl -v -X PUT \
 ## Models
 
 * [Idp-Initiated Login object](#idp-initiated-login-object)
+* [Refresh Token object](#refresh-token-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
 * [Appliction Group object](#application-group-object)
@@ -7129,7 +7130,10 @@ The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated 
 
 * When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
 * When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
-* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
+* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds to the **Okta Simplified** option in the Admin Console.
+
+  > **Note:** For web and SPA app integrations, if the mode is `SPEC` or `OKTA`, you need to set `grant_types` to `authorization code`, `implicit`, or `interaction code`.
+
 * The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
 
 #### Request example
@@ -7593,6 +7597,34 @@ curl -X POST \
 }
 ```
 
+### Refresh token object
+
+Determines the refresh token rotation configuration for the OAuth 2.0 client.
+
+| Property                   | Description                                                       | DataType | Nullable |
+| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
+| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
+| leeway                     | The leeway, in seconds, allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the specified period of time so clients can get the new token.                                           | Number               | TRUE |
+
+* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties when you create an app integration, the default values are used. When you update an app integration, your previously configured values are used.
+
+* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
+
+* The `rotation_type` property is required if the request contains the `refresh_token` object.
+
+* The `leeway` property value can be between 0 and 60. The default value is `30`.
+
+```json
+{
+  "refresh_token": {
+    "rotation_type": "ROTATE",
+    "leeway": "20"
+  }
+}
+```
+
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
+
 ### Application object
 
 #### Example
@@ -7952,32 +7984,6 @@ Determines the [key](#application-key-credential-object) used for signing assert
 }
 ```
 
-#### Refresh token object
-
-Determines the refresh token rotation configuration for the OAuth 2.0 client.
-
-| Property                   | Description                                                       | DataType | Nullable |
-| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
-| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
-| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
-
-* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
-
-* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
-
-* The `rotation_type` property is required if the request contains the `refresh_token` object.
-
-* The `leeway` property value can be between 0 and 60. The default value is `30`.
-
-```json
-{
-  "refresh_token": {
-    "rotation_type": "ROTATE",
-    "leeway": "20"
-  }
-}
-```
-
 #### OAuth Credential object
 
 Determines how to authenticate the OAuth 2.0 client
@@ -8200,7 +8206,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
-Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allow list of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 Profile Requirements
 

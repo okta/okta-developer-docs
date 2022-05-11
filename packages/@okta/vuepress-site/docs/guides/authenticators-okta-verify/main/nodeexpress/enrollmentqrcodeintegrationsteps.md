@@ -63,7 +63,7 @@ The following [Mustache](https://mustache.github.io/) template snippet shows how
 
 Display a page showing the QR code to the user.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Okta Verify option shown in UI](/img/authenticators/authenticators-oktaverify-enroll-qr-code.png)
 

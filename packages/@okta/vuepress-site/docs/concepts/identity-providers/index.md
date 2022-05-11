@@ -113,7 +113,7 @@ If a user signs in to your application for the first time using another Identity
 
 Additionally, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
-You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
+You can also set up group sync to specify the groups that users should be added to and enable profile sourcing so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
 
 ## IdP Discovery
 

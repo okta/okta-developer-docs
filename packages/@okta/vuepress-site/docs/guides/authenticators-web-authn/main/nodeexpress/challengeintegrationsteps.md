@@ -109,28 +109,28 @@ This call initiates the following steps:
 
 1. The authenticator looks up the information stored for the credential ID and checks that the domain name matches the one used during enrollment.
 
-1. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm consent.
+2. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm consent.
 
-<div class="common-image-format">
+    <div class="common-image-format">
 
-![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
+      ![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
 
-</div>
+    </div>
 
-1. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
+3. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
 
-```json
-{
-"id": "Aa9rTddZCalI...",
-"rawId": ..,
-"response" : {
-  "authenticatorData" : Binary data ... ,
-  "clientDataJSON": Binary data ... ,
-  "signature": Binary data ... ,
-  "userHandle": Binary data ... ,
-"type": "public-key"
-}
-```
+    ```json
+    {
+    "id": "Aa9rTddZCalI...",
+    "rawId": ..,
+    "response" : {
+      "authenticatorData" : Binary data ... ,
+      "clientDataJSON": Binary data ... ,
+      "signature": Binary data ... ,
+      "userHandle": Binary data ... ,
+    "type": "public-key"
+    }
+    ```
 
 ### 6: Build parameter for sending the signature to Okta
 

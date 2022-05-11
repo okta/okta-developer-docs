@@ -34,19 +34,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far th
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+   ```
+   Your Okta Domain: https://dev-xxxxxxx.okta.com
+   To set your password open this link:
+   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+   ```
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
 
-```
-okta login
-```
+   ```
+   okta login
+   ```
 
 ## Create an Okta integration for your app
 
@@ -56,9 +56,9 @@ To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-```
-okta apps create native
-```
+   ```
+   okta apps create native
+   ```
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
@@ -73,7 +73,7 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
-    > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
 1. Enter the callback route for the **Sign-in redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
 1. Enter your callback route for the **Sign-out redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/`).

@@ -135,7 +135,7 @@ Display a field to capture the user's email address. Use `IdxTransaction.nextSte
 
 Example page follows:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Page showing field for enrollment channel](/img/authenticators/authenticators-oktaverify-enrollment-channel-data.png)
 
@@ -171,7 +171,7 @@ After the user submits their email, Okta sends an activation link.
 
 Display a page that informs the user that an email was sent to the provided email address. The page polls the SDK to determine when the user clicks the email link and completes the Okta Verify setup. The polling logic is shared across the different flows and is described in [Polling Okta](#polling-okta).
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Page showing notification email has been sent](/img/authenticators/authenticators-oktaverify-enrollment-channel-sent-poll.png)
 

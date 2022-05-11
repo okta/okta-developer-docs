@@ -53,7 +53,11 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 The user’s copy of Google Authenticator now displays the time-based one-time password for the newly added account which they will enter into a challenge page.
 
+<div class="common-image-format">
+
 ![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
+
+</div>
 
 ### 7 - 8: Display challenge page and process password
 
