@@ -328,7 +328,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Select the Registration Inline Hook name (in this example, select **Guide Registration Hook Code**).
-1. Click the **Preview** tab.
+1. Click **Preview**.
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
