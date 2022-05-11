@@ -166,7 +166,7 @@ Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the 
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/phones` POST endpoint.
+> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/phones` endpoint.
 
 #### Request path parameters
 
