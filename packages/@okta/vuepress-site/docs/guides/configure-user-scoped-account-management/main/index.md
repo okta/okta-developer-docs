@@ -32,7 +32,7 @@ This guide explains how to set up end-user driven account management in your org
 
 ---
 
-## About User-Scoped account management
+## About user-scoped account management
 
 The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their profile, or email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, once a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator.
 
