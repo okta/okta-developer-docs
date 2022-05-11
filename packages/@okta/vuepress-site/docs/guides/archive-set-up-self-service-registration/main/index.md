@@ -56,7 +56,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 4. In the **REGISTRATION FORM** section, you have the option to add a customized label for the **Email** and **Password** fields and to define which fields are required. The fields in this section are what the user sees when they register.
 
-    * **Login field form label:** (Optional) Enter a label for the **Email** field on the Create Account registration form.
+    * **Login field form label:** Optional. Enter a label for the **Email** field on the Create Account registration form.
 
     * **Password field form label:** (Optional) Enter a label for the **Password** field on the Create Account registration form.
 
