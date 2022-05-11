@@ -917,7 +917,7 @@ This request requires the `verificationCode` property as its request body.
 
 Returns an empty response with an HTTP 204 status code.
 
-Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+Disabling the factor type of the corresponding method in the org returns a 403 FORBIDDEN with error code E0000038.
 
 Disabling the `IDP_MY_ACCOUNT_API` feature flag on the org returns a 401 UNAUTHORIZED with error code E0000015.
 
