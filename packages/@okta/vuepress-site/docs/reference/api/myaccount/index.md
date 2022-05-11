@@ -1000,7 +1000,7 @@ If an invalid phone ID is passed to the request, the response returns a 404 NOT 
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/)
 
-> **Note:** If a property's value isn't visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition is also hidden in the output of this API.
+> **Note:** If a property's value isn't visible to an end user (because it's hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes)), then the property's definition is also hidden in the output of this API.
 
 #### Required scope and role
 
