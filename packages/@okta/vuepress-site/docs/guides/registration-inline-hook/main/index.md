@@ -365,7 +365,7 @@ To test the Progressive Enrollment Inline Hook, you need to make "Employee numbe
 
 1. Sign in to the Okta Admin Console as an admin.
 1. Go to **Security** > **Profile Enrollment**.
-1. Under **Profile enrollment form**, find **Employee number** and then click **Edit**.
+1. Under **Profile enrollment form**, find **Employee number**, and then click **Edit**.
 1. Set the **Input requirement** to **Required**.
 1. Click **Save**.
 1. Go to **Directory** > **People**, and then click **Add person**.
