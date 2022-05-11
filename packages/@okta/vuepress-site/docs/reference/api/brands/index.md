@@ -2567,7 +2567,7 @@ The Email Template Settings Object resource defines the following properties:
 
 | Property       | Type                    | Description                                                                                   |
 | ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
-| `recipients`   | enum                    | The [eligible user type](#recipients-enum) who can receive emails generated from the template |
+| `recipients`   | enum                    | The [eligible user type](#recipients-enum) that can receive emails generated from the template |
 | `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
 
 ### Recipients Enum
