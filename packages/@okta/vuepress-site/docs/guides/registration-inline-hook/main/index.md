@@ -357,7 +357,7 @@ To run a test of your SSR Inline Hook, go to the Okta sign-in page for your Okta
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
 
 * If you use an allowable email domain, such as `rosario.jones@example.com`, the end user registration goes through.
-* If you use an incorrect email domain, the end user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+* If you use an incorrect email domain, the end user registration is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 ### Test the Progressive Enrollment Inline Hook
 
