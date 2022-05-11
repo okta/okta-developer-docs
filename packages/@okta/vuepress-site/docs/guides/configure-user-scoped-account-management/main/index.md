@@ -2,7 +2,7 @@
 title: Configure User-Scoped account management
 meta:
   - name: description
-    content: The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need an active user session to update their email and phone authenticators.
+    content: The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their email and phone authenticators.
 layout: Guides
 sections:
 - main
@@ -40,7 +40,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 It is up to you how you set up users to call the MyAccount API to manage their account. In this guide, we provide sample API calls using a Postman collection to demonstrate them in a language/platform neutral way.
 
-> **Note:** To run the Postman collection, you need an end-user access token. Use a password grant type or SDK to get the token. See [Embedded Auth with SDKs React](https://github.com/okta/okta-auth-js/tree/master/test/apps/react-oie) for a sample app that provides an access token.
+> **Note:** To run the Postman collection, you need an end-user access token. Use a password grant type or [SDK](/docs/guides/auth-js/-/main/) to get the token.
 
 ## API Versioning
 
@@ -52,7 +52,7 @@ Accept: application/json; okta-version=1.0.0
 
 ## Grant the required scopes
 
-> **Note:** Before setting up your org to send requests to the MyAccount API, make sure that you have an OpenID Connect client app set up in Okta. See 
+> **Note:** If you have a custom Authorization Server, the MyAccount API-related scopes are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
 
 When you are ready to grant the required scopes, follow these steps:
 
