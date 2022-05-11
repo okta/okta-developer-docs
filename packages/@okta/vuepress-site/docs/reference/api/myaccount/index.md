@@ -925,7 +925,7 @@ Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
 
 Passing an invalid `verificationCode` returns a 400 BAD REQUEST with error code E0000001.
 
-Passing a valid `verificationCode` again (verifying a phone number that has been verified) results a no-op.
+Passing a valid `verificationCode` again (verifying a phone number that has been verified) results in a no-op.
 
 In an extremely rare case, verifying a phone number when the challenge is about to expire returns a 409 CONFLICT with error code E0000157.
 
