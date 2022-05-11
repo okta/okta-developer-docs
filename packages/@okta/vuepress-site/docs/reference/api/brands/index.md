@@ -2115,7 +2115,7 @@ Fetches the settings associated with template
 
 #### Response body
 
-The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context.
+The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
