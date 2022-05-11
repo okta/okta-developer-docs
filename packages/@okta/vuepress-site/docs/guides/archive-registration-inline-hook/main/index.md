@@ -112,7 +112,7 @@ To preview the Registration Inline Hook:
 To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
 * If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
-* If you use an incorrect email domain, the user registration is denied. Review the error message, which displays the error summary from the external service code and is passed back to Okta.
+* If you use an incorrect email domain, the user registration is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta.
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) if you encounter any set up or configuration difficulties.
 
