@@ -24,7 +24,7 @@ Explore the MyAccount API:
 
 #### API Versioning
 
-A valid API version in the `Accept` header is required to access the API. Current version V1.0.0
+A valid API version in the `Accept` header is required to access the API. Current version: V1.0.0
 
 ```json
 Accept: application/json; okta-version=1.0.0
