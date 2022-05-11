@@ -6,19 +6,22 @@ meta:
 ---
 <ApiLifecycle access="ie" />
 
-To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to easily adopt new features, migrate your existing orgs from Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
+To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to easily adopt new features, migrate your existing orgs and apps from Okta Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
 
 Are you an admin? See the [Identity Engine Upgrade Overview](https://help.okta.com/en/programs/oie/Content/Topics/identity-engine-upgrade/home.htm) for admins.
 
-## Prerequisites
+## Before attempting to upgrade
 
-* [Upgrade your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) before reading this document or requesting a data upgrade. Anyone using the Sign-In Widget should upgrade to the latest version (either Okta-hosted using our redirect model or embedding a form of the Widget inside your applications).
-* Complete the initial org upgrade process. If you haven't yet migrated your orgs from Classic Engine to Identity Engine, discuss your options with your Okta account team.
+* **IMPORTANT**: Talk to your Okta rep/Customer Success Manager and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
+* [Upgrade your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further — this includes both Okta-hosted Widgets and Widgets embedded inside your apps.
 
-## Upgrade Process
+## Upgrade process
 
 The initial upgrade path consists of the following steps:
 
+* Assess your org and app and create a report outlining the level of effort to perform the upgrade.
+  * Your set up may require remediations, for example some Classic features may [not be supported in Identity Engine](/docs/guides/ie-limitations/) in their current form, and will require adjustment before we can proceed.
+  * If there are no remediations required, then the upgrade is simple, and the subsequent steps will be seamless.
 * Complete data migration
 * Convert and migrate objects such as policies, orgs, and users
 * Turn on Identity Engine for the entire org
@@ -33,7 +36,7 @@ Bear in mind that:
 
 The rest of the upgrade process is defined in the next section. Which steps that you take are related to your deployment model. We have carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications. We don’t recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over a period of time. Make the upgrade steps part of your normal product development process.
 
-## Upgrade Steps
+## Upgrade steps
 
 After you complete the prerequisites, your data migration is finished, and you have access to your Identity Engine org, the following content outlines the next steps that you may take as you navigate through the rest of your upgrade process.
 
@@ -74,7 +77,7 @@ For a more detailed look at the upgrade steps, see the [Planning embedded auth a
 
   See [Upgrade your application to use the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
-## Upgrade Documentation
+## Upgrade documentation
 
 The Identity Engine upgrade documentation below discusses the various upgrade tasks. Which tasks you need to complete depends on your deployment model.
 
