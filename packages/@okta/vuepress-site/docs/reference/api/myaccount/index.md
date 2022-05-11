@@ -759,7 +759,7 @@ curl -v -X POST \
 
 ##### Response
 
-Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header.
+Returns an HTTP 201 status code response with a location URL that refers to the newly created phone in the response header.
 
 ```json
 {
