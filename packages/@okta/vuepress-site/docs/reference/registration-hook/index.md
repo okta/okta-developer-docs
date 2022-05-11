@@ -44,7 +44,7 @@ Values for `requestType` are one of the following:
 
 | Enum Value | Associated Okta Event |
 |----------|-------------------------------------------------------|
-| `self.service.registration` | Self-Service Registration |
+| `self.service.registration` | self-service registration |
 | `progressive.profile` | Progressive Enrollment |
 
 ### data.userProfile
