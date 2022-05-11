@@ -519,7 +519,7 @@ N/A
 
 #### Error Responses
 
-If an invalid emailId is requested for deletion, the response returns a 404 NOT FOUND with error code E0000007.
+If an invalid `emailId` is requested for deletion, the response returns a 404 NOT FOUND with error code E0000007.
 
 If the email for deletion is an already verified email, the response returns a 400 BAD REQUEST with error code E0000001.
 
