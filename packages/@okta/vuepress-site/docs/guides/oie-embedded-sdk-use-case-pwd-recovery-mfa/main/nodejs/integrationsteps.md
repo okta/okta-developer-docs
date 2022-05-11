@@ -1,6 +1,6 @@
 ### 1. Select the password recovery link
 
-First, the user selects a password recovery link located on the sign-in page. Add a link that points to the password recovery page. An example link named **Forgot password?** is shown in the following screenshot.
+First, the user selects a password recovery link from the sign-in page. Add a link that points to the password recovery page. An example link named **Forgot your password?** is shown in the following screenshot.
 
 <div class="common-image-format bordered-image">
 
@@ -33,7 +33,11 @@ try {
 
 ### 4. Display a list of available authenticators
 
-`OktaAuth.idx.recoverPassword()` returns a response indicating that the next step is to select an authenticator. Specifically, `IdxTransaction` returns a `status` of `PENDING`, `nextStep.name` equal to `select-authenticator-authenticate`, and a `option` item with a `value` of `okta_email` in the `nextstep.inputs[n].options` array.
+`OktaAuth.idx.recoverPassword()` returns a response indicating that the next step is to select an authenticator. Specifically, `IdxTransaction` returns:
+
+* a `status` of `PENDING`
+* a `nextStep.name` equal to `select-authenticator-authenticate`
+* an `option` item with a `value` of `okta_email` in the `nextstep.inputs[n].options` array
 
 ```javascript
 {
