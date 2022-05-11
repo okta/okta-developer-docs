@@ -998,7 +998,7 @@ If an invalid phone ID is passed to the request, the response returns a 404 NOT 
 | <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | <ApiLifecycle access="ea" /> |
 | <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" /> | <ApiLifecycle access="deprecated" /> |
 
-Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
+Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/)
 
 > **Note:** If a property's value isn't visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition is also hidden in the output of this API.
 
