@@ -23,7 +23,11 @@ The initial upgrade path consists of the following steps:
 * Convert and migrate objects such as policies, orgs, and users
 * Turn on Identity Engine for the entire org
 
-At the end of the data migration, your auth experience may continue to mimic Classic Engine, but your admin experience changes and all of the Okta objects from Classic Engine are now compatible with Identity Engine.
+Bear in mind that:
+
+* At the end of the data migration, your auth experience may continue to mimic Classic Engine, but your admin experience changes and all of the Okta objects from Classic Engine are now compatible with Identity Engine.
+* The existing Okta-hosted Sign-In Widget works as-is after you upgrade your org.
+* You should upgrade your embedded Sign-In Widget as you would normally do with other updates.
 
 > **Note:** For an overview of the changes in the Admin Console, see [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
 

@@ -69,11 +69,6 @@ In our documentation we have started to move towards supporting the Identity Eng
 
 On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs, so that all new customers can take advantage of the new features.
 
-If you are a Classic Engine customer who wants to upgrade their apps to use the Identity Engine, bear in mind that:
-
-* The existing Okta-hosted Sign-In Widget works as is after you upgrade your org.
-* You should upgrade your embedded Sign-In Widget or SDK as you would normally do with other updates.
-
-For help with upgrading, contact your account manager. If you don't have an account manager, Okta will be posting more detailed upgrade information at a later date.
+If you are a Classic Engine customer who wants to upgrade their apps to use the Identity Engine, go to [Okta Identity Engine Upgrade Overview](/docs/guides/oie-upgrade-overview/).
 
 For the Classic Engine customers who don't yet want to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.

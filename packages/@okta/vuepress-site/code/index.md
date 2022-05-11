@@ -39,3 +39,7 @@ Pick your platform from the options below. These pages contain links to SDKs tha
   <Card href="/code/ios/" :showHeaderIcon=true headerIcon="code-ios">iOS</Card>
   <Card href="/code/react-native/" :showHeaderIcon=true headerIcon="code-react">React Native</Card>
 </Cards>
+
+## Upgrade from Okta Classic to Identity Engine
+
+If you are a Classic Engine customer who wants to upgrade their apps to use the Identity Engine for authentication, go to [Okta Identity Engine Upgrade Overview](/docs/guides/oie-upgrade-overview/).
