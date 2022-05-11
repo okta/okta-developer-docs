@@ -310,7 +310,7 @@ In addition, the user also receives a "Notice of pending email address change" e
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge` POST endpoint.
+> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
 
 #### Request path parameters
 
@@ -393,7 +393,7 @@ Verify the email challenge with the verification code that the user receives fro
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` POST endpoint.
+> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` endpoint.
 
 #### Request path parameters
 
@@ -501,7 +501,7 @@ Delete the current user's email information by id, only UNVERIFIED primary and s
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to call the `/idp/myaccount/emails/{id}/` DELETE endpoint.
+> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/emails/{id}/` endpoint.
 
 #### Request path parameters
 
