@@ -885,7 +885,7 @@ Returns an HTTP 200 status code response.
 
 <ApiOperation method="post" url="/idp/myaccount/phones/{id}/verify"/>
 
-Verify the phone number with the verification code that the user receives via `SMS` or `CALL`. The phone number is active upon a successful verification.
+Verify the phone number with the verification code that the user receives through `SMS` or `CALL`. The phone number is active upon a successful verification.
 
 > **Note:** Sending requests to the `/idp/myaccount/phones/{id}/verify` endpoint at a rate that exceeds the rate limit rule configured by the admin, returns a 429 (Too Many Requests) error.
 
