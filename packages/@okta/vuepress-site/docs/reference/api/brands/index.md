@@ -2104,7 +2104,7 @@ This API lets you manage the settings of each customizable email template.
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
 
-Fetches the settings associated with template
+Fetches the settings associated with the template
 
 #### Request path parameters
 
