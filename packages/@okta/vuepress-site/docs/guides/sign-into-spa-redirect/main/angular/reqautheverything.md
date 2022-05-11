@@ -4,19 +4,19 @@ In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessi
 
 1. Update the Okta import statement to:
 
-```ts
-import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
-```
+   ```ts
+   import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
+   ```
 
 2. Add the following route to the `routes` array:
 
-```ts
-{
-  path: 'protected',
-  loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule),
-  canActivate: [OktaAuthGuard]
-},
-```
+   ```ts
+   {
+     path: 'protected',
+     loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule),
+     canActivate: [OktaAuthGuard]
+   },
+   ```
 
 3. Create a new protected module with the CLI command `ng generate module protected`.
 
