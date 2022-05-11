@@ -362,7 +362,7 @@ To run a test of your SSR Inline Hook, go to the Okta sign-in page for your Okta
 
 ### Test the Progressive Enrollment Inline Hook
 
-To test the Progressive Enrollment Inline Hook, you need to make "Employee number" a required input and manually add a user with password.
+To test the Progressive Enrollment Inline Hook, you need to make **Employee number** required and manually add a user with a password.
 
 1. Sign in to the Okta Admin Console as an admin.
 1. Go to **Security** > **Profile Enrollment**.
