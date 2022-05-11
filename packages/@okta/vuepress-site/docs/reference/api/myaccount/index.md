@@ -507,7 +507,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `id` | String | ID of the email. the ID of the email can be obtained through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
+| `id` | String | ID of the email. Obtain the ID of the email through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
 
 #### Request query parameters
 
