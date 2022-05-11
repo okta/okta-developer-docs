@@ -5,7 +5,7 @@
 5. Specify the **App integration name**.
 6. **Authorization Code** is selected automatically as a **Grant type**. In addition, select **Refresh Token**.
 
-    > **Note:** For native applications, **Authorization Code** is required.
+    > **Note:** For mobile applications, **Authorization Code** is required.
 
 7. Specify the **Sign-in redirect URIs** to redirect the user with their authorization code.
 8. Fill in the remaining details for your app integration, then click **Save**.
