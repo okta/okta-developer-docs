@@ -830,7 +830,7 @@ This request requires the `method` property as its request body. You can use an 
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `method`  | String | The method with which the challenge should be sent, valid values are `SMS` and `CALL` |
+| `method`  | String | The method with which the challenge should be sent. Valid values: `SMS` and `CALL` |
 | `retry`  | Boolean | An optional property that indicates whether this is a normal challenge or retry |
 
 #### Response body
