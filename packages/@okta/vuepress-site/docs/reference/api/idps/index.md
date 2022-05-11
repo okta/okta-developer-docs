@@ -21,15 +21,6 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Adds a new IdP to your organization
 
-- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
-- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
-- [Add Apple Identity Provider](#add-apple-identity-provider)
-- [Add Facebook Identity Provider](#add-facebook-identity-provider)
-- [Add Google Identity Provider](#add-google-identity-provider)
-- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
-- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
-- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
-
 ##### Request parameters
 
 | Parameter | Description       | Param Type | DataType                                      | Required |
@@ -39,6 +30,17 @@ Adds a new IdP to your organization
 ##### Response parameters
 
 The created [Identity Provider](#identity-provider-object)
+
+##### Request examples
+
+- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
+- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
+- [Add Apple Identity Provider](#add-apple-identity-provider)
+- [Add Facebook Identity Provider](#add-facebook-identity-provider)
+- [Add Google Identity Provider](#add-google-identity-provider)
+- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
+- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
+- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
 
 #### Add Generic OpenID Connect Identity Provider
 
