@@ -50,7 +50,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 3. In the **ACCOUNT** section, you have the option to add a sign-up link and to assign the user to an existing group automatically:
 
-    * **Add to Sign-In Widget:** (Optional) Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to the widget, you eliminate the need to configure a link that uses JavaScript in the Customize Sign-In Page editor.
+    * **Add to Sign-In Widget:** Optional. Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to the widget, you eliminate the need to configure a link that uses JavaScript in the Customize Sign-In Page editor.
 
     * **Assign to group:** (Optional) Enter the existing group name that users are automatically added to when they self register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the Default password policy.
 
