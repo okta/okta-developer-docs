@@ -58,7 +58,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
     * **Login field form label:** Optional. Enter a label for the **Email** field on the Create Account registration form.
 
-    * **Password field form label:** (Optional) Enter a label for the **Password** field on the Create Account registration form.
+    * **Password field form label:** Optional. Enter a label for the **Password** field on the Create Account registration form.
 
     * **Registration form fields:** (Optional) The `firstName` and `lastName` fields are required and can't be removed. You can accept the default **Form label** value or optionally enter a different field name.
 
