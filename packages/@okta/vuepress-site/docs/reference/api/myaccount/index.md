@@ -707,7 +707,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/idp/myaccount/phones" />
 
-Create an UNVERIFIED status phone for either `SMS` or `CALL` method to user's MyAccount setting.
+Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the user's MyAccount setting
 
 #### Required scope and role
 
