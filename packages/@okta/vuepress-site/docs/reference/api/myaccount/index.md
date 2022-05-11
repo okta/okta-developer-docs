@@ -899,7 +899,7 @@ An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `id` | String | The id of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`)  |
+| `id` | String | The ID of the phone factor. Found in the response when a new phone number is created successfully (`POST /idp/myaccount/phones`) or phone(s) is retrieved (`GET /idp/myaccount/phones`).  |
 
 #### Request query parameters
 
