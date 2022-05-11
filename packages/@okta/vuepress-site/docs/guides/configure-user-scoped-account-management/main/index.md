@@ -198,8 +198,8 @@ If an invalid `method` is passed in the request body, the response returns a 400
 
 If the phone authenticator isn't enabled for `method` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-<!-- If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 500 INTERNAL SERVER ERROR with error code E0000009.
--->
+If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 400 BAD REQUEST ERROR with error code E0000001.
+
 If the phone number already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
 If the call providers fails to send challenge when `sendCode` is true,  the response returns 500 with error code E0000138.
