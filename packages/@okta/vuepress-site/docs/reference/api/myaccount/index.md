@@ -1329,7 +1329,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `id`               | String                                                            | The caller's email ID|
 | `status`           | Object                                                            | The caller's email challenge status, VERIFIED, OR UNVERIFIED|
-| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires, the time to live of a challenge is 5 minutes|
+| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires. The lifetime of a challenge is five minutes.|
 | `profile`          | Object                                                            | The profile object defines the email address on the profile.|
 | `_links`           | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email challenge|
 
