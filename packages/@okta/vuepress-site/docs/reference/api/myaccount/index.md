@@ -547,7 +547,7 @@ If an invalid email ID is passed to the request, the response returns a 404 NOT 
 
 <ApiOperation method="get" url="/idp/myaccount/phones" />
 
-Fetches the current user's all phone information, along with a collection of links for each phone describing the operations can be performed.
+Fetches the current user's phone information for all phones, along with a collection of links for each phone describing the operations that can be performed.
 
 #### Required scope and role
 
