@@ -22,7 +22,7 @@ Explore the MyAccount API:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
-#### API Versioning
+#### API versioning
 
 A valid API version in the `Accept` header is required to access the API. Current version: V1.0.0
 
