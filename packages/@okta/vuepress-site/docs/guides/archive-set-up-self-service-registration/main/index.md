@@ -119,7 +119,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 4. Click **Update Policy**.
 
-5. Repeat steps 3 to 4 for any other policies that you have configured.
+5. Repeat steps 3 to 4 for any other policies that you configure.
 
 ## Configure registration in the Okta Sign-In Widget
 
