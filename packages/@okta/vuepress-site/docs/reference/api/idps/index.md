@@ -4700,35 +4700,43 @@ All Identity Providers have the following properties:
 
   After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
 
+* The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
+
 ### Identity Provider type
 
-Okta supports the following enterprise and social providers:
+The Identity Provider object's `type` property identifies the social or enterprise Identity Provider used for authentication. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`.
+Okta supports the following enterprise and social Identity Provider types:
 
-| Type         | Description                                                                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `APPLE`      | [Apple Sign In](https://developer.apple.com/documentation/sign_in_with_apple)                                                                       |
-| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/)                                                                       |
-| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)                                                  |
-| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)                                                                     |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)                                |
-| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)                                                    |
-| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) |
-| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280)                                |
+| Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
+| ------------ | ------------ | ---------------------- | ----------------------------- |
+| `AMAZON`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `DISCORD`     | [Discord](https://discord.com/login) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
+| `GITHUB`     | [GitHub](https://github.com) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
+| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) | |
+| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) | |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) | |
+| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | |
+| `PAYPAL`     | [Paypal](https://www.paypal.com/signin) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `SALESFORCE`     | [SalesForce](https://login.salesforce.com/) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `xxx` |
+| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
+| `XERO`      | [Xero](https://www.xero.com/us/signup/api/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOO`      | [Yahoo](https://login.yahoo.com/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |                             |
 
 ### Protocol object
 
-The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages.
+The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages. The following are the supported Protocol objects:
 
-| Provider     | Protocol                                   |
-| ------------ | -----------------------------------------  |
-| `APPLE`      | [OpenID Connect](#openid-connect-protocol) |
-| `FACEBOOK`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `GOOGLE`     | [OpenID Connect](#openid-connect-protocol) |
-| `LINKEDIN`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `MICROSOFT`  | [OpenID Connect](#openid-connect-protocol) |
-| `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
-| `SAML2`      | [SAML 2.0](#saml-2-0-protocol)              |
-| `MTLS`  | [Mutual TLS](#mtls-protocol) |
+* [SAML 2.0](#saml-2-0-protocol)
+* [OAuth 2.0](#oauth-2-0-protocol)
+* [OpenID Connect](#openid-connect-protocol)
+* [Mutual TLS](#mtls-protocol)
 
 #### SAML 2.0 Protocol
 
@@ -5095,7 +5103,7 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code flo
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
-> **Note:** The [OAuth 2.0 Setup Guide](#setup-guides) lists the scopes that are supported [per-IdP provider](#identity-provider-type).
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider.
 
 ```json
 {
@@ -5137,7 +5145,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
-> **Note:** The [IdP setup guides](#setup-guides) list the scopes that are supported [per-IdP provider](#identity-provider-type). The base `openid` scope is always required.
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider. The base `openid` scope is always required.
 
 ```json
 {
@@ -5377,6 +5385,7 @@ The information is used to generate the secret JSON Web Token for the token requ
   }
 }
 ```
+
 > **Note:** The key is truncated for brevity.
 
 
@@ -5520,15 +5529,13 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 #### IdP type policy actions
 
-| Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
+| IdP Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
 | ------------ | ----------------------------- | ------------------------------------- | ----------------------------- | --------------------  |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
+| `GOOGLE`     | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
+> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same User Provisioning Actions, Group Provisioning Actions, Account Link Actions, and Account Link Filters as the `GOOGLE` IdP type.
 
 #### Provisioning Policy object
 
@@ -5573,13 +5580,11 @@ The follow provisioning actions are supported by each IdP provider:
 
 | Type         | User Provisioning Actions     | Group Provisioning Actions            |
 | ------------ | ----------------------------- | ------------------------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
+| `GOOGLE`     | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
+> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same User and Group Provisioning Actions as the `GOOGLE` IdP type.
 
 ##### User provisioning action type
 
@@ -5777,13 +5782,11 @@ The following Account Link actions are supported by each IdP provider:
 
 | Type         | Account Link Actions          | Account Link Filters |
 | ------------ | ----------------------------- | -------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
+| `GOOGLE`     | `AUTO`, `DISABLED` | `groups`             |
 | `OIDC`       | `AUTO`                        |                      |
 | `SAML2`      | `AUTO`                        |                      |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> account link action.
+> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same Account Link Actions and Filters as the `GOOGLE` IdP type.
 
 ##### Account Link action type
 
