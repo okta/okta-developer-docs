@@ -102,7 +102,7 @@ To preview the Registration Inline Hook:
 2. Select the Registration Inline Hook name (in this example, select "Guide Registration Hook Code").
 3. Click the **Preview** tab.
 4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the `data.userProfile` object.
-5. From the "Preview example Inline Hook request" block, click **Generate Request**.
+5. From the **Preview example Inline Hook request** block, click **Generate Request**.
     The user's request information in JSON format that is sent to the external service appears.
 6. From the "View service's response" block, click **View Response**.
     The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
