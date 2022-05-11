@@ -1,12 +1,8 @@
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC
+
 ### 1: Start password recovery
 
-The user starts the password recovery flow by completing these steps:
-
-1. Click the **Forgot Password?** link on the sign-in page.
-2. Enter their **Email or Username** in the dialog and then clicks **Next**.
-3. Choose **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
-
-After the user completes these steps, Okta verifies that an account exists for the user using the information they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
+After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email matching the **Forgot Password** template you altered earlier.
 
 <div class="common-image-format">
 
@@ -14,14 +10,14 @@ After the user completes these steps, Okta verifies that an account exists for t
 
 </div>
 
-The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
+When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template, attaching the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Handle the OTP and state parameters
 
-Create a mapping that maps a request for the magic link URL to a method that takes the `otp` and `state` parameters from the query string, and makes the following checks:
+Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
 1. That `otp` and `state` are not `null`.
-2. That `state` matches the state stored in the current `ProceedContext` session variable.
+2. That `state` matches the state value stored in the current `ProceedContext` session variable.
 
 If either check returns false, throw an error.
 
@@ -68,7 +64,7 @@ If `ProceedContext` is `null` (because the user clicked the magic link from a di
 If `otp`, `state` and `ProceedContext` are valid and not `null`, call `IDXAuthenticationWrapper.verifyAuthenticator()`, using the `verifyAuthenticatorOptions` parameter to pass in the `otp` value.
 
 ```java
-        VerifyAuthenticatorOptions verifyAuthenticatorOptions = 
+        VerifyAuthenticatorOptions verifyAuthenticatorOptions =
             new VerifyAuthenticatorOptions(otp);
         authenticationResponse = authenticationWrapper
             .verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);

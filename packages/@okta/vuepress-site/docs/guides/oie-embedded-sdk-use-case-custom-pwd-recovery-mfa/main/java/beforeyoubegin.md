@@ -4,4 +4,4 @@
     * For apps using the embedded Sign-In Widget, implement the [basic sign-in flow](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/).
     * For apps using the SDK, implement [user password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/).
 
-To test the flows without creating an app, use the following sample apps. The apps provide support for password recovery and email customizations.
+To test the flows without creating an app yourself, use the sample apps. They provide support for password recovery and email customizations.

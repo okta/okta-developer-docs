@@ -1,12 +1,8 @@
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC
+
 ### 1: Start password recovery
 
-The user starts the password recovery flow by completing these steps:
-
-1. Click the **Forgot Password?** link on the sign-in page.
-2. Enter their **Email or Username** in the dialog and then clicks **Next**.
-3. Choose **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
-
-Okta then tells the user to either click the link in the email or enter the code to continue and sends an email to their email address matching the Forgot Password template that was altered earlier.
+After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email matching the **Forgot Password** template you altered earlier.
 
 <div class="common-image-format">
 
@@ -14,16 +10,16 @@ Okta then tells the user to either click the link in the email or enter the code
 
 </div>
 
-The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
+When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template, attaching the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Handle the OTP and state parameters
 
-Create a mapping that maps a request for the magic link URL to a method that takes the `otp` and `state` parameters from the query string, and makes the following checks:
+Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
-1. That the current session `IdxClientContext` is not `null` (because the user clicked the magic link from a different browser).
+1. That the current session attribute `IdxClientContext` is not `null` (because the user clicked the magic link from a different browser).
 2. That `state` is not `null`.
 
-If either check returns false, redirect to an error page. If both checks return true, pass `IdxClientContext`, `otp`, and `state` as session parameters to a page that contains the Sign-In Widget for processing.
+If either check returns false, redirect to an error page. If both checks return true, pass `IdxClientContext`,`otp` and `state` as session attributes to a page that contains the Sign-In Widget for processing. For example:
 
 ```java
 @GetMapping("/magic-link/callback")
@@ -109,9 +105,9 @@ Pass the values using the widget's `config` object.
   </script>
 ```
 
-### 3: Displays password reset prompt and complete password recovery flow
+### 3: Display password reset prompt and complete password recovery flow
 
-The widget loads and then checks the validity of state and otp with the Okta server. If the values are valid, the user is prompted to reset their password, as shown below. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
+After the widget loads, it checks the validity of the `otp` and `state` values with the Okta server. If they are valid, the user is prompted to reset their password, as shown below. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
 <div class="common-image-format">
 
