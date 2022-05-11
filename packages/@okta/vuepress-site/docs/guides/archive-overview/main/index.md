@@ -11,3 +11,8 @@ excerpt: The classic archive contains Okta classic-compatible versions of docume
 * [Sign in to SPA with embedded Widget](/docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/): This guide will walk you through integrating authentication into a single-page app with the Embedded Sign-In Widget.
 * [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy/): This guide explains how to add and configure Okta sign-on policies and app sign-on policies to your [Okta organization](/docs/concepts/okta-organizations/), and what the policies are used for.
 * [Add multifactor authentication](/docs/guides/mfa/ga/main/): This guide explains how to implement multifactor authentication (MFA) and provides an example of how to use the Okta Factors API to add an additional factor for a user.
+
+## Self-service registration guides
+
+* [Set up self-service registration](/docs/guides/archive-set-up-self-service-registration/main/): This guide explains how to set up Okta's self-service registration (SSR) functionality. 
+* [Registration Inline Hook](/docs/guides/archive-registration-inline-hook/): This guide provides a working example of an Okta Registration Inline Hook.

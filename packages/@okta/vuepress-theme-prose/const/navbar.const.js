@@ -711,6 +711,10 @@ export const guides = [
             title: "Add multifactor authentication",
             guideName: "mfa"
           },
+          {
+            title: "Registration Inline Hook",
+            guideName: "archive-registration-inline-hook"
+          }
         ]
       }
     ]
