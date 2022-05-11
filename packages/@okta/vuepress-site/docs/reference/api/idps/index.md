@@ -15,6 +15,12 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 ## Identity Provider operations
 
+- [Add an Identity Provider](#add-identity-provider)
+- [Get an Identity Provider](#get-identity-provider)
+- [List Identity Providers](#list-identity-providers)
+- [Update an Identity Provider](#update-identity-provider)
+- [Delete an Identity Provider](#delete-identity-provider)
+
 ### Add Identity Provider
 
 <ApiOperation method="post" url="/api/v1/idps" />
