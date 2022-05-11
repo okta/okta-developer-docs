@@ -424,7 +424,7 @@ If the requested `verificationCode` is invalid, the response returns a 401 UNAUT
 
 If the email operation isn't enabled in the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If an invalid challengeId is requested for verification, the response returns a 404 NOT FOUND with error code E0000007.
+If an invalid `challengeId` is requested for verification, the response returns a 404 NOT FOUND with error code E0000007.
 
 #### Usage example
 
