@@ -40,7 +40,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 It is up to you how you set up users to call the MyAccount API to manage their account. In this guide, we provide sample API calls using a Postman collection to demonstrate them in a language/platform neutral way.
 
-> **Note:** To run the Postman collection, you need an end-user access token. Use a password grant type or [SDK](/docs/guides/auth-js/-/main/) to get the token.
+> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
 
 ## API versioning
 
