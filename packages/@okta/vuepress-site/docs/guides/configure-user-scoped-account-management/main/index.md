@@ -96,7 +96,7 @@ This API requires a [My Email Request object](#my-email-request-object) as its r
 ```bash
 {
   "profile": {
-      "email" : "some.primary.email@okta.com"
+      "email" : "some.secondary.email@okta.com"
   },
    "role": "SECONDARY",
    "sendEmail": true
