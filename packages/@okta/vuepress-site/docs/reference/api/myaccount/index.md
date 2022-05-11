@@ -400,7 +400,7 @@ An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `id` | String | ID of the email. Obtain the ID of the email through `GET /idp/myaccount/emails` or `POST /idp/myaccount/emails` when adding a new email address. |
-| `challengeId` | String | The challengeId of the email. the challengeId can be obtained through `POST /idp/myaccount/emails/{id}/challenge/` when creating a new challenge. |
+| `challengeId` | String | The `challengeId` of the email. Obtain the `challengeId` through `POST /idp/myaccount/emails/{id}/challenge/` when creating a new challenge. |
 
 #### Request query parameters
 
