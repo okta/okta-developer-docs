@@ -2179,7 +2179,7 @@ Updates the settings associated with the template
 
 #### Request body
 
-The [Email Template Settings Object](#email-template-settings-object) resource to update.
+The [Email Template Settings Object](#email-template-settings-object) resource to update
 
 #### Response body
 
