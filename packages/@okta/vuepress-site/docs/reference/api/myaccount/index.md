@@ -412,7 +412,7 @@ This request requires the `verificationCode` property as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| `verificationCode`  | String | A 6-digit verification code that the user receives from the 'Confirm email address change' email |
+| `verificationCode`  | String | A 6-digit verification code that the user receives from the "Confirm email address change" email |
 
 #### Response body
 
