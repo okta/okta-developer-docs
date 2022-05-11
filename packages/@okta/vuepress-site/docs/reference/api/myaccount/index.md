@@ -650,7 +650,7 @@ An Okta scope of `okta.myAccount.phone.read` or `okta.myAccount.phone.manage` is
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `id` | String | ID of the phone. The ID of the phone can be obtained through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
+| `id` | String | ID of the phone. Obtain the ID of the phone through `GET /idp/myaccount/phones` or `POST /idp/myaccount/phones` when adding a new phone. |
 
 #### Request query parameters
 
