@@ -387,7 +387,7 @@ Returns an HTTP 201 status code response.
 
 <ApiOperation method="post" url="/idp/myaccount/emails/{id}/challenge/{challengeId}/verify" />
 
-Verify the email challenge with the verification code that the user receives from the 'Confirm email address change' email. The email is active upon a successful verification.
+Verify the email challenge with the verification code that the user receives from the "Confirm email address change" email. The email is active upon a successful verification.
 
 #### Required scope and role
 
