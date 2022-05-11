@@ -91,7 +91,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 6. Click **Save**.
 
-7. (Optional) If you added more fields (existing Okta user profile attributes) from the attribute list to the registration form during step 4, and you want your users to be able to modify those fields after registration on their **Settings** page, do the following:
+7. Optional. If you added more fields (existing Okta user profile attributes) from the attribute list to the registration form during step 4, and you want to allow your users to modify those fields after registration on their **Settings** page, do the following:
 
     * Go to **Directory** and then **Profile Editor**.
     * Click **Profile** for the **Okta User (default)** profile.
