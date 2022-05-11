@@ -826,7 +826,7 @@ N/A
 
 #### Request body
 
-This request requires the `method` property as its request body. An optional boolean `retry` property can be used to indicate resend challenge when its value is set to `true`.
+This request requires the `method` property as its request body. You can use an optional boolean `retry` property to indicate a resend challenge when its value is set to `true`.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
