@@ -115,7 +115,7 @@ If the email operation isn't enabled for the request `role` on the org, the resp
 
 If the email already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
-##### Request
+#### Request
 
 ```bash
 curl -v -X POST \
@@ -123,7 +123,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
 
-##### Response
+#### Response
 
 ```json
 {
