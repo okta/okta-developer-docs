@@ -495,7 +495,7 @@ curl -v -X GET \
 
 <ApiOperation method="delete" url="/idp/myaccount/emails/{id}" />
 
-Delete the current user's email information by id, only UNVERIFIED primary and secondary emails can be deleted.
+Deletes the current user's email information by ID. You can only delete UNVERIFIED primary and secondary emails.
 
 #### Required scope and role
 
