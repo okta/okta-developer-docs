@@ -2099,7 +2099,7 @@ This API lets you manage the settings of each customizable email template.
 
 ### Get Email Template Settings
 
-> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
+> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information.
 
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
