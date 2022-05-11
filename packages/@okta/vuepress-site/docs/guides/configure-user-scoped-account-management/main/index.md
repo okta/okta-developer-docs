@@ -202,7 +202,7 @@ If the number of phone factors for the current user already reaches the maximum 
 
 If the phone number already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
-If the call providers fails to send challenge when `sendCode` is true,  the response returns 500 with error code E0000138.
+If the call providers fail to send a challenge when `sendCode` is `true`,  the response returns a 500 with error code E0000138.
 
 ### Request
 
