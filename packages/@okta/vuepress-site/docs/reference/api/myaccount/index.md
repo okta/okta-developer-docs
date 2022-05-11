@@ -153,7 +153,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/idp/myaccount/emails/{id}" />
 
-Fetches the current user's email information by id: a collection of links describing the operations that can be performed on the email.
+Fetches the current user's email information by ID: a collection of links describing the operations that can be performed on the email
 
 #### Required scope and role
 
