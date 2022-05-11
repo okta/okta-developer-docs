@@ -16,7 +16,7 @@ This guide explains how to set up end-user driven account management in your org
 **Learning outcomes**
 
 * Set up your org with the required scopes to call the MyAccount API.
-* Allow your end users to call the API to update their profile and enroll another authenticator after first sign-in.
+* Allow your end users to call the API to update their profile and enroll another authenticator after they first sign in.
 
 **What you need**
 
