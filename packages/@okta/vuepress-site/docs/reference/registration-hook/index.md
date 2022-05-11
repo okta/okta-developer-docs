@@ -70,7 +70,7 @@ You can only set values for profile fields which already exist in your Okta user
 
 <ApiLifecycle access="ie" /><br>
 
-This object appears in Progressive Profile requests from Okta.  The object contains the delta between existing name-value pairs and the attributes your end user wants to update.
+This object appears in Progressive Profile requests from Okta. The object contains the delta between existing name-value pairs and the attributes that your end user wants to update.
 
 > **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
 
