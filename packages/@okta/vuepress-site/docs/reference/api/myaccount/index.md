@@ -1372,7 +1372,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `id`               | String                                                          | The caller's phone ID|
 | `status`           | String                                                          | The caller's phone status, VERIFIED, OR UNVERIFIED|
-| `profile`          | Object                                                          | The profile object defines the phone number on the profile.|
+| `profile`          | Object                                                          | The Profile object defines the phone number on the profile.|
 | `_links`           | Object                                                          | Discoverable resources related to the caller's phone |
 
 #### My Phone example
