@@ -987,9 +987,9 @@ Returns an empty HTTP 204 status code response.
 
 #### Error Responses
 
-If the phone authenticator isn't enabled for `method` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
+If the phone authenticator isn't enabled for `method` in the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If an invalid phone id is passed to the request, the response returns a 404 NOT FOUND with error code E0000008.
+If an invalid phone ID is passed to the request, the response returns a 404 NOT FOUND with error code E0000008.
 
 ### Get My User Profile Schema
 
@@ -1183,7 +1183,7 @@ Returns the result of applying the update, as if the caller had invoked the GET 
 
 #### Error Responses
 
-If provided profile attributes for update is invalid, the response returns a 400 BAD REQUEST with error code E0000001.
+If provided profile attributes for update are invalid, the response returns a 400 BAD REQUEST with error code E0000001.
 
 #### Usage example
 
@@ -1238,8 +1238,8 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `id`               | String                                                            | The caller's email ID|
 | `status`           | String                                                            | The caller's email status, VERIFIED, OR UNVERIFIED|
-| `roles`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
-| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+| `roles`            | Object                                                            | The Roles object defines the role of the email, PRIMARY or SECONDARY |
+| `profile`          | Object                                                            | The Profile object defines the email address on the profile.|
 | `_links`           | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's email |
 
 #### My Email example
@@ -1281,9 +1281,9 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 
 | Property           | Type                                                            | Description                                                                                                       |
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
-| `role`            | Object                                                            | The roles object defines the role of the email, PRIMARY or SECONDARY|
-| `sendEmail`        | Boolean                                                           | send challenge to the newly added email, the default is true | `state` | String | (Optional) The state parameter, the state of the client |
+| `profile`          | Object                                                            | The Profile object defines the email address on the profile.|
+| `role`            | Object                                                            | The Roles object defines the role of the email, PRIMARY or SECONDARY|
+| `sendEmail`        | Boolean                                                           | Send challenge to the newly added email. The default is `true` | `state` | String | (Optional) The state parameter, the state of the client |
 
 #### My Email Request example
 
@@ -1305,8 +1305,8 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `id`               | String                                                            | The caller's email ID|
 | `status`           | Object                                                            | The caller's email challenge status, VERIFIED, OR UNVERIFIED|
-| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires, the time to live of a challenge is 5 minutes|
-| `profile`          | Object                                                            | The profile object defines the email address on the profile.|
+| `expiresAt`        | String (ISO-8601)                                                 | The time this challenge expires. The lifetime of a challenge is five minutes. |
+| `profile`          | Object                                                            | The Profile object defines the email address on the profile.|
 
 #### My Email Challenge example
 
