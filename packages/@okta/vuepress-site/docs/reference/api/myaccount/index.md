@@ -1155,7 +1155,7 @@ curl -v -X GET \
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also doesn't support partial update (PATCH request).  All values returned from fetching User Profile must be passed to this API, or the update doesn't pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also doesn't support partial update (PATCH request). All values returned from fetching User Profile must be passed to this API, or the update doesn't pass validation. This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Required scope and role
 
