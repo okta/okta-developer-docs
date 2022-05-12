@@ -102,14 +102,10 @@ export default {
 
   computed:{
     entityType: function(){
-      if(this.link.hasOwnProperty('path') && this.link.hasOwnProperty('guideName')){
+      if(!this.link.hasOwnProperty('subLinks') || this.link.subLinks.length == 0){
         return this.types.link
-      }
-      if(this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')){
+      } else {
         return this.types.parent
-      }
-      if(this.link.hasOwnProperty('path') && this.link.path !== null){
-        return this.types.link
       }
     },
   },
@@ -170,8 +166,11 @@ export default {
         return loop(parent.$parent);
       }
       )(this)
+    },
+    getRoutes() {
+      const routes = this.appContext.treeNavDocs;
+      console.log(routes);
     }
-
   }
 };
 </script>
