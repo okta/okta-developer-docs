@@ -49,7 +49,7 @@ At the top level, Your Okta org contains a single brand, which contains a defaul
 
 ### Get brands
 
-You can return the org's brands with the following request (**Get brands** in Postman):
+You can return the org's brand response objects with the following request (**Get brands** in Postman):
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
