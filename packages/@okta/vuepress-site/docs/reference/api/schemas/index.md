@@ -2403,7 +2403,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-| format                         | identifies the type of date represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
+| format                         | identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description Details
 
