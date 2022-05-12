@@ -9,6 +9,8 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
+> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
+
 ## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
@@ -24,17 +26,17 @@ The Brands API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
-List all the brands in your org
+List all the brands in your org. 
 
 #### Response body
 
-Array of the [Brand Response](#brand-response-object)
+Array of the [Brand Response](#brand-response-object).
+
+> **Important**: Currently only one Brand per org is supported, therefore this will contain one single object only.
 
 #### Use examples
 
 The following example returns all Brands in the org.
-
-> **Note:** Currently, only one Brand per org is supported.
 
 ##### Request
 
@@ -374,13 +376,13 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
+> **Important**: Currently only one Theme per org is supported, therefore this will contain one single object only.
+
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
 The following example returns all Themes in the Brand.
-
-> **Note:** Currently, only one Theme per Brand is supported.
 
 ##### Request
 
@@ -474,7 +476,6 @@ Fetches a Theme for a Brand
 The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
-
 
 #### Use examples
 
@@ -831,7 +832,6 @@ Deletes a Theme logo. The org then uses the Okta default logo.
 None.
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
-
 
 #### Use examples
 
