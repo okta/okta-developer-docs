@@ -26,7 +26,7 @@ The Brands API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
-List all the brands in your org. 
+List all the brands in your org
 
 #### Response body
 
