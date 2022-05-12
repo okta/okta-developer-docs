@@ -169,8 +169,11 @@ export default {
         return loop(parent.$parent);
       }
       )(this)
+    },
+    getRoutes() {
+      const routes = this.appContext.treeNavDocs;
+      console.log(routes);
     }
-
   }
 };
 </script>
