@@ -53,7 +53,7 @@ You can return the org's brand response objects with the following request (**Ge
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
-This returns an array of [brand response objects](/docs/reference/api/brands/#brand-response-object), which will currently contain one single object only. You can try this in Postman by running the Get brands request.
+This returns an array of [brand response objects](/docs/reference/api/brands/#brand-response-object), which currently contains a single object. You can try this in Postman by running the GET brands request.
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
