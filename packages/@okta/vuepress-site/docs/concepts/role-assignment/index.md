@@ -86,7 +86,7 @@ The partition is specific to your Okta environment. The following are the suppor
 | ----------------- | ----------------------- |
 | Directory         | `directory`             | 
 | Identity Provider | `idp`                   |
-| Workflow <br><ApiLifecycle access="ea" /> | `workflow`                   |
+| Workflow <ApiLifecycle access="ea" /> | `workflow`                   |
 
 ###### tenantId
 
