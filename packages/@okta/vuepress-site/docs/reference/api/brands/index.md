@@ -376,7 +376,7 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
-> **Important**: Currently only one Theme per org is supported, therefore this will contain one single object only.
+> **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
