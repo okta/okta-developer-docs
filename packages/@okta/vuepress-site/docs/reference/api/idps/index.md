@@ -9,9 +9,9 @@ The Okta Identity Providers API provides operations to manage federations with e
 
 ## Get started
 
-See [Add and external Identity Provider](/docs/guides/identity-providers/) for detailed IdP set up guides.
-
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
+
+See [Add and external Identity Provider](/docs/guides/identity-providers/) for detailed IdP set up guides using the Admin Console.
 
 ## Identity Provider operations
 
@@ -2374,7 +2374,7 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
 ```
 
 ##### Response example
@@ -2519,7 +2519,7 @@ curl -v -X DELETE \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
 ```
 
 ##### Response example
@@ -2554,7 +2554,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id/lifecycle/activate"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/activate"
 ```
 
 ##### Response example
@@ -2668,7 +2668,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id/lifecycle/deactivate"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/deactivate"
 ```
 
 ##### Response example
