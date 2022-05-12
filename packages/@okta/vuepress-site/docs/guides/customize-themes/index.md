@@ -69,7 +69,7 @@ You can return the themes contained in a brand with the following request (**Get
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
-This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object), which will currently contain one single object only.
+This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object), which currently contain a single object.
 
 Once you've set the `themeId` variable to a specific theme ID, you can return a specific theme response object using the following request (**Get theme** in Postman):
 
