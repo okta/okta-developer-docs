@@ -30,7 +30,7 @@ List all the brands in your org
 
 #### Response body
 
-Array of the [Brand Response](#brand-response-object).
+Array of the [Brand Response](#brand-response-object)
 
 > **Important**: Currently only one Brand per org is supported, therefore this will contain one single object only.
 
