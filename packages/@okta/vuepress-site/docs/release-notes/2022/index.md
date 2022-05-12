@@ -3,6 +3,28 @@ title: Okta API Products release notes 2022
 ---
 ## May
 
+### Weekly release 2022.05.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [User-scoped MyAccount API is EA in Preview](#user-scoped-myaccount-api-is-ea-in-preview) | May 11, 2022 |
+| [The API for suppressing email notifications is EA in Preview](#the-api-for-suppressing-email-notifications-is-ea-in-preview) | May 11, 2022 |
+| [Bugs fixed in 2022.05.1](#bugs-fixed-in-2022-05-1) | May 11, 2022 |
+
+#### User-scoped MyAccount API is EA in Preview
+
+The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/).
+
+#### The API for suppressing email notifications is EA in Preview
+
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios that warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).
+
+#### Bugs fixed in 2022.05.1
+
+* When a security question was set using requests to the `/api/v1/users/{userId}` or `/api/v1/users/{userId}/credentials/change_recovery_question` endpoints, the answer could contain part of the question if the security question was disabled in the Default Policy. (OKTA-469369)
+
+* When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
+
 ### Monthly release 2022.05.0
 
 | Change | Expected in Preview Orgs |

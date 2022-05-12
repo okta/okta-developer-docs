@@ -28,9 +28,9 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [Token Inline Hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
 | [User Import Inline Hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
 | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration |
+| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony Inline Hook](/docs/reference/telephony-hook/) <ApiLifecycle access="ea" /> | Customizes Okta's flows that send SMS or Voice messages       |
+| [Telephony Inline Hook](/docs/reference/telephony-hook/) <ApiLifecycle access="ea" /> | Customizes Okta's flows that send SMS or Voice messages |
 
 ## Inline Hook process flow
 
@@ -190,4 +190,4 @@ The [Okta System Log](/docs/reference/api/system-log/) captures events related t
 
 <https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
-> **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.
+> **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an Inline Hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.
