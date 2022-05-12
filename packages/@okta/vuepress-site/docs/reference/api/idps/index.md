@@ -4704,20 +4704,21 @@ All Identity Providers have the following properties:
 
 ### Identity Provider type
 
-The Identity Provider object's `type` property identifies the social or enterprise Identity Provider used for authentication. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`.
+The Identity Provider object's `type` property identifies the social or enterprise Identity Provider used for authentication. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`. For policy actions supported by each IdP type, see [IdP type policy actions](#idp-type-policy-actions).
+
 Okta supports the following enterprise and social Identity Provider types:
 
 | Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
 | ------------ | ------------ | ---------------------- | ----------------------------- |
-| `AMAZON`      | [Sign in with Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
-| `APPLE`      | [Sign in with Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `AMAZON`      | [Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `APPLE`      | [Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
 | `DISCORD`     | [Discord](https://discord.com/login) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `identify`, `email` |
-| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/) as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
+| `FACEBOOK`   | [Facebook](https://developers.facebook.com/docs/facebook-login/overview/) as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
 | `GITHUB`     | [GitHub](https://github.com) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
 | `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
-| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
-| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
+| `GOOGLE`     | [Google](https://developers.google.com/identity/protocols/OpenIDConnect) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `PAYPAL`     | [Paypal](https://www.paypal.com/signin) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
@@ -5531,11 +5532,13 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 | IdP Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
 | ------------ | ----------------------------- | ------------------------------------- | ----------------------------- | --------------------  |
-| `GOOGLE`     | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `DISABLED` | `groups`              |
+| [[all social IdP types *]](#social-idp-type-policy-actions)   | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same User Provisioning Actions, Group Provisioning Actions, Account Link Actions, and Account Link Filters as the `GOOGLE` IdP type.
+##### Social IdP type policy actions *
+
+All social IdPs (such as `FACEBOOK`, `LINKEDIN`, `GOOGLE`, and so on) support the same User Provisioning Actions, Group Provisioning Actions, Account Link Actions, and Account Link Filters.
 
 #### Provisioning Policy object
 
@@ -5584,7 +5587,7 @@ The follow provisioning actions are supported by each IdP provider:
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |
 
-> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same User and Group Provisioning Actions as the `GOOGLE` IdP type.
+> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) support the same User and Group Provisioning Actions as the `GOOGLE` IdP type.
 
 ##### User provisioning action type
 
@@ -5786,7 +5789,7 @@ The following Account Link actions are supported by each IdP provider:
 | `OIDC`       | `AUTO`                        |                      |
 | `SAML2`      | `AUTO`                        |                      |
 
-> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) use the same Account Link Actions and Filters as the `GOOGLE` IdP type.
+> **Note:** All social IdPs (such as `FACEBOOK`, `LINKEDIN`, and so on) support the same Account Link Actions and Filters as the `GOOGLE` IdP type.
 
 ##### Account Link action type
 
