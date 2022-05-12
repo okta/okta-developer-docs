@@ -25,7 +25,7 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 <ApiOperation method="post" url="/api/v1/idps" />
 
-Adds a new IdP to your organization
+Adds a new IdP to your organization. See [Identity Provider type](#identity-provider-type) for the list of supported external IdPs.
 
 ##### Request parameters
 
@@ -47,6 +47,8 @@ The created [Identity Provider](#identity-provider-object)
 - [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
 - [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
 - [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
+
+See [Identity Provider type](#identity-provider-type) for a list of all the supported external IdPs.
 
 #### Add Generic OpenID Connect Identity Provider
 
@@ -4710,25 +4712,25 @@ Okta supports the following enterprise and social Identity Provider types:
 
 | Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
 | ------------ | ------------ | ---------------------- | ----------------------------- |
-| `AMAZON`      | [Amazon](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
-| `APPLE`      | [Apple](https://developer.apple.com/documentation/sign_in_with_apple) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
-| `DISCORD`     | [Discord](https://discord.com/login) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `identify`, `email` |
-| `FACEBOOK`   | [Facebook](https://developers.facebook.com/docs/facebook-login/overview/) as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
-| `GITHUB`     | [GitHub](https://github.com) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
-| `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
-| `GOOGLE`     | [Google](https://developers.google.com/identity/protocols/OpenIDConnect) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
-| `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin) as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
+| `AMAZON`      | [Amazon](https://developer.apple.com/documentation/sign_in_with_apple)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `APPLE`      | [Apple](https://developer.apple.com/documentation/sign_in_with_apple)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `DISCORD`     | [Discord](https://discord.com/login)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `identify`, `email` |
+| `FACEBOOK`   | [Facebook](https://developers.facebook.com/docs/facebook-login/overview/)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
+| `GITHUB`     | [GitHub](https://github.com)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
+| `GOOGLE`     | [Google](https://developers.google.com/identity/protocols/OpenIDConnect)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
-| `PAYPAL`     | [Paypal](https://www.paypal.com/signin) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
-| `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/) as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
-| `SALESFORCE`     | [SalesForce](https://login.salesforce.com/) as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `id`, `email`, `profile` |
+| `PAYPAL`     | [Paypal](https://www.paypal.com/signin)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `SALESFORCE`     | [SalesForce](https://login.salesforce.com/)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `id`, `email`, `profile` |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
-| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
-| `XERO`      | [Xero](https://www.xero.com/us/signup/api/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
-| `YAHOO`      | [Yahoo](https://login.yahoo.com/) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
-| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login) as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |                             |
+| `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |                             |
 
 ### Protocol object
 
