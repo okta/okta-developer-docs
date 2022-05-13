@@ -2149,6 +2149,7 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 | type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | TRUE   | TRUE     |
 | enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
+| format                         | identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description details
 
@@ -2177,6 +2178,33 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
   ```
 
   `oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
+
+- `format`: Okta uses this keyword to identify the type of data represented by the string. The following attribute formats are supported: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
+
+  ```bash
+  curl --location --request POST 'https://{$yourOktaDomain}/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: SSWS ${api_token}' \
+  --data-raw '{
+      "definitions": {
+          "custom": {
+              "id": "#custom",
+              "type": "object",
+              "properties": {
+                  "CustomCountryCode": {
+                      "title": "Custom Country Code",
+                      "description": "Custom Country Code",
+                      "type": "string",
+                      "required": false,
+                      "format": "country-code"
+                  }
+              },
+              "required": []
+          }
+      }
+  }'
+  ```
 
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
@@ -2405,7 +2433,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 | oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
 | format                         | identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
 
-##### Description Details
+##### Description details
 
 - `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for the `enum` must be made up of unique elements.
 
