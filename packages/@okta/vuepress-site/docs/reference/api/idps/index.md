@@ -4730,7 +4730,7 @@ Okta supports the following enterprise and social Identity Provider types:
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
-| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |                             |
+| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 
 ### Protocol object
 
