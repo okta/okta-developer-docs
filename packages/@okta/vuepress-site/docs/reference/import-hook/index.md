@@ -142,9 +142,7 @@ When using the `com.okta.action.update` command to specify that the user should 
 
 #### Specifying no change in default action
 
-When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty response. For example:
-
-**Sample JSON payload of an empty response from your external service to Okta**
+When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty JSON response to Okta. For example:
 
 ```json
 {}
