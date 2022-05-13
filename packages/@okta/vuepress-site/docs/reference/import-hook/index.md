@@ -140,9 +140,11 @@ When using the `com.okta.action.update` command to specify that the user should 
 }
 ```
 
-#### Specifying no action
+#### Specifying no change in default action
 
-When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty response. The User Import Inline Hook only modifies user imports with a response using one of the [commands](#commands). For example:
+When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty response. For example:
+
+**Sample JSON payload of an empty response from your external service to Okta**
 
 ```json
 {}
