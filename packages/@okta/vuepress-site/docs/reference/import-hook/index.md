@@ -142,7 +142,11 @@ When using the `com.okta.action.update` command to specify that the user should 
 
 #### Specifying no action
 
-When you don't want the hook to change the user import operation or update a user profile, return an empty response (or no response at all). The User Import Inline Hook only modifies user imports with a response using one of the [commands](#commands).
+When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty response. The User Import Inline Hook only modifies user imports with a response using one of the [commands](#commands). For example:
+
+```json
+{}
+```
 
 ### error
 
