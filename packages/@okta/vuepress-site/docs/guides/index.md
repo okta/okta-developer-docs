@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - archive-auth-js
  - archive-embedded-siw
+ - archive-registration-inline-hook
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
@@ -16,6 +17,7 @@ guides:
  - configure-access-policy
  - configure-native-sso
  - configure-signon-policy
+ - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email
  - custom-error-pages

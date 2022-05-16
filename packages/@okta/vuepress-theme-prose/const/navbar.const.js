@@ -277,6 +277,10 @@ export const guides = [
             ]
           },
           {
+            title: "Configure User-Scoped account management",
+            guideName: "configure-user-scoped-account-management"
+          },
+          {
             title: "Advanced use cases",
             subLinks: [
               {
@@ -770,6 +774,10 @@ export const guides = [
             title: "Add multifactor authentication",
             guideName: "mfa"
           },
+          {
+            title: "Registration Inline Hook",
+            guideName: "archive-registration-inline-hook"
+          }
         ]
       }
     ]

@@ -26,7 +26,7 @@ If your code can't retrieve the context using the state, assume that this is bec
 }
 ```
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of different device or browser error](/img/authenticators/authenticators-email-magic-link-error.png)
 

@@ -9,4 +9,8 @@
       margin-bottom: 20px;
   }
 
+  .bordered-image > p > img {
+    border: 1px solid cv('gray', '200');
+    border-radius: 46px;
+  }
 }

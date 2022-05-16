@@ -89,7 +89,7 @@ First, the form that contains the QR code and a dropdown list of other enrollmen
 
 The instructions and QR code appear, as shown in the following screenshot
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A QR code to be scanned into Okta Verify to complete enrollment](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-scan-qr-code.png "A sample QR code to be scanned in Okta Verify")
 
