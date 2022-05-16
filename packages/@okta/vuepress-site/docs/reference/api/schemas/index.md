@@ -837,7 +837,6 @@ curl -v -X POST \
 
 ### Update App User Profile Schema property
 
-
 <ApiOperation method="post" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
 Updates one or more [custom App User Profile properties](#app-user-profile-schema-property-object) in the schema, or the nullability of a base property. Changing a base property's nullability (for example, the value of its `required` field) is allowed only if it is nullable in the default predefined Schema for the App.
@@ -2182,10 +2181,10 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 - `format`: Okta uses this keyword to identify the type of data represented by the string. The following attribute formats are supported: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
 
   ```bash
-  curl --location --request POST 'https://${yourOktaDomain}/api/v1/meta/schemas/users/${typeId}' \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: SSWS ${api_token}' \
+  curl --location --request POST "https://${yourOktaDomain}/api/v1/meta/schemas/user/${typeId}" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --header "Authorization: SSWS ${api_token}" \
   --data-raw '{
       "definitions": {
           "custom": {
@@ -2464,10 +2463,10 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 - `format`: Okta uses this keyword to identify the type of data represented by the string. The following attribute formats are supported: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
 
   ```bash
-  curl --location --request POST 'https://${yourOktaDomain}/api/v1/meta/schemas/apps/${appId}/default' \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: SSWS ${api_token}' \
+  curl --location --request POST "https://${yourOktaDomain}/api/v1/meta/schemas/apps/${appId}/default" \
+  --header "Accept: application/json" \
+  --header "Content-Type: application/json" \
+  --header "Authorization: SSWS ${api_token}" \
   --data-raw '{
       "definitions": {
           "custom": {
