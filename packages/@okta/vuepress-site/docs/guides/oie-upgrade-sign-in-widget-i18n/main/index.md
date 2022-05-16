@@ -1,5 +1,5 @@
 ---
-title: Updates to the Sign-In Widget i18n properties
+title: Updates to widget i18n properties
 ---
 
 <ApiLifecycle access="ie" />

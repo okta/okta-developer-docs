@@ -45,9 +45,9 @@ For more background on the different deployment models, including basic flows an
 
 <EmbeddedBrowserWarning />
 
-## Upgrade from Okta Classic to Identity Engine SDKs
+## Upgrade from Okta Classic to Identity Engine
 
-If you are a Classic Engine customer who wants to upgrade their apps to use the Identity Engine for authentication, go to [Okta Identity Engine Upgrade Overview](/docs/guides/oie-upgrade-overview/).
+If you are a Classic Engine customer who wants to upgrade their apps to use the Identity Engine for authentication, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
 ## Next steps
 

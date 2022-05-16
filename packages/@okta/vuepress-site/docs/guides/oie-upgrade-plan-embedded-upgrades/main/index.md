@@ -1,5 +1,5 @@
 ---
-title: Planning embedded auth app upgrades
+title: Plan embedded auth app upgrades
 ---
 
 <ApiLifecycle access="ie" />
@@ -99,3 +99,14 @@ When planning how to roll the upgrade out to your users, take the following sugg
     * Load balance network traffic to different application instances, containers, or web servers to send some to a Classic  Engine version of your app or to an Identity Engine version.
     * Increase this over time, as you see fit.
     * Remove code or shutdown alternate versions when everything is working.
+
+## Troubleshooting
+
+This section details common issues and errors you may encounter during your upgrade, and likely causes.
+
+| Issue / error | Cause | 
+| ------ | -------------------------- |
+| Error message — "The requested feature is not available in this environment" | This is reported when your [Okta org](/docs/concepts/okta-organizations/) has not been upgraded to Identity Engine and you try to turn on [interaction code](/docs/concepts/interaction-code/) in the embedded SDK/Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
+| &nbsp; | The above error is also reported when you *have* upgraded your org to Identity Engine and interaction code is turned on in the embedded SDK, but it isn't turned on in your app or authorization server. |
+| Various SDK errors | If your Okta org has not been upgraded to Identity Engine and you start trying to replace Classic API/SDK calls with Identity Engine SDK calls, you will see errors in your apps. |
+| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic | Interaction code is turned off in the SDK. |

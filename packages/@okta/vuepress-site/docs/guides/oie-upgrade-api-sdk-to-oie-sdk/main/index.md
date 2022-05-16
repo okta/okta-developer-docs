@@ -1,5 +1,5 @@
 ---
-title: Upgrade your application to the Okta Identity Engine SDK
+title: Upgrade your application to the Identity Engine SDK
 ---
 
 <ApiLifecycle access="ie" />

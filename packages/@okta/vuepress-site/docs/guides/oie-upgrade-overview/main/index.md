@@ -1,5 +1,5 @@
 ---
-title: Okta Identity Engine Upgrade Overview
+title: Identity Engine upgrade overview
 meta:
   - name: description
     content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Learn about the Identity Engine upgrade and what your org upgrade process may look like.
@@ -13,6 +13,7 @@ Are you an admin? See the [Identity Engine Upgrade Overview](https://help.okta.c
 ## Before attempting to upgrade
 
 * **IMPORTANT**: Talk to your Okta rep/Customer Success Manager and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
+* Review the [Identity Engine limitations](/docs/guides/ie-limitations/) guide to get an idea of what features you are using, if any, that will require remediations (meaning they will need adjustment before we can proceed with an upgrade). For example, some Classic features may not be supported in Identity Engine in their current form.
 * [Upgrade your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further — this includes both Okta-hosted Widgets and Widgets embedded inside your apps.
 
 ## Upgrade process
@@ -20,7 +21,7 @@ Are you an admin? See the [Identity Engine Upgrade Overview](https://help.okta.c
 The initial upgrade path consists of the following steps:
 
 * Assess your org and app and create a report outlining the level of effort to perform the upgrade.
-  * Your set up may require remediations, for example some Classic features may [not be supported in Identity Engine](/docs/guides/ie-limitations/) in their current form, and will require adjustment before we can proceed.
+  * As mentioned above, your set up may require remediations.
   * If there are no remediations required, then the upgrade is simple, and the subsequent steps will be seamless.
 * Complete data migration
 * Convert and migrate objects such as policies, orgs, and users
@@ -40,7 +41,7 @@ The rest of the upgrade process is defined in the next section. Which steps that
 
 After you complete the prerequisites, your data migration is finished, and you have access to your Identity Engine org, the following content outlines the next steps that you may take as you navigate through the rest of your upgrade process.
 
-For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades) guide.
+For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades) guide. This guide also contains useful [troubleshooting](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/#troubleshooting) information, including common issues and errors you may encounter during your upgrade, and likely causes.
 
 1. Test your new environment to make sure that your experience and functionality are preserved.
 2. What’s your Deployment Model?
@@ -87,7 +88,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
   * [Update the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
   * [Update the Sign-in Widget i18n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget i18n key updates.
 
-* [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
+* [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
 * [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server): Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
 
@@ -95,19 +96,8 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
-* [Understand how sessions work after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
-* [Understand MFA enrollment policy API changes after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
+* [Understand MFA enrollment policy API changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
 
-* [Okta Identity Engine Limitations](/docs/guides/ie-limitations/): Current limitations with the Identity Engine to be aware of.
-
-## Troubleshooting
-
-This section details common issues and errors you may encounter during your upgrade, and likely causes.
-
-| Issue / error | Cause | 
-| ------ | -------------------------- |
-| Error message — "The requested feature is not available in this environment" | This is reported when your [Okta org](/docs/concepts/okta-organizations/) has not been upgraded to Identity Engine and you try to turn on [interaction code](/docs/concepts/interaction-code/) in the embedded SDK/Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
-| &nbsp; | The above error is also reported when you *have* upgraded your org to Identity Engine and interaction code is turned on in the embedded SDK, but it isn't turned on in your app or authorization server. |
-| Various SDK errors | If your Okta org has not been upgraded to Identity Engine and you start trying to replace Classic API/SDK calls with Identity Engine SDK calls, you will see errors in your apps. |
-| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic | Interaction code is turned off in the SDK. |
+* [Identity Engine limitations](/docs/guides/ie-limitations/): Current limitations with the Identity Engine to be aware of.
