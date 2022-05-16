@@ -2182,7 +2182,7 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 - `format`: Okta uses this keyword to identify the type of data represented by the string. The following attribute formats are supported: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
 
   ```bash
-  curl --location --request POST 'https://{$yourOktaDomain}/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
+  curl --location --request POST 'https://${yourOktaDomain}/api/v1/meta/schemas/users/${typeId}' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: SSWS ${api_token}' \
@@ -2464,7 +2464,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 - `format`: Okta uses this keyword to identify the type of data represented by the string. The following attribute formats are supported: `uri`, `date-time`, `email`, `ref-id`, `encrypted`, `hashed`, `country-code`, `language-code`, `locale`, and `timezone`. See the following request that uses the format property:
 
   ```bash
-  curl --location --request POST 'https://{$yourOktaDomain}/api/v1/meta/schemas/apps/0oa4cthzyqgFj8ISJ5d7/default' \
+  curl --location --request POST 'https://${yourOktaDomain}/api/v1/meta/schemas/apps/${appId}/default' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
   --header 'Authorization: SSWS ${api_token}' \
