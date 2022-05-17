@@ -1,6 +1,6 @@
-### 1. Select the password recovery link
+### 1. Start the password recovery flow
 
-First, the user selects a password recovery link from the sign-in page. Add a link that points to the password recovery page. An example link named **Forgot your password?** is shown in the following screenshot.
+First, add a link that allows the user to submit their username to begin the password recovery. The following example shows a **Forgot your password?** link pointing to the password recovery page.
 
 <div class="common-image-format bordered-image">
 
@@ -10,7 +10,7 @@ First, the user selects a password recovery link from the sign-in page. Add a li
 
 ### 2. Show the password recovery page
 
-Next, show the password recovery page to the user. Create a page that accepts the account's username and includes a **Next** button that starts the recovery flow.
+Next, build a password recovery page that allows the user to enter their account's username. Include a **Next** button that submits this username to the SDK when selected.
 
 <div class="common-image-format bordered-image">
 
@@ -20,7 +20,7 @@ Next, show the password recovery page to the user. Create a page that accepts th
 
 ### 3. Submit username
 
-The user enters their username on the password recovery page and selects **Next** to start the recovery process.  At this time, call `OktaAuth.idx.recoverPassword()`, passing in the username.
+When the user enters their username and clicks **Next**, call `OktaAuth.idx.recoverPassword()`, passing in the username as a parameter.
 
 ```javascript
 try {
@@ -33,11 +33,11 @@ try {
 
 ### 4. Display a list of available authenticators
 
-`OktaAuth.idx.recoverPassword()` returns a response indicating that the next step is to select an authenticator. Specifically, `IdxTransaction` returns:
+`OktaAuth.idx.recoverPassword()` returns an `IdxTransaction` object indicating:
 
-* a `status` of `PENDING`
-* a `nextStep.name` equal to `select-authenticator-authenticate`
-* an `option` item with a `value` of `okta_email` in the `nextstep.inputs[n].options` array
+* The sign-in `status` is in the `PENDING` state.
+* The next step is to choose an authenticator, that is, `nextStep.name` = `select-authenticator-authenticate`.
+* The email authenticator is an available option in the `options` array.
 
 ```javascript
 {
@@ -52,11 +52,7 @@ try {
           {
             label: "Email",
             value: "okta_email",
-          },
-          {
-            label: "Phone",
-            value: "phone_number",
-          },
+          }
         ],
       },
     ],
@@ -64,7 +60,7 @@ try {
 }
 ```
 
-Using this response, display a list of authenticators to the user. If you've configured your org as described in [Configuration updates](#configuration-updates), email is included in the list of available authenticators.
+Using this response, display a list of authenticators to the user.
 
 <div class="common-image-format bordered-image">
 
@@ -72,13 +68,18 @@ Using this response, display a list of authenticators to the user. If you've con
 
 </div>
 
+> **Note**: If email is not included in the list of available authenticators, check you've configured your org as described in [Configuration updates](#configuration-updates).
+
 ### 5. Verify identity with the email authenticator
 
-Next, the user selects and verifies their identity with the email authenticator challenge. The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+Next, the user verifies their identity with the email authenticator challenge. The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
 ### 6. Display password reset page
 
-After the user verifies their email, `OktaAuth.idx.proceed()` returns a response indicating that user is allowed to reset their password. Specifically, `IdxTransaction` returns a `status` of `PENDING` and `nextStep.name` equal to `reset-authenticator`.
+After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` indicating:
+
+* The sign-in `status` is in the `PENDING` state.
+* The next step is to reset the user's password, that is, `nextStep.name` = `reset-authenticator`.
 
 ```javascript
 {
@@ -98,7 +99,7 @@ After the user verifies their email, `OktaAuth.idx.proceed()` returns a response
 }
 ```
 
-Using this response, create a password reset page that allows the user to enter their new password.
+Create a password reset page that allows the user to enter their new password.
 
 <div class="common-image-format bordered-image">
 
@@ -108,7 +109,7 @@ Using this response, create a password reset page that allows the user to enter 
 
 ### 7. Submit the new password
 
-Next, the user enters and submits their new password. Send the new password to `OktaAuth.idx.recoverPassword()`.
+When the user submits their new password, pass it as a parameter to `OktaAuth.idx.recoverPassword()`.
 
 
 ```javascript
@@ -119,4 +120,4 @@ Next, the user enters and submits their new password. Send the new password to `
 
 >**Note:** Review the complete use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword).
 
-If the call to `OktaAuth.idx.recoverPassword()` is successful, `IdxTransaction` returns a `status` of `SUCCESS` along with Id and access tokens. The password reset is now complete and you can redirect the user to the default home page.
+If successful, the call to `OktaAuth.idx.recoverPassword()` returns a `status` of `SUCCESS` and the response will include ID and access tokens. The password reset is now complete and you can redirect the user to the default home page.

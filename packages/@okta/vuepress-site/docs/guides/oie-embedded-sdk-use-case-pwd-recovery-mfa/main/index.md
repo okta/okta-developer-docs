@@ -62,6 +62,6 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 
 ## Troubleshooting tips
 
-Ensure that the password recovery user is valid with an active user status in your Okta org.
+Verify that the password recovery user is valid with an active user status in your Okta org.
 
 </div>
