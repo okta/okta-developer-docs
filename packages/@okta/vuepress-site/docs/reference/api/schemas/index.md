@@ -2831,7 +2831,7 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 | Property                       | Description                                                                      | DataType                    | Nullable | Unique | Readonly |
 | :----------------------------- | :------------------------------------------------------------------------------- | :-------------------------- | :------- | :----- | :------- |
 | required                       | Determines whether the property is required                                      | Boolean                     | FALSE    | FALSE  | FALSE    |
-| [unique](##unique-attributes)    | Determines whether property values must be unique                                | Boolean                     | FALSE    | FALSE  | FALSE    |
+| [unique](#unique-attributes)    | Determines whether property values must be unique                                | Boolean                     | FALSE    | FALSE  | FALSE    |
 | scope                          | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`              | FALSE    | FALSE  | TRUE     |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
