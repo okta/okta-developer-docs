@@ -327,18 +327,15 @@ Updates one or more [custom User Profile properties](#user-profile-schema-proper
 
 ##### Request parameters
 
-
 | Parameter   | Description                                          | Param Type | DataType                                                         | Required |
 |:------------|:-----------------------------------------------------|:-----------|:-----------------------------------------------------------------|:---------|
 | definitions | Subschema with one or more custom Profile properties | Body       | [User Profile custom subschema](#user-profile-custom-subschema) | TRUE     |
 
 ##### Response parameters
 
-
 [User Schema](#user-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -513,7 +510,6 @@ The following response is only a subset of properties for brevity.
 Removes one or more [custom User Profile properties](#user-profile-schema-property-object) from the user schema. You can't remove a property from the default Schema if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs. Currently, all validation of SAML assertions is only performed against the default user type.
 
 ##### Request parameters
-
 
 | Parameter   | Description                                                    | Param Type | DataType                                                         | Required |
 |:------------|:---------------------------------------------------------------|:-----------|:-----------------------------------------------------------------|:---------|
@@ -736,7 +732,6 @@ Adds one or more [custom App User Profile properties](#app-user-profile-schema-p
 
 ##### Request parameters
 
-
 | Parameter   | Description                                          | Param Type | DataType                                                       | Required | Default |
 | :----------- | :---------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
 | instanceId  | The `id` of the target App Instance                    | Path       | String                                                         | TRUE     |        |
@@ -747,7 +742,6 @@ Adds one or more [custom App User Profile properties](#app-user-profile-schema-p
 [App User Schema](#app-user-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -776,7 +770,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -843,7 +836,6 @@ Updates one or more [custom App User Profile properties](#app-user-profile-schem
 
 ##### Request parameters
 
-
 | Parameter   | Description                                          | Param Type | DataType                                                       | Required | Default |
 | :----------- | :---------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
 | instanceId  | The `id` of the target App Instance                    | Path       | String                                                         | TRUE     |        |
@@ -851,11 +843,9 @@ Updates one or more [custom App User Profile properties](#app-user-profile-schem
 
 ##### Response parameters
 
-
 [App User Schema](#app-user-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -884,7 +874,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -945,13 +934,11 @@ curl -v -X POST \
 
 ### Remove property from App User Profile Schema
 
-
 <ApiOperation method="post" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
 Removes one or more [custom App User Profile properties](#app-user-profile-schema-property-object) from the App User Schema
 
 ##### Request parameters
-
 
 | Parameter   | Description                                                    | Param Type | DataType                                                       | Required | Default |
 | :----------- | :-------------------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
@@ -962,11 +949,9 @@ Removes one or more [custom App User Profile properties](#app-user-profile-schem
 
 ##### Response parameters
 
-
 [App User Schema](#app-user-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -988,7 +973,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1043,23 +1027,19 @@ The [User Types](/docs/reference/api/user-types) feature doesn't extend to group
 
 ### Get Group Schema
 
-
 <ApiOperation method="get" url="/api/v1/meta/schemas/group/default" />
 
 Fetches the group schema.
 
 ##### Request parameters
 
-
 N/A
 
 ##### Response parameters
 
-
 [Group Schema](#group-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -1186,18 +1166,15 @@ Adds one or more [custom Group Profile Schema properties](#group-profile-schema-
 
 ##### Request parameters
 
-
 | Parameter   | Description                                          | Param Type | DataType                                                          | Required |
 |:------------|:-----------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
 | definitions | Subschema with one or more custom Profile properties | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
 
 ##### Response parameters
 
-
 [Group Schema](#group-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1302,13 +1279,11 @@ The following response is only a subset of properties for brevity.
 
 ### Update Group Profile Schema property
 
-
 <ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
 
 Updates one or more [custom Group Profile properties](#group-profile-schema-property-object) in the schema.  Currently Okta does not support changing [base Group Profile properties](#group-profile-base-subschema).
 
 ##### Request parameters
-
 
 | Parameter   | Description                                          | Param Type | DataType                                                          | Required |
 |:------------|:-----------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
@@ -1316,11 +1291,9 @@ Updates one or more [custom Group Profile properties](#group-profile-schema-prop
 
 ##### Response parameters
 
-
 [Group Schema](#Group-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1431,7 +1404,6 @@ Removes one or more [custom Group Profile Schema properties](#group-profile-sche
 
 ##### Request parameters
 
-
 | Parameter   | Description                                                    | Param Type | DataType                                                          | Required |
 |:------------|:---------------------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
 | definitions | Subschema with one or more custom Profile properties to remove | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
@@ -1443,7 +1415,6 @@ Removes one or more [custom Group Profile Schema properties](#group-profile-sche
 [Group Schema](#group-schema-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1571,7 +1542,6 @@ curl -v -X GET \
 
 For brevity, the following response doesn't include all available properties.
 
-
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -1682,7 +1652,6 @@ For brevity, the following response doesn't include all available properties.
 }
 ```
 
-
 ### List Log Stream Schemas
 
 <ApiLifecycle access="ea" />
@@ -1714,7 +1683,6 @@ curl -v -X GET \
 ##### Response example
 
 For brevity, the following response doesn't include all available properties.
-
 
 ```json
 [
@@ -2007,12 +1975,12 @@ The User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dra
 |:------------|:-----------------------------------------------------------------------------------------|:--------------------------------------------------------|:---------|:-------|:---------|:------------|
 | id          | URI of User Schema                                                                       | String                                                  | FALSE    | TRUE   | TRUE     |             |
 | $schema     | JSON Schema version identifier                                                           | String                                                  | FALSE    | FALSE  | TRUE     |             |
-| name        | name for the Schema                                                                      | String                                                  | FALSE    | TRUE   | TRUE     |             |
+| name        | Name for the Schema                                                                      | String                                                  | FALSE    | TRUE   | TRUE     |             |
 | title       | User-defined display name for the Schema                                                 | String                                                  | FALSE    | FALSE  | FALSE    |             |
-| created     | timestamp when Schema was created                                                        | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
-| lastUpdated | timestamp when Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
+| created     | Timestamp when Schema was created                                                        | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
+| lastUpdated | Timestamp when Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
 | definitions | User Profile subschemas                                                                  | [User Profile Subschemas](#user-profile-subschemas)    | FALSE    | FALSE  | FALSE    | JSON Schema |
-| type        | type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
+| type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
 | properties  | User object properties                                                                    | [User object](/docs/reference/api/users/#user-object) property set     | FALSE    | FALSE  | TRUE     |             |
 
 ### User Profile subschemas
@@ -2064,37 +2032,37 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 
 | Property          | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | MinLength | MaxLength | Validation                                                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
-| login             | unique identifier for the User (`username`)                                                                                        | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [pattern](#login-pattern-validation)                                            |
-| email             | primary email address of the User                                                                                                      | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
-| secondEmail       | secondary email address of the User typically used for account recovery                                                                | String   | TRUE     | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
-| firstName         | given name of the User (`givenName`)                                                                                               | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
-| lastName          | family name of the User (`familyName`)                                                                                             | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
-| middleName        | middle name(s) of the User                                                                                                         | String   | FALSE    | FALSE  | FALSE    |           |           |                                                                                                                   |
-| honorificPrefix   | honorific prefix(es) of the User or title in most Western languages                                                               | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| honorificSuffix   | honorific suffix(es) of the User                                                                                                   | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| login             | Unique identifier for the User (`username`)                                                                                        | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [pattern](#login-pattern-validation)                                            |
+| email             | Primary email address of the User                                                                                                      | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
+| secondEmail       | Secondary email address of the User typically used for account recovery                                                                | String   | TRUE     | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                        |
+| firstName         | Given name of the User (`givenName`)                                                                                               | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
+| lastName          | Family name of the User (`familyName`)                                                                                             | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                   |
+| middleName        | Middle name(s) of the User                                                                                                         | String   | FALSE    | FALSE  | FALSE    |           |           |                                                                                                                   |
+| honorificPrefix   | Honorific prefix(es) of the User or title in most Western languages                                                               | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| honorificSuffix   | Honorific suffix(es) of the User                                                                                                   | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | title             | User's title, such as "Vice President"                                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| displayName       | name of the User, suitable for display to end Users                                                                                | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| nickName          | casual way to address the User in real life                                                                                        | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| displayName       | Name of the User, suitable for display to end Users                                                                                | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| nickName          | Casual way to address the User in real life                                                                                        | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | profileUrl        | URL of the User's online Profile (for example: a web page)                                                                               | String   | TRUE     | FALSE  | FALSE    |           |           | [Relative Uniform Resource Locators specification](https://tools.ietf.org/html/rfc1808)                                                                        |
-| primaryPhone      | primary phone number of the User, such as home number                                                                                   | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
-| mobilePhone       | mobile phone number of the User                                                                                                        | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
-| streetAddress     | full street address component of the User's address                                                                              | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| city              | city or locality component of the User's address (`locality`)                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| state             | state or region component of the User's address (`region`)                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| zipCode           | zip code or postal code component of the User's address (`postalCode`)                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| countryCode       | country name component of the User's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166)  |
-| postalAddress     | mailing address component of the User's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| primaryPhone      | Primary phone number of the User, such as home number                                                                                   | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
+| mobilePhone       | Mobile phone number of the User                                                                                                        | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
+| streetAddress     | Full street address component of the User's address                                                                              | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| city              | City or locality component of the User's address (`locality`)                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| state             | State or region component of the User's address (`region`)                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| zipCode           | ZIP code or postal code component of the User's address (`postalCode`)                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| countryCode       | Country name component of the User's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166)  |
+| postalAddress     | Mailing address component of the User's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | preferredLanguage | User's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                       |
 | locale            | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on. | String   | TRUE     | FALSE  | FALSE    |           |           | See the Note after the table for more details.                                                                                        |
 | timezone          | User's time zone                                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                             |
-| userType          | used to describe the organization to the User relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| employeeNumber    | organization or company assigned unique identifier for the User                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| costCenter        | name of a cost center assigned to the User                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| organization      | name of the User's organization                                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| division          | name of the User's division                                                                                                      | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| department        | name of the User's department                                                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| userType          | Used to describe the organization to the User relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| employeeNumber    | Organization or company assigned unique identifier for the User                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| costCenter        | Name of a cost center assigned to the User                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| organization      | Name of the User's organization                                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| division          | Name of the User's division                                                                                                      | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| department        | Name of the User's department                                                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | managerId         | `id` of the User's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| manager           | displayName of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| manager           | DisplayName of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
 > **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 two letter country code. For example: 'en_US' specifies the language English and country US.
 
@@ -2104,9 +2072,9 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 
 The `login` property is validated according to its `pattern` attribute, which is a string. By default, the attribute is null. When the attribute is null, the username is required to be formatted as an email address as defined by [RFC 6531 Section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3). The pattern can be set through the API to one of the following forms. (The Admin Console provides access to the same forms.)
 
-* A login pattern of `".+"` indicates that there is no restriction on usernames. Any non-empty, unique value is permitted, and the minimum length of five isn't enforced. In this case, usernames don't need to include the `@` character. If a name does include `@`, the portion ahead of the `@` can be used for logging in, provided it identifies a unique User within the org.
+- A login pattern of `".+"` indicates that there is no restriction on usernames. Any non-empty, unique value is permitted, and the minimum length of five isn't enforced. In this case, usernames don't need to include the `@` character. If a name does include `@`, the portion ahead of the `@` can be used for logging in, provided it identifies a unique User within the org.
 
-* A login pattern of the form `"[...]+"` indicates that usernames must only contain characters from the set given between the brackets. The enclosing brackets and final `+` are required for this form. Character ranges can be indicated using hyphens. To include the hyphen itself in the allowed set, the hyphen must appear first. Any characters in the set except the hyphen, a-z, A-Z, and 0-9 must be preceded by a backslash (`\`). For example, `"[a-z13579\.]+"` would restrict usernames to lowercase letters, odd digits, and periods, while `"[-a-zA-Z0-9]+"` would allow basic alphanumeric characters and hyphens.
+- A login pattern of the form `"[...]+"` indicates that usernames must only contain characters from the set given between the brackets. The enclosing brackets and final `+` are required for this form. Character ranges can be indicated using hyphens. To include the hyphen itself in the allowed set, the hyphen must appear first. Any characters in the set except the hyphen, a-z, A-Z, and 0-9 must be preceded by a backslash (`\`). For example, `"[a-z13579\.]+"` would restrict usernames to lowercase letters, odd digits, and periods, while `"[-a-zA-Z0-9]+"` would allow basic alphanumeric characters and hyphens.
 
 #### User Profile custom subschema
 
@@ -2143,12 +2111,12 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-| title                          | user-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
-| description                    | description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
-| type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | TRUE   | TRUE     |
-| enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
-| oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-| format                         | identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
+| title                          | User-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
+| description                    | Description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
+| type                           | Type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | TRUE   | TRUE     |
+| enum                           | Enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
+| oneOf                          | Non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
+| format                         | Identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description details
 
@@ -2163,7 +2131,7 @@ User Profile Schema properties have the following standard [JSON Schema Draft 6]
   }
   ```
 
-  In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
+  When `enum` is used in conjunction with `oneOf`, you must keep the set of enumerated values and their order.
 
   ```json
   {"enum": ["S","M","L","XL"],
@@ -2261,8 +2229,8 @@ A given Schema property can be assigned a permission for a principal that restri
 
 | Property  | Description                                                      | DataType                                                           | Nullable | Unique | Readonly |
 | :----------| :---------------------------------------------------------------- | :------------------------------------------------------------------ |:--------- | :------ | :-------- |
-| principal | security principal                                               | `SELF` (end user)                                                  | FALSE    | TRUE   | FALSE    |
-| action    | determines whether the principal can view or modify the property | `HIDE`, `READ_ONLY`, `READ_WRITE`                                  | FALSE    | FALSE  | FALSE    |
+| principal | Security principal                                               | `SELF` (end user)                                                  | FALSE    | TRUE   | FALSE    |
+| action    | Determines whether the principal can view or modify the property | `HIDE`, `READ_ONLY`, `READ_WRITE`                                  | FALSE    | FALSE  | FALSE    |
 
 ## App User Schema object
 
@@ -2337,12 +2305,12 @@ The App User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 |:------------|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------|:-------|:---------|:------------|
 | id          | URI of App User Schema                                                                   | String                                                             | FALSE    | TRUE   | TRUE     |             |
 | $schema     | JSON Schema version identifier                                                           | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| name        | name for the Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
+| name        | Name for the Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
 | title       | User-defined display name for the Schema                                                 | String                                                             | FALSE    | FALSE  | FALSE    |             |
-| created     | timestamp when the Schema was created                                                        | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
-| lastUpdated | timestamp when the Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
+| created     | Timestamp when the Schema was created                                                        | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
+| lastUpdated | Timestamp when the Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | App User Profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
-| type        | type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
 | properties  | App User object properties                                                                | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile subschemas
@@ -2394,7 +2362,7 @@ The base App User Profile varies substantially depending on the application. The
 
 | Property          | Description                                                                                                                  | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
-| userName          | unique identifier for the User                                                                                               | String   | FALSE    | TRUE   | FALSE    |           | 100       |
+| userName          | Unique identifier for the User                                                                                               | String   | FALSE    | TRUE   | FALSE    |           | 100       |
 
 #### App User Profile custom subschema
 
@@ -2425,12 +2393,12 @@ App User Profile schema properties have the following standard [JSON Schema Draf
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-| title                          | user-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
-| description                    | description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
-| type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
-| enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
-| oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
-| format                         | identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
+| title                          | User-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
+| description                    | Description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
+| type                           | Type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
+| enum                           | Enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
+| oneOf                          | Non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
+| format                         | Identifies the type of data represented by the string | string                                            | TRUE     | TRUE   | FALSE    |
 
 ##### Description details
 
@@ -2445,7 +2413,7 @@ App User Profile schema properties have the following standard [JSON Schema Draf
   }
   ```
 
-  In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
+  When `enum` is used in conjunction with `oneOf`, you must keep the set of enumerated values and their order.
 
   ```json
   {"enum": ["S","M","L","XL"],
@@ -2491,8 +2459,8 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 
 | Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
 | :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
-| required      | determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| scope         | determines whether an appuser attribute can be set at the individual or group level | `SELF`, `NONE`                        | FALSE    | FALSE  | TRUE     |
+| required      | Determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| scope         | Determines whether an appuser attribute can be set at the individual or group level | `SELF`, `NONE`                        | FALSE    | FALSE  | TRUE     |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [App User Profile subschemas](#app-user-profile-subschemas).
 
@@ -2800,9 +2768,9 @@ Group Profile schema properties have the following standard [JSON Schema Draft 6
 
 ##### Description Details
 
-* `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for `enum` must contain unique elements.
+- `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for `enum` must contain unique elements.
 
-* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+- `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json
 {
@@ -3387,11 +3355,9 @@ The following response is only a subset of properties for brevity.
 }
 ```
 
-
 ## Log Stream Schema object
 
 <ApiLifecycle access="ea" />
-
 
 The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
 
@@ -3416,11 +3382,11 @@ with the following keywords:
 
 #### Log Stream Schema object description details
 
-* All Log Stream Schema root object `properties` contain `name` and `settings`:
-     - `name` &mdash; specifies the Log Stream name within Okta
-     - `settings` &mdash; lists properties required to configure Log Stream
-* `properties` object within the `settings` defines configuration properties for the particular Log Stream type
-* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+- All Log Stream Schema root object `properties` contain `name` and `settings`:
+  - `name` &mdash; specifies the Log Stream name within Okta
+  - `settings` &mdash; lists properties required to configure Log Stream
+- `properties` object within the `settings` defines configuration properties for the particular Log Stream type
+- `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json
 {
@@ -3429,14 +3395,13 @@ with the following keywords:
 }
  ```
 
-* `errorMessage`: Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
+- `errorMessage`: Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
 
 ##### Error Message object
 
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | properties| Error messages for individual properties in the schema | Map of <String, String> | TRUE | FALSE | TRUE |
-
 
 Within the properties map, the keys are the property names, while the values are the error messages if validation fails on these properties.
 
