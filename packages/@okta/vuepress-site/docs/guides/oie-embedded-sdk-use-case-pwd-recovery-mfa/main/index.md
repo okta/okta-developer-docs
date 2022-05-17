@@ -60,8 +60,4 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 
 <StackSnippet snippet="integrationsteps" />
 
-## Troubleshooting tips
-
-Verify that the password recovery user is valid with an active user status in your Okta org.
-
 </div>

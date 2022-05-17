@@ -1,6 +1,6 @@
 ### 1. Start the password recovery flow
 
-First, add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
+Add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
 
 <div class="common-image-format bordered-image">
 
@@ -10,7 +10,7 @@ First, add a link that allows the user to submit their username to begin the pas
 
 ### 2. Show the password recovery page
 
-Next, build a password recovery page that allows the user to enter their account's username. Include a **Next** button that submits this username to the SDK when selected.
+Next, build a password recovery page that allows the user to enter their account's username or email. Include a **Next** button that submits this username to the SDK when selected.
 
 <div class="common-image-format bordered-image">
 
@@ -109,13 +109,20 @@ Create a password reset page that allows the user to enter their new password.
 
 ### 7. Submit the new password
 
-When the user submits their new password, pass it as a parameter to `OktaAuth.idx.recoverPassword()`.
-
+When the user submits their new password, check that the password and confirm password fields match, and pass it to `OktaAuth.idx.recoverPassword()`.
 
 ```javascript
+router.post('/reset-password', async (req, res, next) => {
+  const { password, confirmPassword } = req.body;
+  if (password !== confirmPassword) {
+    next(new Error('Password not match'));
+    return;
+  }
+
   const authClient = getAuthClient(req);
   const transaction = await authClient.idx.recoverPassword({ password });
   handleTransaction({ req, res, next, authClient, transaction });
+});
 ```
 
 >**Note:** Review the complete use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword).
