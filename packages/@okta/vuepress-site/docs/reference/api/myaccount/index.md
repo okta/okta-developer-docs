@@ -739,6 +739,8 @@ If an invalid `method` is passed in the request body, the response returns a 400
 
 If the phone authenticator isn't enabled for `method` on the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
+Disabling the `IDP_MY_ACCOUNT_API` feature flag in the org returns a 401 UNAUTHORIZED with error code E0000015.
+
 If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 400 BAD REQUEST ERROR with error code E0000001.
 
 If the phone number already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
@@ -844,6 +846,8 @@ Returns a JSON object that contains a link to verify the challenged phone with a
 Passing an invalid `method` returns a 400 BAD REQUEST with error code E0000001.
 
 Disabling the factor type of the corresponding method on the org returns a 403 FORBIDDEN with error code E0000038.
+
+Disabling the `IDP_MY_ACCOUNT_API` feature flag in the org returns a 401 UNAUTHORIZED with error code E0000015.
 
 Passing an invalid `id` returns a 404 NOT FOUND with error code E0000008.
 
