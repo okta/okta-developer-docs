@@ -1,6 +1,6 @@
 ### 1. Start the password recovery flow
 
-First, add a link that allows the user to submit their username to begin the password recovery. The following example shows a **Forgot your password?** link pointing to the password recovery page.
+First, add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
 
 <div class="common-image-format bordered-image">
 
@@ -33,7 +33,7 @@ try {
 
 ### 4. Display a list of available authenticators
 
-`OktaAuth.idx.recoverPassword()` returns an `IdxTransaction` object indicating:
+The next step is to display a list of available authenticators using the response from `OktaAuth.idx.recoverPassword()`. The method returns an `IdxTransaction` object indicating:
 
 * The sign-in `status` is in the `PENDING` state.
 * The next step is to choose an authenticator, that is, `nextStep.name` = `select-authenticator-authenticate`.
