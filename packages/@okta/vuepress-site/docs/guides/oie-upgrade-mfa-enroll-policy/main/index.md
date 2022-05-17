@@ -9,15 +9,15 @@ meta:
 
 ## Overview
 
-With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. The Identity Engine uses authenticators in its MFA enrollment policy settings, whereas Okta Classic Engine uses factors in its MFA enrollment policy settings. See [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
+With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. Identity Engine uses authenticators in its MFA enrollment policy settings, whereas Okta Classic Engine uses factors in its MFA enrollment policy settings. See [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
 
-After upgrading your org to the Identity Engine, new MFA enrollment policies created in the Okta Admin Console are configured using authenticators. Existing MFA enrollment policies, created before upgrading to the Identity Engine, are still configured with factors. However, if an existing MFA policy was modified and saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
+After upgrading your org to Identity Engine, new MFA enrollment policies created in the Admin Console are configured using authenticators. Existing MFA enrollment policies, created before upgrading to Identity Engine, are still configured with factors. However, if an existing MFA policy was modified and saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
 
-For existing apps that manage and use MFA enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org is upgraded to the Identity Engine. This guide provides you with key API considerations to upgrade your app for MFA enrollment flows in the Identity Engine.
+For existing apps that manage and use MFA enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org is upgraded to Identity Engine. This guide provides you with key API considerations to upgrade your app for MFA enrollment flows in Identity Engine.
 
-## MFA enrollment policy API changes in the Identity Engine
+## MFA enrollment policy API changes in Identity Engine
 
-The following are the main behavior changes to the [MFA enrollment policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) type in the Identity Engine:
+The following are the main behavior changes to the [MFA enrollment policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) type in Identity Engine:
 
 - The Policy API supports both factors and authenticators schemas in the MFA enrollment policy [settings](/docs/reference/api/policy/#policy-settings-data-2).
 - MFA enrollment policies are created with either factors or authenticators in their settings (they are mutually exclusive).
@@ -26,7 +26,7 @@ The following are the main behavior changes to the [MFA enrollment policy](/docs
 
 ### Recovery authenticators
 
-In the Identity Engine, the new MFA enrollment policy format with authenticators can be used to govern recovery authenticator enrollment for the password recovery flow. The enrollment for recovery authenticators (Email, Phone, Okta Verify, and Security question) are governed by both the password policy and the enrollment policy. For example, if the Email authenticator is enabled and set to `Required` in the MFA enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy. Therefore, if you want to manage your recovery authenticators in the enrollment policy, your MFA enrollment policy needs to be configured with [authenticators](/docs/reference/api/policy/#policy-authenticator-object), and not [factors](/docs/reference/api/policy/#policy-factors-configuration-object).
+In Identity Engine, you can use the new MFA enrollment policy format with authenticators to govern recovery authenticator enrollment for the password recovery flow. The enrollment for recovery authenticators (Email, Phone, Okta Verify, and Security question) are governed by both the password policy and the enrollment policy. For example, if the Email authenticator is enabled and set to `Required` in the MFA enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy. Therefore, if you want to manage your recovery authenticators in the enrollment policy, you need to configure your MFA enrollment policy with [authenticators](/docs/reference/api/policy/#policy-authenticator-object), and not [factors](/docs/reference/api/policy/#policy-factors-configuration-object).
 
 > **Note:** Password policy recovery authenticator settings supersedes the authenticator settings in an MFA enrollment policy. For example, if the Phone authenticator is `Optional` or `Disabled` for the MFA enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
 
@@ -93,7 +93,7 @@ Example of an MFA enrollment policy response `settings` snippet with factors:
 
 To create an MFA enrollment policy through the [Policy API](/docs/reference/api/policy/), you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `POST /api/v1/policies` request parameters body.
 
-For a new MFA enrollment policy in the Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
+For a new MFA enrollment policy in Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
 
 You can also create a new MFA enrollment policy with factors instead of authenticators to support legacy systems or workflows. Set the policy `settings` to the factors schema with [Policy Factor Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object).
 
@@ -107,7 +107,7 @@ To update an MFA enrollment policy through the [Update a Policy](/docs/reference
 
 If you need to convert an existing factor MFA enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter.  Use the [Policy Factors Configuration object to authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) to authenticator keys. See [MFA enrollment policy settings conversion example](#mfa-enrollment-policy-settings-conversion-example).
 
-If you need to revert to the Classic Engine MFA enrollment model, you can edit an existing authenticator MFA enrollment policy to a factored one. See all the available [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) and the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) to convert the authenticator keys to Policy Factor Configuration objects.
+If you need to revert to the Classic Engine MFA enrollment model, you can edit an existing authenticator MFA enrollment policy to a factored one. See all of the available [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) and the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) to convert the authenticator keys to Policy Factor Configuration objects.
 
 > **Note:** If your app is integrated with systems, such as Terraform, that can’t be updated to parse the new authenticators MFA enrollment policy, you need to revert your policy to use factors instead of authenticators.
 

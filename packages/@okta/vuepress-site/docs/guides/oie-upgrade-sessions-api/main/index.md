@@ -22,7 +22,7 @@ The following section discusses different use cases and what the changes are aft
 
     However, creating a session with a session token does continue to work in most cases:
 
-    When you create the session using the `api/v1/sessions/` endpoint, and then move from a Classic Engine session to an Identity Engine session, there is interoperability. The Identity Engine knows to change the Session ID (`sid`) cookie into an Identity Engine (`idx`) cookie transparently.
+    When you create the session using the `api/v1/sessions/` endpoint, and then move from a Classic Engine session to an Identity Engine session, there is interoperability. Identity Engine knows to change the Session ID (`sid`) cookie into an Identity Engine (`idx`) cookie transparently.
 
     > **Note:** Operations on the two sessions aren't synchronous in all cases. Okta creates an `idx` session if there's a `sid` session (Classic Engine session) present. However, creating a `sid` session when there's an `idx` session (Identity Engine session) present isn't supported.
 

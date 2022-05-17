@@ -13,19 +13,19 @@ Are you an admin? See the [Identity Engine Upgrade Overview](https://help.okta.c
 ## Before attempting to upgrade
 
 * **IMPORTANT**: Talk to your Okta rep/Customer Success Manager and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
-* Review the [Identity Engine limitations](/docs/guides/ie-limitations/) guide to get an idea of what features you are using, if any, that will require remediations (meaning they will need adjustment before we can proceed with an upgrade). For example, some Classic features may not be supported in Identity Engine in their current form.
-* [Upgrade your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further — this includes both Okta-hosted Widgets and Widgets embedded inside your apps.
+* Review the [Identity Engine limitations](/docs/guides/ie-limitations/) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
+* [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further. This includes both Okta-hosted widgets and widgets embedded inside your apps.
 
 ## Upgrade process
 
 The initial upgrade path consists of the following steps:
 
-* Assess your org and app and create a report outlining the level of effort to perform the upgrade.
+* Assess your org and app and create a report that outlines the level of effort to perform the upgrade.
   * As mentioned above, your set up may require remediations.
-  * If there are no remediations required, then the upgrade is simple, and the subsequent steps will be seamless.
-* Complete data migration
-* Convert and migrate objects such as policies, orgs, and users
-* Turn on Identity Engine for the entire org
+  * If there are no remediations required, then the upgrade is simple, and the subsequent steps are seamless.
+* Complete data migration.
+* Convert and migrate objects such as policies, orgs, and users.
+* Turn on Identity Engine for the entire org.
 
 Bear in mind that:
 
@@ -41,7 +41,7 @@ The rest of the upgrade process is defined in the next section. Which steps that
 
 After you complete the prerequisites, your data migration is finished, and you have access to your Identity Engine org, the following content outlines the next steps that you may take as you navigate through the rest of your upgrade process.
 
-For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades) guide. This guide also contains useful [troubleshooting](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/#troubleshooting) information, including common issues and errors you may encounter during your upgrade, and likely causes.
+For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades) guide. This guide also contains useful [troubleshooting](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/#troubleshooting) information, including common issues and errors you may encounter during your upgrade and likely causes.
 
 1. Test your new environment to make sure that your experience and functionality are preserved.
 2. What’s your Deployment Model?
@@ -82,11 +82,11 @@ For a more detailed look at the upgrade steps, see the [Planning embedded auth a
 
 The Identity Engine upgrade documentation below discusses the various upgrade tasks. Which tasks you need to complete depends on your deployment model.
 
-* [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/): Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
+* [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/): Learn how to upgrade the Okta Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
 
-  * [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript methods, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
-  * [Update the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
-  * [Update the Sign-in Widget i18n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget i18n key updates.
+  * [Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call widget JavaScript methods, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+  * [Update the widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest widget style updates.
+  * [Update the widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest widget i18n property updates.
 
 * [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
@@ -94,7 +94,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/): Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
-* [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
+* [Upgrade your application to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
 * [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
