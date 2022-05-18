@@ -7,4 +7,4 @@ The upgrade process is also designed to be non-disruptive and iterative over a p
 * [Map basic sign-in code to the Identity Engine SDK](#map-basic-sign-in-code-to-the-identity-engine-sdk): Basic sign-in with username and password use case
 * [Map MFA code to the Identity Engine SDK](#map-mfa-code-to-the-identity-engine-sdk): Basic sign-in with username, password and another email factor use case
 * [Map password recovery code to the Identity Engine SDK](#map-password-recovery-code-to-the-identity-engine-sdk): Password recovery using email use case
-* [Map basic sign-out code to the Identity Engine SDK](#map-basic-sign-out-code-to-the-identity-engine-sdk): Sign out use case
+* [Map basic sign-out code to the Identity Engine SDK](#map-basic-sign-out-code-to-the-identity-engine-sdk): Sign-out use case
