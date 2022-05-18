@@ -6,9 +6,9 @@ The Classic Engine Authentication SDK methods that support the basic sign-in flo
 
 The following steps detail how to integrate the basic sign-in flow using the Classic Engine Authentication SDK.
 
-#### Start sign-in
+#### Start sign-in flow
 
-Start the sign-in flow by creating an object of type `AuthenticateOptions`. Set its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. The method returns a status of `AuthenticationStatus.Success` when the sign-in is successful.
+Start the sign-in flow by creating an object of type `AuthenticateOptions`. Set its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. The method returns a status of `AuthenticationStatus.Success` when the sign-in flow is successful.
 
 ```dotnet
 var authnOptions = new AuthenticateOptions() {
@@ -39,7 +39,7 @@ The Identity Engine SDK methods that support the basic sign-in flow are as follo
 
 The following steps detail how to integrate the basic sign-in flow using the Identity Engine SDK.
 
-#### Start sign-in
+#### Start sign-in flow
 
 Start the sign-in flow by creating an object of type `AuthenticateOptions`. Assign values to its `Username` and `Password` properties and send it to `IdxClient.AuthenticateAsync()`. If successful, the method returns access tokens and a status of `AuthenticationStatus.Success`.
 

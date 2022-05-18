@@ -41,7 +41,7 @@ The rest of the upgrade process is defined in the next section. Which steps that
 
 After you complete the prerequisites, your data migration is finished, and you have access to your Identity Engine org, the following content outlines the next steps that you may take as you navigate through the rest of your upgrade process.
 
-For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades) guide. This guide also contains useful [troubleshooting](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/#troubleshooting) information, including common issues and errors you may encounter during your upgrade and likely causes.
+For a more detailed look at the upgrade steps, see the [Plan embedded auth application upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades) guide. This guide also contains useful [troubleshooting](/docs/guides/oie-upgrade-plan-embedded-upgrades/main/#troubleshooting) information, including common issues and errors you may encounter during your upgrade and likely causes.
 
 1. Test your new environment to make sure that your experience and functionality are preserved.
 2. What’s your Deployment Model?
@@ -88,7 +88,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
   * [Update the widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest widget style updates.
   * [Update the widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest widget i18n property updates.
 
-* [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
+* [Plan embedded auth app upgrades](/docs/guides/oie-upgrade-plan-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
 * [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server): Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
 

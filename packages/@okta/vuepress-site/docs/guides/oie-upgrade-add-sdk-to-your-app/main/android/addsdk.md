@@ -22,4 +22,4 @@ import com.okta.idx.sdk.api.response.AuthenticationResponse;
 import com.okta.idx.sdk.api.response.TokenResponse;
 ```
 
-See the [Identity Engine Android SDK guide](https://github.com/okta/okta-idx-android#usage-guide) for more information.
+See the [Identity Engine Android SDK guide](https://github.com/okta/okta-idx-android#usage-guide).

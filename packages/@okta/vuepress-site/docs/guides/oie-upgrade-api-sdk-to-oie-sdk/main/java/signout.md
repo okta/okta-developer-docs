@@ -11,7 +11,7 @@ public String logout(final HttpSession session) {
 }
 ```
 
-### Okta Identity Engine SDK authentication flow for basic sign-out
+### Identity Engine SDK authentication flow for basic sign-out
 
 The Identity Engine Java SDK contains a revoke option in the wrapper client to revoke the access token in Okta. This step is required since the user is authorized by an Okta authorization server.
 The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()` method is called:
@@ -35,4 +35,4 @@ The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()
 }
 ```
 
-See [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/java/main/) for further details on the Identity Engine user sign-out.
+See [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/java/main/).
