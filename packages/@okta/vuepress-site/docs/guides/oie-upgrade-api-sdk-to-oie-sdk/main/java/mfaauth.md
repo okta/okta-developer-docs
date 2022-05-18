@@ -29,7 +29,7 @@ The Identity Engine MFA authentication flow is initially similar to implement us
 
 > **Note:** Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators (`AuthenticationResponse.getAuthenticators()`) that user must verify are returned in the `AuthenticationResponse`. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
+If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators (`AuthenticationResponse.getAuthenticators()`) that the user must verify are returned in the `AuthenticationResponse`. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
 
 - AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; This implies that the app/user has to select the authenticator to verify. The app can provide the user with a selection of authenticators to verify (if there is more than one authenticator) or the app can choose to select the authenticator on behalf of the user and present the user with an appropriate message.
 
