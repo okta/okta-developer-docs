@@ -111,6 +111,28 @@ The following table provides a list of all available email templates in an Okta 
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | |   |
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | |   |
 
+### Use allowed attributes
+
+The following table provides a list of all allowed email attributes in customized templates. If you deviate from the allowed attributes, you receive error messages.
+
+| HTML tag/elements | Allowed attributes |
+|-------------------|--------------------|
+| All tags |   |
+| `<style>` |   |
+| `p` |  |
+| `label` |  |
+| `font` |  |
+|  |  |
+| `a` |  |
+| `img` |  |
+| `table` |  |
+| `td`, `th` |  |
+| `tr` |  |
+| `thead`, `tbody`, `tfoot` |  |
+| `colgroup`, `col` |  |
+| Other allowed elements:</br>`noscript`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `i`, `b`, `u`, `strong`, `em`, `small`, `big`, `pre`, `code`, `cite`, `samp`, `sub`, `sup`, `strike`, `center`, `blockquote`, `hr`, `br`, `col`, `font`, `map`, `span`, `div`, `img`, `ul`, `ol`, `li`, `dd`, `dt`, `dl`, `fieldset`, `legend` | n/a |
+
+
 ## Add translations
 
 When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically.
