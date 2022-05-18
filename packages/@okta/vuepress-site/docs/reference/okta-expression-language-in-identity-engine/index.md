@@ -63,6 +63,16 @@ You can specify certain [rule conditions](/docs/reference/api/policy/#conditions
 | security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
 | security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
+### Login Context
+<ApiLifecycle access="ea"/>
+You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing) using expressions based on Login Context that holds the user's `username` as the `identifier`.
+
+| Syntax | Definitions | Type |
+| ------ | ----------- | ---- |
+| login.identifier| `login` references the Login Context of the request. `identifier` references the user's `username`. |String|
+
+
+
 ## Functions
 
 Okta offers a variety of functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.
