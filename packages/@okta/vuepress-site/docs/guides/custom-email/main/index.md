@@ -74,11 +74,12 @@ The following table provides a list of all available email templates in an Okta 
 
 - the default subject line for the email template
 - the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- the required validation fields for templates created using the API
 - a description of the template
 
-| UI name | Default subject line | API object reference</br>`${templateName}` | Description |
+| UI name | Default subject line | API object reference</br>`${templateName}` | Validation fields | Description |
 |---------|---------|----------------------|----------|---------|
-| User Activation | Welcome to Okta! | `UserActivation` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
+| User Activation | Welcome to Okta! | `UserActivation` | Either `${activationLink}` or `${activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
 | Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process |
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
 | Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
