@@ -117,8 +117,8 @@ The following table provides a list of all allowed email attributes in customize
 
 | HTML tag/elements | Allowed attributes |
 |-------------------|--------------------|
-| All tags |   |
-| `<style>` |   |
+| All tags | <ul><li>`id`: can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`</li><li>`lang`</li><li>`title`</li></ul> |
+| `<style>` |  |
 | `p` |  |
 | `label` |  |
 | `font` |  |
