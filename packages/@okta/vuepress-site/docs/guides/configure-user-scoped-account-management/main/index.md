@@ -12,7 +12,7 @@ sections:
 
 This guide explains how to set up end-user driven account management in your org using the MyAccount API.
 
-> **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
+> **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs of the older API version.
 
 > **Note:** This guide is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
