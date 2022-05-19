@@ -237,6 +237,7 @@ The following should be noted about these functions:
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * At this time, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
 * Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
 
 ### Directory and Workday functions
 
