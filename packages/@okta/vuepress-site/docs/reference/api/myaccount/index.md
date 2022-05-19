@@ -5,9 +5,8 @@ category: management
 
 # MyAccount API
 
-<ApiLifecycle access="ea" />
-
-<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="ea" /></br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
 
