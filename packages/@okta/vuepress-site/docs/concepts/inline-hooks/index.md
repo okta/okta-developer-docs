@@ -162,7 +162,7 @@ In the case of an Inline Hook timeout or failure, the Okta process flow either c
 | Inline Hook        | Inline Hook Failure Behavior                             |
 |--------------------------------| ---------------------------------------------------------|
 | Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the Inline Hook again. |
-| Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following default UI message: "There was an error creating your account. Please try registering again". |
+| Registration Inline Hook | Okta process flow stops and registration or the profile update is denied. The user receives one of the following default UI message:<ul><li>"There was an error creating your account. Please try registering again".</li><li>"There was an error updating your profile. Please try again later."</li></ul> |
 | SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
 | Telephony Inline Hook <ApiLifecycle access="ea" /> | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
 | Token Inline Hook | Okta process flow continues with original token returned. |

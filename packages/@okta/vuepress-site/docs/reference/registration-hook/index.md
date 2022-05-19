@@ -19,18 +19,18 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
+For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration or profile update request. Your custom code can:
 
-- Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
+- Set or override the values that will be populated in attributes of the user's Okta profile
 
-> **Note:** Profile Enrollment and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and self-service registration (SSR) Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 ## Objects in the Request from Okta
 
@@ -44,7 +44,7 @@ Values for `requestType` are one of the following:
 
 | Enum Value | Associated Okta Event |
 |----------|-------------------------------------------------------|
-| `self.service.registration` | self-service registration |
+| `self.service.registration` | self-service registration (SSR) |
 | `progressive.profile` | Progressive Enrollment |
 
 ### data.userProfile
@@ -91,11 +91,11 @@ The action is `ALLOW` by default (in practice, `DENY` will never be sent to your
 
 Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
 
+<!-- Need to clarify if we need to include this in the docs. right now, it has no content. in the context of the registration inline hook guide, it allows customers to include the object in the console.log().
+
 ### data.context.user
 
-<ApiLifecycle access="ie" /><br>
-
-
+<ApiLifecycle access="ie" /><br> -->
 
 ## Response objects that you send
 
@@ -203,21 +203,24 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
 * If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
    * You don't customize the error handling behavior of the widget.
-   * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute. See [JSON response payload objects - error](/docs/concepts/inline-hooks/#error).
+   * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute.
 
 * If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
-      `Registration cannot be completed at this time.`</br></br>
-      `We found some errors. Please review the form and make corrections.` <ApiLifecycle access="ie" />
+   * `Registration cannot be completed at this time.` (SSR)</br></br>
+   * `We found some errors. Please review the form and make corrections.` (Progressive Enrollment)
 
 * If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br></br>
-      `Registration denied.`</br></br>
-      `Profile update denied.` <ApiLifecycle access="ie" />
+   * `Registration denied.`(SSR)</br></br>
+   * `Profile update denied.` (Progressive Enrollment)
 
 > **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
-If there is a response timeout after receiving the Okta request, the Okta process flow stops and registration is denied. The following message appears: "There was an error creating your account. Please try registering again".
+If there is a response timeout after receiving the Okta request, the Okta process flow stops. Depending on the request, either the self-service registration or the profile update is denied. One of the following messages appears:
+
+* `There was an error creating your account. Please try registering again.` (SSR)
+* `There was an error updating your profile. Please try again later.` (Profile Enrollment)
 
 ## Sample JSON payload of request
 
