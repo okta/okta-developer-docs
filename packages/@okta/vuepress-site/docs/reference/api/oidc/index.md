@@ -53,11 +53,11 @@ The full URL to the `/authorize` endpoint looks like this:
 
 This is for use cases where Okta is the authorization server for your resource server (for example, you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your base URL looks like this:
 
-`https://${yourOktaDomain}/oauth2/${authorizationServerId}`
+`https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}`
 
 The full URL to the `/authorize` endpoint looks like this:
 
-`https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+`https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize`
 
 If you have a developer account, you can use the `default` authorization server that was created along with your account, in which case the base URL looks like this:
 
@@ -313,7 +313,7 @@ The following pushed authorization request initiates the flow. The request retur
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/par" \
--d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
+-d "client_id=${yourAppClientId}&client_secret=${yourClientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
 ```
 
 #### Response example (success)
@@ -382,7 +382,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
--d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}"
+-d "client_id=${yourAppClientId}&client_secret=${yourClientSecret}&scope=${scope}"
 ```
 
 #### Response example (success)
@@ -470,7 +470,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&redirect_uri=${redirectUri}&code=${code}"
+-d "client_id=${yourAppClientId}&client_secret=${yourClientSecret}&grant_type=authorization_code&redirect_uri=${yourSignInRedirectId}&code=${code}"
 ```
 
 #### Response example (success)
@@ -701,7 +701,7 @@ This request initiates a logout and redirects to the `post_logout_redirect_uri`.
 ```bash
 GET https://${baseUrl}/logout?
   id_token_hint=${id_token}&
-  post_logout_redirect_uri=${post_logout_redirect_uri}&
+  post_logout_redirect_uri=${yourSignOutRedirectUri}&
   state=${state}
 ```
 
@@ -884,7 +884,7 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 ### /.well-known/oauth-authorization-server
 
-<ApiOperation method="get" url="/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server" />
+<ApiOperation method="get" url="/oauth2/${yourAuthorizationServerId}/.well-known/oauth-authorization-server" />
 
 > **Note:** This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
@@ -898,7 +898,7 @@ This API doesn't require any authentication.
 
 ```bash
 curl -X GET \
-"https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server?client_id=0oabzljih3rnr6aGt0h7"
+"https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/oauth-authorization-server?client_id=0oabzljih3rnr6aGt0h7"
 ```
 
 #### Response properties
@@ -931,11 +931,11 @@ curl -X GET \
 
 ```json
 {
-    "issuer": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
-    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize",
-    "token_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/token",
+    "issuer": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}",
+    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/authorize",
+    "token_endpoint": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/token",
     "registration_endpoint": "https://{yourOktaDomain}/oauth2/v1/clients",
-    "jwks_uri": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/keys",
+    "jwks_uri": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/keys",
     "response_types_supported": [
         "code",
         "token",
@@ -991,7 +991,7 @@ curl -X GET \
     "code_challenge_methods_supported": [
         "S256"
     ],
-    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/introspect",
+    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -999,7 +999,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/revoke",
+    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
@@ -1007,7 +1007,7 @@ curl -X GET \
         "private_key_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/logout",
+    "end_session_endpoint": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}/v1/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1029,7 +1029,7 @@ curl -X GET \
 HTTP 404 Not Found
 {
     "errorCode": "E0000007",
-    "errorSummary": "Not found: Resource not found: ${authorizationServerId} (AuthorizationServer)",
+    "errorSummary": "Not found: Resource not found: ${yourAuthorizationServerId} (AuthorizationServer)",
     "errorLink": "E0000007",
     "errorId": "oaeQdc5IvrlSGGnewf-cqqDqA",
     "errorCauses": []
@@ -1040,7 +1040,7 @@ HTTP 404 Not Found
 
 <ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" />
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" />
+<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration" />
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. The Custom Authorization Server URL specifies an `authorizationServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authorizationServerId` value of `default`.
 
@@ -1054,7 +1054,7 @@ This API doesn't require any authentication.
 
 ```bash
 curl -X GET \
-"https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration?client_id=0oabzljih3rnr6aGt0h7"
+"https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration?client_id=0oabzljih3rnr6aGt0h7"
 ```
 
 #### Response properties
@@ -1199,7 +1199,7 @@ curl -X GET \
 HTTP 404 Not Found
 {
     "errorCode": "E0000007",
-    "errorSummary": "Not found: Resource not found: ${authorizationServerId} (AuthorizationServer)",
+    "errorSummary": "Not found: Resource not found: ${yourAuthorizationServerId} (AuthorizationServer)",
     "errorLink": "E0000007",
     "errorId": "oaeQdc5IvrlSGGnewf-cqqDqA",
     "errorCauses": []
@@ -1323,7 +1323,7 @@ The lifetime of an access token can be configured in [access policies](/docs/ref
 {
   "ver": 1,
   "jti": "AT.0mP4JKAZX1iACIT4vbEDF7LpvDVjxypPMf0D7uX39RE",
-  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}",
   "aud": "https://api.example.com",
   "sub": "00ujmkLgagxeRrAg20g3",
   "iat": 1467145094,

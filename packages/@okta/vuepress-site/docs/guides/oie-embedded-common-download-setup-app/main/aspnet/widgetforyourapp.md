@@ -31,7 +31,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
    "interactionHandle":"${interactionHandle}",
    "version":"${siwVersion}",
    "baseUrl":"${baseUrl}",
-   "clientId":"${clientId}",
+   "clientId":"${yourAppClientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
       "issuer":"${issuerUri}",

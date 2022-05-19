@@ -21,7 +21,7 @@ from okta_jwt_verifier import JWTVerifier
 
 
 async def main():
-    jwt_verifier = JWTVerifier('${ISSUER}', '${CLIENT_ID}', 'api://default')
+    jwt_verifier = JWTVerifier('${ISSUER}', '${client_id}', 'api://default')
     await jwt_verifier.verify_access_token('${JWT}')
     print('Token validated successfully.')
 
@@ -33,5 +33,5 @@ loop.run_until_complete(main())
 You may need to adjust your clock skew leeway. We default to a `PT2M` clock skew adjustment in our validation. You can adjust this to your needs by passing `leeway` (value in seconds) argument to JWTVerifier constructor:
 
 ```py
-jwt_verifier = JWTVerifier('{ISSUER}', '{CLIENT_ID}', 'api://default', leeway=60)
+jwt_verifier = JWTVerifier('{ISSUER}', '{client_id}', 'api://default', leeway=60)
 ```

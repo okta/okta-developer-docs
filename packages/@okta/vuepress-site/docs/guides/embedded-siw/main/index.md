@@ -163,7 +163,7 @@ Create an app integration in the Okta org that represents the application you wa
 #### Create a simple SPA
 
 1. On your local machine, create a directory for your sample application. For example: `simple-spa`.
-1. In the editor of your choice, add the following HTML and JavaScript into an `index.html` file located in your sample application folder:
+2. In the editor of your choice, add the following HTML and JavaScript into an `index.html` file located in your sample application folder:
 
   ```html
   <!doctype html>
@@ -195,8 +195,8 @@ Create an app integration in the Okta org that represents the application you wa
       <script type="text/javascript">
         const oktaSignIn = new OktaSignIn({
           issuer: "https://${yourOktaDomain}/oauth2/default",
-          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}",
+          redirectUri: "${https://${yourSignInRedirectId}" // configured in your Okta OIDC app integration,
+          clientId: "${yourAppClientId}",
           useInteractionCodeFlow: true
         });
 
@@ -231,8 +231,8 @@ Create an app integration in the Okta org that represents the application you wa
 3. Configure the code in `index.html` with values for your Okta org application integration:
 
     * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
-    * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
-    * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
+    * **redirectUri:** `"https://${yourSignInRedirectId}"`. For example, `"http://localhost:3000"`
+    * **clientId:** `"${yourAppClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
 
 4. (Optional) Update the version of the `okta-auth-js` dependency to make use of other authentication features. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
@@ -261,9 +261,9 @@ Create an app integration in the Okta org that represents the application you wa
 const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '${yourSignInRedirectId}',
   useInteractionCodeFlow: true,
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'

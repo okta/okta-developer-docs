@@ -1,9 +1,9 @@
 If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory containing these values, for example:
 
 ```properties
-export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
-export OKTA_OAUTH2_CLIENT_ID=${clientId}
-export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
+export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}
+export OKTA_OAUTH2_CLIENT_ID=${yourAppClientId}
+export OKTA_OAUTH2_CLIENT_SECRET=${yourClientSecret}
 ```
 
 Run `source .okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set` and rename the file to `okta.bat`, then execute it.

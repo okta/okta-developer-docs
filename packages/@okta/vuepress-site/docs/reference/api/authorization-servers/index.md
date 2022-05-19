@@ -38,7 +38,7 @@ This Default Authorization Server includes a basic access policy and rule, which
 It allows you to specify `default` instead of the `authorizationServerId` in requests to it:
 
 * `https://${yourOktaDomain}/api/v1/authorizationServers/default` vs
-* `https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}` for other Custom Authorization Servers
+* `https://${yourOktaDomain}/api/v1/authorizationServers/${yourAuthorizationServerId}` for other Custom Authorization Servers
 
 #### Authorization Server object
 
@@ -231,7 +231,7 @@ The [Custom Authorization Servers](#authorization-server-object) in this Okta or
 
 #### Get Authorization Server
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}" />
 
 Returns the [Custom Authorization Server](#authorization-server-object) identified by `authorizationServerId`
 
@@ -255,11 +255,11 @@ curl -v -X GET \
 
 ##### Response example
 
-The [Custom Authorization Server](#authorization-server-object) that you requested by `${authorizationServerId}`
+The [Custom Authorization Server](#authorization-server-object) that you requested by `${yourAuthorizationServerId}`
 
 #### Update Authorization Server
 
-<ApiOperation method="put" url="/api/v1/authorizationServers/${authorizationServerId}" />
+<ApiOperation method="put" url="/api/v1/authorizationServers/${yourAuthorizationServerId}" />
 
 Updates the Authorization Server identified by `authorizationServerId`
 
@@ -298,7 +298,7 @@ The [Custom Authorization Server](#authorization-server-object) that you updated
 
 #### Delete Authorization Server
 
-<ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}" />
+<ApiOperation method="delete" url="/api/v1/authorizationServers/${yourAuthorizationServerId}" />
 
 Deletes the Custom Authorization Server identified by `authorizationServerId`
 
@@ -329,7 +329,7 @@ HTTP/1.1 204 No Content
 
 #### Activate Authorization Server
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/lifecycle/activate" />
 
 Makes a Custom Authorization Server for use by clients
 
@@ -361,7 +361,7 @@ HTTP/1.1 204 No Content
 #### Deactivate Authorization Server
 
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/lifecycle/deactivate" />
 
 Makes a Custom Authorization Server unavailable to clients. An inactive Custom Authorization Server can be returned to `ACTIVE` status by activating it again.
 
@@ -470,7 +470,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
 
 #### Get all Policies
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies" />
 
 Returns all the Policies for the specified Custom Authorization Server
 
@@ -496,7 +496,7 @@ Returns the [Policies](#policy-object) defined in the specified Custom Authoriza
 
 #### Get a Policy
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}" />
 
 Returns a Policy by ID defined in the specified Custom Authorization Server
 
@@ -526,7 +526,7 @@ Returns the [Policy](#policy-object) that you requested
 
 #### Create a Policy
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/policies" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies" />
 
 Create a Policy for a Custom Authorization Server
 
@@ -566,7 +566,7 @@ Returns the [Policy](#policy-object) that you created
 
 #### Update a Policy
 
-<ApiOperation method="put" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}" />
+<ApiOperation method="put" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}" />
 
 Change the configuration of a Policy specified by the `policyId`
 
@@ -612,7 +612,7 @@ Returns the [Policy](#policy-object) that you updated
 
 #### Delete a Policy
 
-<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}" />
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}" />
 
 Delete a Policy specified by the `policyId`
 
@@ -658,7 +658,7 @@ When you use these API endpoints to create or modify a Policy Rule resource, the
 
 #### Get all Policy Rules
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}/rules" />
 
 Returns all the Policy Rules for the specified Custom Authorization Server and Policy
 
@@ -685,7 +685,7 @@ Returns a list of [Policy Rules](#rule-object) that are defined in the specified
 
 #### Get a Policy Rule
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}/rules/${ruleId}" />
 
 Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy
 
@@ -713,7 +713,7 @@ Returns the [Policy Rule](#rule-object) that you requested
 
 #### Create a Policy Rule
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}/rules" />
 
 Create a Policy Rule for the specified Custom Authorization Server and Policy
 
@@ -770,7 +770,7 @@ Returns the [Policy Rule](#rule-object) that you created
 
 #### Update a Policy Rule
 
-<ApiOperation method="put" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}" />
+<ApiOperation method="put" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}/rules/${ruleId}" />
 
 Change the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy
 
@@ -834,7 +834,7 @@ Returns the [Policy Rule](#rule-object) that you updated
 
 #### Delete a Policy Rule
 
-<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}" />
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/policies/${policyId}/rules/${ruleId}" />
 
 Delete a Policy Rule defined in the specified Custom Authorization Server and Policy
 
@@ -930,7 +930,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 #### Get all Scopes
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/scopes" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes" />
 
 Get the Scopes defined for a specified Custom Authorization Server
 
@@ -958,7 +958,7 @@ Returns the [Scopes](#scope-object) defined in the specified Custom Authorizatio
 
 #### Get a Scope
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes/${scopeId}" />
 
 Gets a Scope specified by the `scopeId`
 
@@ -988,7 +988,7 @@ Returns the [Scope](#scope-object) that you requested
 
 #### Create a Scope
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/scopes" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes" />
 
 Create a Scope for a Custom Authorization Server
 
@@ -1021,7 +1021,7 @@ Returns the [Scope](#scope-object) that you created
 
 #### Update a Scope
 
-<ApiOperation method="put" url="/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}" />
+<ApiOperation method="put" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes/${scopeId}" />
 
 Change the configuration of a Scope specified by the `scopeId`
 
@@ -1057,7 +1057,7 @@ Returns the [Scope](#scope-object) that you updated
 
 #### Delete a Scope
 
-<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}" />
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes/${scopeId}" />
 
 Deletes a Scope specified by the `scopeId`
 
@@ -1149,7 +1149,7 @@ If you have complex filters for Groups, you can [create a Groups allowlist](/doc
 
 #### Get all Claims
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/claims" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/claims" />
 
 Gets the Claims defined for a specified Custom Authorization Server
 
@@ -1179,7 +1179,7 @@ Returns the [Claims](#claim-object) defined in the specified Custom Authorizatio
 
 #### Get a Claim
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/claims/${claimId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/claims/${claimId}" />
 
 Returns the Claim specified by the `claimId`
 
@@ -1209,7 +1209,7 @@ Returns the [Claim](#claim-object) that you requested
 
 #### Create a Claim
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/claims" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/claims" />
 
 Creates a Claim for a Custom Authorization Server
 
@@ -1248,7 +1248,7 @@ Returns the [Claim](#claim-object) that you created
 
 #### Update a Claim
 
-<ApiOperation method="put" url="/api/v1/authorizationServers/${authorizationServerId}/claims/${claimId}" />
+<ApiOperation method="put" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/claims/${claimId}" />
 
 Changes the configuration of a Claim specified by the `claimId`
 
@@ -1288,7 +1288,7 @@ Returns the [Claim](#claim-object) that you updated
 
 #### Delete a Claim
 
-<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authorizationServerId}/claims/${claimId}" />
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/claims/${claimId}" />
 
 Deletes a Claim specified by the `claimId`
 
@@ -1394,7 +1394,7 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
 
 #### Get Authorization Server Keys
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/credentials/keys" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/credentials/keys" />
 
 Returns the current, future, and expired [Keys](#certificate-json-web-key-object) used by the Custom Authorization Server
 
@@ -1492,7 +1492,7 @@ curl -v -X GET \
 
 #### Rotate Authorization Server Keys
 
-<ApiOperation method="post" url="/api/v1/authorizationServers/${authorizationServerId}/credentials/lifecycle/keyRotate" />
+<ApiOperation method="post" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/credentials/lifecycle/keyRotate" />
 
 Rotates the current [Keys](#certificate-json-web-key-object) for a Custom Authorization Server. If you rotate Keys, the `ACTIVE` Key becomes the `EXPIRED` Key, the `NEXT` Key becomes the `ACTIVE` Key, and the Custom Authorization Server immediately begins using the new active Key to sign tokens.
 
@@ -1780,7 +1780,7 @@ See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditi
 
 ### List Client Resources for an Authorization Server
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/clients" />
 
 Lists all Client Resources for which the specified Authorization Server has tokens
 
@@ -1832,7 +1832,7 @@ Read [Validate access tokens](/docs/guides/validate-access-tokens/) and [Validat
 
 ### List refresh tokens
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/clients/${yourAppClientId}/tokens" />
 
 Lists all refresh tokens issued by an Authorization Server for a specific client
 
@@ -1912,7 +1912,7 @@ curl -v -X GET \
 ### Get refresh token
 
 
-<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/clients/${yourAppClientId}/tokens/${tokenId}" />
 
 Gets a refresh token issued by an Authorization Server for the specified client
 
@@ -2015,7 +2015,7 @@ curl -v -X GET \
 ### Revoke all refresh tokens
 
 
-<ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
+<ApiOperation method="delete" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/clients/${yourAppClientId}/tokens" />
 
 Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
 
@@ -2048,7 +2048,7 @@ HTTP/1.1 204 No Content
 ### Revoke refresh token
 
 
-<ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens/${tokenId}" />
+<ApiOperation method="delete" url="/api/v1/authorizationServers/${yourAuthorizationServerId}/clients/${yourAppClientId}/tokens/${tokenId}" />
 
 Revokes the specified refresh token. If an access token was issued with this refresh token, it is also revoked.
 

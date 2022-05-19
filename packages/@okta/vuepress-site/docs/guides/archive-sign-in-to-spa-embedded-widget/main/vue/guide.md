@@ -88,7 +88,7 @@ import { OktaAuth } from '@okta/okta-auth-js'
 
 const oktaSignIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   redirectUri: 'http://localhost:8080/login/callback',
   authParams: {
     pkce: true,
@@ -100,7 +100,7 @@ const oktaSignIn = new OktaSignIn({
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://${yourOktaDomain}/oauth2/default',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   redirectUri: window.location.origin + '/login/callback',
   scopes: ['openid', 'profile', 'email']
 })

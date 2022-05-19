@@ -228,7 +228,7 @@ The [Groups API](/docs/reference/api/groups/) now supports extended search. Also
 
 * If a user was assigned to two groups that have identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/reference/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
 
-* The `okta.apps.*` scope wasn't applied to the [`/apps/${applicationId}/credentials/keys`](/docs/reference/api/apps/#list-key-credentials-for-application) endpoint. (OKTA-331828)
+* The `okta.apps.*` scope wasn't applied to the [`/apps/${yourAppClientId}/credentials/keys`](/docs/reference/api/apps/#list-key-credentials-for-application) endpoint. (OKTA-331828)
 
 
 ### Weekly Release 2020.09.3
@@ -396,8 +396,8 @@ HTTP `no-cache` headers are no longer sent in responses returned by the followin
 
  * `/.well-known/openid-configuration`
  * `/.well-known/oauth-authorization-server`
- * `/oauth2/{authorizationServerId}/.well-known/openid-configuration`
- * `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+ * `/oauth2/{yourAuthorizationServerId}/.well-known/openid-configuration`
+ * `/oauth2/{yourAuthorizationServerId}/.well-known/oauth-authorization-server`
  <!-- OKTA-277596 -->
 #### Improved new device behavior detection
 
@@ -459,9 +459,9 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 * `/oauth2/v1/keys`
 * `/.well-known/openid-configuration`
 * `/.well-known/oauth-authorization-server`
-* `/oauth2/{authorizationServerId}/v1/keys`
-* `/oauth2/{authorizationServerId}/.well-known/openid-configuration`
-* `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+* `/oauth2/{yourAuthorizationServerId}/v1/keys`
+* `/oauth2/{yourAuthorizationServerId}/.well-known/openid-configuration`
+* `/oauth2/{yourAuthorizationServerId}/.well-known/oauth-authorization-server`
 <!-- OKTA-289849 -->
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
@@ -499,7 +499,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### Bug fixed in 2020.04.1
 
-* When calling the `/oauth2/default/v1/authorize` or `/oauth2/${authServerId}/v1/authorize` endpoints with the `prompt` parameter set to `login` and the `idp` parameter set to a SAML IdP, the end user wasn't forced to authenticate. (OKTA-288118)
+* When calling the `/oauth2/default/v1/authorize` or `/oauth2/${yourAuthorizationServerId}/v1/authorize` endpoints with the `prompt` parameter set to `login` and the `idp` parameter set to a SAML IdP, the end user wasn't forced to authenticate. (OKTA-288118)
 
 
 ### Monthly Release 2020.04.0

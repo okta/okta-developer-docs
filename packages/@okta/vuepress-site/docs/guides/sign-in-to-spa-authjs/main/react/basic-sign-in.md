@@ -7,7 +7,7 @@ This section helps you review the simple password-only sign-in use case from the
 Review the `src/config.js` file that references the required [configuration settings](#configuration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values you add to the `testenv` file.
 
 ```JavaScript
-const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '${clientId}';
+const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '${yourAppClientId}';
 const ISSUER = process.env.ISSUER || 'https://${yourOktaDomain}/oauth2/default';
 const REDIRECT_URI = `${window.location.origin}/login/callback`;
 

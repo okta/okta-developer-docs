@@ -1,6 +1,6 @@
 Initialize a configuration by passing the appropriate values to `IDXClient.Configuration(issuer:clientId:clientSecret:scopes:redirectUri:)`. This example shows loading the values from a property file in your project.
 
-First, create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your Application Integration. For example, in the following text version of a `plist`, substitute your issuer URL for `{yourIssuerUrl}`, the client ID of your Application Integration for `{yourClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
+First, create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your Application Integration. For example, in the following text version of a `plist`, substitute your issuer URL for `{yourIssuerUrl}`, the client ID of your Application Integration for `{yourAppClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -10,7 +10,7 @@ First, create a property list file, such as `Okta.plist`. Next, add key-value pa
     <key>issuer</key>
     <string>{yourIssuerUrl}</string>
     <key>clientId</key>
-    <string>{yourClientId}</string>
+    <string>{yourAppClientId}</string>
     <key>redirectUri</key>
     <string>com.sample.:/callback</string>
     <key>scopes</key>

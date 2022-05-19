@@ -15,7 +15,7 @@ import github.com/okta/okta-jwt-verifier-golang
 
 toValidate := map[string]string{}
 toValidate["aud"] = "api://default"
-toValidate["cid"] = "${clientId}"
+toValidate["cid"] = "${yourAppClientId}"
 
 jwtVerifierSetup := jwtverifier.JwtVerifier{
         Issuer: "${issuer}",

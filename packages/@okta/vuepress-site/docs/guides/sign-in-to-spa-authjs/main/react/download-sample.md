@@ -25,7 +25,7 @@ Create and add a configuration file (`testenv`) to the `okta-auth-js` root folde
 
 ```txt
 ISSUER=https://${yourOktaDomain}/oauth2/default
-CLIENT_ID=${clientId}
+CLIENT_ID=${yourAppClientId}
 USE_INTERACTION_CODE=true
 ```
 

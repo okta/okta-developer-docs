@@ -1413,7 +1413,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 ### Get application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}" />
 
 Fetches an application from your Okta organization by `id`
 
@@ -2478,7 +2478,7 @@ curl -v -X GET \
 
 ### Update application
 
-<ApiOperation method="put" url="/api/v1/apps/${applicationId}" />
+<ApiOperation method="put" url="/api/v1/apps/${yourAppClientId}" />
 
 Updates an application in your organization
 
@@ -3470,7 +3470,7 @@ curl -v -X PUT \
   "signOnMode": "OPENID_CONNECT",
   "credentials": {
     "oauthClient": {
-      "client_id": ${clientId},
+      "client_id": ${yourAppClientId},
       "autoKeyRotation": true,
       "token_endpoint_auth_method": "client_secret_post"
     }
@@ -3628,7 +3628,7 @@ curl -v -X PUT \
 ```
 ### Delete application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}" />
 
 Removes an inactive application
 
@@ -3683,7 +3683,7 @@ Content-Type: application/json
 
 <ApiLifecycle access="ie" />
 
-<ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
+<ApiOperation method="put" url="/api/v1/apps/${yourAppClientId}/policies/${policyId}" />
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
 
@@ -3719,7 +3719,7 @@ HTTP/1.1 204 No Content
 
 ### Activate application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/lifecycle/activate" />
 
 Activates an inactive application
 
@@ -3751,7 +3751,7 @@ curl -v -X POST \
 
 ### Deactivate application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/lifecycle/deactivate" />
 
 Deactivates an active application
 
@@ -3786,7 +3786,7 @@ curl -v -X POST \
 
 ### Assign user to application for SSO
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/users" />
 
 Assigns a user without a [profile](#application-user-profile-object) to an application for SSO
 
@@ -3855,7 +3855,7 @@ curl -v -X POST \
 
 ### Assign user to application for SSO and provisioning
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/users" />
 
 Assigns a user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
 
@@ -3953,7 +3953,7 @@ curl -v -X POST \
 
 ### Get assigned user for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/users/${userId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/users/${userId}" />
 
 Fetches a specific user assignment for an application by `id`
 
@@ -4020,7 +4020,7 @@ curl -v -X GET \
 
 ### List users assigned to application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/users" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/users" />
 
 Enumerates all assigned [Application users](#application-user-object) for an application
 
@@ -4127,7 +4127,7 @@ curl -v -X GET \
 
 ### Update application credentials for assigned user
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users/${userId}" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/users/${userId}" />
 
 Updates a user's [credentials](#application-user-credentials-object) for an assigned application
 
@@ -4208,7 +4208,7 @@ curl -v -X POST \
 
 ### Update application profile for assigned user
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users/${userId}" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/users/${userId}" />
 
 Updates a user's profile for an application
 
@@ -4298,7 +4298,7 @@ curl -v -X POST \
 
 ### Remove user from application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/users/${userId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/users/${userId}" />
 
 Removes an assignment for a user from an application
 
@@ -4338,7 +4338,7 @@ curl -v -X DELETE \
 
 ### Assign group to application
 
-<ApiOperation method="put" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
+<ApiOperation method="put" url="/api/v1/apps/${yourAppClientId}/groups/${groupId}" />
 
 Assigns a group to an application
 
@@ -4377,7 +4377,7 @@ curl -v -X PUT \
 
 ### Get assigned group for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/groups/${groupId}" />
 
 Fetches an application group assignment
 
@@ -4414,7 +4414,7 @@ curl -v -X GET \
 
 ### List groups assigned to application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/groups" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/groups" />
 
 Enumerates group assignments for an application
 
@@ -4463,7 +4463,7 @@ curl -v -X GET \
 
 ### Remove group from application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/groups/${groupId}" />
 
 Removes a group assignment from an application
 
@@ -4498,7 +4498,7 @@ curl -v -X DELETE \
 
 ### Generate new application key credential
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/keys/generate" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/keys/generate" />
 
 Generates a new X.509 certificate for an application key credential
 
@@ -4629,7 +4629,7 @@ If the key is already present in the list of key credentials for the target appl
 
 ### List key credentials for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/keys" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/keys" />
 
 Enumerates key credentials for an application
 
@@ -4688,7 +4688,7 @@ curl -v -X GET \
 
 ### Get key credential for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/keys/${kid}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/keys/${kid}" />
 
 Gets a specific [Application Key Credential](#application-key-credential-object) by `kid`
 
@@ -4733,7 +4733,7 @@ curl -v -X GET \
 
 ### Preview SAML metadata for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/sso/saml/metadata" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/sso/saml/metadata" />
 
 Previews SAML metadata based on a specific key credential for an application
 
@@ -4797,7 +4797,7 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
 
 ### Generate CSR for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/csrs" />
 
 Generates a new key pair and returns the Certificate Signing Request (CSR). The information in a CSR is used by the Certificate Authority (CA) to verify and create your certificate. It also contains the public key that is included in your certificate.
 
@@ -4905,7 +4905,7 @@ Returns a [CSR object](#application-csr-object)
 
 ### Publish CSR for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}/lifecycle/publish" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/csrs/${csrId}/lifecycle/publish" />
 
 Updates the CSR with a signed X.509 certificate and adds it into the application key credentials
 
@@ -4998,7 +4998,7 @@ If the certificate doesn't match the CSR or its validaty period is less than 90 
 
 ### Revoke CSR from application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/credentials/csrs/${csrId}" />
 
 Revokes a CSR and deletes the key pair from the application
 
@@ -5031,7 +5031,7 @@ HTTP/1.1 204 No Content
 
 ### List CSRs for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/csrs" />
 
 Enumerates CSRs for an application
 
@@ -5114,7 +5114,7 @@ curl -v -X GET \
 
 ### Get CSR for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/csrs/${csrId}" />
 
 Gets a specific [CSR object](#application-csr-object) by `csrid`
 
@@ -5173,7 +5173,7 @@ curl -v -X GET \
 
 ### Add new client secret
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/secrets" />
 
 Adds a new secret to the client's collection of secrets
 
@@ -5322,7 +5322,7 @@ If the number of client secrets per application exceeds 2, you receive an error 
 
 ### List client secrets
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/secrets" />
 
 Enumerates the client's collection of secrets
 
@@ -5389,7 +5389,7 @@ curl -v -X GET \
 
 ### Get client secret
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/secrets/{secretId}" />
 
 Gets a specific client secret by `secretId`
 
@@ -5449,7 +5449,7 @@ If a secret isn't found for the `secretId`, you receive an error response.
 
 ### Activate a client secret
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/activate"/>
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/secrets/{secretId}/lifecycle/activate"/>
 
 Activates a specific client secret by `secretId`
 
@@ -5508,7 +5508,7 @@ If a secret isn't found for the `secretId`, you receive an error response.
 
 ### Deactivate a client secret
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}/lifecycle/deactivate"/>
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/secrets/{secretId}/lifecycle/deactivate"/>
 
 Deactivates a specific client secret by `secretId`
 
@@ -5591,7 +5591,7 @@ If the application has only one active client secret, and if a deactivate reques
 
 ### Delete a client secret
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/secrets/{secretId}"/>
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/credentials/secrets/{secretId}"/>
 
 Deletes a specific client secret by `secretId`
 
@@ -5653,7 +5653,7 @@ If the delete request is received for an active secret, you receive an error res
 
 ### Add new JSON Web Key
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/jwks" />
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
@@ -5779,7 +5779,7 @@ If the number of JSON Web Keys per application exceeds the set limit (currently 
 
 ### List JSON Web Keys
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks"/>
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/jwks"/>
 
 Enumerates the client's collection of JSON Web Keys
 
@@ -5858,7 +5858,7 @@ curl -v -X GET \
 
 ### Get JSON Web Key
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/credentials/jwks/{id}" />
 
 Gets a specific JSON Web Key by `id`
 
@@ -5922,7 +5922,7 @@ If the JSON Web Key isn't found for the `id`, you receive an error response.
 
 ### Activate a JSON Web Key
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/activate"/>
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/jwks/{id}/lifecycle/activate"/>
 
 Activates a specific JSON Web Key by `id`
 
@@ -5985,7 +5985,7 @@ If the JSON Web Key isn't found for the `id`, you receive an error response.
 
 ### Deactivate a JSON Web Key
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}/lifecycle/deactivate"/>
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/credentials/jwks/{id}/lifecycle/deactivate"/>
 
 Deactivates a specific JSON Web Key by `id`
 
@@ -6088,7 +6088,7 @@ If the application has only one active JSON Web Key that matches `request_object
 
 ### Delete a JSON Web Key
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}"/>
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/credentials/jwks/{id}"/>
 
 Deletes a specific JSON Web Key by `id`
 
@@ -6152,7 +6152,7 @@ A scope consent grant represents an application's permission to request to inclu
 
 ### Grant consent to scope for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/grants" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/grants" />
 
 Grants consent for the application to request an OAuth 2.0 Okta scope
 
@@ -6175,7 +6175,7 @@ curl -v -X POST \
 -d '{
     "issuer": "${yourOktaDomain}",
     "scopeId": "okta.users.manage"
-}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
+}' "https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants"
 ```
 
 #### Response example
@@ -6191,7 +6191,7 @@ curl -v -X POST \
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
    "issuer":"{yourOktaDomain}",
-   "clientId":"{clientId}",
+   "clientId":"{yourAppClientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6201,11 +6201,11 @@ curl -v -X POST \
    },
    "_links":{
       "app":{
-         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -6214,7 +6214,7 @@ curl -v -X POST \
          }
       },
       "client":{
-         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{yourAppClientId}",
          "title":"Application Name"
       }
    }
@@ -6223,7 +6223,7 @@ curl -v -X POST \
 
 ### List scope consent grants for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/grants" />
 
 Lists all scope consent grants for the application
 
@@ -6242,7 +6242,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants"
 ```
 
 #### Response example
@@ -6259,16 +6259,16 @@ curl -v -X GET \
       },
       "lastUpdated":"2019-02-21T16:54:00.000Z",
       "issuer":"{yourOktaDomain}",
-      "clientId":"{clientId}",
+      "clientId":"{yourAppClientId}",
       "scopeId":"okta.users.read",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/oag91n9ruw3dsaXzP0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -6277,7 +6277,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{yourAppClientId}",
             "title":"Application Name"
          }
       }
@@ -6292,16 +6292,16 @@ curl -v -X GET \
       },
       "lastUpdated":"2020-02-03T21:57:49.000Z",
       "issuer":"{yourOktaDomain}",
-      "clientId":"{clientId}",
+      "clientId":"{yourAppClientId}",
       "scopeId":"okta.apps.manage",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/oaghm3sh9ukdkvDmO0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -6310,7 +6310,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{yourAppClientId}",
             "title":"Application Name"
          }
       }
@@ -6321,7 +6321,7 @@ curl -v -X GET \
 
 ### Get scope consent grant for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/grants/${grantId}" />
 
 Fetches a single scope consent grant for the application
 
@@ -6341,7 +6341,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/${grantId}"
 ```
 
 #### Response example
@@ -6357,7 +6357,7 @@ curl -v -X GET \
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
    "issuer":"{yourOktaDomain}",
-   "clientId":"{clientId}",
+   "clientId":"{yourAppClientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6367,11 +6367,11 @@ curl -v -X GET \
    },
    "_links":{
       "app":{
-         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -6380,7 +6380,7 @@ curl -v -X GET \
          }
       },
       "client":{
-         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{yourAppClientId}",
          "title":"Application Name"
       }
    }
@@ -6390,7 +6390,7 @@ curl -v -X GET \
 
 ### Revoke scope consent grant for application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/grants/${grantId}" />
 
 Revokes permission for the application to request the given scope
 
@@ -6409,7 +6409,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/grants/${grantId}"
 ```
 
 #### Response example
@@ -6422,7 +6422,7 @@ HTTP/1.1 204 No Content
 
 ### List OAuth 2.0 tokens for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/tokens" />
 
 Lists all tokens for the application
 
@@ -6500,7 +6500,7 @@ curl -v -X GET \
 
 ### Get OAuth 2.0 token for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/tokens/${tokenId}" />
 
 Gets a token for the specified application
 
@@ -6598,7 +6598,7 @@ curl -v -X GET \
 
 ### Revoke OAuth 2.0 tokens for application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/tokens" />
 
 Revokes all tokens for the specified application
 
@@ -6626,7 +6626,7 @@ HTTP/1.1 204 No Content
 
 ### Revoke OAuth 2.0 token for applications
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/tokens/${tokenId}" />
 
 Revokes the specified token for the specified application
 
@@ -6657,7 +6657,7 @@ HTTP/1.1 204 No Content
 
 ### Update logo for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/logo" />
 
 Update the logo for an application.
 
@@ -6679,7 +6679,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/logo"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/logo"
 ```
 
 ##### Response example
@@ -6695,7 +6695,7 @@ Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe
 
 ### Get default Provisioning Connection for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/connections/default" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/connections/default" />
 
 Fetches the default Provisioning Connection for an application.
 
@@ -6716,7 +6716,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default"
 ```
 
 ##### Response example
@@ -6727,7 +6727,7 @@ curl -v -X GET \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -6736,7 +6736,7 @@ curl -v -X GET \
             }
         },
         "deactivate": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -6749,7 +6749,7 @@ curl -v -X GET \
 
 ### Set default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/connections/default" />
 
 Sets the default Provisioning Connection for an application.
 
@@ -6777,7 +6777,7 @@ curl -v -X POST \
         "authScheme": "TOKEN",
         "token": "TEST"
     }
-}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default?activate=TRUE"
+}' "https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default?activate=TRUE"
 ```
 
 ##### Response example
@@ -6788,7 +6788,7 @@ curl -v -X POST \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -6797,7 +6797,7 @@ curl -v -X POST \
             }
         },
         "deactivate": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -6810,7 +6810,7 @@ curl -v -X POST \
 
 ### Activate default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/activate" />
 
 Activates the default Provisioning Connection for an application.
 
@@ -6827,7 +6827,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/activate"
 ```
 
 ##### Response example
@@ -6838,7 +6838,7 @@ HTTP/1.1 204 No Content
 
 ### Deactivate default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/connections/lifecycle/deactivate" />
 
 Deactivates the default Provisioning Connection for an application.
 
@@ -6855,7 +6855,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/deactivate"
 ```
 
 ##### Response example
@@ -6870,7 +6870,7 @@ HTTP/1.1 204 No Content
 
 ### List Features for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/features" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/features" />
 
 Fetches the Feature objects for an application.
 
@@ -6894,7 +6894,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/features"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/features"
 ```
 
 ##### Response example
@@ -6927,7 +6927,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+                "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/USER_PROVISIONING",
                 "hints": {
                     "allow": [
                         "GET",
@@ -6942,7 +6942,7 @@ curl -v -X GET \
 
 ### Get Feature for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/features/${name}" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/features/${name}" />
 
 Fetches a Feature object for an application.
 
@@ -6963,7 +6963,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+"https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/${name}"
 ```
 
 ##### Response example
@@ -6995,7 +6995,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -7009,7 +7009,7 @@ curl -v -X GET \
 
 ### Update Feature for application
 
-<ApiOperation method="put" url="/api/v1/apps/${applicationId}/features/${featureName}" />
+<ApiOperation method="put" url="/api/v1/apps/${yourAppClientId}/features/${featureName}" />
 
 Updates a Feature object for an application.
 
@@ -7051,7 +7051,7 @@ curl -v -X PUT \
             "change": "CYCLE"
         }
     }
-}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+}' "https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/${name}"
 ```
 
 This endpoint supports partial updates.
@@ -7067,7 +7067,7 @@ curl -v -X PUT \
             "status": "DISABLED"
         }
     }
-}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+}' "https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/${name}"
 ```
 
 ##### Response example
@@ -7099,7 +7099,7 @@ curl -v -X PUT \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -8583,7 +8583,7 @@ The provisioning connection object is a read only object that displays the metho
     "status": "DISABLED",
     "_links": {
         "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -8591,7 +8591,7 @@ The provisioning connection object is a read only object that displays the metho
             }
         },
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -8639,7 +8639,7 @@ The application provisioning connection profile is used to configure the method 
 {
     "profile": {
         "authScheme": "OAUTH2",
-        "clientId": "${clientId}"
+        "clientId": "${yourAppClientId}"
     }
 }
 ```
@@ -8684,7 +8684,7 @@ The Feature object is used to configure settings of the application. For example
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${yourAppClientId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",

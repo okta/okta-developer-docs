@@ -1,9 +1,9 @@
 The Okta CLI created an `.okta.env` file in your current directory containing these values, for example:
 
 ```properties
-export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
-export OKTA_OAUTH2_CLIENT_ID=${clientId}
-export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
+export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}
+export OKTA_OAUTH2_CLIENT_ID=${yourAppClientId}
+export OKTA_OAUTH2_CLIENT_SECRET=${yourClientSecret}
 ```
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
@@ -46,8 +46,8 @@ You can configure the properties of your application with configuration files, e
    ```py
    config = {
        "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
-       "client_id": "${clientId}",
-       "client_secret": "${clientSecret}",
+       "client_id": "${yourAppClientId}",
+       "client_secret": "${yourClientSecret}",
        "redirect_uri": "http://localhost:5000/authorization-code/callback",
        "issuer": "https://${yourOktaDomain}/oauth2/default",
        "token_uri": "https://${yourOktaDomain}/oauth2/default/v1/token",

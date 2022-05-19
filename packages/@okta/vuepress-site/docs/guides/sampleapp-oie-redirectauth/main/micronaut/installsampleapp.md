@@ -3,8 +3,8 @@
 
     ```
     `export OIDC_ISSUER_DOMAIN=https://${yourOktaDomain}`
-    `export OAUTH_CLIENT_ID=${clientId}`
-    `export OAUTH_CLIENT_SECRET=${clientSecret}`
+    `export OAUTH_CLIENT_ID=${yourAppClientId}`
+    `export OAUTH_CLIENT_SECRET=${yourClientSecret}`
     `export OIDC_ISSUER_AUTHSERVERID=default`
     ```
 

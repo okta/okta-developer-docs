@@ -230,7 +230,7 @@ curl -v -X POST \
     },
     "_links": {
         "authorize": {
-            "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}&nonce={nonce}",
             "templated": true,
             "hints": {
                 "allow": [
@@ -597,7 +597,7 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri=${redirectUri}&state={state}&nonce={nonce}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri=${yourSignInRedirectId}&state={state}&nonce={nonce}",
       "templated": true,
       "hints": {
         "allow": [
@@ -743,8 +743,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -891,8 +891,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1037,8 +1037,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1182,8 +1182,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1416,8 +1416,8 @@ curl -v -X GET \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1545,8 +1545,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1738,8 +1738,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1819,8 +1819,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1902,8 +1902,8 @@ curl -v -X GET \
     "_links": {
       "authorize": {
         "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+            client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1993,7 +1993,7 @@ curl -v -X GET \
       },
       "_links": {
           "authorize": {
-              "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+              "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}&nonce={nonce}",
               "templated": true,
               "hints": {
                   "allow": [
@@ -2623,8 +2623,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -2737,8 +2737,8 @@ curl -v -X POST \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-      client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-      scope={scopes}&redirect_uri={redirectUri}&state={state}",
+      client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+      scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -4278,8 +4278,8 @@ curl -v -X GET \
   "_links": {
     "authorize": {
       "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
-          scope={scopes}&redirect_uri={redirectUri}&state={state}",
+          client_id={yourAppClientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={yourSignInRedirectId}&state={state}",
       "templated": true,
       "hints": {
         "allow": [

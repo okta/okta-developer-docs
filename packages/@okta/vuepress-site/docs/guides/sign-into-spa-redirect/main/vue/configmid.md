@@ -5,7 +5,7 @@
    ```js
    export default {
      oidc: {
-       clientId: '${yourClientID}',
+       clientId: '${yourAppClientId}',
        issuer: 'https://${yourOktaDomain}/oauth2/default',
        redirectUri: window.location.origin + '/login/callback',
        scopes: ['openid', 'profile', 'email']

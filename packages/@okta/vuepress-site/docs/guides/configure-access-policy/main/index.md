@@ -89,9 +89,9 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration`.
 
-     It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+     It looks like this: `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize`
 
      Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
@@ -108,13 +108,13 @@ Let's test your access policy and get back an access token.
 
      The resulting URL looks like this:
 
-     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid email&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
+     `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid email&redirect_uri=http://{yourSignInRedirectUri}&state=WM6D&nonce=YsG76jo`
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
 
 5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scopes, and any state that you defined:
 
-     `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQwIi[...]i7U9uW0mI0Bb8SbUeKZjzuxP9aDog&token_type=Bearer&expires_in=3600&scope=openid+email&state=WM6D`
+     `http://{yourSignInRedirectUri}#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQwIi[...]i7U9uW0mI0Bb8SbUeKZjzuxP9aDog&token_type=Bearer&expires_in=3600&scope=openid+email&state=WM6D`
 
      To check the returned access token, you can copy that URL and paste it into any [JWT decoder](https://token.dev). Check the payload to confirm that it contains the scopes that you are expecting.
 
@@ -122,7 +122,7 @@ Let's test your access policy and get back an access token.
 {
   "ver": 1,
   "jti": "AT.ReRI96X_2Ny3nSf0DepnWLhbAJW5kB0nbl0WqSn22W8",
-  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+  "iss": "https://{yourOktaDomain}/oauth2/{yourAuthorizationServerId}",
   "aud": "https://{yourOktaDomain}",
   "iat": 1594769008,
   "exp": 1594772608,
@@ -179,9 +179,9 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration`.
 
-     It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+     It looks like this: `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize`
 
      Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
@@ -196,13 +196,13 @@ Let's test your access policy and get back an access token.
 
      The resulting URL looks like this:
 
-     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
+     `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid&redirect_uri=http://{yourSignInRedirectUri}&state=WM6D&nonce=YsG76jo`
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
 
 5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scope, and any state that you defined:
 
-     `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQw[...]vkAcHgJ1GFmR-7sO0Q&token_type=Bearer&expires_in=900&scope=openid+email&state=WM6D`
+     `http://{yourSignInRedirectUri}#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQw[...]vkAcHgJ1GFmR-7sO0Q&token_type=Bearer&expires_in=900&scope=openid+email&state=WM6D`
 
      In the response, you can see that the value for the `expires_in` parameter is `900`.
 

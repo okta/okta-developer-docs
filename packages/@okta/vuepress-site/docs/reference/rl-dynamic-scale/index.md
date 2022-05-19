@@ -21,8 +21,8 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 **OAuth2 endpoints:**
 
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/${authorizationServerId}/v1/authorize`
+* `/oauth2/${yourAuthorizationServerId}/v1`
+* `/oauth2/${yourAuthorizationServerId}/v1/authorize`
 * `/oauth2/v1` except `/oauth2/v1/clients`
 * `/oauth2/v1/authorize`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />

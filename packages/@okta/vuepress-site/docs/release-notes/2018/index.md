@@ -15,7 +15,7 @@ title: Okta API Products Release Notes 2018
 
 #### Bugs Fixed in 2018.12.2
 
-* An error would be returned if the `/apps/${applicationId}` [endpoint](/docs/reference/api/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
+* An error would be returned if the `/apps/${yourAppClientId}` [endpoint](/docs/reference/api/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
 
 * The [Identity Providers API](/docs/reference/api/idps/) endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
 
@@ -103,7 +103,7 @@ The `debugContext` object returned by the [System Log API](/docs/reference/api/s
 
 * Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/system-log/). <!--OKTA-196313-->
 
-* Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/reference/api/oidc/#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
+* Responses from the `/oauth2/${yourAuthorizationServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/reference/api/oidc/#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 
 #### Previously Released Early Access Features 2018.48 Update
 
@@ -355,7 +355,7 @@ Okta is introducing new rate limits for emails that are sent to users. This will
 
 User deletion and deactivation requests now have an optional `sendEmail` parameter. For more information see the documentation for those endpoints:
 
-* [DELETE /api/v1/apps/${applicationId}/users/${userId}](/docs/reference/api/apps/#remove-user-from-application)
+* [DELETE /api/v1/apps/${yourAppClientId}/users/${userId}](/docs/reference/api/apps/#remove-user-from-application)
 * [DELETE /api/v1/users/${userId}](/docs/reference/api/users/#delete-user)
 * [POST /api/v1/users/${userId}/lifecycle/deactivate](/docs/reference/api/users/#deactivate-user)
 

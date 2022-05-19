@@ -86,7 +86,7 @@ Create a `src/auth.js` file:
 const OktaAuth = require('@okta/okta-auth-js').OktaAuth
 const authClient = new OktaAuth({
   issuer: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   scopes: ['openid', 'email', 'profile'],
   redirectUri: window.location.origin + '/login/callback'
 })
@@ -142,7 +142,7 @@ export default {
 }
 ```
 
-You'll need to replace `${yourOktaDomain}` with your Okta domain in the code above. Replace `${clientId}` with the client ID from the app you created in the beginning.
+You'll need to replace `${yourOktaDomain}` with your Okta domain in the code above. Replace `${yourAppClientId}` with the client ID from the app you created in the beginning.
 
 Change `src/App.vue` to have the following code:
 

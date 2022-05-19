@@ -3,8 +3,8 @@ Using the [NJWT library](https://github.com/jwtk/njwt):
 ```javascript
 const njwt = require('njwt');
 
-const clientSecret = "${clientSecret}"; // Or load from configuration
-const clientId = "${clientId}"; // Or load from configuration
+const clientSecret = "${yourClientSecret}"; // Or load from configuration
+const clientId = "${yourAppClientId}"; // Or load from configuration
 const now = Math.floor( new Date().getTime() / 1000 ); // seconds since epoch
 const plus5Minutes = new Date( ( now + (5*60) ) * 1000); // Date object
 

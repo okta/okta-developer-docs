@@ -7,7 +7,7 @@
     {
     "web": {
         "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
-        "client_id": "${yourClientId}",
+        "client_id": "${yourAppClientId}",
         "client_secret": "${yourClientSecret}",
         "redirect_uris": [
             "http://localhost:8080/authorization-code/callback"

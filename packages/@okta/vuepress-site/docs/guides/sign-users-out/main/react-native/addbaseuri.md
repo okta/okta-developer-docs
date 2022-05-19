@@ -8,7 +8,7 @@ Ensure that the `endSessionRedirectUri` configured at `createConfig` is the same
 {
   export default {
     oidc: {
-      clientId: '${clientId}',
+      clientId: '${yourAppClientId}',
       redirectUri: 'com.okta.example:/login',
       endSessionRedirectUri: 'com.okta.example:/logout',
       discoveryUri: 'https://com.okta.example',

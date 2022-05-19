@@ -19,8 +19,8 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
     var config = {};
 
     config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
-    config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
-    config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
+    config.clientId = /*[[${yourAppClientId}]]*/ '{yourAppClientId}';
+    config.redirectUri = /*[[${yourSignInRedirectId}]]*/ '{yourSignInRedirectId}';
     config.useInteractionCodeFlow = true;
     config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
     config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';

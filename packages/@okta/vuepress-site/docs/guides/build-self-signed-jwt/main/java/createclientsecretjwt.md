@@ -1,7 +1,7 @@
 Using the [JJWT library](https://github.com/jwtk/jjwt):
 
 ```java
-String clientSecret = "${clientSecret}"; // Or load from configuration
+String clientSecret = "${yourClientSecret}"; // Or load from configuration
 SecretKey sharedSecret = Keys.hmacShaKeyFor(clientSecret.getBytes(StandardCharsets.UTF_8));
 Instant now = Instant.now();
 

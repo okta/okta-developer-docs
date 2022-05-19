@@ -54,7 +54,7 @@ To initialize the SDK, create a new instance of the `OktaAuth` object:
 ``` js
 var authClient = new OktaAuth({
   url: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   redirectUri: 'http://localhost:8080'
 });
 ```
@@ -140,7 +140,7 @@ const authClient = new OktaAuth({
   // Org URL
   url: 'https://${yourOktaDomain}',
   // OpenID Connect APP Client ID
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   // Trusted Origin Redirect URI
   redirectUri: 'http://localhost:8080'
 });
@@ -206,7 +206,7 @@ const authClient = new OktaAuth({
   // Org URL
   url: 'https://${yourOktaDomain}',
   // OpenID Connect APP Client ID
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   // Trusted Origin Redirect URI
   redirectUri: 'http://localhost:8080'
 });

@@ -9,13 +9,13 @@
             <key>scopes</key>
             <string>openid profile offline_access</string>
             <key>redirectUri</key>
-            <string>${signinredirectUri}</string>
+            <string>${yourSignInRedirectUri}</string>
             <key>clientId</key>
-            <string>${clientId}</string>
+            <string>${yourAppClientId}</string>
             <key>issuer</key>
             <string>${issuer}</string>
             <key>logoutRedirectUri</key>
-            <string>${signoutRedirectUri}</string>
+            <string>${yourSignOutRedirectUri}</string>
         </dict>
         </plist>
     ```

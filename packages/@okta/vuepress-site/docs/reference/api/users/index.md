@@ -3301,7 +3301,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/grants" />
+<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${yourAppClientId}/grants" />
 
 Lists all grants for a specified user and client
 
@@ -3450,7 +3450,7 @@ HTTP/1.1 204 No Content
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/grants" />
+<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${yourAppClientId}/grants" />
 
 Revokes all grants for the specified user and client
 
@@ -3498,7 +3498,7 @@ Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understan
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
+<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${yourAppClientId}/tokens" />
 
 Lists all refresh tokens issued for the specified User and Client.
 
@@ -3583,7 +3583,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${yourAppClientId}/tokens/${tokenId}" />
 
 Gets a refresh token issued for the specified User and Client.
 
@@ -3694,7 +3694,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
+<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${yourAppClientId}/tokens" />
 
 Revokes all refresh tokens issued for the specified User and Client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
 
@@ -3729,7 +3729,7 @@ HTTP/1.1 204 No Content
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
+<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${yourAppClientId}/tokens/${tokenId}" />
 
 Revokes the specified refresh token. If an access token was issued with this refresh token, it will also be revoked.
 

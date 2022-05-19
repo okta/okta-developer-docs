@@ -135,7 +135,7 @@ For background information on this process, see [Create a service app and grant 
 
 You must now define the allowed Risk scope for use with the third-party risk provider service application.
 
-1. Make a POST request using the following API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
+1. Make a POST request using the following API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${yourAppClientId}/grants`).
 
     This call adds the `scopeId` to the value of: `okta.riskEvents.manage`.
 
@@ -207,7 +207,7 @@ This procedure updates the default risk provider profile with the service applic
     ```JSON
     {
     "name": "{{providerName}}",
-    "clientId": "{{clientId}}",
+    "clientId": "{{yourAppClientId}}",
     "action": "enforce_and_log"
     }
     ```

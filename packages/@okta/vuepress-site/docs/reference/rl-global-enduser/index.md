@@ -26,8 +26,8 @@ This page provides the API rate limits for authentication and end-user activitie
 | **Authenticate different end users:**<br>`/api/v1/authn`<br>Eligible for dynamic scale and workforce multiplier                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/${factorIdOrFactorType}/verify` only<br>Eligible for dynamic scale and workforce multiplier                                     | 100              | 600              | 600     | 600        | 500                   |
 | **Get session information:**<br>`/api/v1/sessions`<br>Eligible for dynamic scale and workforce multiplier                                                                     | 100              | 600              | 600     | 600        | 750                   |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except `/oauth2/${authorizationServerId}/v1/authorize` and public metadata endpoints (see the Note below)<br>Eligible for dynamic scale and workforce multiplier  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
-| `/oauth2/${authorizationServerId}/v1/authorize`<br>Eligible for dynamic scale and workforce multiplier                                                                        | 300              | 1200             | 1200    | 1200       | 2000
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${yourAuthorizationServerId}/v1` except `/oauth2/${yourAuthorizationServerId}/v1/authorize` and public metadata endpoints (see the Note below)<br>Eligible for dynamic scale and workforce multiplier  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
+| `/oauth2/${yourAuthorizationServerId}/v1/authorize`<br>Eligible for dynamic scale and workforce multiplier                                                                        | 300              | 1200             | 1200    | 1200       | 2000
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients`, `/oauth2/v1/authorize` and public metadata endpoints (see the Note below)<br>Eligible for dynamic scale and workforce multiplier | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | `/oauth2/v1/authorize`<br>Eligible for dynamic scale and workforce multiplier                                                                                                | 300              | 1200             | 1200    | 1200       | 2000
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                            | 100              | 600              | 600     | 600        | 600                   |
@@ -55,7 +55,7 @@ This page provides the API rate limits for authentication and end-user activitie
 > * `/.well-known/oauth-authorization-server`
 >
 > Public metadata endpoints for the Custom Authorization Servers are:
-> * `/oauth2/${authorizationServerId}/v1/keys`
-> * `/oauth2/${authorizationServerId}/.well-known/openid-configuration`
-> * `/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+> * `/oauth2/${yourAuthorizationServerId}/v1/keys`
+> * `/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration`
+> * `/oauth2/${yourAuthorizationServerId}/.well-known/oauth-authorization-server`
 >

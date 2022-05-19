@@ -16,7 +16,7 @@ The user enters their email and password, and clicks **Log In**. This page is ho
 
 ### 3: Redirect the request to the Okta org
 
-If the user's Facebook login is successful, Facebook routes the user to the value that you entered for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_1-create-a-facebook-app-in-facebook). The value takes on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+If the user's Facebook login is successful, Facebook routes the user to the value that you entered for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_1-create-a-facebook-app-in-facebook). The value takes on the following format: `https://${yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### 4: Redirect the request to the client
 

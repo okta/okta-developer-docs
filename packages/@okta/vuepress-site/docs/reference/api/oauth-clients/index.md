@@ -420,7 +420,7 @@ Response body:
 
 ### Get an OAuth client
 
-<ApiOperation method="get" url="/oauth2/v1/clients/${clientId}" />
+<ApiOperation method="get" url="/oauth2/v1/clients/${yourAppClientId}" />
 
 Fetches a specific client by `clientId` from your organization
 
@@ -495,7 +495,7 @@ Content-Type: application/json
 
 ### Update a client Application
 
-<ApiOperation method="put" url="/oauth2/v1/clients/${clientId}" />
+<ApiOperation method="put" url="/oauth2/v1/clients/${yourAppClientId}" />
 
 Updates the settings for a client Application from your organization
 
@@ -594,7 +594,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Generate a new client secret
 
-<ApiOperation method="post" url="/oauth2/v1/clients/${clientId}/lifecycle/newSecret" />
+<ApiOperation method="post" url="/oauth2/v1/clients/${yourAppClientId}/lifecycle/newSecret" />
 
 Generates a new client secret for the specified client Application
 
@@ -676,7 +676,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Remove a client Application
 
-<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}" />
+<ApiOperation method="delete" url="/oauth2/v1/clients/${yourAppClientId}" />
 
 Removes a client Application from your organization
 

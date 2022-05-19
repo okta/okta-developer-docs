@@ -4,7 +4,7 @@ If you're developing a server-side application, you likely only need to do three
 
 1. Configure your app (or server settings) to force HTTPS.
 2. Configure your app to read your Okta settings (for example, issuer, client ID, and client secret) from environment variables or a secrets provider (like HashiCorp Vault).
-2. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
+3. Modify your Okta app to have sign-in and sign-out redirect URIs that match your production app.
 
 Java applications typically build into a WAR or a JAR for production.
 

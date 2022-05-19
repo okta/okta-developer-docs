@@ -4,7 +4,7 @@ Ensure that the `endSessionRedirectUri` in `OIDCConfig` is the same as the one d
 
 ```java
 config = new OIDCConfig.Builder()
-    .clientId("${clientId}")
+    .clientId("${yourAppClientId}")
     .redirectUri("com.okta.example:/login")
     .endSessionRedirectUri("com.okta.example:/logout")
     .scopes("openid", "profile", "offline_access")
@@ -16,7 +16,7 @@ Using a JSON file:
 
 ```json
 {
-  "client_id": "${clientId}",
+  "client_id": "${yourAppClientId}",
   "redirect_uri": "com.okta.example:/login",
   "end_session_redirect_uri": "com.okta.example:/logout",
   "scopes": [

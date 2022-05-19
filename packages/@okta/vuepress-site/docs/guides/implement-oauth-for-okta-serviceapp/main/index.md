@@ -170,7 +170,7 @@ Now that you've created the service app and registered the public key with that 
     * `issuer`: `https://${yourOktaDomain}`
 
     ```bash
-    curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
+    curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{yourServiceClientAppId}/grants' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: SSWS 00...Y' \

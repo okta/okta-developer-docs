@@ -27,8 +27,8 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
     var config = {};
 
     config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
-    config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
-    config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
+    config.clientId = /*[[${yourAppClientId}]]*/ '{yourAppClientId}';
+    config.redirectUri = /*[[${yourSignInRedirectId}]]*/ '{yourSignInRedirectId}';
     config.useInteractionCodeFlow = true;
     config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
     config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';

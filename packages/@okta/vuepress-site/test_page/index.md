@@ -33,7 +33,7 @@ Orci vivamus sapien cursus habitant Ut <span class="api-label api-label-small ap
 ### POST operation
 
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
+<ApiOperation method="post" url="/api/v1/apps/${yourAppClientId}/users" />
 
 Velit mauris odio Hac ipsum aliquet mollis felis.
 
@@ -88,7 +88,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
 * <ApiLifecycle access="beta" /> Nec turpis semper amet metus ridiculus porta, dolor eu diam:
-    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authorizationServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server)
+    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${yourAuthorizationServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server)
     * `consent_method`, magnis nisi euismod penatibus posuere
     * `consent`, integer taciti [scopes](/docs/reference/api/authorization-servers/#scope-properties)
 
@@ -192,7 +192,7 @@ curl -v -X POST \
 ### Sub Section B
 
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/users" />
+<ApiOperation method="get" url="/api/v1/apps/${yourAppClientId}/users" />
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
 
@@ -220,7 +220,7 @@ Platea sodales <ApiLifecycle access="deprecated" />  praesent fusce ultricies co
 ### Sub Section 1
 
 
-<ApiOperation method="put" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
+<ApiOperation method="put" url="/api/v1/apps/${yourAppClientId}/groups/${groupId}" />
 
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
@@ -245,7 +245,7 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 ### Sub Section 2
 
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/users/${userId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${yourAppClientId}/users/${userId}" />
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
 

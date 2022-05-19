@@ -4,9 +4,9 @@
 
    ```json
    {
-     "client_id": "${clientId}",
-     "redirect_uri": "${redirectUri}",
-     "end_session_redirect_uri": "${logoutRedirectUri}",
+     "client_id": "${yourAppClientId}",
+     "redirect_uri": "${yourSignInRedirectId}",
+     "end_session_redirect_uri": "${yourSignOutRedirectUri}",
      "scopes": [
        "openid",
        "profile",

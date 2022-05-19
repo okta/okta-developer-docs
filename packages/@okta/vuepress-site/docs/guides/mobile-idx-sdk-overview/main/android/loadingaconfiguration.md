@@ -5,7 +5,7 @@ First, create a property file, for example, `okta.properties` in the project roo
 
 ```
 issuer={yourIssuerUrl}
-clientId={yourClientId}
+clientId={yourAppClientId}
 scopes="openid","email","profile","offline_access"
 redirectUri=com.okta.sample.android:/login
 ```

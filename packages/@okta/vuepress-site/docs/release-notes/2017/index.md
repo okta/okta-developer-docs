@@ -181,7 +181,7 @@ This feature enhancement is expected in preview orgs starting November 1, 2017, 
 Three bug fixes are available now on preview orgs, and will be available on production orgs starting November 6, 2017:
 
 * The default ports in the App Wizard in the Admin Console have been changed from `3000` to `8080`. (OKTA-144916)
-* An error string was unclear. The string is returned when a session times out while waiting for a user to enter MFA credentials during an OpenID Connect `/oauth2/v1/authorize` or OAuth 2.0 `/oauth2/${authServerId}/v1/authorize` request. (OKTA-143916)
+* An error string was unclear. The string is returned when a session times out while waiting for a user to enter MFA credentials during an OpenID Connect `/oauth2/v1/authorize` or OAuth 2.0 `/oauth2/${yourAuthorizationServerId}/v1/authorize` request. (OKTA-143916)
 * An error, `User not assigned to app` was incorrectly returned from a `GET /oauth2/v1/authorize` request for Oauth 2.0 clients with a custom client ID. (OKTA-146566)
 
 Two bug fixes are expected on preview orgs starting Nov 1, 2017, and will be available on production orgs starting November 6, 2017:
@@ -405,7 +405,7 @@ For more information, see developer documentation about [rate limit headers](/do
 
 We've changed the behavior of OpenID Connect scopes:
 
-* OpenID Connect scopes are returned from requests to `/api/v1/authorizationServers/${authServerId}/scopes`.
+* OpenID Connect scopes are returned from requests to `/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes`.
 * You can edit scope descriptions in the Okta user interface or via the API. <!--OKTA-136527 -->
 
 #### Help Desk Administrator Role Generally Available
@@ -525,7 +525,7 @@ This API can be enabled beginning August 22, 2017 for preview orgs, and beginnin
 Bug fixes are expected on preview orgs starting August 22, 2017, and on production orgs starting Sept 5, 2017.
 
 * OpenID Connect and OAuth 2.0 client apps with an `application_type` of `native` or `browser` incorrectly allowed the `client_credentials` grant type. This fix adheres to the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-1.3.4). (OKTA-135853)
-* Requests to `GET /api/v1/apps/${applicationId}/groups?expand=group%2Cmetadata` caused an error in orgs with the Application Entitlements Policy enabled. (OKTA-135969)
+* Requests to `GET /api/v1/apps/${yourAppClientId}/groups?expand=group%2Cmetadata` caused an error in orgs with the Application Entitlements Policy enabled. (OKTA-135969)
 * The `AssertionConsumerServiceURL` attribute in a SAML authentication requests matched one of the configured SSO URLs but an error was returned. (OKTA-137555)
 
 ## 2017.32
@@ -547,7 +547,7 @@ This default authorization server includes a basic access policy and rule, which
 It allows you to specify `default` instead of the `authServerId` in requests to it:
 
 * `https://${yourOktaDomain}/api/v1/authorizationServers/default` vs
-* `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
+* `https://${yourOktaDomain}/api/v1/authorizationServers/${yourAuthorizationServerId}` for other Custom Authorization Servers
 
 #### Web App Supports Client Credential Grant Type
 <!-- OKTA-102062 -->
@@ -663,7 +663,7 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * [`/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
 
-* [`/oauth2/v1/clients/{clientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
+* [`/oauth2/v1/clients/{yourAppClientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
 
 ## 2017.29
 
@@ -767,7 +767,7 @@ You can configure the JIT settings for a SAML identity provider (IdP) to enable 
 
 These platform bug fixes are available in preview orgs and expected in production orgs the week of July 17, 2017.
 
-* `/api/v1/apps/${applicationId}/groups` didn't return groups if the specified app is inactive. (OKTA-123695)
+* `/api/v1/apps/${yourAppClientId}/groups` didn't return groups if the specified app is inactive. (OKTA-123695)
 * Identity provider JIT reactivation of users sometimes failed when there were configured group assignments. (OKTA-131784)
 * In some circumstances, the link between the external Microsoft user and the Okta user was inaccurate.  (OKTA-132207)
 
@@ -848,7 +848,7 @@ and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and O
 specified in the [OAuth 2.0 spec](https://tools.ietf.org/html/rfc6749#section-3.3). (OKTA-117352)
 * When the same user was created multiple times simultaneously and added to a group, the HTTP error
 response code was 500 rather than 400. (OKTA-126223)
-* `/api/v1/apps/${applicationId}/groups` didn't return groups if the specified app is inactive. (OKTA-123695)
+* `/api/v1/apps/${yourAppClientId}/groups` didn't return groups if the specified app is inactive. (OKTA-123695)
 
 ## 2017.25
 
@@ -1437,7 +1437,7 @@ Note that the status code for service claims errors has changed from 500 to 400 
 
 #### Added Login Hint to OAuth 2.0 and OpenID Connect API
 
-Use the `login_hint` property on `/oauth2/${authServerId}/v1/authorize` or `/oauth2/v1/authorize` to populate a username when prompting for authentication. <!-- OKTA-87073-->
+Use the `login_hint` property on `/oauth2/${yourAuthorizationServerId}/v1/authorize` or `/oauth2/v1/authorize` to populate a username when prompting for authentication. <!-- OKTA-87073-->
 
 ### Platform Bugs Fixed
 

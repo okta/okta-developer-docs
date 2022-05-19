@@ -76,7 +76,7 @@ curl -v -X POST \
 }' "https://${yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/reference/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/${id}/credentials/keys` request.
+From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/reference/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/${yourOrg2OrgAppClientId}/credentials/keys` request.
 
 ##### Request example
 
@@ -85,7 +85,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${spokeApiToken}" \
-"https://${yourOktaDomain}/api/v1/apps/${yourOrg2OrgAppId}/credentials/keys"
+"https://${yourOktaDomain}/api/v1/apps/${yourOrg2OrgAppClientId}/credentials/keys"
 ```
 
 ##### Response example

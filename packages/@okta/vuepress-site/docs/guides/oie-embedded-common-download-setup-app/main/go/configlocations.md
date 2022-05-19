@@ -16,12 +16,12 @@ Add your configuration values to the file, using the following format:
 okta:
   idx:
     issuer: "https://${yourOktaDomain}/oauth2/default"
-    clientId: "${clientId}"
-    clientSecret: "${clientSecret}"
+    clientId: "${yourAppClientId}"
+    clientSecret: "${yourClientSecret}"
     scopes:
       - "${scope1}"
       - "${scope2}"
-    redirectUri: "${redirectUri}"
+    redirectUri: "${yourSignInRedirectId}"
 ```
 
 ### Option 2: Set the values as environment variables

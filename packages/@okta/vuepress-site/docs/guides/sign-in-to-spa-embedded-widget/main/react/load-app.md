@@ -2,7 +2,7 @@
 
 Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Sign-In Widget and your Auth JS instance:
 
-* `clientId`: Your client ID &mdash; `${yourClientId}`
+* `clientId`: Your client ID &mdash; `${yourAppClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
 * `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the widget for embedded authentication.
 * `scopes`: Set the OAuth 2.0 scopes that your app requires. For example, `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details on additional supported scopes.
@@ -14,13 +14,13 @@ You can create a `src/config.js` file to define your configuration settings. For
 export default {
   oidc: {
     issuer: 'https://${yourOktaDomain}/oauth2/default',
-    clientId: '${clientId}',
+    clientId: '${yourAppClientId}',
     scopes: ['openid', 'profile', 'email'],
     redirectUri: `${window.location.origin}/login/callback`
   },
   widget: {
     issuer: 'https://${yourOktaDomain}/oauth2/default',
-    clientId: '${clientId}',
+    clientId: '${yourAppClientId}',
     redirectUri: `${window.location.origin}/login/callback`,
     scopes: ['openid', 'profile', 'email'],
     useInteractionCodeFlow: true

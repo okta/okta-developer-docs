@@ -18,12 +18,12 @@ The following is the required content format for the YAML file:
 okta:
   idx:
     issuer: "https://${yourOktaDomain}/oauth2/default"
-    clientId: "${clientId}"
-    clientSecret: "${clientSecret}"
+    clientId: "${yourAppClientId}"
+    clientSecret: "${yourClientSecret}"
     scopes:
       - "${scope1}"
       - "${scope2}"
-    redirectUri: "${redirectUri}"
+    redirectUri: "${yourSignInRedirectId}"
 ```
 
 ### Option 2: Set the values as environment variables

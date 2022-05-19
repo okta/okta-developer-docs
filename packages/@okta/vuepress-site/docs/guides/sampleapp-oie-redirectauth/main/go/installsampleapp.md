@@ -5,8 +5,8 @@
 3. Create an `.env` file in the `okta-hosted-login` directory and add the information that you copied in previous steps:
 
     ```ini
-    CLIENT_ID=${clientId}
-    CLIENT_SECRET=${clientSecret}
+    CLIENT_ID=${yourAppClientId}
+    CLIENT_SECRET=${yourClientSecret}
     ISSUER=https://${yourOktaDomain}/oauth2/default
     ```
 

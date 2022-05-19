@@ -382,7 +382,7 @@ const AppWithRouterAccess = () => {
 
   const oktaAuth = new OktaAuth({
     issuer: 'https://${yourOktaDomain}/oauth2/default',
-    clientId: '${clientId}',
+    clientId: '${yourAppClientId}',
     redirectUri: window.location.origin + '/login/callback',
     onAuthRequired: onAuthRequired,
     pkce: true
@@ -439,7 +439,7 @@ export default withRouter(class AppWithRouterAccess extends Component {
 
     this.oktaAuth = new OktaAuth({
       issuer: 'https://${yourOktaDomain}/oauth2/default',
-      clientId: '${clientId}',
+      clientId: '${yourAppClientId}',
       redirectUri: window.location.origin + '/login/callback',
       onAuthRequired: this.onAuthRequired,
       pkce: true

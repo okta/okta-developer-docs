@@ -36,7 +36,7 @@ The steps in the following sections focus on the interaction between your client
 
 Before you code your forms and routes, use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Okta Auth JS instance:
 
-* `clientId`: Your client ID &mdash; `${yourClientId}`
+* `clientId`: Your client ID &mdash; `${yourAppClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
 * `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
@@ -46,7 +46,7 @@ You can create a `src/config.js` file to define your configuration settings. For
 ```js
 export default {
   oidc: {
-    clientId: '${yourClientId}',
+    clientId: '${yourAppClientId}',
     issuer: 'https://${yourOktaDomain}/oauth2/default',
     redirectUri: '${yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],

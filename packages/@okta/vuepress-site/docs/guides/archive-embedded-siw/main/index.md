@@ -140,8 +140,8 @@ In this case, you would like to use the Widget to sign in to a simple web page a
     <script type="text/javascript">
       const oktaSignIn = new OktaSignIn({
         baseUrl: "https://${yourOktaDomain}",
-        redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
-        clientId: "${yourClientId}",
+        redirectUri: '{{https://${yourSignInRedirectId} configured in your OIDC app}}',
+        clientId: "${yourAppClientId}",
         authParams: {
           issuer: "https://${yourOktaDomain}/oauth2/default"
         }
@@ -222,9 +222,9 @@ If you'd like to use the Widget to sign in to your own application instead of Ok
 const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '${yourSignInRedirectId}',
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default',
     pkce: false,
@@ -245,9 +245,9 @@ signIn.showSignInAndRedirect();
 const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '${yourSignInRedirectId}',
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }

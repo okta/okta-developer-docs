@@ -20,13 +20,13 @@ The following is the required content format for the YAML file:
 ```yaml
 okta:
   idx:
-    issuer: "https://${yourOktaDomain}/oauth2/${authorizationServerId}"
-    clientId: "${clientId}"
-    clientSecret: "${clientSecret}"
+    issuer: "https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}"
+    clientId: "${yourAppClientId}"
+    clientSecret: "${yourClientSecret}"
     scopes:
     - "${scope1}"
     - "${scope2}"
-    redirectUri: "${redirectUri}"
+    redirectUri: "${yourSignInRedirectId}"
 ```
 
 YAML configuration file example:

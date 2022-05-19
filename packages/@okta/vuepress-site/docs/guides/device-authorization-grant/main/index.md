@@ -75,7 +75,7 @@ curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id=${yourAppClientId}' \
   --data-urlencode 'scope=openid profile offline_access'
 ```
 
@@ -123,7 +123,7 @@ curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id=${yourAppClientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
   --data-urlencode 'device_code=${deviceCode}'
 ```
@@ -172,7 +172,7 @@ curl --request POST \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'token=${refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id=${clientId}'
+  --data-urlencode 'client_id=${yourAppClientId}'
 ```
 
 **Example response**

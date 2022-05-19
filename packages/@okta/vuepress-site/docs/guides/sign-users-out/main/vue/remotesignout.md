@@ -26,7 +26,7 @@ export default {
       // Clear local session
       await this.$auth.logout()
       // Clear remote session
-      window.location.href = `${ISSUER}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`
+      window.location.href = `${ISSUER}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${yourSignOutRedirectUri}`
     },
   }
 }

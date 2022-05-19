@@ -35,6 +35,6 @@
 
     ```txt
     ISSUER=https:////${yourOktaDomain.com}/oauth2/default
-    CLIENT_ID=${Client ID value from app integration}
+    CLIENT_ID=${yourAppClientId}
     USE_INTERACTION_CODE=true
     ```

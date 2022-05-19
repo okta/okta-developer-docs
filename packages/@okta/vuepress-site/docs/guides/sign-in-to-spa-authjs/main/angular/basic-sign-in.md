@@ -13,7 +13,7 @@ import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
 const oidcConfig = {
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
@@ -31,7 +31,7 @@ import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
 const oidcConfig = {
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   scopes: ['openid', 'profile', 'email'],
   pkce: true

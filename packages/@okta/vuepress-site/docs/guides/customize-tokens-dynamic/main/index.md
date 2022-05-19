@@ -52,17 +52,17 @@ To test the full authentication flow that returns an ID token or an access token
 
     * A Custom Authorization Server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+        `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default Custom Authorization Server, the `${yourAuthorizationServerId}` is `default`.
 
     You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
 
     **ID token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+    `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/openid-configuration`
 
     **Access token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+    `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/.well-known/oauth-authorization-server`
 
 3. Add the following query parameters to the URL:
 
@@ -79,10 +79,10 @@ To test the full authentication flow that returns an ID token or an access token
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=id_token
     &scope=openid
-    &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+    &redirect_uri=https%3A%2F%2F{yourSignInRedirectUri}
     &state=myState
     &nonce=myNonceValue"
     ```
@@ -94,13 +94,13 @@ To test the full authentication flow that returns an ID token or an access token
     **ID token**
 
     ```bash
-    https://yourRedirectUriHere.com#id_token=eyJraWQiOiIxLVN5[...]C18aAqT0ixLKnJUR6EfJI-IAjtJDYpsHqML7mppBNhG1W55Qo3IRPAg&state=myState
+    https://{yourSignInRedirectUri}#id_token=eyJraWQiOiIxLVN5[...]C18aAqT0ixLKnJUR6EfJI-IAjtJDYpsHqML7mppBNhG1W55Qo3IRPAg&state=myState
     ```
 
     **Access token**
 
     ```bash
-    https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
+    https://{yourSignInRedirectUri}#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
 5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
@@ -152,7 +152,7 @@ curl -X GET
 "https://${yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=id_token
 &scope=openid%20groups
-&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+&redirect_uri=https%3A%2F%2F{yourSignInRedirectUri}
 &state=myState
 &nonce=myNonceValue"
 ```
@@ -214,10 +214,10 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=token
 &scope=openid%20groups
-&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+&redirect_uri=https%3A%2F%2F{yourSignInRedirectUri}
 &state=myState
 &nonce=myNonceValue"
 ```

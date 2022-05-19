@@ -35,7 +35,7 @@ When an application needs to get a new access token from an authorization server
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${yourAuthorizationServerId}/v1/authorize` (custom authorization server)
 * `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
 * `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
 
@@ -76,7 +76,7 @@ The following section provides example requests for enabling the consent dialog 
 
 ### Update the App
 
-This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
+This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${yourAppClientId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
 > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these three properties. In most cases, `REQUIRED` is the correct value.
 
@@ -142,7 +142,7 @@ To enable consent for a scope, you need to [update the appropriate scope](/docs/
 
 ### Update Scope consent
 
-This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
+This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${yourAuthorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
 
 * `authorizationServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
 * `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
@@ -173,7 +173,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    A default Custom Authorization endpoint looks like this where the `${authorizationServerId}` is `default`:
+    A default Custom Authorization endpoint looks like this where the `${yourAuthorizationServerId}` is `default`:
 
         `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
@@ -195,10 +195,10 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
-    &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+    &redirect_uri=https%3A%2F%2F{yourSignInRedirectUri}
     &state=myState
     &nonce=${myNonceValue}"
     ```
@@ -207,11 +207,11 @@ After you define the scopes that you want to require consent for, prepare an aut
 
      ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
     &prompt=consent
-    &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+    &redirect_uri=https%3A%2F%2F{yourSignInRedirectUri}
     &state=myState
     &nonce=${myNonceValue}"
     ```

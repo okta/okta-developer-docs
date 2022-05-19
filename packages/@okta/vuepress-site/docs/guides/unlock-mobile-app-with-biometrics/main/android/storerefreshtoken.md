@@ -9,9 +9,9 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     config = new OIDCConfig.Builder()
-        .clientId("{yourClientId}")
-        .redirectUri("{redirectUri}")
-        .endSessionRedirectUri("endSessionUri")
+        .clientId("{yourAppClientId}")
+        .redirectUri("{yourSignInRedirectId}")
+        .endSessionRedirectUri("{yourSignOutRedirectId}")
         .scopes("openid", "profile", "offline_access")
         .discoveryUri("{discoveryUri}")
         .create();

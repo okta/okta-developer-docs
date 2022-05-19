@@ -47,7 +47,7 @@ The Issuer URI format depends on which authorization server that you decide to u
 * Org &mdash; If you use the Org Authorization Server, the Issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * Custom &mdash; You can either use the default Custom Authorization Server or create your own.
   * If you use the default Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
-  * If you use your own Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your Custom Authorization Server's unique ID.
+  * If you use your own Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}`, where `${yourAuthorizationServerId}` is your Custom Authorization Server's unique ID.
 
 If you're getting started with your first app or if you're running an Okta sample app, use the Issuer URI of your default Custom Authorization Server. To find this value:
 

@@ -17,7 +17,7 @@ The following are the high capacity rate limits per minute that apply across the
 
 | Endpoint                                                                   | One App   | Enterprise   |
 | -------------------------------------------------------------------------- | ---------: | ------------: |
-| `/oauth2/${authorizationServerId}/v1`                                       | 6000      | 6000         |
+| `/oauth2/${yourAuthorizationServerId}/v1`                                       | 6000      | 6000         |
 | `/oauth2/v1` except `/oauth2/v1/clients`                                   | 6000      | 6000         |
 | `/api/v1`                                                                  | 3000      | 3000         |
 | `/api/v1/sessions`                                                         | 3000      | 3000         |

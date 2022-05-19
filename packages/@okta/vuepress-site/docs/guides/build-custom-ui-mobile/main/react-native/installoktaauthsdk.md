@@ -14,9 +14,9 @@ Call the `createConfig` function to create a configured client when the app is i
 import { createConfig } from '@okta/okta-react-native';
 
 createConfig({
-    clientId: '${clientId}',
-    redirectUri: '${redirectUri}',
-    endSessionRedirectUri: '${endSessionRedirectUri}',
+    clientId: '${yourAppClientId}',
+    redirectUri: '${yourSignInRedirectId}',
+    endSessionRedirectUri: '${yourSignOutRedirectId}',
     discoveryUri: 'https://${yourOktaDomain}',
     scopes: ['openid', 'profile', 'offline_access'],
     requireHardwareBackedKeyStore: false

@@ -37,7 +37,7 @@ You can sign in to the Admin Console using <https://login.okta.com>, and then cl
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
-Replace `${clientId}` placeholders further in this tutorial with the `Client ID` of the created application.
+Replace `${yourAppClientId}` placeholders further in this tutorial with the `Client ID` of the created application.
 
 > **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret that public clients aren't designed to have, hence breaking the sign-in or sign-out flow.
 
@@ -202,7 +202,7 @@ export class LoginComponent implements OnInit {
     authParams: {
       pkce: true
     },
-         clientId: '${clientId}',
+         clientId: '${yourAppClientId}',
          redirectUri: 'http://localhost:4200/login/callback'
   });
 
@@ -268,7 +268,7 @@ import { LoginComponent } from './login.component';
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/login/callback',
-  clientId: '${clientId}',
+  clientId: '${yourAppClientId}',
   pkce: true
 }
 

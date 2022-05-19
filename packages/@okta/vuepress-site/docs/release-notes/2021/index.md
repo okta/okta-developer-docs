@@ -111,7 +111,7 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 
 * Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
-* Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
+* Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${yourAuthorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
 
 ### Monthly release 2021.11.0
 
@@ -895,9 +895,9 @@ For [Groups API](/docs/reference/api/groups/) requests that return a Group or a 
 
 The [Apps API](/docs/reference/api/apps/) now includes additional Early Access endpoints and objects for provisioning connections and features:
 
-- [Application Logo operations](/docs/reference/api/apps/#application-logo-operations) (`/apps/${applicationId}/logo`)
-- [Application Provisioning Connection operations](/docs/reference/api/apps/#application-provisioning-connection-operations) (`/apps/${applicationId}/connections`)
-- [Application Features operations](/docs/reference/api/apps/#application-feature-operations) (`/apps/${applicationId}/features`)
+- [Application Logo operations](/docs/reference/api/apps/#application-logo-operations) (`/apps/${yourAppClientId}/logo`)
+- [Application Provisioning Connection operations](/docs/reference/api/apps/#application-provisioning-connection-operations) (`/apps/${yourAppClientId}/connections`)
+- [Application Features operations](/docs/reference/api/apps/#application-feature-operations) (`/apps/${yourAppClientId}/features`)
 - [Provisioning Connection object](/docs/reference/api/apps/#provisioning-connection-object)
 - [Provisioning Connection Profile object](/docs/reference/api/apps/#provisioning-connection-profile-object)
 - [Application Feature object](/docs/reference/api/apps/#application-feature-object)

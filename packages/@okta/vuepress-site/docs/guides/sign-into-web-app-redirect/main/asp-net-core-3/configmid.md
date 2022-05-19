@@ -1,9 +1,9 @@
 The Okta CLI created an `.okta.env` file in your current directory containing these values, for example:
 
 ```properties
-export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
-export OKTA_OAUTH2_CLIENT_ID=${clientId}
-export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
+export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${yourAuthorizationServerId}
+export OKTA_OAUTH2_CLIENT_ID=${yourAppClientId}
+export OKTA_OAUTH2_CLIENT_SECRET=${yourClientSecret}
 ```
 
 1. Open your `appsettings.json` file and add the following manually as a top-level node, replacing the placeholders with your own values (if you used the Okta CLI to create an app these values may already be configured with your account information).
@@ -11,8 +11,8 @@ export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
    ```json
    "Okta": {
      "OktaDomain": "https://${yourOktaDomain}",
-     "ClientId": "${clientId}",
-     "ClientSecret": "${clientSecret}", "AuthorizationServerId": "default"
+     "ClientId": "${yourAppClientId}",
+     "ClientSecret": "${yourClientSecret}", "AuthorizationServerId": "default"
    }
    ```
 

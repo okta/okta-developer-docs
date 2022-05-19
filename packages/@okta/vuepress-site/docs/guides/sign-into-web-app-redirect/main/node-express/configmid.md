@@ -30,7 +30,7 @@ The code changes to configure Okta are shown below.
      authorizationURL: 'https://${yourOktaDomain}/oauth2/default/v1/authorize',
      tokenURL: 'https://${yourOktaDomain}/oauth2/default/v1/token',
      userInfoURL: 'https://${yourOktaDomain}/oauth2/default/v1/userinfo',
-     clientID: '${yourClientID}',
+     clientID: '${yourAppClientId}',
      clientSecret: '${yourClientSecret}',
      callbackURL: 'http://localhost:3000/authorization-code/callback',
      scope: 'openid profile'

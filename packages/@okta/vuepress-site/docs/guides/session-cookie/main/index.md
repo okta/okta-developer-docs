@@ -39,7 +39,7 @@ After a session token is obtained, it can be passed into the [OpenID Connect aut
 ### Request example
 
 ```http
-https://${yourOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=id_token&scope=openid&prompt=none&redirect_uri=https%3A%2F%2Fyour-app.example.com&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj&sessionToken=0HsohZYpJgMSHwmL9TQy7RRzuY
+https://${yourOktaDomain}/oauth2/v1/authorize?client_id=${yourAppClientId}&response_type=id_token&scope=openid&prompt=none&redirect_uri=https%3A%2F%2Fyour-app.example.com&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj&sessionToken=0HsohZYpJgMSHwmL9TQy7RRzuY
 ```
 
 > **Note:** The `prompt=none` parameter guarantees that the user isn't prompted for credentials. You either obtain the requested tokens or an OAuth error response.
@@ -64,7 +64,7 @@ The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow.
 
 This scenario is ideal for deployment scenarios where you implement both a custom sign-in page and a custom landing page for your app. Your web app solicits and validates the user credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/authn/#session-token).
 
-The session token along with the URL for your landing page can then be used to complete the following [URI Template](https://datatracker.ietf.org/doc/html/rfc6570) `https://${yourOktaDomain}/login/sessionCookieRedirect?token=${sessionToken}&redirectUrl=${redirectUrl}` that retrieves a session cookie for a user's browser when visited.
+The session token along with the URL for your landing page can then be used to complete the following [URI Template](https://datatracker.ietf.org/doc/html/rfc6570) `https://${yourOktaDomain}/login/sessionCookieRedirect?token=${sessionToken}&redirectUrl=${yourSignInRedirectUri}` that retrieves a session cookie for a user's browser when visited.
 
 Be aware of the following requirements:
 
