@@ -198,29 +198,33 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register.
+For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register or update their profile.
+
+> **Note:** Generic Progressive Enrollment error messages are only available in the Identity Engine.
 
 * If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
    * You don't customize the error handling behavior of the widget.
    * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute.
 
-* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:</br></br>
-   * `Registration cannot be completed at this time.` (SSR)</br></br>
-   * `We found some errors. Please review the form and make corrections.` (Progressive Enrollment)
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:
 
-* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:</br></br>
-   * `Registration denied.`(SSR)</br></br>
-   * `Profile update denied.` (Progressive Enrollment)
+   * "Registration cannot be completed at this time." (SSR)
+   * "We found some errors. Please review the form and make corrections." (Progressive Enrollment)
+
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:
+
+   * "Registration denied." (SSR)
+   * "Profile update denied." (Progressive Enrollment)
 
 > **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
-If there is a response timeout after receiving the Okta request, the Okta process flow stops. Depending on the request, either the self-service registration or the profile update is denied. One of the following messages appears:
+If there is a response timeout after receiving the Okta request, the Okta process flow stops. Depending on the request, either the self-service registration or the profile update is denied. One of the following default UI messages appears:
 
-* `There was an error creating your account. Please try registering again.` (SSR)
-* `There was an error updating your profile. Please try again later.` (Profile Enrollment)
+* "There was an error creating your account. Please try registering again." (SSR)
+* "There was an error updating your profile. Please try again later." (Profile Enrollment)
 
 ## Sample JSON payload of request
 
