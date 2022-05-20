@@ -23,9 +23,9 @@ Okta supports many ways of authenticating the identity of a user during the sign
 
 The Android and iOS Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
-![](/img/mobile-sdk/mobile-idx-basic-flow.png "A diagram that shows the sign-in flow.")
+!["A diagram that shows the sign-in flow."](/img/mobile-sdk/mobile-idx-basic-flow.png)
 
 </div>
 
@@ -39,9 +39,9 @@ Each sign-in step may include one or more possible user actions, such as:
 
 The SDK represents the sign-in flow using a number of different objects:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
-![](/img/mobile-sdk/mobile-idx-basic-objects.png "A diagram that shows the SDK objects for the sign in flow and the relationships between them.")
+!["A diagram that shows the SDK objects for the sign in flow and the relationships between them."](/img/mobile-sdk/mobile-idx-basic-objects.png)
 
 </div>
 
@@ -58,9 +58,9 @@ The SDK represents the sign-in flow using a number of different objects:
 
 ## Objects and the flow
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
-![](/img/mobile-sdk/mobile-idx-objects-and-flow.png "A diagram that shows the main objects associated with each stepp in the sign-in flow.")
+!["A diagram that shows the main objects associated with each stepp in the sign-in flow."](/img/mobile-sdk/mobile-idx-objects-and-flow.png)
 
 </div>
 
