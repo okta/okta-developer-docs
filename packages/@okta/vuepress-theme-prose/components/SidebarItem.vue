@@ -2,6 +2,7 @@
   <li :class="{
     'link-wrap': true, 
     'subnav-active': link.iHaveChildrenActive,
+    'bordered': this.activeParentLink(),
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -152,6 +153,25 @@ export default {
   },
 
   methods: {
+    activeParentLink() {
+      if (!this.link.iHaveChildrenActive) {
+        return false;
+      }
+      if (!this.link.subLinks) {
+        return false;
+      }
+      if (this.link.parents.length < 2) {
+        return false;
+      }
+      let isActive = false;
+      for (let el of this.link.subLinks) {
+        if (el.iHaveChildrenActive && (!el.subLinks || el.subLinks.length == 0)) {
+          isActive = true;
+          break;
+        }
+      }
+      return isActive;
+    },
     getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
       return path.replace(framework, newFramework);
