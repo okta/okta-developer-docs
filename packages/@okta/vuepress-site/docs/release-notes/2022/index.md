@@ -20,7 +20,7 @@ This API allows you to change who receives email notifications for each individu
 
 * When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
 
-* If users were created with recovery credentials using the POST `/api/v1/users?activate=true` request, and Security Question was disabled for the applicable Group Password Policy, those users were created without the Active status. (OKTA-499552)
+* If users were created with recovery credentials using the POST `/api/v1/users?activate=true` request, and Security Question was disabled for the applicable Group Password Policy, those users were no longer created in Active status. (OKTA-499552)
 
 ### Monthly release 2022.05.0
 
