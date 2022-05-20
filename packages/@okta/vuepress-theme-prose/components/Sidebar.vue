@@ -42,6 +42,7 @@ export default {
   mounted() {
     this.updateSidebarItems();
     document.querySelector('.sidebar-area').addEventListener("scroll", this.checkHeight);
+    window.addEventListener("resize", this.handleResize);
   },
   updated() {
     this.handleScroll();
@@ -58,6 +59,13 @@ export default {
     document.querySelector('.sidebar-area').removeEventListener("scroll", this.checkHeight);
   },
   methods: {
+    getLastChildrenActiveEl() {
+      let activeItems = Array.from(document.querySelectorAll(".subnav-active"));
+      console.log(activeItems, 'activeItems');
+      let activeItem = activeItems[activeItems.length - 2];
+      console.log(activeItem, 'activeItem');
+      activeItem.classList.add('bordered');
+    },
     updateSidebarItems() {
       const routes = this.appContext.treeNavDocs;
       const currentRoute = this.$route.path;
@@ -82,13 +90,21 @@ export default {
       document.querySelector(".sidebar-area").style.height =
         maxHeight + "px";
     },
+    handleResize: function(event) {
+      let maxHeight =
+        window.innerHeight -
+        document.querySelector(".fixed-header").clientHeight - 
+        document.querySelector(".header-nav").clientHeight;
+        
+      document.querySelector(".sidebar-area").style.height =
+        maxHeight + "px";
+    },
     scrollUp() {
       let sidebar = document.querySelector('.sidebar-area')
       sidebar.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     },
     checkHeight() {
       let sidebar = document.querySelector('.sidebar-area');
-      let fade = document.querySelector('.sidebar-fade');
       if (sidebar.scrollHeight > sidebar.clientHeight) {
         sidebar.classList.add('show-scroll-up');
       } else {

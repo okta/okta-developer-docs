@@ -70,6 +70,14 @@
       z-index: 2;
       left: 0;
       bottom: 0;
+      transition: .3s;
+    }
+    &:hover {
+      .sidebar-fade {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+      }
     }
     &.no-fade {
       .sidebar-fade {

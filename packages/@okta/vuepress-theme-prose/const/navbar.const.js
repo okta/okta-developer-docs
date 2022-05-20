@@ -89,7 +89,7 @@ export const concepts = [
       },
       {
         title: "Understanding SAML",
-        title: "SAML Overview",
+        path: "/docs/concepts/saml/",
         subLinks: [
           {
             title: "SAML FAQ",
@@ -278,7 +278,7 @@ export const guides = [
           },
           {
             title: "Authenticators",
-            path: "/docs/guides/authenticators-overview/",
+            path: "/docs/guides/authenticators-overview/main/",
             subLinks: [
               {
                 title: "Okta email",
@@ -304,7 +304,7 @@ export const guides = [
           },
           {
             title: "Advanced use cases",
-            path: "/docs/guides/advanced-use-case-overview/",
+            path: "/docs/guides/advanced-use-case-overview/aspnet/main/",
             subLinks: [
               {
                 title: "Custom password recovery",

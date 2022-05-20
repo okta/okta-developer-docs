@@ -15,12 +15,18 @@
   height: 100%;
 }
 
+.aside {
+  position: relative;
+}
+
 .tree-nav {
+  position: relative;
   width: 100%;
   min-height: 100%;
-  padding: 29px 1rem 3rem 26px;
+  padding: 29px 1rem 3rem 2rem;
   background: cv('body', 'sidebar');
   margin-bottom: -176px;
+  margin-top: -52px;
   & > .sections > .link-wrap > .tree-nav-link,
   & > .sections > .link-wrap > .tree-nav-link a {
     color: cv('link', 'darker');
@@ -28,7 +34,7 @@
     font-size: 16px;
   }
   &-toggle {
-    position: absolute;
+    position: sticky;
     right: 14px;
     top: 27px;
     border-radius: 50%;
@@ -39,6 +45,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 2;
+    margin-left: -20px;
     &:before {
       content: '';
       position: absolute;
@@ -47,6 +55,7 @@
       background: linear-gradient(-90deg, cv('body', 'sidebar'), transparent);
       height: 20px;
       z-index: 2;
+      display: none;
     }
     svg {
       position: relative;
@@ -54,15 +63,16 @@
       transform: rotate(180deg);
     }
     &.active {
+      margin-left: calc(100% - 36px);
       right: 0;
       background-color: transparent;
       svg {
         transform: rotate(0);
       }
+      &:before {
+        display: block;
+      }
     }
-  }
-  @include media("<desktop-xl") {
-    padding-left: 16px;
   }
   @include media("<tablet") {
     flex-basis: 0;
@@ -71,20 +81,18 @@
   }
   .sections {
     margin-left: 17px;
-    & > li.subnav-active > .sections {
+    li.subnav-active.bordered > .sections {
       position: relative;
-      & > li.subnav-active > .sections {
-        margin-left: 22px;
-        &:before {
-          content: '';
-          position: absolute;
-          left: -22px;
-          top: 4px;
-          height: calc(100% - 8px);
-          width: 10px;
-          border-radius: 10px;
-          background-color: #E7EDF9;
-        }
+      margin-left: 22px;
+      &:before {
+        content: '';
+        position: absolute;
+        left: -22px;
+        top: 4px;
+        height: calc(100% - 8px);
+        width: 10px;
+        border-radius: 10px;
+        background-color: #E7EDF9;
       }
     }
     &:first-child {
@@ -105,7 +113,6 @@
         color: cv('link', 'bluelight');
         font-size: 14px;
         &.router-link-active {
-          padding-left: 13px;
           span {
             color: cv('link', 'darker');
             font-weight: 500;
@@ -174,15 +181,6 @@
       &.router-link-active {
         @include active-link;
         color: cv('link');
-        &::before {
-          position: absolute;
-          content: '';
-          background: url('/img/icons/angle-right.svg') no-repeat center center;
-          left: 0;
-          top: 5px;
-          width: 5px;
-          height: 9px;
-        }
       }
       > span.text-holder {
         margin-left: 0px;
@@ -217,9 +215,9 @@
   }
   .scroll-up {
     cursor: pointer;
-    position: relative;
+    position: absolute;
     left: 20px;
-    bottom: -16px;
+    bottom: 16px;
     display: none;
   }
 }

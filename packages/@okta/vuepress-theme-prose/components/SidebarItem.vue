@@ -2,6 +2,7 @@
   <li :class="{
     'link-wrap': true, 
     'subnav-active': link.iHaveChildrenActive,
+    'bordered': this.activeParentLink(),
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -37,7 +38,6 @@
             'parent': link.subLinks,
             'opened': link.subLinks && sublinksExpanded,
             }"
-            @click="toggleExpanded"
           >
             <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4.4714 3.5286C4.73175 3.78894 4.73175 4.21106 4.4714 4.4714L1.13807 7.80474C0.877722 8.06509 0.455612 8.06509 0.195263 7.80474C-0.0650871 7.54439 -0.0650871 7.12228 0.195262 6.86193L3 4L0.195262 1.13807C-0.0650874 0.877722 -0.0650874 0.455612 0.195262 0.195262C0.455611 -0.0650874 0.877722 -0.0650874 1.13807 0.195262L4.4714 3.5286Z" fill="#ADBBD7"/>
@@ -149,6 +149,25 @@ export default {
   },
 
   methods: {
+    activeParentLink() {
+      if (!this.link.iHaveChildrenActive) {
+        return false;
+      }
+      if (!this.link.subLinks) {
+        return false;
+      }
+      if (this.link.parents.length < 2) {
+        return false;
+      }
+      let isActive = false;
+      for (let el of this.link.subLinks) {
+        if (el.iHaveChildrenActive && (!el.subLinks || el.subLinks.length == 0)) {
+          isActive = true;
+          break;
+        }
+      }
+      return isActive;
+    },
     getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
       return path.replace(framework, newFramework);
