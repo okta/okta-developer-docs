@@ -61,9 +61,7 @@ export default {
   methods: {
     getLastChildrenActiveEl() {
       let activeItems = Array.from(document.querySelectorAll(".subnav-active"));
-      console.log(activeItems, 'activeItems');
       let activeItem = activeItems[activeItems.length - 2];
-      console.log(activeItem, 'activeItem');
       activeItem.classList.add('bordered');
     },
     updateSidebarItems() {
