@@ -1,8 +1,8 @@
-> **Note**: The examples in this guide use Java 11 and Spring Boot MVC
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC.
 
 ### 1: Start password recovery
 
-After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email matching the **Forgot Password** template you altered earlier.
+After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email matching the **Forgot Password** template that you altered earlier.
 
 <div class="common-image-format">
 
@@ -16,7 +16,7 @@ When the user clicks the **Reset Password** link, their browser sends a request 
 
 Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
-1. That `otp` and `state` are not `null`.
+1. That `otp` and `state` aren't `null`.
 2. That `state` matches the state value stored in the current `ProceedContext` session variable.
 
 If either check returns false, throw an error.
@@ -44,7 +44,7 @@ public ModelAndView displayIndexOrHomePage(
     }
 ```
 
-If `ProceedContext` is `null` (because the user clicked the magic link from a different browser), advise the user to return to the original tab in the browser, where they requested the password reset, and enter the OTP to proceed.
+If `ProceedContext` is `null` (because the user clicked the magic link from a different browser), advise the user to return to the original tab in the browser, where they requested the password reset, and then enter the OTP to proceed.
 
 ```java
     AuthenticationResponse authenticationResponse;

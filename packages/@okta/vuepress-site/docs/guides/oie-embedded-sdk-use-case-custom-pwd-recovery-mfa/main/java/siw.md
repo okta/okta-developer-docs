@@ -1,8 +1,8 @@
-> **Note**: The examples in this guide use Java 11 and Spring Boot MVC
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC.
 
 ### 1: Start password recovery
 
-After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email matching the **Forgot Password** template you altered earlier.
+After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email that matches the **Forgot Password** template that you altered earlier.
 
 <div class="common-image-format">
 
@@ -10,16 +10,16 @@ After the user starts the password recovery flow and selects the email authentic
 
 </div>
 
-When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template, attaching the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template and attaches the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Handle the OTP and state parameters
 
 Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
-1. That the current session attribute `IdxClientContext` is not `null` (because the user clicked the magic link from a different browser).
-2. That `state` is not `null`.
+1. That the current session attribute `IdxClientContext` isn't `null` (because the user clicked the magic link from a different browser).
+2. That `state` isn't `null`.
 
-If either check returns false, redirect to an error page. If both checks return true, pass `IdxClientContext`,`otp` and `state` as session attributes to a page that contains the Sign-In Widget for processing. For example:
+If either check returns false, redirect the browser to an error page. If both checks return true, pass `IdxClientContext`,`otp` and `state` as session attributes to a page that contains the Sign-In Widget for processing. For example:
 
 ```java
 @GetMapping("/magic-link/callback")

@@ -82,11 +82,11 @@ Confirm that you have the email authenticator set up for password recovery by pe
 
 ## Update the Forgot Password email template
 
-Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email.  Okta defines three VTL variables specific to this template:
+Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
 
 | Variable | Contains  |
 | ---------------| ------------------------|
-| `${oneTimePassword}`   | The one-time password Okta has generated for the user |
+| `${oneTimePassword}`   | The one-time password Okta generated for the user |
 | `${request.relayState}` | The current SAML [relaystate](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
 | `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
 
@@ -109,16 +109,16 @@ By default, the magic link in the template is set to `${resetPasswordLink}`. You
       </a>
     ```
 
-   Replace the `${resetPasswordLink}` variable with the URL for the endpoint in your application that will process the magic link. You must append the `${oneTimePassword}` and `${request.relayState}` variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
+   Replace the `${resetPasswordLink}` variable with the URL for the endpoint in your application that processes the magic link. You must append the `${oneTimePassword}` and `${request.relayState}` variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
 
    <StackSnippet snippet="emailtemplate" />
 
-1. Click **Save** and close the dialog window.
+1. Click **Save** and close the dialog.
 
 ## Update your Sign-In Widget integration
 
-Now to implement the endpoint you linked to in the revised **Forgot Password** email template.
-If you're using the Sign-in Widget, execute the following steps. If your app uses the SDK, go to [Update your SDK integration](#update-your-sdk-integration).
+Now to implement the endpoint that you linked to in the revised **Forgot Password** email template.
+If you're using the Sign-In Widget, execute the following steps. If your app uses the SDK, go to [Update your SDK integration](#update-your-sdk-integration).
 
 ### Summary of steps
 
@@ -130,7 +130,7 @@ The following diagram shows the steps for a customized password recovery in an a
 
 ## Update your SDK integration
 
-Now to implement the endpoint you linked to in the revised **Forgot Password** email template. If you're using the SDK, execute the following steps. If your app uses the Sign-In Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
+Now to implement the endpoint that you linked to in the revised **Forgot Password** email template. If you're using the SDK, execute the following steps. If your app uses the Sign-In Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
 
 ### Summary of steps
 

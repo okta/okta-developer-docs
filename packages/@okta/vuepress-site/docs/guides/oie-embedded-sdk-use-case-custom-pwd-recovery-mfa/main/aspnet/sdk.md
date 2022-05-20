@@ -3,10 +3,10 @@
 The user starts the password recovery flow by completing these steps:
 
 1. Click the **Forgot Password?** link on the sign-in page.
-2. Enter their **Email or Username** in the dialog and then clicks **Next**.
-3. Choose **Email** as the authenticator they want to use for password recovery and clicks **Submit**.
+2. Enter their **Email or Username** in the dialog, and then click **Next**.
+3. Choose **Email** as the authenticator that they want to use for password recovery and click **Submit**.
 
-After the user completes these steps, Okta verifies that an account exists for the user using the information they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
+After the user completes these steps, Okta verifies that an account exists for the user using the information that they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
 
 <div class="common-image-format">
 
