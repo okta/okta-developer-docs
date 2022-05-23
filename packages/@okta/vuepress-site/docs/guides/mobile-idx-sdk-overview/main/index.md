@@ -25,7 +25,7 @@ The Android and iOS Identity Engine SDKs represent the sign-in flow as a state m
 
 <div class="common-image-format bordered-image">
 
-!["A diagram that shows the sign-in flow."](/img/mobile-sdk/mobile-idx-basic-flow.png)
+!["A diagram that shows the steps in a sign-in flow for a mobile app."](/img/mobile-sdk/mobile-idx-basic-flow.png)
 
 </div>
 
@@ -41,7 +41,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 <div class="common-image-format bordered-image">
 
-!["A diagram that shows the SDK objects for the sign in flow and the relationships between them."](/img/mobile-sdk/mobile-idx-basic-objects.png)
+!["A diagram that shows the SDK objects for the sign-in flow and the relationships between them."](/img/mobile-sdk/mobile-idx-basic-objects.png)
 
 </div>
 
@@ -60,7 +60,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 <div class="common-image-format bordered-image">
 
-!["A diagram that shows the main objects associated with each stepp in the sign-in flow."](/img/mobile-sdk/mobile-idx-objects-and-flow.png)
+!["A diagram that shows the main objects associated with each step in the sign-in flow."](/img/mobile-sdk/mobile-idx-objects-and-flow.png)
 
 </div>
 
