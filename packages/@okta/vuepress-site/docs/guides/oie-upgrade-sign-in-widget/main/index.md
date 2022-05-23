@@ -36,7 +36,7 @@ After you've completed the widget upgrade and you want to take advantage of the 
 
 ## Best practice for widget maintenance
 
-For best practices, keep your [widget](https://github.com/okta/okta-signin-widget/blob/master/README.md) up to date. This maintenance is beneficial so that you can use the Identity Engine features.
+For best practices, keep your [widget](https://github.com/okta/okta-signin-widget/blob/master/README.md) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
 
 The specific steps to upgrade your widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
@@ -61,7 +61,7 @@ The widget upgrade for a redirect sign-in flow depends on whether you configured
 To update the widget:
 
 1. In the Admin Console, go to **Customization** > **Custom Sign In** tab.
-2. In the **Okta Sign-In Widget Version** section, check that the **Major Version** is **5** and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
+2. In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
 If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version by using the dropdown boxes that appear for the **Major Version** and **Minor Version** fields.
 3. Test your authentication sign-up and recovery flows that you support in your applications to make sure that they work.
 4. Check that any CSS and localization changes that you make are reflected in the new version.
@@ -72,14 +72,16 @@ When you upgrade an embedded widget:
 
 * Make sure that the [widget configuration](/docs/guides/oie-embedded-common-download-setup-app/-/main/) references the latest version of the widget and that the [reference to the Okta CDN](/docs/guides/oie-embedded-widget-use-case-load/-/main/#_1-source-the-sign-in-widget-in-your-sign-in-page) grabs the latest widget version. See the [widget Readme](https://github.com/okta/okta-signin-widget/blob/master/README.md) for more information on [using the Okta CDN](https://github.com/okta/okta-signin-widget/blob/master/README.md#using-the-okta-cdn).
 
-* Update the Javascript and CSS files in your HTML as follows. Note that the latest version changes every week. You should always use the latest version available. See [Okta Sign-In Widget releases](https://github.com/okta/okta-signin-widget/releases) for the latest version.
+* Update the Javascript and CSS files in your HTML as follows, replacing the placeholders with the latest library versions. Note that the latest version changes every week. See [Okta Sign-In Widget releases](https://github.com/okta/okta-signin-widget/releases) for the latest version.
 
 ```javascript
 <!-- Latest CDN production Javascript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/5.12.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-signin-widget/x.x.x/js/okta-sign-in.min.js"
+        type="text/javascript">
+</script>
 
-<link href="https://global.oktacdn.com/okta-signin-widget/5.12.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-
+<link href="https://global.oktacdn.com/okta-signin-widget/x.x.x/css/okta-sign-in.min.css"
+      type="text/css" rel="stylesheet"/>
 ```
 
 > **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the widget.
