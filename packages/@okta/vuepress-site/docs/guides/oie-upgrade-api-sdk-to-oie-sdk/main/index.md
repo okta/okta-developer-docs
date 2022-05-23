@@ -169,7 +169,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Identity Engine SDK authentication flow](#identity-engine-sdk-authentication-flow).
+<StackSelector snippet="oie-auth-flow-link1" noSelector />
 
 ## Map MFA code to the Identity Engine SDK
 
@@ -423,7 +423,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Identity Engine SDK authentication flow for MFA](#identity-engine-sdk-authentication-flow-for-mfa).
+<StackSelector snippet="oie-auth-flow-link2" noSelector />
 
 ## Map password recovery code to the Identity Engine SDK
 
@@ -662,7 +662,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentia
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the password recovery flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Identity Engine SDK authentication flow for password recovery](#identity-engine-sdk-authentication-flow-for-password-recovery).
+<StackSelector snippet="oie-auth-flow-link3" noSelector />
 
 ## Map basic sign-out code to the Identity Engine SDK
 

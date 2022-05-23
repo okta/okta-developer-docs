@@ -1,4 +1,4 @@
-### Okta Authentication SDK authentication flow for basic sign-out
+### Okta Authentication SDK basic sign-out flow
 
 Sign-out for a Classic Engine Java Auth SDK app typically involves deleting any persistent session storage and redirecting the user to a sign-out page:
 
@@ -11,7 +11,7 @@ public String logout(final HttpSession session) {
 }
 ```
 
-### Identity Engine SDK authentication flow for basic sign-out
+### Identity Engine SDK basic sign-out flow
 
 The Identity Engine Java SDK contains a revoke option in the wrapper client to revoke the access token in Okta. This step is required since the user is authorized by an Okta authorization server.
 The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()` method is called:
