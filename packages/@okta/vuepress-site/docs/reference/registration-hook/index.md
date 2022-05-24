@@ -224,7 +224,7 @@ For the Registration Inline Hook, the `error` object provides a way of displayin
 If there is a response timeout after receiving the Okta request, the Okta process flow stops. Depending on the request, either the self-service registration or the profile update is denied. One of the following default UI messages appears:
 
 * "There was an error creating your account. Please try registering again." (SSR)
-* "There was an error updating your profile. Please try again later." (Profile Enrollment)
+* "Your profile couldn't be updated at this time. Please try again later." (Profile Enrollment)
 
 ## Sample SSR request
 
