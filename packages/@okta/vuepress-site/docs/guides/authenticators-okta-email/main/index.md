@@ -224,7 +224,7 @@ In each template, find the anchor tag and remove it from the template HTML. The 
 
 </div>
 
-To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm) in the Okta Help Center.
+To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email) in the Okta Help Center.
 
 </div>
 
