@@ -92,7 +92,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.toLowerCase`            | -                                             | String      | `'TEST'.toLowerCase()`                           | "test"           |
 | `$string_object.substring`              | (int startIndex)                              | String      | `'test.substring(1)'`                            | "est"            |
 | `$string_object.substring`              | (int startIndex, int endIndex)                | String      | `user.profile.firstName.substring(1,3)`          | "oh"             |
-| `$string_object.replace`                | (String match, String replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heplo"          |
+| `$string_object.replace`                | (String match, String replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
 |                                         |                                               |             | `user.profile.firstName.replace('ohn', 'ames')`  | "James"          |
 | `$string_object.replaceFirst`           | (String match, String replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
 | `$string_object.length`                 | -                                             | Integer     | `'test'.length()`                                | 4                |
