@@ -3,6 +3,16 @@ title: Okta API Products release notes 2022
 ---
 ## May
 
+### Weekly release 2022.05.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.05.2](#bug-fixed-in-2022-05-2) | May 18, 2022 |
+
+#### Bug fixed in 2022.05.2
+
+If users were created with recovery credentials using the POST `/api/v1/users?activate=true` request, and Security Question was disabled for the applicable Group Password Policy, those users were no longer created in Active status. (OKTA-499552)
+
 ### Weekly release 2022.05.1
 
 | Change | Expected in Preview Orgs |
@@ -19,8 +29,6 @@ This API allows you to change who receives email notifications for each individu
 * When a security question was set using requests to the `/api/v1/users/{userId}` or `/api/v1/users/{userId}/credentials/change_recovery_question` endpoints, the answer could contain part of the question if the security question was disabled in the Default Policy. (OKTA-469369)
 
 * When [role target operations](/docs/reference/api/roles/#role-target-operations) included an invalid `roleId`, an incorrect 500 system error was returned. (OKTA-487507)
-
-* If users were created with recovery credentials using the POST `/api/v1/users?activate=true` request, and Security Question was disabled for the applicable Group Password Policy, those users were no longer created in Active status. (OKTA-499552)
 
 ### Monthly release 2022.05.0
 

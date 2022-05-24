@@ -7,3 +7,7 @@ layout: Guides
 <StackSelector />
 
 <StackSnippet snippet="guide" />
+
+## See also 
+
+[Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

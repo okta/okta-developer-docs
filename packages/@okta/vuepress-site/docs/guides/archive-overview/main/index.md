@@ -16,3 +16,7 @@ excerpt: The classic archive contains Okta classic-compatible versions of docume
 
 * [Set up self-service registration](/docs/guides/archive-set-up-self-service-registration/main/): This guide explains how to set up Okta's self-service registration (SSR) functionality. 
 * [Registration Inline Hook](/docs/guides/archive-registration-inline-hook/): This guide provides a working example of an Okta Registration Inline Hook.
+
+## Upgrade from Okta Classic Engine to Okta Identity Engine
+
+If you are a Classic Engine customer who wants to upgrade their apps to use Identity Engine for authentication, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).

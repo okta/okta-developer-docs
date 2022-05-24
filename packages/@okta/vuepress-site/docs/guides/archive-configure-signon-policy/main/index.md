@@ -152,3 +152,7 @@ Next, take a look at the following:
 * [Sign Users Out](/docs/guides/sign-users-out/)
 * [Set up self-registration](/docs/guides/set-up-self-service-registration/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
+
+## See also 
+
+[Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)
