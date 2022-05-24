@@ -29,7 +29,8 @@ New to Okta? Our resources help you add user authentication to your Java app.
 
 These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Micronaut redirect authentication sample app](https://github.com/okta/samples-java-micronaut): See [Okta-Hosted Login](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login) for a redirect configuration.
+- [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
+- [Micronaut redirect authentication sample app](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login)
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
