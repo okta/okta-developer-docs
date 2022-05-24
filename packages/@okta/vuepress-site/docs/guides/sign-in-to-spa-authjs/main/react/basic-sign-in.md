@@ -40,6 +40,7 @@ function createOktaAuthInstance() {
 }
 
 const oktaAuth = createOktaAuthInstance();
+oktaAuth.start();
 
 ...
 ```

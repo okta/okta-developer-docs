@@ -262,6 +262,7 @@ import Protected from './Protected';
 import { oktaAuthConfig, oktaSignInConfig } from './config';
 
 const oktaAuth = new OktaAuth(oktaAuthConfig);
+oktaAuth.start();
 
 const AppWithRouterAccess = () => {
   const history = useHistory();

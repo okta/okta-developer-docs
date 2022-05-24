@@ -88,6 +88,7 @@ const authClient = new OktaAuth({
   scopes: ['openid', 'email', 'profile'],
   redirectUri: window.location.origin + '/login/callback'
 })
+authClient.start();
 
 export default {
   login (email, pass, cb) {

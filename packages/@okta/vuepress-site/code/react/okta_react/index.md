@@ -372,26 +372,26 @@ import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
 
+const oktaAuth = new OktaAuth({
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '${clientId}',
+  redirectUri: window.location.origin + '/login/callback',
+  pkce: true
+});
+oktaAuth.start();
+
 const AppWithRouterAccess = () => {
   const history = useHistory();
   const onAuthRequired = () => {
     history.push('/login');
   };
 
-  const oktaAuth = new OktaAuth({
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
-    clientId: '${clientId}',
-    redirectUri: window.location.origin + '/login/callback',
-    onAuthRequired: onAuthRequired,
-    pkce: true
-  });
-
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     history.replace(toRelativeUrl(originalUri, window.location.origin));
   };
 
   return (
-    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri} onAuthRequired={onAuthRequired}>
       <Route path='/' exact={true} component={Home} />
       <SecureRoute path='/protected' component={Protected} />
       <Route path='/login' render={() => <SignIn />} />
@@ -442,6 +442,7 @@ export default withRouter(class AppWithRouterAccess extends Component {
       onAuthRequired: this.onAuthRequired,
       pkce: true
     });
+    this.oktaAuth.start();
   }
 
   onAuthRequired() {

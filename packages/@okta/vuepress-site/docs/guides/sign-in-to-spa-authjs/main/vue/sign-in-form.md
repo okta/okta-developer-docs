@@ -152,6 +152,7 @@ import OktaVue from '@okta/okta-vue'
 import sampleConfig from '@/config'
 
 const oktaAuth = new OktaAuth(sampleConfig.oidc)
+oktaAuth.start();
 
 createApp(App)
 .directive('focus', {

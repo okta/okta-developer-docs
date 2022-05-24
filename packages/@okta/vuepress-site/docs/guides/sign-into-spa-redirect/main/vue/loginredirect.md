@@ -10,6 +10,7 @@
    import sampleConfig from '@/config'
 
    const oktaAuth = new OktaAuth(sampleConfig.oidc)
+   oktaAuth.start()
 
    createApp(App)
      .use(router)

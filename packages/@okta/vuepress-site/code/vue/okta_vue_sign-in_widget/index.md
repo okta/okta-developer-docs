@@ -102,6 +102,7 @@ const oktaAuth = new OktaAuth({
   redirectUri: window.location.origin + '/login/callback',
   scopes: ['openid', 'profile', 'email']
 })
+oktaAuth.start();
 
 export { oktaAuth, oktaSignIn };
 ```

@@ -155,6 +155,7 @@ import logo from './logo.svg';
 import './App.css';
 
 const oktaAuth = new OktaAuth(config.oidc);
+oktaAuth.start();
 
 const App = () => {
   const history = useHistory();
