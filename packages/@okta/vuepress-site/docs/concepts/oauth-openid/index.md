@@ -115,7 +115,7 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 ### Interaction Code flow
 
-The Interaction Code flow is an extension to the OAuth 2. and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
@@ -273,7 +273,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
  The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
 
-> **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
+> **Note:** Because it's intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
 > **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
