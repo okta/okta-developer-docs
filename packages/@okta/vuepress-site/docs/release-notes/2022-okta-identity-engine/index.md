@@ -6,6 +6,22 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## May
 
+### Weekly release 2022.05.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.05.3](#bugs-fixed-in-2022-05-3) | May 25, 2022 |
+
+#### Bugs fixed in 2022.05.3
+
+* Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) sometimes returned an HTTP 500 Internal Server Error. (OKTA-497859)
+
+* The response returned from the `/introspect` endpoint during the unlock-account user flow wasn't the same response that was sent initially. (OKTA-452191)
+
+* The wrong response code was returned when an [access policy rule](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy) didn't have the Interaction Code grant type enabled. (OKTA-463497)
+
+* Using the [API](/docs/reference/api/authorization-servers/#claim-operations) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
+
 ### Weekly release 2022.05.1
 
 | Change | Expected in Preview Orgs |

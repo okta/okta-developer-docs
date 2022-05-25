@@ -3,6 +3,25 @@ title: Okta API Products release notes 2022
 ---
 ## May
 
+### Weekly release 2022.05.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [New optional request parameter for Reset Factor is GA in Preview](#new-optional-request-parameter-for-reset-factor-is-ga-in-preview) | May 25, 2022 |
+| [Bugs fixed in 2022.05.3](#bugs-fixed-in-2022-05-3) | May 25, 2022 |
+
+#### New optional request parameter for Reset Factor is GA in Preview
+
+The `/factors` endpoint has a new optional request parameter for the [Reset Factor](/docs/reference/api/factors/#reset-factor) lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a DELETE request to the `/factors` endpoint (`/users/${userId}/factors/${factorId}`). <!--OKTA-489015-->
+
+#### Bugs fixed in 2022.05.3
+
+* If the new `/idp` version of the [MyAccount API](/docs/reference/api/myaccount/) wasn't enabled, [Add My Phone](/docs/reference/api/myaccount/#add-my-phone) or [Challenge My Phone](/docs/reference/api/myaccount/#challenge-my-phone) operations performed on the `/idp/myaccount/` endpoint returned inconsistent exception errors. (OKTA-494004)
+
+* Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) sometimes returned an HTTP 500 Internal Server Error. (OKTA-497859)
+
+* Using the [API](/docs/reference/api/authorization-servers/#claim-operations) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
+
 ### Weekly release 2022.05.2
 
 | Change | Expected in Preview Orgs |
