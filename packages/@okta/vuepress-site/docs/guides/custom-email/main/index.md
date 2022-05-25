@@ -117,7 +117,7 @@ The following table provides a list of all allowed email attributes in customize
 
 | HTML tag/elements | Allowed attributes |
 |-------------------|--------------------|
-| All tags | <ul><li>`id`: can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`</li><li>`lang`</li><li>`title`</li></ul> |
+| All tags | <ul><li>`id`: Can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`: Can be alphanumeric and contain `<space>`, `,`, `-`, or `_`</li><li>`lang`: Can be uppercase or lowercase, and 2 to 20 characters long</li><li>`title`: Can contain any letter from any language, any numeric character in any script, `<space>`, `-`, `_`, `'`, `,`, `:`, `[`, `}`, `!`, `.`, `/`, `\`, `(`, `)`, or `&`</li></ul> |
 | `<style>` |  |
 | `p` |  |
 | `label` |  |
