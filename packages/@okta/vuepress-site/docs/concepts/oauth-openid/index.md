@@ -83,7 +83,7 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 | Type of Application     | OAuth 2.0 flow / grant type                      | Access Token?    | ID Token?     |
 | ----------------------- | ------------------------------------------------ | ---------------- | ------------- |
-| Server-side (aka Web), <br><br> Single-Page Application, <br><br> or Native | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) when using Identity Engine and you want your app to manage user interactions with the authorization server directly.                | &#9989;          | &#9989;      |
+| Server-side (aka Web), <br><br> Single-Page Application, <br><br> or Native | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) (Identity Engine only).                | &#9989;          | &#9989;      |
 | Trusted                 | [Resource Owner Password](#resource-owner-password-flow)            | &#9989;          | &#9989;      |
 | Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
@@ -97,7 +97,7 @@ The type of OAuth 2.0 flow depends on what kind of client that you are building.
 
 #### Is your client public?
 
-A client application is considered public when an end user could possibly view and modify the code. This includes Single-Page Apps (SPAs) or any mobile or native applications. In both cases, the application can't keep secrets from malicious users.
+A client application is considered public when an end user could possibly view and modify the code. This includes Single-Page Apps (SPAs) or any mobile or native applications. In both cases, the application can't keep secrets from malicious users. Your client is considered confidential or private for server-side (web applications), which means your client can use client authentication such as a client secret.
 
 #### Is your client a SPA or native?
 
@@ -105,11 +105,11 @@ If your client application is a SPA or a native application, you should use an a
 
 #### Does the client have an end user?
 
-If your client application is running on a server with no direct end user, then it can be trusted to store credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
+If your client application is running on a server with no direct end user, then it can be trusted to handle credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
 #### Is your app high-trust?
 
-If you own both the client application and the resource that it's accessing, then your application can be trusted to store your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
+If you own both the client application and the resource that it's accessing, then your application can be trusted to handle your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
 
 If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
