@@ -273,7 +273,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
  The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
 
-> **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
+> **Note:** Because it's intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
 > **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
