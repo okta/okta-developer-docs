@@ -2667,10 +2667,11 @@ Unenrolls an existing Factor for the specified user, allowing the user to enroll
 
 ##### Request parameters
 
-| Parameter    | Description                                         | Param Type | DataType | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| factorId     | `id` of the Factor to reset                         | URL        | String   | TRUE     |         |
-| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
+| Parameter    | Description                       | Param Type | DataType | Required | Default |
+| ------------ |-----------------------------------|------------|----------|----------|---------|
+| factorId     | `id` of the Factor to reset       | URL        | String   | TRUE     |         |
+| userId       | `id` of a User                    | URL        | String   | TRUE     |         |
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   |
 
 ##### Response parameters
 
