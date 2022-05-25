@@ -156,7 +156,7 @@ In our sample Glitch project, you can see this response in the [server.js](https
 See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a Registration Inline Hook for full details.
 
 ```javascript
-// Registration Inline Hook code to parse the incoming Okta request 
+// Registration Inline Hook code to parse the incoming Okta request
 
 app.post('/registrationHook', async (request, response) => {
   console.log();
