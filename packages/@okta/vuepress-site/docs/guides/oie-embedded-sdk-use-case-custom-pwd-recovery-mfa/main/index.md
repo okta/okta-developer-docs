@@ -6,13 +6,13 @@ title: Custom password recovery
 
 <ApiLifecycle access="ie" /><br>
 
-This guide shows you how to integrate the [Email Magic Links (EML)](https://www.okta.com/passwordless-authentication/#email-magic-link) feature into the self-service password recovery flow of your applications using Okta's embedded solutions.
+This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okta.com/passwordless-authentication/#email-magic-link) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
 ---
 **Learning outcomes**
 
-* Understand the supported flows within password recovery
-* Learn step-by-step how to customize your user's password recovery experience
+* Understand the flows supported by password recovery
+* Learn to customize your user's password recovery experience
 
 **What you need**
 
