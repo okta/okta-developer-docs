@@ -111,9 +111,9 @@ The following table provides a list of all available email templates in an Okta 
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | |   |
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | |   |
 
-### Use allowed attributes
+### Use allowed HTML tags and elements
 
-The following table provides a list of all allowed email attributes in customized templates. If you deviate from the allowed attributes, you receive error messages.
+The following table provides a list of all allowed HTML tags and elements in customized templates. If you deviate from the allowed tags and elements, you receive error messages.
 
 | HTML tags/elements | Allowed attributes |
 |-------------------|--------------------|
