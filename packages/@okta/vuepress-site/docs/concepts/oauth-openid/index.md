@@ -150,7 +150,7 @@ app -> client: Response
 
 ### Authorization Code flow with PKCE
 
-For web/native/mobile applications, the client secret can't be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
+Authorization Code flow with Proof Key for Code Exchange (PKCE), is the recommended flow for most applications, whether server-side (web), native, or mobile. PKCE was originally designed to protect the authorization code flow in mobile apps, but its ability to prevent authorization code injection makes it useful for every type of OAuth client, even web apps that use a client secret. PKCE acts like a secret but isn't hard-coded, and keeps the Authorization Code flow secure.
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
