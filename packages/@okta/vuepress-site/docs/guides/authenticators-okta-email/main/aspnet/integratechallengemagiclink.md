@@ -66,7 +66,7 @@ catch (OktaException exception)
 }
 ```
 
-### 4. Display a list of possible authenticators
+### 4. Display a list of available authenticators
 
 The next step is to show a list of all the authenticators that the user has previously enrolled. Build a page to display the list of authenticators from the previous step. For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection contained in the `AuthenticationResponse`.
 
@@ -143,7 +143,7 @@ For example, if the user has previously enrolled the email authenticator, Google
 
 ### 5. Submit the email authenticator
 
-When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow.
+When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method, which checks whether the user is in Challenge or Enrollment Flow.
 
 When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
@@ -230,7 +230,7 @@ Build a form that allows the user to enter the One-Time Password (OTP) sent to t
 </section>
 ```
 
-### 7. User clicks the email magic link
+### 7. Click the email magic link
 
 Next, the user opens their email and clicks the magic link. The following screenshot shows the magic link in the email.
 
@@ -273,6 +273,16 @@ if (idxContext != null)
     VerifyAuthenticatorAsync(verifyAuthenticatorOptions, idxContext);
 ```
 
+If the `otp` value isn't valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
+
+```csharp
+return View(new MagicLinkCallbackModel {
+   Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow."
+});
+```
+
+### 9. Complete challenge and sign user in
+
 If the `otp` value is valid, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` is `Success`. In this case, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
@@ -286,12 +296,4 @@ switch (authnResponse.AuthenticationStatus)
    _authenticationManager.SignIn(new AuthenticationProperties(), identity);
    return RedirectToAction("Index", "Home");
 }
-```
-
-If the `otp` value isn't valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
-
-```csharp
-return View(new MagicLinkCallbackModel {
-   Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow."
-});
 ```
