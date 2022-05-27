@@ -5,6 +5,4 @@
 
 ![Sequence diagram for Okta email OTP enrollment](/img/authenticators/dotnet-authenticators-email-enrollment-with-otp-flow-diagram.png)
 
-**TODO:** need java version
-
 </div>

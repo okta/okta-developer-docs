@@ -1,6 +1,6 @@
-### 1 - 9. Sign in and get magic link email
+### 1 - 7. Sign in and get magic link email
 
-First, the user attempts to sign in, initiating the email challenge flow. Next, they click the magic link that redirects them back to your app. These steps are identical to steps 1 - 9 in [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links).
+First, the user attempts to sign in, initiating the email challenge flow. Next, they click the magic link that redirects them back to your app. These steps are identical to steps 1 - 7 in [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links).
 
 ### 10. Handle the magic link redirect in your app
 

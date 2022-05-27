@@ -19,8 +19,6 @@ AuthenticationOptions authenticationOptions = new AuthenticationOptions(username
 authenticationResponse = idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
-### 2. Handle the response from the sign-in flow
-
 Query the `AuthenticationStatus` property of `AuthenticationResponse` returned by `authenticate()` to discover the current status of the authentication process.
 
 ```java
@@ -42,7 +40,7 @@ If you configured your Okta org correctly, you need to respond to two specific a
 * `AWAITING_AUTHENTICATOR_SELECTION` that is covered in this section
 * `AWAITING_AUTHENTICATOR_VERIFICATION` that is covered in a later section
 
-### 3. Display a list of possible authenticators
+### 2 - 4. Display a list of possible authenticators
 
 You can find the names of the available authenticators for enrollment or challenge in the `AuthenticationResponse` object's `authenticators` collection. Display all of the authenticators that the user has enrolled and are ready for use.
 
@@ -64,8 +62,6 @@ case AWAITING_AUTHENTICATOR_SELECTION:
 ```
 
 When the email authenticator is selected, an email will be sent to the user.
-
-### 4. Check authenticator status
 
 The next authentication status will be `AWAITING_AUTHENTICATOR_VERIFICATION` which indicates information is needed. A client can either accept a TOTP code from the email address or poll until the user has completed the flow in a different browser window.
 
@@ -104,8 +100,6 @@ Next, the user opens their email and clicks the magic link. The following screen
 <div class="common-image-format">
 
 ![Magic link in email](/img/authenticators/authenticators-email-challenge-magic-link-in-email.png)
-
-**TODO:** need java version
 
 </div>
 

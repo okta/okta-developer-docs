@@ -32,8 +32,6 @@ Next, the user opens the email and copies the OTP. The following screenshot show
 
 ![Screenshot of OTP in enrollment page](/img/authenticators/authenticators-email-enroll-otp.png)
 
-**TODO:** need java version
-
 </div>
 
 ### 7. The user is signed in
