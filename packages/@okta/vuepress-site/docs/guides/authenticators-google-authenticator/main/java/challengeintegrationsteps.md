@@ -29,7 +29,7 @@ The user's copy of Google Authenticator now displays the time-based one-time pas
 
 ![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 
-After the user selects Google Authenticator and prompts the for a time-based one-time password (the _code_), verify the code with Okta by calling the `verifyAuthenticator` method:
+Add a page that prompts the user for the TOTP. Call `verifyAuthenticator()` passing in the TOTP as a parameter to verify it with Identity Engine:
 
 ```java
 case AWAITING_AUTHENTICATOR_VERIFICATION:
