@@ -1,9 +1,9 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that capture's the user's name and password, as shown in the following example.
-
+Build a sign-in page that captures the user's name and password.
+<div class="common-image-format bordered-image">
 ![Basic sign-in dialog](/img/authenticators/java-authenticators-signinform.png)
-
+</div>
 ### 2: Authenticate the user credentials
 
 Add the following code to initiate the sign-in flow using the credentials collected from the user.
@@ -30,7 +30,7 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authent
 
 ### 3: Handle the response from the sign-in flow
 
-Find the current state of the authentication process by calling `AuthenticationResponse.getAuthenticationStatus()`. The return value either indicates a successful authentication (`SUCCESS`), or that more information is required, such as an additional authenticator.
+Call `AuthenticationResponse.getAuthenticationStatus()` to retrieve the current state of the authentication process. The return value indicates either a successful authentication (`SUCCESS`) or that more information is required, such as an additional authenticator.
 
 
 ```java
