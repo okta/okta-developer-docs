@@ -157,7 +157,7 @@ selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync
   (selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, OIE sends an email to the user and the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This indicates that OIE is waiting for the user to check their email and either click the magic link or enter the OTP.
+If the call is successful, Identity Engine sends an email to the user and the returned `selectAuthenticatorResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This indicates that Identity Engine is waiting for the user to check their email and either click the magic link or enter the OTP.
 
 ```csharp
 Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
