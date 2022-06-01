@@ -8,6 +8,7 @@
         'page-body': true,
       }"
     >
+      <HeaderNav />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -65,6 +66,7 @@ export const endingSlashRE = /\/$/;
 export default {
   components: {
     Header: () => import("../components/Header.vue"),
+    HeaderNav: () => import("../components/HeaderNav.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),

@@ -62,13 +62,42 @@
     width: 266px;
     position: sticky;
     overflow: auto;
+    overflow-x: hidden;
     background: cv('body');
-    top: 87px;
+    top: 142px;
     @include media("<desktop-xl") {
-      top: 70px;
+      top: 125px;
     }
     @include media("<desktop") {
       display: none;
+    }
+    .sidebar-fade {
+      display: block;
+      position: sticky;
+      width: 266px;
+      height: 176px;
+      background: linear-gradient(3.53deg, #F7FAFF 38.14%, rgba(247, 250, 255, 0) 83.09%);
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+      transition: .3s;
+    }
+    &:hover {
+      .sidebar-fade {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+      }
+    }
+    &.no-fade {
+      .sidebar-fade {
+        display: none;
+      }
+    }
+    &.show-scroll-up {
+      .scroll-up {
+        display: block;
+      }
     }
   }
 
@@ -258,4 +287,11 @@
       display: none;
     }
   }
+}
+
+.aside-hidden .sidebar-area {
+  width: 77px;
+}
+.aside-hidden .content-area {
+  max-width: calc(100% - 77px);
 }

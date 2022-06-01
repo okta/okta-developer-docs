@@ -2,6 +2,7 @@
   <li :class="{
     'link-wrap': true, 
     'subnav-active': link.iHaveChildrenActive,
+    'bordered': this.activeParentLink(),
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -26,30 +27,43 @@
           </a>
     </router-link>
 
-    <div v-if="entityType === types.blankDivider">
-        <div class="blank-divider">
-          {{link.title}}
-        </div>
-    </div>
-
     <div
           v-if="entityType === types.parent"
           :class="{
-            'tree-nav-link': true,
+            'tree-nav-link tree-nav-link-parent': true,
             'children-active': link.iHaveChildrenActive
           }"
-          @click="toggleExpanded"
         >
           <i :class="{
             'parent': link.subLinks,
             'opened': link.subLinks && sublinksExpanded,
             }">
             <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.4714 3.5286C4.73175 3.78894 4.73175 4.21106 4.4714 4.4714L1.13807 7.80474C0.877722 8.06509 0.455612 8.06509 0.195263 7.80474C-0.0650871 7.54439 -0.0650871 7.12228 0.195262 6.86193L3 4L0.195262 1.13807C-0.0650874 0.877722 -0.0650874 0.455612 0.195262 0.195262C0.455611 -0.0650874 0.877722 -0.0650874 1.13807 0.195262L4.4714 3.5286Z" fill="#8C8C96"/>
+              <path d="M4.4714 3.5286C4.73175 3.78894 4.73175 4.21106 4.4714 4.4714L1.13807 7.80474C0.877722 8.06509 0.455612 8.06509 0.195263 7.80474C-0.0650871 7.54439 -0.0650871 7.12228 0.195262 6.86193L3 4L0.195262 1.13807C-0.0650874 0.877722 -0.0650874 0.455612 0.195262 0.195262C0.455611 -0.0650874 0.877722 -0.0650874 1.13807 0.195262L4.4714 3.5286Z" fill="#ADBBD7"/>
             </svg>
           </i>
-          <span class="text-holder link">
-            {{ link.title }}
+          <router-link
+            v-if="link.path !== '#'"
+            :to="link.path"
+            v-slot="{ href, navigate }"
+            @click="toggleExpanded"
+          >
+            <a 
+              :href="href"
+              @click="navigate"
+              class="link">
+              <slot>
+                <span class="text-holder">
+                  {{ link.title }}
+                </span>
+              </slot>
+            </a>
+          </router-link>
+          <span 
+            v-if="link.path == '#'"
+            @click="toggleExpanded"
+            class="link">
+              {{ link.title }}
           </span>
     </div>
 
@@ -80,8 +94,8 @@ export default {
       hidden: !!this.link.hidden,
       types: {
         link: 'link',
-        blankDivider: 'blankDivider',
-        parent: 'parent'
+        parent: 'parent',
+        blankDivider: 'blankDivider'
       }
     };
   },
@@ -139,6 +153,25 @@ export default {
   },
 
   methods: {
+    activeParentLink() {
+      if (!this.link.iHaveChildrenActive) {
+        return false;
+      }
+      if (!this.link.subLinks) {
+        return false;
+      }
+      if (this.link.parents.length < 2) {
+        return false;
+      }
+      let isActive = false;
+      for (let el of this.link.subLinks) {
+        if (el.iHaveChildrenActive && (!el.subLinks || el.subLinks.length == 0)) {
+          isActive = true;
+          break;
+        }
+      }
+      return isActive;
+    },
     getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
       return path.replace(framework, newFramework);
@@ -156,8 +189,11 @@ export default {
         return loop(parent.$parent);
       }
       )(this)
+    },
+    getRoutes() {
+      const routes = this.appContext.treeNavDocs;
+      console.log(routes);
     }
-
   }
 };
 </script>
