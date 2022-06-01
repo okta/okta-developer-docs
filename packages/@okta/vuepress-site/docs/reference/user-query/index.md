@@ -9,12 +9,12 @@ meta:
 
 Searching for and returning Okta users is a standard Users API lifecycle operation. The Users API supports four options to return an individual, subset, or all users:
 
-- [search parameter](#): Returns one or more users matched against a search expression and user object properties. 
-- [filter parameter](#): Returns one or more users that match a filter expression checked against a subset of user object properties.
-- [find parameter](#): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`.
-- [list-all-users](#): Returns all users that do not have the status of DEPROVISIONED
+- [search parameter](#search-users): Returns one or more users matched against a search expression and user object properties. 
+- [filter parameter](#filter-users): Returns one or more users that match a filter expression checked against a subset of user object properties.
+- [find parameter](#find-users): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`.
+- [list-all-users](#list-all-users): Returns all users that do not have the status of DEPROVISIONED
 
-> Note: Okta recommends using the `search` parameter when querying for users.
+> **Note:** Okta recommends using the `search` parameter when querying for users.
 
 For details on user operations, see [Users API](/docs/reference/api/users/) reference.
 
@@ -37,7 +37,7 @@ The search parameter requires URL encoding for expressions that include characte
 
 `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 
-> Note: If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
+> **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
 
 #### Request example
 
@@ -105,7 +105,7 @@ For brevity, response is truncated.
 
 The parameters `limit` and `after` can be included in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value and obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
 
-> Note: If you don't specify a value for limit, the maximum (200) is used as a default.
+> **Note:** If you don't specify a value for limit, the maximum (200) is used as a default.
 
 #### Request example
 
@@ -161,7 +161,7 @@ curl -v -X GET \
 
 The `search` parameter can also search array data types for custom user profile properties. Okta follows the [SCIM Protocol Specification]9https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2) for searching arrays. If any element of the array matches the search term, the entire array (object) is returned.
 
-You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard filtering operators such as starts with (`sw)`, greater than (`gt`), and so on.
+You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw)`, greater than (`gt`), and so on. See [Filtering](/docs/reference/core-okta-api#filter).
 
 #### Request example
 
@@ -377,11 +377,11 @@ For further search expression examples and reference material, see [Find Users](
 
 The filter query parameter (`filter`) returns one or more users that match a filter expression checked against the following subset of user object properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`. The filter query parameter supports [pagination](#limits-and-pagination) and requires [URL encoding](#url-encoding) for applicable filter expressions.
 
-> Note: For optimal performance, Okta recommends using a `search` parameter instead. See [Search](#search-users).
+> **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
 The filter query parameter also uses standard Okta API filtering semantics to create filtering criteria similar to the search parameter. Multiple expressions can be combined using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter). The filter query parameter also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
-> Note: The starts-with (`sw`) operator is not supported for the filter parameter.
+> **Note:** The starts-with (`sw`) operator is not supported for the filter parameter.
 
 #### Request example
 
@@ -449,8 +449,8 @@ The following example finds and returns all users that were deprovisioned on the
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS 00Lf8e9KXRO4SsN65u6Uk4D2_IGQbzDXwgdQc10gB1" \
-"https://duffield.oktapreview.com/api/v1/users?filter=status+eq+%22DEPROVISIONED%22+and+(lastUpdated+ge+%222021-08-19T00:00:00.000Z%22+and+lastUpdated+lt+%222021-08-20T00:00:00.000Z%22)"
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?filter=status+eq+%22DEPROVISIONED%22+and+(lastUpdated+ge+%222021-08-19T00:00:00.000Z%22+and+lastUpdated+lt+%222021-08-20T00:00:00.000Z%22)"
 ```
 
 #### Response example
@@ -543,11 +543,11 @@ For further filter expression examples and reference material, see [Find Users](
 
 The find users query parameter (`q`) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with the status of DEPROVISIONED, does not support pagination, and is not designed for large data sets.
 
->Note: For optimal performance, Okta recommends using a [search](#search-users) parameter instead.
+> **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
 The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties and is not case-sensitive. The find query parameter also supports the `limit` parameter but not the `after` parameter (pagination), see [Limits and pagination](#limits-and-pagination).
 
->Note: If you are using the `q` parameter, the default limit is 10 users if not specified.
+> **Note:** If you are using the `q` parameter, the default limit is 10 users if not specified.
 
 #### Request example
 
@@ -690,9 +690,9 @@ See [Find Users](/docs/reference/api/users/#find-users) in the Users API referen
 
 ## List all users
 
-The basic list-all-users command returns all users that do not have the status of DEPROVISIONED to the default limit of 200 records, if not specified. For this simple use-case, the list-all query performance is superior to other search options.
+The basic list-all-users command returns all users that do not have the status of DEPROVISIONED to the default maximum limit of 200 records, if not specified. For this simple use-case, the list-all query performance is superior to other search options.
 
->Note: For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
+> **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
 The list all users command supports [limits and pagination](#limits-and-pagination) but not sorting.
 
@@ -705,7 +705,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?limit=25 
+"https://${yourOktaDomain}/api/v1/users?limit=25
 ```
 
 See [Find Users](/docs/reference/api/users/#list-users) in the Users API reference.
