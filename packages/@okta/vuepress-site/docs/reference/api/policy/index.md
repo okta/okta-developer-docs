@@ -1761,7 +1761,7 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 #### Policy Action with Dynamic IdP routing
 <ApiLifecycle access="ea"/>
 
-> **Note:** Dynamic IdP Routing is an [Early Access]([/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+> **Note:** Dynamic IdP Routing is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 You can choose to define an IdP instance in the Policy action or provide an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) with the [Login Context](/docs/reference/okta-expression-language-in-identity-engine/#login-context) that is evaluated with the IdP. For example, the value `login.identifier`
 refers to the user's `username`. If the user is signing in with the username `john.doe@mycompany.com`, the expression, `login.identifier.substringAfter('@))` is evaluated to the domain name of the user, for example, `mycompany.com`. The IdP property that the evaluated string should match to is specified as the `propertyName`.
