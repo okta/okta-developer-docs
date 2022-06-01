@@ -110,6 +110,7 @@ The following table provides a list of all available email templates in an Okta 
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | |   |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | |   |
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | |   |
+| Idp MyAccount Email Change Confirmation | Confirm email address change | `idpMyAccountChangeConfirmation` |  | Sent to users who request to change their email using the MyAccount API. The users must enter the provided code to confirm the change. |
 
 ### Use allowed HTML tags and elements
 
