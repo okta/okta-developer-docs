@@ -34,11 +34,11 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/app/template_saml_2_0/${key}/sso/saml`
 * `/app/${app}/${key}/sso/saml`
 
-**Single User/Group/App operations (Get, Update, and Delete):**
+**Single User/Group/App reads (GET only):**
 
-* `/api/v1/apps/${id}`&#160;
-* `/api/v1/groups/${id}`&#160;
-* `/api/v1/users/${idOrLogin}`&#160;
+* `/api/v1/apps/${id}`
+* `/api/v1/groups/${id}`
+* `/api/v1/users/${idOrLogin}`
 
 > **Notes:**
 >
