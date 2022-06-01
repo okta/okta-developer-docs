@@ -1,3 +1,13 @@
+.generated-content .content__default > * {
+  display: none !important;
+}
+
+.generated-content .content__default p:nth-of-type(1) {
+  margin-top: 0.625rem;
+  padding-left: 1.25rem;
+  display: block !important;
+}
+
 .content--container {
   display: flex;
   padding: 0;

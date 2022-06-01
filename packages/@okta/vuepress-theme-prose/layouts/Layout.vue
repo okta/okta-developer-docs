@@ -27,6 +27,7 @@
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
+            <slot name="generatedContent" />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
               <span>

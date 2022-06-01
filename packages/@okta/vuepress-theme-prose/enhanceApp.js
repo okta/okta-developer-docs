@@ -2,6 +2,14 @@ import VueSelect from 'vue-select';
 import pageComponents from '@internal/page-components'
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import PortalVue from 'portal-vue';
+import GeneratedContentLayout from './components/GeneratedContentLayout.vue'
+import {
+  concepts,
+  guides,
+  languagesSdk,
+  reference,
+  releaseNotes
+} from "./const/navbar.const";
 
 
 export default ({
@@ -12,6 +20,36 @@ export default ({
 }) => {
   Vue.use(PortalVue);
   Vue.component('v-select', VueSelect);
+
+  let arrayOfDocs = [concepts, guides, languagesSdk, reference, releaseNotes].map(el => el[0]);
+  function sanitizeTitle(el) {
+    if (el.guideName) {
+      return el.guideName;
+    }
+    return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+  }
+  
+  function generatedLinks(arr, parent = null) {
+    for(let el of arr) {
+      if (!el.path) {
+        let path = parent.path + sanitizeTitle(el);
+        if (!el.guideName) {
+          router.addRoutes([
+            { path: path, component: GeneratedContentLayout, name: path },
+            
+          ]);
+        }
+        el.path = path + '/';
+      }
+      if (el.subLinks && el.subLinks.length > 0) {
+        generatedLinks(el.subLinks, el);
+      }
+      if (window.location.pathname == el.path) {
+        document.title = el.title + ' | ' + siteData.title;
+      }
+    }
+  }
+  generatedLinks(arrayOfDocs);
 
   router.beforeEach((to, from, next) => {
     /**

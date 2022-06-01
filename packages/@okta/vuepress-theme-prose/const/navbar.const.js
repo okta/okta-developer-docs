@@ -4,10 +4,6 @@ export const concepts = [
     path: "/docs/concepts/",
     subLinks: [
       {
-        title: "Concepts overview",
-        path: "/docs/concepts/"
-      },
-      {
         title: "API Access Management",
         path: "/docs/concepts/api-access-management/"
       },
@@ -93,11 +89,8 @@ export const concepts = [
       },
       {
         title: "Understanding SAML",
+        path: "/docs/concepts/saml/",
         subLinks: [
-          {
-            title: "SAML Overview",
-            path: "/docs/concepts/saml/"
-          },
           {
             title: "SAML FAQ",
             path: "/docs/concepts/saml/faqs/"
@@ -106,11 +99,8 @@ export const concepts = [
       },
       {
         title: "Understanding SCIM",
+        path: "/docs/concepts/scim/",
         subLinks: [
-          {
-            title: "SCIM Overview",
-            path: "/docs/concepts/scim/"
-          },
           {
             title: "SCIM FAQ",
             path: "/docs/concepts/scim/faqs/"
@@ -126,12 +116,11 @@ export const guides = [
     title: "Guides",
     path: "/docs/guides/",
     subLinks: [
-      { title: "Guides overview", path: "/docs/guides/" },
       { title: "Quickstart", guideName: "quickstart" },
       {
         title: "Sign users in",
+        guideName: "sign-in-overview",
         subLinks: [
-          { title: "Overview", guideName: "sign-in-overview" },
           {
             title: "Redirect authentication",
             subLinks: [
@@ -255,11 +244,8 @@ export const guides = [
           },
           {
             title: "Authenticators",
+            guideName: "authenticators-overview",
             subLinks: [
-              {
-                title: "Overview",
-                guideName: "authenticators-overview"
-              },
               {
                 title: "Okta email",
                 guideName: "authenticators-okta-email"
@@ -284,11 +270,8 @@ export const guides = [
           },
           {
             title: "Advanced use cases",
+            guideName: "advanced-use-case-overview",
             subLinks: [
-              {
-                title: "Overview",
-                guideName: "advanced-use-case-overview"
-              },
               {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
@@ -324,11 +307,8 @@ export const guides = [
             guideName: "configure-signon-policy" },
           {
             title: "Add an Identity Provider",
+            path: "/docs/guides/identity-providers/",
             subLinks: [
-              {
-                title: "Overview",
-                path: "/docs/guides/identity-providers/",
-              },
               {
                 title: "Social Logins",
                 subLinks: [
@@ -611,11 +591,8 @@ export const guides = [
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
+            path: "/docs/guides/scim-provisioning-integration-overview/main/",
             subLinks: [
-              {
-                title: "Overview",
-                path: "/docs/guides/scim-provisioning-integration-overview/main/"
-              },
               {
                 title: "Prepare your SCIM API service",
                 path: "/docs/guides/scim-provisioning-integration-prepare/main/"
@@ -631,11 +608,8 @@ export const guides = [
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
+            path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [
-              {
-                title: "Overview",
-                path: "/docs/guides/oin-oidc-overview/main/"
-              },
               {
                 title: "Protocol-level requirements",
                 path: "/docs/guides/oin-oidc-protocols/main/"
@@ -745,11 +719,8 @@ export const guides = [
       },
       {
         title: "Classic archive",
+        guideName: "archive-overview",
         subLinks: [
-          {
-            title: "Overview",
-            guideName: "archive-overview"
-          },
           {
             title: "Auth JS fundamentals",
             guideName: "archive-auth-js"
@@ -787,7 +758,6 @@ export const languagesSdk = [
     title: "Languages & SDKs",
     path: "/code/",
     subLinks: [
-      { title: "Overview", path: "/code/" },
       {
         title: "Server-side",
         subLinks: [
@@ -826,18 +796,14 @@ export const reference = [
     title: "Reference",
     path: "/docs/reference/",
     subLinks: [
-      { title: "Overview", path: "/docs/reference/" },
       {
         title: "Core Okta API",
+        path: "/docs/reference/core-okta-api/",
         subLinks: [
-          { title: "Overview", path: "/docs/reference/core-okta-api/" },
           {
             title: "Rate Limits",
+            path: "/docs/reference/rate-limits/",
             subLinks: [
-              {
-                title: "Rate limits overview",
-                path: "/docs/reference/rate-limits/"
-              },
               {
                 title: "Rate limit dashboard",
                 path: "/docs/reference/rl-dashboard/"
@@ -879,13 +845,12 @@ export const reference = [
             ]
           },
           { title: "Error Codes", path: "/docs/reference/error-codes/" },
-          { title: "User query options", path: "/docs/reference/user-query/" },
-          { title: 'Sign in Your Users', path: null},
+          { title: "Sign in Your Users", path: "empty"},
           { title: "Authentication", path: "/docs/reference/api/authn/" },
           { title: "Identity Providers", path: "/docs/reference/api/idps/" },
           { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/"},
           { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
-          { title: "Manage Okta Objects", path: null},
+          { title: "Manage Okta Objects", path: "empty"},
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
@@ -920,12 +885,9 @@ export const reference = [
         ]
       },
       {
-        title: 'Advanced Server Access API',
+        title: "Advanced Server Access API",
+        path: "/docs/reference/api/asa/",
         subLinks: [
-          {
-            title: "ASA Overview",
-            path: "/docs/reference/api/asa/"
-          },
           {
             title: "Introduction to the Advanced Server Access API",
             path: "/docs/reference/api/asa/introduction/"
@@ -957,12 +919,9 @@ export const reference = [
         ]
       },
       {
-        title: 'SCIM Protocol',
+        title: "SCIM Protocol",
+        path: "/docs/reference/scim/",
         subLinks: [
-          {
-            title: "Overview",
-            path: "/docs/reference/scim/"
-          },
           {
             title: "SCIM V2.0",
             path: "/docs/reference/scim/scim-20/"
@@ -974,11 +933,11 @@ export const reference = [
         ]
       },
       {
-        title: 'Postman Collections',
+        title: "Postman Collections",
         path: "/docs/reference/postman-collections/"
       },
       {
-        title: 'Hooks',
+        title: "Hooks",
         subLinks: [
           { title: "Event Hooks Management API", path: "/docs/reference/api/event-hooks/" },
           { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
@@ -995,7 +954,7 @@ export const reference = [
         ]
       },
       {
-        title: 'Okta Expression Language',
+        title: "Okta Expression Language",
         path: "/docs/reference/okta-expression-language/"
       },
       {
@@ -1003,19 +962,18 @@ export const reference = [
         path: "/docs/reference/okta-expression-language-in-identity-engine/"
       },
       {
-        title: 'Release Life Cycle',
+        title: "Release Life Cycle",
         path: "/docs/reference/releases-at-okta/"
       },
     ]
   }
-]
+];
 
 export const releaseNotes = [
   {
     title: "Release Notes",
     path: "/docs/release-notes/",
     subLinks: [
-      { title: "Overview", path: "/docs/release-notes/" },
       { title: "2022", path: "/docs/release-notes/2022/" },
       { title: "2022 - Okta Identity Engine", path: "/docs/release-notes/2022-okta-identity-engine/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
@@ -1027,4 +985,4 @@ export const releaseNotes = [
       { title: "2016", path: "/docs/release-notes/2016/" }
     ]
   }
-]
+];
