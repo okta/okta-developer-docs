@@ -630,7 +630,7 @@ The Authenticator object defines the following properties:
 | `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
 | `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
 | `settings.appInstanceId` | String | The application instance ID | `okta_verify` |
-| `provider.type` | String | Provider type. For Duo `DUO`. | `duo`, other authenticators making use of provider. |
+| `provider.type` | String | Provider type. For Duo: `DUO`. | `duo` and other authenticators making use of the provider object |
 | `provider.configuration.host` | String | The Duo Security org hostname | `duo` |
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
