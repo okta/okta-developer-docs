@@ -246,9 +246,9 @@ When the user clicks the magic link, your org receives the request, gets the OTP
 
 ### 8. Handle the magic link redirect in your app
 
-Create a callback handler method that takes the `otp` parameter in the query string and passes it as a parameter to the `VerifyAuthenticatorAsync` method on the `IdxClient`.
+Create a callback handler method that checks the user has opened the magic link in the same browser and on the same device they used for the previous steps of the challenge flow. If this is true, take the `otp` parameter in the query string and pass it as a parameter to `IdxClient.VerifyAuthenticatorAsync()`.
 
-> **Note**: This implementation stores the idx context in session, keyed by the value of the state parameter. Alternatively, you may choose to store the idx context in a database or a file. The `state` value serves as your handle to recover the idx context to continue the authentication flow.
+> **Note**: The sample code below demonstrates a very simple check, assuming a different browser or device if the context can't be recovered from a session variable. Use a more robust check in your final application.
 
 ```csharp
 if (!string.IsNullOrEmpty(error) || !string.IsNullOrEmpty(error_description))
@@ -273,7 +273,7 @@ if (idxContext != null)
     VerifyAuthenticatorAsync(verifyAuthenticatorOptions, idxContext);
 ```
 
-If the `otp` value isn't valid or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
+If the user has not opened the magic link in the same browser, the `otp` value isn't valid, or an `AuthenticationStatus` is returned that is not handled by your case statement, you should advise the user to return to the original tab in the browser and enter the `otp` value there to proceed.
 
 ```csharp
 return View(new MagicLinkCallbackModel {
