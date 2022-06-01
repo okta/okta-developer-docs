@@ -801,7 +801,7 @@ Content-Type: application/json
 #### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
-* Passing an `id` that is not in the `ACTIVE` or `SUSPENEDED` status returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing an `id` that is not in the `ACTIVE` or `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ### Suspend Device
 
