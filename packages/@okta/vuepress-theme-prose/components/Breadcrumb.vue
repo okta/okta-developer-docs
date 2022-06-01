@@ -60,8 +60,7 @@
           if (parent) {
             menuItem.parents = _.union([parent], parent.parents)
           }
-
-          if(menuItem.path != undefined && this.$page.path === menuItem.path) {
+          if(menuItem.path != undefined && window.location.pathname === menuItem.path) {
 
             //add parent crumbs           
             menuItem.parents.reverse().map((parentCrumb) => {

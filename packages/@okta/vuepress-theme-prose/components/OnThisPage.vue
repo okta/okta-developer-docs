@@ -12,7 +12,7 @@
             :activeAnchor="activeAnchor"
           />
         </ul>
-        <ul class="links" v-else>
+        <ul class="links" v-else-if="$page.fullHeaders">
           <OnThisPageItem
             v-for="(link, index) in $page.fullHeaders[0].children"
             :link="link"
@@ -49,7 +49,8 @@ export default {
     showOnthisPage: function() {
       return (
         this.items ||
-        (this.$page.fullHeaders[0].children &&
+        (this.$page.fullHeaders &&
+          this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
       );
     },
