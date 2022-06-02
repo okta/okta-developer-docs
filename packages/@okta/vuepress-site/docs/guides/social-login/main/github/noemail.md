@@ -20,12 +20,12 @@ To generate user login values and email addresses for GitHub users, do the follo
 
 1. Set the expression that maps to the Okta user's `login` value to:
    ```
-   appuser.email == null ? appuser.github_id + '@github.example.com' : appuser.email
+   appuser.email == null ? appuser.externalId + '@github.example.com' : appuser.email
    ```
 
 1. Set the expression that maps to the Okta user's `email` value to:
    ```
-   appuser.email == null ? appuser.github_id + '@github.example.com' : appuser.email
+   appuser.email == null ? appuser.externalId + '@github.example.com' : appuser.email
    ```
 
 1. Click **Save Mappings**
@@ -40,7 +40,7 @@ Similarly, you can map the IdP username by doing the following:
 
 1. Set the expression for **IdP Username** to:
    ```
-   idpuser.email == null ? idpuser.github_id + '@github.example.com' : idpuser.email
+   idpuser.email == null ? idpuser.externalId + '@github.example.com' : idpuser.email
    ```
 
 1. Click **Update Identity Provider**
