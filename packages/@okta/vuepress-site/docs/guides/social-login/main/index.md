@@ -90,7 +90,9 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_i
 
 ## Add the Identity Provider to the Okta Sign-In Widget
 
-The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
+> **Note:** This section is only for Okta Classic Engine. If you are using Okta Identity Engine, the Sign in with IdP option is available on the widget after you've [created the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configured the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and see [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
+
+The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
 
 To find your Identity Provider ID:
 
