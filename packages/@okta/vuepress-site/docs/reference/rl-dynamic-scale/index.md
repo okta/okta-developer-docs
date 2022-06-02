@@ -34,20 +34,17 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/app/template_saml_2_0/${key}/sso/saml`
 * `/app/${app}/${key}/sso/saml`
 
-**Single User/Group/App operations (Get, Update, and Delete):**
+**Single User/Group/App reads (GET only):**
 
-* `/api/v1/apps/${id}`&#160;
-* `/api/v1/groups/${id}`&#160;
-* `/api/v1/users/${idOrLogin}`&#160;
+* `/api/v1/apps/${id}`
+* `/api/v1/groups/${id}`
+* `/api/v1/users/${idOrLogin}`
 
 > **Notes:**
 >
 > 1. If Okta makes any change to the DynamicScale add-on rate limits, such a change is communicated to customers through an updated version of this product documentation.
 > 2. DynamicScale add-on isn't available for customers that are using Delegated Authentication.
-> 3. Customers purchasing the DynamicScale add-on service get best-effort additional protection beyond the multiplier that they've purchased to handle any additional unforeseen spikes in Production:
->     * This protection isn't always guaranteed and shouldn't be counted towards available rate limits.
->     * Additional protection availability is subject to infrastructure capacity available to your org.
-> 4. Not all DynamicScale multipliers are available when a customer uses both the DynamicScale add-on service and Okta inline hooks. When a customer is using Okta inline hooks, it is assumed that the 3rd party system responds to the inline hook requests in under 500 milliseconds.
+> 3. Not all DynamicScale multipliers are available when a customer uses both the DynamicScale add-on service and Okta inline hooks. When a customer is using Okta inline hooks, it is assumed that the 3rd party system responds to the inline hook requests in under 500 milliseconds.
 >
 
 If your usage pattern exceeds the rate limits offered by the DynamicScale add-on or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then please contact your Okta Sales Representative regarding other options.
