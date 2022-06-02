@@ -28,4 +28,4 @@ In the optional **Authentication Settings** section:
 
     You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
-* **Filter > Only allow usernames that match defined RegEx Pattern**: Select this option to only authenticate users from the <StackSnippet snippet="idp" inline /> IdP that have their transformed usernames matching a regular expression pattern in the text field that appears.
+* **Filter > Only allow usernames that match defined RegEx Pattern**: Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears.
