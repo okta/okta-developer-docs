@@ -26,6 +26,6 @@ In the optional **Authentication Settings** section:
 
     For example, the value `idpuser.email` means that it takes the email attribute passed by the Identity Provider and maps it to the Okta application user's `username` property.
 
-    You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/) for more information.
+    You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
 * **Filter > Only allow usernames that match defined RegEx Pattern**: Select this option to only authenticate users from the <StackSnippet snippet="idp" inline /> IdP that have their transformed usernames matching a regular expression pattern in the text field that appears.
