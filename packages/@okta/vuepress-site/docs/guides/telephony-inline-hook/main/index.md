@@ -34,8 +34,6 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook** slider, and slide to enable.
 
-    > **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
-
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
 * Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable. Additionally, place an `otp` tag key in double brackets in the prepopulated XML. This tag key directly references the dynamic `otp` used in this exercise. For example:
