@@ -89,12 +89,12 @@ Your app should always display an OTP input page to allow the user to use the OT
 
 Out of the box, the Embedded SDK solution supports the Email Magic Link feature for various use cases. For those use cases where the feature isn't fully supported, OTP is available. See the following support matrix for more details:
 
-| Email template name  | Use cases  | Email authenticator flow  | Supported methods | Template customizations needed |
-| ----------------------------| ------------------|------------------------|-------------|-------------------------|
-| Email Challenge             | Sign-in with email - challenge                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | No
-| Forgot Password             | Self-service password recovery                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | Yes, add `otp` and `state` parameters. See <StackSnippet snippet="custompwdguide" inline />.
-| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | Magic link, [OTP](#integrate-email-enrollment-with-otp)              | No
-
+| Email template name    |   Use cases    |   Supported methods | Template customizations supported |
+| ----------------------------| ------------------|-------------|-------------------------|
+| Email Challenge             | Sign-in with email - challenge  | [Magic link](#integrate-email-challenge-with-magic-links), [OTP](#integrate-email-enrollment-with-otp)  | Yes, template supports the `otp` and `state` parameters. See the <StackSnippet snippet="custompwdguide" inline /> for more details.
+| Forgot Password             | Self-service password recovery  | [Magic link](#integrate-email-challenge-with-magic-links), [OTP](#integrate-email-enrollment-with-otp)  | Yes, template supports the `otp` and `state` parameters. See the <StackSnippet snippet="custompwdguide" inline /> for more details.
+| Email Factor Verification   | Sign-in with email - enroll   | [Magic link](#integrate-email-challenge-with-magic-links), [OTP](#integrate-email-enrollment-with-otp) | Yes, template supports the `otp` and `state` parameters. See the <StackSnippet snippet="custompwdguide" inline /> for more details.
+| Registration - Activation   | Self-service registration  | [Magic link](#integrate-email-challenge-with-magic-links), [OTP](#integrate-email-enrollment-with-otp)  | Yes, template supports the `otp` and `state` parameters. See the <StackSnippet snippet="custompwdguide" inline /> for more details.
 > **Note:** This guide uses the sign-in with email use cases to describe how to integrate email enrollment and challenge.
 
 ## Update configurations
