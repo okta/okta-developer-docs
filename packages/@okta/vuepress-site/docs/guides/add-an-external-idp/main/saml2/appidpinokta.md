@@ -4,7 +4,7 @@ In the **Authentication Settings** section:
 
 * **IdP Username**: This is the expression (written in Okta Expression Language) that is used to convert an Identity Provider attribute to the application user's `username`. This Identity Provider username is used for matching an application user to an Okta User.
 
-    For example, the value `idpuser.subjectNameId` means that it takes the subject's username taken from the SAML assertion passed by the Identity Provider and maps it to the Okta application user's `username` property.
+    For example, the value `idpuser.subjectNameId` means that it takes the subject's username, from the SAML assertion passed by the Identity Provider, and maps it to the Okta application user's `username` property.
 
     You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/) for more information.
 
