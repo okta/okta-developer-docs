@@ -105,8 +105,7 @@ ul.menu--items {
   }
 
   > li.expandable > a:after,
-  > li.expandable > span:after,
-  li.expandable > .tree-nav-link > span:after {
+  > li.expandable > span:after {
     content: "";
     position: absolute;
     right: 0;
