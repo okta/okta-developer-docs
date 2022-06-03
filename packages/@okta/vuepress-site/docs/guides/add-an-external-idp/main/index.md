@@ -152,14 +152,11 @@ If you don't want pre-built views, or need deeper levels of customization, then 
 
 ## Next steps
 
-You should now understand how to add an external Identity Provider and have successfully added and tested the authorization URL with the external Identity Provider.
+You should now understand how to add an external Identity Provider and have successfully added and tested the integration.
 
-To add another Identity Provider:
+To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
-* If you have already created an app at the Identity Provider, start by configuring the Identity Provider in Okta.
-* If you haven't already created an app at the Identity Provider, start by creating an app at the Identity Provider.
-
-> **Note:** You don't need to register another app in Okta unless you want to use a different application with the new Identity Provider that you are creating.
+To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
 
 ## See also
 
