@@ -9,7 +9,7 @@ showStackSelector: False
 
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSnippet snippet="idp" inline /> as an external Identity Provider for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 ---
 
@@ -157,9 +157,3 @@ You should now understand how to add an external Identity Provider and have succ
 To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
 To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
-
-## See also
-
-* [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
-* [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
-* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
