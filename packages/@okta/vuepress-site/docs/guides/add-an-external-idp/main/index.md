@@ -9,7 +9,7 @@ showStackSelector: False
 
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSnippet snippet="idp" inline /> as an external Identity Provider for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 ---
 
@@ -152,17 +152,8 @@ If you don't want pre-built views, or need deeper levels of customization, then 
 
 ## Next steps
 
-You should now understand how to add an external Identity Provider and have successfully added and tested the authorization URL with the external Identity Provider.
+You should now understand how to add an external Identity Provider and have successfully added and tested the integration.
 
-To add another Identity Provider:
+To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
-* If you have already created an app at the Identity Provider, start by configuring the Identity Provider in Okta.
-* If you haven't already created an app at the Identity Provider, start by creating an app at the Identity Provider.
-
-> **Note:** You don't need to register another app in Okta unless you want to use a different application with the new Identity Provider that you are creating.
-
-## See also
-
-* [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
-* [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
-* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
