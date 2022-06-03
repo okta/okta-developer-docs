@@ -36,16 +36,12 @@ export default ({
         if (!el.guideName) {
           router.addRoutes([
             { path: path, component: GeneratedContentLayout, name: path },
-            
           ]);
         }
         el.path = path + '/';
       }
       if (el.subLinks && el.subLinks.length > 0) {
         generatedLinks(el.subLinks, el);
-      }
-      if (window.location.pathname == el.path) {
-        document.title = el.title + ' | ' + siteData.title;
       }
     }
   }

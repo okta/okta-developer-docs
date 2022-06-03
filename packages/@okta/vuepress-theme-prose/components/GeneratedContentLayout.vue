@@ -37,17 +37,23 @@
     mounted() {
       this.getContent(this.getNavigation());
     },
+    watch: {
+      $route(to, from) {
+        if (from.path !== to.path) {
+          this.getContent(this.getNavigation());
+        }
+      },
+    },
     methods: {
       getContent(navigation) {
         for (let el of navigation) {
-          if (el.path) {
-            if (el.path == window.location.pathname) {
-              this.title = el.title;
-              if (el.subLinks) {
-                this.links = el.subLinks;
-              }
-              return false;
+          if (!!window && el.path && el.path == window.location.pathname) {
+            document.title = el.title + ' | ' + this.$site.title;
+            this.title = el.title;
+            if (el.subLinks) {
+              this.links = el.subLinks;
             }
+            return false;
           }
           if (el.subLinks && el.subLinks.length > 0) {
             this.getContent(el.subLinks);

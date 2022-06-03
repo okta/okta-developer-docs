@@ -19,9 +19,7 @@
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
-          <div class="sidebar-area">
-            <Sidebar />
-          </div>
+          <Sidebar />
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
             <StackSelector v-if="$page.hasStackContent" />
