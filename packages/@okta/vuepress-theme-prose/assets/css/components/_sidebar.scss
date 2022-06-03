@@ -26,7 +26,9 @@
   padding: 29px 1rem 3rem 2rem;
   background: cv('body', 'sidebar');
   margin-bottom: -176px;
-  margin-top: -52px;
+  & > .sections {
+    margin-top: -52px;
+  }
   & > .sections > .link-wrap > .tree-nav-link,
   & > .sections > .link-wrap > .tree-nav-link a {
     color: cv('link', 'darker');

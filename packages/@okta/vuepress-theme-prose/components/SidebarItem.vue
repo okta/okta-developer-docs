@@ -28,12 +28,19 @@
           </a>
     </router-link>
 
+    <div v-if="entityType === types.blankDivider">
+        <div class="blank-divider">
+          {{link.title}}
+        </div>
+    </div>
+
     <div
           v-if="entityType === types.parent"
           :class="{
             'tree-nav-link tree-nav-link-parent': true,
             'children-active': link.iHaveChildrenActive
           }"
+          @click="toggleExpanded"
         >
           <i :class="{
             'parent': link.subLinks,
@@ -47,7 +54,6 @@
             v-if="link.path !== '#'"
             :to="link.path"
             v-slot="{ href, navigate }"
-            @click="toggleExpanded"
           >
             <a 
               :href="href"
@@ -102,14 +108,14 @@ export default {
 
   computed:{
     entityType: function(){
-      if(this.link.hasOwnProperty('path') && this.link.path !== null){
+      // if (this.link.path == '') {
+      //   return this.types.blankDivider
+      // }
+      if (this.link.hasOwnProperty('path') && this.link.path !== null) {
         if (this.link.hasOwnProperty('subLinks') && this.link.subLinks.length > 0) {
           return this.types.parent
         }
         return this.types.link
-      }
-      if(this.link.hasOwnProperty('path') && this.link.path === null){
-        return this.types.blankDivider
       }
     },
   },
@@ -160,7 +166,7 @@ export default {
       if (!this.link.subLinks) {
         return false;
       }
-      if (this.link.parents.length < 2) {
+      if (this.link.parents && this.link.parents.length < 2) {
         return false;
       }
       let isActive = false;
@@ -189,10 +195,6 @@ export default {
         return loop(parent.$parent);
       }
       )(this)
-    },
-    getRoutes() {
-      const routes = this.appContext.treeNavDocs;
-      console.log(routes);
     }
   }
 };
