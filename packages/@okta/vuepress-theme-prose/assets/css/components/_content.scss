@@ -59,7 +59,8 @@
   }
 
   .sidebar-area {
-    width: 266px;
+    width: 20%;
+    min-width: 20%;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
@@ -74,7 +75,7 @@
     .sidebar-fade {
       display: block;
       position: sticky;
-      width: 266px;
+      width: 100%;
       height: 176px;
       background: linear-gradient(3.53deg, #F7FAFF 38.14%, rgba(247, 250, 255, 0) 83.09%);
       z-index: 2;
