@@ -23,7 +23,7 @@
   position: relative;
   width: 100%;
   min-height: 100%;
-  padding: 29px 1rem 3rem 2rem;
+  padding: 29px 30px 3rem 2rem;
   background: cv('body', 'sidebar');
   margin-bottom: -176px;
   & > .sections {
@@ -66,7 +66,7 @@
     }
     &.active {
       margin-left: calc(100% - 36px);
-      right: 0;
+      right: -10px;
       background-color: transparent;
       svg {
         transform: rotate(0);
@@ -82,19 +82,25 @@
     padding: 1rem 0 0 0;
   }
   .sections {
-    margin-left: 17px;
+    padding-left: 17px;
     li.subnav-active.bordered > .sections {
       position: relative;
+      padding-left: 0;
       margin-left: 22px;
       &:before {
         content: '';
         position: absolute;
-        left: -22px;
+        left: -43px;
         top: 4px;
         height: calc(100% - 8px);
         width: 10px;
         border-radius: 10px;
         background-color: #E7EDF9;
+      }
+      @media (max-width: 1439px) {
+        &:before {
+          left: -38px;
+        }
       }
     }
     &:first-child {
@@ -149,6 +155,7 @@
       text-decoration: none;
       color: cv('text');
       cursor: pointer;
+      width: 100%;
       &-parent a {
         color: cv('link', 'darker');
         font-size: 14px;
@@ -174,9 +181,6 @@
           }
         }
       }
-      &:hover {
-        color: cv('text', 'darker');
-      }
       &.children-active {
         @include active-link;
       }
@@ -186,6 +190,16 @@
       }
       > span.text-holder {
         margin-left: 0px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:hover {
+        color: cv('text', 'darker');
+        & > span.text-holder {
+          white-space: normal;
+          text-overflow: inherit;
+        }
       }
       > i.parent {
         position: absolute;
