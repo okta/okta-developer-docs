@@ -11,7 +11,7 @@ Searching for and returning Okta users is a standard Users API lifecycle operati
 
 - [search parameter](#search-users): Returns one or more users matched against a search expression and User object properties
 - [filter parameter](#filter-users): Returns one or more users that match a filter expression checked against a subset of User object properties
-- [find parameter](#find-users): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`.
+- [find parameter](#find-users): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`
 - [list-all-users](#list-all-users): Returns all users that don't have a `DEPROVISIONED` status 
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
