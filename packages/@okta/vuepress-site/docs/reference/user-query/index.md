@@ -541,7 +541,7 @@ For further filter expression examples and reference material, see [Find Users](
 
 ## Find users
 
-The find users query parameter (`q`) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with the status of DEPROVISIONED, does not support pagination, and is not designed for large data sets.
+The find users query parameter (`q`) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with a `DEPROVISIONED` status, doesn't support pagination, and isn't designed for large data sets.
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
