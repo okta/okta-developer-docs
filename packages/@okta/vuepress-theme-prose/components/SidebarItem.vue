@@ -2,7 +2,6 @@
   <li :class="{
     'link-wrap': true, 
     'subnav-active': link.iHaveChildrenActive,
-    'bordered': this.activeParentLink(),
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -51,7 +50,6 @@
             </svg>
           </i>
           <router-link
-            v-if="link.path !== '#'"
             :to="link.path"
             v-slot="{ href, navigate }"
           >
@@ -159,25 +157,6 @@ export default {
   },
 
   methods: {
-    activeParentLink() {
-      if (!this.link.iHaveChildrenActive) {
-        return false;
-      }
-      if (!this.link.subLinks) {
-        return false;
-      }
-      if (this.link.parents && this.link.parents.length < 2) {
-        return false;
-      }
-      let isActive = false;
-      for (let el of this.link.subLinks) {
-        if (el.iHaveChildrenActive && (!el.subLinks || el.subLinks.length == 0)) {
-          isActive = true;
-          break;
-        }
-      }
-      return isActive;
-    },
     getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
       return path.replace(framework, newFramework);
@@ -187,6 +166,14 @@ export default {
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
+      let borderedSections = document.querySelectorAll('.tree-nav .sections.bordered');
+      borderedSections.forEach(el => {
+        el.classList.remove('bordered');
+      });
+      let lastExpandedSection = document.querySelectorAll('.tree-nav li.subnav-active > .sections');
+      if (lastExpandedSection.length) {
+        lastExpandedSection[lastExpandedSection.length - 1].classList.add('bordered');
+      }
     },
     isHeaderMenu: function() {
       return (function loop(parent) {
