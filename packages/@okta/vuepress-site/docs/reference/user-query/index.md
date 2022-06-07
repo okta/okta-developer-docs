@@ -9,7 +9,7 @@ meta:
 
 Searching for and returning Okta users is a standard Users API lifecycle operation. The Users API supports four options to return an individual, subset, or all users:
 
-- [search parameter](#search-users): Returns one or more users matched against a search expression and user object properties. 
+- [search parameter](#search-users): Returns one or more users matched against a search expression and User object properties
 - [filter parameter](#filter-users): Returns one or more users that match a filter expression checked against a subset of user object properties.
 - [find parameter](#find-users): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`.
 - [list-all-users](#list-all-users): Returns all users that do not have the status of DEPROVISIONED
