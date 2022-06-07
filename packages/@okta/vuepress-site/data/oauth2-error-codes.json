@@ -1,6 +1,6 @@
 {
-  "release" : "2022.04.1",
-  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
+  "release" : "2022.05.1",
+  "build" : "2022.05.1-begin-118-g19837ccce441",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -414,6 +414,13 @@
     "internalErrorCode" : "unsupported_auth_method_client_creds",
     "errorCode" : "invalid_client",
     "errorDescription" : "Client Credentials requests to the Org Authorization Server must use the private_key_jwt token_endpoint_auth_method."
+  }, {
+    "title" : "Unsupported auth method client creds oauth integration",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "unsupported_auth_method_client_creds_oauth_integration",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "OAuth Integration Client Credentials requests to the Org Authorization Server must use either private_key_jwt or client_secret_basic as the token_endpoint_auth_method."
   }, {
     "title" : "Invalid application type client credentials",
     "statusCode" : 401,
@@ -876,6 +883,13 @@
     "internalErrorCode" : "unknown_idp",
     "errorCode" : "invalid_request",
     "errorDescription" : "Identity provider is not valid."
+  }, {
+    "title" : "Invalid max age",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_max_age",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid value for 'max_age' parameter. It should be within range 0 - 2^31-1."
   }, {
     "title" : "Illegal redirect URI",
     "statusCode" : 400,

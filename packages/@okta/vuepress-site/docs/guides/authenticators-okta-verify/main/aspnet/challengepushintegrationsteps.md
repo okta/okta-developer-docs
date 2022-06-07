@@ -79,7 +79,7 @@ This is consumed in a Razor page.
 
 The available challenge methods are listed, as shown in the following screenshot.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A list showing Okta Verify challenge methods available for use](/img/authenticators/dotnet-authenticators-okta-verify-challenge-list-of-challenge-methods.png "A list of available Okta Verify challenge methods")
 
@@ -149,7 +149,7 @@ First, the prompt to the user and a way to go back and choose an alternate chall
 
 This page is shown in the following screenshot.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A page telling the user the push prompt has been sent to their Okta Verify app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-push-sent.png "Notification that the push prompt is available in Okta Verify")
 

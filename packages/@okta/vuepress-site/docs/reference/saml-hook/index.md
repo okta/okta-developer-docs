@@ -31,7 +31,7 @@ This Inline Hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the request from Okta
 
-The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
+The outbound call from Okta to your external service provides the contents of the SAML assertion that was generated, which you can augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
 
 Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are mapped to a JSON representation for sending.
 

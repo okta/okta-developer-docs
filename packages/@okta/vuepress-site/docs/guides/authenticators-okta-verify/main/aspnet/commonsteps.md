@@ -150,7 +150,7 @@ The `viewModel` parameter is then consumed in a Razor page.
 
 The available authenticators are listed along with Okta Verify, as shown in the following screenshot.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![An authenticator list showing Okta Verify available for use](/img/authenticators/dotnet-authenticators-okta-verify-enrollment-list-of-authenticators.png "A list of available authenticators for enrollment")
 

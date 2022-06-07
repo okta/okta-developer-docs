@@ -43,7 +43,7 @@ Build a page that allows the user to enter the TOTP they have received from Okta
 
 The user sees the following:
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![A page asking the user to enter a Time-based One-Time Password from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
 

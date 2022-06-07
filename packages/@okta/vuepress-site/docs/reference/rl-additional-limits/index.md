@@ -138,7 +138,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/${authorizationServerId}/v1/authorize`
 
-[Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
+[Single User/Group/App reads (GET only)](/docs/reference/rl-dynamic-scale/)
 
 * `/api/v1/apps/${id}`
 * `/api/v1/groups/${id}`

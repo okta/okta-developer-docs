@@ -16,6 +16,12 @@ Add authorization using Okta to protect your APIs. When you finish, you have a s
 * Require authorization on protected routes.
 * Make an HTTP request with and without a valid access token.
 
+**What you need**
+
+A [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs
+
+<ApiAmProdWarning />
+
 **Sample code**
 
 <StackSnippet snippet="samplecode" />
@@ -31,19 +37,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```txt
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+   ```txt
+   Your Okta Domain: https://dev-xxxxxxx.okta.com
+   To set your password open this link:
+   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+   ```
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/):
 
-```bash
-okta login
-```
+   ```bash
+   okta login
+   ```
 
 ## Create a REST API
 
@@ -61,9 +67,7 @@ Create a new application with a simple API endpoint to add authorization to.
 
 You need to configure the API with some information about the [authorization server](/docs/guides/customize-authz-server/) used by your Okta organization.
 
-> **Note:** You can create custom authorization servers for your Okta org, however you use the **default** authorization server for this tutorial.
-
-<ApiAmProdWarning />
+> **Note:** This tutorial uses the **default** Custom Authorization Server to secure your protected API. You can create your own Custom Authorization Server for this purpose. In either case, you need an appropriate license to use the Custom Authorization Server in production.
 
 #### Things you need
 
@@ -75,7 +79,7 @@ There are three pieces of information you may need, depending on the platform yo
 * **Authorization Server Name**: `default`
 * **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
 
-> **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
+   > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
 
 <StackSnippet snippet="configmid" />
 

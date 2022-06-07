@@ -9,16 +9,16 @@ The Okta ASP.NET Core SDK configures and hosts these routes for you in your web 
 1. In Visual Studio, open **Properties** > **launchSettings.json**.
 2. Make a note of the **sslPort** settings under **iisExpress**. In the example below, that's `44300`.
 
-```json
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:1544",
-      "sslPort": 44300
-    }
-  }
-```
+   ```json
+   "iisSettings": {
+     "windowsAuthentication": false,
+     "anonymousAuthentication": true,
+     "iisExpress": {
+       "applicationUrl": "http://localhost:1544",
+       "sslPort": 44300
+     }
+   }
+   ```
 
 3. Open the Okta Admin Console.
 4. Select **Applications** > **Applications** from the left navigation.

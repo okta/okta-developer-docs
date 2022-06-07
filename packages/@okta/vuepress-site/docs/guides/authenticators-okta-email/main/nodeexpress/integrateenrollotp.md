@@ -28,7 +28,7 @@ If email enrollment is enabled for your org's application, and the user hasn't y
 
 Use this response to display a page of available authenticators, including Email.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of authenticator list](/img/authenticators/authenticators-email-enroll-auth-list.png)
 
@@ -81,7 +81,7 @@ The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status`
 
 Using this response, display a page to input the OTP.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of enroll OTP](/img/authenticators/authenticators-email-enroll-enter-code.png)
 
@@ -107,7 +107,7 @@ When the user submits the OTP in your app, call `OktaAuth.idx.proceed()` and pas
   const transaction = await authClient.idx.proceed({ verificationCode });
 ```
 
-### 8: Complete a successful sign-in flow
+### 8. Complete a successful sign-in flow
 
 If your configuration is set up with only the Email Authenticator, `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed-in user.
 

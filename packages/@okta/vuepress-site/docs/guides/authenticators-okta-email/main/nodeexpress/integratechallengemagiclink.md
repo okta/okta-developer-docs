@@ -44,7 +44,7 @@ If the user is already enrolled in Email Authenticator, calling `OktaAuth.idx.au
 
 Using this response, display a page to input the OTP. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where OTP may be required or simply more convenient. For example, a user checking their email from a different device must use OTP. See [Integrate a different browser and device scenario](#integrate-different-browser-and-device-scenario).
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of OTP in challenge page](/img/authenticators/authenticators-email-challenge-auth.png)
 
@@ -66,7 +66,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 When the user clicks the magic link, your org receives the request, gets the `OTP` and `state` parameters, and forwards the request with these parameters to your application. The org combines the `Callback URI` that you defined in [Update configurations](#update-configurations) with the `OTP` and `state` parameters to produce a final callback URL for the user. For example, `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
-### 6: Handle redirect in your app
+### 6. Handle redirect in your app
 
 Create a route to handle the magic link redirect request.
 
@@ -106,7 +106,7 @@ Next, call `OktaAuth.idx.handleEmailVerifyCallback()` and pass in the query para
 
 ```
 
-### 9: Complete a successful sign-in flow
+### 9. Complete a successful sign-in flow
 
 `IdxTransaction` returns a status of `SUCCESS` along with access and ID tokens. Your app redirects the user to the default home page for the signed-in user.
 

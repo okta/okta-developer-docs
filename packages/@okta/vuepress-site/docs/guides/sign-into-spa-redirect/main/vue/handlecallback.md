@@ -2,21 +2,21 @@ The Okta Vue SDK provides the [LoginCallback](https://github.com/okta/okta-vue#u
 
 1. Import `LoginCallback` and `navigationGuard` inside the `src/router/index.js` file by adding the following to the top.
 
-```js
-import { LoginCallback, navigationGuard } from '@okta/okta-vue'
-```
+   ```js
+   import { LoginCallback, navigationGuard } from '@okta/okta-vue'
+   ```
 
 2. Add a new route for the callback to the `routes` array. The path should match the path provided in the `redirectUri` property inside the `src/config.js` file.
 
-```js
-{
-  path: '/login/callback',
-  component: LoginCallback
-},
-```
+   ```js
+   {
+     path: '/login/callback',
+     component: LoginCallback
+   },
+   ```
 
 3. The Okta Vue SDK provides navigation guard logic to circumvent navigational guard mixin issues in `vue-router-next`. Add the following before `export default router`:
 
-```js
-router.beforeEach(navigationGuard)
-```
+   ```js
+   router.beforeEach(navigationGuard)
+   ```

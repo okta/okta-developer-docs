@@ -2667,10 +2667,11 @@ Unenrolls an existing Factor for the specified user, allowing the user to enroll
 
 ##### Request parameters
 
-| Parameter    | Description                                         | Param Type | DataType | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| factorId     | `id` of the Factor to reset                         | URL        | String   | TRUE     |         |
-| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
+| Parameter    | Description                       | Param Type | DataType | Required | Default |
+| ------------ |-----------------------------------|------------|----------|----------|---------|
+| factorId     | `id` of the Factor to reset       | URL        | String   | TRUE     |         |
+| userId       | `id` of a User                    | URL        | String   | TRUE     |         |
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   |
 
 ##### Response parameters
 
@@ -3008,7 +3009,7 @@ Creates a new transaction and sends an asynchronous push notification to the dev
 | factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Response parameters
 

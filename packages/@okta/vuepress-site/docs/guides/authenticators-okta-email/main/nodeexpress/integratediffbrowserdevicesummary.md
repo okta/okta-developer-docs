@@ -1,6 +1,3 @@
-The following instructions detail integrating the different browser scenario using the email challenge.
-
-</br>
 
 <div class="common-image-format">
 

@@ -1156,8 +1156,8 @@ Array of [User](#user-object)
 
 ##### Known Limitation
 
-Due to an infrastructure limitation, [group administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-group-admin.htm), [help desk administrators](https://help.okta.com/en-us/Content/Topics/Security/administrators-help-desk-admin.htm),
-and [custom administrators](https://help.okta.com/en-us/Content/Topics/Security/custom-admin-role/custom-admin-roles.htm) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
+Due to an infrastructure limitation, [group administrators](https://help.okta.com/okta_help.htm?id=ext_The_User_Admin_Role), [help desk administrators](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role),
+and [custom administrators](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-roles) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
 
 
 #### List Users with search
