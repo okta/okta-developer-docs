@@ -27,7 +27,7 @@ The search query parameter (`search`) returns one or more users matched against 
 - The User Type accessed from `type.id`
 - Properties that have array values
 
-This query parameter provides the largest range of search options and optimal performance. The `search`parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
+This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
 The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. Multiple expressions can be combined using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter).
 
