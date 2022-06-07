@@ -4,6 +4,25 @@ title: Okta Identity Engine API Products release notes 2022
 
 <ApiLifecycle access="ie" />
 
+## June
+
+### Monthly release 2022.06.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Email Address Bounces API is GA in Preview](#email-address-bounces-api-is-ga-in-preview) | June 8, 2022 |
+| [xxx is EA in Preview](#xxx-is-ea-in-preview) | June 8, 2022|
+| [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
+
+
+## May
+
+### Weekly release 2022.05.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [New optional request parameter for Reset Factor is GA in Preview](#new-optional-request-parameter-for-reset-factor-is-ga-in-preview) | May 25, 2022 |
+| [Bugs fixed in 2022.05.3](#bugs-fixed-in-2022-05-3) | May 25, 2022 |
 ## May
 
 ### Weekly release 2022.05.3

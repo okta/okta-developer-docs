@@ -1,6 +1,18 @@
 ---
 title: Okta API Products release notes 2022
 ---
+
+## June
+
+### Monthly release 2022.06.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Email Address Bounces API is GA in Preview](#email-address-bounces-api-is-ga-in-preview) | June 8, 2022 |
+| [xxx is EA in Preview](#xxx-is-ea-in-preview) | June 8, 2022|
+| [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
+
+
 ## May
 
 ### Weekly release 2022.05.3
