@@ -20,7 +20,7 @@ For details on user operations, see the [Users API](/docs/reference/api/users/) 
 
 ## Search users
 
-The search query parameter (`search`) returns one or more users matched against a search expression and user object properties, including:
+The search query parameter (`search`) returns one or more users matched against a search expression and User object properties, including:
 
 - Any user profile property, including custom-defined properties
 - The top-level body properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
