@@ -143,7 +143,7 @@ curl -v -X GET \
 
 ### Sorting parameters
 
-The sorting parameters `sortBy` and `sortOrder` can be included in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property you want to sort by, and `sortOrder` to specify the order (asc and desc). By default, the sort order is ascending.
+You can include the sorting parameters `sortBy` and `sortOrder` in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property that you want to sort by, and `sortOrder` to specify the order (`asc` and `desc`). By default, the sort order is ascending.
 
 #### Request example
 
