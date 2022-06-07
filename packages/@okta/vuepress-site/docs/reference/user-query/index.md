@@ -690,7 +690,7 @@ See [Find Users](/docs/reference/api/users/#find-users) in the Users API referen
 
 ## List all users
 
-The basic list-all-users command returns all users that do not have the status of DEPROVISIONED to the default maximum limit of 200 records, if not specified. For this simple use-case, the list-all query performance is superior to other search options.
+The basic list-all-users command returns all users, that don't have a `DEPROVISIONED` status, to the default maximum limit of 200 records, if not specified. For this simple use case, the list-all query performance is superior to other search options.
 
 > **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
