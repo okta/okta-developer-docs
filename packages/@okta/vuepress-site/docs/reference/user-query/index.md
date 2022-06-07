@@ -443,7 +443,7 @@ curl -v -X GET \
 
 #### Request example
 
-The following example finds and returns all users that were deprovisioned on the date of August 19, 2021:
+The following example finds and returns all users that were deprovisioned on August 19, 2021:
 
 ```bash
 curl -v -X GET \
