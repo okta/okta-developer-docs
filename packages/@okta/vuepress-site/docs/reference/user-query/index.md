@@ -131,7 +131,7 @@ Link:<https://{yourOktaDomain}/api/v1/users?after=00u3p62n11UKppeh31d7&limit=5&s
 
 #### Request example
 
-The following example returns the next 5 users with the status of ACTIVE using the next link relation:
+The following example returns the next five users with an `ACTIVE` status using the next link relation:
 
 ```bash
 curl -v -X GET \
