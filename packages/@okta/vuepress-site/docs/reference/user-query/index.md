@@ -109,7 +109,7 @@ You can include the parameters `limit` and `after` in search expressions to limi
 
 #### Request example
 
-The following example returns users who have a status of ACTIVE and limits the records returned to 5.
+The following example returns users who have an `ACTIVE` status and limits the records returned to five.
 
 ```bash
 curl -v -X GET \
