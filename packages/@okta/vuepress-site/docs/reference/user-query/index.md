@@ -52,7 +52,7 @@ curl -v -X GET \
 ```
 
 #### Response example
-For brevity, response is truncated.
+For brevity, the response is truncated.
 
 ```JSON
 {
