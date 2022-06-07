@@ -54,7 +54,7 @@
                 </div>
               </div>
             </div>
-            <div
+           <!-- <div
               class="homepage--customize-your-app-margin homepage--section-margins"
             >
               <h2
@@ -140,8 +140,12 @@
                   </div>
                 </div>
               </div>
+            </div> -->
+            <div>
+            <br>
+            <br>
+            <!-- empty div for spacing  -->
             </div>
-
             <div
               class="homepage--partners-block-margin homepage--section-margins"
             >
