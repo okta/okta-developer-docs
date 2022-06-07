@@ -16,7 +16,7 @@ Searching for and returning Okta users is a standard Users API lifecycle operati
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
 
-For details on user operations, see [Users API](/docs/reference/api/users/) reference.
+For details on user operations, see the [Users API](/docs/reference/api/users/) reference.
 
 ## Search users
 
