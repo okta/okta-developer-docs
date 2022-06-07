@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter also uses standard Okta API filtering semantics to create filtering criteria similar to the search parameter. Multiple expressions can be combined using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter). The filter query parameter also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
+The filter query parameter also uses standard Okta API filtering semantics to create filtering criteria similar to the search parameter. You can combine multiple expressions using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter). The filter query parameter also supports the `limit` and `after` parameters.  See [Limits and pagination](#limits-and-pagination).
 
 > **Note:** The starts-with (`sw`) operator is not supported for the filter parameter.
 
