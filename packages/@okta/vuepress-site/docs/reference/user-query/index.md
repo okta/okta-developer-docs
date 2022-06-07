@@ -103,7 +103,7 @@ For brevity, the response is truncated.
 
 ### Limits and pagination
 
-The parameters `limit` and `after` can be included in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value and obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
+You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
 
 > **Note:** If you don't specify a value for limit, the maximum (200) is used as a default.
 
