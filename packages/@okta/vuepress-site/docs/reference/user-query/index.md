@@ -547,7 +547,7 @@ The find users query parameter (`q`) returns one or more users matched against t
 
 The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties and isn't case-sensitive. The find query parameter also supports the `limit` parameter but not the `after` parameter (pagination), see [Limits and pagination](#limits-and-pagination).
 
-> **Note:** If you are using the `q` parameter, the default limit is 10 users if not specified.
+> **Note:** If you're using the `q` parameter, the default limit is 10 users if not specified.
 
 #### Request example
 
