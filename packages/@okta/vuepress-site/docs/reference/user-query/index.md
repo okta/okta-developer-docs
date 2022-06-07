@@ -694,7 +694,7 @@ The basic list-all-users command returns all users, that don't have a `DEPROVISI
 
 > **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
-The list all users command supports [limits and pagination](#limits-and-pagination) but not sorting.
+The list all users command supports [limits and pagination](#limits-and-pagination), but not sorting.
 
 #### Request example
 
