@@ -1332,16 +1332,17 @@ curl -v -X GET \
 ]
 ```
 
-
-
 #### List Users with a filter
 
 Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 This operation:
 
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
-* Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+- Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
+- Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property which can use the inequalilty operators (`gt`, `ge`, `lt`, and `le`).
+- Supports only the logical operators `and` and `or`.
+- Is case sensitive.
 
 | Filter                                          | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
