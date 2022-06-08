@@ -14,17 +14,42 @@ title: Okta API Products release notes 2022
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA on Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-on-preview) | June 8, 2022|
-| [Password as an optional authenticator is GA in Production](#password-as-an-optional-authenticator-is-ga-in-production) | March 30, 2022|
 | [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
 | [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
 | [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
-| [User-scoped MyAccount API is GA in Preview](#user-scoped-myaccount-api-is-ga-in-preview) | May 11, 2022|
 | [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
-| [xxx is EA in Preview](#xxx-is-ea-in-preview) | June 8, 2022|
 
 #### Admin Roles with Delegated Flows Resource Set support is EA in Preview
 
 With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](https://developer.okta.com/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and [Supported resources](https://developer.okta.com/docs/reference/api/roles/#supported-resources) in the Administrator Roles API. <!-- OKTA-450117 -->
+
+#### Dynamic IdP routing is EA in Preview
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their Login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!-- OKTA-501508 -->
+
+#### Email Address Bounces API is GA in Production
+
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
+
+#### Generic OIDC IdP nonce validation enforced
+
+For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+
+#### JWT claim enhancement
+
+Okta accepts claim names in URI format (with colon and slash characters) for custom claims in the JSON Web Token (JWT) payload. For example, `http://example.com/is_root` is a supported claim name. <!-- OKTA-496380 -->
+
+#### OIDC Identity Providers private/public key pair support is EA on Preview
+
+Previously, Okta only supported the use of client secret as the client authentication method with an OpenID Connect-based Identity Provider. Okta now supports the use of private/public key pairs (`private_key_jwt`) with OpenID Connect-based Identity Providers. Additionally, the Signed Request Object now also supports the use of private/public key pairs. See [Create an Identity Provider in Okta](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta). <!-- OKTA-502636 -->
+
+#### Regular expression support for matching users with a generic inbound OIDC IdP
+
+Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the [Subject policy object](/docs/reference/api/idps/#subject-policy-object) in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
+
+#### Signed request support for generic SAML IdP is EA in Preview
+
+Using signed SAML requests ensures that incoming requests are from genuine applications. When signed SAML request is configured, Okta only accepts SAML requests signed using the certificate associated with the app integration. Having signed SAML requests also resolves scenarios where the Assertion Consumer Service (ACS) URL requested after authentication can be one of several domains or URLs. When a Service Provider sends a signed authentication request, Okta can accept dynamic ACS values as part of the SAML request and posts the SAML assertion response to the ACS value specified in the request. See the Advanced Settings section of [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). <!-- OKTA-493043 -->
 
 #### System Log events for telephony rate limit violations
 
@@ -34,17 +59,13 @@ Additionally, the way that the `MobilePhoneID` hash is created for all `system.s
 
 See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
-#### xxx GA in Production
-
-xxx <!-- OKTA-xxx -->
-
 #### Bugs fixed in 2022.06.0
 
 * When a create user API request failed due to non-compliant user credentials, the "Add user to group membership" and "Add user to application membership" events were listed incorrectly in the System Log. (OKTA-469408)
 
-* No System Log event was triggered when a request to Forgot Password API endpoint `/users/{userId}/credentials/forgot_password` was made for a user with LOCKED_OUT status. (OKTA-4852442)
+* No System Log event was triggered when a request to [Forgot Password API endpoint](/docs/reference/api/users/#forgot-password) `/users/{userId}/credentials/forgot_password` was made for a user with LOCKED_OUT status. (OKTA-4852442)
 
-* No error messages were returned when an API request was made to create or update a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
+* No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#update-resource-set) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
 * When a user was created with `activate=true` and `nextLogin=changePassword` parameters, their user status was set to ACTIVE instead of PASSWORD_EXPIRED. (OKTA-501729)
 

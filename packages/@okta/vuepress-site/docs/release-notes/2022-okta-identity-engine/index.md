@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Admin Roles with Delegated Flows Resource Set support is EA in Preview](#xxx-is-ea-in-preview) | May 25, 2022|
+| [Admin Roles with Delegated Flows Resource Set support is EA in Preview](#admin-roles-with-delegated-flows-resource-set-support-is-ea-in-preview) | May 25, 2022|
 | [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
@@ -20,6 +20,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
 | [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
 | [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
+| [Telephony Inline Hook is GA in Preview](#telephony-inline-hook-is-ga-in-preview) | March 30, 2022|
 | [User-scoped MyAccount API is GA in Preview](#user-scoped-myaccount-api-is-ga-in-preview) | May 11, 2022|
 | [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
 
@@ -63,17 +64,21 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
+#### Telephony Inline Hook is GA in Preview
+
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-491573 -->
+
 #### User-scoped MyAccount API is GA in Preview
 
 The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-496877 -->
 
 #### Bugs fixed in 2022.06.0
 
-* Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` API [endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
+* Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
 
-* No System Log event was triggered when a request to Forgot Password API endpoint `/users/{userId}/credentials/forgot_password` was made for a user with LOCKED_OUT status. (OKTA-4852442)
+* No System Log event was triggered when a request to [Forgot Password API endpoint](/docs/reference/api/users/#forgot-password) `/users/{userId}/credentials/forgot_password` was made for a user with LOCKED_OUT status. (OKTA-4852442)
 
-* No error messages were returned when an API request was made to create or update a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
+* No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#update-resource-set) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
 ## May
 
