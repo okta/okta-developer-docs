@@ -5242,7 +5242,7 @@ Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
-| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (self-service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
+| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (Self-Service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
 > **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
