@@ -29,17 +29,13 @@ This guide explains what Global Session Policies and authentication policies are
 
 ---
 
-## About authentication policies
+## Overview
 
-Authentication policies are built on IF/THEN rules for app access. IF conditions define the authentication context, like the IP address from where a user is signing in, and THEN conditions define the authentication experience, like what assurance factors are required to access an app.
+Policies help you manage access to your applications and APIs. You can restrict access based on a number of conditions such as user and group membership, device, location, or time. You can also require more authentication steps for access to sensitive applications, such as confirmation of a push notification to a mobile device or re-authentication through an SMS one-time passcode.
 
-Assurance refers to a level of confidence that the user signing in is also the person who owns the account. This level is measured by the use of one or more authenticators and the [types of factors configured](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). For example, a user who authenticates with a banking app using both a knowledge factor (a password) and a possession factor (an SMS code) has a higher assurance level than a user who authenticates with a shopping app using only one factor.
+> **Note:** See the [Policies Concept](/docs/concepts/policies/) for more information on all of the policies that are available and how to use them.
 
-Identity Engine requires that an assurance specified in the Global Session Policy and in the authentication policy be satisfied before a user can access an app. This is a change from the traditional model of authentication, which evaluates one policy depending on whether the user signs in to the org or directly through the app.
-
-A Global Session Policy and an authentication policy control the authentication assurance part of your requirements. [Other policies](/docs/concepts/policies/), such as an MFA enrollment policy, password policy, profile policy, and so on, work together to determine the overall authentication experience.
-
-### Global Session Policy
+### Global Session Policies
 
 Global Session Policies help control who can have access and how a user gains access to Okta, including whether they are challenged for additional factors and how long they are allowed to remain signed in before re-authenticating. A Global Session Policy supplies the context necessary for the user to advance to the next authentication step after they are identified by Okta.
 
