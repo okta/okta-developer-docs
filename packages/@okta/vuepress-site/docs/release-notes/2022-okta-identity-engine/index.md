@@ -26,7 +26,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Admin Roles with Delegated Flows Resource Set support is EA in Preview
 
-With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](https://developer.okta.com/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and [Supported resources](https://developer.okta.com/docs/reference/api/roles/#supported-resources) in the Administrator Roles API. <!-- OKTA-450117 -->
+With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and [Supported resources](/docs/reference/api/roles/#supported-resources) in the Administrator Roles API. <!-- OKTA-450117 -->
 
 #### Dynamic IdP routing is EA in Preview
 
@@ -54,7 +54,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Regular expression support for matching users with a generic inbound OIDC IdP
 
-Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the [Subject policy object](/docs/reference/api/idps/#subject-policy-object) in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
+Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the [Subject Policy object](/docs/reference/api/idps/#subject-policy-object) in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
 
 #### Signed request support for generic SAML IdP is EA in Preview
 
@@ -76,7 +76,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 * Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
 
-* No System Log event was triggered when a request to [Forgot Password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with LOCKED_OUT status. (OKTA-4852442)
+* No System Log event was triggered when a request to [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with LOCKED_OUT status. (OKTA-4852442)
 
 * No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#add-more-resources) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
