@@ -57,7 +57,7 @@ Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as
 
 Additionally, the way that the `MobilePhoneID` hash is created for all `system.sms.send.*` and `system.voice.send.*` events is changed.
 
-See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### Bugs fixed in 2022.06.0
 
