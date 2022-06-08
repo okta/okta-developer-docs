@@ -5889,7 +5889,7 @@ The `matchAttribute` must be a valid Okta User profile attribute of one of the f
 
 For example, the filter pattern `(\S+@example\.com)` allows only Users that have an `@example.com` username suffix and rejects assertions that have any other suffix such as `@corp.example.com` or `@partner.com`.
 
-* Only `SAML2` IdP providers support the `filter` property.
+* Only `SAML2` and `OIDC` IdP providers support the `filter` property.
 
 ```json
 {
