@@ -86,6 +86,7 @@ The partition is specific to your Okta environment. The following are the suppor
 | ----------------- | ----------------------- |
 | Directory         | `directory`             | 
 | Identity Provider | `idp`                   |
+| Workflow <ApiLifecycle access="ea" /> | `workflow`                   |
 
 ###### tenantId
 
@@ -129,6 +130,8 @@ The following are the supported resources.
 |                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
 |                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
+| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
+|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
@@ -194,3 +197,4 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 | `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
+| `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
