@@ -62,7 +62,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### System Log events for telephony rate limit violations
 
-Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### Telephony Inline Hook is GA in Preview
 
