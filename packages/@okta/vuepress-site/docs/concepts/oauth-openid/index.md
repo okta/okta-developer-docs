@@ -150,7 +150,7 @@ app -> client: Response
 
 ### Authorization Code flow with PKCE
 
-Authorization Code flow with Proof Key for Code Exchange (PKCE), is the recommended flow for most applications, whether server-side (web), native, or mobile. PKCE was originally designed to protect the authorization code flow in mobile apps, but its ability to prevent authorization code injection makes it useful for every type of OAuth client, even web apps that use a client secret. PKCE acts like a secret but isn't hard-coded, and keeps the Authorization Code flow secure.
+Authorization Code flow with Proof Key for Code Exchange (PKCE) is the recommended flow for most applications whether server-side (web), native, or mobile. PKCE was originally designed to protect the authorization code flow in mobile apps, but its ability to prevent authorization code injection makes it useful for every type of OAuth client, even web apps that use a client secret. PKCE acts like a secret but isn't hard-coded, and keeps the Authorization Code flow secure.
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
