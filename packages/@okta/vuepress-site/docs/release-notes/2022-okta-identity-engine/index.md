@@ -10,13 +10,17 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [Admin Roles with Delegated Flows Resource Set support is EA in Preview](#xxx-is-ea-in-preview) | May 25, 2022|
+| [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
-| [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
+| [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
+| [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
+| [OIDC Identity Providers private/public key pair support is EA on Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-on-preview) | June 8, 2022|
 | [Password as an optional authenticator is GA in Production](#password-as-an-optional-authenticator-is-ga-in-production) | March 30, 2022|
+| [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
+| [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
+| [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
 | [User-scoped MyAccount API is GA in Preview](#user-scoped-myaccount-api-is-ga-in-preview) | May 11, 2022|
-| [JWT claim enhancement](#JWT claim enhancement-is-ea-in-preview) | June 8, 2022|
-| [xxx is EA in Preview](#xxx-is-ea-in-preview) | June 8, 2022|
-| [xxx is EA in Preview](#xxx-is-ea-in-preview) | June 8, 2022|
 | [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
 
 #### Admin Roles with Delegated Flows Resource Set support is EA in Preview
@@ -57,7 +61,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### System Log events for telephony rate limit violations
 
-Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See [System Log](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### User-scoped MyAccount API is GA in Preview
 
