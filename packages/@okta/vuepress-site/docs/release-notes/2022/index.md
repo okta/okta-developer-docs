@@ -67,7 +67,7 @@ See [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 * No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#add-more-resources) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
-* When a user was created with `activate=true` and `nextLogin=changePassword` parameters, their user status was set to ACTIVE instead of PASSWORD_EXPIRED. (OKTA-501729)
+* When a user was created with `activate=true` and `nextLogin=changePassword` parameters, their user status was set to `ACTIVE` instead of `PASSWORD_EXPIRED`. (OKTA-501729)
 
 ## May
 
