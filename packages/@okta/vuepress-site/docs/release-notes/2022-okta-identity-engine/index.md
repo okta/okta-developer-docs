@@ -75,15 +75,6 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 * No error messages were returned when an API request was made to create or update a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
-
-## May
-
-### Weekly release 2022.05.3
-
-| Change | Expected in Preview Orgs |
-|--------------------------------------------------------------------------|--------------------------|
-| [New optional request parameter for Reset Factor is GA in Preview](#new-optional-request-parameter-for-reset-factor-is-ga-in-preview) | May 25, 2022 |
-| [Bugs fixed in 2022.05.3](#bugs-fixed-in-2022-05-3) | May 25, 2022 |
 ## May
 
 ### Weekly release 2022.05.3
