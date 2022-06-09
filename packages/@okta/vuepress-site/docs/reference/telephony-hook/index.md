@@ -2,7 +2,6 @@
 title: Telephony Inline Hook Reference
 excerpt: Customizes Okta's flows that send SMS or Voice messages
 ---
-<ApiLifecycle access="ea" /><br>
 <ApiLifecycle access="ie" />
 
 # Telephony Inline Hook Reference

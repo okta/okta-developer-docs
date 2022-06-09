@@ -75,7 +75,7 @@ An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inli
 
 * Registration Inline Hook
 * SAML Inline Hook
-* Telephony Inline Hook <ApiLifecycle access="ea" />
+* Telephony Inline Hook
 
 Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
@@ -102,7 +102,7 @@ Review the following guides to implement a simple hook example and preview the h
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Registration Inline Hook](/docs/guides/registration-inline-hook/)
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
-* [Telephony Inline Hook](/docs/guides/telephony-inline-hook/) <ApiLifecycle access="ea" />
+* [Telephony Inline Hook](/docs/guides/telephony-inline-hook/)
 
 ## See also
 
