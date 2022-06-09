@@ -24,6 +24,8 @@ Learn how to use the Embedded SDK to integrate user activation with self-service
 
 ---
 
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
+
 ## Overview
 
 User activation is the final step in self-service registration, where a user proves ownership of the email they've used during registration. After the email is verified, their account status changes to active and they are allowed to sign in to your app. How you integrate user activation depends on how you've implemented self-service registration. With the Embedded SDK, Okta supports two main self-service registration architectures: registration with the Embedded SDK or with the Okta API and Embedded SDK. Each architecture supports a unique way to integrate a user activation.
