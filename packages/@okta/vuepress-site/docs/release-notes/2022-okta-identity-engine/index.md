@@ -74,6 +74,8 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 #### Bugs fixed in 2022.06.0
 
+* The User Consent URIs (`logo_uri`, `policy_uri`, `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
+
 * Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
 
 * No System Log event was triggered when a request to the [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-4852442)
