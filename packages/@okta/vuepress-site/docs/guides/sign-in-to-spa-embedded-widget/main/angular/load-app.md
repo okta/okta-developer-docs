@@ -2,12 +2,13 @@ The first step for any application is to install or embed the Widget. Best pract
 
 ### npm
 
+To install the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) locally through `npm`, run the following command in your project root folder:
+
 ```bash
-# Run this command in your project root folder.
-npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+npm install @okta/okta-signin-widget@latest
 ```
 
-More information, including the latest published version, is available in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### Add styles
 

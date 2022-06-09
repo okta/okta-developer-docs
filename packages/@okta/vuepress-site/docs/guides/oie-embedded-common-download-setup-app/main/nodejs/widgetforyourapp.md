@@ -10,15 +10,14 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
-```JavaScript
-<!-- okta-signin-widget assets are avilable on CDN -->
-<script src="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+```html
+<script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
->**Note:** Ensure that you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available in the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Initialize the Sign-In Widget
 

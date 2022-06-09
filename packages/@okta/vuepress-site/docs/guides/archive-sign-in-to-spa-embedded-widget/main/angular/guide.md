@@ -84,14 +84,14 @@ Some routes require authentication in order to render. Defining these protected 
 
 ### `/ - index page`
 
-First, update `src/app/app.component.html` to provide the Login logic:
+First, update `src/app/app.component.html` to provide the Login logic , replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```html
 <!-- src/app/app.component.html -->
 
 
 <!-- Latest CDN production CSS -->
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 
 <button routerLink="/"> Home </button>
 <button *ngIf="!isAuthenticated" routerLink="/login"> Login </button>

@@ -17,24 +17,25 @@ The first step is to install the widget. For this, you have two options: linking
 
 ### CDN
 
-To use the CDN, include this in your HTML:
+To use the CDN, include this in your HTML, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-You can find more info, including the latest published version, in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### npm
 
-```
-# Run this command in your project root folder.
-npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+To install the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) locally through `npm`, run the following command in your project root folder:
+
+```bash
+npm install @okta/okta-signin-widget@latest
 ```
 
-You can find more info, including the latest published version, in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Bundling the widget
 
@@ -121,8 +122,8 @@ In this case, you want to use the widget to sign in to a simple web page and dis
       }
     </style>
     <!-- widget stuff here -->
-    <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+    <script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
     <div class="container">

@@ -70,12 +70,14 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 ### 3: Display the Widget using initialization data
 
-Add the the following Okta JavaScript and CSS files to the page with the embedded Widget.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
 ```html
-<script src="https://global.oktacdn.com/okta-signin-widget/5.8.1/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/5.8.1/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
+
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 Next, add a container `div` element for the Widget.
 

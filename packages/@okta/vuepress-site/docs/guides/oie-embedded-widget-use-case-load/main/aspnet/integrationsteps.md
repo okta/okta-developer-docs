@@ -31,7 +31,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 ```json
 {
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
-   "version":"5.5.2",
+   "version":"{siwVersion}",
    "baseUrl":"https://dev-12345678.okta.com",
    "clientId":"{clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
@@ -65,15 +65,17 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-To use the Widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returns `StartWidgetSignInAsync`, which is used in the path to the CDN.
+Add the Sign-In Widget source to your page by referencing the Okta CDN, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
-```csharp
+```razor
 @section head
 {
-   <script src="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+   <script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 ```
+
+You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### 2c: Add JavaScript to initialize and load the Widget
 

@@ -49,15 +49,15 @@ If the OTP and state values aren't valid or the user is in a different browser a
 
 ### 3: Set up and render Widget with OTP and state
 
-Consume the session `state` and `otp` values  in a Razor page that contains the Sign-In Widget.
+Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, replace the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```razor
 @model SignInWidgetConfiguration
 
 @section head
 {
-    <script src="https://global.oktacdn.com/okta-signin-widget/6.0.0/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/6.0.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+    <script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 
 <div id="okta-signin-widget-container"></div>
