@@ -76,7 +76,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 * Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
 
-* No System Log event was triggered when a request to the [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-4852442)
+* No System Log error event was triggered when a request to the [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-485242)
 
 * No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#add-more-resources) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
 
