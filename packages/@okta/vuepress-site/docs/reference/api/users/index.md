@@ -1257,11 +1257,10 @@ curl -v -X GET \
 
 ##### Searching arrays
 
-You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
-For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
+You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned. For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
-* Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
-* Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
+- Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
+- You can search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators. See [Filter](/docs/reference/core-okta-api/#filter).
 
 ##### Request example for array
 
