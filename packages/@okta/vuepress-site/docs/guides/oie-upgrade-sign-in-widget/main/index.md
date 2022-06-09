@@ -24,7 +24,7 @@ This guide covers how to upgrade the Okta Sign-In Widget, which depends on wheth
 
 The widget is a JavaScript library that gives you a full-featured and customizable sign-in experience that you can use to authenticate users of web and mobile applications.
 
-The widget is used on Okta's default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser. The widget can also perform a complete [OpenID Connect (OIDC)](/docs/reference/api/oidc/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
+The widget is used on Okta's default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser. The widget can also perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
 
 This article teaches you how to upgrade the widget when it is used in any of the following ways:
 
@@ -40,16 +40,16 @@ For best practices, keep your [widget](https://github.com/okta/okta-signin-widge
 
 The specific steps to upgrade your widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
-* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in): Okta-hosted with no custom URL domain
-* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in): Okta-hosted with custom URL domain
-* [Embedded authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-an-embedded-sign-in-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the application.
+* [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with no custom URL domain
+* [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with custom URL domain
+* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the application.
 
 ## Best practice for user experience and application policies
+<!-- REMOVE THIS SECTION?? doesn't make sense and links to deprecated file, plus what about Interaction Code flow? -->
+In Classic Engine, the widget had the default option to initialize without application context. In Identity Engine, you can use one of the following OIDC flows to optimize the user's sign-in experience and apply specific application policies:
 
-In Classic Engine, the widget had the default option to initialize without application context. In Identity Engine, you should use one of these OIDC flows so that you can optimize the user's sign-in experience and apply specific application policies:
-
-* [Server-side web application using Authorization Code flow](https://developer.okta.com/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
-* [SPA or native application using PKCE](https://developer.okta.com/code/javascript/okta_sign-in_widget/#spa-or-native-application-using-pkce)
+* [Server-side web application using Authorization Code flow](/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
+* [SPA or native application using PKCE](/code/javascript/okta_sign-in_widget/#spa-or-native-application-using-pkce)
 
 ## Upgrade process for a redirect sign-in flow
 
@@ -70,21 +70,18 @@ If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/)
 
 When you upgrade an embedded widget:
 
-* Make sure that the [widget configuration](/docs/guides/oie-embedded-common-download-setup-app/-/main/) references the latest version of the widget and that the [reference to the Okta CDN](/docs/guides/oie-embedded-widget-use-case-load/-/main/#_1-source-the-sign-in-widget-in-your-sign-in-page) grabs the latest widget version. See the [widget Readme](https://github.com/okta/okta-signin-widget/blob/master/README.md) for more information on [using the Okta CDN](https://github.com/okta/okta-signin-widget/blob/master/README.md#using-the-okta-cdn).
+* Ensure that the Sign-In Widget source in your sign-in page references the Okta CDN. Replace the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-* Update the Javascript and CSS files in your HTML as follows, replacing the placeholders with the latest library versions. Note that the latest version changes every week. See [Okta Sign-In Widget releases](https://github.com/okta/okta-signin-widget/releases) for the latest version.
+   ```html
+   <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+   ```
 
-```javascript
-<!-- Latest CDN production Javascript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/x.x.x/js/okta-sign-in.min.js"
-        type="text/javascript">
-</script>
+   > **Note:** More info can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-<link href="https://global.oktacdn.com/okta-signin-widget/x.x.x/css/okta-sign-in.min.css"
-      type="text/css" rel="stylesheet"/>
-```
+* You must set the `useInteractionCodeFlow=true` configuration option in your embedded Sign-In Widget. This is the only supported authentication flow for the embedded widget with Identity Engine.
 
-> **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the widget.
+> **Note:** If you're currently using the Sign-In Widget major version 4 or earlier, consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md).
 
 ## Changes to widget configuration for Identity Engine
 
