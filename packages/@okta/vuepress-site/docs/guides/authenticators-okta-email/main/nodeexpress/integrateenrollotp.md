@@ -28,7 +28,7 @@ If email enrollment is enabled for your org's application, and the user hasn't y
 
 Use this response to display a page of available authenticators, including Email.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of authenticator list](/img/authenticators/authenticators-email-enroll-auth-list.png)
 
@@ -81,7 +81,7 @@ The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status`
 
 Using this response, display a page to input the OTP.
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of enroll OTP](/img/authenticators/authenticators-email-enroll-enter-code.png)
 

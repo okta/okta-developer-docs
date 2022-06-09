@@ -9,6 +9,8 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
+> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
+
 ## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
@@ -30,11 +32,11 @@ List all the brands in your org
 
 Array of the [Brand Response](#brand-response-object)
 
+> **Important**: Currently only one Brand per org is supported, therefore this contains a single object only.
+
 #### Use examples
 
 The following example returns all Brands in the org.
-
-> **Note:** Currently, only one Brand per org is supported.
 
 ##### Request
 
@@ -374,13 +376,13 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
+> **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
+
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
 The following example returns all Themes in the Brand.
-
-> **Note:** Currently, only one Theme per Brand is supported.
 
 ##### Request
 
@@ -474,7 +476,6 @@ Fetches a Theme for a Brand
 The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
-
 
 #### Use examples
 
@@ -831,7 +832,6 @@ Deletes a Theme logo. The org then uses the Okta default logo.
 None.
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
-
 
 #### Use examples
 
@@ -2091,6 +2091,154 @@ HTTP/1.1 200 OK
 }
 ```
 
+### Email Template Settings
+
+<ApiLifecycle access="ea" />
+
+This API lets you manage the settings of each customizable email template.
+
+### Get Email Template Settings
+
+> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
+
+Fetches the settings associated with the template
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+
+#### Response body
+
+The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the settings for the email template `UserActivation`.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "recipients": "ALL_USERS",
+    "_links": {
+      "template": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Update Email Template Settings
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
+
+Updates the settings associated with the template
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+
+#### Request body
+
+The [Email Template Settings Object](#email-template-settings-object) resource to update
+
+#### Response body
+
+The [Email Template Settings Object](#email-template-settings-object) resource that was updated
+
+Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
+
+> **Note**: The templates that don't support all recipient values are New Sign-On Notification, Authenticator Enrolled, Authenticator Reset, Password Changed, and Change Email Confirmation.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example disables the `UserActivation` email from being sent.
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "recipients": "NO_USERS",
+}' \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "recipients": "NO_USERS",
+    "_links": {
+        "template": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
 ## Brand API Objects
 
 ### Brand object
@@ -2408,6 +2556,32 @@ The Email Customization resource defines the following properties:
 | `subject`      | String                  | The subject of the customization            |
 | `body`         | String                  | The body of the customization               |
 | `_links`       | [Links](#links-object)  | Link relations for this object              |
+
+<ApiLifecycle access="ea" />
+
+> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+### Email Template Settings Object
+
+The Email Template Settings Object resource defines the following properties:
+
+| Property       | Type                    | Description                                                                                   |
+| ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
+| `recipients`   | enum                    | The [eligible user type](#recipients-enum) that can receive emails generated from the template |
+| `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
+
+### Recipients Enum
+
+| Enum Value                      | Description                                                                                          |
+| ------------------------------- | ----------------------------------------------- |
+| `ALL_USERS`                     | Send emails to all users (default)              |
+| `ADMINS_ONLY`                   | Send emails to administrators only              |
+| `NO_USERS`                      | Do not send emails to any user                  |
+
+
+> **Note:** The following is a list of the email templates with certain Enum values:
+> * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
+> * `ALL_USERS, ADMIN ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 

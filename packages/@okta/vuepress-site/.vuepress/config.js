@@ -265,19 +265,6 @@ module.exports = ctx => ({
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
-
-    /*
-     * Copy *.scss from Sign-In Widget for use in /live-widget.
-     * See /components/LiveWidget.vue for usage
-     */
-    config.plugin('copy-sass')
-      .use(CopyWebpackPlugin, [
-        [{
-           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
-           to: Path.join(outputDir, 'assets/widget-sass/'),
-         },
-        ]
-      ]);
   },
 
   evergreen: false,
@@ -316,18 +303,19 @@ module.exports = ctx => ({
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
-              '/docs/guides/oie-upgrade-overview/',
-              '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
-              '/docs/guides/oie-upgrade-sessions-api/',
-              '/docs/guides/oie-upgrade-sign-in-widget/',
-              '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
-              '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
-              '/docs/guides/oie-upgrade-sign-in-widget-styling/',
-              '/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
+              //'/docs/guides/oie-upgrade-overview/',
+              //'/docs/guides/oie-upgrade-planning-embedded-upgrades/',
+              //'/docs/guides/oie-upgrade-sessions-api/',
+              //'/docs/guides/oie-upgrade-sign-in-widget/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-i18n/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-styling/',
+              //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              '/docs/reference/api/archive-myaccount/',
               '/docs/reference/csi-delauth-hook/'
           ]
         }

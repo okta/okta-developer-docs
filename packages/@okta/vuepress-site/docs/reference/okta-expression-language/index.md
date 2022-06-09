@@ -7,9 +7,13 @@ meta:
 
 # Okta Expression Language overview
 
-Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
+This document details the features and syntax of Okta Expression Language, which you can use throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-This document details the features and syntax of Okta Expression Language, which you can use throughout the Okta Admin Console and API. Okta updates this document over time as new capabilities are added to the language. Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
+> **Note:** If you are using the Okta Expression Language for [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+
+Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
+
+Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
 ## Referencing user attributes
 
@@ -183,13 +187,13 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
-For an example using group functions and for more information on using group functions for dynamic and static allow lists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+For an example using group functions and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
 > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the Group's email (for example, when using Google Workspace). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 ### Linked object function
 
@@ -233,6 +237,7 @@ The following should be noted about these functions:
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * At this time, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
 * Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
 
 ### Directory and Workday functions
 

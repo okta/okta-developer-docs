@@ -27,7 +27,7 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ## Overview
 
-Okta Verify is a software-based authenticator created by Okta that supports identity verification through Time-based One-Time Passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
+Okta Verify is a software-based authenticator created by Okta that supports identity verification through Time-based One-Time Passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/okta_help.htm?id=ext_okta_verify).
 
 Okta Verify is highly customizable and offers different ways to enroll and challenge users. Your app's integration with the embedded SDK depends on which features you support. This guide details step-by-step how to integrate four flows supported by the embedded SDK and Okta Verify. They are:
 

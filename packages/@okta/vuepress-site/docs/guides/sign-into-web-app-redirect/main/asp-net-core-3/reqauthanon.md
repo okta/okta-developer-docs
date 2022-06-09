@@ -7,5 +7,4 @@ public IActionResult PublicAccess()
     // For all users, even anonymous ones!
     return View();
 }
-
 ```

@@ -18,7 +18,7 @@ This guide explains how to add and configure Okta Sign-On Policies and App Sign-
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Groups created](https://help.okta.com/en-us/Content/Topics/users-groups-profiles/usgp-about-groups.htm?cshid=Directory_Groups#Directory_Groups) in your org
+* [Groups created](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) in your org
 * An application that you want to add a Sign-On Policy to
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
@@ -152,3 +152,7 @@ Next, take a look at the following:
 * [Sign Users Out](/docs/guides/sign-users-out/)
 * [Set up self-registration](/docs/guides/set-up-self-service-registration/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
+
+## See also 
+
+[Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

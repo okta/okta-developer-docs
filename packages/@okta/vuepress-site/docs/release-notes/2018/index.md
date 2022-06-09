@@ -456,7 +456,7 @@ You can now disable the Okta loading animation that appears during a login redir
 
 #### New System Log Event Type for Denied Events
 
-The [System Log](/docs/reference/api/system-log/) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The [System Log](/docs/reference/api/system-log/#security-events) now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
 
 #### Bugs Fixed in 2018.32
 
@@ -525,7 +525,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.29
 
-* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blacklisted removed the blacklisting and coverted it to a normal IP Zone. (OKTA-176610)
+* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
 * Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 

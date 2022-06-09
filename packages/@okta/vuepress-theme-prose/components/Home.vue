@@ -5,11 +5,6 @@
         <Sidebar />
       </div>
       <div class="width-adjuster">
-        <AnnouncementBanner>
-          <template v-slot:description>
-            For more information and frequently asked questions regarding the January 2022 compromise, <a href="https://support.okta.com/help/s/article/Frequently-Asked-Questions-Regarding-January-2022-Compromise?language=en_US#" target="_blank" rel="noopener noreferrer">read more</a>.
-          </template>
-        </AnnouncementBanner>
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
@@ -59,7 +54,7 @@
                 </div>
               </div>
             </div>
-            <div
+           <!-- <div
               class="homepage--customize-your-app-margin homepage--section-margins"
             >
               <h2
@@ -145,8 +140,12 @@
                   </div>
                 </div>
               </div>
+            </div> -->
+            <div>
+            <br>
+            <br>
+            <!-- empty div for spacing  -->
             </div>
-
             <div
               class="homepage--partners-block-margin homepage--section-margins"
             >
@@ -172,7 +171,6 @@ export default {
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
-    AnnouncementBanner: () => import("../global-components/AnnouncementBanner")
   },
 
   data() {

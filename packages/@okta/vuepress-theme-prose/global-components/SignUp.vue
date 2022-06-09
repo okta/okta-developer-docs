@@ -503,7 +503,8 @@ export default {
 
     this.theme = this.getTheme();
 
-    const geoLocation = new GeoLocation(() => {
+    this.isRegionLocked = isRegionLocked();
+    new GeoLocation(() => {
       this.isRegionLocked = isRegionLocked();
       this.isRegionLoading = false;
     });

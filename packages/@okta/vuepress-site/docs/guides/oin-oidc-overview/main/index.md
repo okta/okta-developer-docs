@@ -21,7 +21,7 @@ It includes a simplified discussion of the OIDC layer, the OIDC protocol-level r
 
 The Okta Integration Network is a collection of over 6,500 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. The app integrations are intended for customers who want a guided experience that still supports the most secure configuration options.
 
-Application developers and ISVs can create app integrations using a free Okta [developer account](https://developer.okta.com/signup/) and any of the wide array of languages supported by Okta. If you haven't already chosen a language for developing your app integration, check out our [docs](/docs/), [videos](https://www.youtube.com/c/OktaDev/), and [blogs](https://developer.okta.com/blog/) for ideas and guidance.
+Application developers and ISVs can create app integrations using a free Okta [developer account](https://developer.okta.com/signup/) and any of the wide array of languages supported by Okta. Check out our [quickstart guides](/docs/guides/quickstart/), [videos](https://www.youtube.com/c/OktaDev/), and [blogs](https://developer.okta.com/blog/) for ideas and guidance.
 
 Single Sign-On (SSO) is an authentication method that enables end users to sign in to any cloud application or software system that is managed by an identity provider like Okta. After the end user has signed in to their Okta dashboard, clicking on any of the configured app integrations automatically signs the end user in to that application without requiring them to remember separate usernames and passwords.
 

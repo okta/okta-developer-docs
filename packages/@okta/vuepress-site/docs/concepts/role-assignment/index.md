@@ -52,65 +52,86 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 * A principal: Either a Group or a User - known as a Member of the Binding
 * A Resource Set: Identified by its `id`
 
-### Resource sets
+### Resource Sets
 
-A Resource Set is simply a collection of resources. The following resources are currently supported:
+A Resource Set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
 
-* All Users
-* All Groups
-* A specific Group
-* All Users within a specific Group
-* All Apps
-* All Apps of the same type
-* A specific App
+#### Okta Resource Name (ORN)
 
-### Identifiers
+<ApiLifecycle access="ea" />
 
-#### Resource identifiers
+The primary resource identifier is the Okta Resource Name (ORN). ORNs uniquely identify Okta resources.
 
-To specify a resource targeted by a Resource Set, you can use the REST URL of the corresponding Okta API:
+##### ORN format
 
-* [All Users](/docs/reference/api/users/#list-users)
+ORN identifiers are in the following format:
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/users
-  ```
+`orn:${partition}:${service}:${tenantId}:${objectType}:${objectId}`
 
-* [All Groups](/docs/reference/api/groups/#list-groups)
+###### partition
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups
-  ```
+The partition is specific to your Okta environment. The following are the supported partitions:
 
-* [All Apps](/docs/reference/api/apps/#list-applications)
+| Partition               |  ORN partition value  |
+| ----------------------- | --------------------- |
+| Preview environments    | `oktapreview`         |
+| Production environments | `okta`                | 
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps
-  ```
+###### service
 
-* [A specific Group](/docs/reference/api/groups/#get-group)
+  The service that the resource belongs to. Each resource belongs to only one service.
+  The following are the supported services:
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups/${targetGroupId}
-  ```
+| Service           |  ORN service value      |
+| ----------------- | ----------------------- |
+| Directory         | `directory`             | 
+| Identity Provider | `idp`                   |
+| Workflow <ApiLifecycle access="ea" /> | `workflow`                   |
 
-* [All Users within a specific Group](/docs/reference/api/groups/#list-group-members)
+###### tenantId
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users
-  ```
+The identifier for the tenant that is using the service. This is typically your [org ID](/docs/reference/api/org/#org-setting-properties).
 
-* [All Apps of specific type](/docs/reference/api/apps/#list-apps-by-name)
+###### objectType
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"
-  ```
+The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see
+[Supported resources](#supported-resources).
 
-* [A specific App](/docs/reference/api/apps/#get-application)
+###### objectId
 
-  ``` http
-  https://${yourOktaDomain}/api/v1/apps/${targetAppId}
-  ```
+The object's identifier. For examples of object identifiers, see [Supported resources](#supported-resources).
+
+###### contained_resources
+
+`contained_resources` is an ORN property that indicates to target all resources within the container resource. For example:
+
+`orn:${partition}:directory:${yourOrgId}:groups:123:contained_resources`
+
+Group 123 is the example container resource. Since `:contained_resources` is specified, the resource includes the users in the group, rather than the group itself.
+
+Not all resources support this property, see [Supported resources](#supported-resources) for container resources.
+#### REST URL
+
+If the resource has a corresponding Okta API, you can specify the resource by their REST URL. Use the [ORN format](#orn-format) to specify resources that don't have corresponding Okta APIs.
+
+#### Supported resources
+
+The following are the supported resources.
+
+| Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
+| :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"`](/docs/reference/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
+| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
+|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
@@ -143,32 +164,37 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 
 ### Permission types
 
-| Permission type                         | Description                                                                                                                                           | Applicable resource types                    |
-| :-------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
-| `okta.users.manage`                     | Allows the admin to create and manage users and read all profile and credential information for users                                                | All Users, all Users within a specific Group |
-| `okta.users.create`                     | Allows the admin to create users. If the admin is also scoped to manage a Group, that admin can add the user to the Group on creation and then manage.| All Groups, a specific Group                 |
-| `okta.users.read`                       | Allows the admin to read any user's profile and credential information                                                                               | All Users, all Users within a specific Group |
-| `okta.users.credentials.manage`         | Allows the admin to manage only credential lifecycle operations for a user                                                                           | All Users, all Users within a specific Group |
-| `okta.users.credentials.resetFactors`   | Allows the admin to reset MFA authenticators for users                                                                                               | All Users, all Users within a specific Group |
-| `okta.users.credentials.resetPassword`  | Allows the admin to reset passwords for users                                                                                                        | All Users, all Users within a specific Group |
-| `okta.users.credentials.expirePassword` | Allows the admin to expire a user’s password and set a new temporary password                                                                        | All Users, all Users within a specific Group |
-| `okta.users.userprofile.manage`         | Allows the admin to only do operations on the User object, including hidden and sensitive attributes                                                 | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.manage`           | Allows the admin to perform any User lifecycle operations                                                                                            | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.activate`         | Allows the admin to activate user accounts                                                                                                           | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.deactivate`       | Allows the admin to deactivate user accounts                                                                                                         | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.suspend`          | Allows the admin to suspend user access to Okta. When a user is suspended, their user sessions are also cleared.                                      | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.unsuspend`        | Allows the admin to restore user access to Okta                                                                                                      | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.delete`           | Allows the admin to permanently delete user accounts                                                                                                 | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.unlock`           |	Allows the admin to unlock users who are locked out of Okta                                                                                    | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.clearSessions`    | Allows the admin to clear all active Okta sessions and OAuth tokens for a user                                                                       | All Users, all Users within a specific Group |
-| `okta.users.groupMembership.manage`     | Allows the admin to manage a user's group membership (also need `okta.groups.members.manage` to assign to a specific group)                          | All Users, all Users within a specific Group |
-| `okta.users.appAssignment.manage`       | Allows the admin to manage a user's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                             | All Users, all Users within a specific Group |
-| `okta.groups.manage`                    | Allows the admin to fully manage groups in your Okta organization                                                                                    | All Groups, a specific Group                 |
-| `okta.groups.create`                    | Allows the admin to create groups                                                                                                                    | All Groups                                   |
-| `okta.groups.members.manage`            | Allows the admin to only manage member operations in a group in your Okta org                                                                        | All Groups, a specific Group                 |
-| `okta.groups.read`                      | Allows the admin to only read information about groups and their members in your Okta organization                                                   | All Groups, a specific Group                 |
-| `okta.groups.appAssignment.manage`      | Allows the admin to manage a group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                            | All Groups, a specific Group                 |
-| `okta.apps.read`                        | Allows the admin to only read information about apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
-| `okta.apps.manage`                      | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
-| `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
-| `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| Permission type                                             | Description                                                                                                                                           | Applicable resource types                    |
+| :---------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
+| `okta.users.manage`                                         | Allows the admin to create and manage users and read all profile and credential information for users                                                | All Users, all Users within a specific Group |
+| `okta.users.create`                                         | Allows the admin to create users. If the admin is also scoped to manage a Group, that admin can add the user to the Group on creation and then manage.| All Groups, a specific Group                 |
+| `okta.users.read`                                           | Allows the admin to read any user's profile and credential information                                                                               | All Users, all Users within a specific Group |
+| `okta.users.credentials.manage`                             | Allows the admin to manage only credential lifecycle operations for a user                                                                           | All Users, all Users within a specific Group |
+| `okta.users.credentials.resetFactors`                       | Allows the admin to reset MFA authenticators for users                                                                                               | All Users, all Users within a specific Group |
+| `okta.users.credentials.resetPassword`                      | Allows the admin to reset passwords for users                                                                                                        | All Users, all Users within a specific Group |
+| `okta.users.credentials.expirePassword`                     | Allows the admin to expire a user’s password and set a new temporary password                                                                        | All Users, all Users within a specific Group |
+| `okta.users.userprofile.manage`                             | Allows the admin to only do operations on the User object, including hidden and sensitive attributes                                                 | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.manage`                               | Allows the admin to perform any User lifecycle operations                                                                                            | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.activate`                             | Allows the admin to activate user accounts                                                                                                           | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.deactivate`                           | Allows the admin to deactivate user accounts                                                                                                         | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.suspend`                              | Allows the admin to suspend user access to Okta. When a user is suspended, their user sessions are also cleared.                                      | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.unsuspend`                            | Allows the admin to restore user access to Okta                                                                                                      | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.delete`                               | Allows the admin to permanently delete user accounts                                                                                                 | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.unlock`                               |	Allows the admin to unlock users who are locked out of Okta                                                                                    | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.clearSessions`                        | Allows the admin to clear all active Okta sessions and OAuth tokens for a user                                                                       | All Users, all Users within a specific Group |
+| `okta.users.groupMembership.manage`                         | Allows the admin to manage a user's group membership (also need `okta.groups.members.manage` to assign to a specific group)                          | All Users, all Users within a specific Group |
+| `okta.users.appAssignment.manage`                           | Allows the admin to manage a user's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                             | All Users, all Users within a specific Group |
+| `okta.groups.manage`                                        | Allows the admin to fully manage groups in your Okta organization                                                                                    | All Groups, a specific Group                 |
+| `okta.groups.create`                                        | Allows the admin to create groups                                                                                                                    | All Groups                                   |
+| `okta.groups.members.manage`                                | Allows the admin to only manage member operations in a group in your Okta org                                                                        | All Groups, a specific Group                 |
+| `okta.groups.read`                                          | Allows the admin to only read information about groups and their members in your Okta organization                                                   | All Groups, a specific Group                 |
+| `okta.groups.appAssignment.manage`                          | Allows the admin to manage a group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                            | All Groups, a specific Group                 |
+| `okta.apps.read`                                            | Allows the admin to only read information about apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
+| `okta.apps.manage`                                          | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
+| `okta.apps.assignment.manage`                               | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
+| `okta.profilesources.import.run`                            | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
+| `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |

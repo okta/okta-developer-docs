@@ -559,7 +559,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
 
@@ -615,7 +615,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
@@ -1041,7 +1041,7 @@ curl -v -X POST \
 * This endpoint is currently supported only for SAML-based apps.
 * You must first enable the custom sign-in page for the application before using this API.
 
-> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Limitations](/docs/guides/ie-limitations/).
+> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Identity Engine limitations](/docs/guides/ie-limitations/).
 
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
@@ -5873,7 +5873,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for forgot password with trusted application
 
@@ -6091,7 +6091,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for unlock account with SMS Factor (trusted application)
 

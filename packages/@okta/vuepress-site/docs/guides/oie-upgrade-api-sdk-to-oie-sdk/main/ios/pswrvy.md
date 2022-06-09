@@ -9,9 +9,9 @@ The Classic Engine Authentication SDK methods that support the password recovery
 
 The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
 
-##### 1. Start password recovery
+##### 1. Start password recovery flow
 
-Start the password recovery flow by calling `OktaAuthSdk.recoverPassword` and pass in the username, factor type, and status change closure. In this example, the SMS factor type is used which indicates a verification code is sent to the user’s phone.
+Start the password recovery flow by calling `OktaAuthSdk.recoverPassword` and pass in the username, factor type, and status change closure. In this example, the SMS factor type is used, which indicates that a verification code is sent to the user’s phone.
 
 ```swift
 OktaAuthSdk.recoverPassword(with: orgUrl,
@@ -26,7 +26,7 @@ OktaAuthSdk.recoverPassword(with: orgUrl,
 
 #### 2. Verify factor
 
-If the username is valid, the `OktaAuthSdk.recoverPassword` status change closure is invoked and returns a status type of `recoveryChallenge`.  This status type indicates that the user needs to verify the code that was sent to them.  Build a screen to capture the user’s verification code and pass the code and closure function to `OktaAuthStatusRecoveryChallenge.verifyFactor`.
+If the username is valid, the `OktaAuthSdk.recoverPassword` status change closure is invoked and returns a status type of `recoveryChallenge`. This status type indicates that the user needs to verify the code that was sent to them. Build a screen to capture the user’s verification code and pass the code and closure function to `OktaAuthStatusRecoveryChallenge.verifyFactor`.
 
 ```swift
 switch status.statusType {
@@ -135,9 +135,9 @@ The Identity Engine methods that support the password recovery flow are as follo
 
 The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
 
-##### 1. Setup the password recovery flow
+##### 1. Set up the password recovery flow
 
-First, set up the logic that handles each step in the password recovery process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the password recovery flow.  In this closure, build out the following password recovery steps.
+First, set up the logic that handles each step in the password recovery process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the password recovery flow. In this closure, build out the following password recovery steps.
 
 1. Choose the factor for password recovery.
 1. Verify the email or SMS factor.
@@ -172,7 +172,7 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 
 #### 2. Reset password
 
-The next step is to call `MultifactorLogin.resetPassword` and pass in the username and completion closure. The completion is invoked after the sign-in completes and returns either an error or success with tokens.
+The next step is to call `MultifactorLogin.resetPassword` and pass in the username and completion closure. The completion is invoked after the sign-in flow completes and returns either an error or success with tokens.
 
 ```swift
 self.authHandler.resetPassword(username: "user@example.com")

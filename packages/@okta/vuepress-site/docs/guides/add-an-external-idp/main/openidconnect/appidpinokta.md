@@ -1,12 +1,16 @@
 * **Name**: Enter a name for the Identity Provider configuration.
-* **Client ID**: Paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
-* **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to the Identity Provider.
-
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+* **Client ID**: Paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
+* **Authentication type**: Leave the default of **Client secret** or select **Public key/private key** to automatically generate a public and private key pair. The public key is available for download when you click **Finish**.
 
+    > **Note:** The **Public key/private key** option is an <ApiLifecycle access="ea" /> (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+* **Client Secret**: If you are using **Client secret** as the **Authentication type**, paste the secret that you obtained in the previous section.
 * **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL. <ApiLifecycle access="ea" />
-* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. <ApiLifecycle access="ea" />
+* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. If you are using the **Public key/private key** option, you must specify a signing algorithm, for example: **RSA256**. <ApiLifecycle access="ea" />
+
+    > **Note:** The **Algorithm** is used to sign authorize requests and to generate bearer assertions when you use a private/public key pair for `/token` endpoint authentication.
 
 In the **Endpoints** section:
 
@@ -19,3 +23,13 @@ Add the following endpoint URLs for the OpenID Connect Identity Provider that yo
 * **Userinfo endpoint (optional)**: The endpoint for getting identity information about the user. For example: `https://${theIdPdomain}/oauth2/v1/userinfo`.
 
 > **Note:** Okta requires an access token returned from the Identity Provider if you add the `/userinfo` endpoint URL.
+
+In the optional **Authentication Settings** section:
+
+* **IdP Username**: This is the expression (written in Okta Expression Language) that is used to convert an Identity Provider attribute to the application user's `username`. This Identity Provider username is used for matching an application user to an Okta User.
+
+    For example, the value `idpuser.email` means that it takes the email attribute passed by the Identity Provider and maps it to the Okta application user's `username` property.
+
+    You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
+
+* **Filter > Only allow usernames that match defined RegEx Pattern**: Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears.

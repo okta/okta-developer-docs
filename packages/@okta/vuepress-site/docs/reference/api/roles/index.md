@@ -3058,7 +3058,12 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.read`                        | Allows the admin to only read information about Apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
-| `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| `okta.profilesources.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
+| `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 
 #### Example
 
@@ -3099,13 +3104,24 @@ The following `_links` are returned:
 
 A resource has an ID and a link that points to the resource. Supported resources are:
 
-* Apps
-* Groups
-* All Users within a Group
-* All Users within the org
-* All Groups within the org
-* All Apps within the org
-* All Apps of the same type
+#### Supported resources
+
+The following are the supported resources.
+
+| Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
+| :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
+| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
+|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
@@ -3195,7 +3211,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "apps": {
-          "href": "https://{yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+          "href": "https://{yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
         }
       }
     }

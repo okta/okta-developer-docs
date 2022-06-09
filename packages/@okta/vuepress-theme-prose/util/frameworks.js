@@ -21,6 +21,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   salesforce: 'Salesforce',
   yahoo: 'Yahoo!',
   yahoojp: 'Yahoo! Japan',
+  smartcard: 'Smart Card',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',

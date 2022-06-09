@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - archive-auth-js
  - archive-embedded-siw
+ - archive-registration-inline-hook
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
@@ -16,6 +17,7 @@ guides:
  - configure-access-policy
  - configure-native-sso
  - configure-signon-policy
+ - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email
  - custom-error-pages
@@ -42,6 +44,7 @@ guides:
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
+ - mobile-idx-sdk-overview
  - oin-oidc-overview
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
@@ -99,16 +102,20 @@ guides:
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
+ - oie-upgrade-overview
+ - oie-upgrade-plan-embedded-upgrades
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
+ - oie-upgrade-sessions-api
  - oie-upgrade-sign-in-widget-deprecated-methods
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
+ - oie-upgrade-mfa-enroll-policy
+ - ie-limitations
  - authenticators-overview
  - authenticators-google-authenticator
  - authenticators-web-authn
- - device-context
  - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
  - authenticators-okta-verify
  - authenticators-okta-email
@@ -149,8 +156,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
-    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
+    * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
+    * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 

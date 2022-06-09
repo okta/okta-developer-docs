@@ -23,7 +23,7 @@ if (authenticationResponse != null && !CollectionUtils.isEmpty(authenticationRes
 }
 ```
 
-### Okta Identity Engine SDK authentication flow
+### Identity Engine SDK authentication flow
 
 > **Note:** Before implementing your embedded app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/java/main/).
 

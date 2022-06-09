@@ -1758,12 +1758,43 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 | type                               | Provider type. Possible values: `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`           | String | Yes |
 | name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
 
+#### Policy Action with Dynamic IdP routing
+<ApiLifecycle access="ea"/>
+
+> **Note:** Dynamic IdP Routing is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+You can choose to define an IdP instance in the Policy action or provide an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) with the [Login Context](/docs/reference/okta-expression-language-in-identity-engine/#login-context) that is evaluated with the IdP. For example, the value `login.identifier`
+refers to the user's `username`. If the user is signing in with the username `john.doe@mycompany.com`, the expression, `login.identifier.substringAfter('@))` is evaluated to the domain name of the user, for example, `mycompany.com`. The IdP property that the evaluated string should match to is specified as the `propertyName`.
+
+#### Dynamic IdP example
+
+```json
+  "idp": {
+  "matchCriteria": [
+      {
+        "providerExpression": "login.identifier.substringAfter('@')",
+        "propertyName": "name"
+      }
+    ],
+  "providers": [],
+  "idpSelectionType": "DYNAMIC"
+}
+```
+##### IdP object
+
+| Property                           | Description                              | Data Type | Required |
+| ---                                | ---                                      | ---       | ---      |
+| providerExpression                 | The expression that is evaluated          | Okta Expression Language    | Yes, if `idpSelectionType` is set to `DYNAMIC`      |
+| propertyName                       | The property of the IdP that the evaluated `providerExpression` should match. The default value is `name`, which refers to the name of the IdP.| String | No |
+| idpSelectionType | Determines whether the rule should use expression language or a specific IdP. Supported values: `SPECIFIC`,`DYNAMIC` | String    | Yes       |
+
 ##### Limitations
 
 * You can add up to 10 providers to a single `idp` Policy Action.
 
 * You can define only one `provider` for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`.
-
+* You can't define a provider if `idpSelectionType` is `DYNAMIC`.
+* You can't define a `providerExpression` if `idpSelectionType` is `SPECIFIC`.
 * If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign-in requests are handled by Okta exclusively.
 
 ##### Example

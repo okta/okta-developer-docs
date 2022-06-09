@@ -519,7 +519,7 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 | Event                    | Description                                                                                   |
 | :-------------------     | :----------------------------------                                                           |
-| security.request.blocked | A request is blocked due to a block list rule (such as an IP network zone or location rule). |
+| security.request.blocked | A request is blocked due to a blocklist rule (such as an IP network zone or location rule). |
 
 ### User events
 
@@ -705,7 +705,7 @@ The following are examples of common keyword filtering:
 * Events that mention a specific URL: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
 
-> **Note:** When hyphens are present in an event instance's attribute value, they are split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` matches events that contain the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
+> **Note:** When hyphens are present in an event instance's attribute value, they are split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, events that contain the text `XOxBw-2JIRnCFd0gG0GjHAAABjY` are matched with a `q` value of `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
 ###### Datetime filter
 

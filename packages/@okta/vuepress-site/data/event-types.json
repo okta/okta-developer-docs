@@ -1,6 +1,6 @@
 {
-  "release" : "2022.04.1",
-  "build" : "2022.04.1-begin-141-ge8b3a785cfa8",
+  "release" : "2022.06.1",
+  "build" : "2022.06.1-begin-129-g082fc8817049",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -50,6 +50,9 @@
     "id" : "developer-platform",
     "name" : "Developer Platform"
   }, {
+    "id" : "globalization-core",
+    "name" : "Globalization Core"
+  }, {
     "id" : "okta-personal",
     "name" : "Okta Personal"
   }, {
@@ -76,6 +79,9 @@
   }, {
     "id" : "idx",
     "name" : "Identity Experience"
+  }, {
+    "id" : "id-fabric",
+    "name" : "ID Fabric"
   }, {
     "id" : "honey-badger",
     "name" : "Honey Badger"
@@ -134,14 +140,8 @@
     "id" : "ui-core",
     "name" : "UI Core"
   }, {
-    "id" : "up",
-    "name" : "UP"
-  }, {
     "id" : "wax-insights",
     "name" : "WAX Insights"
-  }, {
-    "id" : "id-fabric",
-    "name" : "ID Fabric"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -580,6 +580,14 @@
     "description" : "Identity Attestation.",
     "tags" : [ ]
   }, {
+    "id" : "oauth2-api-resource",
+    "description" : "OAuth2 API Resource.",
+    "tags" : [ "oauth2" ]
+  }, {
+    "id" : "oauth2-client-credentials-lifecycle",
+    "description" : "OAuth2 client credentials lifecycle.",
+    "tags" : [ "oauth2", "oauth2-client" ]
+  }, {
     "id" : "app-generic-provision",
     "description" : "",
     "tags" : [ ]
@@ -601,6 +609,10 @@
     "tags" : [ ]
   }, {
     "id" : "push",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "custom-push",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -658,6 +670,10 @@
   }, {
     "id" : "omm",
     "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "push-provider",
+    "description" : "Push Provider.",
     "tags" : [ ]
   }, {
     "id" : "office365-app",
@@ -749,6 +765,10 @@
     "tags" : [ ]
   }, {
     "id" : "ldapi",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "user-classification",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -1387,6 +1407,57 @@
         "targets" : [ "OAuth2ResourceDetails" ]
       }
     }, {
+      "id" : "app.oauth2.api_resource.create",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is created. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting created under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.api_resource.delete",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is deleted. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting deleted under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.api_resource.update",
+      "category" : "customer-federations",
+      "description" : "OAuth2 API Resource is updated. Manage and audit lifecycle events of API resources. Administrators are made aware that a new API resource is getting updated under Authorization servers.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.04.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-api-resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AuthorizationServerResourceDetails" ]
+      }
+    }, {
       "id" : "app.oauth2.as.authorize",
       "category" : "federation",
       "description" : "OAuth2 authorization request.",
@@ -1980,6 +2051,74 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "OAuth2ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.credentials.lifecycle.activate",
+      "category" : "customer-federations",
+      "description" : "OAuth client credentials (either client secret or JWK) is added for an application. Use this event to find out if an application has a new client secret or private/public key that has been added. This could be used to audit changes made to client credentials.",
+      "info" : {
+        "created" : "2022-05-11",
+        "release" : "2022.05.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.credentials.lifecycle.create",
+      "category" : "customer-federations",
+      "description" : "OAuth client credentials (either client secret or JWK) is activated for an application. Use this event to find out if an application has activated a new client secret or private/public key. This could be used to audit changes made to client credentials.",
+      "info" : {
+        "created" : "2022-05-11",
+        "release" : "2022.05.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.credentials.lifecycle.deactivate",
+      "category" : "customer-federations",
+      "description" : "OAuth client credentials (either client secret or JWK) is deactivated for an application. Use this event to find out if an application has an existing client secret or private/public key that has been deactivated. This could be used to audit changes made to client credentials.",
+      "info" : {
+        "created" : "2022-05-11",
+        "release" : "2022.05.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.credentials.lifecycle.delete",
+      "category" : "customer-federations",
+      "description" : "OAuth client credentials (either client secret or JWK) is deleted for an application. Use this event to find out if an application has an existing client secret or private/public key that has been deleted. This could be used to audit changes made to client credentials.",
+      "info" : {
+        "created" : "2022-05-11",
+        "release" : "2022.05.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OAuth2PlatformDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2PlatformResourceDetails" ]
       }
     }, {
       "id" : "app.oauth2.interact.interaction_code",
@@ -5654,6 +5793,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "device.custom_push.send_notification",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a Push notification sent to a device for custom app. Used to log success and failure for the push notifications  with relevant information to allow org developers to troubleshoot push configurations for custom push authenticator. Note that this event is fired whenever a Push is sent.",
+      "info" : {
+        "created" : "2022-05-05",
+        "release" : "2022.05.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "custom-push" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CustomPushNotificationDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "device.enrollment.create",
       "category" : "device-platform",
       "description" : "Enroll new device. This can be used by any admin to monitor when a new device is registered successfully for Okta Verify. The user must have below the max allowed devices and a valid device status (not suspended or deactivated).The targets field contains key details of the enrolled device including name, status, serialNumber, imei, meid, osVersion, osPlatform. which may be useful for identifying the device, tracking  which device platforms and OS versions that enrolled in Okta Device Authenticator.",
@@ -5805,6 +5961,57 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "OktaCAMobilePlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "device.push.provider.create",
+      "category" : "device-platform",
+      "description" : "Indicates that a new push notification service has been successfully created. The notification service enables push notification as an authentication option through Okta to a push provider such as the Apple Push Notification service or the Google Firebase Cloud Messaging service. You can use this event to verify when a notification service was created for a custom app. When triggered, a new push notification service appears in the Admin Console.",
+      "info" : {
+        "created" : "2022-04-13",
+        "release" : "2022.04.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oie-only", "push-provider" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PushProviderResourceDetails" ]
+      }
+    }, {
+      "id" : "device.push.provider.delete",
+      "category" : "device-platform",
+      "description" : "Indicates that a push notification service has been deleted. The notification service enables push notification as an authentication option through Okta to a push provider such as the Apple Push Notification service or the Google Firebase Cloud Messaging service. You can use this event to verify when a notification service was deleted for a custom app. When triggered, a push notification service is removed from the Admin Console.",
+      "info" : {
+        "created" : "2022-04-13",
+        "release" : "2022.04.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oie-only", "push-provider" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PushProviderResourceDetails" ]
+      }
+    }, {
+      "id" : "device.push.provider.update",
+      "category" : "device-platform",
+      "description" : "Indicates that a push notification service has been updated. The notification service enables push notification as an authentication option through Okta to a push provider such as the Apple Push Notification service or the Google Firebase Cloud Messaging service. You can use this event to verify when a notification service was updated for a custom app. When triggered, a push notification service is updated in the Admin Console.",
+      "info" : {
+        "created" : "2022-04-13",
+        "release" : "2022.04.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oie-only", "push-provider" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PushProviderResourceDetails" ]
       }
     }, {
       "id" : "device.user.add",
@@ -9406,9 +9613,26 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
+      }
+    }, {
+      "id" : "security.authenticator.lifecycle.create",
+      "category" : "mfa-platform",
+      "description" : "Fired when an admin creates an authenticator for the org. This event can be used to identify who created an authenticator and which authenticator was created. The actor specifies the user that created the authenticator and the target specifies the authenticator name and the id. This event could also contain some authenticator specific information. Authenticator creation occurs when an authenticator is added. Related events include security.authenticator.lifecycle.update.",
+      "info" : {
+        "created" : "2022-05-20",
+        "release" : "2022.06.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
     }, {
       "id" : "security.authenticator.lifecycle.deactivate",
@@ -9423,9 +9647,26 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
+      }
+    }, {
+      "id" : "security.authenticator.lifecycle.update",
+      "category" : "mfa-platform",
+      "description" : "Fired when an admin updates an authenticator in the org. This event can be used to identify who updated an authenticator and which authenticator was updated. The actor specifies the user that updated the authenticator and the target specifies the authenticator name and the id. This event could also contain some authenticator specific information. Authenticator update occurs when an authenticator is edited. Related events include security.authenticator.lifecycle.create.",
+      "info" : {
+        "created" : "2022-05-20",
+        "release" : "2022.06.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
     }, {
       "id" : "security.behavior.settings.create",
@@ -9547,6 +9788,23 @@
         "targets" : null
       }
     }, {
+      "id" : "security.internal.threat.detected",
+      "category" : "adaptive",
+      "description" : "This internal event mirrors SECURITY_THREAT_DETECTED. Firing an internal event after some threshold allows for EDS team to consume security events without overwhelming syslog. This internal event gets fired in place of security.threat.detected, such that during periods of large load, EDS can consume threat detected events without overloading admins. This event is not visible to admins.",
+      "info" : {
+        "created" : "2022-04-26",
+        "release" : "2022.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "security", "threat-insight" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "security.origin.auto_whitelisted",
       "category" : "cred-platform",
       "description" : "A new origin (redirectUrl) was automatically whitelisted. This can be used to monitor when trusted origins are dynamically added to your tenant by Okta. This is a temporary event, which will be used by the subset of tenants who get the dynamic whitelisting functionality prior to having the enforcement of Trusted Origins whitelists enabled.",
@@ -9651,7 +9909,7 @@
     }, {
       "id" : "security.threat.detected",
       "category" : "adaptive",
-      "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW' or 'DENY' based on whether Okta Threat Insight is configured in log mode or log and block mode, where 'ALLOW' means the request continued and 'DENY' means the request was blocked.",
+      "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW', 'DENY' or 'RATE_LIMIT' based on whether Okta Threat Insight is configured in log mode or log and enforce mode, where 'ALLOW' means the request continued, 'DENY' means the request was blocked and 'RATE_LIMIT' means we protected your org from exceeding your rate limit by not allowing suspicious activity to count towards your rate limit.",
       "info" : {
         "created" : "2019-02-11",
         "release" : "2019.02.2"
@@ -9667,7 +9925,7 @@
       }
     }, {
       "id" : "security.voice.add_country_blacklist",
-      "category" : "cred-platform",
+      "category" : "telephony",
       "description" : "Fired when a country has been added to the voice call blacklist. This can be used to identify when a country has been blacklisted for voice call. When fired, this event contains information about the country that was added to the blacklist.Related events include security.voice.remove_country_blacklist.",
       "info" : {
         "created" : "2019-02-22",
@@ -9684,7 +9942,7 @@
       }
     }, {
       "id" : "security.voice.remove_country_blacklist",
-      "category" : "cred-platform",
+      "category" : "telephony",
       "description" : "Fired when a country has been removed from the voice call blacklist. This can be used to identify when a country has been removed from voice call blacklist. When fired, this event contains information about the country that was removed from the blacklist.Related events include security.voice.add_country_blacklist.",
       "info" : {
         "created" : "2019-02-22",
@@ -10873,6 +11131,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.email.delivery",
+      "category" : "core",
+      "description" : "An email's delivery status was updated. Used to notify admins of a bounced or dropped email. See the event debugData for help identifying a remediation, such as updating an incorrect email address.",
+      "info" : {
+        "created" : "2022-03-29",
+        "release" : "2022.05.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "EmailDeliveryDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.email.mfa_enroll_notification.sent_message",
       "category" : "end-user-security",
       "description" : "MFA enrollment notification email sent. Used to notify admins MFA enrollment notification email has been sent.",
@@ -10990,6 +11265,23 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "EmailTemplateResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email.template.settings_changed",
+      "category" : "developer-platform",
+      "description" : "This event is fired when the settings for an email template is changed. Developers and Org Admins can use this to identify when an email template setting has been changed. When fired, this event contains information about the email template and settings that were changed.",
+      "info" : {
+        "created" : "2022-04-20",
+        "release" : "2022.05.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin", "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailTemplateSettingsResourceDetails" ]
       }
     }, {
       "id" : "system.email.template.update",
@@ -11893,6 +12185,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.internal.classify.user",
+      "category" : "ud-core",
+      "description" : "Classify Users. Informs that user classification is done on the target users. When fired, it indicates that user classification is done on the target users.",
+      "info" : {
+        "created" : "2022-04-28",
+        "release" : "2022.05.1"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "user-classification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "UserClassificationResourceDetails" ]
+      }
+    }, {
       "id" : "system.internal.devorg.create",
       "category" : "developer-platform",
       "description" : "Create Developer org. Indicates when a developer org was created, by whom, and using which identity provider. This event is fired when a user creates a developer org through developer.okta.com. For internal use only.",
@@ -12286,7 +12595,7 @@
     }, {
       "id" : "system.operation.rate_limit.violation",
       "category" : "performance",
-      "description" : "Operation rate limit violation. This can be used to track if an operation is exceeding its rate limit. When fired, this event contains information about the operation such as actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the rate limit is being applied (e.g. authenticator_otp_verification), OperationRateLimitSubtype defines specific subtypes (e.g. Email, SMS or Voice call for authenticator_otp_verification type) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. user or org level).",
+      "description" : "Operation rate limit violation. This can be used to track if an operation is exceeding its rate limit. When fired, this event contains information about the operation such as actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the rate limit is being applied (e.g. authenticator_otp_verification), OperationRateLimitSubtype defines specific subtypes (e.g. Email Factor for authenticator_otp_verification) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. user or org level). Formerly, this event was used to indicate blocked SMS/Call transactions, please see system.sms.send*/system.voice.send* for blocked transactions.",
       "info" : {
         "created" : "2020-12-02",
         "release" : "2020.12.0"
@@ -12472,7 +12781,7 @@
       }
     }, {
       "id" : "system.sms.receive_status",
-      "category" : "cred-platform",
+      "category" : "telephony",
       "description" : "Fired when receiving a status update on SMS message from provider. This event can be used by Org Admins to identify users that are/aren't getting one-time passcodes delivered successfully via SMS, provider status can be obtained from status field in debug data. For any system.sms.send_* event, there should be exactly one of this event.",
       "info" : {
         "created" : "2020-07-06",
@@ -12489,8 +12798,8 @@
       }
     }, {
       "id" : "system.sms.send_account_unlock_message",
-      "category" : "cred-platform",
-      "description" : "Send self-service account unlock SMS message.",
+      "category" : "telephony",
+      "description" : "Send self-service account unlock SMS message. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2016-03-16",
         "release" : "2016.12"
@@ -12506,8 +12815,8 @@
       }
     }, {
       "id" : "system.sms.send_factor_verify_message",
-      "category" : "cred-platform",
-      "description" : "Send second factor auth SMS.",
+      "category" : "telephony",
+      "description" : "Send second factor auth SMS. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2016-03-16",
         "release" : "2016.12"
@@ -12524,7 +12833,7 @@
     }, {
       "id" : "system.sms.send_okta_push_verify_message",
       "category" : "enterprise-auth",
-      "description" : "Send activate Okta Verify Push for mobile SMS.",
+      "description" : "Send activate Okta Verify Push for mobile SMS. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2016-03-16",
         "release" : "2016.12"
@@ -12540,8 +12849,8 @@
       }
     }, {
       "id" : "system.sms.send_password_reset_message",
-      "category" : "cred-platform",
-      "description" : "Send self-service password reset SMS message.",
+      "category" : "telephony",
+      "description" : "Send self-service password reset SMS message. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2016-03-16",
         "release" : "2016.12"
@@ -12557,8 +12866,8 @@
       }
     }, {
       "id" : "system.sms.send_phone_verification_message",
-      "category" : "cred-platform",
-      "description" : "Send phone verification SMS message.",
+      "category" : "telephony",
+      "description" : "Send phone verification SMS message. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2016-03-16",
         "release" : "2016.12"
@@ -12591,7 +12900,7 @@
       }
     }, {
       "id" : "system.voice.receive_status",
-      "category" : "cred-platform",
+      "category" : "telephony",
       "description" : "Fired when receiving a status update on voice call from provider. This event can be used by Org Admins to identify users that are/aren't getting one-time passcodes delivered successfully via voice call, provider status can be obtained from status field in debug data. For any system.voice.send_* event, there should be exactly one of this event.",
       "info" : {
         "created" : "2020-07-06",
@@ -12608,8 +12917,8 @@
       }
     }, {
       "id" : "system.voice.send_account_unlock_call",
-      "category" : "cred-platform",
-      "description" : "Send self-service account unlock call.",
+      "category" : "telephony",
+      "description" : "Send self-service account unlock call. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2017-10-27",
         "release" : "2017.44"
@@ -12625,7 +12934,7 @@
       }
     }, {
       "id" : "system.voice.send_call",
-      "category" : "cred-platform",
+      "category" : "telephony",
       "description" : "Send phone call.",
       "info" : {
         "created" : "2017-10-27",
@@ -12642,8 +12951,8 @@
       }
     }, {
       "id" : "system.voice.send_mfa_challenge_call",
-      "category" : "cred-platform",
-      "description" : "Send second factor auth call.",
+      "category" : "telephony",
+      "description" : "Send second factor auth call. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2017-10-27",
         "release" : "2017.44"
@@ -12659,8 +12968,8 @@
       }
     }, {
       "id" : "system.voice.send_password_reset_call",
-      "category" : "cred-platform",
-      "description" : "Send self-service password reset call.",
+      "category" : "telephony",
+      "description" : "Send self-service password reset call. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2017-10-27",
         "release" : "2017.44"
@@ -12676,8 +12985,8 @@
       }
     }, {
       "id" : "system.voice.send_phone_verification_call",
-      "category" : "cred-platform",
-      "description" : "Send phone verification call.",
+      "category" : "telephony",
+      "description" : "Send phone verification call. As of the 2022.06.0 release this event is also used to identify transactions blocked by Okta, which is indicated by a \"deny\" outcome. Previously, the system.operation.rate_limit.violation was used to identify blocked transactions. Additionally, the method of generating the MobilePhone ID in the event has changed for Okta Classic. It has not changed for Okta Identity Engine.",
       "info" : {
         "created" : "2017-10-27",
         "release" : "2017.44"
@@ -12777,17 +13086,17 @@
         "targets" : [ "SystemTaskResourceDetails" ]
       }
     }, {
-      "id" : "user.account.access_super_user_app",
+      "id" : "user.account.access_support_user_app",
       "category" : "authn",
-      "description" : "Access super user in Okta.",
+      "description" : "Access support user in Okta.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
-      "beta" : false,
+      "beta" : true,
       "internal" : false,
       "tags" : [ "account", "user" ],
-      "mappings" : [ "core.user_auth.super_user_app_accessed" ],
+      "mappings" : [ "core.user_auth.support_user_app_accessed" ],
       "schema" : {
         "debugData" : "UserAccessDebugData",
         "actor" : null,
@@ -13939,6 +14248,23 @@
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.delegatedflow.run",
+      "category" : "wax-insights",
+      "description" : "This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow id of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.",
+      "info" : {
+        "created" : "2022-05-12",
+        "release" : "2022.06.0"
       },
       "beta" : false,
       "internal" : false,
@@ -17460,6 +17786,259 @@
           }
         }
       },
+      "CustomPushNotificationDebugData" : {
+        "name" : "CustomPushNotificationDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "fcm_analytics_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "analyticsLabel1", "analyticsLabel2" ]
+          },
+          "fcm_client_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "100711785817879149414" ]
+          },
+          "fcm_project_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "push-sdk-test-b703f" ]
+          },
+          "apns_environment" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "DEVELOPMENT", "PRODUCTION" ]
+          },
+          "apns_bundle_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "com.my.app.release" ]
+          },
+          "authenticator_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Custom App Authenticator Org A", "Custom App Authenticator Org B" ]
+          },
+          "authenticator_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "autxmdfGHmmfhMczT0g3", "aut1i89NYae40O7jz0g4" ]
+          },
+          "response_message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "json",
+            "examples" : [ "{ \"reason\" : \"BadDeviceToken\" }", "{ \"reason\" : \"ExpiredProviderToken\" }" ]
+          },
+          "response_code" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "integer",
+            "examples" : [ "200", "400", "401" ]
+          },
+          "factor_device_token_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "tokenHash",
+            "examples" : [ "zqbDAhTqxmgwf8T3aI0BBK9CTzVrNVYfOsc6XuXns24=", "30IhZkYfM0LlZBXHzLMycjwKBSQ1jIzUeVhpEdBcfRQ=" ]
+          },
+          "push_provider_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Push Provider Config Org A" ]
+          },
+          "push_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "ppcggmqHhbkRK8igC0g4" ]
+          },
+          "push_provider_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "APNS", "FCM" ]
+          }
+        }
+      },
       "DelAuthDebugData" : {
         "name" : "DelAuthDebugData",
         "properties" : {
@@ -18080,6 +18659,27 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "{Attribute : SaasUser,Expression : 'Y'}", "{Attribute : userName,Expression : active_directory.employeeNumber}", "{Attribute : firstName,Expression : appuser.firstName},{Attribute : lastName,Expression : appuser.lastName},{Attribute : idpGroupArray,Expression : appuser.Groups},{Attribute : SaasUser,Expression : 'Y'},{Attribute : idpUserId,Expression : appuser.PartnerUserId},{Attribute : email,Expression : appuser.email},{Attribute : idpCode,Expression : 'foo.company.com'}", "{Attribute : MDM,Expression : appuser.extensionAttribute1}" ]
+          }
+        }
+      },
+      "EmailDeliveryDebugData" : {
+        "name" : "EmailDeliveryDebugData",
+        "properties" : {
+          "provider_message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "email_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SES", "Sendgrid" ]
           }
         }
       },
@@ -20727,6 +21327,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "inline_hook_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "com.okta.oauth2.tokens.transform", "com.okta.saml.tokens.transform", "com.okta.user.pre-registration", "com.okta.telephony.provider", "com.okta.account.linking.transform", "com.okta.custom.source.delegated.authentication" ]
+          },
           "inline_hook" : {
             "type" : "Map",
             "sensitive" : false,
@@ -21748,6 +22356,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "response_time" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1234", "6666" ]
           },
           "resource" : {
             "type" : "String",
@@ -28334,6 +28950,22 @@
       "AuthorizationServerResourceDetails" : {
         "name" : "AuthorizationServerResourceDetails",
         "properties" : {
+          "OAuth2ApiResourceIdentifier" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "api.bookings.com", "https://api.bookings.com", "http://api.bookings.com", "Bookings API", "BookingsAPI" ]
+          },
+          "OAuth2ApiResourceName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Payments API", "BookingsAPI", "Atko API - Bookings" ]
+          },
           "OAuth2ScopeDescription" : {
             "type" : "String",
             "sensitive" : false,
@@ -28529,6 +29161,51 @@
           }
         }
       },
+      "CustomAppAuthenticatorResourceDetails" : {
+        "name" : "CustomAppAuthenticatorResourceDetails",
+        "properties" : {
+          "fcm_push_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ppc1we53XpXnBGgSE0g4" ]
+          },
+          "apns_debug_bundle_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "com.myapp.debug.release" ]
+          },
+          "apns_bundle_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "com.myapp.release" ]
+          },
+          "apns_push_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ppcggmqHhbkRK8igC0g4" ]
+          },
+          "authenticator_app_instance_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:appInstanceId",
+            "examples" : [ "0oanrajfrtdHZYrwn0x7", "0oaop0ink4cq9fGUN0x7", "0oan5ql6s5W0JoTz00x7" ]
+          }
+        }
+      },
       "CustomDomainResourceDetails" : {
         "name" : "CustomDomainResourceDetails",
         "properties" : {
@@ -28561,6 +29238,30 @@
       "DeviceIdentityResourceDetails" : {
         "name" : "DeviceIdentityResourceDetails",
         "properties" : {
+          "jailbreak" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "screen_lock_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "NONE", "PASSCODE", "BIOMETRIC" ]
+          },
+          "disk_encryption_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "NONE", "FULL", "USER", "ALL_INTERNAL_VOLUMES", "SYSTEM_VOLUME" ]
+          },
           "device_integrator" : {
             "type" : "String",
             "sensitive" : false,
@@ -28733,6 +29434,14 @@
       "EmailTemplateResourceDetails" : {
         "name" : "EmailTemplateResourceDetails",
         "properties" : {
+          "email_template_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          },
           "email_template_language" : {
             "type" : "String",
             "sensitive" : false,
@@ -28756,6 +29465,51 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "email.ad.welcome", "email.tempPassword", "email.sunone.forgotPasswordDenied", "email.forgotPassword", "email.forgotPasswordDenied", "email.ad.forgotPasswordReset", "email.factorEnrollment", "email.emailActivation", "email.ad.selfServiceUnlock", "email.passwordChanged" ]
+          }
+        }
+      },
+      "EmailTemplateSettingsResourceDetails" : {
+        "name" : "EmailTemplateSettingsResourceDetails",
+        "properties" : {
+          "email_template_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          },
+          "email_template_language" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "EN", "zh_CN" ]
+          },
+          "email_template_engine" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MUSTACHE", "EL", "VELOCITY" ]
+          },
+          "email_template_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "email.ad.welcome", "email.tempPassword", "email.sunone.forgotPasswordDenied", "email.forgotPassword", "email.forgotPasswordDenied", "email.ad.forgotPasswordReset", "email.factorEnrollment", "email.emailActivation", "email.ad.selfServiceUnlock", "email.passwordChanged" ]
+          },
+          "email_template_setting_recipients" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALL_USERS", "ADMINS_ONLY", "NO_USERS" ]
           }
         }
       },
@@ -28960,6 +29714,38 @@
             "customer" : true,
             "format" : "uri",
             "examples" : [ "https://myapp.example.com", "https://owner.id/0o123::service_app", "https://computer.us-east-1.amazonaws.com:*/index.html" ]
+          },
+          "Status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "[active]", "[inactive]" ]
+          },
+          "DateCreated" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2020-08-05T09:30:41.000-05:00" ]
+          },
+          "ClientCredentialsType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "secret", "keypair" ]
+          },
+          "KeyId" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "[null]", "[2Qr9f2g6U5RT7lqMOBIkLSta-n_ml2cDWhvumsC_oFk]" ]
           },
           "ClientSecret" : {
             "type" : "String",
@@ -29256,6 +30042,51 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "updateUserLifecycle", "notify" ]
+          }
+        }
+      },
+      "PushProviderResourceDetails" : {
+        "name" : "PushProviderResourceDetails",
+        "properties" : {
+          "fcm_project_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "okta-fcm", "bofa-fcm-project-id" ]
+          },
+          "apns_team_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "HJPMDS86QA", "WEQMDS86DV" ]
+          },
+          "push_provider_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "BofA custom FCM configuration" ]
+          },
+          "push_provider_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "FCM", "APNS" ]
+          },
+          "push_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00ox7oj39kH8PPs1v0g3", "00owu6i9Vm1NZM4aa0g3" ]
           }
         }
       },

@@ -277,6 +277,10 @@ export const guides = [
             ]
           },
           {
+            title: "Configure User-Scoped account management",
+            guideName: "configure-user-scoped-account-management"
+          },
+          {
             title: "Advanced use cases",
             subLinks: [
               {
@@ -286,16 +290,16 @@ export const guides = [
               {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
-              },
-              {
-                title: "Device Context",
-                guideName: "device-context"
               }
             ]
           },
           {
-            title: "Mobile techniques",
+            title: "Mobile authentication",
             subLinks: [
+              {
+                title: "Identity Engine SDK overview",
+                guideName: "mobile-idx-sdk-overview"
+              },
               {
                 title: "Unlock a mobile app with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics"
@@ -406,6 +410,10 @@ export const guides = [
                   {
                     title: "Azure AD",
                     path: "/docs/guides/add-an-external-idp/azure/main/"
+                  },
+                  {
+                    title: "Smart Card",
+                    path: "/docs/guides/add-an-external-idp/smartcard/"
                   }
                 ]
               },
@@ -440,6 +448,65 @@ export const guides = [
                 guideName: "set-up-self-service-registration"
               }
             ]
+          }
+        ]
+      },
+      {
+        title: "Okta Identity Engine upgrade",
+        subLinks: [
+          {
+            title: "Identity Engine upgrade overview",
+            guideName: "oie-upgrade-overview"
+          },
+          {
+            title: "Plan embedded auth app upgrades",
+            guideName: "oie-upgrade-plan-embedded-upgrades"
+          },
+          {
+            title: "Identity Engine limitations",
+            guideName: "ie-limitations"
+          },
+          {
+            title: "Okta Sign-In Widget upgrade",
+            subLinks: [
+              {
+                title: "Upgrade your widget",
+                guideName: "oie-upgrade-sign-in-widget"
+              },
+              {
+                title: "Deprecated JavaScript methods in the widget",
+                guideName: "oie-upgrade-sign-in-widget-deprecated-methods"
+              },
+              {
+                title: "Updates to widget styling",
+                guideName: "oie-upgrade-sign-in-widget-styling"
+              },
+              {
+                title: "Updates to widget i18n properties",
+                guideName: "oie-upgrade-sign-in-widget-i18n"
+              }
+            ]
+          },
+          {
+            title: "Identity Engine SDK upgrade",
+            subLinks: [
+              {
+                title: "Add the Identity Engine SDK to your app",
+                guideName: "oie-upgrade-add-sdk-to-your-app"
+              },
+              {
+                title: "Upgrade your application to the Identity Engine SDK",
+                guideName: "oie-upgrade-api-sdk-to-oie-sdk"
+              },
+              {
+                title: "Understand how sessions work after the upgrade",
+                guideName: "oie-upgrade-sessions-api"
+              }
+            ]
+          },
+          {
+            title: "Understand MFA enrollment policy API changes after the upgrade",
+            guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
       },
@@ -703,6 +770,10 @@ export const guides = [
             title: "Add multifactor authentication",
             guideName: "mfa"
           },
+          {
+            title: "Registration Inline Hook",
+            guideName: "archive-registration-inline-hook"
+          }
         ]
       }
     ]

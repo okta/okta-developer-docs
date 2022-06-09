@@ -10,7 +10,9 @@ class GeoLocation {
     this.hasRetried = false;
     this.onCompletion = typeof onCompletion === 'function' ? onCompletion : () => {};
 
-    this.fetchCountryCode();
+    if (!storage.getItem(STORAGE_KEY) || this.isExpired() === true) {
+      this.fetchCountryCode();
+    }
   }
 
   fetchCountryCode = () => {
@@ -21,12 +23,17 @@ class GeoLocation {
     }
   }
 
-  onSuccess = (response = {}) => {
+  isExpired = () => {
     const now = new Date();
     const storageItem = JSON.parse(storage.getItem(STORAGE_KEY));
     const expiration = storageItem?.expiration ?? 0;
+    return now.getTime() > expiration;
+  }
+
+  onSuccess = (response = {}) => {
+    const storageItem = JSON.parse(storage.getItem(STORAGE_KEY));
     const countryCode = response?.country?.iso_code ?? false;
-    const storageIsExpired = now.getTime() > expiration;
+    const storageIsExpired = this.isExpired();
 
     if (storageIsExpired) {
       this.storeCountryCode(countryCode);

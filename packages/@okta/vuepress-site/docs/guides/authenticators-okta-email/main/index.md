@@ -93,10 +93,9 @@ Out of the box, the Embedded SDK solution supports the Email Magic Link feature 
 | ----------------------------| ------------------|------------------------|-------------|-------------------------|
 | Email Challenge             | Sign-in with email - challenge                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | No
 | Forgot Password             | Self-service password recovery                           | Email challenge   | [Magic link](#integrate-email-challenge-with-magic-links), OTP  | Yes, add `otp` and `state` parameters. See <StackSnippet snippet="custompwdguide" inline />.
-| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | [OTP](#integrate-email-enrollment-with-otp)              | Yes, remove magic link
+| Email Factor Verification   | Self-service registration, Sign-in with email - enroll   | Email enrollment  | Magic link, [OTP](#integrate-email-enrollment-with-otp)              | No
 
 > **Note:** This guide uses the sign-in with email use cases to describe how to integrate email enrollment and challenge.
-
 
 ## Update configurations
 
@@ -225,7 +224,7 @@ In each template, find the anchor tag and remove it from the template HTML. The 
 
 </div>
 
-To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm) in the Okta Help Center.
+To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email) in the Okta Help Center.
 
 </div>
 

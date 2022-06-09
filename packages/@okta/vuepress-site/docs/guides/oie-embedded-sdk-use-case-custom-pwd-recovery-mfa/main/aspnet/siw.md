@@ -83,7 +83,7 @@ Consume the session `state` and `otp` values  in a Razor page that contains the 
 
 After the widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
 

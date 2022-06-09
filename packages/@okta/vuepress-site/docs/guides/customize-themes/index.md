@@ -43,17 +43,17 @@ For example, if you update the sign-in page code using the editor and change the
 
 ## Get info about brands and themes
 
-At the top level, Your Okta org contains a brand, which contains a default theme. The default brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
+At the top level, Your Okta org contains a single brand, which contains a default theme. The brand is applied to your org's subdomain/[custom domain](/docs/guides/custom-url-domain/) if you have specified one.
 
-> **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
+> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
 
 ### Get brands
 
-You can return the brands with the following request (**Get brands** in Postman):
+You can return the org's brand response objects with the following request (**Get brands** in Postman):
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
-This returns an array of [brand response objects](/docs/reference/api/brands/#brand-response-object). You can try this in Postman by running the Get brands request.
+This returns an array of [brand response objects](/docs/reference/api/brands/#brand-response-object), which currently contains a single object. You can try this in Postman by running the GET brands request.
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
@@ -69,7 +69,7 @@ You can return the themes contained in a brand with the following request (**Get
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
-This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object).
+This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object), which currently contains a single object.
 
 Once you've set the `themeId` variable to a specific theme ID, you can return a specific theme response object using the following request (**Get theme** in Postman):
 
