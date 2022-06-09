@@ -61,7 +61,7 @@ See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### Bugs fixed in 2022.06.0
 
-* The User Consent URIs (`logo_uri`, `policy_uri`, `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
+* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
 
 * When a create user API request failed due to non-compliant user credentials, the "Add user to group membership" and "Add user to application membership" events were listed incorrectly in the System Log. (OKTA-469408)
 
