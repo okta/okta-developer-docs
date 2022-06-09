@@ -72,12 +72,6 @@ curl -v -X POST \
           "scope": "REQUEST"
         }
       },
-      "response": {
-        "signature": {
-          "algorithm": "HS256",
-          "scope": "ANY"
-        }
-      }
     },
     "endpoints": {
       "acs": {
@@ -5142,7 +5136,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) <ApiLifecycle access="ea" /> | TRUE    | FALSE    |
+|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object)| TRUE    | FALSE    |
 |credentials  | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
@@ -5196,8 +5190,6 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 ```
 ##### OIDC Algorithms object
 
-<ApiLifecycle access="ea" />
-
 The `OIDC` protocol supports the `request` algorithm and verification settings.
 
 | Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
@@ -5221,8 +5213,6 @@ The `OIDC` protocol supports the `request` algorithm and verification settings.
 ```
 
 ###### OIDC Request Algorithm object
-
-<ApiLifecycle access="ea" />
 
 Algorithm settings for signing authorization requests sent to the IdP:
 
@@ -5248,13 +5238,11 @@ Algorithm settings for signing authorization requests sent to the IdP:
 
 ###### OIDC request Signature Algorithm object
 
-<ApiLifecycle access="ea" />
-
-HMAC Signature Algorithm settings for signing authorization requests sent to the IdP:
+Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
-| algorithm   | The HMAC Signature Algorithm used when signing an authorization request  | `HS256`, `HS384` or `HS512` | FALSE    | FALSE    |
+| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (Self-Service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
 > **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
@@ -5331,6 +5319,7 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
 | client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
+| token_endpoint_auth_method | Client authentication methods supported by the token endpoint. Methods supported: `private_key_jwt`  | String   | TRUE     | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5340,8 +5329,8 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
     "type": "OAUTH2",
     "credentials": {
       "client": {
-        "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_id": "{{clientId}}",
+        "client_secret": "{{clientSecret}}"
       }
     }
   }
@@ -5354,13 +5343,58 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
     "type": "OIDC",
     "credentials": {
       "client": {
-        "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_id": "{{clientId}}",
+        "client_secret": "{{clientSecret}}"
       }
     }
   }
 }
 ```
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt"
+      }
+    }
+  }
+}
+```
+
+###### OpenID Connect Signing Credentials object
+
+Determines the [IdP Key Credential](#identity-provider-key-credential-object) used to sign requests sent to the IdP. This object is used when `token_endpoint_auth_method` is `private_key_jwt`.
+
+| Property | Description                                                                                                    | DataType | Nullable | Readonly  | Validation                                 |
+| -------- | -------------------------------------------------------------------------------------------------------------  | -------- | -------- | --------  | ------------------------------------------ |
+| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to Okta's X.509 signature certificate. | String   | TRUE    | FALSE     | Valid Signing Key ID reference             |
+| alg      |The algorithm used when generating the JWT from the private key for token endpoint authentication.  | `RS256`, `RS384`, `RS512`   | FALSE    | FALSE     | Valid date type             |
+
+> **Note:** The `kid` parameter is required for an UPDATE request. For a CREATE request, it can be `null`.
+
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt"
+      },
+      "signing":{
+        "kid": "{{keyId}}",
+        "alg": "RS256"
+      }
+    }
+  }
+}
+```
+
 
 ##### Apple Client Signing object
 
@@ -5889,7 +5923,7 @@ The `matchAttribute` must be a valid Okta User profile attribute of one of the f
 
 For example, the filter pattern `(\S+@example\.com)` allows only Users that have an `@example.com` username suffix and rejects assertions that have any other suffix such as `@corp.example.com` or `@partner.com`.
 
-* Only `SAML2` IdP providers support the `filter` property.
+* Only `SAML2` and `OIDC` IdP providers support the `filter` property.
 
 ```json
 {
