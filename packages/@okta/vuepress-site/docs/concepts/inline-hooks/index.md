@@ -30,7 +30,7 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
 | [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony Inline Hook](/docs/reference/telephony-hook/) <ApiLifecycle access="ea" /> | Customizes Okta's flows that send SMS or Voice messages |
+| [Telephony Inline Hook](/docs/reference/telephony-hook/) | Customizes Okta's flows that send SMS or Voice messages |
 
 ## Inline Hook process flow
 
@@ -164,7 +164,7 @@ In the case of an Inline Hook timeout or failure, the Okta process flow either c
 | Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the Inline Hook again. |
 | Registration Inline Hook | Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (SSR)</li><li>"There was an error updating your profile. Please try again later." (Progressive Enrollment)</li></ul> |
 | SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
-| Telephony Inline Hook <ApiLifecycle access="ea" /> | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
+| Telephony Inline Hook | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
 | Token Inline Hook | Okta process flow continues with original token returned. |
 | User Import Inline Hook | Okta import process continues and user is created. |
 
