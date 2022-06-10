@@ -68,14 +68,14 @@ If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/)
 
 ## Upgrade process for an embedded widget
 
-Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Replace the `${widgetVersion}` variable with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-See [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the [next](#changes-to-widget-configuration-for-identity-engine) section.
 
