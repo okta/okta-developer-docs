@@ -46,7 +46,7 @@ Previously, Okta only supported the use of client secret as the client authentic
 
 #### Okta Verify rate limit updates
 
-Users who attempt to enroll in Okta Verify using SMS can now be rate limited. These rate limit events are now logged in the System Log. <!-- OKTA-502577 -->
+Users who attempt to enroll in Okta Verify using SMS can now be rate limited. These rate limit events are now logged in the [System Log](/docs/reference/rl-system-log-events/). <!-- OKTA-502577 -->
 
 #### Regular expression support for matching users with a generic inbound OIDC IdP
 
