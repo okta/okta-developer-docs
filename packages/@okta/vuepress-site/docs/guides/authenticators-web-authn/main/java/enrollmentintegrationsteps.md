@@ -70,7 +70,7 @@ AuthenticationResponse enrollResponse =
 
 ### 4: Identify data for creating a new credential
 
-The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, indicating the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
+The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates that the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
 ```json
 {
@@ -111,7 +111,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
         enrollResponse.getWebAuthnParams().getCurrentAuthenticator());
     ```
 
-2. Set client-side javascript variables to values originating from `currentAuthenticator`. These variables are used later to create the credential.
+2. Set client-side javascript variables to values that originate from `currentAuthenticator`. These variables are used later to create the credential.
 
     ```javascript
     <script th:inline="javascript">
@@ -170,7 +170,7 @@ navigator.credentials.create({
 
 This call initiates the following steps:
 
-1. The browser prompts the user to choose the type of WebAuthn authenticator they are using. For example, a portable hardware authenticator such as a USB security key, or a software-based authenticator such as a fingerprint scanner.
+1. The browser prompts the user to choose the type of WebAuthn authenticator that they are using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner
 
 <div class="common-image-format">
 
@@ -186,7 +186,7 @@ This call initiates the following steps:
 
 </div></br>
 
-3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` containing the public key, credential ID, and other information used to associate the new credential with the server and browser.
+3. The private and public key pairs are created. The private key is stored internally on the device and linked to the user and domain name. Specifically, `navigator.credentials.create()` returns an object of type `PublicKeyCredential` that contains the public key, credential ID, and other information used to associate the new credential with the server and browser.
 
     ```json
     {
@@ -246,4 +246,4 @@ Forward the signature to Okta for validation. Specifically, perform the followin
         .verifyWebAuthn(proceedContext, webauthnRequest);
     ```
 
-3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are further remediation steps to complete.
+3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status to indicate that there are further remediation steps to complete.

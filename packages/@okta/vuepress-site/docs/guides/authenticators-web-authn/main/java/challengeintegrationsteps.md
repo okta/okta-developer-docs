@@ -3,7 +3,7 @@ testing
 
 ### 1: Start challenge flow
 
-Start the challenge flow with calls to `IDXAuthenticationWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send username and password to the Okta server with `IDXAuthenticationWrapper.authenticate()`.
+Start the challenge flow with calls to `IDXAuthenticationWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send the username and password to the Okta server with `IDXAuthenticationWrapper.authenticate()`.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -243,4 +243,4 @@ Forward the signature to Okta for validation. Specifically, perform the followin
         .verifyWebAuthn(proceedContext, webauthnRequest);
     ```
 
-3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are further remediation steps to complete.
+3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status to indicate that there are further remediation steps to complete.
