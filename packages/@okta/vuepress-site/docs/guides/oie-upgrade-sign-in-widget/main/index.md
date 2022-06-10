@@ -68,24 +68,35 @@ If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/)
 
 ## Upgrade process for an embedded widget
 
-When you upgrade an embedded widget:
+Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Replace the `${widgetVersion}` variable with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-* Ensure that the Sign-In Widget source in your sign-in page references the Okta CDN. Replace the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+```html
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+```
 
-   ```html
-   <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-   ```
+See [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-   > **Note:** More info can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
-
-* You must set the `useInteractionCodeFlow=true` configuration option in your embedded Sign-In Widget. This is the only supported authentication flow for the embedded widget with Identity Engine.
+In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the [next](#changes-to-widget-configuration-for-identity-engine) section.
 
 > **Note:** If you're currently using the Sign-In Widget major version 4 or earlier, consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md).
 
 ## Changes to widget configuration for Identity Engine
 
 For Identity Engine, the widget is configured differently. You can remove some specific objects that were previously in the widget configuration from the JavaScript, as described in the following sections.
+
+### Interaction Code flow
+
+Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine. You must set the new `useInteractionCodeFlow=true` [configuration option](https://github.com/okta/okta-signin-widget#useinteractioncodeflow) in your embedded widget:
+
+```JavaScript
+var config = {
+  issuer: '{{authServerUri}}',
+  clientId: '{{oidcAppClientId}}',
+  redirectUri: '{{oidcAppRedirectUri}}',
+  useInteractionCodeFlow: true
+}
+```
 
 ### Registration
 
