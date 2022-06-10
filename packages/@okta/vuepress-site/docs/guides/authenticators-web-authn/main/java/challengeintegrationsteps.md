@@ -167,8 +167,9 @@ This call initiates the following steps:
 <div class="common-image-format">
 
 ![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
-
+<br>
 </div>
+
 
 3. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
 
