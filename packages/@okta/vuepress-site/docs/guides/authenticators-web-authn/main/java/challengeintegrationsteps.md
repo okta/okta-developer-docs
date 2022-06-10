@@ -1,6 +1,9 @@
+testing
+
+
 ### 1: Start challenge flow
 
-Start the challenge flow with calls to `IDXAuthenticatorWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send username and password to the Okta server with `IDXAuthenticatorWrapper.authenticate()`.
+Start the challenge flow with calls to `IDXAuthenticationWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send username and password to the Okta server with `IDXAuthenticationWrapper.authenticate()`.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -8,7 +11,8 @@ ProceedContext proceedContext = beginResponse.getProceedContext();
 
 AuthenticationResponse authenticationResponse;
 authenticationResponse = idxAuthenticationWrapper.authenticate(
-          new AuthenticationOptions(username, password.toCharArray()), proceedContext);
+    new AuthenticationOptions(username, password.toCharArray()),
+    proceedContext);
 ```
 
 ### 2: Display WebAuthn option
@@ -48,26 +52,28 @@ A simple authenticator selection page should look like this:
 
 <div class="common-image-format">
 
-![Page showing webauthn option in list](/img/authenticators/authenticators-webauthn-java-dropdown-selection.png)
+![Screenshot illustrating the select authenticator page showing the available sign-in authenticators, including the WebAuthn.](/img/authenticators/authenticators-webauthn-java-dropdown-selection.png)
 
 </div>
 
 ### 3: Submit WebAuthn authenticator option
 
-When the user selects the WebAuthn option, call `IDXAuthenticatorWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
+When the user selects the WebAuthn option, call `IDXAuthenticationWrapper.enrollAuthenticator()` passing in `ProceedContext` and the authenticator ID returned from `AuthenticationResponse.authenticators[n].factors[n].id`.
 
 ```java
 Optional<Authenticator> authenticatorOptional =
-                    authenticators.stream().filter(auth -> auth.getType().equals("webauthn")).findFirst();
+    authenticators.stream().filter(auth -> auth.getType().equals
+    ("webauthn")).findFirst();
 String authId = authenticatorOptional.get().getId();
 
-AuthenticationResponse enrollResponse = idxAuthenticationWrapper.enrollAuthenticator(proceedContext, authId);
+AuthenticationResponse enrollResponse = idxAuthenticationWrapper
+    .enrollAuthenticator(proceedContext, authId);
 
 ```
 
 ### 4: Identify data for getting the credential
 
-The `AuthenticationResponse` object from `IDXAuthenticatorWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION` that indicates the user must verify their WebAuthn credentials. The code below shows an example response. Additionally, `AuthenticationResponse` returns the challenge, credential ID, and other information needed to verify the WebAuthn credentials on the user's device.
+The `AuthenticationResponse` object from `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION` that indicates the user must verify their WebAuthn credentials. The code below shows an example response. Additionally, `AuthenticationResponse` returns the challenge, credential ID, and other information needed to verify the WebAuthn credentials on the user's device.
 
 ```json
 {
@@ -102,12 +108,14 @@ Redirect the user to a page that verifies the WebAuthn credentials returned in t
 1. Call `ModelandView.addObject()` and add `webauthnCredentialId` and `challengeData`.
 
     ```java
-    String webauthnCredentialId = enrollResponse.getWebAuthnParams().getWebauthnCredentialId();
+    String webauthnCredentialId = enrollResponse.getWebAuthnParams()
+        .getWebauthnCredentialId();
 
     modelAndView.addObject("title", "Select WebAuthn Authenticator");
     modelAndView.addObject("webauthnCredentialId", webauthnCredentialId);
     modelAndView.addObject("challengeData", enrollResponse.getWebAuthnParams()
-            .getCurrentAuthenticator().getValue().getContextualData().getChallengeData());
+        .getCurrentAuthenticator().getValue().getContextualData()
+        .getChallengeData());
     ```
 
 2. Set client-side javascript variables used later to get the credential.
@@ -123,8 +131,8 @@ Redirect the user to a page that verifies the WebAuthn credentials returned in t
 
     ```javascript
     <script th:inline="javascript">
-          const challengeData = {"userVerification":"preferred","challenge":"O99tLUgxcY5fz",...};
-          const webauthnCredentialId = "AYqpxcR9Jrw6BzVJyZf-ImP7OffDl9-pHcRV2fLD9wexskXac7
+        const challengeData = {"userVerification":"preferred","challenge":"O99tLUgxcY5fz",...};
+        const webauthnCredentialId = "AYqpxcR9Jrw6BzVJyZf-ImP7OffDl9-pHcRV2fLD9wexskXac7
     </script>
     ```
 
@@ -144,7 +152,8 @@ const publicKeyCredentialRequestOptions = {
   };
 
 function strToBin(str) {
-    return Uint8Array.from(atob(base64UrlSafeToBase64(str)), c => c.charCodeAt(0));
+    return Uint8Array.from(atob(base64UrlSafeToBase64(str)),
+    c => c.charCodeAt(0));
 }
 ```
 
@@ -154,8 +163,8 @@ Call `navigator.credentials.get()` in the client browser and pass in the `Creden
 
 ```javascript
 navigator.credentials.get({
-      publicKey: publicKeyCredentialRequestOptions
-  }).then((assertion) ...
+    publicKey: publicKeyCredentialRequestOptions
+}).then((assertion) ...
 ```
 
 This call initiates the following steps:
@@ -166,10 +175,10 @@ This call initiates the following steps:
 
 <div class="common-image-format">
 
-![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
-<br>
-</div>
+![Screenshot showing the user consent screen that prompts the user to verify through a fingerprint or password.](/img/authenticators/authenticators-webauthn-user-consent.png)
 
+</div>
+<br>
 
 3. If the user is verified successfully, the authenticator uses the private key to generate a cryptographic signature over the domain name and challenge. Specifically, `navigator.credentials.get()` returns an object of type `PublicKeyCredential` that contains this signature.
 
@@ -192,25 +201,26 @@ The returned `PublicKeyCredential` object contains the signature and other binar
 
 ```javascript
 .then((assertion) => {
-  const clientData = binToStr(assertion.response.clientDataJSON);
-  const authenticatorData = binToStr(assertion.response.authenticatorData);
-  const signatureData = binToStr(assertion.response.signature);
+    const clientData = binToStr(assertion.response.clientDataJSON);
+    const authenticatorData = binToStr(assertion.response.authenticatorData);
+    const signatureData = binToStr(assertion.response.signature);
 
-  const params = {
-      "clientData": clientData,
-      "authenticatorData": authenticatorData,
-      "signatureData": signatureData
-  };
+    const params = {
+       "clientData": clientData,
+        "authenticatorData": authenticatorData,
+        "signatureData": signatureData
+    };
 
-  const options = {
-      method: 'POST',
-      body: JSON.stringify(params),
-      headers: { "Content-type": "application/json; charset=UTF-8" }
-  };
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(params),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+    };
 
 function binToStr(bin) {
-          return btoa(new Uint8Array(bin).reduce((s, byte) => s + String.fromCharCode(byte), ''));
-      }
+    return btoa(new Uint8Array(bin).reduce((s, byte) => s
+        + String.fromCharCode(byte), ''));
+}
 ```
 
 ### 9: Forward signature to Okta for validation
@@ -221,7 +231,7 @@ Forward the signature to Okta for validation. Specifically, perform the followin
 
     ```javascript
     fetch('/verify-webauthn', options)
-                  .then(res => { ...
+        .then(res => { ...
     ```
 
 2. Call `IDXAuthenticationWrapper.verifyWebAuthn()` to have the server validate the signature corresponding to the challenge and public key.
@@ -229,8 +239,8 @@ Forward the signature to Okta for validation. Specifically, perform the followin
     ```java
     ProceedContext proceedContext = Util.getProceedContextFromSession(session);
 
-    AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyWebAuthn(
-      proceedContext, webauthnRequest);
+    AuthenticationResponse authenticationResponse = idxAuthenticationWrapper
+        .verifyWebAuthn(proceedContext, webauthnRequest);
     ```
 
 3. Depending on the org configuration, the `AuthenticationResponse` returned by `IDXAuthenticationWrapper.verifyWebAuthn()` may contain `authenticationStatus` of `SUCCESS` along with token information, or another status indicating there are further remediation steps to complete.
