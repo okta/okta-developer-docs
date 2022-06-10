@@ -15,7 +15,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
-| [Okta Verify rate limit updates](okta-verify-rate-limit-updates) | June 8, 2022|
+| [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
 | [Password as an optional authenticator is GA in Production](#password-as-an-optional-authenticator-is-ga-in-production) | March 30, 2022|
 | [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|

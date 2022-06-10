@@ -14,7 +14,7 @@ title: Okta API Products release notes 2022
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
-| [Okta Verify rate limit updates](okta-verify-rate-limit-updates) | June 8, 2022|
+| [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
 | [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
 | [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
 | [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
