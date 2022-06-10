@@ -20,12 +20,12 @@ The first step is to install the Widget. For this, you have two options: linking
 
 ### CDN
 
-To use the CDN, include this in your HTML, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
+To use the CDN, include this in your HTML, replacing the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 You can find more info in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.

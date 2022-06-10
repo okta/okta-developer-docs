@@ -10,13 +10,13 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing the `${siwVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
 ```razor
 @section head
 {
-   <script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+   <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 ```
 
@@ -31,7 +31,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
 ```json
 {
    "interactionHandle":"${interactionHandle}",
-   "version":"${siwVersion}",
+   "version":"${widgetVersion}",
    "baseUrl":"${baseUrl}",
    "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
