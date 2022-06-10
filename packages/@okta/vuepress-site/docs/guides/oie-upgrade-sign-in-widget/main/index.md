@@ -10,13 +10,13 @@ This guide covers how to upgrade the Okta Sign-In Widget, which depends on wheth
 
 **Learning outcomes**
 
-* Understand the benefits of keeping your widget up to date.
-* Know how to obtain the latest version of the widget.
 * Update your widget based on your user deployment model.
 
 **What you need**
 
-[Latest available widget release](https://github.com/okta/okta-signin-widget/releases)
+* An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
+* An existing app that uses the Okta Sign-In Widget
+* [Latest available widget release](https://github.com/okta/okta-signin-widget/releases)
 
 ---
 
@@ -32,7 +32,7 @@ This article teaches you how to upgrade the widget when it is used in any of the
 * Okta-hosted sign-in page (customizable): Okta provides a hosted sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
 * Embedded (self-hosted): You can embed the widget directly into your application.
 
-After you've completed the widget upgrade and you want to take advantage of the new features in Okta Identity Engine, you can [configure your embedded widget](https://github.com/okta/okta-signin-widget/blob/master/README.md#embedded-self-hosted) to use the new Identity Engine Authentication features.
+After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/guides/oie-intro/) to take advantage of new features in Identity Engine.
 
 ## Best practice for widget maintenance
 
@@ -110,27 +110,29 @@ You can remove the registration objects as follows.
 
 IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a routing rule with the application context.
 
-You can remove the [IdP Discovery](https://github.com/okta/okta-signin-widget#idp-discovery) JavaScript object in the widget as follows.
+You can remove the `idpDiscovery` JavaScript object in the widget as follows.
 
 ![Displays the IDP Discovery object in JavaScript to remove](/img/SIW_Upgrade_Config_Change2.png)
 
 ### OpenID Connect/social authentication
 
-When [external Identity Providers (IdPs)](https://github.com/okta/okta-signin-widget#openid-connect) are used with Social Login, the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type, get distinct styling and get default i18n text, while other entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context.
+When [external Identity Providers (IdPs)](/docs/guides/identity-providers/) are used for Social Login, the supported IdPs (such as Google, Facebook, Apple, Microsoft, and so on) are declared with a `type` property. These supported IdPs get distinct styling and default i18n text, while other custom entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context.
 
-You no longer need the [IdPs](https://github.com/okta/okta-signin-widget#openid-connect) JavaScript object and `className` property in the widget, and you can remove them as follows.
+You no longer need the `idps` JavaScript object and `className` property in the widget, and you can remove them as follows.
 
 ![Displays the IdPs object and className property in JavaScript to remove](/img/SIW_Upgrade_Config_Change3.png)
 
+See [Okta Sign-In Widget with an external Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#okta-sign-in-widget).
+
 ### Smart card IdP
 
-You no longer need to configure the authentication settings for the smart card IdP, as it's no longer supported. You can remove the authentication settings for the [smart card IdP](https://github.com/okta/okta-signin-widget#smart-card-idp) as follows.
+You no longer need to configure the authentication settings for the [smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow), as it's no longer supported. You can remove the authentication settings for the smart card IdP (`piv`) as follows.
 
 ![Displays the smart card IdP settings in JavaScript to remove](/img/SIW_Upgrade_Config_Change4.png)
 
 ### Bootstrapping from a recovery token
 
-If you're initializing the widget with a [recovery token](https://github.com/okta/okta-signin-widget#bootstrapping-from-a-recovery-token), the `recoveryToken` setting appears, for example:
+If you're initializing the widget with a recovery token, the `recoveryToken` setting appears, for example:
 
 ![Displays the recovery token setting](/img/SIW_Upgrade_Config_Change5.png)
 
@@ -138,7 +140,7 @@ The recovery token is dynamic and is automatically passed into the initializatio
 
 ### Okta dashboard or custom dashboard sign-in flow
 
-For [sign-in with the Okta dashboard](https://developer.okta.com/code/javascript/okta_sign-in_widget/#sign-in-to-okta-with-the-default-dashboard), you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget. You can remove the redirect configuration as follows.
+For sign-in with the Okta dashboard, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget. You can remove the redirect configuration as follows.
 
 ![Displays the Okta dashboard sign-in](/img/SIW_Upgrade_Config_Change6.png)
 
