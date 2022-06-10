@@ -32,6 +32,8 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Read the information and perform any required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project for this guide and understanding how Glitch projects are configured and used with hooks.
 
+> **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
+
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
 * Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable. Additionally, place an `otp` tag key in double brackets in the prepopulated XML. This tag key directly references the dynamic `otp` used in this exercise. For example:
