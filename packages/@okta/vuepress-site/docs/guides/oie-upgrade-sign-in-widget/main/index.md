@@ -53,15 +53,17 @@ The widget upgrade for a redirect sign-in flow depends on whether you configured
 
 To update the widget:
 
-1. In the Admin Console, go to **Customization** > **Sign-in code editor**.
+1. In the Admin Console, go to **Customization** > **Sign-in page code editor**.
 
    In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
 
-2. If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields. Click **Save** at the bottom of the page.
+2. If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
 
-3. Test your authentication sign-up and recovery flows that you support in your applications to make sure that they work.
+3. Click **Save** at the bottom of the page.
 
-4. Check that any CSS and localization changes that you make are reflected in the new version.
+4. Test your app's supported authentication sign-up and recovery flows to ensure that they still work.
+
+5. Verify the CSS and localization changes that you made are reflected in the new version.
 
 ## Upgrade process for an embedded widget
 
@@ -113,13 +115,11 @@ You can remove the `idpDiscovery` JavaScript object in the widget as follows.
 
 ### OpenID Connect/social authentication
 
-When [external Identity Providers (IdPs)](/docs/guides/identity-providers/) are used for Social Login, the supported IdPs (such as Google, Facebook, Apple, Microsoft, and so on) are declared with a `type` property. These supported IdPs get distinct styling and default i18n text, while other custom entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions, however, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context.
+When [external Identity Providers (IdPs)](/docs/guides/identity-providers/) are used for Social Login in Classic Engine, the supported IdPs (such as Google, Facebook, Apple, Microsoft, and so on) are declared with a `type` property. These supported IdPs get distinct styling and default i18n text, while other custom entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions in Identity Engine. However, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context. See [Okta Sign-In Widget with an external Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#okta-sign-in-widget).
 
 You no longer need the `idps` JavaScript object and `className` property in the widget, and you can remove them as follows.
 
 ![Displays the IdPs object and className property in JavaScript to remove](/img/SIW_Upgrade_Config_Change3.png)
-
-See [Okta Sign-In Widget with an external Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#okta-sign-in-widget).
 
 ### Smart card IdP
 
@@ -137,7 +137,7 @@ The recovery token is dynamic and is automatically passed into the initializatio
 
 ### Okta dashboard or custom dashboard sign-in flow
 
-For sign-in with the Okta dashboard, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget. You can remove the redirect configuration as follows.
+For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget. You can remove the redirect configuration as follows.
 
 ![Displays the Okta dashboard sign-in](/img/SIW_Upgrade_Config_Change6.png)
 
@@ -165,7 +165,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.idpDiscovery`: Enabled IdP Discovery when the user signed in. The [Identity Provider routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) are evaluated by default when applicable.
 
-* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to toggle visibility of their password on the Okta sign-in page so that they could check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts. It may be added to policy configuration in a future release.
+* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to toggle visibility of their password on the Okta sign-in page so that they could check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
 
 * `features.scrollOnError`: Scrolled errors into view. Errors appear inside the widget.
 
@@ -194,7 +194,7 @@ Developers can't subscribe to the `processCreds` hook in the widget.
 
 Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
 
-In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same. You can use either the Admin Console or by Inline Hook Management APIs.
+In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
 See [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
