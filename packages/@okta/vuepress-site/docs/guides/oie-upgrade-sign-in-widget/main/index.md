@@ -72,13 +72,15 @@ When you upgrade an embedded widget:
 
 * Make sure that the [widget configuration](/docs/guides/oie-embedded-common-download-setup-app/-/main/) references the latest version of the widget and that the [reference to the Okta CDN](/docs/guides/oie-embedded-widget-use-case-load/-/main/#_1-source-the-sign-in-widget-in-your-sign-in-page) grabs the latest widget version. See the [widget Readme](https://github.com/okta/okta-signin-widget/blob/master/README.md) for more information on [using the Okta CDN](https://github.com/okta/okta-signin-widget/blob/master/README.md#using-the-okta-cdn).
 
-* Update the Javascript and CSS files in your HTML as follows, replacing the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget. replacing the placeholders with the latest library versions. Note that the latest version changes every week. The latest version of the Widget is currently -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+* Update the Javascript and CSS files in your HTML as follows, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget.
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
 <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
+
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 > **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the widget.
 

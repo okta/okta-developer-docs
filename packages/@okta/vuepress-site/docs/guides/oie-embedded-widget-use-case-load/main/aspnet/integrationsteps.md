@@ -65,7 +65,7 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-Add the Sign-In Widget source to your page by referencing the Okta CDN, replacing the `${widgetVersion}` property with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
+Add the Sign-In Widget source to your page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```razor
 @section head
@@ -75,7 +75,7 @@ Add the Sign-In Widget source to your page by referencing the Okta CDN, replacin
 }
 ```
 
-You can find more info in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### 2c: Add JavaScript to initialize and load the Widget
 
