@@ -70,35 +70,35 @@ AuthenticationResponse enrollResponse =
 
 ### 4: Identify data for creating a new credential
 
-The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_VERIFICATION`, which indicates that the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
+The `AuthenticationResponse` object returned by `IDXAuthenticationWrapper.enrollAuthenticator()` has `authenticationStatus` set to `AWAITING_AUTHENTICATOR_ENROLLMENT`, which indicates that the user must verify their WebAuthn credentials. `AuthenticationResponse` returns the challenge and other information needed to verify the WebAuthn credentials on the user's device.
 
 ```json
 {
-	"authenticationStatus": "AWAITING_AUTHENTICATOR_ENROLLMENT",
-	"webAuthnParams": {
-		"currentAuthenticator": {
-			"value": {
-				"type": "security_key",
-				"id": "autc4m63eWYtQ0x3...",
-				"key": "webauthn",
-				"displayName": "Security Key or Biometric",
-				"contextualData": {
-					"activationData": {
-						"user": {
-							"id": "00uunttkoePFgXjQO696",
-							"name": "johndoe@email.com",
-							"displayName": "John Doe"
-						},
-						"challenge": "pMhDjTZmaxwBYqLe4-mpOSCVbafd..."
-					}
-				}
-			}
-		}
-	}
+  "authenticationStatus": "AWAITING_AUTHENTICATOR_ENROLLMENT",
+  "webAuthnParams": {
+    "currentAuthenticator": {
+      "value": {
+        "type": "security_key",
+        "id": "autc4m63eWYtQ0x3...",
+        "key": "webauthn",
+        "displayName": "Security Key or Biometric",
+        "contextualData": {
+          "activationData": {
+            "user": {
+              "id": "00uunttkoePFgXjQO696",
+                "name": "johndoe@email.com",
+                "displayName": "John Doe"
+            },
+            "challenge": "pMhDjTZmaxwBYqLe4-mpOSCVbafd..."
+          }
+        }
+      }
+      }
+    }
 }
 ```
 
-### 5: Display page to verify WebAuthn credentials
+### 5: Display page to create credentials
 
 Redirect the user to a page that creates the WebAuthn credentials and allow this page access to the `AuthenticationResponse` properties.
 
@@ -133,7 +133,7 @@ Redirect the user to a page that creates the WebAuthn credentials and allow this
     </script>
     ```
 
-### 6: Build the parameter for creating a new credential
+### 6: Build the parameter for creating new credential
 
 On page load, create the parameter needed to make a new credential. When creating this parameter, use the `challenge` and `user.id` properties.
 
@@ -226,9 +226,9 @@ function binToStr(bin) {
       }
 ```
 
-### 9: Forward signature to Okta for enrollment
+### 9: Forward public key credentials to the Okta server
 
-Forward the signature to Okta for validation. Specifically, perform the following steps:
+Forward the signature to the Okta server for validation. Specifically, perform the following steps:
 
 1. First, send the converted signature to your app using an HTTP Post request from the client browser to the server.
 

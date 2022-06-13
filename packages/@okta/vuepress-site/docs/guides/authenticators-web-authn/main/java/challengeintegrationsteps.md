@@ -1,6 +1,3 @@
-testing
-
-
 ### 1: Start challenge flow
 
 Start the challenge flow with calls to `IDXAuthenticationWrapper.begin()` and `AuthenticationResponse.getProceedContext()`. Then send the username and password to the Okta server with `IDXAuthenticationWrapper.authenticate()`.
@@ -195,7 +192,7 @@ This call initiates the following steps:
 }
 ```
 
-### 8: Build parameter for sending the signature to Okta
+### 8: Build the parameter for sending the public key to the Okta server
 
 The returned `PublicKeyCredential` object contains the signature and other binary-formatted data that you need to convert to strings before sending it back to the Okta servers.
 
@@ -223,9 +220,9 @@ function binToStr(bin) {
 }
 ```
 
-### 9: Forward signature to Okta for validation
+### 9: Forward signature to Okta server for validation
 
-Forward the signature to Okta for validation. Specifically, perform the following steps:
+Forward the signature to the Okta server for validation. Specifically, perform the following steps:
 
 1. Send the converted signature data from the client browser to the server side of your web application.
 
