@@ -40,6 +40,7 @@ The new version of the MyAccount API doesn't have the API version number in the 
 ```json
 Accept: application/json; okta-version=1.0.0
 ```
+
 ### Authentication
 
 If users want to change their profile, access tokens are only valid for 15 minutes.
@@ -55,7 +56,7 @@ Users can still modify their profile, but with a lower granularity. That is, the
 
 * `/idp/myaccount/profile`
 
-The `Me` object no longer exists. Also, the following endpoints are deprecated:
+The [Me object](/docs/reference/api/archive-myaccount/#me-object) no longer exists. Also, the following endpoints are deprecated:
 
 * `/api/v1/myaccount`
 * `/api/v1/myaccount/profile/schema`
@@ -81,6 +82,10 @@ See [Grant the required scopes](/docs/guides/configure-user-scoped-account-manag
 
 ### Error messages
 
-New messages for new APIs. for example: error codes e.g., changing email through profile update, etc. (an operation that is no longer viable)
+The new version of the API comes with new error messages. Examples include:
+
+* invalid profile attributes
+* invalid email ID
+* email operation not enabled in your org
 
 See [Update My User Profile - Error responses](/docs/reference/api/myaccount/#error-responses-8).
