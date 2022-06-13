@@ -34,9 +34,15 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
         scopes: /*[[${scopes}]]*/ '[scopes]',
     };
 
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
+
     new OktaSignIn(config).showSignInAndRedirect(
-        { el: '#sign-in-widget' },
-        function (res) {}
+      otp: otp,
+      state: state,
+      { el: '#sign-in-widget' },
+      function (res) {}
     );
 </script>
 ```

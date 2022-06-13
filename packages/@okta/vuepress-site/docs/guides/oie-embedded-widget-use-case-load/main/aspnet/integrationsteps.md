@@ -31,9 +31,9 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 ```json
 {
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
-   "version":"{siwVersion}",
+   "version":"${widgetVersion}",
    "baseUrl":"https://dev-12345678.okta.com",
-   "clientId":"{clientId}",
+   "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
       "issuer":"https://dev-122345678.okta.com/oauth2/default",
@@ -45,6 +45,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
    },
    "useInteractionCodeFlow":true,
    "state":"${state}",
+   "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
@@ -93,8 +94,14 @@ The `div id` that you passed into the Widget needs to match a `div` on the page 
 
    console.log(widgetConfig.interactionHandle);
 
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
+
    const signIn = new OktaSignIn({
        el: '#okta-signin-widget-container',
+       otp: otp,
+       state: state,
        ...widgetConfig
    });
    signIn.showSignInAndRedirect()

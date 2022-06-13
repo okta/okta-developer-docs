@@ -10,7 +10,7 @@ parameters using different methods. The main parameters include:
 
 * Client ID, issuer, scopes &mdash; sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
 * Interaction Handle &mdash; obtained from the `/interact` endpoint
-* PKCE parameters, state, and nonce &mdash; generated values
+* PKCE parameters, otp, state, and nonce &mdash; generated values
 * Base URL &mdash; derived from the issuer URL
 
 These parameter are passed to the Widget during page load. The sample application sets most
@@ -23,6 +23,7 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
     BaseUrl           string
     ClientId          string
     Issuer            string
+    Otp                string
     State             string
     Nonce             string
     InteractionHandle string
@@ -104,7 +105,12 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
     issuer: "{{ .Issuer }}",
     scopes: ['openid', 'profile', 'email'],
   };
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
   const signIn = new OktaSignIn({
+   otp: otp,
+   state: state,
     el: '#okta-signin-widget-container',
     ...config
   });

@@ -22,7 +22,12 @@ Load the Widget on the sign-in page, similar to the following snippet:
 
       <script type="text/javascript">
         const widgetConfig = {{{widgetConfig}}};
+        var searchParams = new URL(window.location).searchParams;
+         var otp = searchParams.get('otp');
+         var state = searchParams.get('state');
         const signIn = new OktaSignIn({
+         otp: otp,
+         state: state,
           el: '#okta-signin-widget-container',
           ...widgetConfig
         });
@@ -50,6 +55,7 @@ The `WidgetConfig` uses values defined in the `config.js` file and is referenced
         },
         useInteractionCodeFlow: true,
         state,
+        otp,
         interactionHandle,
         codeChallenge,
         codeChallengeMethod,

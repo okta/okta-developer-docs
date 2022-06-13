@@ -45,6 +45,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
    },
    "useInteractionCodeFlow":true,
    "state":"${state}",
+   "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
@@ -57,13 +58,19 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 <script type="text/javascript">
     const widgetConfig = @Html.Raw(JsonConvert.SerializeObject(Model));
     console.log(widgetConfig.interactionHandle);
-    const signIn = new OktaSignIn({
+
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
+   const signIn = new OktaSignIn({
+         otp: otp,
+         state: state,
         el: '#okta-signin-widget-container',
         ...widgetConfig
     });
     signIn.showSignInAndRedirect()
         .catch(err => {
-            console.log('Error happen in showSignInAndRedirect: ', err);
+            console.log('An error occurred in showSignInAndRedirect: ', err);
         });
 </script>
 ```

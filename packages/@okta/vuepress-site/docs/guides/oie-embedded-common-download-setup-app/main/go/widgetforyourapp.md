@@ -41,9 +41,14 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
     issuer: "{{ .Issuer }}",
     scopes: ['openid', 'profile', 'email'],
   };
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
   const signIn = new OktaSignIn({
-    el: '#okta-signin-widget-container',
-    ...config
+      otp: otp,
+      state: state,
+       el: '#okta-signin-widget-container',
+       ...config
   });
   signIn.showSignInAndRedirect()
     .catch(err => {

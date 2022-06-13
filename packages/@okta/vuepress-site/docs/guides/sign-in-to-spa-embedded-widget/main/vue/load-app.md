@@ -98,6 +98,10 @@ export default {
         this.$auth.setOriginalUri('/');
       }
 
+      var searchParams = new URL(window.location).searchParams;
+      this.widget.otp = searchParams.get('otp');
+      this.widget.state = searchParams.get('state');
+
       this.widget.showSignInToGetTokens({
         el: '#okta-signin-container',
         scopes

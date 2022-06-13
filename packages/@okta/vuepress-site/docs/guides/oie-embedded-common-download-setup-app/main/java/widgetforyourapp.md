@@ -42,10 +42,20 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
         scopes: /*[[${scopes}]]*/ '[scopes]',
     };
 
-    new OktaSignIn(config).showSignInAndRedirect(
-        { el: '#sign-in-widget' },
-        function (res) {}
-    );
+   var searchParams = new URL(window.location).searchParams;
+   var otp = searchParams.get('otp');
+   var state = searchParams.get('state');
+
+  const signIn = new OktaSignIn({
+      otp: otp,
+      state: state,
+       el: '#sign-in-widget',
+       ...config
+  });
+  signIn.showSignInAndRedirect()
+    .catch(err => {
+      console.log('Error happen in showSignInAndRedirect: ', err);
+    });
 </script>
 ```
 

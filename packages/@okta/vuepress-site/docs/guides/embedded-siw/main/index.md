@@ -197,12 +197,18 @@ Create an app integration in the Okta org that represents the application you wa
         <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
       </div>
       <script type="text/javascript">
-        const oktaSignIn = new OktaSignIn({
-          issuer: "https://${yourOktaDomain}/oauth2/default",
-          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}",
-          useInteractionCodeFlow: true
-        });
+         var searchParams = new URL(window.location).searchParams;
+         var otp = searchParams.get('otp');
+         var state = searchParams.get('state');
+
+         const oktaSignIn = new OktaSignIn({
+            issuer: "https://${yourOktaDomain}/oauth2/default",
+            redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
+            clientId: "${yourClientId}",
+            useInteractionCodeFlow: true,
+            otp: otp,
+            state: state
+         });
 
         oktaSignIn.authClient.token.getUserInfo().then(function(user) {
           document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
@@ -261,6 +267,9 @@ Create an app integration in the Okta org that represents the application you wa
 ### SPA or Native application using PKCE
 
 ```javascript
+var searchParams = new URL(window.location).searchParams;
+var otp = searchParams.get('otp');
+var state = searchParams.get('state');
 
 const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
@@ -269,6 +278,8 @@ const signIn = new OktaSignIn({
   // must be in the list of redirect URIs enabled for the OIDC app
   redirectUri: '${redirectUri}',
   useInteractionCodeFlow: true,
+  otp: otp,
+  state: state,
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
