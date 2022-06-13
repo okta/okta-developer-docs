@@ -21,7 +21,7 @@ To run the Postman collection of the `idp` version of the API, you need an end-u
 
 ## Use the Auth.js SDK
 
-To help you with your migration, for a limited time you can call endpoints of both versions of the API.
+For a limited time, customers that already use the deprecated API can call endpoints of both versions of the API.
 
 You can access the `idp` version using the [Auth.js SDK](https://github.com/okta/okta-auth-js).
 
@@ -47,7 +47,7 @@ If users want to change their profile, access tokens are only valid for 15 minut
 
 ### Profile endpoints
 
-End users can't modify their email address or phone number in a profile update. They need to make a PUSH request to one of the following endpoints:
+End users can't modify their email address or phone number in a profile update. They need to make a PUT request to one of the following endpoints:
 
 * `/idp/myaccount/emails`
 * `/idp/myaccount/phones`
