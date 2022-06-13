@@ -9,77 +9,72 @@ category: management
 
 This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API.
 
-See reference docs
+* See [MyAccount API v1 (Deprecated)](/docs/reference/api/archive-myaccount/) for the `v1` version of the API documentation.
+* See [MyAccount API](/docs/reference/api/myaccount/) for the `idp` version of the API documentation.
 
 
 ## OIE migration
 
-Classic Engine (AuthN)
-
-new version is Identity Engine or Idp
-
-See [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/) for complete details.
+The `idp` version of the MyAccount API only works on Okta Identity Engine. See [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/) if you need to upgrade.
 
 ## Use the Postman collection
 
-It is up to you how you set up users to call the MyAccount API to manage their account. In this guide, we provide sample API calls using a Postman collection to demonstrate them in a language/platform neutral way.
-
-> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
+To run the Postman collection of the `idp` version of the API, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
-## Libraries
+## Use the Auth.js SDK
 
-As a user of the AuthN version of the API, you can access the new API for a limited time.
+To help you with your migration, for a limited time you can call endpoints of both versions of the API.
 
+You can access the `idp` version using the [Auth.js SDK](https://github.com/okta/okta-auth-js).
 
-AuthN Management SDKs
+## Differences
 
+### Endpoints
 
-Idp version is Auth.js SDK https://github.com/okta/okta-auth-js
+The enhanced MyAccount API is accessible at `/idp/myaccount`.
 
-## Path
+The `/api/v1/myaccount` endpoint is deprecated.
 
-/api/v1/myaccount - management APIs
+### API Versioning
 
-/idp/myaccount - 
-
-## API Versioning
-
-### AuthN
-
-In path /api/v1/myaccount
-
-### Idp
-
-To access the Idp version of the API, you need a valid API version in the `Accept` header. Current version: V1.0.0
+The new version of the MyAccount API doesn't have the API version number in the request URL. To access the `Idp` version of the API, you need a valid API version in the `Accept` header. The current version is v1.0.0.
 
 ```json
 Accept: application/json; okta-version=1.0.0
 ```
 
-## Profile endpoints
+### Profile endpoints
 
-Profile endpoints are different: 
-/api/v1/myaccount/profile/schema
-/api/v1/myaccount/directoryProfile
+End users can't modify their email address or phone number in a profile update. They need to make a PUSH request to one of the following endpoints:
 
-/me doesn’t exist
+* `/idp/myaccount/emails`
+* `/idp/myaccount/phones`
 
+Users can still modify their profile, but with a lower granularity. That is, they can only modify the profile itself:
 
-## Email templates
+* `/idp/myaccount/profile`
 
-### AuthN
+The `Me` object no longer exists. Also, the following endpoints are deprecated:
 
-Change email confirmation – link to settings app
+* `/api/v1/myaccount`
+* `/api/v1/myaccount/profile/schema`
+* `/api/v1/myaccount/directoryProfile`
 
-### Idp
+## Email notification templates
 
-Idp MyAccount/ (newly added) – just an OTP
+A new default email notification is sent to users who try to verify an email address using the new MyAccount API. To confirm the change, users must enter the one-time passcode (OTP) included in the email.
 
-See 
+Here are the details of the new template:
 
-## Scopes
+| UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
+|---------|---------|----------------------|----------|---------|
+| Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
+
+See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
+
+### Scopes
 
 AuthN myaccount/profile - lower granularity. can only modify profile.
 
@@ -87,7 +82,8 @@ Idp - greater breadth and higher granularity. Can read or update phone, email, a
 
 See [Grant the required scopes](/docs/guides/configure-user-scoped-account-management/main/#grant-the-required-scopes).
 
-## Error messages
+
+### Error messages
 
 New messages for new APIs. for example: error codes e.g., changing email through profile update, etc. (an operation that is no longer viable)
 
