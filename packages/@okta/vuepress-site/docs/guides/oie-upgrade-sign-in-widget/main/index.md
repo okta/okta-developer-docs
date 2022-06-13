@@ -36,7 +36,7 @@ After you've completed the widget upgrade, review [Okta Identity Engine overview
 
 ## Best practice for widget maintenance
 
-For best practices, keep your [widget](https://github.com/okta/okta-signin-widget/blob/master/README.md) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
+For best practices, keep your [widget](https://github.com/okta/okta-signin-widget/releases) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
 
 The specific steps to upgrade your widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
