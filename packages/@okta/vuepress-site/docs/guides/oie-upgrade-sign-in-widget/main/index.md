@@ -60,10 +60,14 @@ The widget upgrade for a redirect sign-in flow depends on whether you configured
 
 To update the widget:
 
-1. In the Admin Console, go to **Customization** > **Custom Sign In** tab.
-2. In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
-If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version by using the dropdown boxes that appear for the **Major Version** and **Minor Version** fields.
+1. In the Admin Console, go to **Customization** > **Sign-in code editor**.
+
+   In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
+
+2. If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields. Click **Save** at the bottom of the page.
+
 3. Test your authentication sign-up and recovery flows that you support in your applications to make sure that they work.
+
 4. Check that any CSS and localization changes that you make are reflected in the new version.
 
 ## Upgrade process for an embedded widget
@@ -77,7 +81,7 @@ Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. R
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the [next](#changes-to-widget-configuration-for-identity-engine) section.
+In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the next section.
 
 > **Note:** If you're currently using the Sign-In Widget major version 4 or earlier, consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md).
 
