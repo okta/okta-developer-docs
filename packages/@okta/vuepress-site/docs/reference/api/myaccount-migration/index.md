@@ -41,6 +41,12 @@ The new version of the MyAccount API doesn't have the API version number in the 
 Accept: application/json; okta-version=1.0.0
 ```
 
+### Admin tokens
+
+The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their profile, or email and phone authenticators.
+
+> **Note:** Admin users are unable to call the endpoints of the `idp` version of the MyAccount API.
+
 ### Authentication
 
 If users want to change their profile, access tokens are only valid for 15 minutes.
@@ -77,6 +83,8 @@ See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-defau
 ### Scopes
 
 The scopes for the enhanced MyAccount API offer greater breadth and higher granularity. You can read or update phone, email, and profile. The deprecated version of the API only provides scopes for profile modification.
+
+> **Note:** If you have a custom Authorization Server, the MyAccount API-related scopes are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
 
 See [Grant the required scopes](/docs/guides/configure-user-scoped-account-management/main/#grant-the-required-scopes).
 
