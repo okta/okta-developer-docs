@@ -53,7 +53,7 @@ The widget upgrade for a redirect sign-in flow depends on whether you configured
 
 To update the widget:
 
-1. In the Admin Console, go to **Customization** > **Sign-in page code editor**.
+1. In the Admin Console, go to **Customizations** > **Sign-in page code editor**.
 
    In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
 
