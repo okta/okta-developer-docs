@@ -8005,7 +8005,7 @@ Determines how to authenticate the OAuth 2.0 client
 
 * If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/docs/concepts/key-rotation/). You can update this property via the API or via the administrator UI.
 
-* Use `pkce_required` to require PKCE for your confidential clients using [Authorization Code flow](/docs/guides/implement-grant-type/authcodepkce/main/). If `token_endpoint_auth_method` is `none`, `pkce_required` needs to be `true`. If `pkce_required` isn't specified when adding a new application, Okta sets it to `true` by default for `browser` and `native` application types.
+* Use `pkce_required` to require PKCE for your confidential clients using the [Authorization Code flow](/docs/guides/implement-grant-type/authcodepkce/main/). If `token_endpoint_auth_method` is `none`, `pkce_required` needs to be `true`. If `pkce_required` isn't specified when adding a new application, Okta sets it to `true` by default for `browser` and `native` application types.
 
 ```json
 {
