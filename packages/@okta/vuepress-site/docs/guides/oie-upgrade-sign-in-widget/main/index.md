@@ -44,13 +44,6 @@ The specific steps to upgrade your widget depend on your [user authentication de
 * [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with custom URL domain
 * [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the application.
 
-## Best practice for user experience and application policies
-<!-- REMOVE THIS SECTION?? doesn't make sense and links to deprecated file, plus what about Interaction Code flow? -->
-In Classic Engine, the widget had the default option to initialize without application context. In Identity Engine, you can use one of the following OIDC flows to optimize the user's sign-in experience and apply specific application policies:
-
-* [Server-side web application using Authorization Code flow](/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
-* [SPA or native application using PKCE](/code/javascript/okta_sign-in_widget/#spa-or-native-application-using-pkce)
-
 ## Upgrade process for a redirect sign-in flow
 
 The widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
@@ -191,7 +184,7 @@ The following customizations aren't supported:
 * **Okta-hosted widget:** The **Help title** link in the **Customized Help Links** section of the Customization page has been removed and isn't supported.
 * **Self-hosted widget:** The **Need help signing in** string has been removed and isn't supported.
 
-See [Okta Sign-in Widget Help](https://github.com/okta/okta-signin-widget/#help-links).
+See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget/#help-links).
 
 ### `processCreds` hook
 
