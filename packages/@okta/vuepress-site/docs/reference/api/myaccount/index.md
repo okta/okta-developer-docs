@@ -49,7 +49,6 @@ The MyAccount API has the following operations:
 * [Challenge My Phone](#challenge-my-phone)
 * [Verify My Phone](#verify-my-phone)
 * [Delete My Phone](#delete-my-phone)
-* [Get data about Me](#get-me)
 * [Get My User Profile Schema](#get-my-user-profile-schema)
 * [Get My User Profile](#get-my-user-profile)
 * [Update My User Profile](#update-my-user-profile)
