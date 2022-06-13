@@ -29,7 +29,7 @@ The widget is used on Okta's default sign-in page to start an Okta SSO session a
 This article teaches you how to upgrade the widget when it is used in any of the following ways:
 
 * Okta-hosted sign-in page (default): Okta provides a sign-in page that is available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta user dashboard.
-* Okta-hosted sign-in page (customizable): Okta provides a hosted sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
+* Okta-hosted sign-in page (customizable): Okta provides a sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
 * Embedded (self-hosted): You can embed the widget directly into your application.
 
 After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/guides/oie-intro/) to take advantage of new features in Identity Engine.
