@@ -901,6 +901,7 @@ export const reference = [
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Push Providers", path: "/docs/reference/api/push-providers/"},
           { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
           { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
