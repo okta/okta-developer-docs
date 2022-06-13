@@ -1337,7 +1337,7 @@ This operation:
 - Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 - Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property which can use the inequality operators (`gt`, `ge`, `lt`, and `le`).
 - Supports only the logical operators `and` and `or`.
-- Is case sensitive.
+- Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
 
 | Filter                                          | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |

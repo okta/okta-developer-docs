@@ -143,7 +143,7 @@ curl -v -X GET \
 
 ### Sorting parameters
 
-You can include the sorting parameters `sortBy` and `sortOrder` in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property that you want to sort by, and `sortOrder` to specify the order (`asc` and `desc`). By default, the sort order is ascending.
+You can include the sorting parameters `sortBy` and `sortOrder` in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property that you want to sort by, and `sortOrder` to specify the order (`asc` or `desc`). By default, the sort order is ascending.
 
 #### Request example
 
@@ -165,7 +165,7 @@ You can create expressions that search multiple arrays, multiple values in an ar
 
 #### Request example
 
-The following example returns all users who have a custom array value (`customProp1`) that includes at least one value equal to `a`:
+The following example returns all users who have a custom string array attribute (`customProp1`) that includes at least one value equal to `a`:
 
 ```bash
 curl -v -X GET \
@@ -207,14 +207,14 @@ For brevity, only the user information and custom profile attribute are shown.
 
 #### Request example
 
-The following example returns all users who have a custom array value (`customProp1`) that includes at least one value equal to `a` or a custom array value (`customProp2`) that includes at least one value equal to `6`:
+The following example returns all users who have a custom array attribute (`customProp1`) that includes at least one value equal to `a` or a custom number array attribute (`customProp2`) that includes at least one value equal to `7`:
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.customProp1+eq+%22a%22+or+profile.customProp2+eq+%226%22"
+"https://${yourOktaDomain}/api/v1/users?search=profile.customProp1+eq+%22a%22+or+profile.customProp2+eq+7"
 
 ```
 
@@ -290,14 +290,14 @@ For brevity, only the user information and custom profile attribute are shown.
 
 #### Request example
 
-The following example returns all users who have a custom array value (`customProp2`) that includes at least one value greater than or equal to `3`:
+The following example returns all users who have a custom number array attribute (`customProp2`) that includes at least one value greater than or equal to `3`:
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.customProp2+gt+%223%22"
+"https://${yourOktaDomain}/api/v1/users?search=profile.customProp2+gt+3"
 ```
 
 #### Response example
@@ -545,9 +545,9 @@ The find users query parameter (`q`) returns one or more users matched against t
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
-The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties and isn't case-sensitive. The find query parameter also supports the `limit` parameter but not the `after` parameter (pagination), see [Limits and pagination](#limits-and-pagination).
+The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties. The matching method isn't case-sensitive. The find query parameter also supports the `limit` parameter but not the `after` parameter (pagination), see [Limits and pagination](#limits-and-pagination).
 
-> **Note:** If you're using the `q` parameter, the default limit is 10 users if not specified.
+> **Note:** If you're using the `q` parameter, the default limit is 10 users.
 
 #### Request example
 
@@ -690,7 +690,7 @@ See [Find Users](/docs/reference/api/users/#find-users) in the Users API referen
 
 ## List all users
 
-The basic list-all-users command returns all users, that don't have a `DEPROVISIONED` status, to the default maximum limit of 200 records, if not specified. For this simple use case, the list-all query performance is superior to other search options.
+If a query does not include any of the parameters `search`, `filter`, or `q`, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
 
 > **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
