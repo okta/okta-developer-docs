@@ -7,11 +7,7 @@ category: management
 
 <ApiLifecycle access="ie" />
 
-This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API.
-
-* See [MyAccount API v1 (Deprecated)](/docs/reference/api/archive-myaccount/) for the `v1` version of the API documentation.
-* See [MyAccount API](/docs/reference/api/myaccount/) for the `idp` version of the API documentation.
-
+This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API. See [MyAccount API](/docs/reference/api/myaccount/) for the reference documentation of the latest version.
 
 ## OIE migration
 
@@ -44,6 +40,9 @@ The new version of the MyAccount API doesn't have the API version number in the 
 ```json
 Accept: application/json; okta-version=1.0.0
 ```
+### Authentication
+
+If users want to change their profile, access tokens are only valid for 15 minutes.
 
 ### Profile endpoints
 
@@ -70,18 +69,15 @@ Here are the details of the new template:
 
 | UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
-| Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
+| Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` | N/A | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
 
 See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template).
 
 ### Scopes
 
-AuthN myaccount/profile - lower granularity. can only modify profile.
-
-Idp - greater breadth and higher granularity. Can read or update phone, email, and profile.
+The scopes for the enhanced MyAccount API offer greater breadth and higher granularity. You can read or update phone, email, and profile. The deprecated version of the API only provides scopes for profile modification.
 
 See [Grant the required scopes](/docs/guides/configure-user-scoped-account-management/main/#grant-the-required-scopes).
-
 
 ### Error messages
 
