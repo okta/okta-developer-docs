@@ -49,7 +49,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 ### Authentication
 
-If users want to change their profile, access tokens are only valid for 15 minutes.
+If a user wants to change their profile, access tokens are only valid for 15 minutes.
 
 ### Profile endpoints
 
@@ -70,7 +70,7 @@ The [Me object](/docs/reference/api/archive-myaccount/#me-object) no longer exis
 
 ### Email notification templates
 
-A new default email notification is sent to users who try to verify an email address using the new MyAccount API. To confirm the change, users must enter the one-time passcode (OTP) included in the email.
+A new default email notification is sent to users who try to verify an email address using the new MyAccount API. To confirm the change, users must enter the one-time password (OTP) included in the email.
 
 Here are the details of the new template:
 
