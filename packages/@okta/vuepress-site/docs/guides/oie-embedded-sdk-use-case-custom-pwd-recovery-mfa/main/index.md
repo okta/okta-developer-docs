@@ -6,13 +6,13 @@ title: Custom password recovery
 
 <ApiLifecycle access="ie" /><br>
 
-This guide shows how to customize the self-service password recovery flow using Okta's embedded solutions. Specifically, it details how you can better control your user's password recovery experience using email authentication and magic links.
+This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okta.com/passwordless-authentication/#email-magic-link) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
 ---
 **Learning outcomes**
 
-* Understand the supported flows within password recovery
-* Learn step-by-step how to customize your user's password recovery experience
+* Understand the flows supported by password recovery
+* Learn to customize your user's password recovery experience
 
 **What you need**
 
@@ -82,45 +82,47 @@ Confirm that you have the email authenticator set up for password recovery by pe
 
 ## Update the Forgot Password email template
 
-When users initiate a password recovery, they are sent an email based on the **Forgot Password** template. Variables in this template are dynamically set before the email is generated and sent to the user. By default, the magic link is set to `resetPasswordLink`, which resolves to an Okta-hosted site. Update this link to point to your app and include the `oneTimePassword` and `request.relayState` variables in the URL's query parameter. To make this update perform the following steps:
+Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
+
+| Variable | Contains  |
+| ---------------| ------------------------|
+| `${oneTimePassword}`   | The one-time password Okta generated for the user |
+| `${request.relayState}` | The current SAML [relaystate](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
+| `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
+
+By default, the magic link in the template is set to `${resetPasswordLink}`. You must update it to an endpoint in your application that expects `${oneTimePassword}` and `${request.relayState}` as query parameters and uses them to continue the password recovery flow:
 
 1. In the Admin Console, go to **Customizations > Emails**.
 1. On the **Emails** page, find the **Password** category on the template menu.
 1. Under **Password**, click **Forgot Password**.
 1. On the **Forgot Password** email template page, click **Edit**.
-1. On the **Edit Default Email**, do the following:
-  1. In the **Message** field, locate the magic link in the field's HTML. The link is located in the `href` attribute of an `<a>` tag with the `id` of `reset-password-link`. The following snippet shows the actual placement of the `<a>` tag within the HMTL:
+1. Under **Default Email**, click **Edit**.
+1. In the **Message** field, locate the magic link in the field's HTML. The link is located in the `href` attribute of an `<a>` tag with the `id` of `reset-password-link`. It looks like this:
 
-      ```html
-      <a id="reset-password-link" href="${resetPasswordLink}" style="text-decoration: none;">
-        <span style="padding: 9px ...;">
-          Reset Password
-        </span>
+    ```html
+   <a id="reset-password-link"
+      href="${resetPasswordLink}"
+      style="text-decoration: none;">
+      <span style="padding: 9px ...;">
+         Reset Password
+      </span>
       </a>
-      ```
+    ```
 
-  1. The default value of the `href` attribute is `${resetPasswordLink}`. Change this value to a URL that points to your app and include the following two query parameters with their corresponding template variables:
+   Replace the `${resetPasswordLink}` variable with the URL for the endpoint in your application that processes the magic link. You must append the `${oneTimePassword}` and `${request.relayState}` variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
 
-      | Query parameter| Template variable       |
-      | ---------------| ------------------------|
-      | otp            | *${oneTimePassword}*    |
-      | state          | *${request.relayState}* |
+   <StackSnippet snippet="emailtemplate" />
 
-      After your updates the URL should take the following format: `http://[your app's address]?otp=${oneTimePassword}&state=${request.relayState}`.
-
-      <StackSnippet snippet="emailtemplate" />
-
-  1. Click **Save** and close the dialog window.
-
+1. Click **Save** and close the dialog.
 
 ## Update your Sign-In Widget integration
 
-The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the Sign-in Widget, execute the following steps to make this update. If your app uses the SDK, go to [Update your SDK integration](#update-your-sdk-integration).
+Now to implement the endpoint that you linked to in the revised **Forgot Password** email template.
+If you're using the Sign-In Widget, execute the following steps. If your app uses the SDK, go to [Update your SDK integration](#update-your-sdk-integration).
 
 ### Summary of steps
 
-The following diagram illustrates the steps in the customized password recovery using a Sign-in Widget based app.
-
+The following diagram shows the steps for a customized password recovery in an app that uses the Sign-In Widget.
 
 <StackSnippet snippet="siwsummary" />
 
@@ -128,10 +130,11 @@ The following diagram illustrates the steps in the customized password recovery 
 
 ## Update your SDK integration
 
-The next step is to update your app to accept the link with the `otp` and `state` parameters. If you're using the SDK, execute the following steps to make this update. If your app uses the Sign-in Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
+Now to implement the endpoint that you linked to in the revised **Forgot Password** email template. If you're using the SDK, execute the following steps. If your app uses the Sign-In Widget, go to [Update your Sign-In Widget integration](#update-your-sign-in-widget-integration).
 
 ### Summary of steps
-The following diagram illustrates the steps in the customized password recovery using a SDK based app.
+
+The following diagram shows the steps for a customized password recovery in an app that uses the SDK.
 
 <StackSnippet snippet="sdksummary" />
 
