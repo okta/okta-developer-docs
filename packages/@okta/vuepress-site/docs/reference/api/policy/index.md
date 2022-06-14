@@ -1151,9 +1151,108 @@ You can apply the following conditions to the Rules associated with a Global Ses
 
 * [Risk Score condition](#risk-score-condition-object)
 
+## Authenticator enrollment policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged. See [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy) for the Classic Engine equivalent policy type.
+
+The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
+
+#### Authenticator policy settings example
+
+<ApiLifecycle access="ie" />
+
+> **Note:** Policy settings are included only for those authenticators that are enabled.
+
+```json
+   "settings": {
+     "type": "AUTHENTICATORS",
+     "authenticators": [
+       {
+         "key": "security_question",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       },
+       {
+         "key": "okta_phone",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       }
+     ]
+   }
+```
+
+### Policy Authenticator Settings object
+
+| Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
+| ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
+| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticators object](#policy-authenticators-object) | No       |           |
+| factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+
+> **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+
+#### Policy Authenticators object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                   | Data Type                                                                   | Required |
+| ---       | ---                                           | ---                                                                         | ---      |
+| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+
+#### Policy Authenticator Enroll object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                    | Data Type                                | Required | Default       |
+| ---       | ---                                            | ---                                      | ---      | ---           |
+| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
+
+### Policy Authenticator conditions
+
+The following conditions may be applied to authenticator enrollment policies:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
+* [Application and App Instance Condition](#application-and-app-instance-condition-object)
+
+<!-- stopped here -->
+
+### Multifactor Rules Action data
+
+#### Multifactor Enrollment Rules Actions example
+
+```json
+  "actions": {
+    "enroll": {
+      "self": "CHALLENGE"
+    }
+  },
+```
+
+#### Rules Actions Enroll object
+
+| Parameter | Description                                                                                               | Data Type                       | Required | Default |
+| ---       | ---                                                                                                       | ---                             | ---      | ---     |
+| self      | Should the User be enrolled the first time they `LOGIN`, the next time they are `CHALLENGE`d, or `NEVER`? | `CHALLENGE`, `LOGIN` or `NEVER` | Yes      | N/A     |
+
+### Rules conditions
+
+The following conditions may be applied to the Rules associated with MFA Enrollment Policy:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** The MFA Policy API is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged. See [Authenticator enrollment policy](#authenticator-enrollment-policy). The Multifactor Enrollment Policy API is a <ApiLifecycle access="beta" /> release.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1181,32 +1280,6 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
          }
        }
      }
-   }
-```
-
-#### Policy Authenticators Settings example
-
-<ApiLifecycle access="ie" />
-
-> **Note:** Policy Settings are included only for those Authenticators that are enabled.
-
-```json
-   "settings": {
-     "type": "AUTHENTICATORS",
-     "authenticators": [
-       {
-         "key": "security_question",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       },
-       {
-         "key": "okta_phone",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       }
-     ]
    }
 ```
 
