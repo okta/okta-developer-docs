@@ -89,7 +89,7 @@ Next, add a container `div` element for the Widget.
 Finally, add the JavaScript that loads the Widget into the `div` element. The parameters set in
 [step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
-```javascript
+```html
 <script type="text/javascript">
   var config = {};
   config.baseUrl = "{{ .BaseUrl }}";
@@ -99,22 +99,23 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
   config.useInteractionCodeFlow = "true";
   config.codeChallenge = "{{ .Pkce.CodeChallenge }}";
   config.codeChallengeMethod = "{{ .Pkce.CodeChallengeMethod }}";
-  config.state = "{{ .State }}" || false,
-  config.debug = true,
+  config.debug = true;
   config.authParams = {
     issuer: "{{ .Issuer }}",
     scopes: ['openid', 'profile', 'email'],
   };
-   var searchParams = new URL(window.location).searchParams;
-   var otp = searchParams.get('otp');
-   var state = searchParams.get('state');
-  const signIn = new OktaSignIn({
-   otp: otp,
-   state: state,
+
+   const signIn = new OktaSignIn({
     el: '#okta-signin-widget-container',
     ...config
   });
-  signIn.showSignInAndRedirect()
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
+   signIn.showSignInAndRedirect()
     .catch(err => {
       console.log('Error happen in showSignInAndRedirect: ', err);
     });

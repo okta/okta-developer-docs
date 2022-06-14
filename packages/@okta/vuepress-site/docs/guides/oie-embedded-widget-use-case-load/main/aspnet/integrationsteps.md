@@ -94,16 +94,16 @@ The `div id` that you passed into the Widget needs to match a `div` on the page 
 
    console.log(widgetConfig.interactionHandle);
 
-   var searchParams = new URL(window.location).searchParams;
-   var otp = searchParams.get('otp');
-   var state = searchParams.get('state');
-
    const signIn = new OktaSignIn({
        el: '#okta-signin-widget-container',
-       otp: otp,
-       state: state,
        ...widgetConfig
    });
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
    signIn.showSignInAndRedirect()
        .catch(err => {
            console.log('Error happen in showSignInAndRedirect: ', err);

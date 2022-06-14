@@ -13,7 +13,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 Load the Widget on the sign-in page, similar to the following snippet:
 
-```JavaScript
+```html
 <div id="content" class="ui padded relaxed">
 
       {{>formMessages}}
@@ -22,16 +22,17 @@ Load the Widget on the sign-in page, similar to the following snippet:
 
       <script type="text/javascript">
         const widgetConfig = {{{widgetConfig}}};
-        var searchParams = new URL(window.location).searchParams;
-         var otp = searchParams.get('otp');
-         var state = searchParams.get('state');
         const signIn = new OktaSignIn({
-         otp: otp,
-         state: state,
           el: '#okta-signin-widget-container',
           ...widgetConfig
         });
-        signIn.showSignInAndRedirect()
+
+      // Search for URL Parameters to see if a user is being routed to the application to recover password
+      var searchParams = new URL(window.location.href).searchParams;
+      signIn.otp = searchParams.get('otp');
+      signIn.state = searchParams.get('state');
+
+      signIn.showSignInAndRedirect()
           .catch(err => {
             console.log('Error happen in showSignInAndRedirect: ', err);
           });

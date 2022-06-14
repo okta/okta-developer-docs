@@ -49,11 +49,13 @@ const OktaSignInWidget = ({ onSuccess, onError }) => {
       return false;
     }
 
-   var searchParams = new URL(window.location).searchParams;
     const widget = new OktaSignIn(config.widget);
-    widget.otp = searchParams.get('otp');
-    widget.state = searchParams.get('state');
-    widget.showSignInToGetTokens({
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   widget.otp = searchParams.get('otp');
+   widget.state = searchParams.get('state');
+   widget.showSignInToGetTokens({
       el: widgetRef.current,
     }).then(onSuccess).catch(onError);
 

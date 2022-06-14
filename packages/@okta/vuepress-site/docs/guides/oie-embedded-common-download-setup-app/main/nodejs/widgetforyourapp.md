@@ -46,7 +46,7 @@ In this code sample, `widgetConfig` is referenced in the `login.js` file, which 
 
 Load the Widget in the sign-in page, similar to the following snippet:
 
-```JavaScript
+```html
 <div id="content" class="ui padded relaxed">
 
       {{>formMessages}}
@@ -59,6 +59,12 @@ Load the Widget in the sign-in page, similar to the following snippet:
           el: '#okta-signin-widget-container',
           ...widgetConfig
         });
+
+         // Search for URL Parameters to see if a user is being routed to the application to recover password
+         var searchParams = new URL(window.location.href).searchParams;
+         signIn.otp = searchParams.get('otp');
+         signIn.state = searchParams.get('state');
+
         signIn.showSignInAndRedirect()
           .catch(err => {
             console.log('Error happen in showSignInAndRedirect: ', err);

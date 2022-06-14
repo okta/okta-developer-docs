@@ -21,7 +21,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow=true` configuration option to enable Identity Engine features in the embedded Sign-In Widget.
 
-```javascript
+```html
 <script th:inline="javascript">
 
     var config = {};
@@ -42,17 +42,17 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
         scopes: /*[[${scopes}]]*/ '[scopes]',
     };
 
-   var searchParams = new URL(window.location).searchParams;
-   var otp = searchParams.get('otp');
-   var state = searchParams.get('state');
-
   const signIn = new OktaSignIn({
-      otp: otp,
-      state: state,
        el: '#sign-in-widget',
        ...config
   });
-  signIn.showSignInAndRedirect()
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
+   signIn.showSignInAndRedirect()
     .catch(err => {
       console.log('Error happen in showSignInAndRedirect: ', err);
     });

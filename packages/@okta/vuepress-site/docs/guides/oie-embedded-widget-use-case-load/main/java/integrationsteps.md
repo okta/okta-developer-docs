@@ -13,9 +13,8 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 Initialize the Widget in the sign-in page, similar to the following snippet:
 
-```javascript
+```html
 <script th:inline="javascript">
-
     var config = {};
 
     config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
@@ -34,16 +33,18 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
         scopes: /*[[${scopes}]]*/ '[scopes]',
     };
 
-   var searchParams = new URL(window.location).searchParams;
-   var otp = searchParams.get('otp');
-   var state = searchParams.get('state');
+    var signIn = new OktaSignIn(config);
 
-    new OktaSignIn(config).showSignInAndRedirect(
-      otp: otp,
-      state: state,
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
+    signIn.showSignInAndRedirect(
       { el: '#sign-in-widget' },
       function (res) {}
     );
+
 </script>
 ```
 
