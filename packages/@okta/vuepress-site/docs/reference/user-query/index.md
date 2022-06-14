@@ -381,7 +381,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. Multiple expressions can be combined using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
 
-The filter query parameter is case sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
+The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
 #### Request example
 
@@ -545,7 +545,7 @@ The find users query parameter (`q`) returns one or more users matched against t
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
-The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties. The matching method isn't case-sensitive. The find query parameter also supports the `limit` parameter but not the `after` parameter (pagination), see [Limits and pagination](#limits-and-pagination).
+The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties. The matching method isn't case-sensitive. The find users query can use limits (`limit`) but doesn't support pagination (`after`). See [Limits and pagination](#limits-and-pagination).
 
 > **Note:** If you're using the `q` parameter, the default limit is 10 users.
 
