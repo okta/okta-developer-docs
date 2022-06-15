@@ -1335,7 +1335,7 @@ This operation:
 
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 - Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
-- Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property, which can use the inequality operators (`gt`, `ge`, `lt`, and `le`).
+- Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
 - Supports only the logical operators `and` and `or`.
 - Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
 
