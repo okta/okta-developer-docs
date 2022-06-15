@@ -9,7 +9,7 @@ meta:
 
 ## Overview
 
-With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. Identity Engine uses authenticators in its MFA enrollment policy settings, whereas Okta Classic Engine uses factors in its MFA enrollment policy settings. See [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
+With Okta Identity Engine, the definition of factors and authenticators have been differentiated to align with industry standards. Identity Engine uses authenticators in its MFA enrollment policy settings, whereas Okta Classic Engine uses factors in its MFA enrollment policy settings.
 
 After upgrading your org to Identity Engine, new MFA enrollment policies created in the Admin Console are configured using authenticators. Existing MFA enrollment policies, created before upgrading to Identity Engine, are still configured with factors. However, if an existing MFA policy was modified and saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
 
