@@ -1695,7 +1695,7 @@ Updates current user's profile with partial update semantics
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
 | profile       | Updated profile for user                                             | Body         | [Profile object](#profile-object)           | FALSE    |
 
-End user can only update `profile` with this request. To update credentials, use [Update Profile with ID](#update-profile-with-id).
+End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
 use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)

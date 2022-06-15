@@ -83,11 +83,9 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 | Type of Application     | OAuth 2.0 flow / grant type                      | Access Token?    | ID Token?     |
 | ----------------------- | ------------------------------------------------ | ---------------- | ------------- |
-| Server-side (aka Web)   | [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly                | &#9989;          | &#9989;      |
-| Single-Page Application | [Implicit](/docs/guides/implement-grant-type/implicit/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
-| Native                  | [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) or [Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/) when using Identity Engine and you want your app to manage user interactions with the authorization server directly | &#9989;          | &#9989;      |
-| Trusted                 | [Resource Owner Password](/docs/guides/implement-grant-type/ropassword/main/)            | &#9989;          | &#9989;      |
-| Service                 | [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/)                  | &#9989;          | &#10060;     |
+| Server-side (aka Web), <br><br> Single-Page Application, <br><br> or Native | [Authorization Code with PKCE](#authorization-code-flow-with-pkce) or [Interaction Code](#interaction-code-flow) (Identity Engine only).                | &#9989;          | &#9989;      |
+| Trusted                 | [Resource Owner Password](#resource-owner-password-flow)            | &#9989;          | &#9989;      |
+| Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
 > **Note**: There is also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-2-0-assertion-flow), intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. This supports access and ID tokens.
 
@@ -99,7 +97,7 @@ The type of OAuth 2.0 flow depends on what kind of client that you are building.
 
 #### Is your client public?
 
-A client application is considered public when an end user could possibly view and modify the code. This includes Single-Page Apps (SPAs) or any mobile or native applications. In both cases, the application can't keep secrets from malicious users.
+A client application is considered public when an end user could possibly view and modify the code. This includes Single-Page Apps (SPAs) or any mobile or native applications. In both cases, the application can't keep secrets from malicious users. Your client is considered confidential or private for server-side (web applications), which means your client can use client authentication such as a client secret.
 
 #### Is your client a SPA or native?
 
@@ -107,17 +105,17 @@ If your client application is a SPA or a native application, you should use an a
 
 #### Does the client have an end user?
 
-If your client application is running on a server with no direct end user, then it can be trusted to store credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
+If your client application is running on a server with no direct end user, then it can be trusted to handle credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
 #### Is your app high-trust?
 
-If you own both the client application and the resource that it's accessing, then your application can be trusted to store your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
+If you own both the client application and the resource that it's accessing, then your application can be trusted to handle your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
 
 If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
 ### Interaction Code flow
 
-The Interaction Code flow requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
@@ -150,39 +148,9 @@ app -> client: Response
 
 ![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
 
-### Authorization Code flow
-
-The Authorization Code flow is best used by server-side apps where the source code isn't publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which has to be stored in your client. The server-side app requires an end user, however, because it relies on interaction with the end user's web browser, which redirects the user and then receives the authorization code.
-
-![Auth Code flow width:](/img/oauth_auth_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow")
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-@startuml
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Web App" as client
-participant "Authorization Server (Okta) " as okta
-participant "Resource Server (Your App) " as app
-
-client -> okta: Authorization Code Request to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Authorization Code Response
-client -> okta: Send authorization code + client secret to /token
-okta -> client: Access token (and optionally Refresh Token)
-client -> app: Request with access token
-app -> client: Response
-@enduml
-
--->
-
-For information on how to set up your application to use this flow, see [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/).
-
 ### Authorization Code flow with PKCE
 
-For web/native/mobile applications, the client secret can't be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
+Authorization Code flow with Proof Key for Code Exchange (PKCE) is the recommended flow for most applications whether server-side (web), native, or mobile. PKCE was originally designed to protect the authorization code flow in mobile apps, but its ability to prevent authorization code injection makes it useful for every type of OAuth client, even web apps that use a client secret. PKCE acts like a secret but isn't hard-coded, and keeps the Authorization Code flow secure.
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
@@ -221,35 +189,6 @@ app -> client: Response
 -->
 
 For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
-
-### Implicit flow
-
-The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
-
-> **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
-
-> **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
-
-![Implicit flow width:](/img/oauth_implicit_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow")
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-client -> okta: Access token request to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
--->
-
-For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/).
 
 ### Resource Owner Password flow
 
@@ -327,3 +266,34 @@ OClient -> rs: Makes a resource request with the access token to the resource se
 -->
 
 For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).
+
+### Implicit flow
+
+ > **Note:** The Implicit flow is a legacy flow used only for SPAs that can’t support PKCE.
+
+ The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
+
+> **Note:** Because it's intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
+
+> **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
+
+![Implicit flow width:](/img/oauth_implicit_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+
+actor "Resource Owner (User)" as user
+participant "Client" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
+
+client -> okta: Access token request to /authorize
+okta -> user: 302 redirect to authentication prompt
+user -> okta: Authentication & consent
+okta -> client: Access token response
+client -> app: Request with access token
+app -> client: Response
+-->
+
+For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/).
