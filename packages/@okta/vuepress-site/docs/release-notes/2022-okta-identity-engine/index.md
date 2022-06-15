@@ -6,6 +6,22 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.06.1](#bugs-fixed-in-2022-06-1) | June 15, 2022 |
+
+#### Bugs fixed in 2022.06.1
+
+* Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
+
+* When the `factorType` parameter was set to `token:software:totp`, the `amr` claim was missing MFA factors (Okta Verify/Challenge or Google Authenticator). (OKTA-499718)
+
+* The Max Okta session lifetime setting for Global Session Policy was ignored. (OKTA-480442)
+
+* When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
+
 ### Monthly release 2022.06.0
 
 | Change | Expected in Preview Orgs |

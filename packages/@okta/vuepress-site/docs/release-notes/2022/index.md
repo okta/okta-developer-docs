@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.06.1](#bug-fixed-in-2022-06-1) | June 15, 2022 |
+
+#### Bug fixed in 2022.06.1
+
+Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
+
 ### Monthly release 2022.06.0
 
 | Change | Expected in Preview Orgs |
