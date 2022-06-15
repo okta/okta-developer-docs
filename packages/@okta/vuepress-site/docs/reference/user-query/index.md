@@ -29,7 +29,7 @@ The search query parameter (`search`) returns one or more users matched against 
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. Multiple expressions can be combined using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter).
 
 ### URL encoding
 
@@ -105,7 +105,7 @@ For brevity, the response is truncated.
 
 You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
 
-> **Note:** If you don't specify a value for limit, the maximum (200) is used as a default.
+> **Note:** If you don't specify a value for `limit`, the maximum (200) is used as a default.
 
 #### Request example
 
@@ -143,7 +143,7 @@ curl -v -X GET \
 
 ### Sorting parameters
 
-You can include the sorting parameters `sortBy` and `sortOrder` in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property that you want to sort by, and `sortOrder` to specify the order (`asc` or `desc`). By default, the sort order is ascending.
+You can include the sorting parameters `sortBy` and `sortOrder` in search expressions to deliver results sorted by any single user property, for example, returning users sorted by department or employee number. All users returned by a `sortBy` expression are, by default, ordered by their user `id`. Use `sortBy` to specify the property that you want to sort by and `sortOrder` to specify the order (`asc` or `desc`). By default, the sort order is ascending.
 
 #### Request example
 
@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. Multiple expressions can be combined using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
@@ -545,7 +545,7 @@ The find users query parameter (`q`) returns one or more users matched against t
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
-The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties. The matching method isn't case-sensitive. The find users query can use limits (`limit`) but doesn't support pagination (`after`). See [Limits and pagination](#limits-and-pagination).
+The `q` parameter checks the prefix of the profile property (`startWith` method) to find all matches against any of the three profile properties. The matching method isn't case-sensitive. The find users query can use limits (`limit`), but doesn't support pagination (`after`). See [Limits and pagination](#limits-and-pagination).
 
 > **Note:** If you're using the `q` parameter, the default limit is 10 users.
 
@@ -690,7 +690,7 @@ See [Find Users](/docs/reference/api/users/#find-users) in the Users API referen
 
 ## List all users
 
-If a query does not include any of the parameters `search`, `filter`, or `q`, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
+If a query doesn't include the `search`, `filter`, or `q` parameter, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
 
 > **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
