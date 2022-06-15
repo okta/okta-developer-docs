@@ -46,7 +46,7 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 
 ```javascript
 var signIn = new OktaSignIn({
-   // Assumes there is an empty element on the page with an id of 'osw-container'  el: `#osw-container`,
+   // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
    el: '#osw-container',
    clientId: `${clientId of your OIDC app integration}`,
    redirectUri: `${redirectUri configured in your OIDC app integration}`,

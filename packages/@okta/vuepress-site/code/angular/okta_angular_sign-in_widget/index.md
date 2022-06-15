@@ -83,7 +83,7 @@ Some routes require authentication to render. Defining these protected routes is
 
 ### `/ - index page`
 
-First, update `src/app/app.component.html` to provide the Login logic, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
+First, update `src/app/app.component.html` to provide the Login logic, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```html
 <!-- src/app/app.component.html -->

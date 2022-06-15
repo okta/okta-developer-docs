@@ -54,7 +54,7 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 
    signIn.showSignInAndRedirect()
     .catch(err => {
-      console.log('Error happen in showSignInAndRedirect: ', err);
+      console.log('An error occurred in showSignInAndRedirect: ', err);
     });
 </script>
 ```

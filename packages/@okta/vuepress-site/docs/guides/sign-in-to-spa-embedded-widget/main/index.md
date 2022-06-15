@@ -19,7 +19,7 @@ Before you integrate Okta authentication to your app, register your app in your 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Single-Page Application** for the **Application Type**, and click **Next**.
+1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
@@ -39,8 +39,8 @@ Before you integrate Okta authentication to your app, register your app in your 
 
    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
-1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
-1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
+1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and then editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure that the **Interaction Code** checkbox is selected.
+1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 ### Okta org app integration configuration settings
 

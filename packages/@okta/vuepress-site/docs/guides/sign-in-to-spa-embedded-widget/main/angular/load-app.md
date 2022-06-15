@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // When navigating to a protected route, the route path will be saved as the `originalUri`
+    // When navigating to a protected route, the route path is saved as the `originalUri`
     // If no `originalUri` has been saved, then redirect back to the app root
     const originalUri = this.oktaAuth.getOriginalUri();
     if (!originalUri || originalUri === DEFAULT_ORIGINAL_URI) {

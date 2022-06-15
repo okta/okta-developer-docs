@@ -140,7 +140,7 @@ Create an app integration in the Okta org that represents the application you wa
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Single-Page Application** for the **Application Type**, and click **Next**.
+1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
@@ -149,9 +149,9 @@ Create an app integration in the Okta org that represents the application you wa
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
    * Set **Sign-out redirect URIs** to `http://localhost:3000/`.
 
-1. In the **Assignments** section, select **Allow everyone in your organization to access**, and click **Save**.
+1. In the **Assignments** section, select **Allow everyone in your organization to access**, and then click **Save**.
 1. In the **General Settings** section on the **General** tab, click **Edit**.
-1. Under **EMAIL VERIFICATION EXPERIENCE** set **Callback URI** to `http://localhost:3000`, and click **Save**.
+1. Under **EMAIL VERIFICATION EXPERIENCE** set **Callback URI** to `http://localhost:3000`, and then click **Save**.
 
 1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
 1. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.

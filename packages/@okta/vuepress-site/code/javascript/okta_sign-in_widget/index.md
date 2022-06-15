@@ -35,7 +35,7 @@ To install the [latest version of the Okta Sign-In Widget](https://github.com/ok
 npm install @okta/okta-signin-widget@latest
 ```
 
-See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Bundling the widget
 
