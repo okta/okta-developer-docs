@@ -60,6 +60,7 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
     State:             s.state,
     Nonce:             nonce,
     Pkce:              s.pkce,
+    Otp:              s.otp,
     InteractionHandle: interactionHandle,
   }
 
