@@ -1,20 +1,19 @@
 ### 1: Source the Sign-In Widget to your sign-in page
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-```JavaScript
-<!-- okta-signin-widget assets are available on CDN -->
-<script src="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+```html
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
->**Note:** Ensure you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available on the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### 2: Add JavaScript to initialize and load the Widget
 
 Load the Widget on the sign-in page, similar to the following snippet:
 
-```JavaScript
+```html
 <div id="content" class="ui padded relaxed">
 
       {{>formMessages}}
@@ -27,7 +26,13 @@ Load the Widget on the sign-in page, similar to the following snippet:
           el: '#okta-signin-widget-container',
           ...widgetConfig
         });
-        signIn.showSignInAndRedirect()
+
+      // Search for URL Parameters to see if a user is being routed to the application to recover password
+      var searchParams = new URL(window.location.href).searchParams;
+      signIn.otp = searchParams.get('otp');
+      signIn.state = searchParams.get('state');
+
+      signIn.showSignInAndRedirect()
           .catch(err => {
             console.log('Error happen in showSignInAndRedirect: ', err);
           });
@@ -51,6 +56,7 @@ The `WidgetConfig` uses values defined in the `config.js` file and is referenced
         },
         useInteractionCodeFlow: true,
         state,
+        otp,
         interactionHandle,
         codeChallenge,
         codeChallengeMethod,
@@ -61,7 +67,7 @@ The Okta Sign-In Widget renders in the sign-in page when the `router.get('/login
 
 ```JavaScript
         res.render('login', {
-        siwVersion: '{{siwVersion}}',
+        siwVersion: '${widgetVersion}',
         widgetConfig: JSON.stringify(widgetConfig),
       });
 ```
