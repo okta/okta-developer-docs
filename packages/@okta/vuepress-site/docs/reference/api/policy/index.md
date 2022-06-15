@@ -493,7 +493,9 @@ Different Policy types control settings for different operations. All Policy typ
 
 [Global Session Policy](#global-session-policy)
 
-[Okta MFA Policy](#multifactor-mfa-enrollment-policy)
+[Authenticator enrollment policy](#authentication-enrollment-policy) <ApiLifecycle access="ie" />
+
+[Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
 
 [Password Policy](#password-policy)
 
@@ -1155,11 +1157,12 @@ You can apply the following conditions to the Rules associated with a Global Ses
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged. See [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy) for the Classic Engine equivalent policy type.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data is updated for authenticators. For Classic Engine, see [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy).
+> The authenticator enrollment policy is a <ApiLifecycle access="beta" /> release.
 
 The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
 
-#### Authenticator policy settings example
+#### Authenticator enrollment policy settings example
 
 <ApiLifecycle access="ie" />
 
@@ -1185,13 +1188,15 @@ The authenticator enrollment policy controls which authenticators are available 
    }
 ```
 
-### Policy Authenticator Settings object
+### Policy Settings data
+
+<ApiLifecycle access="ie" />
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticators object](#policy-authenticators-object) | No       |           |
-| factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+| authenticators | List of authenticator policy settings | Array of [Policy Authenticators object](#policy-authenticators-object) | No       |           |
+| factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
 > **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
@@ -1201,8 +1206,8 @@ The authenticator enrollment policy controls which authenticators are available 
 
 | Parameter | Description                                   | Data Type                                                                   | Required |
 | ---       | ---                                           | ---                                                                         | ---      |
-| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
-| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+| key       | A label that identifies the authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
 
 #### Policy Authenticator Enroll object
 
@@ -1212,7 +1217,7 @@ The authenticator enrollment policy controls which authenticators are available 
 | ---       | ---                                            | ---                                      | ---      | ---           |
 | self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
 
-### Policy Authenticator conditions
+### Policy conditions
 
 The following conditions may be applied to authenticator enrollment policies:
 
@@ -1222,11 +1227,9 @@ The following conditions may be applied to authenticator enrollment policies:
 
 * [Application and App Instance Condition](#application-and-app-instance-condition-object)
 
-<!-- stopped here -->
+### Authenticator Rules Action data
 
-### Multifactor Rules Action data
-
-#### Multifactor Enrollment Rules Actions example
+#### Authenticator enrollment rules actions example
 
 ```json
   "actions": {
@@ -1244,7 +1247,7 @@ The following conditions may be applied to authenticator enrollment policies:
 
 ### Rules conditions
 
-The following conditions may be applied to the Rules associated with MFA Enrollment Policy:
+The following conditions may be applied to the Rules associated with the authenticator enrollment policy:
 
 * [People Condition](#people-condition-object)
 
@@ -1252,7 +1255,7 @@ The following conditions may be applied to the Rules associated with MFA Enrollm
 
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged. See [Authenticator enrollment policy](#authenticator-enrollment-policy). The Multifactor Enrollment Policy API is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged and is a <ApiLifecycle access="beta" /> release.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1288,11 +1291,9 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> **Note:** The `factors` parameter only allows you to configure multifactor authentication.
 
 #### Policy Factors Configuration object
 
@@ -1345,24 +1346,6 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | ---       | ---                                               | ---                                | ---      | ---     |
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
-
-
-#### Policy Authenticator object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                   | Data Type                                                                   | Required |
-| ---       | ---                                           | ---                                                                         | ---      |
-| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
-| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
-
-#### Policy Authenticator Enroll object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                    | Data Type                                | Required | Default       |
-| ---       | ---                                            | ---                                      | ---      | ---           |
-| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
 
 ### Policy conditions
 
