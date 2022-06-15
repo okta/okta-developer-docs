@@ -16,11 +16,11 @@ title: Okta Identity Engine API Products release notes 2022
 
 * Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
 
-* When application `amr` claims included `factorType=token:software:totp` parameters, OIDC applications were missing MFA factors (Okta Verify or Google Authenticator). (OKTA-499718)
+* When the `factorType` parameter was set to `token:software:totp`, the `amr` claim was missing MFA factors (Okta Verify/Challenge or Google Authenticator). (OKTA-499718)
 
-* Maximum session lifespan setting for Global Session Policy was ignored. (OKTA-480442)
+* The Max Okta session lifetime setting for Global Session Policy was ignored. (OKTA-480442)
 
-* When using token inline hooks in embedded flows, the hook request URL didn’t contain the complete path. For token inline hooks in redirect flows, the hook request was missing the user object in some cases. (OKTA-499597)
+* When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
 
 ### Monthly release 2022.06.0
 
