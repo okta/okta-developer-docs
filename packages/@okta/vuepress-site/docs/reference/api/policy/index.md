@@ -493,7 +493,7 @@ Different Policy types control settings for different operations. All Policy typ
 
 [Global Session Policy](#global-session-policy)
 
-[Authenticator enrollment policy](#authentication-enrollment-policy) <ApiLifecycle access="ie" />
+[Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
 
 [Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
 
