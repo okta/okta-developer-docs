@@ -266,7 +266,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/logStreams?filter=type+eq+\"aws_eventbridge\""
+"https://${yourOktaDomain}/api/v1/logStreams?filter=type+eq+%22aws_eventbridge%22"
 ```
 
 ##### Response example
@@ -312,7 +312,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/logStreams?filter=status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/logStreams?filter=status+eq+%22ACTIVE%22"
 ```
 
 ##### Response example
