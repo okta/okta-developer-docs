@@ -22,6 +22,10 @@ title: Okta Identity Engine API Products release notes 2022
 
 * When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
 
+* When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
+
+* Characters in the OAuth 2.0 consent logo URI (`logo_uri`) weren't encoded to prevent interference with HTTP Content Security Policy (CSP) directives. (OKTA-505553)
+
 ### Monthly release 2022.06.0
 
 | Change | Expected in Preview Orgs |
