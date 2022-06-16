@@ -3,6 +3,6 @@
 
 <div class="common-image-format">
 
-![Sequence diagram for Okta email OTP enrollment](/img/authenticators/dotnet-authenticators-email-enrollment-with-otp-flow-diagram.png)
+![Sequence diagram for Okta email OTP enrollment](/img/authenticators/java-authenticators-email-enrollment-with-otp-flow-diagram.png)
 
 </div>

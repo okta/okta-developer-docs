@@ -4,6 +4,7 @@ Build a sign-in page that captures the user's name and password.
 <div class="common-image-format bordered-image">
 ![Basic sign-in dialog](/img/authenticators/java-authenticators-signinform.png)
 </div>
+
 ### 2: Authenticate the user credentials
 
 Add the following code to initiate the sign-in flow using the credentials collected from the user.
@@ -48,7 +49,7 @@ switch (authenticationStatus) {
 }
 ```
 
-### 4: Select a possible authenticator factor
+### 4: Display a list of possible authenticators
 
 You need to handle two other authenticator status values in addition to `SUCCESS` and `PASSWORD_EXPIRED` for an Okta org that is configured using this guide:
 
@@ -58,7 +59,6 @@ You need to handle two other authenticator status values in addition to `SUCCESS
 The names of the available authenticators are found in the `authenticators` collection of the `AuthenticationResponse`.
 
 Display a selector with the list of available authenticators:
-
 
 ```java
 case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
@@ -99,4 +99,3 @@ Prompt the user for a OTP code, and continue the authentication flow:
 authenticationResponse = idxAuthenticationWrapper
     .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
-

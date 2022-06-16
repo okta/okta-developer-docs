@@ -38,7 +38,7 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
         .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
 
-### 7: Handle the Success status.
+### 7: Handle the Success status
 
 After successful user authentication, Identity Engine returns an `AuthenticationStatus` of `SUCCESS`. Call `getTokenResponse()` to retrieve their ID and access tokens.
 

@@ -15,16 +15,16 @@ When the user selects the Email Authenticator, call `selectAuthenticator()`, sim
 return idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-If the call is successful, Okta sends an enrollment email to the user that contains the OTP. The server returns a status of `AWAITING_AUTHENTICATOR_ENROLLMENT` to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
+If the call is successful, Okta sends an enrollment email to the user that contains the OTP. The server returns a status of `AWAITING_AUTHENTICATOR_VERIFICATION` to indicate it is waiting for the user to check their email and either click the magic link in it or enter the OTP.
 
 ```java
-case AWAITING_AUTHENTICATOR_ENROLLMENT:
+case AWAITING_AUTHENTICATOR_VERIFICATION:
     console.writer().println("Check email for activation instructions");
     String code = console.readLine("Enter TOTP code from email: ");
     return idxAuthenticationWrapper.verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
 
-### 6. Open email and copy OTP
+### 6 - 7. Open email and copy OTP
 
 Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 

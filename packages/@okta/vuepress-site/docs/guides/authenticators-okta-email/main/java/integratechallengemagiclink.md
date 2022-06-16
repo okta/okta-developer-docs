@@ -13,10 +13,12 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.begin(
 proceedContext = authenticationResponse.getProceedContext();
 
 // set the user's credentials
-AuthenticationOptions authenticationOptions = new AuthenticationOptions(username, password);
+AuthenticationOptions authenticationOptions =
+   new AuthenticationOptions(username, password);
 
 // submit username/password
-authenticationResponse = idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
+authenticationResponse =
+   idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
 Query the `AuthenticationStatus` property of `AuthenticationResponse` returned by `authenticate()` to discover the current status of the authentication process.
@@ -26,7 +28,8 @@ Query the `AuthenticationStatus` property of `AuthenticationResponse` returned b
 // make sure it is persisted for web applications
 proceedContext = authenticationResponse.getProceedContext();
 // get the authenticationStatus
-AuthenticationStatus authenticationStatus = authenticationResponse.getAuthenticationStatus();
+AuthenticationStatus authenticationStatus = 
+   authenticationResponse.getAuthenticationStatus();
 switch (authenticationStatus) {
     case SUCCESS:
         … your code …
@@ -46,11 +49,13 @@ You can find the names of the available authenticators for enrollment or challen
 
 ```java
 case AWAITING_AUTHENTICATOR_SELECTION:
-    List<Authenticator> authenticators = authenticationResponse.getAuthenticators();
+    List<Authenticator> authenticators = 
+      authenticationResponse.getAuthenticators();
 
     // show authenticators to user
     IntStream.range(0, authenticators.size()).forEach(index -> {
-        console.writer().println(index + " - " + authenticators.get(index).getLabel());
+        console.writer().println(
+            index + " - " + authenticators.get(index).getLabel());
     });
 
     // prompt user to select a factor
@@ -58,7 +63,8 @@ case AWAITING_AUTHENTICATOR_SELECTION:
     Authenticator authenticator = authenticators.get(Integer.parseInt(selection));
 
     // tell Okta which Authenticator is used
-    return idxAuthenticationWrapper.selectAuthenticator(proceedContext,  authenticator);
+    return idxAuthenticationWrapper.selectAuthenticator(
+      proceedContext, authenticator);
 ```
 
 When the email authenticator is selected, an email will be sent to the user.
@@ -71,26 +77,33 @@ The user needs to leave your application and check their email. While they are d
 
 ```java
 case AWAITING_AUTHENTICATOR_VERIFICATION:
-    String factorType = authenticationResponse.getCurrentAuthenticatorEnrollment().getValue().getType();
+    String factorType = authenticationResponse
+      .getCurrentAuthenticatorEnrollment().getValue().getType();
 
     if ("email".equals(factorType)) {
       // Tell the use to check their email
       console.writer().println("Check your email...");
 
-      // The user could enter a TOTP code from the email address, or you can poll
-      String code = console.readLine("TOTP Code [press enter to continue polling]: ");
+      // The user could enter a TOTP code from the email address
+      // or you can poll
+      String code = console.readLine(
+         "TOTP Code [press enter to continue polling]: ");
       if (!Strings.isEmpty(code)) {
-        return idxAuthenticationWrapper.verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
+        return idxAuthenticationWrapper.verifyAuthenticator(
+            proceedContext, new VerifyAuthenticatorOptions(code));
       }
 
-      // poll the server looking for updates, the emails also contain a TOTP code,
-      // you could implement both polling and the ability to enter a code.
-      sleep(Integer.parseInt(authenticationResponse.getCurrentAuthenticatorEnrollment().getValue().getPoll().getRefresh()));
+      // Poll the server looking for updates.
+      // The emails also contain a TOTP code.
+      // You could implement both polling and the ability to enter a code.
+      sleep(Integer.parseInt(authenticationResponse
+         .getCurrentAuthenticatorEnrollment().getValue().getPoll().getRefresh()));
 
       return idxAuthenticationWrapper.poll(proceedContext);
     }
 
-    throw new IllegalStateException("Unsupported factor type selected: " + factorType);
+    throw new IllegalStateException(
+      "Unsupported factor type selected: " + factorType);
 ```
 
 ### 6. User clicks the email magic link
