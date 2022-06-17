@@ -26,4 +26,4 @@ func showUserInfo() {
 }
 ```
 
-The function first shows the activity indicator that blocks the UI, and then requests the credentials for the current user. The SDK calls the server and returns the user info array which is displayed in the info area.
+The function first shows the activity indicator to block the UI, and then requests the credentials for the current user. The SDK calls the server and returns the user info array which is displayed in the info area.
