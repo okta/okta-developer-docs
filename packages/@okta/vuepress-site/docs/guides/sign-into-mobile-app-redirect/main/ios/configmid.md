@@ -1,3 +1,5 @@
+The iOS SDK uses information from the application integration you created earlier to connect to the Okta org. The SDK loads these values from a configuration file named `Okta.plist` if it exists in your main bundle. You may also specify the values in code using `WebAuthentication(issuer:clientId:scopes:responseType:redirectUri:logoutRedirectUri:additionalParameters:)`.
+
 Create the Okta configuration file and add the keys and values for your application integration:
 
 1. Create a new property list file in your project named Okta.
@@ -10,37 +12,3 @@ Create the Okta configuration file and add the keys and values for your applicat
    | `logoutRedirectUri` | The post-logout redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/` |
    | `redirectUri` | The Redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback` |
    | `scopes` | A string with the value `openid profile offline_access` |{:.table .table-word-break}
-
-#### Configure the SDK for your Okta org
-
-This sample app configures the SDK only once, when the view appears.
-
-1. Import the Okta SDK and add state variables for the authorization session and state manager to `ContentView.swift`:
-
-   ```swift
-   ...
-   import OktaOidc
-
-   struct ContentView: View {
-     @State private var authSession: OktaOidc? = nil
-     @State private var authStateManager: OktaOidcStateManager? = nil
-
-     ...
-   ```
-
-2. Configure the SDK by updatating the `configureSDK` function:
-
-   ```swift
-   func configureSDK () {
-     guard let config = try? OktaOidcConfig.default(),
-       let oktaAuth = try? OktaOidc(configuration: config) else {
-         // Fatal error as the configuration isn't editable in this app.
-         showError(title: "Fatal Error",
-           message: "Unable to read the Okta configuration. Exit the app.")
-         return
-       }
-     self.authSession = oktaAuth
-   }
-   ```
-
-The function first creates a configuration using the plist that you created above, and then it initalizes the SDK using that configuration.
