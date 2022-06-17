@@ -9,7 +9,7 @@ category: management
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The Okta Push Providers API provides a centralized integration platform to fetch and manage push provider configurations. Okta administrators can use these APIs to provide their push provider credentials, for example from APNs and FCM, so that Okta can send push notifications to their own custom push authenticator applications.
+The Okta Push Providers API provides a centralized integration platform to fetch and manage push provider configurations. Okta administrators can use these APIs to provide their push provider credentials, for example from APNs and FCM, so that Okta can send push notifications to their own custom app authenticator applications.
 
 The Push Providers API supports the following **Authorization Schemes**:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
@@ -124,7 +124,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/push-providers" />
 
-Lists all available Push Providers.
+Lists all available Push Providers
 
 #### Permitted OAuth 2.0 scopes
 `okta.pushProviders.read`
@@ -310,7 +310,7 @@ Content-Type: application/json
 
 <ApiOperation method="put" url="/api/v1/push-providers/${pushProviderId}" />
 
-Updates a Push Provider.
+Updates a Push Provider
 
 #### Permitted OAuth 2.0 scopes
 `okta.pushProviders.manage`
@@ -399,7 +399,7 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/push-providers/${pushProviderId}" />
 
-Deletes a Push Provider.
+Deletes a Push Provider
 
 #### Permitted OAuth 2.0 scopes
 `okta.pushProviders.manage`
@@ -449,7 +449,7 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-##### Error response
+##### Error responses
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -466,7 +466,7 @@ Content-Type: application/json
   "errorCauses": []
 }
 ```
-Passing an `id` that is configured in a Custom App Authenticator returns a `409 Conflict` status code with the error code `E0000187`. The error occurs as long as the Custom App Authenticator is `ACTIVE` or `DEACTIVATED`.
+Passing an `id` that is configured in a custom app authenticator returns a `409 Conflict` status code with the error code `E0000187`. The error occurs as long as the custom app authenticator is `ACTIVE` or `DEACTIVATED`.
 
 ```http
 HTTP/1.1 409 Conflict
@@ -496,13 +496,13 @@ The Push Provider object has the following properties:
 
 | Property          | Type                                   | Description                                        |
 | ----------------- | -------------------------------------- | -------------------------------------------------- |
-| `configuration`   | [Configuration](#configuration-object) | Object that contains providerType specific configurations |
+| `configuration`   | [Configuration](#configuration-object) | Object that contains `providerType` specific configurations |
 | `name`            | String                                 | Display name of the Push Provider                  |
 | `providerType`    | String                                 | Provider type for the Push Provider. One of `APNS`, `FCM` |
 
 #### Configuration object
 
-| Property             | Type            | Description                                        | Applies for Push Provider `providerType` |
+| Property             | Type            | Description                                        | `providerType` |
 | -------------------- | --------------- | -------------------------------------------------- | ---------------------------------------- |
 | `fileName`           | String          | (Optional) File name for Admin Console display     | All
 | `keyId`              | String          | 10-character Key ID obtained from the Apple developer account                   | `APNS`                                   |
@@ -510,7 +510,7 @@ The Push Provider object has the following properties:
 | `teamId`             | String          | 10-character Team ID used to develop the iOS app   | `APNS`                                   |
 | `tokenSingingKey`    | String          | APNs private authentication token signing key      | `APNS`                                   |
 
-#### Push Provider object example (APNS provider type)
+#### Push Provider object example (APNs provider type)
 
 ```json
 {
@@ -558,7 +558,7 @@ The Push Provider response object has the following properties:
 | Property          | Type                                   | Description                                        |
 | ----------------- | -------------------------------------- | -------------------------------------------------- |
 | `_links`          | [Link](#link-object)                   | Allowed operations for the Push Provider           |
-| `configuration`   | [Configuration response](#configuration-response-object) | Object that contains providerType specific configurations |
+| `configuration`   | [Configuration response](#configuration-response-object) | Object that contains `providerType` specific configurations |
 | `id`              | String                                 | Unique key for the Push Provider                   |
 | `lastUpdatedDate` | String (ISO-8601)                      | Timestamp when the Push Provider was last modified |
 | `name`            | String                                 | Display name of the Push Provider                  |
@@ -566,18 +566,18 @@ The Push Provider response object has the following properties:
 
 #### Link object
 
-For a Push Provider result, the `_links` contains a full set of operations available for that Push Provider using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. `hints` provides information on allowed HTTP verbs for the `href`. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
 
 #### Configuration response object
-| Property             | Type      | Description                                        | Applies for Push Provider `providerType` |
+| Property             | Type      | Description                                        | `providerType` |
 | -------------------- | --------- | -------------------------------------------------- | ---------------------------------------- |
 | `fileName`           | String    | (Optional) File name for Admin Console display     | All
-| `keyId`              | String    | Key ID of the APNS configuration                   | `APNS`                                   |
+| `keyId`              | String    | Key ID of the APNs configuration                   | `APNS`                                   |
 | `projectId`          | String    | Project ID of FCM configuration                    | `FCM`                                    |
-| `teamId`             | String    | Team ID of the APNS configuration                  | `APNS`                                   |
+| `teamId`             | String    | Team ID of the APNs configuration                  | `APNS`                                   |
 
 
-##### Push Provider response example (APNS provider type)
+##### Push Provider response example (APNs provider type)
 
 ```json
 {
