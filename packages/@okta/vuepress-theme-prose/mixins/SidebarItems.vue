@@ -35,9 +35,21 @@ export default {
       });
       return this.navigation
     },
-    addStatesToLink(link) {
+
+    sanitizeTitle(el) {
+      if (el.guideName) {
+        return el.guideName;
+      }
+      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+    },
+
+    addStatesToLink(link, parent = null) {
       // Reset iHaveChildrenActive value.
       link.iHaveChildrenActive = false;
+
+      if (!link.path) {
+        link.path = parent.path + this.sanitizeTitle(link) + '/';
+      }
 
       if (link.path) {
         // Add state to leaf link
@@ -47,9 +59,9 @@ export default {
         for (const subLink of link.subLinks) {
           // if link has active children - continue with the rest of its sublinks
           if (link.iHaveChildrenActive) {
-            this.addStatesToLink(subLink);
+            this.addStatesToLink(subLink, link);
           } else {
-            link.iHaveChildrenActive = this.addStatesToLink(subLink);
+            link.iHaveChildrenActive = this.addStatesToLink(subLink, link);
           }
         }
       }

@@ -1,4 +1,5 @@
 const guidesInfo = require('./scripts/build-guides-info');
+const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -330,6 +331,7 @@ module.exports = ctx => ({
 
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
+    ...overviewPages()
   ],
 
   extendPageData ($page) {
