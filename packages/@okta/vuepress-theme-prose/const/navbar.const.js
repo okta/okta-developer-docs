@@ -128,27 +128,22 @@ export const guides = [
               {
                 title: "Sign users in to your single-page application",
                 guideName: "sign-into-spa-redirect",
-                path: "/docs/guides/sign-into-spa-redirect/"
               },
               {
                 title: "Sign users in to your web application",
                 guideName: "sign-into-web-app-redirect",
-                path: "/docs/guides/sign-into-web-app-redirect/"
               },
               {
                 title: "Sign users in to your mobile app",
                 guideName: "sign-into-mobile-app-redirect",
-                path: "/docs/guides/sign-into-mobile-app-redirect/"
               },
               {
                 title: "Use redirect auth with the sample apps",
                 guideName: "sampleapp-oie-redirectauth",
-                path: "s/docs/guides/ampleapp-oie-redirectauth/"
               },
               {
                 title: "Refresh access and ID tokens",
                 guideName: "oie-embedded-common-refresh-tokens",
-                path: "/docs/guides/oie-embedded-common-refresh-tokens/"
               }
             ]
           },
@@ -163,39 +158,32 @@ export const guides = [
                   {
                     title: "Set up your Okta org",
                     guideName: "oie-embedded-common-org-setup",
-                    path: "/docs/guides/oie-embedded-common-org-setup/"
                   },
                   {
                     title: "Download and set up the SDK, Sign-In Widget, and sample apps",
                     guideName: "oie-embedded-common-download-setup-app",
-                    path: "/docs/guides/oie-embedded-common-download-setup-app/"
                   },
                   {
                     title: "Run the sample apps",
                     guideName: "oie-embedded-common-run-samples",
-                    path: "/docs/guides/oie-embedded-common-run-samples/"
                   },
                 ]
               },
               {
                 title: "Auth JS fundamentals",
                 guideName: "auth-js",
-                path: "/docs/guides/auth-js/"
               },
               {
                 title: "Embedded Sign-In Widget fundamentals",
                 guideName: "embedded-siw",
-                path: "/docs/guides/embedded-siw/"
               },
               {
                 title: "Sign in to your SPA with Auth JS",
                 guideName: "sign-in-to-spa-authjs",
-                path: "/docs/guides/sign-in-to-spa-authjs/"
               },
               {
                 title: "Sign in to SPA with embedded Widget",
                 guideName: "sign-in-to-spa-embedded-widget",
-                path: "/docs/guides/sign-in-to-spa-embedded-widget/"
               },
               {
                 title: "Embedded SDK use cases",
@@ -204,47 +192,38 @@ export const guides = [
                   {
                     title: "Basic sign-in flow using the password factor",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-in",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/"
                   },
                   {
                     title: "Sign in with Facebook",
                     guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/"
                   },
                   {
                     title: "User password recovery",
                     guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/"
                   },
                   {
                     title: "Self-registration",
                     guideName: "oie-embedded-sdk-use-case-self-reg",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-self-reg/"
                   },
                   {
                     title: "New user activation",
                     guideName: "oie-embedded-sdk-use-case-new-user-activation",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-new-user-activatio/"
                   },
                   {
                     title: "Sign in with password and email factors",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/"
                   },
                   {
                     title: "Sign in with password and phone factors",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/"
                   },
                   {
                     title: "User sign out (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
-                    path: "/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/"
                   },
                   {
                     title: "SDK limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
-                    path: "/docs/guides/oie-embedded-sdk-limitations/"
                   }
                 ]
               },
@@ -255,17 +234,14 @@ export const guides = [
                   {
                     title: "Load the Widget",
                     guideName: "oie-embedded-widget-use-case-load",
-                    path: "/docs/guides/oie-embedded-widget-use-case-load/"
                   },
                   {
                     title: "Basic sign-in flow using the Widget",
                     guideName: "oie-embedded-widget-use-case-basic-sign-in",
-                    path: "/docs/guides/oie-embedded-widget-use-case-basic-sign-in/"
                   },
                   {
                     title: "Sign in with Facebook using the Widget",
                     guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
-                    path: "/docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/"
                   }
                 ]
               },
@@ -278,22 +254,18 @@ export const guides = [
               {
                 title: "Okta email",
                 guideName: "authenticators-okta-email",
-                path: "/docs/guides/authenticators-okta-email/"
               },
               {
                 title: "Okta Verify",
                 guideName: "authenticators-okta-verify",
-                path: "/docs/guides/authenticators-okta-verify/"
               },
               {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator",
-                path: "/docs/guides/authenticators-google-authenticator/"
               },
               {
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
-                path: "/docs/guides/authenticators-web-authn/"
               },
             ]
           },
@@ -338,11 +310,9 @@ export const guides = [
           {
             title: "Configure an access policy",
             guideName: "configure-access-policy",
-            path: "/docs/guides/configure-access-policy/"
           },
           { title: "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy",
-            path: "/docs/guides/configure-signon-policy/"
           },
           {
             title: "Add an Identity Provider",
@@ -442,43 +412,37 @@ export const guides = [
               },
             ]
           },
-          { title: "Sign users out", guideName: "sign-users-out", path: "#"},
+        
           {
             title: "Basics",
             path: "#",
             subLinks: [
-              { title: "Create an API token", guideName: "create-an-api-token", path: "/docs/guides/create-an-api-token/" },
-              { title: "Enable CORS", guideName: "enable-cors", path: "/docs/guides/enable-cors/" },
-              { title: "Find your Okta domain", guideName: "find-your-domain", path: "/docs/guides/find-your-domain/" },
+            
+            
+            
               {
                 title: "Find your application credentials",
                 guideName: "find-your-app-credentials",
-                path: "/docs/guides/find-your-app-credentials/"
               },
               {
                 title: "Share Application Key Credentials for IdPs across Apps",
                 guideName: "sharing-cert",
-                path: "/docs/guides/sharing-cert/"
               },
               { 
                 title: "Set up SAML Tracer", 
                 guideName: "saml-tracer",
-                path: "/docs/guides/saml-tracer/"
               },
               {
                 title: "Upgrade SAML Apps to SHA256",
                 guideName: "updating-saml-cert",
-                path: "/docs/guides/updating-saml-cert/"
               },
               {
                 title: "Sign the Okta certificate with your own CA",
                 guideName: "sign-your-own-saml-csr",
-                path: "/docs/guides/sign-your-own-saml-csr/"
               },
               {
                 title: "Set up self-service registration",
                 guideName: "set-up-self-service-registration",
-                path: "/docs/guides/set-up-self-service-registration/"
               }
             ]
           }
@@ -550,32 +514,26 @@ export const guides = [
           {
             title: "Implement authorization by grant type",
             guideName: "implement-grant-type",
-            path: "/docs/guides/implement-grant-type/"
           },
           {
             title: "Create an Authorization Server",
             guideName: "customize-authz-server",
-            path: "/docs/guides/customize-authz-server/"
           },
           {
             title: "Configure SSO for Native apps",
             guideName: "configure-native-sso",
-            path: "/docs/guides/configure-native-sso/"
           },
           { 
             title: "Request user consent",
             guideName: "request-user-consent",
-            path: "/docs/guides/request-user-consent/"
           },
           {
             title: "Configure Device Authorization Grant Flow",
             guideName: "device-authorization-grant",
-            path: "/docs/guides/device-authorization-grant/"
           },
           {
             title: "Client secret rotation and key management",
             guideName: "client-secret-rotation-key",
-            path: "/docs/guides/client-secret-rotation-key/"
           },
           {
             title: "Tokens",
@@ -584,54 +542,44 @@ export const guides = [
               {
                 title: "Build a JWT for Client Authentication",
                 guideName: "build-self-signed-jwt",
-                path: "/docs/guides/build-self-signed-jwt/"
               },
               {
                 title: "Customize tokens returned from Okta with custom claims",
                 guideName: "customize-tokens-returned-from-okta",
-                path: "/docs/guides/customize-tokens-returned-from-okta/"
               },
               {
                 title:
                   "Customize tokens returned from Okta with a Groups claim",
                 guideName: "customize-tokens-groups-claim",
-                path: "/docs/guides/customize-tokens-groups-claim/"
               },
               {
                 title:
                   "Customize tokens returned from Okta with a dynamic allow list",
                 guideName: "customize-tokens-dynamic",
-                path: "/docs/guides/customize-tokens-dynamic/"
               },
               {
                 title: "Customize tokens returned from Okta with a static allow list",
                 guideName: "customize-tokens-static",
-                path: "/docs/guides/customize-tokens-static/"
               },
               { 
                 title: "Refresh access tokens",
                 guideName: "refresh-tokens",
-                path: "/docs/guides/refresh-tokens/"
               },
               { 
                 title: "Revoke Tokens",
                 guideName: "revoke-tokens",
-                path: "/docs/guides/revoke-tokens/"
               },
               {
                 title: "Work with Okta session cookies",
                 guideName: "session-cookie",
-                path: "/docs/guides/session-cookie/"
               },
               {
                 title: "Validate Access Tokens",
                 guideName: "validate-access-tokens",
-                path: "/docs/guides/validate-access-tokens/"
               },
               { 
                 title: "Validate ID Tokens",
                 guideName: "validate-id-tokens",
-                path: "/docs/guides/validate-id-tokens/"
               }
             ]
           }
@@ -644,27 +592,22 @@ export const guides = [
           {
             title: "Customize the Okta URL domain",
             guideName: "custom-url-domain",
-            path: "/docs/guides/custom-url-domain/"
           },
           {
             title: "Style the Widget",
             guideName: "custom-widget",
-            path: "/docs/guides/custom-widget/"
           },
           {
             title: "Customize the Okta-hosted error pages",
             guideName: "custom-error-pages",
-            path: "/docs/guides/custom-error-pages/main/"
           },
           {
             title: "Customize SMS messages",
             guideName: "custom-sms-messaging",
-            path: "/docs/guides/custom-sms-messaging/"
           },
           {
             title: "Customize email notifications and email domains",
             guideName: "custom-email",
-            path: "/docs/guides/custom-email/"
           },
           {
             title: "Customize themes",
@@ -714,9 +657,8 @@ export const guides = [
           {
             title: "Build a Single Sign-On (SSO) integration",
             guideName: "build-sso-integration",
-            path: "/docs/guides/build-sso-integration/"
           },
-          { title: "Submit an app integration", guideName: "submit-app", path: "/docs/guides/submit-app/" }
+          { title: "Submit an app integration", guideName: "submit-app" }
         ]
       },
       {
@@ -726,27 +668,22 @@ export const guides = [
           {
             title: "Implement OAuth for Okta",
             guideName: "implement-oauth-for-okta",
-            path: "/docs/guides/implement-oauth-for-okta/"
           },
           {
             title: "Implement OAuth for Okta with a Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
-            path: "/docs/guides/implement-oauth-for-okta-serviceapp/"
           },
           {
             title: "Protect your API endpoints",
             guideName: "protect-your-api",
-            path: "/docs/guides/protect-your-api/"
           },
           {
             title: "Integrate Third-Party Risk",
             guideName: "third-party-risk-integration",
-            path: "/docs/guides/third-party-risk-integration/"
           },
           {
             title: "Secure OAuth API connection between orgs",
             guideName: "secure-oauth-between-orgs",
-            path: "/docs/guides/secure-oauth-between-orgs/"
           }
         ]
       },
@@ -783,42 +720,34 @@ export const guides = [
           {
             title: "Common Hook Set-up Steps",
             guideName: "common-hook-set-up-steps",
-            path: "/docs/guides/common-hook-set-up-steps/"
           },
           {
             title: "Event Hook",
             guideName: "event-hook-implementation",
-            path: "/docs/guides/event-hook-implementation/"
           },
           {
             title: "Event Hooks with ngrok",
             guideName: "event-hook-ngrok",
-            path: "/docs/guides/event-hook-ngrok/"
           },
           {
             title: "Event Hooks with Hookdeck",
             guideName: "event-hook-hookdeck",
-            path: "/docs/guides/event-hook-hookdeck/"
           },
           {
             title: "Password Import Inline Hook",
             guideName: "password-import-inline-hook",
-            path: "/docs/guides/password-import-inline-hook/"
           },
           {
             title: "Registration Inline Hook",
             guideName: "registration-inline-hook",
-            path: "/docs/guides/registration-inline-hook/"
           },
           {
             title: "Telephony Inline Hook",
             guideName: "telephony-inline-hook",
-            path: "/docs/guides/telephony-inline-hook/"
           },
           {
             title: "Token Inline Hook",
             guideName: "token-inline-hook",
-            path: "/docs/guides/token-inline-hook/"
           },
         ]
       },
@@ -829,32 +758,26 @@ export const guides = [
           {
             title: "Auth JS fundamentals",
             guideName: "archive-auth-js",
-            path: "/docs/guides/archive-auth-js/"
           },
           { 
             title: "Configure Okta Sign-On and App Sign-On Policies",
             guideName: "archive-configure-signon-policy",
-            path: "/docs/guides/archive-configure-signon-policy/"
           },
           {
             title: "Embedded Sign-In Widget fundamentals",
             guideName: "archive-embedded-siw",
-            path: "/docs/guides/archive-embedded-siw/"
           },
           {
             title: "Sign in to SPA with Auth JS",
             guideName: "archive-sign-in-to-spa-authjs",
-            path: "/docs/guides/archive-sign-in-to-spa-authjs/"
           },
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget",
-            path: "/docs/guides/archive-sign-in-to-spa-embedded-widget/"
           },
           {
             title: "Add multifactor authentication",
             guideName: "mfa",
-            path: "/docs/guides/mfa/"
           },
           {
             title: "Registration Inline Hook",
@@ -909,54 +832,54 @@ export const languagesSdk = [
 
 export const reference = [
     {
-    title: "Reference",
-    path: "/docs/reference/",
+    title: "References",
+    path: "/docs/references/",
     subLinks: [
       {
         title: "Core Okta API",
-        path: "/docs/reference/core-okta-api/",
+        path: "/docs/references/core-okta-api/",
         subLinks: [
           {
             title: "Rate Limits",
-            path: "/docs/reference/rate-limits/",
+            path: "/docs/references/rate-limits/",
             subLinks: [
               {
                 title: "Rate limit dashboard",
-                path: "/docs/reference/rl-dashboard/"
+                path: "/docs/references/rl-dashboard/"
               },
               {
                 title: "Authentication/End-user rate limits",
-                path: "/docs/reference/rl-global-enduser/"
+                path: "/docs/references/rl-global-enduser/"
               },
               {
                 title: "Management rate limits",
-                path: "/docs/reference/rl-global-mgmt/"
+                path: "/docs/references/rl-global-mgmt/"
               },
               {
                 title: "Other endpoint rate limits",
-                path: "/docs/reference/rl-global-other-endpoints/"
+                path: "/docs/references/rl-global-other-endpoints/"
               },
               {
                 title: "Additional limits",
-                path: "/docs/reference/rl-additional-limits/"
+                path: "/docs/references/rl-additional-limits/"
               },
               {
                 title: "Rate limit best practices",
-                path: "/docs/reference/rl-best-practices/"
+                path: "/docs/references/rl-best-practices/"
               },
               {
                 title: "Client-based rate limits",
-                path: "/docs/reference/rl-clientbased/"
+                path: "/docs/references/rl-clientbased/"
               },
               { title: "DynamicScale",
-                path: "/docs/reference/rl-dynamic-scale/"
+                path: "/docs/references/rl-dynamic-scale/"
               },
               { title: "Previous rate limits",
-              path: "/docs/reference/rl-previous/"
+              path: "/docs/references/rl-previous/"
               },
               {
                 title: "System Log events for rate limits",
-                path: "/docs/reference/rl-system-log-events/"
+                path: "/docs/references/rl-system-log-events/"
               },
             ]
           },
@@ -1002,55 +925,54 @@ export const reference = [
       },
       {
         title: "Advanced Server Access API",
-        path: "/docs/reference/api/asa/",
         subLinks: [
           {
             title: "Introduction to the Advanced Server Access API",
-            path: "/docs/reference/api/asa/introduction/"
+            path: "/docs/references/api/asa/introduction/"
           },
           {
             title: "ASA Attributes API",
-            path: "/docs/reference/api/asa/attributes/"
+            path: "/docs/references/api/asa/attributes/"
           },
-          { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
+          { title: "ASA Audits API", path: "/docs/references/api/asa/audits/" },
           {
             title: "ASA Clients API",
-            path: "/docs/reference/api/asa/clients/"
+            path: "/docs/references/api/asa/clients/"
           },
           {
             title: "ASA Entitlements API",
-            path: "/docs/reference/api/asa/entitlements/"
+            path: "/docs/references/api/asa/entitlements/"
           },
-          { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
+          { title: "ASA Groups API", path: "/docs/references/api/asa/groups/" },
           {
             title: "ASA Projects API",
-            path: "/docs/reference/api/asa/projects/"
+            path: "/docs/references/api/asa/projects/"
           },
           {
             title: "ASA Service Users API",
-            path: "/docs/reference/api/asa/service-users/"
+            path: "/docs/references/api/asa/service-users/"
           },
-          { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
-          { title: "ASA Users API", path: "/docs/reference/api/asa/users/" }
+          { title: "ASA Teams API", path: "/docs/references/api/asa/teams/" },
+          { title: "ASA Users API", path: "/docs/references/api/asa/users/" }
         ]
       },
       {
         title: "SCIM Protocol",
-        path: "/docs/reference/scim/",
+        path: "/docs/references/scim/",
         subLinks: [
           {
             title: "SCIM V2.0",
-            path: "/docs/reference/scim/scim-20/"
+            path: "/docs/references/scim/scim-20/"
           },
           {
             title: "SCIM V1.1",
-            path: "/docs/reference/scim/scim-11/"
+            path: "/docs/references/scim/scim-11/"
           }
         ]
       },
       {
         title: "Postman Collections",
-        path: "/docs/reference/postman-collections/"
+        path: "/docs/references/postman-collections/"
       },
       {
         title: "Hooks",
@@ -1059,27 +981,23 @@ export const reference = [
           { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
           { title: "Inline Hook Types", path: "#",
             subLinks: [
-              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
-              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
-              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-              { title: "Telephony Hook", path: "/docs/reference/telephony-hook/" },
-              { title: "Token Hook", path: "/docs/reference/token-hook/" },
-              { title: "User Import Hook", path: "/docs/reference/import-hook/"}
+              { title: "Password Import Hook", path: "/docs/references/password-hook/" },
+              { title: "Registration Hook", path: "/docs/references/registration-hook/" },
+              { title: "SAML Hook", path: "/docs/references/saml-hook/" },
+              { title: "Telephony Hook", path: "/docs/references/telephony-hook/" },
+              { title: "Token Hook", path: "/docs/references/token-hook/" },
+              { title: "User Import Hook", path: "/docs/references/import-hook/"}
           ]},
-          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
+          { title: "Hooks best practices", path: "/docs/references/hooks-best-practices/"},
         ]
       },
       {
         title: "Okta Expression Language",
-        path: "/docs/reference/okta-expression-language/"
+        path: "/docs/references/okta-expression-language/"
       },
       {
         title: "Okta Expression Language in Identity Engine",
-        path: "/docs/reference/okta-expression-language-in-identity-engine/"
-      },
-      {
-        title: "Release Life Cycle",
-        path: "/docs/reference/releases-at-okta/"
+        path: "/docs/references/okta-expression-language-in-identity-engine/"
       },
     ]
   }
@@ -1090,6 +1008,10 @@ export const releaseNotes = [
     title: "Release Notes",
     path: "/docs/release-notes/",
     subLinks: [
+      {
+        title: "Release Life Cycle",
+        path: "/docs/release-notes/releases-at-okta/"
+      },
       { title: "2022", path: "/docs/release-notes/2022/" },
       { title: "2022 - Okta Identity Engine", path: "/docs/release-notes/2022-okta-identity-engine/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
