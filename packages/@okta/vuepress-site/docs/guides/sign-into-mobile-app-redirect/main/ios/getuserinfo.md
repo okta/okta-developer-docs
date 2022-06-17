@@ -2,27 +2,28 @@ Display the user info by updating the `showUserInfo` function of `ContentView`:
 
 ```swift
 func showUserInfo() {
-  guard let authStateManager = authStateManager else {
-    showError(title: "Unable to Show User Info",
-              message: "No Okta client found.")
-
-    return
-  }
-
-  authStateManager.getUser() { response, error in
-    if let error = error {
-      showError(title: "Unable to Read User Info", error: error)
+   guard let credential = Credential.default else {
+      showError(title: "Unable to Show User Info",
+                message: "Could not read the token for the current user.")
       return
-    }
-
-    if response != nil {
-      let sortedResponse = response!.sorted { return $0.key < $1.key }
-      var userInfoText = ""
-      sortedResponse.forEach { userInfoText += ("\($0): \($1) \n") }
-      infoText = userInfoText
-    }
-  }
+   }
+   Task {
+      do {
+         busy = true
+         let userInfo = try await credential.userInfo()
+         busy = false
+         var userInfoText = ""
+         userInfo.payload.forEach { (key: String, value: Any) in
+            userInfoText += ("\(key): \(value) \n")
+         }
+         infoText = userInfoText
+      }
+      catch {
+         busy = false
+         showError(title: "Unable to Show User Info", error: error)
+      }
+   }
 }
 ```
 
-The completion handler in `getUser` is called when the Okta org server returns a result. Your production app may present a busy cursor and status while it waits for the callback. The completion handler then shows an error if appropriate or sorts the user info keys before displaying the raw data.
+The function first shows the activity indicator that blocks the UI, and then requests the credentials for the current user. The SDK calls the server and returns the user info array which is displayed in the info area.
