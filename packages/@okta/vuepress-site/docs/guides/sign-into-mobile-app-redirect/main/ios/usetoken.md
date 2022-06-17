@@ -1,4 +1,4 @@
-Use the `authorize(_:)` convenience function of `Credential` to add the token to your `URLRequest`:
+The `authorize(_:)` convenience function of `Credential` refreshes the token if required, and then adds it to the authorization header of your `URLRequest`:
 
 ```swift
 var myURLRequest: URLRequest

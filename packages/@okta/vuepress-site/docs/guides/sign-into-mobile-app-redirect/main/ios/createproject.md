@@ -4,11 +4,25 @@ Launch Xcode and create a new iOS app project using SwiftUI for the interface an
 
 #### Add the UI
 
-The main view implements all of the app functionality including view state, view model updates, and data model. For a production consider partitioning the view and data models into singletons.
+The functionality of the app is implemented in the main SwiftUI view, including view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then using Combine, bindings, or `@Environment` for sharing state.
 
-In the app, text views display the current state and any requested information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user tapping the UI the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
+The text views in the app display its current state and any optional information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user tapping the UI the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
 
-Update the imported modules and replace the `ContentView` `struct` with the following code:
+The following image shows the completed app in both the sign-in and signed-on states:
+
+<div class=”full”>
+
+<!-- <div class="common-image-format"> -->
+
+![Two iPhone screenshots that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
+
+</div>
+
+<!--
+TODO: Source image(s): <url-of-source-figma-board> <name-label-of-image-inside-figma-board>
+-->
+
+Open `ContentView.swift` and replace it with the following code:
 
 ```swift
 import SwiftUI
@@ -79,13 +93,13 @@ struct ContentView: View {
          }
          if busy {
             Color.gray
-                .opacity(0.5)
+               .opacity(0.5)
             ProgressView("Waiting")
         }
       }
       .alert(isPresented: $showingError) {
-      Alert(title: Text(errorTitle ?? "Unknown Error"),
-      message: Text(errorMessage ?? "An unknow error occured."))
+         Alert(title: Text(errorTitle ?? "Unknown Error"),
+         message: Text(errorMessage ?? "An unknow error occured."))
       }
    }
 
@@ -126,6 +140,6 @@ struct ContentView: View {
 }
 ```
 
-The last three functions are utilities. The two variants of `showError` configure the contents, and then show an alert (the `showingError` state variable controls the presentation of the alert.)
+The last three functions are utilities. The two variants of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the .alert view modifier to present the alert.
 
 The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
