@@ -1,4 +1,4 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start enrolment, retrieve and display a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
@@ -127,6 +127,6 @@ Next, the user installs Okta Verify (if not already installed on their device) a
 
 After the user opens Okta Verify, they verify the account in the app by scanning the QR code on the screen using the device's camera.
 
-#### 6: Exit polling
+#### 6: Exit polling and complete enrolment
 
 After the user scans the QR code and finishes enrolling their account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.

@@ -1,4 +1,4 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start challenge, retrieve and display authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-flow-and-return-a-list-of-authenticators) section.
 
@@ -29,7 +29,7 @@ case AWAITING_AUTHENTICATOR_SELECTION:
     return idxAuthenticationWrapper.selectAuthenticator(proceedContext,  authenticator);
 ```
 
-#### 4. Prompt the user for the TOTP in Okta Verify
+#### 4 - 8. Prompt the user for the TOTP in Okta Verify and sign user in
 
 If the user clicks the link to "Enter a code", they will open Okta Verify on their device, and enter the TOTP code that appears:
 
@@ -39,5 +39,3 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
     return idxAuthenticationWrapper.verifyAuthenticator(proceedContext,
         new VerifyChannelDataOptions("totp", code));
 ```
-
-The next response status will be `SUCCESS` and contain access and ID tokens. The user has been authenticated.

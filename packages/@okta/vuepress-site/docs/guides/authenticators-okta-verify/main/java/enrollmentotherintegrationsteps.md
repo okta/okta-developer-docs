@@ -1,8 +1,8 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start enrollment, retrieve and display a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-flow-and-return-a-list-of-authenticators) section.
 
-#### 2 - 3. Retrieve QR code, display QR code
+#### 2 - 3. Retrieve and display QR code
 
 Follow steps 2 and 3 of [Integrate Enrollment Using QR code](#integrate-enrollment-using-qr-code).
 
@@ -48,7 +48,7 @@ private AuthenticationResponse selectAuthenticatorToEnroll(AuthenticationRespons
 }
 ```
 
-#### 5. Initiate email or SMS enrollment on server-side
+#### 5 - 7. Initiate email or SMS enrollment on server-side
 
 When the user selects **Email** or **SMS** in the previous section, the response authentication status will be `AWAITING_CHANNEL_DATA_ENROLLMENT`. You will need return additional information about the factor:
 
@@ -84,11 +84,11 @@ After the user submits their email or mobile phone number, Okta sends an activat
 
 </div>
 
-#### 9. Prompt user to check email and start polling
+#### 8 - 9. Prompt user to check email and start polling
 
 Prompt the user to check their email or phone to continue signing in, then continue to poll as defined in the [common steps](#polling-okta) section.
 
-#### 10. Click the link in the email and complete Okta Verify setup
+#### 10. User clicks activation link
 
 The user opens the email on their mobile device and taps **Activate Okta Verify Push** that sends them to Okta Verify to complete the account setup.
 
@@ -98,6 +98,6 @@ The user opens the email on their mobile device and taps **Activate Okta Verify 
 
 </div>
 
-#### 11. Exit polling
+#### 11. Exit polling and complete enrollment
 
 After the user completes the setup and finishes enrolling their account, the next polling request returns a status of `SUCCESS` along with access and ID tokens. The user is now authenticated.
