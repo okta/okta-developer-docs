@@ -61,6 +61,7 @@
   .sidebar-area {
     width: 20%;
     min-width: 266px;
+    max-width: 266px;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
@@ -108,7 +109,7 @@
     padding: 23px 59px;
     @include media("<desktop-xl") {
       max-width: calc(100% - 266px);
-      padding: 30px 57px;
+      padding: 40px 57px 30px;
     }
     @include media("<desktop") {
       width: 100%;
@@ -292,6 +293,7 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
+  min-width: auto;
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
