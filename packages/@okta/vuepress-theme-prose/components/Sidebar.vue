@@ -72,7 +72,6 @@ export default {
       for (let i = 0; i < routes.length; i++) {
         if (routes[i].path !== '/' && currentRoute.startsWith(routes[i].path)) {
           this.sidebarItems = routes[i].subLinks;
-          this.addStatesToLink(this.sidebarItems);
           break;
         }
       } 

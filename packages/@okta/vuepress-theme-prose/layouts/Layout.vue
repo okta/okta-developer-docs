@@ -26,7 +26,7 @@
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
-            <slot name="generatedContent" />
+            <GeneratedContent v-if="$page.frontmatter.generated" />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
               <span>
@@ -71,6 +71,7 @@ export default {
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
+    GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
