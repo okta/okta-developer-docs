@@ -1,8 +1,11 @@
 ### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures the user's name and password.
+
 <div class="common-image-format bordered-image">
+
 ![Basic sign-in dialog](/img/authenticators/java-authenticators-signinform.png)
+
 </div>
 
 ### 2: Authenticate the user credentials
@@ -51,39 +54,36 @@ switch (authenticationStatus) {
 
 ### 4: Display a list of possible authenticators
 
-You need to handle two other authenticator status values in addition to `SUCCESS` and `PASSWORD_EXPIRED` for an Okta org that is configured using this guide:
-
-* `AWAITING_PROFILE_ENROLLMENT` that is covered in this section
-* `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` that is covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge).
-
 The names of the available authenticators are found in the `authenticators` collection of the `AuthenticationResponse`.
 
 Display a selector with the list of available authenticators:
 
 ```java
-case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
-
-    // There are multiple potential factors, for this it is assumed that
-    // Google Authenticator (OTP) is used
-    Authenticator authenticator = authenticationResponse.getAuthenticators().stream()
-            .filter(auth -> auth.getType().equals("otp"))
-            .findFirst() // find the first "otp" factor or throw an exception
-            .orElseThrow(() -> {
-                String availableFactors = authenticationResponse.getAuthenticators().stream()
-                        .map(auth -> auth.getLabel() + " - " + auth.getType())
-                        .collect(Collectors.joining(", "));
-                return new RuntimeException("OTP factor not found, existing options: " + availableFactors);
-            });
-
-    // Update the response with the selected authenticator and send the result back to the server.
-    authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+// There are multiple potential factors, for this it is assumed that
+// Google Authenticator (OTP) is used
+Authenticator authenticator = authenticationResponse.getAuthenticators().stream()
+      .filter(auth -> auth.getType().equals("otp"))
+      .findFirst() // find the first "otp" factor or throw an exception
+      .orElseThrow(() -> {
+            String availableFactors = authenticationResponse.getAuthenticators().stream()
+                  .map(auth -> auth.getLabel() + " - " + auth.getType())
+                  .collect(Collectors.joining(", "));
+            return new RuntimeException("OTP factor not found, existing options: " + availableFactors);
+      });
 ```
 
-### 5: Retrieve shared secret and QR Code
+### 5: Retrieve shared secret and QR code
 
-The next `AuthenticationResponse` object will contain information about the OTP factor and will contain a QR Code and shared secret.
+When the user selects the Google Authenticator factor, call `selectAuthenticator()`, passing in the current context object and authenticator choice as parameters.
 
-> **NOTE:** the _shared secret_ is typically used when a QR code cannot be displayed or scanned.
+```java
+// Update the response with the selected authenticator and send the result back to the server.
+authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```
+
+The returned `AuthenticationResponse` object contains a QR Code and shared secret.
+
+### 6: Display shared secret and QR Code
 
 Display the QR code and/or shared secret to the user, so they can register the factor with Google Authenticator.
 
@@ -92,10 +92,44 @@ authenticationResponse.getContextualData().getSharedSecret()
 authenticationResponse.getContextualData().getQrcode()
 ```
 
-Prompt the user for a OTP code, and continue the authentication flow:
+For example
+
+<div class="common-image-format bordered-image">
+
+![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enroll-page.png)
+
+</div>
+
+> **NOTE:** The shared secret is typically used when a QR code cannot be displayed or scanned.
+
+### 7: Copy shared secret to Google Authenticator
+
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time password (TOTP) for the newly added account.
+
+<div class="common-image-format">
+
+![A time-based one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
+
+</div>
+
+### 8: Challenge user for TOTP
+
+Prompt the user for the TOTP. Call `verifyAuthenticator()` passing in the TOTP as a parameter to verify it with Identity Engine:
 
 ```java
-// Send the code to Okta and handle the next response.
-authenticationResponse = idxAuthenticationWrapper
-    .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
+case AWAITING_AUTHENTICATOR_VERIFICATION:
+    // confirm the TOTP code with Okta and to back into the state machine
+    authenticationResponse = idxAuthenticationWrapper
+        .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
+```
+
+### 9: Sign user in
+
+After successful user authentication, Identity Engine returns an `AuthenticationStatus` of `SUCCESS`. Call `getTokenResponse()` to retrieve the user's ID and access tokens.
+
+```java
+case SUCCESS:
+    TokenResponse tokenResponse = authenticationResponse.getTokenResponse();
+    String accessToken = tokenResponse.getAccessToken();
+    … your code …
 ```

@@ -1,4 +1,4 @@
-### 1 - 4: Sign-in and Select Authenticator
+### 1 - 4: Start flow and display authenticator list
 
 The challenge flow follows the same first four steps as the [enrollment flow](#integrate-sdk-for-authenticator-enrollment):
 
@@ -23,28 +23,19 @@ case AWAITING_AUTHENTICATOR_SELECTION:
 
 > **NOTE:**  This state is skipped if your application's sign-on policy contains only one factor.
 
-### 6: Receive OTP from Google Authenticator
+### 6: Receive TOTP from Google Authenticator 
 
 The user's copy of Google Authenticator now displays the time-based one-time password (TOTP) for the newly added account which they will enter into a challenge page.
 
+<div class="common-image-format">
+
 ![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 
-Add a page that prompts the user for the TOTP. Call `verifyAuthenticator()` passing in the TOTP as a parameter to verify it with Identity Engine:
+</div>
 
-```java
-case AWAITING_AUTHENTICATOR_VERIFICATION:
-    // confirm the TOTP code with Okta and to back into the state machine
-    authenticationResponse = idxAuthenticationWrapper
-        .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
-```
+### 7 - 8: Display challenge page and process password
 
-### 7: Handle the Success status
+The challenge flow now follows the same final steps as the [Enrollment flow](#_8-challenge-user-for-totp):
 
-After successful user authentication, Identity Engine returns an `AuthenticationStatus` of `SUCCESS`. Call `getTokenResponse()` to retrieve their ID and access tokens.
-
-```java
-case SUCCESS:
-    TokenResponse tokenResponse = authenticationResponse.getTokenResponse();
-    String accessToken = tokenResponse.getAccessToken();
-    … your code …
-```
+* Challenge user for TOTP
+* Sign user in
