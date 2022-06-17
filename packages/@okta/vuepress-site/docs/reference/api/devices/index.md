@@ -376,7 +376,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Bearer token request
@@ -386,7 +386,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${oauth_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Response
