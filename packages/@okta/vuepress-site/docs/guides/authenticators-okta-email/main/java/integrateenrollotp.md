@@ -24,7 +24,11 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
     return idxAuthenticationWrapper.verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
 
-### 6 - 7. Open email and copy OTP
+### 6. Display OTP input page
+
+Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
+
+### 7. Open email and copy OTP
 
 Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
@@ -34,6 +38,25 @@ Next, the user opens the email and copies the OTP. The following screenshot show
 
 </div>
 
-### 7. The user is signed in
+### 8. Process the OTP
 
-The next response status will be `SUCCESS` and contain an access token. The user has been authenticated.
+Pass the OTP as a parameter to `verifyAuthenticator()`.
+
+
+```java
+
+   VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(otp);
+   authenticationResponse = authenticationWrapper
+            .verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```
+
+### 9. Complete challenge and sign user in
+
+If the `otp` value is valid, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `verifyAuthenticator()` is `SUCCESS`. In this case, call `getTokenResponse()` to retrieve the user's ID and access tokens.
+
+```java
+case SUCCESS:
+    TokenResponse tokenResponse = authenticationResponse.getTokenResponse();
+    String accessToken = tokenResponse.getAccessToken();
+    … your code …
+```
