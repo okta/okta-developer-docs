@@ -3,7 +3,7 @@
 .content__default div img {
   display: block;
   margin: 0 auto;
-  max-width:100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -41,6 +41,7 @@
 
 .content__default div.border {
   img {
-    border: 1px solid #d7d7dc;
+    border: 1px solid cv('gray', '200');
+    border-radius: 46px;
   }
 }
