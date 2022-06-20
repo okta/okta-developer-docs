@@ -321,7 +321,7 @@ export const guides = [
           { title: "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy" },
           {
-            title: "Identity Provider",
+            title: "External Identity Providers",
             subLinks: [
               {
                 title: "Overview",
