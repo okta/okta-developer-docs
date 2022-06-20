@@ -321,7 +321,7 @@ export const guides = [
           { title: "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy" },
           {
-            title: "Add an Identity Provider",
+            title: "Identity Provider",
             subLinks: [
               {
                 title: "Overview",
@@ -329,93 +329,11 @@ export const guides = [
               },
               {
                 title: "Social Logins",
-                subLinks: [
-                  {
-                    title: "Amazon",
-                    path: "/docs/guides/social-login/amazon/main/"
-                  },
-                  {
-                    title: "Apple",
-                    path: "/docs/guides/add-an-external-idp/apple/main/"
-                  },
-                  {
-                    title: "Discord",
-                    path: "/docs/guides/social-login/discord/main/"
-                  },
-                  {
-                    title: "Facebook",
-                    path: "/docs/guides/add-an-external-idp/facebook/main/"
-                  },
-                  {
-                    title: "GitHub",
-                    path: "/docs/guides/social-login/github/main/"
-                  },
-                  {
-                    title: "GitLab",
-                    path: "/docs/guides/social-login/gitlab/main/"
-                  },
-                  {
-                    title: "Google",
-                    path: "/docs/guides/add-an-external-idp/google/main/"
-                  },
-                  {
-                    title: "LinkedIn",
-                    path: "/docs/guides/add-an-external-idp/linkedin/main/"
-                  },
-                  {
-                    title: "Microsoft",
-                    path: "/docs/guides/add-an-external-idp/microsoft/main/"
-                  },
-                  {
-                    title: "Paypal",
-                    path: "/docs/guides/social-login/paypal/main/"
-                  },
-                  {
-                    title: "Salesforce",
-                    path: "/docs/guides/social-login/salesforce/main/"
-                  },
-                  {
-                    title: "Spotify",
-                    path: "/docs/guides/social-login/spotify/main/"
-                  },
-                  {
-                    title: "Xero",
-                    path: "/docs/guides/social-login/xero/main/"
-                  },
-                  {
-                    title: "Yahoo",
-                    path: "/docs/guides/social-login/yahoo/main/"
-                  },
-                  {
-                    title: "Yahoo Japan",
-                    path: "/docs/guides/social-login/yahoojp/main/"
-                  }
-                ]
+                guideName: "social-login"
               },
               {
                 title: "Enterprise Identity Providers",
-                subLinks: [
-                  {
-                    title: "SAML 2.0",
-                    path: "/docs/guides/add-an-external-idp/saml2/main/"
-                  },
-                  {
-                    title: "OpenID Connect",
-                    path: "/docs/guides/add-an-external-idp/openidconnect/main/"
-                  },
-                  {
-                    title: "Okta to Okta",
-                    path: "/docs/guides/add-an-external-idp/oktatookta/main/"
-                  },
-                  {
-                    title: "Azure AD",
-                    path: "/docs/guides/add-an-external-idp/azure/main/"
-                  },
-                  {
-                    title: "Smart Card",
-                    path: "/docs/guides/add-an-external-idp/smartcard/"
-                  }
-                ]
+                guideName: "add-an-external-idp"
               },
             ]
           },

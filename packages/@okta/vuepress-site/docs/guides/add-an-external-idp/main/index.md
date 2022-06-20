@@ -1,11 +1,9 @@
 ---
-title: Add an external Identity Provider
+title: Add an enterprise Identity Provider
 meta:
   - name: description
-    content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
-showStackSelector: False
+    content: Okta supports authentication with external enterprise Identity Providers that uses OpenID Connect as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
-
 
 ## <StackSnippet snippet="idp" inline />
 
