@@ -2397,6 +2397,8 @@ redirects:
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/index.html
     to: /docs/guides/add-an-external-idp/main
+  - from: /docs/guides/add-an-external-idp/apple/before-you-begin
+    to: /docs/guides/add-an-external-idp/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta
