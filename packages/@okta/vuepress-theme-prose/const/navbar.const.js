@@ -875,6 +875,7 @@ export const reference = [
             ]
           },
           { title: "Error Codes", path: "/docs/reference/error-codes/" },
+          { title: "User query options", path: "/docs/reference/user-query/" },
           { title: 'Sign in Your Users', path: null},
           { title: "Authentication", path: "/docs/reference/api/authn/" },
           { title: "Identity Providers", path: "/docs/reference/api/idps/" },
