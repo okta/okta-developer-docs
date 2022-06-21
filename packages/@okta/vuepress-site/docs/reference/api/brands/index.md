@@ -2581,7 +2581,7 @@ The Email Template Settings Object resource defines the following properties:
 
 > **Note:** The following is a list of the email templates with certain Enum values:
 > * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
-> * `ALL_USERS, ADMIN ONLY`: `ChangeEmailConfirmation`
+> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 

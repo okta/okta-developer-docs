@@ -43,24 +43,25 @@ The first step is to install the Widget. You have two options: linking out to th
 
 ### CDN
 
-To use the CDN, include this in your HTML:
+To use the CDN, include this in your HTML, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-More info, including the latest published version, can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### npm
 
+To install the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) locally through `npm`, run the following command in your project root folder:
+
 ```bash
-# Run this command in your project root folder.
-npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+npm install @okta/okta-signin-widget@latest
 ```
 
-More info, including the latest published version, can be found in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Bundling the Widget
 
@@ -139,16 +140,19 @@ Create an app integration in the Okta org that represents the application you wa
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Single-Page Application** for the **Application Type**.
+1. Select **Single-Page Application** for the **Application Type**, and then click **Next**.
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
    * Select the **Interaction Code** checkbox.
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
+   * Set **Sign-out redirect URIs** to `http://localhost:3000/`.
 
-1. In the **Assignments** section, select **Allow everyone in your organization to access**.
-1. Click **Save**.
+1. In the **Assignments** section, select **Allow everyone in your organization to access**, and then click **Save**.
+1. In the **General Settings** section on the **General** tab, click **Edit**.
+1. Under **EMAIL VERIFICATION EXPERIENCE** set **Callback URI** to `http://localhost:3000`, and then click **Save**.
+
 1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
 1. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 1. Click **Save**.
@@ -179,8 +183,8 @@ Create an app integration in the Okta org that represents the application you wa
         }
       </style>
       <!-- widget stuff here -->
-      <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-      <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+      <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+      <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
       <div class="container">
@@ -193,12 +197,17 @@ Create an app integration in the Okta org that represents the application you wa
         <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
       </div>
       <script type="text/javascript">
-        const oktaSignIn = new OktaSignIn({
-          issuer: "https://${yourOktaDomain}/oauth2/default",
-          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}",
-          useInteractionCodeFlow: true
-        });
+         const oktaSignIn = new OktaSignIn({
+            issuer: "https://${yourOktaDomain}/oauth2/default",
+            redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
+            clientId: "${yourClientId}",
+            useInteractionCodeFlow: true
+         });
+
+         // Search for URL Parameters to see if a user is being routed to the application to recover password
+         var searchParams = new URL(window.location.href).searchParams;
+         oktaSignIn.otp = searchParams.get('otp');
+         oktaSignIn.state = searchParams.get('state');
 
         oktaSignIn.authClient.token.getUserInfo().then(function(user) {
           document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
@@ -257,6 +266,9 @@ Create an app integration in the Okta org that represents the application you wa
 ### SPA or Native application using PKCE
 
 ```javascript
+var searchParams = new URL(window.location).searchParams;
+var otp = searchParams.get('otp');
+var state = searchParams.get('state');
 
 const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
@@ -269,6 +281,11 @@ const signIn = new OktaSignIn({
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
 });
+
+// Search for URL Parameters to see if a user is being routed to the application to recover password
+var searchParams = new URL(window.location.href).searchParams;
+signIn.otp = searchParams.get('otp');
+signIn.state = searchParams.get('state');
 
 // SPA and Native apps using PKCE can receive tokens directly without any redirect
 signIn.showSignInToGetTokens().then(function(tokens) {

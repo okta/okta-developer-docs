@@ -27,8 +27,6 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 When you are redirecting to the Okta-hosted widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
-> **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
-
 ## Update the Embedded Sign-In Widget
 
 When you are embedding the widget, consider and plan for the following steps, depending on your needs:

@@ -6,6 +6,22 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.06.1](#bugs-fixed-in-2022-06-1) | June 15, 2022 |
+
+#### Bugs fixed in 2022.06.1
+
+* Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
+
+* When the `factorType` parameter was set to `token:software:totp`, the `amr` claim was missing MFA factors (Okta Verify/Challenge or Google Authenticator). (OKTA-499718)
+
+* The Max Okta session lifetime setting for Global Session Policy was ignored. (OKTA-480442)
+
+* When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
+
 ### Monthly release 2022.06.0
 
 | Change | Expected in Preview Orgs |
@@ -78,6 +94,8 @@ While Okta provides out-of-the-box telephony functionality, many customers need 
 The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-496877 -->
 
 #### Bugs fixed in 2022.06.0
+
+* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
 
 * Primary and secondary email addresses weren't verified when the email addresses were added or modified through the `/users/me` [API endpoint](/docs/reference/api/users/#update-current-user-s-profile). This issue was fixed in 2022.05.0. (OKTA-444089)
 

@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.06.1](#bug-fixed-in-2022-06-1) | June 15, 2022 |
+
+#### Bug fixed in 2022.06.1
+
+Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
+
 ### Monthly release 2022.06.0
 
 | Change | Expected in Preview Orgs |
@@ -65,6 +75,8 @@ Additionally, the way that the `MobilePhoneID` hash is created for all `system.s
 See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### Bugs fixed in 2022.06.0
+
+* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
 
 * When a create user API request failed due to non-compliant user credentials, the "Add user to group membership" and "Add user to application membership" events were listed incorrectly in the System Log. (OKTA-469408)
 
