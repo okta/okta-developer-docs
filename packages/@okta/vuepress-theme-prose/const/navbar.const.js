@@ -332,8 +332,12 @@ export const guides = [
                 guideName: "social-login"
               },
               {
-                title: "Enterprise Identity Providers",
+                title: "Enterprise Logins",
                 guideName: "add-an-external-idp"
+              },
+              {
+                title: "Add a Smart Card Identity Provider",
+                path: "/docs/guides/add-an-external-idp/smartcard/"
               },
             ]
           },
