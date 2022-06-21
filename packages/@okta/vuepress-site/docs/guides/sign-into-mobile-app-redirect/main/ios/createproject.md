@@ -10,16 +10,15 @@ The text views in the app display its current state and any optional information
 
 The following image shows the completed app in both the sign-in and signed-on states:
 
-<div class=”full”>
-
-<!-- <div class="common-image-format"> -->
+<div class=”half”>
 
 ![Two iPhone screenshots that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
 
 </div>
 
 <!--
-TODO: Source image(s): <url-of-source-figma-board> <name-label-of-image-inside-figma-board>
+Source image(s): https://www.figma.com/file/i3huE0gEoISu2evquOq5yJ/app-ui-redirect-ios?node-id=0%3A1
+There's only one board. The group for the image is: "Side-by-side screenshots"
 -->
 
 Open `ContentView.swift` and replace it with the following code:
