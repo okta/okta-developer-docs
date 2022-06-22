@@ -2077,7 +2077,7 @@ Profile Enrollment policies specify which profile attributes are required for cr
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
-> **Note:** You can't update or delete the base attributes that are required in the default user profile: Primary email, Last name, or First name.
+> **Note:** You can't update or delete the base attributes that are required in the default user profile: `email`, `firstName`, or `lastName`.
 
 > **Note:** You can have a maximum of 500 profile enrollment policies in an org.
 > A Profile Enrollment policy can only have one rule associated with it. Adding more rules isn't allowed.
