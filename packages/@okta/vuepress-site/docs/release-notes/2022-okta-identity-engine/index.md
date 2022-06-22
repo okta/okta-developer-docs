@@ -14,15 +14,15 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bugs fixed in 2022.06.2
 
-* When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (n parameter), the JWKS validation failed. (OKTA-424664)
+* When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (`n` parameter), the JWKS validation failed. (OKTA-424664)
 
 * Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
-* When the `maxSessionLifetimeMinutes` property of the Policy API Signon Session object was set, the value wasn't enforced.(OKTA-480442)
+* When the `maxSessionLifetimeMinutes` property of the Policy API Signon Session object was set, the value wasn't enforced. (OKTA-480442)
 
-* Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events.(OKTA-494619)
+* Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events. (OKTA-494619)
 
-* When the Progressive Profiling feature was enabled, calling the `/introspect` endpoint changed the state handle incorrectly.(OKTA-502233)
+* When the Progressive Profiling feature was enabled, calling the `/introspect` endpoint changed the state handle incorrectly. (OKTA-502233)
 
 * The List custom roles API response returned wrong field values for the `description` and `lastUpdated` properties and didn't include the `_links` property. (OKTA-506993)
 
