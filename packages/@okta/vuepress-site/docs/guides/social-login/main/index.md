@@ -7,7 +7,7 @@ meta:
 
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external social Identity Provider (IdP)](/docs/concepts/identity-providers/) for your application by creating an application on <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external social Identity Provider (IdP)](/docs/concepts/identity-providers/) for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSnippet snippet="idp" inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
@@ -22,22 +22,14 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
+* An OpenID Connect (OIDC) app integration in Okta for the app that you want to add authentication to. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
 * An account with <StackSnippet snippet="idpaccount" inline />
 
 ---
 
 ## Create an app at the Identity Provider
 
-1. <StackSnippet snippet="create-app" inline />
-
-1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
-
-    The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
-
-    For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
-
-1. Save the generated <StackSnippet snippet="idp" inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
+<StackSnippet snippet="appatidp" />
 
 ## Create the Identity Provider in Okta
 
@@ -48,12 +40,11 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 1. Click **Next**.
 1. In the **General Settings** section, define the following:
 
-    * **Name**: Enter a name for the Identity Provider in Okta.
-    * **Client ID**: Paste the generated client ID from your <StackSnippet snippet="idp" inline /> application.
-    * **Client Secret**: Paste the generated client secret from your <StackSnippet snippet="idp" inline /> application.
-    * **Scopes**: Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSnippet snippet="scopes" inline />.
+   <StackSnippet snippet="appidpinokta" />
 
-1. Click **Finish**.
+1. Click **Finish**. A page appears that displays the IdP's configuration.
+
+<StackSnippet snippet="afterappidpinokta" />
 
 ## Test the integration
 
