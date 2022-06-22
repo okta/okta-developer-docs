@@ -1,12 +1,12 @@
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
 
-> **Note:** The sample code uses the async/await feature of iOS 15 and later. Replacing those with calls that use completion handlers adds compatibility for iOS 14 and later.
+> **Note:** The sample code uses features of SwiftUI available in iOS 14, and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
 
 #### Add the UI
 
 The functionality of the app is implemented in the main SwiftUI view, including view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then using Combine, bindings, or `@Environment` for sharing state.
 
-The text views in the app display its current state and any optional information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user tapping the UI the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
+The text views in the app display its current state and any optional information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
 
 The following image shows the completed app in both the sign-in and signed-on states:
 

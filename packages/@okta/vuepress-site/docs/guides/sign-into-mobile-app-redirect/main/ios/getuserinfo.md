@@ -14,7 +14,7 @@ func showUserInfo() {
          busy = false
          var userInfoText = ""
          userInfo.payload.forEach { (key: String, value: Any) in
-            userInfoText += ("\(key): \(value) \n")
+            userInfoText += ("\(key): \(value)\n")
          }
          infoText = userInfoText
       }
