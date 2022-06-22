@@ -10,6 +10,7 @@ On this page, we discuss the concepts of Role assignment through APIs. See [Cust
 
 ## Standard Role assignment
 
+### Standard Role Types
 The following Role types are provided and supported:
 
 | Role type                               | Label                               | Optional targets                      |
@@ -25,6 +26,17 @@ The following Role types are provided and supported:
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
 
+### IAM-based Standard Role Types
+<ApiLifecycle access="ea" />
+We also support the following IAM-based standard roles:
+| Role type                                               | Label                            | Permissions                                   |
+| :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
+| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | OKTA Access Certifications Admin | `okta.governance.accessCertifications.manage` |
+| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | OKTA Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+IAM-based standard roles could be assigned using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations.
+Similar to other standard roles, these roles are also immutable and cannot be updated or deleted.
+
+### Standard Role Assignment steps
 Perform standard role assignment in two steps:
 
 1. Assign a Role to a User or Group. At this point, the admin has the supported privileges of the Role over all resources across organization.
@@ -52,6 +64,17 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 * A principal: Either a Group or a User - known as a Member of the Binding
 * A Resource Set: Identified by its `id`
 
+### Custom Role Assignment for IAM-based Standard Roles
+<ApiLifecycle access="ea" />
+When using IAM-based Standard Roles the same concepts as Custom Roles apply with the following distinctions:
+1. IAM-based standard roles can only be used with pred-defined Resource Sets.
+2. The `id` of a Standard IAM-based role and its associated Resource Set is its type
+
+| Role id                                                 | Applicable Resource Set id           |
+| :------------------------------------------------------ | :----------------------------------- |
+| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` |
+| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | `OKTA_IGA_REQUESTS_IAM_POLICY`       |
+
 ### Resource Sets
 
 A Resource Set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
@@ -75,18 +98,19 @@ The partition is specific to your Okta environment. The following are the suppor
 | Partition               |  ORN partition value  |
 | ----------------------- | --------------------- |
 | Preview environments    | `oktapreview`         |
-| Production environments | `okta`                | 
+| Production environments | `okta`                |
 
 ###### service
 
   The service that the resource belongs to. Each resource belongs to only one service.
   The following are the supported services:
 
-| Service           |  ORN service value      |
-| ----------------- | ----------------------- |
-| Directory         | `directory`             | 
-| Identity Provider | `idp`                   |
-| Workflow <ApiLifecycle access="ea" /> | `workflow`                   |
+| Service                                 |  ORN service value      |
+| --------------------------------------- | ----------------------- |
+| Directory                               | `directory`             |
+| Identity Provider                       | `idp`                   |
+| Workflow <ApiLifecycle access="ea" />   | `workflow`              |
+| Governance <ApiLifecycle access="ea" /> | `governance`            |
 
 ###### tenantId
 
@@ -130,10 +154,13 @@ The following are the supported resources.
 |                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
 |                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
-| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
-|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
-
+| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                        |                                                                                                                                                         |
+|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                              |                                                                                                                                                         |
+| Governance              | All Certifications                <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
+|                         | All Requests                      <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
+
+> **Note:** Governance resource are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). These cannot be used to create or update other resource sets.
 
 #### Binding member identifiers
 
@@ -150,6 +177,16 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
   ``` http
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
+
+### Standard Resource Sets
+<ApiLifecycle access="ea" />
+The following resource sets are currently supported out of the box and can be used to assign admins only when used with
+their associated roles. Standard resource sets and roles are always identified using their type as id.
+| Resource Set id/type                                              | Applicable Role id/type    | Resources                                              |
+| :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
+| `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Certifications    |
+| `OKTA_IGA_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_ADMIN`       | All Users, All Groups, All Request, Access Request App |
+Standard resource sets are managed by Okta only and cannot be updated or deleted.
 
 ## Custom vs. standard
 
@@ -197,4 +234,6 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 | `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
-| `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
+| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Certifications, a specific Certification |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access request                                                                                       | All Access Requests, a specific Access Request |
+> **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). These cannot be used to create or update other roles.
