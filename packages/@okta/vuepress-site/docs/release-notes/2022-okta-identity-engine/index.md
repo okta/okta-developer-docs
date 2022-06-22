@@ -18,8 +18,6 @@ title: Okta Identity Engine API Products release notes 2022
 
 * Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
-* When the OAuth 2.0 Implicit flow in safe mode is used, the session token used with an `/authorize` call is not recognized. (OKTA-473924)
-
 * When the `maxSessionLifetimeMinutes` property of the Policy API Signon Session object was set, the value wasn't enforced.(OKTA-480442)
 
 * Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events.(OKTA-494619)
