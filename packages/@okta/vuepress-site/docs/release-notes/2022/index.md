@@ -4,6 +4,25 @@ title: Okta API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Reset Factors endpoint includes new optional request parameters](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
+| [Bugs fixed in 2022.06.2](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
+
+#### Reset Factors endpoint includes new optional request parameter
+
+The `/reset_factors` endpoint has a new optional request parameter for the Reset Factor lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168-->
+
+#### Bugs fixed in 2022.06.2
+
+* When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (`n` parameter), the JWKS validation failed. (OKTA-424664)
+
+* Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events. (OKTA-494619)
+
+* The List custom roles API response returned wrong field values for the `description` and `lastUpdated` properties and didn't include the `_links` property. (OKTA-506993)
+
 ### Weekly release 2022.06.1
 
 | Change | Expected in Preview Orgs |
