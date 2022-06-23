@@ -16,7 +16,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (`n` parameter), the JWKS validation failed. (OKTA-424664)
 
-* Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
+* A POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
 * When the `maxSessionLifetimeMinutes` property of the Policy API Signon Session object was set, the value wasn't enforced. (OKTA-480442)
 
