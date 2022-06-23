@@ -1,9 +1,9 @@
 To check for an existing session may take two steps:
 
-1. Check for an existing valid token.
-1. Refresh the token if it has expired.
+- Check for an existing valid token.
+- Refresh the token if it has expired.
 
-The `Credential` class manages the tokens for a user. The `signIn()` function you wrote in [Open the sign-in page](#open-the-sign-in-page) calls `store(_:)` to save the users' credentials. A session exists if there's a default credential. Although there are calls to check if a credential has expired and to request a refresh, this code uses `refreshIfNeeded()` which only tries to refresh the token if it's expired.
+The `Credential` class manages the tokens for a user. The `signIn()` function you wrote in [Open the sign-in page](#open-the-sign-in-page) calls `store(_:)` to save the users' credentials. A session exists if there's a default credential. Although there are calls to check if a credential has expired and to request a refresh, this code uses `refreshIfNeeded()` that only tries to refresh the token if it's expired.
 
 Add an `.onAppear` modifier to the main content view that checks for an existing session:
 

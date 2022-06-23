@@ -4,7 +4,7 @@ Launch Xcode and create a new iOS app project using SwiftUI for the interface an
 
 #### Add the UI
 
-The functionality of the app is implemented in the main SwiftUI view, including view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then using Combine, bindings, or `@Environment` for sharing state.
+The functionality of the app is implemented in `ContentView.swift`, the main SwiftUI view. This includes view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then sharing state using Combine, bindings, or `@Environment`.
 
 The text views in the app display its current state and any optional information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
 
@@ -21,7 +21,7 @@ Source image(s): https://www.figma.com/file/i3huE0gEoISu2evquOq5yJ/app-ui-redire
 There's only one board. The group for the image is: "Side-by-side screenshots"
 -->
 
-Open `ContentView.swift` and replace it with the following code:
+Open `ContentView.swift` and use the following code to replace the `import` statements and the `ContentView` struct:
 
 ```swift
 import SwiftUI
@@ -139,6 +139,6 @@ struct ContentView: View {
 }
 ```
 
-The last three functions are utilities. The two variants of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the .alert view modifier to present the alert.
+The last three functions are utilities. The two variants of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the `.alert` view modifier to present the alert.
 
 The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
