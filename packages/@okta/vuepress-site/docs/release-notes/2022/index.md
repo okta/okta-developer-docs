@@ -19,7 +19,7 @@ The `/reset_factors` endpoint has a new optional request parameter for the [Rese
 
 * When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (`n` parameter), the JWKS validation failed. (OKTA-424664)
 
-* Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events. (OKTA-494619)
+* When the JSON Web Key API or the Client Credentials API was used to manage client credentials, the event wasn't triggered in the System Log. (OKTA-494619)
 
 * The List custom roles API response returned wrong field values for the `description` and `lastUpdated` properties and didn't include the `_links` property. (OKTA-506993)
 
