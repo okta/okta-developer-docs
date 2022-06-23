@@ -20,7 +20,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * When the `maxSessionLifetimeMinutes` property of the Policy API Signon Session object was set, the value wasn't enforced. (OKTA-480442)
 
-* Using the JSON Web Key API or the Client Credentials API to manage client credentials didn't fire System Log events. (OKTA-494619)
+* When the JSON Web Key API or the Client Credentials API was used to manage client credentials, the event wasn't triggered in the System Log. (OKTA-494619)
 
 * When the Progressive Profiling feature was enabled, calling the `/introspect` endpoint changed the state handle incorrectly. (OKTA-502233)
 
