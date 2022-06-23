@@ -82,7 +82,7 @@ Documentation for features in GA release are not marked with any icons.
 
 ## Deprecation
 
-A feature identified as deprecated is no longer recommended for use and may be removed in the future — generally this means that you shouldn't use it unless you have to. For specific cases, workarounds and recommended paths forward are included in the relevant documentation, libraries, or references. When Okta schedules an end-of-life plan, that information is also included.
+A feature identified as deprecated is no longer recommended for use and may be removed in the future — generally, this means that you shouldn't use it unless you have to. Any workarounds or recommended paths forward are included in the relevant documentation, libraries, or references. When Okta schedules an end-of-service plan, that information is also included.
 
 Documentation for features that have been deprecated are marked with the Deprecated icon: <ApiLifecycle access="deprecated" />
 
