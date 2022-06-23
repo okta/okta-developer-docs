@@ -22,7 +22,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * When the JSON Web Key API or the Client Credentials API was used to manage client credentials, the event wasn't triggered in the System Log. (OKTA-494619)
 
-* When the Progressive Profiling feature was enabled, calling the `/introspect` endpoint changed the state handle incorrectly. (OKTA-502233)
+* When the Progressive Profiling feature was enabled, a request to the `/introspect` endpoint changed the state handle incorrectly. (OKTA-502233)
 
 * The List custom roles API response returned wrong field values for the `description` and `lastUpdated` properties and didn't include the `_links` property. (OKTA-506993)
 
