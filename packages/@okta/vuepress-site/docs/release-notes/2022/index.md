@@ -8,7 +8,7 @@ title: Okta API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Reset Factors endpoint includes new a optional request parameters](#reset-factors-endpoint-includes-new-a-optional-request-parameters)                      | June 23, 2022            |
+| [Reset Factors endpoint includes new a optional request parameters](#reset-factors-endpoint-includes-a-new-optional-request-parameter)                      | June 23, 2022            |
 | [Bugs fixed in 2022.06.2](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
 
 #### Reset Factors endpoint includes a new optional request parameter
