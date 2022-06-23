@@ -67,10 +67,10 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 ### Custom Role Assignment for IAM-based Standard Roles
 <ApiLifecycle access="ea" />
 When using IAM-based Standard Roles the same concepts as Custom Roles apply with the following distinctions:
-1. IAM-based standard roles can only be used with pred-defined Resource Sets.
-2. The `id` of a Standard IAM-based role and its associated Resource Set is its type
+1. IAM-based standard roles can only be used with pre-defined Resource Sets.
+2. For both IAM-based Standard Roles and Resource Sets, there is a predefined constant `id`. This `id` will always be the `type` of the Role or Resource Set.
 
-| Role id                                                 | Applicable Resource Set id           |
+| Role id (type)                                          | Applicable Resource Set id (type)    |
 | :------------------------------------------------------ | :----------------------------------- |
 | `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` |
 | `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | `OKTA_IGA_REQUESTS_IAM_POLICY`       |
@@ -156,8 +156,8 @@ The following are the supported resources.
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                        |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                              |                                                                                                                                                         |
-| Governance              | All Certifications                <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
-|                         | All Requests                      <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
+| Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
+|                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
 > **Note:** Governance resource are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). These cannot be used to create or update other resource sets.
@@ -184,7 +184,7 @@ The following resource sets are currently supported out of the box and can be us
 their associated roles. Standard resource sets and roles are always identified using their type as id.
 | Resource Set id/type                                              | Applicable Role id/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
-| `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Certifications    |
+| `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
 | `OKTA_IGA_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_ADMIN`       | All Users, All Groups, All Request, Access Request App |
 Standard resource sets are managed by Okta only and cannot be updated or deleted.
 
@@ -235,5 +235,5 @@ Standard resource sets are managed by Okta only and cannot be updated or deleted
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Certifications, a specific Certification |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access request                                                                                       | All Access Requests, a specific Access Request |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests, a specific Access Request |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). These cannot be used to create or update other roles.
