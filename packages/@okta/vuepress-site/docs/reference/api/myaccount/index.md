@@ -20,7 +20,7 @@ The Okta MyAccount API allows end users to fetch and update their own Okta user 
 
 * This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 * Explore the MyAccount API:
-   > **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/#handle-responses) to get the token.
+   > **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
 
    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
