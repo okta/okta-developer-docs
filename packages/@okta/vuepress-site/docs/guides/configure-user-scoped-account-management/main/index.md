@@ -34,7 +34,7 @@ This guide explains how to set up end-user driven account management in your org
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
-> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
+> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
 
 ---
 
