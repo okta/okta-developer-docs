@@ -15,7 +15,7 @@ The `idp` version of the MyAccount API only works on Okta Identity Engine. See [
 
 ## Use the Postman collection
 
-To run the Postman collection of the `idp` version of the API, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/#handle-responses) to get the token.
+To run the Postman collection of the `idp` version of the API, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
