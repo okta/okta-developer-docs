@@ -1,8 +1,8 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start enrollment, retrieve and display authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
-#### 2 - 3. Retrieve QR code, display QR code
+#### 2 - 3. Retrieve and display QR code
 
 When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In Enrollment Flow, a QR code is returned and appears for the user, along with a link to select an alternative enrollment method.
 
@@ -76,7 +76,7 @@ The available channels are listed, as shown in the following screenshot.
 
 </div>
 
-#### 5. Initiate email enrollment on server-side
+#### 5. Start email enrollment on server-side
 
 When the user selects **Email** and clicks **Next**, the form posts back to the `SelectEnrollmentChannel()` method. This retrieves the selected channel type and authenticator ID, and starts the email enrollment process on the server-side with a call to `SelectEnrollAuthenticatorAsync`.
 
@@ -220,7 +220,7 @@ Second, the JavaScript `poll()` function that continues to poll an endpoint in t
 
 The polling logic and code is common across all the flows that use it and is covered in the [Polling Okta](#polling-okta) section.
 
-#### 10. Click the link in the email and complete Okta Verify setup
+#### 10. User clicks the activation link
 
 The user opens the email on their mobile device and taps **Activate Okta Verify Push** that sends them to Okta Verify to complete the account setup.
 
@@ -230,6 +230,6 @@ The user opens the email on their mobile device and taps **Activate Okta Verify 
 
 </div>
 
-#### 11. Exit polling
+#### 11. Exit polling and sign user in
 
 After the user completes the setup and finishes enrolling their account, the next time `EnrollPoll()` is called, it returns a status of `Success` along with access and ID tokens. The page exits the polling and redirects the user to the default home page for the signed-in user.
