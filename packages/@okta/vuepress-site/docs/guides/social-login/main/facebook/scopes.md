@@ -1,0 +1,1 @@
+[Permissions](https://developers.facebook.com/docs/facebook-login/permissions)
