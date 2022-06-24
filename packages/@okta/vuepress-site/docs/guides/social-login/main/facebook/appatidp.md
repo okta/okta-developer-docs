@@ -1,3 +1,5 @@
+At Facebook, create the client application that you want to use for authenticating and authorizing your users.
+
 1. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
 
 2. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/apps/register).
