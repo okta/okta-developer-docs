@@ -17,11 +17,11 @@ func signIn() {
 }
 ```
 
-The app hands the sign-in flow to the Okta SDK. The SDK presents the sign-in web view and waits for a result. If the sign-in is succesful, the app first stores the token using `Credential.store(_)`, and then updates the user interface by setting the `signedIn` state variable to `true`.
+The app hands the sign-in flow to the Okta SDK. The SDK presents the sign-in web view and waits for a result. If the sign-in attempt is succesful, the app first stores the token using `Credential.store(_)`, and then updates the user interface by setting the `signedIn` state variable to `true`.
 
-The stored token is used to check if the user is already signed in when the app is launched, and for API calls to the Okta org and authorization servers.
+The stored token is used to check if the user is already signed in when the app is launched and for API calls to the Okta org and authorization servers.
 
-Remove the stored credential when the user signs-out. Replace the `signOut` function with the following code:
+Remove the stored credential when the user signs out. Replace the `signOut` function with the following code:
 
 ```swift
 func signOut() {

@@ -1,4 +1,4 @@
-Display the user info by updating the `showUserInfo` function of `ContentView`:
+Display the user info by updating the `showUserInfo` function of `ContentView.swift`:
 
 ```swift
 func showUserInfo() {
