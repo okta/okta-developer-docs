@@ -77,6 +77,8 @@ The following table provides a list of all available email templates in an Okta 
 - the required validation fields for templates created using the API
 - a description of the template
 
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${activationLink}` as the required validation field. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+
 | UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
 | User Activation | Welcome to Okta! | `UserActivation` | Either `${activationLink}` or `${activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
@@ -251,6 +253,8 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${request.ipAddress}` | Available in Sign In From New Device |
 | `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
 | `${request.browser}` | Available in Sign In From New Device |
+| `${request.relayState}` | Available in Email challengeForgot Password |
+| `${request.verificationLink}` | Available in Email Factor Verification |
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
 | `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
