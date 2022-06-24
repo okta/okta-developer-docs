@@ -109,7 +109,7 @@ Pass the values using the widget's `config` object.
 
 After the widget loads, it checks the validity of the `otp` and `state` values with the Okta server. If they are valid, the user is prompted to reset their password, as shown below. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
-<div class="common-image-format">
+<div class="common-image-format bordered-image">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/java-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
 

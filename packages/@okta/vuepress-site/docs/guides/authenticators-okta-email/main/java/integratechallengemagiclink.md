@@ -55,7 +55,7 @@ If you configured your Okta org correctly, you need to respond to two specific a
 * `AWAITING_AUTHENTICATOR_SELECTION` that is covered in this section
 * `AWAITING_AUTHENTICATOR_VERIFICATION` that is covered in a later section
 
-### 4. Display a list of possible authenticators
+### 4. Display a list of available authenticators
 
 You can find the names of the available authenticators for enrollment or challenge in the `AuthenticationResponse` object's `authenticators` collection. Display all of the authenticators that the user has enrolled and are ready for use.
 
@@ -85,40 +85,9 @@ When the email authenticator is selected, an email will be sent to the user.
 
 The next authentication status will be `AWAITING_AUTHENTICATOR_VERIFICATION` which indicates information is needed. A client can either accept a TOTP code from the email address or poll until the user has completed the flow in a different browser window.
 
-### 6. Display OTP input page or poll
+### 6. Display OTP input page
 
-The user needs to leave your application and check their email. While they are doing this, your application can continue to poll Okta, and accept the input of a TOTP code:
-
-```java
-case AWAITING_AUTHENTICATOR_VERIFICATION:
-    String factorType = authenticationResponse
-      .getCurrentAuthenticatorEnrollment().getValue().getType();
-
-    if ("email".equals(factorType)) {
-      // Tell the use to check their email
-      console.writer().println("Check your email...");
-
-      // The user could enter a TOTP code from the email address
-      // or you can poll
-      String code = console.readLine(
-         "TOTP Code [press enter to continue polling]: ");
-      if (!Strings.isEmpty(code)) {
-        return idxAuthenticationWrapper.verifyAuthenticator(
-            proceedContext, new VerifyAuthenticatorOptions(code));
-      }
-
-      // Poll the server looking for updates.
-      // The emails also contain a TOTP code.
-      // You could implement both polling and the ability to enter a code.
-      sleep(Integer.parseInt(authenticationResponse
-         .getCurrentAuthenticatorEnrollment().getValue().getPoll().getRefresh()));
-
-      return idxAuthenticationWrapper.poll(proceedContext);
-    }
-
-    throw new IllegalStateException(
-      "Unsupported factor type selected: " + factorType);
-```
+Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ### 7. User clicks the email magic link
 

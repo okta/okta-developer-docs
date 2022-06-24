@@ -21,7 +21,7 @@ case AWAITING_AUTHENTICATOR_SELECTION:
     authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-> **NOTE:**  This state is skipped if your application's sign-on policy contains only one factor.
+> **Note:**  This state is skipped if your application's sign-on policy contains only one factor.
 
 ### 6: Receive TOTP from Google Authenticator 
 
