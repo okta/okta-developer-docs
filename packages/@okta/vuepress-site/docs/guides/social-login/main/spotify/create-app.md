@@ -1,1 +1,1 @@
-Create an <StackSnippet snippet="apptype" inline /> at Spotify.
+Create an [OAuth](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/) app at Spotify.

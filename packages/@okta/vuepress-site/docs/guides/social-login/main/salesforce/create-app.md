@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create and register an [OAuth](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5) app at Salesforce.

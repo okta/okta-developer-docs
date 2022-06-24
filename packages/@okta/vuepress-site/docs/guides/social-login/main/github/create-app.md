@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create and register an [OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) app at GitHub.

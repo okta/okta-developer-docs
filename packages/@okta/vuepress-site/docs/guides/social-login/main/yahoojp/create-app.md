@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create and register an [OAuth](https://developer.yahoo.co.jp/yconnect/v2/registration.html) app at Yahoo Japan.

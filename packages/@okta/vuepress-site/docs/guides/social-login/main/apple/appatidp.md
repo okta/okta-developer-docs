@@ -1,4 +1,4 @@
-At <StackSnippet snippet="idp" inline />, create the client application that you want to use for authenticating and authorizing your users. See [Sign in with Apple](https://help.apple.com/developer-account/#/devde676e696).
+At Apple, create the client application that you want to use for authenticating and authorizing your users. See [Sign in with Apple](https://help.apple.com/developer-account/#/devde676e696).
 
 There are three steps necessary to configure the Identity Provider at Apple:
 

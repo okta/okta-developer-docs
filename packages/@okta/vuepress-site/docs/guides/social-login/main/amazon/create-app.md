@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create and register an [app](https://developer.amazon.com/docs/login-with-amazon/register-web.html) at Amazon.

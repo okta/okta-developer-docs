@@ -1,1 +1,1 @@
-[Create an app](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) and [configure it](https://developer.paypal.com/docs/log-in-with-paypal/integrate/#enable-log-in-with-paypal) at <StackSnippet snippet="idp" inline />.
+[Create an app](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) and [configure it](https://developer.paypal.com/docs/log-in-with-paypal/integrate/#enable-log-in-with-paypal) at PayPal.

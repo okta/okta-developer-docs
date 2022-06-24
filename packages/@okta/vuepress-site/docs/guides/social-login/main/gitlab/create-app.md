@@ -1,1 +1,1 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.
+Create and register an [OAuth](https://docs.gitlab.com/ee/integration/oauth_provider.html) app at GitLab.
