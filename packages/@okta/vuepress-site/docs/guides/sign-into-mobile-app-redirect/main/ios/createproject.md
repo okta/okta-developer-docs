@@ -1,12 +1,12 @@
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
 
-> **Note:** The sample code uses features of SwiftUI available in iOS 14, and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
+> **Note:** The sample code uses SwiftUI features that are available in iOS 14, and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
 
 #### Add the UI
 
 The functionality of the app is implemented in `ContentView.swift`, the main SwiftUI view. This includes view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then sharing state using Combine, bindings, or `@Environment`.
 
-The text views in the app display its current state and any optional information, such as the access token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
+The app contains three areas: the top area contains buttons for signing in and out, and for viewing information, the middle area shows the current app state, and the lower area displays information text, such as the token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user from interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
 
 The following image shows the completed app in both the sign-in and signed-on states:
 
@@ -29,12 +29,12 @@ import AuthFoundation
 import WebAuthenticationUI
 
 struct ContentView: View {
-   // Used for displaying error messages.
+   // Used to display error messages.
    @State var showingError: Bool = false
    @State var errorMessage: String? = nil
    @State var errorTitle: String? = nil
 
-   // Text shown in the status area.
+   // The text shown in the status area.
    @State var statusText: String? = nil
 
    // Text shown in the main information area.
@@ -130,7 +130,7 @@ struct ContentView: View {
       showingError = true
    }
 
-   // A utility function to update the state of all visual elements.
+   // A utility function that updates the state of all visual elements.
    func updateStatus(_ statusText: String, infoText: String, signedInStatus: Bool) {
       self.statusText = statusText
       self.infoText = infoText
@@ -139,6 +139,6 @@ struct ContentView: View {
 }
 ```
 
-The last three functions are utilities. The two variants of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the `.alert` view modifier to present the alert.
+The last three functions are utilities. The two overloads of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the `.alert` view modifier to present the alert.
 
 The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.

@@ -103,8 +103,8 @@ Our app uses information from the Okta integration that we created earlier to co
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
-* **Redirect URI**: Found on the **General** tab in the **Login** section.
-* **Post Logout Redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
