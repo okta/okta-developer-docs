@@ -515,7 +515,7 @@ The Push Provider object has the following properties:
 ```json
 {
   "providerType": "APNS",
-  "name": "Example Push Provider 1",
+  "name": "Example APNS Push Provider",
   "configuration": {
     "keyId": "KEY_ID",
     "teamId": "TEAM_ID",
@@ -530,7 +530,7 @@ The Push Provider object has the following properties:
 ```json
 {
   "providerType": "FCM",
-  "name": "Config 1",
+  "name": "Example FCM Push Provider",
   "configuration": {
     "serviceAccountJson": {
         "type": "service_account",
@@ -566,7 +566,7 @@ The Push Provider response object has the following properties:
 
 #### Link object
 
-For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
 
 #### Configuration response object
 | Property             | Type      | Description                                        | `providerType` |
@@ -583,7 +583,7 @@ For a Push Provider result, the `_links` is read-only and contains a full set of
 {
   "id": "ppchvbeucdTgqeiGxR0g4",
   "providerType": "APNS",
-  "name": "Updated Example Push Provider 1",
+  "name": "Example APNS Push Provider",
   "lastUpdatedDate": "2022-02-00T00:00:00.000Z",
   "configuration": {
     "keyId": "KEY_ID",
@@ -607,7 +607,7 @@ For a Push Provider result, the `_links` is read-only and contains a full set of
 {
   "id": "ppctekcmngGaqeiBxB0g4",
   "providerType": "FCM",
-  "name": "Example Push Provider 2",
+  "name": "Example FCM Push Provider",
   "lastUpdatedDate": "2022-01-00T00:00:00.000Z",
   "configuration": {
     "projectId": "PROJECT_ID",
