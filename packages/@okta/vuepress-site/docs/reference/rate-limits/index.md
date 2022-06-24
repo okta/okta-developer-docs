@@ -32,6 +32,10 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
+## API rate limits by token
+
+Okta API Tokens are, by default, configured to use 100% of an API endpoint's rate limit. That is, API requests using one API token can lead to an endpoint rate limit violation in an org with multiple API tokens. To avoid this scenario, API tokens can be configured in the Admin Console to use only a percentage of the API endpoints capacity. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage per API token prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
+
 ## Rate Limit Monitoring widget
 
 The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget available on the Admin Dashboard. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
