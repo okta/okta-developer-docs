@@ -8,13 +8,13 @@ Add a **Sign up** link on your app's sign-in page. When the user clicks this lin
 
 </div>
 
-### 2: Create and display sign up page
+### 2: Create and display sign-up page
 
-Create a sign up page that captures the user's first name, last name and email.
+Create a sign-up page that captures the user's first name, last name, and email.
 
 <div class="common-image-format bordered-image">
 
-![Screenshot showing a sign up page with first name, last name, and email fields.](/img/pwd-optional/pwd-optional-sign-up-page.png)
+![Screenshot showing a sign-up page with first name, last name, and email fields.](/img/pwd-optional/pwd-optional-sign-up-page.png)
 
 </div>
 
@@ -61,7 +61,7 @@ The email authenticator supports OTP and magic links, and you can integrate both
 
 ### 5. Display remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user can enroll in additional optional authenticators including the password authenticator. The `IdxTransaction.nextStep.canSkip` property set to `true` identifies these authenticators as optional
+After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user can enroll in additional optional authenticators including the password authenticator. The `IdxTransaction.nextStep.canSkip` property identifies whether or not the remaining authenticators are optional. In this case, the property is set to `true`.
 
 ```json
 {
@@ -83,7 +83,7 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
 }
 ```
 
-Create and display a page that lists the remaining optional authenticators and allow the user to skip registering any additional authenticators.
+Create and display a page that lists the remaining optional authenticators and allows the user to skip registering any additional authenticators.
 
 <div class="common-image-format bordered-image">
 
@@ -91,9 +91,9 @@ Create and display a page that lists the remaining optional authenticators and a
 
 </div>
 
-### 6. Skip remaining optional authenticators and complete sign up
+### 6. Skip remaining optional authenticators and complete sign-up
 
-When the user opts to skip registering anymore authenticators, call `OktaAuth.idx.proceed()` passing in an object with a `skip` property equal to `true`.
+When the user opts to skip registering any more authenticators, call `OktaAuth.idx.proceed()` passing in an object with a `skip` property equal to `true`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -101,7 +101,7 @@ When the user opts to skip registering anymore authenticators, call `OktaAuth.id
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-`OktaAuth.idx.proceed()` should return  `IdxTransaction.status` of `SUCCESS` along with access and Id tokens which indicates a successful new user sign up.
+`OktaAuth.idx.proceed()` should return  `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up.
 
 ```json
 {
