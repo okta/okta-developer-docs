@@ -5,7 +5,9 @@ meta:
     content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
-Okta integrates with many Identity Providers. Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
+Okta integrates with many Identity Providers. Select an Identity Provider card to add enterprise or social login for your app.
+
+Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
 ## Enterprise Identity Providers
 
@@ -23,14 +25,14 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
 
 <Cards>
   <Card href="/docs/guides/social-login/amazon/main" headerImage="/img/idp-logos/amazon.png">Amazon</Card>
-  <Card href="/docs/guides/add-an-external-idp/apple/main/" headerImage="/img/idp-logos/apple.png">Apple</Card>
+  <Card href="/docs/guides/social-login/apple/main/" headerImage="/img/idp-logos/apple.png">Apple</Card>
   <Card href="/docs/guides/social-login/discord/main/" headerImage="/img/idp-logos/discord.svg">Discord</Card>
-  <Card href="/docs/guides/add-an-external-idp/facebook/main/" headerImage="/img/idp-logos/facebook.png">Facebook</Card>
+  <Card href="/docs/guides/social-login/facebook/main/" headerImage="/img/idp-logos/facebook.png">Facebook</Card>
   <Card href="/docs/guides/social-login/github/main" headerImage="/img/idp-logos/github.png">GitHub</Card>
   <Card href="/docs/guides/social-login/gitlab/main" headerImage="/img/idp-logos/gitlab.svg">GitLab</Card>
-  <Card href="/docs/guides/add-an-external-idp/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
-  <Card href="/docs/guides/add-an-external-idp/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
-  <Card href="/docs/guides/add-an-external-idp/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
+  <Card href="/docs/guides/social-login/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
+  <Card href="/docs/guides/social-login/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
+  <Card href="/docs/guides/social-login/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
   <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
   <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>

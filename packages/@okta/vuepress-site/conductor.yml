@@ -542,13 +542,13 @@ redirects:
   - from: /authentication-guide/saml-login/index.html
     to: /docs/guides/add-saml-idp/
   - from: /authentication-guide/social-login/facebook/index.html
-    to: /docs/guides/sign-in-with-facebook/
+    to: /docs/guides/social-login/facebook/main/
   - from: /authentication-guide/social-login/google/index.html
-    to: /docs/guides/sign-in-with-google/
+    to: /docs/guides/social-login/google/main/
   - from: /authentication-guide/social-login/linkedin/index.html
-    to: /docs/guides/sign-in-with-linkedin/
+    to: /docs/guides/social-login/linkedin/main/
   - from: /authentication-guide/social-login/microsoft/index.html
-    to: /docs/guides/sign-in-with-microsoft/
+    to: /docs/guides/social-login/microsoft/main/
   - from: /docs/guides/implement-auth-code
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /docs/guides/implement-auth-code/index.html
@@ -854,7 +854,7 @@ redirects:
   - from: /authentication-guide/saml-login
     to: /docs/guides/add-saml-idp/
   - from: /authentication-guide/social-login/facebook
-    to: /docs/guides/sign-in-with-facebook/
+    to: /docs/guides/social-login/facebook/main/
   - from: /authentication-guide/social-login/google
     to: /docs/guides/sign-in-with-google/
   - from: /authentication-guide/social-login/linkedin
@@ -1470,47 +1470,49 @@ redirects:
   - from: /docs/guides/add-an-external-idp/saml2/create-authz-url/
     to: /docs/guides/add-an-external-idp/saml2/main/#use-the-authorize-url-to-simulate-the-authorization-flow
   - from: /docs/guides/sign-in-with-facebook/index.html
-    to: /docs/guides/add-an-external-idp/facebook/before-you-begin/
-  - from: /docs/guides/add-an-external-idp/facebook/before-you-begin/
-    to: /docs/guides/add-an-external-idp/facebook/main/
+    to: /docs/guides/social-login/facebook/main/
+  - from: /docs/guides/add-an-external-idp/facebook/before-you-begin
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/add-an-external-idp/facebook/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main/
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/sign-in-with-facebook/setup-app/index.html
-    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main
-  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-facebook/configure-idp/index.html
-    to: /docs/guides/add-an-external-idp/facebook/configure-idp-in-okta/
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/add-an-external-idp/facebook/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main/#create-an-identity-provider-in-okta
-  - from: /docs/guides/add-an-external-idp/facebook/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/facebook/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/facebook/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/facebook/configure-idp-in-okta
+    to: /docs/guides/social-login/facebook/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/sign-in-with-facebook/add-redirect-uri/index.html
-    to: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
+    to: /docs/guides/social-login/facebook/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main
-  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
-    to: /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/index.html
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-facebook/register-oidc-app/index.html
-    to: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main
-  - from: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/
-    to: /docs/guides/add-an-external-idp/facebook/main
+    to: /docs/guides/social-login/facebook/main/
+  - from: /docs/guides/add-an-external-idp/facebook/register-app-in-okta
+    to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/sign-in-with-facebook/complete-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/facebook/create-authz-url/
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/facebook/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main/#use-the-authorize-url-to-simulate-the-authorization-flow
-  - from: /docs/guides/add-an-external-idp/facebook/create-authz-url/
-    to: /docs/guides/add-an-external-idp/facebook/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/facebook/create-authz-url
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
   - from: /docs/guides/sign-in-with-facebook/using-facebook-login/index.html
-    to: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in/
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main/#use-the-identity-provider-to-sign-in
-  - from: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in/
-    to: /docs/guides/add-an-external-idp/facebook/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in
+    to: /docs/guides/social-login/facebook/main/#test-the-integration
   - from: /docs/guides/sign-in-with-google/index.html
     to: /docs/guides/add-an-external-idp/google/before-you-begin/
   - from: /docs/guides/add-an-external-idp/google/before-you-begin/index.html
@@ -1995,14 +1997,8 @@ redirects:
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/
-  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp
-    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/facebook/main
-  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/facebook/main
+  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp
+    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/concepts/auth-overview
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
@@ -2389,28 +2385,34 @@ redirects:
     to: /docs/concepts/identity-providers/
   - from: /docs/concepts/social-login/index.html
     to: /docs/concepts/identity-providers/
-  - from: /docs/guides/add-an-external-idp/-/before-you-begin/
-    to: /docs/guides/add-an-external-idp/main
+  - from: /docs/guides/add-an-external-idp/-/before-you-begin
+    to: /docs/guides/add-an-external-idp/
   - from: /docs/guides/add-an-external-idp/-/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/main
+    to: /docs/guides/add-an-external-idp/
+  - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp
+    to: /docs/guides/add-an-external-idp/
   - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/main
+    to: /docs/guides/add-an-external-idp/
+  - from: /docs/guides/add-an-external-idp/apple/before-you-begin/index.html
+    to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/before-you-begin
-    to: /docs/guides/add-an-external-idp/apple/main/
+    to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/apple/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta
-    to: /docs/guides/add-an-external-idp/apple/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/apple/main/#create-an-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/apple/main/index.html
+    to: /docs/guides/social-login/apple/main/
+  - from: /docs/guides/add-an-external-idp/apple/main
+    to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
     to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/
-    to: /docs/guides/add-an-external-idp/main
+    to: /docs/guides/add-an-external-idp/
   - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/main
+    to: /docs/guides/add-an-external-idp/
   - from: /docs/guides/add-an-external-idp/-/create-authz-url/
     to: /docs/guides/add-an-external-idp/-/main/#use-the-authorize-url-to-simulate-the-authorization-flow
   - from: /docs/guides/add-an-external-idp/-/create-authz-url/index.html
