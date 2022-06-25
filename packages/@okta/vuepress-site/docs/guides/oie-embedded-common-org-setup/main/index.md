@@ -129,7 +129,7 @@ Set up your Okta your org to enable authentication without a password using the 
 
 1. In the Admin Console, go to **Security** > **Authenticator**.
 1. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
-1. Give the policy a name
+1. Give the policy a name.
 1. Set **Assign to groups** to a group (for example "Everyone").
 1. In the **Eligible Authenticators** section
    1. Set **Email** to **Required**.
@@ -144,7 +144,7 @@ Set up your Okta your org to enable authentication without a password using the 
 
 1. In the Admin Console, go to **Security** > **Global Session Policy**.
 1. Click **Add policy**.
-1. Give the policy a name
+1. Give the policy a name.
 1. Set **Assign to groups** to a group (for example "Everyone").
 1. Click **Create Policy and Add Rule**.
 1. Give the rule a name.
@@ -156,7 +156,7 @@ Set up your Okta your org to enable authentication without a password using the 
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**.
 1. Click **Add a Policy**.
-1. Give the policy a name and click **Save**
+1. Give the policy a name and click **Save**.
 1. Locate the **Catch-all Rule** and select **Actions > Edit**.
 1. Set **User must authenticate with** to **Any 1 factor type**.
 1. For **Possession factor constraints are**
