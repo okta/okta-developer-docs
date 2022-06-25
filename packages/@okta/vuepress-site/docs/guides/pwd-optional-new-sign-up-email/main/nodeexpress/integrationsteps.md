@@ -59,7 +59,7 @@ Send this new object to `OktaAuth.idx.register()`.
 
 The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
-### 6. Display remaining optional authenticators
+### 5. Display remaining optional authenticators
 
 After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user can enroll in additional optional authenticators including the password authenticator. The `IdxTransaction.nextStep.canSkip` property set to `true` identifies these authenticators as optional
 
@@ -87,7 +87,7 @@ Create and display a page that lists the remaining optional authenticators and a
 
 <div class="common-image-format bordered-image">
 
-![Screenshot showing a page to skip the remaining optional authenticators.](/img/pwd-optional/pwd-optional-authenticators-page.png)
+![Screenshot showing a page to skip the remaining optional authenticators.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
 
 </div>
 

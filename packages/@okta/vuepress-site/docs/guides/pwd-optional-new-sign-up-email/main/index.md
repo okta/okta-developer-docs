@@ -38,6 +38,10 @@ Before you can start integrating password optional sign ups in your app, [set up
 
 ## Integrate
 
+### Summary of steps
+
+The following summarizes the steps involved in the password optional sign up.
+
 <StackSnippet snippet="integrationsummary" />
 
 <StackSnippet snippet="integrationsteps" />
