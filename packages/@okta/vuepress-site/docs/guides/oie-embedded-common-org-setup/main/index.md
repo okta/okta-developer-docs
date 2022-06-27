@@ -109,12 +109,12 @@ For password-only authentication, you need to update the password authenticator 
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
 
-### Set up your Okta org for a password optional use case
+### Set up your Okta org for a password-optional use case
 
 Set up your Okta your org to enable authentication without a password using the followings steps:
 
 1. [Set up the email authenticator](#set-up-the-email-authenticator)
-1. [Create a password optional authenticator policy](#create-a-password-optional-authenticator-policy)
+1. [Create a password-optional authenticator policy](#create-a-password-optional-authenticator-policy)
 1. [Add a new global session policy](#add-a-new-global-session-policy)
 1. [Add a new authentication policy](#add-a-new-authentication-policy)
 
@@ -125,7 +125,7 @@ Set up your Okta your org to enable authentication without a password using the 
 1. Set **This authenticator can be used for** to **Authentication and recovery**.
 1. Click **Save**.
 
-#### Create a password optional authenticator policy
+#### Create a password-optional authenticator policy
 
 1. In the Admin Console, go to **Security** > **Authenticator**.
 1. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
