@@ -5,6 +5,7 @@ category: management
 
 # Push Providers API
 
+<ApiLifecycle access="ea" /></br>
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
