@@ -1514,137 +1514,137 @@ redirects:
   - from: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in
     to: /docs/guides/social-login/facebook/main/#test-the-integration
   - from: /docs/guides/sign-in-with-google/index.html
-    to: /docs/guides/add-an-external-idp/google/before-you-begin/
+    to: /docs/guides/social-login/google/main/
   - from: /docs/guides/add-an-external-idp/google/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/google/main
-  - from: /docs/guides/add-an-external-idp/google/before-you-begin/
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/social-login/google/main/
+  - from: /docs/guides/add-an-external-idp/google/before-you-begin
+    to: /docs/guides/social-login/google/main/
   - from: /docs/guides/sign-in-with-google/setup-app/index.html
-    to: /docs/guides/add-an-external-idp/google/create-an-app-at-idp/
+    to: /docs/guides/social-login/google/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/google/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/google/main
-  - from: /docs/guides/add-an-external-idp/google/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/social-login/google/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/google/create-an-app-at-idp
+    to: /docs/guides/social-login/google/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-google/configure-idp/index.html
-    to: /docs/guides/add-an-external-idp/google/configure-idp-in-okta/
+    to: /docs/guides/social-login/google/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/google/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/google/main/#create-an-identity-provider-in-okta
-  - from: /docs/guides/add-an-external-idp/google/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/google/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/google/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/google/configure-idp-in-okta
+    to: /docs/guides/social-login/google/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/sign-in-with-google/add-redirect-uri/index.html
-    to: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp/
+    to: /docs/guides/social-login/google/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/google/main
-  - from: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp/
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/social-login/google/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp
+    to: /docs/guides/social-login/google/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-google/register-oidc-app/index.html
-    to: /docs/guides/add-an-external-idp/google/register-app-in-okta/
+    to: /docs/guides/social-login/google/main/
   - from: /docs/guides/add-an-external-idp/google/register-app-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/google/main
-  - from: /docs/guides/add-an-external-idp/google/register-app-in-okta/
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/social-login/google/main/
+  - from: /docs/guides/add-an-external-idp/google/register-app-in-okta
+    to: /docs/guides/social-login/google/main/
   - from: /docs/guides/sign-in-with-google/complete-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/google/create-authz-url/
+    to: /docs/guides/social-login/google/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/google/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/google/main/#use-the-authorize-url-to-simulate-the-authorization-flow
-  - from: /docs/guides/add-an-external-idp/google/create-authz-url/
-    to: /docs/guides/add-an-external-idp/google/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/social-login/google/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/google/create-authz-url
+    to: /docs/guides/social-login/google/main/#test-the-integration
   - from: /docs/guides/sign-in-with-google/using-google-login/index.html
-    to: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/
+    to: /docs/guides/social-login/google/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/index.html
-    to: /docs/guides/add-an-external-idp/google/main/#use-the-identity-provider-to-sign-in
-  - from: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/
-    to: /docs/guides/add-an-external-idp/google/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/social-login/google/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in
+    to: /docs/guides/social-lgin/google/main/#test-the-integration
   - from: /docs/guides/sign-in-with-linkedin/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
+    to: /docs/guides/social-login/linkedin/main/
   - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main
-  - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
-    to: /docs/guides/add-an-external-idp/linkedin/main
+    to: /docs/guides/social-login/linkedin/main/
+  - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin
+    to: /docs/guides/social-login/linkedin/main/
   - from: /docs/guides/sign-in-with-linkedin/setup-app/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main
-  - from: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/linkedin/main
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-linkedin/configure-idp/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta/
+    to: /docs/guides/social-login/linkedin/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main/#create-an-identity-provider-in-okta
-  - from: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/linkedin/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/linkedin/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta
+    to: /docs/guides/social-login/linkedin/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/sign-in-with-linkedin/add-redirect-uri/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp/
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main
-  - from: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp/
-    to: /docs/guides/add-an-external-idp/linkedin/main
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp
+    to: /docs/guides/social-login/linkedin/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-linkedin/register-oidc-app/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta/
+    to: /docs/guides/social-login/linkedin/main/
   - from: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main
-  - from: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta/
-    to: /docs/guides/add-an-external-idp/linkedin/main
+    to: /docs/guides/social-login/linkedin/main/
+  - from: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta
+    to: /docs/guides/social-login/linkedin/main/
   - from: /docs/guides/sign-in-with-linkedin/complete-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/create-authz-url/
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/linkedin/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main/#use-the-authorize-url-to-simulate-the-authorization-flow
-  - from: /docs/guides/add-an-external-idp/linkedin/create-authz-url/
-    to: /docs/guides/add-an-external-idp/linkedin/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/linkedin/create-authz-url
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
   - from: /docs/guides/sign-in-with-linkedin/using-facebook-login/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in/
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in/index.html
-    to: /docs/guides/add-an-external-idp/linkedin/main/#use-the-identity-provider-to-sign-in
-  - from: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in/
-    to: /docs/guides/add-an-external-idp/linkedin/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in
+    to: /docs/guides/social-login/linkedin/main/#test-the-integration
   - from: /docs/guides/sign-in-with-microsoft/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
+    to: /docs/guides/social-login/microsoft/main/
   - from: /docs/guides/add-an-external-idp/microsoft/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main
-  - from: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
-    to: /docs/guides/add-an-external-idp/microsoft/main
+    to: /docs/guides/social-login/microsoft/main/
+  - from: /docs/guides/add-an-external-idp/microsoft/before-you-begin
+    to: /docs/guides/social-login/microsoft/main/
   - from: /docs/guides/sign-in-with-microsoft/setup-app/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main
-  - from: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/microsoft/main
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-microsoft/configure-idp/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta/
+    to: /docs/guides/social-login/microsoft/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main/#create-an-identity-provider-in-okta
-  - from: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta/
-    to: /docs/guides/add-an-external-idp/microsoft/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/microsoft/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta
+    to: /docs/guides/social-login/microsoft/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/sign-in-with-microsoft/add-redirect-uri/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp/
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main
-  - from: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp/
-    to: /docs/guides/add-an-external-idp/microsoft/main
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
+  - from: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp
+    to: /docs/guides/social-login/microsoft/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-microsoft/register-oidc-app/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta/
+    to: /docs/guides/social-login/microsoft/main/
   - from: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main
-  - from: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta/
-    to: /docs/guides/add-an-external-idp/microsoft/main
+    to: /docs/guides/social-login/microsoft/main/
+  - from: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta
+    to: /docs/guides/social-login/microsoft/main/
   - from: /docs/guides/sign-in-with-microsoft/complete-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/create-authz-url/
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/microsoft/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main/#use-the-authorize-url-to-simulate-the-authorization-flow
-  - from: /docs/guides/add-an-external-idp/microsoft/create-authz-url/
-    to: /docs/guides/add-an-external-idp/microsoft/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/microsoft/create-authz-url
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
   - from: /docs/guides/sign-in-with-microsoft/using-facebook-login/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in/
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main/#use-the-identity-provider-to-sign-in
-  - from: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in/
-    to: /docs/guides/add-an-external-idp/microsoft/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
+  - from: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in
+    to: /docs/guides/social-login/microsoft/main/#test-the-integration
   - from: /docs/guides/federate-with-oidc/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/main
-  - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
-    to: /docs/guides/add-an-external-idp/microsoft/main
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
+  - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /docs/guides/federate-with-oidc/create-client-app/p/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/index.html
@@ -2398,9 +2398,9 @@ redirects:
   - from: /docs/guides/add-an-external-idp/apple/before-you-begin
     to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
-    to: /docs/guides/social-login/apple/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/apple/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta
-    to: /docs/guides/social-login/apple/main/#create-an-identity-provider-in-okta
+    to: /docs/guides/social-login/apple/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/apple/main/index.html
     to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/main
