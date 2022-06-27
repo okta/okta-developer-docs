@@ -33,7 +33,7 @@ var body: some View {
                busy = false
             }
          } else {
-            // There is existing session, hide the activity indicator.
+            // There is no existing session, hide the activity indicator.
             busy = false
          }
       }

@@ -10,5 +10,5 @@ Create the Okta configuration file and add the keys and values for your applicat
    | `clientId` | The client ID from the app integration that you created, such as `0ux3rutxocxFX9xyz3t9` |
    | `issuer` | The domain of your registered Okta org followed by `/oauth2/default`, such as `https://dev-1234567.okta.com/oauth2/default` |
    | `logoutRedirectUri` | The sign-out redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/` |
-   | `redirectUri` | The Sign-in redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback` |
+   | `redirectUri` | The sign-in redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback` |
    | `scopes` | A string with the value `openid profile offline_access` |{:.table .table-word-break}

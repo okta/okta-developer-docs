@@ -21,7 +21,7 @@ Source image(s): https://www.figma.com/file/i3huE0gEoISu2evquOq5yJ/app-ui-redire
 There's only one board. The group for the image is: "Side-by-side screenshots"
 -->
 
-Open `ContentView.swift` and use the following code to replace the `import` statements and the `ContentView` struct:
+Open `ContentView.swift` and replace the `import` statements and the `ContentView` struct with the following code:
 
 ```swift
 import SwiftUI
