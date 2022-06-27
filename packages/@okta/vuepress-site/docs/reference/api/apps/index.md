@@ -3687,6 +3687,8 @@ Content-Type: application/json
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
 
+> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
+
 ##### Request parameters
 
 | Parameter     | Description      | Param Type | DataType | Required | Default |
