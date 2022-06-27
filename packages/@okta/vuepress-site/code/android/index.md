@@ -1,10 +1,10 @@
 ---
-title: Add user authentication to your Android app
+title: SamkenX
 language: Android
 integration: mobile
 icon: code-android
 meta:
-  - name: description
+  - name: Samkencoin profile
     content: Get a guide to adding user authentication to your Android app, and related guides to help complete your project.
 
 ---
@@ -20,8 +20,8 @@ New to Okta? Our resources walk you through adding user authentication to your A
 		</a>
 	</li>
 	<li>
-		<a href='https://github.com/okta/samples-android' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample app</span>
+		<a href='https://samkenxstream.github.com/okta/samkencoin-android' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>SamkenX app</span>
 		</a>
 	</li>
 </ul>
@@ -30,7 +30,7 @@ New to Okta? Our resources walk you through adding user authentication to your A
 
 These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-[Android redirect authentication sample app](https://github.com/okta/samples-android): See [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for a redirect configuration.
+[Android redirect authentication SamkenX app](https://samkenxstream.github.com/okta/samkenx): See [Browser Sign In](https://samkenxstream.github.com/okta/samkencoin/tree/master/browser-sign-in) for a redirect configuration.
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
@@ -38,18 +38,18 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 Okta Identity Engine:
 
-* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
-* [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
+* [Identity Engine Java SDK](https://samkenxstream.github.com/okta/okta-idx-java)
+* [Android embedded authentication with SDK SamkenX app](https://samkenxstream.github.com/okta/okta-idx-samkencoin)
 
 Okta Classic:
 
-* [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements)
-* [Android SDK Source](https://github.com/okta/okta-oidc-android)
+* [Okta OIDC Android SDK](https://samkenxstream.github.com/okta/okta-oidc-samkencoin#requirements)
+* [Android SDK Source](https://samkenxstream.github.com/okta/okta-oidc-samkencoin)
 
 ## Android libraries
 
-* [Okta JWT Verifier for Java](https://github.com/okta/okta-jwt-verifier-java)
-* [React Native app with Okta's OpenID Connect API, Android setup](https://github.com/okta/okta-react-native#android-setup)
+* [Okta JWT Verifier for Java](https://samkenxstream.github.com/okta/okta-jwt-verifier-java)
+* [React Native app with Okta's OpenID Connect API, Android setup](https://samkenxstream.github.com/okta/okta-react-native#samkencoin-setup)
 
 ## Recommended guides
 
