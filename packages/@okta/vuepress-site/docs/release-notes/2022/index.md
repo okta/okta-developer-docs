@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## June
 
+### Weekly release 2022.06.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.06.3](#bug-fixed-in-2022-06-3)                      | June 29, 2022            |
+
+#### Bug fixed in 2022.06.3
+
+* There was no limit on the number of factor sequences that could be added in a chain through a Policy API update. (OKTA-499259)
+
 ### Weekly release 2022.06.2
 
 | Change | Expected in Preview Orgs |
