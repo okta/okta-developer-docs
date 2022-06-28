@@ -3096,8 +3096,8 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 We also support the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | OKTA Access Certifications Admin | `okta.governance.accessCertifications.manage` |
-| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | OKTA Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
+| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
 
 #### Assignment types
 

@@ -31,8 +31,8 @@ The following Role types are provided and supported:
 We also support the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | OKTA Access Certifications Admin | `okta.governance.accessCertifications.manage` |
-| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | OKTA Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
+| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
 IAM-based standard roles could be assigned using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations.
 Similar to other standard roles, these roles are also immutable and cannot be updated or deleted.
 
