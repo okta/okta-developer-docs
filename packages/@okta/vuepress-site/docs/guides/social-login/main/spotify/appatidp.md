@@ -1,4 +1,4 @@
-1. <StackSnippet snippet="create-app" inline />
+1. Create an [OAuth](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/) app at Spotify.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 
@@ -6,4 +6,4 @@
 
     For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-1. Save the generated <StackSnippet snippet="idp" inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
+1. Save the generated Spotify client ID and client secret values. You need them to configure your Identity Provider in Okta.

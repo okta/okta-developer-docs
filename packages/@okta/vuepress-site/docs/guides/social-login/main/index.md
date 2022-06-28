@@ -1,8 +1,8 @@
 ---
-title: Add a social Identity Provider
+title: Social Login
 meta:
   - name: description
-    content: Okta supports authentication with social Identity Providers. Get an overview of the social login process and prerequisites, as well as the setup instructions.
+    content: (Add a social Identity Provider) Okta supports authentication with social Identity Providers. Get an overview of the social login process and prerequisites, as well as the setup instructions.
 ---
 
 ## <StackSnippet snippet="idp" inline />

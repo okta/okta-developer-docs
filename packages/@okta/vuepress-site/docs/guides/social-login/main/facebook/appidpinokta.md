@@ -3,4 +3,4 @@
 * **Client Secret**: Paste the secret that you obtained from the Identity Provider in the previous section.
 * **Scopes**: Leave the defaults.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. See [Permissions](https://developers.facebook.com/docs/facebook-login/permissions).
