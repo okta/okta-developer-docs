@@ -120,44 +120,44 @@ Set up your Okta your org to enable authentication without a password using the 
 
 #### Set up the email authenticator
 
-1. In the Admin Console, go to **Security** > **Authenticator**.
-1. On the **Setup** tab, locate the **Email** authenticator and select **Actions > Edit**.
+1. In the Admin Console, go to **Security** > **Authenticators** to show the available authenticators.
+1. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions > Edit**.
 1. Set **This authenticator can be used for** to **Authentication and recovery**.
 1. Click **Save**.
 
 #### Create a password-optional authenticator policy
 
-1. In the Admin Console, go to **Security** > **Authenticator**.
+1. In the Admin Console, go to **Security** > **Authenticators** to show the available authenticators.
 1. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
-1. Give the policy a name.
-1. Set **Assign to groups** to a group (for example "Everyone").
+1. Give the new policy a name. For example, "Email sign-up required policy".
+1. Set **Assign to groups** to one or more groups. For example, "Everyone".
 1. In the **Eligible Authenticators** section
    1. Set **Email** to **Required**.
    1. Set **Password** to **Optional**.
-   1. Ensure the remaining authenticators are set to **Optional**.
+   1. Verify the remaining authenticators are set to **Optional**.
 1. Click **Create Policy**.
-1. Give the rule a name.
-1. Leave the default values for all the other settings.
-1. Click **Create Rule**.
+1. Give the rule a name. For example, "Email sign-up required for all".
+1. Leave the other settings at their defaults, and then click **Create Rule**.
 
 #### Add a new global session policy
 
 1. In the Admin Console, go to **Security** > **Global Session Policy**.
 1. Click **Add policy**.
-1. Give the policy a name.
-1. Set **Assign to groups** to a group (for example "Everyone").
+1. Give the policy a name. For example, "Global Password Optional Policy".
+1. Set **Assign to groups** to one or more user groups. For example, "Everyone".
 1. Click **Create Policy and Add Rule**.
-1. Give the rule a name.
-1. Set **Establish the user session with** to **Any factor used to meet the Authentication Policy requirements**
-1. Leave the default values for the other settings.
+1. Give the rule a name. For example, "Global Password Optional Rule".
+1. Verify **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+1. Leave the other settings at their defaults, and then click **Create Rule**.
 1. Click **Create Rule**.
+1. If needed, reorder the new policy to the number "1" position to allow the Identity Engine to evaluate the policy first. You can reorder the policy by clicking and dragging the policy's dotted "handle" that appears to the left of the policy's number.
 
 #### Add a new authentication policy
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**.
 1. Click **Add a Policy**.
-1. Give the policy a name and click **Save**.
-1. Locate the **Catch-all Rule** and select **Actions > Edit**.
+1. Give the policy a name, for example "Authenticate with only 1 factor", and then click **Save**.
+1. Locate the **Catch-all Rule** of the new policy and select **Actions > Edit**.
 1. Set **User must authenticate with** to **Any 1 factor type**.
 1. For **Possession factor constraints are**
    1. Verify that no options are selected.
