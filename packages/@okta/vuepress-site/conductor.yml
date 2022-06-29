@@ -1491,8 +1491,6 @@ redirects:
     to: /docs/guides/social-login/facebook/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
-  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/index.html
-    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp
     to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/guides/sign-in-with-facebook/register-oidc-app/index.html
@@ -1673,13 +1671,13 @@ redirects:
     to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
   - from: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
-  - from: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
+  - from: /docs/guides/add-an-external-idp/openidconnect/create-authz-url
     to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
   - from: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
-  - from: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
+  - from: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in
     to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/federate-with-oidc/overview/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/
@@ -1997,8 +1995,6 @@ redirects:
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/
-  - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp
-    to: /docs/guides/social-login/facebook/main/#create-an-app-at-the-identity-provider
   - from: /docs/concepts/auth-overview
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
