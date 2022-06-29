@@ -120,14 +120,16 @@ Set up your Okta your org to enable authentication without a password using the 
 
 #### Set up the email authenticator
 
-1. In the Admin Console, go to **Security** > **Authenticators** to show the available authenticators.
+1. Open the **Admin Console** for your org.
+1. Choose **Security** > **Authenticators** to show the available authenticators.
 1. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions > Edit**.
 1. Set **This authenticator can be used for** to **Authentication and recovery**.
 1. Click **Save**.
 
 #### Create a password-optional authenticator policy
 
-1. In the Admin Console, go to **Security** > **Authenticators** to show the available authenticators.
+1. Open the **Admin Console** for your org.
+1. Choose **Security** > **Authenticators**.
 1. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
 1. Give the new policy a name. For example, "Email sign-up required policy".
 1. Set **Assign to groups** to one or more groups. For example, "Everyone".
@@ -141,7 +143,8 @@ Set up your Okta your org to enable authentication without a password using the 
 
 #### Add a new global session policy
 
-1. In the Admin Console, go to **Security** > **Global Session Policy**.
+1. Open the **Admin Console** for your org.
+1. Choose **Security** > **Global Session Policy**.
 1. Click **Add policy**.
 1. Give the policy a name. For example, "Global Password Optional Policy".
 1. Set **Assign to groups** to one or more user groups. For example, "Everyone".
@@ -154,7 +157,8 @@ Set up your Okta your org to enable authentication without a password using the 
 
 #### Add a new authentication policy
 
-1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. Open the **Admin Console** for your org.
+1. Choose **Security** > **Authentication Policies**.
 1. Click **Add a Policy**.
 1. Give the policy a name, for example "Authenticate with only 1 factor", and then click **Save**.
 1. Locate the **Catch-all Rule** of the new policy and select **Actions > Edit**.

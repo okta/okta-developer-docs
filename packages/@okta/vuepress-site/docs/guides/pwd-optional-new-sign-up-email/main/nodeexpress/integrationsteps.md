@@ -93,6 +93,8 @@ Create and display a page that lists the remaining optional authenticators and a
 
 </div>
 
+>Note: In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the skip button should be omiited.
+
 ### 6. Skip remaining optional authenticators and complete sign-up
 
 When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` passing in an object with a `skip` property equal to `true`.
