@@ -534,7 +534,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /authentication-guide/tokens/refreshing-tokens/index.html
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens/index.html
@@ -846,7 +846,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /authentication-guide/tokens/refreshing-tokens
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens
@@ -970,19 +970,19 @@ redirects:
   - from: /guides/enable-cors/-/overview/index.html
     to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-app-at-the-identity-provider
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-app-at-the-identity-provider
   - from: /guides/federate-with-oidc/-/create-client-app/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-app-at-the-identity-provider
   - from: /guides/federate-with-oidc/-/create-okta-app/index.html
-    /openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-app-at-the-identity-provider
   - from: /guides/federate-with-oidc/-/overview/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /guides/federate-with-oidc/-/test-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
@@ -1324,7 +1324,7 @@ redirects:
   - from: /guides/enable-cors/index.html
     to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /guides/find-your-app-credentials/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/index.html
@@ -1446,11 +1446,11 @@ redirects:
   - from: /use_cases/promote-oan-integration
     to: /use_cases/promote-oan-integration/
   - from: /docs/guides/add-saml-idp/index.html
-    to: /docs/guides/add-an-external-idp/saml2/before-you-begin/
+    to: /docs/guides/add-an-external-idp/saml2/main/
   - from: /docs/guides/add-an-external-idp/saml2/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/saml2/main
+    to: /docs/guides/add-an-external-idp/saml2/main/
   - from: /docs/guides/add-an-external-idp/saml2/before-you-begin/
-    to: /docs/guides/add-an-external-idp/saml2/main
+    to: /docs/guides/add-an-external-idp/saml2/main/
   - from: /docs/guides/add-saml-idp/configure-saml-idp/index.html
     to: /docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/saml2/configure-idp-in-okta/index.html
@@ -1458,17 +1458,17 @@ redirects:
   - from: /docs/guides/add-an-external-idp/saml2/configure-idp-in-okta/
     to: /docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-saml-idp/configure-oidc-client/index.html
-    to: /docs/guides/add-an-external-idp/saml2/register-app-in-okta/
+    to: /docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/saml2/register-app-in-okta/index.html
     to: /docs/guides/add-an-external-idp/saml2/main/
   - from: /docs/guides/add-an-external-idp/saml2/register-app-in-okta/
     to: /docs/guides/add-an-external-idp/saml2/main/
   - from: /docs/guides/add-saml-idp/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/saml2/create-authz-url/
+    to: /docs/guides/add-an-external-idp/saml2/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/saml2/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/saml2/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/add-an-external-idp/saml2/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/saml2/create-authz-url/
-    to: /docs/guides/add-an-external-idp/saml2/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/add-an-external-idp/saml2/main/#test-the-integration
   - from: /docs/guides/sign-in-with-facebook/index.html
     to: /docs/guides/social-login/facebook/main/
   - from: /docs/guides/add-an-external-idp/facebook/before-you-begin
@@ -1672,17 +1672,17 @@ redirects:
   - from: /docs/guides/federate-with-oidc/test-authz-url/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
   - from: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
-    to: /docs/guides/add-an-external-idp/openidconnect/main/#use-the-authorize-url-to-simulate-the-authorization-flow
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
   - from: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
-    to: /docs/guides/add-an-external-idp/openidconnect/main/#use-the-identity-provider-to-sign-in
+    to: /docs/guides/add-an-external-idp/openidconnect/main/#test-the-integration
   - from: /docs/guides/federate-with-oidc/overview/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/openidconnect/main/
   - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main
   - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
