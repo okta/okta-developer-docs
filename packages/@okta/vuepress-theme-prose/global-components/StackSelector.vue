@@ -91,6 +91,7 @@
     },
     computed: {
       guideName() {
+        // console.log( this.$route.path , ' this.$route.path ')
         return guideFromPath( this.$route.path ).guideName;
       },
       framework() {
@@ -101,6 +102,7 @@
         return guideFromPath( this.$route.path ).sectionName;
       },
       guide() {
+        // console.log(getGuidesInfo({pages: this.$site.pages}), 'getGuidesInfo');
         return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
       section() {
@@ -108,7 +110,8 @@
       },
       options() {
         const snippetByName = this.section?.snippetByName;
-
+        // console.log(this.section, 'this.section');
+        // console.log(this.snippet, 'this.snippet');
         // when snippet name is provided, find frameworks data for that one
         if (this.snippet) {
           return snippetByName?.[this.snippet]?.frameworks ?? [];
