@@ -77,7 +77,7 @@ The following table provides a list of all available email templates in an Okta 
 - the required validation fields for templates created using the API
 - a description of the template
 
-> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${activationLink}` as the email authentication link. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
 | UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
@@ -103,7 +103,7 @@ The following table provides a list of all available email templates in an Okta 
 | Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email address change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
-| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${"emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
 | Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users who are locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}` and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user doesn't recognize the sign-in details of the unknown device |
 | Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when new MFA factors are enrolled (Classic Engine) |
