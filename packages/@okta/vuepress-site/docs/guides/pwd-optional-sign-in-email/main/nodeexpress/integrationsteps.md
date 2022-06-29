@@ -59,4 +59,5 @@ When the user completes the email authenticator verification, one of `OktaAuth.i
   },
 }
 ```
-> **Note:** For other use cases where additional sign-in authenticators are required, the user would need to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
+
+> **Note:** In other use cases where additional sign-in authenticators are required, the user would need to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
