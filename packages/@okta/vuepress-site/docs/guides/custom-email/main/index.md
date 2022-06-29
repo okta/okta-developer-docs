@@ -77,7 +77,7 @@ The following table provides a list of all available email templates in an Okta 
 - the required validation fields for templates created using the API
 - a description of the template
 
-> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${activationLink}` as the required validation field. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${activationLink}` as the email authentication link. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
 | UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
@@ -241,7 +241,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
 | `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
-| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
 | `${request.date}` | Available in Authenticator Enrolled |
 | `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
@@ -252,7 +252,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${request.ipAddress}` | Available in Sign In From New Device |
 | `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
 | `${request.browser}` | Available in Sign In From New Device |
-| `${request.relayState}` | Available in Email challengeForgot Password |
+| `${request.relayState}` | Available in Registration Activation, Forgot Password, Email Challenge, and Email Factor Verification |
 | `${request.verificationLink}` | Available in Email Factor Verification |
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
