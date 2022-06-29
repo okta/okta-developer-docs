@@ -2203,7 +2203,7 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "recipients": "NO_USERS",
+  "recipients": "NO_USERS"
 }' \
 'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
 ```
