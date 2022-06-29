@@ -195,9 +195,28 @@ Okta can assist you in collecting profile data from end users before they can ac
 
 ### Reassign a profile enrollment policy
 
+Okta applies a profile enrollment policy to every app integration in your org. When you add a new app integration to your org, Okta automatically assigns the default policy to the app integration. You can reassign the app integration to a different policy that meets your enrollment needs.
+
+If you want to delete an existing profile enrollment policy, you must first reassign any app integrations currently using that policy.
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. On the **Profile Enrollment** page, locate the currently assigned policy and click the **Edit** icon in the **Actions** column.
+3. On the policy page, click the menu icon on the app integration tile, and select **Apply a different policy**.
+4. In the **Change a Profile Enrollment Policy** dialog, use the dropdown list to pick the new enrollment policy for the app integration. You can click **View all profile enrollment policies** to see the full list of policies available on the **Profile Enrollment** page.
+5. Click **Save** to complete the policy change.
+6. Repeat these steps for each app integration you want to reassign.
+7. Click **Back to all Profile Enrollment Policies**.
 
 ### Delete a profile enrollment policy
 
+You can delete any profile enrollment policy that isn't currently in use or the default policy.
+
+> **Note:** A deleted profile enrollment policy can't be recovered.
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. On the **Profile Enrollment** page, locate the policy you want to remove.
+3. Click the **Delete** icon in the **Actions** column. If the **Delete** icon isn't enabled, you must remove any app integrations currently using the policy. See [Reassign a profile enrollment policy](#reassign-a-profile-enrollment-policy).
+4. Click **Delete Policy** to complete the process.
 
 ## See also
 
