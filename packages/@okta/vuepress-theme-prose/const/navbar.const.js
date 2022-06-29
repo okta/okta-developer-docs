@@ -320,6 +320,8 @@ export const guides = [
           },
           { title: "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy" },
+          { title: "Configure profile enrollment policies",
+            guideName: "configure-profile-enrollment-policies" },
           {
             title: "Add an Identity Provider",
             subLinks: [

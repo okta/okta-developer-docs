@@ -16,6 +16,7 @@ guides:
  - common-hook-set-up-steps
  - configure-access-policy
  - configure-native-sso
+ - configure-profile-enrollment-policies
  - configure-signon-policy
  - configure-user-scoped-account-management
  - create-an-api-token
@@ -69,7 +70,6 @@ guides:
  - revoke-tokens
  - saml-tracer
  - session-cookie
- - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
  - sign-in-to-spa-authjs
