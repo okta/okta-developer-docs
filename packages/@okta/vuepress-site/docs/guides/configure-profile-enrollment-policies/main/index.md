@@ -8,7 +8,9 @@ layout: Guides
 
 > **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Configure Okta sign-on and app sign-on policies](/docs/guides/archive-configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide explains what profile enrollment policies are used for and how to add and configure them in your [Okta organization](/docs/concepts/okta-organizations/). 
+> **Note**: Self-service registration (SSR) for Okta Classic Engine is deprecated. See the [archived guide]().
+
+This guide explains what profile enrollment policies are used for and how to add and configure them in your [Okta organization](/docs/concepts/okta-organizations/).
 
 ---
 
@@ -127,5 +129,77 @@ If any Global Session Policy rule has the primary factor set to Password / IDP /
 
 3. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
 
-### End user sign-in process
+## Configure profile enrollment policies
+
+> **Note:** Super admin access is required to create policies and configure profile enrollment policies.
+
+A profile enrollment policy collects attributes from an end user when they attempt to access an app. The policy can be used for self-service registration or for progressive enrollment.
+
+In self-service registration scenarios, end users click a **Sign-up** link in the Sign-In Widget, and when they authenticate into the app, Okta adds their profile and provisions them to the appropriate groups. The default profile enrollment policy has Sign-up enabled and it controls self-service registration for your entire org.
+
+In progressive enrollment scenarios, the enrollment policy can collect additional data requested by an application. This collection happens through the profile enrollment form shown to the user when they sign in to your application. Progressive enrollment is useful if you want to have a user’s email address added to their profile before they access a sensitive application, or when visitors need to create a profile before they can view or download resources.
+
+### Create a profile enrollment policy
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. Select the Default Policy, or, to create a new one, click **Add Profile Enrollment Policy**.
+3. Enter a new policy **Name**.
+4. Click **Save**.
+
+### Select a profile enrollment policy
+
+You can change which app integrations use a policy for profile enrollment:
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
+3. Click **Manage Apps**.
+4. On the **Apps using (policy name)** page, click **Add an App to This Policy**.
+5. Use the search bar to find existing app integrations in your org.
+6. Click **Apply** for each app integration that you want to add to this policy.
+7. Click **Close**.
+8. Optional. Under the **Actions** dropdown menu, you can click **Go to this app** to open the settings page for that app integration.
+9. Optional. Under the **Actions** dropdown menu, you can click **Apply a different policy** to switch to a different policy that the app integration can use for profile enrollment. Click **Save** to confirm your change or **Cancel** to continue using the original policy.
+10. Click **Back to Profile Enrollment Policy**.
+
+### Collect profile information and register users
+
+Okta can assist you in collecting profile data from end users before they can access any app integrations which use a specific policy. To configure what data Okta collects:
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
+3. In the **Profile Enrollment** section, click **Edit** to modify the options:
+   - **Self-service registration:** You can choose one of two options:
+      - **Allowed:** Select this option if you want your end users to be able to self-register their Okta account in your org by clicking the **Sign up** link on the Sign-In Widget.
+      - **Denied:** Select this option if you want your end users to create their Okta account through another method or if you want to create a progressive enrollment policy.
+         - In progressive enrollment scenarios, self-service registration is denied but users are prompted for missing profile attributes the next time they sign in. See [New sign-in experience](https://help.okta.com/okta_help.htm?id=ext-sign-in-flows).
+         - With the **Denied** option selected, the **Sign up** link is hidden on the Sign-In Widget.
+      - If you want to allow users to self-register for an app integration but not to your entire org, select **Denied** in your Default Policy. Then create a new profile enrollment policy specifically for that app with **Self-service registration** set to **Allowed**.
+    - **Email verification:** If this checkbox is selected, the end user must verify their account through an automated email sent to the address they provided. Until they complete this step, they can't access the app integrations that use this policy. If this checkbox isn't selected, email verification isn't required to sign in. Email verification is required if your org is using password-optional authentication.
+    - **Add the user to group:** End users are automatically added to all groups listed here. If needed, click **Go to Groups** to open the Groups page in the Admin Console and manage the groups in your org.
+    - **Inline hook:** To use an inline hook as part of your user registration process, first you must add the hook to your Okta workflow. See [Inline Hooks](https://help.okta.com/okta_help.htm?id=ext_inlinehooks). After the hook has been created, select it from the **Use the following inline hook** dropdown menu.
+    After selecting an inline hook, you can **Run this hook**:
+      - **When a new user is created:** This trigger occurs during a self-service registration request.
+      - **When attributes are collected for an existing user:** This trigger occurs during a progressive enrollment sign-in request.
+      - **Both:** This trigger occurs during a self-service registration request and also during a progressive enrollment sign-in request.
+    - **Customize label:** The profile enrollment form shown to end users can be customized with a header at the top and a confirmation button at the bottom. Enter the text you want displayed to your end users:
+       - **Form header:** The text at the top of the enrollment form. For example, `Sign in` or `Log in to your personal account`.
+       - **Submit button:** The text displayed on the confirmation button. For example `Submit` or `Log in`.
+4. Click **Save**.
+
+### Create a custom profile enrollment form
+
+
+
+### Understand attribute rules for the profile enrollment form
+
+
+### Reassign a profile enrollment policy
+
+
+### Delete a profile enrollment policy
+
+
+## See also
+
+
 
