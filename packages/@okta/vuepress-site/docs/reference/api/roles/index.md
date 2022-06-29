@@ -3195,7 +3195,9 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 | `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications, a specific Certification |
 | `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests, a specific Access Request |
+| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests, a specific Access Request |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). These cannot be used to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). These cannot be used to create or update other roles.
 
 #### Example
 
