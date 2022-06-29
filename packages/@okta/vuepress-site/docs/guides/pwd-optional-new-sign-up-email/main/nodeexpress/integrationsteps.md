@@ -93,7 +93,7 @@ Create and display a page that lists the remaining optional authenticators and a
 
 </div>
 
->Note: In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the skip button should be omiited.
+>**Note:** In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the skip button should be omiited.
 
 ### 6. Skip remaining optional authenticators and complete sign-up
 
