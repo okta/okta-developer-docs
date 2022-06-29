@@ -41,7 +41,7 @@ The email authenticator supports OTP and magic links, and you can integrate both
 
 ### 4. Complete sign-in flow
 
-When the user completes the email authenticator verification, one of `OktaAuth.idx` methods should return  `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful sign-in.
+When the user completes the email authenticator verification, one of `OktaAuth.idx` methods should return `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful sign-in.
 
 ```json
 {
@@ -59,3 +59,4 @@ When the user completes the email authenticator verification, one of `OktaAuth.i
   },
 }
 ```
+> **Note:** For other use cases where additional sign-in authenticators are required, the user would need to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
