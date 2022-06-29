@@ -2,15 +2,15 @@
 
 Create a sign-in page that captures the user's username.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
-![Screenshot showing a sign-in page with the username field.](/img/pwd-optional/pwd-optional-sign-in-page.png)
+![Screenshot showing a sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-sign-in-page.png)
 
 </div>
 
 ### 2: Submit username
 
-When the user initiates the sign-in, pass the username to `OktaAuth.idx.authenticate()`.
+When the user submits their username, call `OktaAuth.idx.authenticate()` passing in the username.
 
 ```javascript
   const { username } = req.body;
@@ -37,9 +37,9 @@ When the user initiates the sign-in, pass the username to `OktaAuth.idx.authenti
 }
 ```
 
-The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports OTP and magic links, and you can integrate both methods into your application. For more information about integrating the email authenticator challenge, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
-### 4. Complete sign-up
+### 4. Complete sign-in flow
 
 When the user completes the email authenticator verification, `OktaAuth.idx` should return  `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful sign-in.
 

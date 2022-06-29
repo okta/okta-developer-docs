@@ -6,12 +6,12 @@ title: Sign in with email only
 
 <ApiLifecycle access="ie" /><br>
 
-Learn how to use the Embedded SDK to integrate password-optional sign-in in your app.
+Enable users to sign in with email only in an application based on an embedded SDK.
 
 **Learning outcomes**
 
-* Configure your Okta org to allow your users the option to sign in without a password
-* Enable your app to support password-optional sign-ins
+* Set up password-optional sign-in in your Okta org
+* Integrate password-optional sign-ins in your app using the Embedded SDK.
 
 **What you need**
 
@@ -28,7 +28,7 @@ Learn how to use the Embedded SDK to integrate password-optional sign-in in your
 
 ## Update configurations
 
-Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Additionally, for this use case, you must have created a user with an email authenticator as described in the <StackSnippet snippet="signupfornewaccount" inline/> guide.
+Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Additionally, in order test the sign-in integration, you must use a user with an enrolled email authenticator.
 
 ## Integrate
 
