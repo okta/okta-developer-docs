@@ -4033,6 +4033,8 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
 
+> **Note:** For OIDC apps, the user's profile doesn't contain the `firstName` and `lastName` attributes. The `q` query parameter matches the provided string with only the beginning of the `userName` or `email` attributes.
+
 The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
