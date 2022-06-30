@@ -28,7 +28,7 @@ Enable users to sign in with email only in an application based on an embedded S
 
 ## Update configurations
 
-Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Additionally, in order test the sign-in integration, you must use a user with an enrolled email authenticator.
+Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Also, to test the sign-in integration, you must use a user with an enrolled email authenticator.
 
 ## Integrate
 
