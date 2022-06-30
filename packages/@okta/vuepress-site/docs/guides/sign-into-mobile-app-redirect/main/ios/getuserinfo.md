@@ -2,28 +2,24 @@ Display the user info by updating the `showUserInfo()` function of `ContentView.
 
 ```swift
 func showUserInfo() {
-   guard let credential = Credential.default else {
+   guard let credential = Credential.default,
+         let idToken = credential.token.idToken else {
       showError(title: "Unable to Show User Info",
                 message: "Could not read the token for the current user.")
       return
    }
-   Task {
-      do {
-         busy = true
-         let userInfo = try await credential.userInfo()
-         busy = false
-         var userInfoText = ""
-         userInfo.payload.forEach { (key: String, value: Any) in
-            userInfoText += ("\(key): \(value)\n")
-         }
-         infoText = userInfoText
-      }
-      catch {
-         busy = false
-         showError(title: "Unable to Show User Info", error: error)
-      }
+
+   var infoString = ("Name: \(idToken.name!)\n")
+   infoString += "User Name: \(idToken.preferredUsername!)\n"
+   infoString += "User ID: \(idToken.subject!)\n"
+   if let issueDate = idToken.issuedAt {
+      let dateFormatter = DateFormatter()
+      dateFormatter.timeStyle = .medium
+      dateFormatter.dateStyle = .medium
+      infoString += "Issue Date: \(dateFormatter.string(from: issueDate))\n"
    }
+   infoText = infoString
 }
 ```
 
-The function first shows the activity indicator to block the UI, and then requests the credentials for the current user. The SDK calls the server and returns the user info array, which is displayed in the info area.
+The function reads the user information from the local ID token. The available information depend on the scopes that are specified in the `Okta.plist` file. You can also request information from the server using the `userInfo()` function of the an instance of `Credential`.

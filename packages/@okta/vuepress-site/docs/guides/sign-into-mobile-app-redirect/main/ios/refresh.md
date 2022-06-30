@@ -37,10 +37,10 @@ func showTokenInfo() {
    var tokenString = "Unable to show token"
    if let token = Credential.default?.token {
       let dateFormatter = DateFormatter()
-      dateFormatter.dateStyle = .medium
       dateFormatter.timeStyle = .medium
+      dateFormatter.dateStyle = .medium
 
-      tokenString = "Access Token\n\n\(token.accessToken)\n\n"
+      tokenString = ""
       if let issued = token.issuedAt {
          tokenString += "Issue Date: \(dateFormatter.string(from: issued))\n"
       }
@@ -50,6 +50,7 @@ func showTokenInfo() {
       if token.isExpired {
          tokenString += "---EXPIRED---\n"
       }
+      tokenString += "\nAccess Token\n\n\(token.accessToken)\n\n"
       if let refreshToken = token.refreshToken {
          tokenString += "\nRefresh Token\n\n\(refreshToken)"
       }

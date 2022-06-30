@@ -5,7 +5,7 @@ When you check for an existing session, it may take two steps:
 
 The `Credential` class manages the tokens for a user. The `signIn()` function you wrote in [Open the sign-in page](#open-the-sign-in-page) calls `store(_:)` to save the user's credentials. A session exists if there's a default credential. Although there are calls to check if a credential has expired and to request a refresh, this code uses `refreshIfNeeded()` that only tries to refresh the token if it's expired.
 
-Add an `.onAppear` modifier to the main content view that checks for an existing session:
+Check for an existing session by adding an `.onAppear` modifier above the `.alert` modifier of the main content view:
 
 ```swift
 var body: some View {
@@ -37,6 +37,6 @@ var body: some View {
             busy = false
          }
       }
-   }
+      .alert {
    ...
 ```

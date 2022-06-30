@@ -68,11 +68,12 @@ struct ContentView: View {
                         Button("Show User Info") {
                            showUserInfo()
                         }
-                        .padding()
                         Button("Show Token") {
                            showTokenInfo()
                         }
-                        .padding()
+                        Button("Refresh Token") {
+                           refreshToken()
+                        }
                      }
                   }
                }
@@ -102,20 +103,24 @@ struct ContentView: View {
       }
    }
 
-   func signIn() async {
-      print("Sign in tapped")
+   func signIn() {
+      infoText = "Sign in tapped"
    }
 
-   func signOut() async {
-      print("Sign out tapped")
+   func signOut() {
+      infoText = "Sign out tapped"
+   }
+
+   func showUserInfo() {
+      infoText =  "Show user info tapped"
    }
 
    func showTokenInfo() {
-      print("Show token info tapped")
+      infoText = "Show token info tapped"
    }
 
-   func showUserInfo() async {
-      print("Show user info tapped")
+   func refreshToken() {
+      infoText = "Refresh token tapped"
    }
 
    // Display and error message using an Error object.
