@@ -30,7 +30,11 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 The basic user sign-in use case requires the password factor.
 
+<div class="quarter border">
+
 ![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
+
+</div>
 
 Before you build a basic sign-in flow, ensure that your org is configured for the password factor by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 

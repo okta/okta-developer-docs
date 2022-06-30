@@ -35,7 +35,11 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to fu
 
 A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email).
 
-<img src="/img/okta-sign-in-javascript.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
+<div class="quarter">
+
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+
+</div>
 
 ## Installation
 

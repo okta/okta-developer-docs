@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="common-image-format">
+<div class="quarter">
 
 ![Example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 

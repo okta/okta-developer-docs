@@ -5,11 +5,12 @@
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+  margin-bottom: 24px;
 }
 
 /* Mobile-first sizing, applied by default if below media query does not kick in (i.e. it's a narrow screen) */
 
-.content__default div.full, .content__default div.half {
+.content__default div.full, .content__default div.half, .content__default div.three-quarter {
   img {
     width: 100%;
   }
@@ -24,6 +25,12 @@
 /* On wider screens, overwrite the width for the half and quarter-size images so they appear smaller */
 
 @media (min-width: 768px) {
+  .content__default div.three-quarter {
+    img {
+      width: 75%;
+    }
+  }
+
   .content__default div.half {
     img {
       width: 50%;

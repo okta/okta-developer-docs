@@ -12,7 +12,7 @@ or update the fields on the [configuration page](#configuration-page).
 
 An alternative method to store the configuration settings is by using the Configuration page. You can access the Configuration page from the **Configure** link on the start-up page.
 
-<div class="common-image-format">
+<div class="quarter">
 
 ![Displays the Configuration setup page in the Swift sample app](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png)
 

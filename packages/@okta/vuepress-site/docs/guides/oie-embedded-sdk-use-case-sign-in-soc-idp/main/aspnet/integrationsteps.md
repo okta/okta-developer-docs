@@ -42,7 +42,7 @@ The following code from the sample app shows the loop of Identity Providers that
 
 The following sample shows the button to sign in with Facebook.
 
-<div class="common-image-format">
+<div class="quarter">
 
 ![Displays an example social sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
 
@@ -56,7 +56,7 @@ The user clicks the sign-in link, which sends them initially to the Okta org. Th
 
 Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="common-image-format">
+<div class="quarter">
 
 ![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
