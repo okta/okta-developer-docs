@@ -1210,7 +1210,7 @@
     "errorSummary" : "Another authenticator with key: {0} is already active.",
     "errorDescription" : null
   }, {
-    "title" : "Non user verification compliance okta verify enrollment exception",
+    "title" : "Non user verification compliance enrollment exception",
     "includesExceptionMessage" : true,
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
