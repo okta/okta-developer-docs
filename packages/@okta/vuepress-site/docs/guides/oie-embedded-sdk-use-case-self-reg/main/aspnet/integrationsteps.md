@@ -2,7 +2,7 @@
 
 The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Sign up' link at the bottom of the sign-in page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
 
@@ -12,7 +12,7 @@ The self-registration flow begins when the user clicks the **Sign up** link. On 
 
 The next step for the user after they click the **Sign up** link is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following shows an example of a create account page.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Create your account' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create.png)
 
@@ -53,7 +53,7 @@ The next step is to build a page that shows a user the required factors that nee
 be verified. After the call to `RegisterAsync`, the user needs to see the
 password factor requirement and select it for verification.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Verify password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password.png)
 
@@ -116,7 +116,7 @@ default:
 
 After `AwaitingAuthenticatorVerification` is returned, the next step is to build a page that allows the user to verify the new password by supplying the password.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Confirm password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password.png)
 
@@ -144,7 +144,7 @@ If you completed the steps in [Set up your Okta org for a multifactor use case](
 
 The `AwaitingAuthenticatorEnrollment` status is returned because the required email and optional phone factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone.png)
 
@@ -209,7 +209,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 Build the email verification code page that accepts the code from the email.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
 
@@ -254,7 +254,7 @@ switch (authnResponse.AuthenticationStatus)
 
 The remaining authenticator should display the phone factor to the user. Since this factor is currently optional and no other required factors need to be verified, the user should have the ability to skip the factor. Create a **Skip** button for this use case. This **Skip** button is governed by the `CanSkip` property on the `AuthenticationResponse`. See the following screenshot for an illustration.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example 'Phone list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone.png)
 
@@ -290,7 +290,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
-   <div class="common-image-format">
+   <div class="half">
 
    ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
@@ -344,7 +344,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
 
-   <div class="common-image-format">
+   <div class="half">
 
    ![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
 
