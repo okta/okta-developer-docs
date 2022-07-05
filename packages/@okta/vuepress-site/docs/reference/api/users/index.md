@@ -2774,19 +2774,19 @@ This operation resets all factors for the specified user. All MFA factor enrollm
 
 ##### Request parameters
 
-
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id           | `id` of user                                                 | URL        | String   | TRUE     |         |
-| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   |
+
+<!-- REMOVED THIS PARAMETER in 2022.07.0; release mgmt disabled with kill switch - June 30, 2022 Katherine Chan
+
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   | -->
 
 ##### Response parameters
-
 
 Returns an empty object by default.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
