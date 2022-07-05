@@ -197,6 +197,10 @@ export const guides = [
                   {
                     title: "Sign up for new account with email only",
                     guideName: "pwd-optional-new-sign-up-email"
+                  },
+                  {
+                    title: "Sign in with email only",
+                    guideName: "pwd-optional-sign-in-email"
                   }
                 ]
               },
