@@ -10,7 +10,7 @@
 1. After the app loads, click **Sign In**, which is located on the app's home page.
 1. On the sign-in page, enter the username (email) and password that you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account):
 
-   <div class="quarter">
+   <div class="half">
 
    ![Example sample app sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png)
 

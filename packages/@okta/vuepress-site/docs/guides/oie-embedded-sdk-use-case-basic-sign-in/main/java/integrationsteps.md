@@ -2,7 +2,7 @@
 
 Build a sign-in form that captures both the username and password. For example:
 
-<div class="quarter">
+<div class="half">
 
 ![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
 

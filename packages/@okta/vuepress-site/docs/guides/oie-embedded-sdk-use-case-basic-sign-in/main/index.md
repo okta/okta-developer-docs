@@ -30,7 +30,7 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 The basic user sign-in use case requires the password factor.
 
-<div class="quarter border">
+<div class="half">
 
 ![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
 

@@ -50,7 +50,7 @@ You need to build a generic sign-in view page with the social sign-in options av
 
 The previous code snippet is rendered as the **Login with Facebook** button, similar to the following image:
 
-<div class="quarter">
+<div class="half">
 
 ![Displays the Login with Facebook button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
 

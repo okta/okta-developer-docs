@@ -1,6 +1,6 @@
 The following sequence diagram details each step in the authentication flow for this use case.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays a sequence diagram for the social sign-in use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-social-sign-in.png)
 
