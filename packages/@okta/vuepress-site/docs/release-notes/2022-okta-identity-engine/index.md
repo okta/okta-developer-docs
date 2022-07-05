@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bug fixed in 2022.06.3
 
-* The mandatory `profileAttributes` parameter wasn't validated and the primary `email` attribute was deleted from a Profile Enrollment policy when an update request was made to the Policy API. (OKTA-473642)
+The mandatory `profileAttributes` parameter wasn't validated and the primary `email` attribute was deleted from a Profile Enrollment policy when an update request was made to the Policy API. (OKTA-473642)
 
 ### Weekly release 2022.06.2
 
