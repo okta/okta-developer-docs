@@ -30,7 +30,11 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 This use case requires the password and email factors.
 
+<div class="three-quarter">
+
 ![Displays a diagram of the required password and email factors](/img/oie-embedded-sdk/factor-password-email.png)
+
+</div>
 
 Before you build a sign-in flow with password and email factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
 

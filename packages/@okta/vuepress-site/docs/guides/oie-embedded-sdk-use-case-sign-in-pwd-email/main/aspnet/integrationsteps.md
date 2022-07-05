@@ -3,7 +3,7 @@
 Build a sign-in page that captures both the user’s name and
 password. An example is shown below:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
@@ -49,7 +49,7 @@ switch (authnResponse?.AuthenticationStatus)
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify.png)
 
@@ -84,7 +84,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 If not already done, build the email verification code page that will accept the code from the email.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
 

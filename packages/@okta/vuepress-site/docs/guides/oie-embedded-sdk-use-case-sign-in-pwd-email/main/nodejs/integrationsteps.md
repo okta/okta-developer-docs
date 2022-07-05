@@ -4,7 +4,7 @@
 
 Build a sign-in page that captures both the user’s name and password, as shown in the following example:
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a sign-in page with the username and password fields and a Login button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
@@ -28,7 +28,7 @@ The user is redirected to an authenticator list page that displays the email fac
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Select Authenticator page that includes an email field and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-nodejs.png)
 
@@ -51,7 +51,7 @@ The next step is to redirect the user to the email verification code page.
 
 If not already done, build the email verification code page that accepts the code from the email.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Challenge Email Authenticator page that includes a verification code field and a Verify button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-nodejs.png)
 
