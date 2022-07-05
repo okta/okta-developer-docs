@@ -1,6 +1,6 @@
 :not(pre)>code[class*=language-], pre[class*=language-] {
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  background: #f4f4f4;
+  background: cv('gray', '100');;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
 
@@ -18,7 +18,7 @@
   padding: 0.15rem 0.5rem;
   line-height: 1.428571429;
   background: cv('blue', '000');
-  color: cv('blue', '500');
+  color: cv('cyan');
   font-size: 80%;
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
 }
