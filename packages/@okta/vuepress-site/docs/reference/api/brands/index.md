@@ -380,6 +380,8 @@ Array of the [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
+**Note**: `loadingPageTouchPointVariant` returned in response body only if LOADING_PAGE feature flag enabled
+
 #### Use examples
 
 The following example returns all Themes in the Brand.
@@ -416,6 +418,7 @@ Content-Type: application/json
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT",
     "_links": {
       "favicon": {
         "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -477,6 +480,8 @@ The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
+**Note**: `loadingPageTouchPointVariant` returned in response body only if LOADING_PAGE feature flag enabled
+
 #### Use examples
 
 The following example returns a Theme object:
@@ -512,6 +517,7 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -579,6 +585,9 @@ Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` s
 
 Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
 
+
+Passing the optional `loadingPageTouchPointVariant` body parameter without having the LOADING_PAGE feature enabled returns a `401 Unauthorized` with error code `E0000015`.
+
 #### Use examples
 
 The following example updates Theme properties.
@@ -596,7 +605,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -621,6 +631,7 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -677,7 +688,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "errorPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT_RANDOM"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -712,6 +724,9 @@ Content-Type: application/json
         },
         {
             "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME, LOGO_ON_FULL_WHITE_BACKGROUND]."
+        },
+        {
+            "errorSummary": "loadingPageTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, NONE]."
         }
     ]
 }
@@ -2334,6 +2349,7 @@ The Theme object defines the following properties:
 | `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+| `loadingPageTouchPointVariant`        | Enum     | (Optional) Variant for the Okta loading page. Applicable if `LOADING_PAGE` feature enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
 > **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
@@ -2381,6 +2397,13 @@ You can publish a theme for a page or email template with different combinations
 | `OKTA_DEFAULT`                  | Use the Okta logo and the Okta colors in the email templates.    |
 | `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
 
+#### Variants for the Okta loading page:
+
+| Enum Value                      | Description                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `OKTA_DEFAULT`                  | Use the default Okta loading page animation when redirecting to apps    |
+| `NONE`                          | Use no loading page animation during redirect      |
+
 
 ##### Theme example
 
@@ -2393,7 +2416,8 @@ You can publish a theme for a page or email template with different combinations
   "signInPageTouchPointVariant": "OKTA_DEFAULT",
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
-  "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+  "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }
 ```
 
@@ -2413,10 +2437,11 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page                    |
-| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard              |
-| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                      |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page           |
+| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
+| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
+| `loadingPageTouchPointVariant`        | Enum                    | Variant for the Okta loading page           |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
 ##### Theme Response example
@@ -2435,6 +2460,7 @@ The Theme Response object defines the following properties:
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -2508,7 +2534,12 @@ Initial Theme variant values are different for existing orgs with customizations
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
 | `endUserDashboardTouchPointVariant`   | no                    | n/a                        | `OKTA_DEFAULT`                  |
 | `endUserDashboardTouchPointVariant`   | yes                   | n/a                        | `LOGO_ON_FULL_WHITE_BACKGROUND` |
+| `loadingPageTouchPointVariant`        | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
 
+> **Note:**
+> For pre-existing Orgs, `loadingPageTouchPointVariant` will be initialized to `OKTA_DEFAULT` if the Okta Interstitial
+> Page setting under `Customizations -> Other` is enabled. Otherwise initialized to `NONE`.
+>
 ### Logo scenarios
 
 The following scenarios explain which logo is used when based on the `THEME_BUILDER` flag.
