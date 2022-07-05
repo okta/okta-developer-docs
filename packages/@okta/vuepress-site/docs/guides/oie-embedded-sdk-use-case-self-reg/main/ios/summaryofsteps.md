@@ -21,7 +21,7 @@ in the sample application.
 
 The following sequence diagram details each step in the authentication flow for this use case.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays the user registration use case sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-register-1.png)
 

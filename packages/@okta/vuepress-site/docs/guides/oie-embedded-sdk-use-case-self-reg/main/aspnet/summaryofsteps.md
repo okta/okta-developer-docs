@@ -2,7 +2,7 @@
 
 The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays a diagram that shows the beginning of self-service registration flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start.png)
 
@@ -12,7 +12,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 The self-registration flow continues in this sequence.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays a diagram that continues from the last diagram and shows the self-service registration enrollment flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify.png)
 
@@ -27,7 +27,7 @@ enroll in the phone factor.
 
 The following flow describes the steps when the user enrolls in the optional phone SMS factor.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays a diagram that continues from the last diagram and shows the self-service registration enroll flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone.png)
 
@@ -39,7 +39,7 @@ The user can also opt to skip the factors when all of the remaining
 factors are optional. In this case, the user opts to skip the phone
 (SMS) factor.
 
-<div class="three-quarter">
+<div class="full">
 
 ![Displays a diagram that contineus from the last diagram and shows the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone.png)
 
