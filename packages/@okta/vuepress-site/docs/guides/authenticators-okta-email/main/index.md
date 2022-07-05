@@ -38,7 +38,7 @@ This guide walks you through the email authenticator user journeys for both magi
 
 1. [Update configurations](#update-configurations): Set up your org to enable the email authenticator and magic links.
 
-> **Note:** This guide uses the [Email Verification Experience](docs/guides/email-magic-links-overview/main/#using-the-email-verification-experience) setting to configure magic links. For the alternative, see [using custom email templates](/docs/guides/email-magic-links-overview/main/#using-custom-email-templates).
+> **Note:** This guide uses the [Email Verification Experience](/docs/guides/email-magic-links-overview/main/#using-the-email-verification-experience) setting to configure magic links. For the alternative, see [using custom email templates](/docs/guides/email-magic-links-overview/main/#using-custom-email-templates).
 
 **Magic links**
 
