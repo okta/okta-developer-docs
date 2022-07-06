@@ -30,7 +30,7 @@ Understand how to implement a user sign-in flow with password and email factors.
 
 This use case requires the password and email factors.
 
-<div class="three-quarter">
+<div class="half">
 
 ![Displays a diagram of the required password and email factors](/img/oie-embedded-sdk/factor-password-email.png)
 
