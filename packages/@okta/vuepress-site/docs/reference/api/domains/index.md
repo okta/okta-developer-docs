@@ -27,12 +27,6 @@ The Domains API has the following CRUD operations:
 
 Creates your domain
 
-#### Request path parameters
-N/A
-
-#### Request query parameters
-N/A
-
 #### Request body
 The [Domain](#domain-object)
 
@@ -117,12 +111,6 @@ Verifies the Domain by the given `id`
 | --------- | ------------ | ---------- |
 | `id `       | String        | Required. ID of the Domain. |
 
-#### Request query parameters
-N/A
-
-#### Request body
-N/A
-
 #### Response body
 
 The [DomainResponse](#domainresponse-object)
@@ -199,10 +187,6 @@ Creates the certificate for the Domain by ID
 | --------- | ------------ | ---------- |
 | `id `       | String        | Required. ID of the certificate. |
 
-
-#### Request query parameters
-N/A
-
 #### Request body
 The [certificate](#certificate-object)
 
@@ -268,12 +252,6 @@ Fetches the Domain by ID
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
 | `id`        | String        | Required. ID of the Domain.  |
-
-#### Request query parameters
-N/A
-
-#### Request body
-N/A
 
 #### Response body
 
@@ -376,15 +354,6 @@ Content-Type: application/json
 
 List all verified custom Domains for the org
 
-#### Request path parameters
-N/A
-
-#### Request query parameters
-N/A
-
-#### Request body
-N/A
-
 #### Response body
 
 The [DomainListResponse](#domainlistresponse-object)
@@ -440,11 +409,6 @@ Deletes a Domain by ID
 | --------- | ------------ | ---------- |
 | `id`        | String        | Required. ID of the Domain.   |
 
-#### Request query parameters
-N/A
-
-#### Request body
-N/A
 
 #### Response parameters
 
@@ -487,7 +451,7 @@ The Domain object defines the following properties:
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`. **Warning:** Use of `OKTA_MANAGED` requires a feature flag to be enabled.|
+| `certificateSourcetype` | String            | Required. Certificate source type that indicates whether the certificate is provided by the user or Okta.  Accepted values: `MANUAL`, `OKTA_MANAGED`.|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
 
 #### Domain example
