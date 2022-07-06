@@ -580,13 +580,13 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 
-Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
 
 
-Passing the optional `loadingPageTouchPointVariant` body parameter without having the LOADING_PAGE feature enabled returns a `401 Unauthorized` with error code `E0000015`.
+* Passing the optional `loadingPageTouchPointVariant` body parameter without having the LOADING_PAGE feature enabled returns a `401 Unauthorized` with error code `E0000015`.
 
 #### Use examples
 
