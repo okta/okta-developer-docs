@@ -2399,7 +2399,7 @@ You can publish a theme for a page or email template with different combinations
 
 
 
-#### Variants for the Okta loading page:
+#### Variants for the Okta loading page
 
 <ApiLifecycle access="ea" />
 
