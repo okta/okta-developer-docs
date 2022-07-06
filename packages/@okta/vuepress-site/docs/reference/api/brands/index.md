@@ -2399,7 +2399,7 @@ You can publish a theme for a page or email template with different combinations
 
 <ApiLifecycle access="ea" />
 
-> **Note:** Loading page variants are gated behind the **Loading Page Animation** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+> **Note:** Okta loading page variants are gated behind the **Loading Page Animation** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 #### Variants for the Okta loading page:
 
