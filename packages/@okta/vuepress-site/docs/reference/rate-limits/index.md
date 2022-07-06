@@ -34,7 +34,7 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 ## API rate limits by token
 
-Okta API Tokens are, by default, configured to use 50% of an API endpoint's rate limit when created through the Admin Console. This configuration avoids one API token exceeding the endpoint rate limit violation in an org with multiple API tokens. To adjust the default API token capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage per API token prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
+Okta API Tokens are, by default, configured to have 50% of an API endpoint's rate limit when created through the Admin Console. This configuration avoids one API token exceeding the endpoint's rate limit violation in an org with multiple API tokens. To adjust the default API token capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage per API token prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
 
 ## Rate Limit Monitoring widget
 
