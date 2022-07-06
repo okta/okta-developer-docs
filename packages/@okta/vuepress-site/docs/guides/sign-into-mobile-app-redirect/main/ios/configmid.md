@@ -1,4 +1,4 @@
-The SDK loads the configuration values from a configuration file named `Okta.plist` if it exists in your main bundle. You may also specify the values in code using `WebAuthentication(issuer:clientId:scopes:responseType:redirectUri:logoutRedirectUri:additionalParameters:)`.
+The SDK loads the configuration values from a configuration file named `Okta.plist` if it exists in your main bundle. You may also specify the values in code using `WebAuthentication(issuer:clientId:scopes:redirectUri:logoutRedirectUri:additionalParameters:)`.
 
 Create the Okta configuration file and add the keys and values for your application integration:
 
