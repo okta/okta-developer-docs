@@ -2401,6 +2401,10 @@ You can publish a theme for a page or email template with different combinations
 
 #### Variants for the Okta loading page:
 
+<ApiLifecycle access="ea" />
+
+> **Note:** Okta loading page variants are only available if the **Loading Page Animation** Early Access feature is enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the default Okta loading page animation during the redirect.    |
