@@ -16,7 +16,7 @@
 
 1. Click **Sign In**. If you've successfully signed in, the app redirects you to the user profile page that displays basic user profile and security token information.
 
-   <div class="three-quarter">
+   <div class="three-quarter border">
 
    ![Example user profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png)
 

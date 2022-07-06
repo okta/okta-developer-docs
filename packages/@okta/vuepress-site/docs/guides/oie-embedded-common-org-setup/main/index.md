@@ -26,7 +26,7 @@ Okta provides two embedded identity solutions:
    use cases.
 * **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
-<div class="three-quarter border">
+<div class="three-quarter">
 
 ![Displays Okta embedded solution components: (SDK) and (Sign-In Widget + SDK)](/img/oie-embedded-sdk/embedded-solution-overview.png)
 
