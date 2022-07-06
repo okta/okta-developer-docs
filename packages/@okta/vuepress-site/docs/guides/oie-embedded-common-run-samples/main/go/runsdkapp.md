@@ -8,13 +8,21 @@
 1. Run the following command: `go run main.go`
 1. In a web browser, navigate to `http://localhost:8000/`. The following home page appears:
 
+   <div class="three-quarter">
+
    ![The home page of the Golang SDK sample application](/img/oie-embedded-sdk/oie-embedded-sdk-golang-sample-app-home-page.png)
+
+   </div>
 
 1. Click **Sign In**.
 1. On the sign-in page, enter the username (email) and password that you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/go/main/#create-your-okta-account).
 1. If you've successfully signed in, the following user profile information appears:
 
+   <div class="three-quarter">
+
    ![The default user page that shows the user profile information](/img/oie-embedded-sdk/oie-embedded-SDK-golang-sample-app-user-default-page.png)
+
+   </div>
 
 ### Work with the use cases
 

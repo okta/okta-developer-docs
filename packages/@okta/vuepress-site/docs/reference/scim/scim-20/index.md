@@ -126,6 +126,8 @@ Authorization: <Authorization credentials>
 }
 ```
 
+> **Note:** Okta sends the `password` parameter in a create user request, even if password sync isn't enabled. This parameter acts as a placeholder for legacy provisioning platforms and its value isn't relevant or sensitive in nature.
+
 The response from the SCIM server contains the created User object:
 
 ```http
