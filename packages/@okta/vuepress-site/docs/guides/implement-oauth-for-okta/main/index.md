@@ -138,8 +138,6 @@ The following table shows the scopes that are currently available:
 
 | Scope                    | Description                                                            | API                                    |
 | :----------------------- | :--------------------------------------------------------------------- | :------------------------------------- |
-| `okta.agentPools.manage`       | Allows the app to create and manage agent pools in your Okta organization     |  |
-| `okta.agentPools.read`       | Allows the app to read agent pools in your Okta organization     |  |
 | `okta.apiTokens.manage`       | Allows the app to create and manage API tokens in your Okta organization     | [Authentication API](/docs/reference/api/authn/)  |
 | `okta.apiTokens.read`       | Allows the app to read information about API tokens in your Okta organization     | [Authentication API](/docs/reference/api/authn/)  |
 | `okta.apps.manage`       | Allows the app to create and manage Apps in your Okta organization     | [Apps API](/docs/reference/api/apps/)  |
@@ -155,8 +153,6 @@ The following table shows the scopes that are currently available:
 | `okta.brands.read`    | Allows the app to read information about Brands and Themes in your Okta org| [Brands API](/docs/reference/api/brands/)|
 | `okta.captchas.manage`    | Allows the app to create and manage CAPTCHAs in your Okta org | [CAPTCHAs API](/docs/reference/api/captchas/) <ApiLifecycle access="ie" />|
 | `okta.captchas.read`    | Allows the app to read information about CAPTCHAs in your Okta org| [CAPTCHAs API](/docs/reference/api/captchas/) <ApiLifecycle access="ie" />|
-| `okta.certificateAuthorities.manage`    | Allows the app to create and manage certificate authorities in your Okta org| |
-| `okta.certificateAuthorities.read`    | Allows the app to read certificate authorities in your Okta org| |
 | `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#register-new-client) |
@@ -194,7 +190,6 @@ The following table shows the scopes that are currently available:
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.profileMappings.manage`| Allows the app to manage user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
 | `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
-| `okta.reports.read`        | Allows the app to read analytic reports in your Okta organization | |
 | `okta.riskProviders.manage`        | Allows the app to create and manage risk provider integrations in your Okta organization | [Risk Providers API](/docs/reference/api/risk-providers/)|
 | `okta.riskProviders.read`        | Allows the app to read all risk provider integrations in your Okta organization | [Risk Providers](/docs/reference/api/risk-providers/)|
 | `okta.roles.manage`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
@@ -209,14 +204,23 @@ The following table shows the scopes that are currently available:
 | `okta.threadInsights.read` | Allows the app to read the ThreatInsight configuration in your Okta organization | [ThreatInsight configuration API](/docs/reference/api/threat-insight/) |
 | `okta.trustedOrigins.manage` | Allows the app to manage all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/reference/api/trusted-origins/#trusted-origins-api-operations) |
 | `okta.trustedOrigins.read` | Allows the app to read all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/reference/api/trusted-origins/#trusted-origins-api-operations) |
-| `okta.uischemas.manage` | Allows an external app to manage the UI form elements used by your Okta organization | <ApiLifecycle access="ie" />|
-| `okta.uischemas.read` | Allows an external app to read information about the UI form elements in your Okta organization | <ApiLifecycle access="ie" /> |
 | `okta.userTypes.manage`    | Allows the app to manage user types in your Okta organization | [User Types API](/docs/reference/api/user-types/)|
 | `okta.userTypes.read`    | Allows the app to read user types in your Okta organization | [User Types API](/docs/reference/api/user-types/)|
 | `okta.users.manage`      | Allows the app to create and manage users and read all profile and credential information for users | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations)|
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile. Currently only supports user profile attribute updates. | [Users API](/docs/reference/api/users/#user-operations)  |
 | `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations)|
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information | [Users API](/docs/reference/api/users/#get-current-user) |
+
+<!-- Removed following scopes for future review
+
+| `okta.agentPools.manage`       | Allows the app to create and manage agent pools in your Okta organization     |  |
+| `okta.agentPools.read`       | Allows the app to read agent pools in your Okta organization     |  |
+| `okta.uischemas.manage` | Allows an external app to manage the UI form elements used by your Okta organization | <ApiLifecycle access="ie" />|
+| `okta.uischemas.read` | Allows an external app to read information about the UI form elements in your Okta organization | <ApiLifecycle access="ie" /> | |
+| `okta.certificateAuthorities.manage`    | Allows the app to create and manage certificate authorities in your Okta org| |
+| `okta.certificateAuthorities.read`    | Allows the app to read certificate authorities in your Okta org| |
+| `okta.reports.read`        | Allows the app to read analytic reports in your Okta organization | |
+-->
 
 ### Scope naming
 
