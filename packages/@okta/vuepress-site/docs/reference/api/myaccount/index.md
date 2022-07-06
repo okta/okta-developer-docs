@@ -5,7 +5,6 @@ category: management
 
 # MyAccount API
 
-<ApiLifecycle access="ea" /></br>
 <ApiLifecycle access="ie" />
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
@@ -1000,7 +999,7 @@ If an invalid phone ID is passed to the request, the response returns a 404 NOT 
 
 | Endpoint | Lifecycle Status |
 |---|---|
-| <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | GA  |
 | <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" /> | <ApiLifecycle access="deprecated" /> |
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/)
@@ -1092,7 +1091,7 @@ curl -v -X GET \
 
 | Endpoint | Lifecycle Status |
 |---|---|
-| <ApiOperation method="get" url="/idp/myaccount/profile" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="get" url="/idp/myaccount/profile" /> | GA  |
 | <ApiOperation method="get" url="/api/v1/myaccount/directoryProfile" /> | <ApiLifecycle access="deprecated" /> |
 
 Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get My User Profile Schema](#get-my-user-profile-schema)
@@ -1155,7 +1154,7 @@ curl -v -X GET \
 
 | Endpoint | Lifecycle Status |
 |---|---|
-| <ApiOperation method="put" url="/idp/myaccount/profile" /> | <ApiLifecycle access="ea" /> |
+| <ApiOperation method="put" url="/idp/myaccount/profile" /> | GA  |
 | <ApiOperation method="put" url="/api/v1/myaccount/directoryProfile" /> | <ApiLifecycle access="deprecated" /> |
 
 Updates the caller's User Profile.
