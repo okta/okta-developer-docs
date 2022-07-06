@@ -480,7 +480,7 @@ The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-**Note**: `loadingPageTouchPointVariant` returned in response body only if LOADING_PAGE feature flag enabled
+> **Note:** The response body includes the `loadingPageTouchPointVariant` property only if the LOADING_PAGE feature is enabled.
 
 #### Use examples
 
@@ -2401,8 +2401,8 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the default Okta loading page animation when redirecting to apps    |
-| `NONE`                          | Use no loading page animation during redirect      |
+| `OKTA_DEFAULT`                  | Use the default Okta loading page animation during the redirect.    |
+| `NONE`                          | Use no loading page animation during the redirect.      |
 
 
 ##### Theme example
@@ -2537,8 +2537,8 @@ Initial Theme variant values are different for existing orgs with customizations
 | `loadingPageTouchPointVariant`        | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
 
 > **Note:**
-> For pre-existing Orgs, `loadingPageTouchPointVariant` will be initialized to `OKTA_DEFAULT` if the Okta Interstitial
-> Page setting under `Customizations -> Other` is enabled. Otherwise initialized to `NONE`.
+> For existing orgs, the `loadingPageTouchPointVariant` property is initialized to `OKTA_DEFAULT` if the **Okta Interstitial
+> Page** setting under **Customizations** > **Other** is enabled in the Admin Console. Otherwise, this property is initialized to `NONE`.
 >
 ### Logo scenarios
 
