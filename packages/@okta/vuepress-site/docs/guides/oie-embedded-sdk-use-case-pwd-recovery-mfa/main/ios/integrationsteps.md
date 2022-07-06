@@ -7,7 +7,7 @@ interface into explicit authentication steps and automatically executes steps
 such as the code-to-token exchange. The following diagram illustrates this call flow
 from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code that you need to write to call the sample code's interface.
 
-<div class="common-image-format">
+<div class="full">
 
  ![Displays the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
