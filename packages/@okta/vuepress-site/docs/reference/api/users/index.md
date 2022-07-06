@@ -802,11 +802,25 @@ Content-Type: application/json
 
 #### Get current User
 
-
-Fetches the current user linked to API token or session cookie
+Fetches the current user linked to an API token or a session cookie
 
 ##### Request example
 
+The following example fetches the current user linked to a session cookie:
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Cookie: ${okta_session_cookie}" \
+"https://${yourOktaDomain}/api/v1/users/me"
+```
+
+> **Note:** This is typically a CORS request from the browser when the end user has an active Okta session. Therefore, it's possible to retrieve the current user without the `Authorization` header.
+
+##### Request example
+
+The following example fetches the current user linked to an API token:
 
 ```bash
 curl -v -X GET \
@@ -816,8 +830,9 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-##### Response example
+> **Note:** This request returns the user linked to the API token that is specified in the `Authorization` header, not the user linked to the active session. Details of the Admin user who granted the API token is returned.
 
+##### Response example
 
 ```json
 {
