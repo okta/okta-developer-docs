@@ -9,9 +9,9 @@ The Classic Engine Authentication SDK methods that support the password recovery
 
 The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
 
-#### 1. Start password recovery
+#### 1. Start password recovery flow
 
-Start the password recovery flow by creating an object of type `ForgotPasswordOptions`. Assign values to its `FactoryType` and `Username` properties and pass it to `AuthenticationClient.ForgotPasswordAsync()`. In the following code snippet, the email factor type is used which indicates a verification email is sent to the user’s email address.
+Start the password recovery flow by creating an object of type `ForgotPasswordOptions`. Assign values to its `FactoryType` and `Username` properties and pass it to `AuthenticationClient.ForgotPasswordAsync()`. In the following code snippet, the email factor type is used, which indicates that a verification email is sent to the user’s email address.
 
 ```dotnet
 var authResponse = await _oktaAuthenticationClient.ForgotPasswordAsync(new ForgotPasswordOptions
@@ -108,8 +108,9 @@ The Identity Engine SDK methods that support the password recovery flow are as f
 
 The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
 
-##### 1. Start password recovery
-Start the password recovery flow by creating an object of type `RecoverPasswordOptions`. Assign a value to its `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates authenticators await to be verified.
+##### 1. Start password recovery flow
+
+Start the password recovery flow by creating an object of type `RecoverPasswordOptions`. Assign a value to its `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates that authenticators await the user to verify.
 
 ```dotnet
 var recoverPasswordOptions = new RecoverPasswordOptions
@@ -131,7 +132,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthentic
 
 Using `AuthenticationResponse.Authenticators`, present a list of available authenticators to the user. After selection, call `IdxClient.SelectRecoveryAuthenticatorAsync()` and pass in the selected `AuthenticatorId`.
 
-If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorVerification`, which indicates an authenticator is awaiting verification. In this example a code is sent to the user’s email.
+If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorVerification`, which indicates that an authenticator is awaiting verification. In this example a code is sent to the user’s email.
 
 ```dotnet
 var applyAuthenticatorResponse = await _idxClient.SelectRecoveryAuthenticatorAsync(
@@ -146,7 +147,7 @@ if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.Awai
 
 #### 3. Verify authenticator
 
-Show a page to the user that allows them to enter their verification code. Once the code is submitted, call `IdxClient.VerifyAuthenticatorAsync()` to verify the code. If the method returns a status of `AuthenticationStatus.AwaitingPasswordReset`, the verification is successful and the user can now change their password.
+Show a page to the user that allows them to enter their verification code. After the code is submitted, call `IdxClient.VerifyAuthenticatorAsync()` to verify the code. If the method returns a status of `AuthenticationStatus.AwaitingPasswordReset`, the verification is successful and the user can now change their password.
 
 ```dotnet
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,

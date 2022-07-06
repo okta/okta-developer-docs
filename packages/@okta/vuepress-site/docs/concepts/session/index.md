@@ -7,6 +7,8 @@ meta:
 
 # Session management with Okta
 
+<ClassicDocOieVersionNotAvailable />
+
 An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identities. Okta provides a federated sign-in service so that a user can access multiple applications with a single set of sign-in credentials. A session is a group of user interactions with a resource, such as an IdP service or an application (app), for a given amount of time. When you use Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience&mdash;the IdP session and the application session.
 
 ## IdP session
@@ -50,4 +52,4 @@ See [Sign users out > Sign users out of Okta](/docs/guides/sign-users-out/-/main
 
 > **Note:** In the SAML world, app-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
 
-Explore [Okta sample apps](/docs/guides/quickstart/cli/main/#start-from-a-sample-app) for sample code with non-privileged access implementations.
+Explore [Okta quickstart sample apps](/docs/guides/quickstart/) for sample code with non-privileged access implementations.

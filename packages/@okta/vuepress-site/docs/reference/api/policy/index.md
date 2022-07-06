@@ -13,6 +13,7 @@ The Policy API supports the following **Policy operations**:
 
 * Get all policies of a specific type
 * Create, read, update, and delete a Policy
+* Get all apps assigned to a specific policy
 * Activate and deactivate a Policy
 
 The Policy API supports the following **Rule operations**:
@@ -23,7 +24,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38f9ae7828efad654acd)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0)
 
 ## Policy API operations
 
@@ -242,6 +243,29 @@ curl -v -X POST \
 
 HTTP 204:
 *No Content is returned when the deactivation is successful.*
+
+## Policy mapping operations
+
+### Get applications
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+##### Request parameters
+
+The Policy ID described in the [Policy object](#policy-object) is required.
+
+##### Request example
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/app"
+```
+
+##### Response types
+
+HTTP 200:
+Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Rules operations
 
@@ -467,7 +491,7 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Okta Sign On Policy](#okta-sign-on-policy)
+[Global Session Policy](#global-session-policy)
 
 [Okta MFA Policy](#multifactor-mfa-enrollment-policy)
 
@@ -477,7 +501,7 @@ Different Policy types control settings for different operations. All Policy typ
 
 [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
-[App Sign-On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
+[Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
@@ -485,9 +509,10 @@ Different Policy types control settings for different operations. All Policy typ
 
 ### Default Policies
 
-There is always a default Policy created for each type of Policy. The default Policy applies to any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
+There is always a default Policy created for each type of Policy. The default Policy applies to new applications by default or any users for whom other Policies in the Okta org don't apply. This ensures that there is always a Policy to apply to a user in all situations.
 
  - A default Policy is required and can't be deleted.
+ - New applications (other than Office365, Radius, and MFA) are assigned to the default Policy.
  - The default Policy is always the last Policy in the priority order. Any added Policies of this type have higher priority than the default Policy.
  - The default Policy always has one default Rule that can't be deleted. It is always the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule. For information on default Rules, see [Rules object and defaults](#rules-object).
  - The `system` attribute determines whether a Policy is created by a system or by a user.
@@ -503,7 +528,7 @@ For example, assume the following Policies exist.
 
 When a Policy is evaluated for a user, Policy "A" is evaluated first. If the user is a member of the "Administrators" group, then the Rules associated with Policy "A" are evaluated. If a match is found, then the Policy settings are applied. If the user isn't a member of the "Administrators" group, then Policy B is evaluated.
 
-### Policy JSON example (Okta Sign On Policy)
+### Policy JSON example (Global Session Policy)
 
 ```json
   {
@@ -687,7 +712,7 @@ The Rules object defines several attributes:
 | system        | This is set to `true` on system Rules, which you can't delete.    | Boolean                                        | No         | false                  |
 | created       | Timestamp when the Rule was created                                | Date                                           | No         | Assigned               |
 | lastUpdated   | Timestamp when the Rule was last modified                          | Date                                           | No         | Assigned               |
-| conditions    | Conditions for Rule                                                | [Conditions object](#conditions-object-2)      | No         |                        |
+| conditions    | Conditions for a Rule                                                | [Conditions object](#conditions-object-2)      | No         |                        |
 | actions       | Actions for Rule                                                   | [Rules Actions Objects](#actions-objects)      | No         |                        |
 | _links        | Hyperlinks                                                         | [Links object](#links-object-2)                | No         |                        |
 
@@ -756,10 +781,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 ```
 #### UserType Condition object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-> **Note:** This feature is only available as a part of the Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+<ApiLifecycle access="ie" />
 
 Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
 
@@ -996,8 +1018,7 @@ Specifies a particular platform or device to match on
 
 #### Device Condition object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -1038,7 +1059,7 @@ Specifies a particular level of risk to match on
 }
 ```
 
-#### Expression Language Condition object
+#### Okta Expression Language Condition object
 
 Use Okta Expression Language as a condition.
 See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
@@ -1048,7 +1069,7 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 | ---       | ---                      | ---       | ---      |
 | condition     | expression to match       | String     | Yes      |
 
-#### Expression Language Condition object example
+#### Okta Expression Language Condition object example
 
 ```json
 "elCondition": {
@@ -1059,23 +1080,25 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 ## Type-Specific Policy data structures
 
-## Okta Sign On Policy
+## Global Session Policy
 
-Okta Sign On Policy controls the manner in which a user is allowed to sign on to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
 
-> **Note:** Okta Sign On Policy is different from an application sign-on Policy, which determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked. An application sign-on Policy can't be configured through the API.
+Global Session Policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+
+> **Note:** Global Session Policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
 
 ### Policy Settings data
 
-The Okta Sign On Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
+The Global Session Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
 
 ### Policy conditions
 
-The following conditions may be applied to the Okta Sign On Policy.
+The following conditions may be applied to the Global Session Policy.
 
 [People Condition](#people-condition-object)
 
-### Okta Sign On Rules action data
+### Global Session Policy Rules action data
 
 #### Signon Action example
 
@@ -1118,15 +1141,15 @@ The following conditions may be applied to the Okta Sign On Policy.
 
 ### Rules conditions
 
-The following conditions may be applied to the Rules associated with Okta Sign On Policy:
+You can apply the following conditions to the Rules associated with a Global Session Policy:
 
-* [People Condition](#people-condition-object)
+* [People condition](#people-condition-object)
 
-* [Network Condition](#network-condition-object)
+* [Network condition](#network-condition-object)
 
-* [AuthContext Condition](#authcontext-condition-object)
+* [AuthContext condition](#authcontext-condition-object)
 
-* [Risk Score Condition](#risk-score-condition-object)
+* [Risk Score condition](#risk-score-condition-object)
 
 ## Multifactor (MFA) Enrollment Policy
 
@@ -1163,8 +1186,7 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 #### Policy Authenticators Settings example
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** Policy Settings are included only for those Authenticators that are enabled.
 
@@ -1193,9 +1215,9 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
+| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />           | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
 > **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
@@ -1254,8 +1276,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 
 #### Policy Authenticator object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 | Parameter | Description                                   | Data Type                                                                   | Required |
 | ---       | ---                                           | ---                                                                         | ---      |
@@ -1264,8 +1285,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 
 #### Policy Authenticator Enroll object
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 | Parameter | Description                                    | Data Type                                | Required | Default       |
 | ---       | ---                                            | ---                                      | ---      | ---           |
@@ -1540,8 +1560,7 @@ The following conditions may be applied to Password Policy:
   },
 ```
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 With the Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery Factors for the rule are defined inside the `selfServicePasswordReset` Action.
 
@@ -1724,7 +1743,6 @@ You can apply the following conditions to the IdP Discovery Policy:
 #### Policy Action with multiple IdP instances
 
 <ApiLifecycle access="ie" />
-<ApiLifecycle access="Limited GA" /><br>
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
@@ -1740,12 +1758,43 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 | type                               | Provider type. Possible values: `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`           | String | Yes |
 | name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
 
+#### Policy Action with Dynamic IdP routing
+<ApiLifecycle access="ea"/>
+
+> **Note:** Dynamic IdP Routing is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+You can choose to define an IdP instance in the Policy action or provide an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) with the [Login Context](/docs/reference/okta-expression-language-in-identity-engine/#login-context) that is evaluated with the IdP. For example, the value `login.identifier`
+refers to the user's `username`. If the user is signing in with the username `john.doe@mycompany.com`, the expression, `login.identifier.substringAfter('@))` is evaluated to the domain name of the user, for example, `mycompany.com`. The IdP property that the evaluated string should match to is specified as the `propertyName`.
+
+#### Dynamic IdP example
+
+```json
+  "idp": {
+  "matchCriteria": [
+      {
+        "providerExpression": "login.identifier.substringAfter('@')",
+        "propertyName": "name"
+      }
+    ],
+  "providers": [],
+  "idpSelectionType": "DYNAMIC"
+}
+```
+##### IdP object
+
+| Property                           | Description                              | Data Type | Required |
+| ---                                | ---                                      | ---       | ---      |
+| providerExpression                 | The expression that is evaluated          | Okta Expression Language    | Yes, if `idpSelectionType` is set to `DYNAMIC`      |
+| propertyName                       | The property of the IdP that the evaluated `providerExpression` should match. The default value is `name`, which refers to the name of the IdP.| String | No |
+| idpSelectionType | Determines whether the rule should use expression language or a specific IdP. Supported values: `SPECIFIC`,`DYNAMIC` | String    | Yes       |
+
 ##### Limitations
 
 * You can add up to 10 providers to a single `idp` Policy Action.
 
 * You can define only one `provider` for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`.
-
+* You can't define a provider if `idpSelectionType` is `DYNAMIC`.
+* You can't define a `providerExpression` if `idpSelectionType` is `SPECIFIC`.
 * If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign-in requests are handled by Okta exclusively.
 
 ##### Example
@@ -1772,23 +1821,25 @@ You can define multiple IdP instances in a single Policy Action. This allows use
   }
 ```
 
-## App sign-on policy
+## Authentication policy
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
+> **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
-When you create a new application, it's created with a new app sign-on policy by default. You can't create a new app sign-on policy and assign it to the application. Instead, consider editing the default one to meet your needs.
+An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 
-> **Note:** You can have a maximum of 5000 app sign-on policies in an org.
+When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
+
+> **Note:** You can have a maximum of 5000 authentication policies in an org.
 > There is a max limit of 100 rules allowed per policy.
-> When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
-> The highest priority that an app sign-on policy rule can be set to is `0`.
+> When you create an authentication policy, you automatically also create a default policy rule with the lowest priority of `99`.
+> The highest priority that an authentication policy rule can be set to is `0`.
 
-#### App sign-on policy example
+
+#### Authentication policy example
 
 ```json
     {
@@ -1800,7 +1851,7 @@ When you create a new application, it's created with a new app sign-on policy by
 
 Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
-#### App sign-on policy reference in HAL link in Application API Object example
+#### Authentication policy reference in HAL link in Application API Object example
 
 ```json
     {
@@ -1816,7 +1867,7 @@ Policy conditions aren't supported. Conditions are applied at the rule level for
 
 ### Policy Rules conditions
 
-You can apply the following conditions to the rules associated with an app sign-on policy:
+You can apply the following conditions to the rules associated with an authentication policy:
 
 * [People Condition](#people-condition-object)
 
@@ -1826,7 +1877,7 @@ You can apply the following conditions to the rules associated with an app sign-
 
 * [Platform Condition](#platform-condition-object)
 
-* [Expression Language Condition](#expression-language-condition-object)
+* [Okta Expression Language Condition](#okta-expression-language-condition-object)
 
 * [Risk Score Condition](#risk-score-condition-object)
 
@@ -2020,14 +2071,13 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 ## Profile Enrollment policy
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+<ApiLifecycle access="ie" />
 
 Profile Enrollment policies specify which profile attributes are required for creating new Users through self-service registration and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
+
+> **Note:** You can't update or delete the required base attributes in the default user profile: `email`, `firstName`, or `lastName`.
 
 > **Note:** You can have a maximum of 500 profile enrollment policies in an org.
 > A Profile Enrollment policy can only have one rule associated with it. Adding more rules isn't allowed.

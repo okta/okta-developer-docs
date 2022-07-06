@@ -12,8 +12,8 @@
 }
 
 :not([class*=language-])>code {
-  border-radius: 4px;
-  border: none;
+  border-radius: 2px;
+  border: 1px solid cv('gray', '200');
   white-space: normal;
   padding: 0.15rem 0.5rem;
   line-height: 1.428571429;

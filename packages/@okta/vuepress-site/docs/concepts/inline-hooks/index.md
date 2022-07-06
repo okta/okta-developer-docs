@@ -28,8 +28,9 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [Token Inline Hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
 | [User Import Inline Hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
 | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration |
+| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Telephony Inline Hook](/docs/reference/telephony-hook/) | Customizes Okta's flows that send SMS or Voice messages |
 
 ## Inline Hook process flow
 
@@ -160,11 +161,12 @@ In the case of an Inline Hook timeout or failure, the Okta process flow either c
 
 | Inline Hook        | Inline Hook Failure Behavior                             |
 |--------------------------------| ---------------------------------------------------------|
-| Token Inline Hook | Okta process flow continues with original token returned. |
-| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
 | Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the Inline Hook again. |
+| Registration Inline Hook | Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (SSR)</li><li>"There was an error updating your profile. Please try again later." (Progressive Enrollment)</li></ul> |
+| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
+| Telephony Inline Hook | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
+| Token Inline Hook | Okta process flow continues with original token returned. |
 | User Import Inline Hook | Okta import process continues and user is created. |
-| Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following default UI message: "There was an error creating your account. Please try registering again". |
 
 >**Note:** Review the System Log for errors of type `inline_hook.executed`. This error type appears when Okta doesn't receive a response from your external service or receives a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
 
@@ -188,4 +190,4 @@ The [Okta System Log](/docs/reference/api/system-log/) captures events related t
 
 <https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
-> **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.
+> **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an Inline Hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.

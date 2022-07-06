@@ -15,7 +15,7 @@ Take a look at just a few of Okta's use cases:
 
 ##### You built an app, and you want to add authentication and authorization
 
-You can use Okta to allow your users to sign in with a username/password or with their [social accounts](/docs/guides/add-an-external-idp/), such as Google or Facebook using pre-built sign-in components from Okta. After the user has signed in, you can [retrieve their user profile](/docs/guides/sign-into-spa/user-info/) to customize the UI based on their role and apply your authorization policies.
+You can use Okta to allow your users to sign in with a username/password or with their [social accounts](/docs/guides/add-an-external-idp/), such as Google or Facebook using pre-built sign-in components from Okta. After the user has signed in, you can [retrieve their user profile](/docs/guides/sign-into-spa-redirect/-/main/#get-info-about-the-user) to customize the UI based on their role and apply your authorization policies.
 
 ##### You built an API, and you want to add authentication and authorization to it
 
@@ -27,7 +27,7 @@ Use Okta to allow your users to [sign in to other applications](/docs/guides/bui
 
 ##### You want to enforce multifactor authentication (MFA) when your users want to access sensitive data
 
-Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or [configure policies](/docs/guides/configure-signon-policy/) to only enforce MFA based on location, network, and device context. For instance, you can enforce MFA only if the user is signing in from a new device that is in a different country than your office.
+Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or [configure policies](/docs/guides/configure-signon-policy/) to only enforce MFA based on location or network.
 
 ##### You want to federate your users using an existing enterprise directory
 

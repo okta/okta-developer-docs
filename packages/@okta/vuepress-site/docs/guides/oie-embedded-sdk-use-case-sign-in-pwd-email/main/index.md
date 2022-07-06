@@ -2,10 +2,9 @@
 title: Sign in with password and email factors
 ---
 
-<div class="oie-embedded-sdk">
+<ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
 
 This guide covers the use case for a user sign-in flow with password and email factors, and provides a flow diagram and a sequence of integration steps.
 
@@ -54,5 +53,3 @@ Before you build a sign-in flow with password and email factors, you need to con
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

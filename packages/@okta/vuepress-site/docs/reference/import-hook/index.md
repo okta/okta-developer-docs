@@ -140,6 +140,14 @@ When using the `com.okta.action.update` command to specify that the user should 
 }
 ```
 
+#### Specifying no change in default action
+
+When you don't want the hook to change the [default action](#data-action-result) of the user import operation, return an empty JSON response to Okta. For example:
+
+```json
+{}
+```
+
 ### error
 
 When you return an error object, it should contain an `errorSummary` sub-object:

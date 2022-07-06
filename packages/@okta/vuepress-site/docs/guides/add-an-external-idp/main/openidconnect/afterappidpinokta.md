@@ -1,1 +1,1 @@
-6. Copy both the **Authorize URL** and the **Redirect URI**, and then paste into a text editor for use in upcoming steps.
+5. Copy both the **Authorize URL** and the **Redirect URI**, and then paste into a text editor for use in upcoming steps. If you are using a public and private key pair, click **Download public key**. The key is downloaded in JSON format.

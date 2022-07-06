@@ -65,7 +65,7 @@ This parameter allows you to force the validation of the password policy's `minA
 
 The following bug fixes will be available on preview orgs starting Dec 13, 2017, and will be available on production orgs starting December 19, 2017:
 
-* When using the [Zones API](/docs/reference/api/zones/#update-an-ip-zone), erasing all IP addresses in the Default IP Blacklist zone caused an error. (OKTA-145602)
+* When using the [Zones API](/docs/reference/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
 
 
 ## 2017.49
@@ -561,7 +561,7 @@ This allows you to use one `client_id` for an application that needs to make use
 OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use the Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
+You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -1419,7 +1419,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 #### Okta Expression Language Function for Filtering Groups
 
-Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
+Use Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
 For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 
@@ -1429,7 +1429,7 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+* Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
 

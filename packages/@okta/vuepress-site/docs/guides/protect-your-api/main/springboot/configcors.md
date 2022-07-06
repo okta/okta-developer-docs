@@ -1,30 +1,21 @@
-In order to configure CORS in Spring Security you must enable it in the `WebSecurityConfigurerAdapter` you defined in the previous step:
+1. To configure CORS in Spring Security, enable it in the `WebSecurityConfigurerAdapter` that you defined in the previous step:
 
-```java
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+   ```java
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+     // previous configuration
+       ...
+     http.cors();
+   }
+   ```
 
-@Configuration
-class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+2. Configure individual controllers with `CrossOrigin` annotation. For example:
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        // previous configuration
-        ...
-        http.cors();
-    }
-}
-``` 
+   ```java
+     ...
+   @CrossOrigin(origins = "http://example.com:80")
+   @GetMapping("/api/whoami")
+     ...
+   ```
 
-Then configure individual controllers with `CrossOrigin` annotation. For example:
-
-```java
-@CrossOrigin(origins = "http://example.com:80")
-@GetMapping("/hello")
-public String hello() {
-    return "Hello simple example";
-}
-```
-
-For more details, refer to the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).
+   > **Note**: For more detailed information, see the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).

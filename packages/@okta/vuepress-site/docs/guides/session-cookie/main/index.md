@@ -2,6 +2,8 @@
 title: Work with Okta session cookies
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
 
 ---
@@ -22,7 +24,9 @@ Okta uses an HTTP session cookie to provide access to your Okta org and apps acr
 
 > **Note:** Some browsers have begun blocking third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
-Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/).
+Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set by a `Set-Cookie` header in the response.
+
+> **Important**: By default, Okta Classic orgs ignore the `sessionToken` in a request if there is already a session cookie set in the browser.
 
 ## Retrieve a session cookie through the OpenID Connect authorization endpoint
 
@@ -60,7 +64,7 @@ The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow.
 
 This scenario is ideal for deployment scenarios where you implement both a custom sign-in page and a custom landing page for your app. Your web app solicits and validates the user credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/authn/#session-token).
 
-The session token along with the URL for your landing page can then be used to complete the following [URI Template](http://tools.ietf.org/html/rfc6570) `https://${yourOktaDomain}/login/sessionCookieRedirect?token=${sessionToken}&redirectUrl=${redirectUrl}` that retrieves a session cookie for a user's browser when visited.
+The session token along with the URL for your landing page can then be used to complete the following [URI Template](https://datatracker.ietf.org/doc/html/rfc6570) `https://${yourOktaDomain}/login/sessionCookieRedirect?token=${sessionToken}&redirectUrl=${redirectUrl}` that retrieves a session cookie for a user's browser when visited.
 
 Be aware of the following requirements:
 
@@ -76,7 +80,7 @@ This example shows how the location is returned in the redirect response.
 ```http
 HTTP/1.1 302 Moved Temporarily
 Set-Cookie: my_app_session_cookie_name=my_apps_session_cookie_value; Path=/
-Location: https://${yourOktaDomain}/login/sessionCookieRedirect?token=0HsohZYpJgMSHwmL9TQy7RRzuY&redirectUrl=https%3A%2F%2Fwww.example.com%2Fportal%2Fhome
+Location: https://{yourOktaDomain}/login/sessionCookieRedirect?token=0HsohZYpJgMSHwmL9TQy7RRzuY&redirectUrl=https%3A%2F%2Fwww.example.com%2Fportal%2Fhome
 ```
 
 The user's browser sets your app's session cookie and follows the redirect to Okta. Okta validates the session token and returns a 302 status response that sets a session cookie for Okta and redirects the user's browser back to your landing page. After the page loads, the user has an active session with Okta and can SSO into their apps until the session expires or the user closes the session (logout) or browser app.

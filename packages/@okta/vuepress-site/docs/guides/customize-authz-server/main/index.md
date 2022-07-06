@@ -60,7 +60,7 @@ The first policy and rule that matches the client request is applied and no furt
 
 Rules define particular token lifetimes for a given combination of grant type, user, and scope. They are evaluated in priority order and once a matching rule is found no other rules are evaluated. If no matching rule is found, then the authorization request fails.
 
-Access policy rules are allow lists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case that you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying that if:
+Access policy rules are allowlists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case that you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying that if:
 
 * A request is made using the `implicit` grant type
 * The user is a member of the `admin` group
@@ -132,7 +132,7 @@ Create ID Token claims for OpenID Connect or access tokens for OAuth 2.0:
 1. Click **Add Claim**, enter a **Name** for the claim, and configure the claim settings:
 
     * **Include in token type** &mdash; select **Access Token** (OAuth 2.0) or **ID Token** (OpenID Connect). If you choose **ID Token**, you can also define whether you want the claim included only when requested or always included.
-    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written using the Okta Expression Language.
+    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written using Okta Expression Language.
     * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles, for example: `appuser.username`.
     
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
@@ -194,7 +194,7 @@ Once you have an OpenID Connect application set up, and a user assigned to it, y
 First, you need the authorization server's authorization endpoint, which you can retrieve using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
 
 It looks like this:
-`https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+`https://{yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
 Add the following URL query parameters to the URL:
 
@@ -213,7 +213,7 @@ The resulting URL looks like this:
 
 If you paste this into your browser, you are redirected to the sign-in page for your Okta org with a URL that looks like this:
 
-`https://${yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
+`https://{yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
 
 Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. An ID Token and any state that you defined are also included:
 
@@ -227,7 +227,7 @@ To check the returned ID Token, you can copy the value and paste it into any JWT
  "name": "John Smith",
  "locale": "en-US",
  "ver": 1,
- "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
+ "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
  "aud": "fa39J40exampleXdcCwWA",
  "iat": 1498328175,
  "exp": 1498331912,

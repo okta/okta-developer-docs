@@ -10,15 +10,17 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. In the following code sample, the `@(Model.Version)` property is the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-```csharp
+```razor
 @section head
 {
-   <script src="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+   <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 ```
+
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Configure and initialize the Sign-In Widget
 
@@ -29,7 +31,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
 ```json
 {
    "interactionHandle":"${interactionHandle}",
-   "version":"${siwVersion}",
+   "version":"${widgetVersion}",
    "baseUrl":"${baseUrl}",
    "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
@@ -43,6 +45,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
    },
    "useInteractionCodeFlow":true,
    "state":"${state}",
+   "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
@@ -55,13 +58,20 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 <script type="text/javascript">
     const widgetConfig = @Html.Raw(JsonConvert.SerializeObject(Model));
     console.log(widgetConfig.interactionHandle);
-    const signIn = new OktaSignIn({
+
+   const signIn = new OktaSignIn({
         el: '#okta-signin-widget-container',
         ...widgetConfig
     });
-    signIn.showSignInAndRedirect()
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
+   signIn.showSignInAndRedirect()
         .catch(err => {
-            console.log('Error happen in showSignInAndRedirect: ', err);
+            console.log('An error occurred in showSignInAndRedirect: ', err);
         });
 </script>
 ```

@@ -1,10 +1,8 @@
 ---
-title: Download and set up the SDK, Sign-In Widget, and sample app
+title: Download and set up the SDK, Sign-In Widget, and sample apps
 ---
-<div class="oie-embedded-sdk">
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+<ApiLifecycle access="ie" />
 
 This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
@@ -17,7 +15,7 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+* [Okta Developer Edition organization](/signup)
 * <StackSnippet snippet="samplecode" inline />
 * [Software requirements](#software-requirements)
 ---
@@ -85,5 +83,3 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 ## Set up the Sign-In Widget and SDK for your own app
 
 <StackSnippet snippet="widgetforyourapp" />
-
-</div>

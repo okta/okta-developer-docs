@@ -1,13 +1,10 @@
 ---
-title: Get set up
+title: Set up your Okta org
 ---
 
-<div class="oie-embedded-sdk">
+<ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-This guide covers how to create and set up your Okta org before you can run the provided sample apps or integrate the SDK or Widget into your own app.
+This guide covers how to create and set up your Okta org before you can [run the Identity Engine sample apps](/docs/guides/oie-embedded-common-run-samples/) or [integrate the SDK or Widget](/docs/guides/oie-embedded-common-download-setup-app/) into your own app.
 
 ---
 
@@ -17,7 +14,7 @@ Get a new org set up and ready for various use cases.
 
 **What you need**
 
-[Okta Developer Edition organization](https://developer.okta.com/signup/oie-preview.html)
+[Okta Developer Edition organization](/signup)
 
 ---
 
@@ -35,7 +32,7 @@ Okta provides two embedded identity solutions:
 
 </div>
 
-This guide shows you how to set up your Okta org to support the embedded SDK or the embedded Widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you [download and set up the SDK, Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you [download and set up the SDK, widget, and sample app](<StackSnippet snippet="downloadguideuri" inline />).
 
 ## Get set up
 
@@ -55,13 +52,13 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
    After you sign up, Okta sends a verification email to the email address that you provide.
 
-1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console) of your new Identity Engine org.
+1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
 ### Update the default Custom Authorization Server
 
 You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
 
-1. From your Okta org's [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console), select **Security** > **API**.
+1. From your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
@@ -84,10 +81,11 @@ Create an app integration that represents the application you want to add authen
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.
-1. Select the **Sign On** tab.
-1. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
+1. On the **General** tab, note the **Client ID** value (and if applicable, the **Client secret** value) that is used later in your embedded solution.
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
+<StackSnippet snippet="emailcallbackuri" />
+
+> **Note:** New apps are automatically assigned the shared default authentication policy with a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Policies** and then select **Default Policy**.
 
 <StackSnippet snippet="appsbaseurl" />
 
@@ -95,18 +93,15 @@ Create an app integration that represents the application you want to add authen
 
 After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use case that you're implementing.
 
-* For a basic password factor use case, see [Set up your Okta org for a password factor-only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* For a basic password factor use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
+This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, you updated that app’s policy to **Password only** to use **Password** as the only factor required for a user to sign in. In the next section, follow the steps to finish setting up your Okta org for a password factor only use case.
 
-1. [Update the password authenticator to password only](#_1-update-the-password-authenticator-to-password-only)
-2. [Update your app sign-on policy with password-only authentication](#_2-update-your-app-sign-on-policy-with-password-only-authentication)
-
-#### 1: Update the password authenticator to password only
+#### Update the password authenticator to password only
 
 For password-only authentication, you need to update the password authenticator policy rule to not require any additional verification.
 
@@ -116,22 +111,13 @@ For password-only authentication, you need to update the password authenticator 
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
 
-#### 2: Update your app sign-on policy with password-only authentication
-
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
-1. On the page for your application, select the **Sign On** tab.
-1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
-1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password**.
-1. Click **Save**.
-
 ### Set up your Okta org for a multifactor use case
 
 This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you've [created a new app](#create-a-new-application) to set up the email and phone factors in your Okta org:
 
 1. [Set up the email authenticator for authentication and recovery](#_1-set-up-the-email-authenticator-for-authentication-and-recovery)
 1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
-1. [Update your app sign-on policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
+1. [Update your authentication policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
@@ -139,32 +125,33 @@ This section shows you how to set up your Okta org and app to support the multif
 
 1. In the Admin Console, select **Security** > **Authenticators**.
 1. Select **Edit** from the **Actions** drop-down menu on the **Email** authenticator row.
-1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
+1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Save**.
 
 #### 2: Add the phone authenticator for authentication and recovery
 
-1. In the Admin Console, select **Security** > **Authenticators**.
+**Note:** If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field.
+
+1. To add the phone authenticator, select **Security** > **Authenticators** in the Admin Console.
 1. Click **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the **Phone** authenticator.
 1. In the **Verification options** section, select **SMS** for the **User can verify with** field.
 
    > **Note:** Some SDKs support only SMS with a phone authenticator.
 
-1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
+1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Add**.
 
-If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field for the phone authenticator.
+#### 3: Update your authentication policy with multifactor authentication
 
-#### 3: Update your app sign-on policy with multifactor authentication
-
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [app that you created](#create-a-new-application) to represent your application.
-1. On the page for your application, select the **Sign On** tab.
-1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
-1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password + Another Factor**.
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. On the Authentication polices page, select **Default Policy** as this is the policy that the [app that you created](#create-a-new-application) is assigned to.
+1. Select **Edit** from the **Actions** menu for the **Catch-all Rule**.
+1. On the **Edit Rule** dialog, scroll down to the **AND User must authenticate with** dropdown menu and select **Password + Another Factor**.
 1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
+
+   > **Note:** Remember that since the default authentication policy is a shared policy, changes you make are applied to both new and existing apps that are assigned to it.
 
 ### Set up your Okta org for a social IdP use case
 
@@ -247,5 +234,3 @@ The final step is to add the [created Facebook IdP](#_4-create-the-facebook-iden
 1. Click **Create Rule**.
 1. At the prompt, click **Activate**.
 1. Your new rule appears above the **Default Rule** in the routing rule list. This top position signifies that the setting in your new rule overrides the **Default Rule**.
-
-</div>

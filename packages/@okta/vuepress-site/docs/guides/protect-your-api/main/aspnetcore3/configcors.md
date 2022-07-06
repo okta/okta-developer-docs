@@ -1,48 +1,28 @@
-Open the `Startup.cs` file and update the `ConfigureServices` method to enable CORS:
+1. Add CORS to the `ConfigureServices` method in Startup.cs
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    //...
-    services.AddCors(options =>
-    {
-        // The CORS policy is open for testing purposes. In a production application, you should restrict it to known origins.
-        options.AddPolicy(
-            "AllowAll",
-            builder => builder.AllowAnyOrigin()
-                              .AllowAnyMethod()
-                              .AllowAnyHeader());
-    });
-}
-```
+   ```csharp
+   services.AddCors(options =>
+   {
+      // The CORS policy is open for testing purposes. In a production application, you should restrict it to known origins.
+      options.AddPolicy(
+         "AllowAll",
+         builder => builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
+   });
+   ```
 
-Then, you need to enable cross-origin requests. Add the `EnableCors` attribute with the `AllowAll` policy to your Web API controller or controller method:
+2. Enable CORS in the the `Configure` method:
 
-```csharp
-[Route("api/[controller]")]
-[ApiController]
-public class MessagesController : ControllerBase
-{
-    [HttpGet]
-    [Route("~/api/messages")]
-    [EnableCors("AllowAll")]
-    public JsonResult Get()
-    {
-        return Json(new
-        {
-            messages = new dynamic[]
-            {
-                new { Date = DateTime.Now, Text = "I am a Robot." },
-                new { Date = DateTime.Now, Text = "Hello, world!" },
-            },
-        });
-    }
-}
-```
+   ```csharp
+   app.UseCors();
+   ```
 
-Update your `using` statements to import `Microsoft.AspNetCore.Cors`:
+3. Add the CORS attribute to your API controller:
 
-```csharp
-using Microsoft.AspNetCore.Cors;
-// ...
-```
+   ```csharp
+   [EnableCors("AllowAll")] // Enables CORS for this route
+   [ApiController]
+   [Route("api")]
+   public class InfoController : ControllerBase
+   ```

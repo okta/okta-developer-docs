@@ -19,28 +19,45 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
+For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 
-For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-the-classic-engine).
-
-For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
+For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration or profile update request. Your custom code can:
 
-- Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
+- Set or override the values that are populated in attributes of the user's Okta profile
 
-> **Note:** Profile Enrollment and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and self-service registration (SSR) Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 ## Objects in the Request from Okta
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
+### requestType
+
+OTP request or event for which this transaction is being requested: self-service registration (SSR) or Progressive Enrollment.
+
+Values for `requestType` are one of the following:
+
+| Enum Value | Associated Okta Event |
+|----------|-------------------------------------------------------|
+| `self.service.registration` | self-service registration (SSR) |
+| `progressive.profile` | Progressive Enrollment |
+
 ### data.userProfile
 
-This object contains name-value pairs for each attribute supplied by the user in the Profile Enrollment form, except for the following:
+This object appears in SSR requests from Okta. The object contains name-value pairs for each registration related attribute supplied by the user in the Profile Enrollment form, including:
+
+- `lastName`
+- `firstName`
+- `login`
+- `email`
+- other custom attributes on the Sign-In Widget
+
+The following attributes aren't included in the `data.userProfile` object:
 
 - the `password` field
 - any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
@@ -49,7 +66,19 @@ Using the `com.okta.user.profile.update` commands you send in your response, you
 
 You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
 
+### data.UserProfileUpdate
+
+<ApiLifecycle access="ie" /><br>
+
+This object appears in Progressive Profile requests from Okta. The object contains the delta between existing name-value pairs and the attributes that your end user wants to update.
+
+> **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
+
+Use the `com.okta.user.progressive.profile.update` command in your response to progressively change the values of delta attributes in the user's Okta profile.
+
 ### data.action
+
+> **Note:** The `data.action` object can appear in both SSR and Progressive Profile requests.
 
 The action that Okta is currently set to take, regarding whether to allow this registration attempt.
 
@@ -62,7 +91,13 @@ The action is `ALLOW` by default (in practice, `DENY` will never be sent to your
 
 Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
 
-## Objects in response you send
+<!-- Need to clarify if we need to include this in the docs. right now, it has no content. in the context of the registration inline hook guide, it allows customers to include the object in the console.log().
+
+### data.context.user
+
+<ApiLifecycle access="ie" /><br> -->
+
+## Response objects that you send
 
 The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the registration request. These objects are defined as follows:
 
@@ -85,16 +120,19 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
-| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. |
+| com.okta.user.profile.update | Change attribute values in the user's Okta user profile. For SSR only. Invalid if used with a Progressive Profile response.  |
 | com.okta.action.update       | Allow or deny the user's registration.                       |
+| com.okta.user.progressive.profile.update   | Change attribute values in the user's Okta Progressive Profile. <ApiLifecycle access="ie" /> |
 
 To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
 To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"}`. The default is to allow registration.
 
-Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
+In Okta Identity Engine, to set attributes in the user's profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Progressive Enrollment attributes that you want to set. See [Registration Inline Hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response). <ApiLifecycle access="ie" />
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+Commands are applied in the order that they appear in the array. Within a single `com.okta.user.profile.update` or `com.okta.user.progressive.profile.update` command, attributes are updated in the order that they appear in the `value` object.
+
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. However, the values of those sensitive attributes, if included as fields in the Profile Enrollment form, aren't included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile).
 
 #### value
 
@@ -158,125 +196,218 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/docs/concepts/inline-hooks/#error) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns appears to the end user.
+For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register or update their profile.
 
-If you don't return any value for that `errorCauses` object and deny the user's registration attempt through the `commands` object in your response to Okta, the following generic message appears to the end user: "Registration cannot be completed at this time".
+> **Note:** Generic Progressive Enrollment error messages are only available in the Identity Engine.
 
-If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user: "Registration denied".
+* If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
-> **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+   * You don't customize the error handling behavior of the widget.
+   * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute.
+
+* If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:
+
+   * "Registration cannot be completed at this time." (SSR)
+   * "We found some errors. Please review the form and make corrections." (Progressive Enrollment)
+
+* If you don't return an `error` object at all and the registration is denied, the following generic message appears to the end user:
+
+   * "Registration denied." (SSR)
+   * "Profile update denied." (Progressive Enrollment)
+
+> **Note:** If you include an error object in your response, no commands are executed and the registration fails. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Timeout behavior
 
-If there is a response timeout after receiving the Okta request, the Okta process flow stops and registration is denied. The following message appears: "There was an error creating your account. Please try registering again".
+If there is a response timeout after receiving the Okta request, the Okta process flow stops. Depending on the request, either the self-service registration or the profile update is denied. One of the following default UI messages appears:
 
-## Sample JSON payload of request
+* "There was an error creating your account. Please try registering again." (SSR)
+* "Your profile couldn't be updated at this time. Please try again later." (Profile Enrollment)
+
+## Sample SSR request
+
+The following is an example of a JSON request received from Okta. The request properties contain data submitted by the end user who is trying to self register.
+
+See [request properties](#objects-in-the-request-from-okta) for full details.
 
 ```json
 {
-  "eventId": "GOsk4z6tSSeZo6X08MvKaw",
-  "eventTime": "2019-08-27T18:07:24.000Z",
-  "eventType": "com.okta.user.pre-registration",
-  "eventTypeVersion": "1.0",
-  "contentType": "application/json",
-  "cloudEventVersion": "0.1",
-  "source": "reghawlks3zOkRrau0h7",
-  "data": {
-    "context": {
-      "request": {
-        "id": "XWVxW2zcaH5-Ii74OsI6CgAACJw",
-        "method": "POST",
-        "url": {
-          "value": "/api/v1/registration/reghawlks3zOkRrau0h7/register"
+    "eventId": "04Dmt8BcT_aEgM",
+    "eventTime": "2022-04-25T17:35:27.000Z",
+    "eventType": "com.okta.user.pre-registration",
+    "eventTypeVersion": "1.0",
+    "contentType": "application/json",
+    "cloudEventVersion": "0.1",
+    "source": "regt4qeBKU29vSoPz0g3",
+    "requestType": "self.service.registration",
+    "data": {
+        "context": {
+            "request": {
+                "method": "POST",
+                "ipAddress": "127.0.0.1",
+                "id": "123dummyId456",
+                "url": {
+                    "value": "/idp/idx/enroll/new"
+                }
+            }
         },
-        "ipAddress": "98.124.153.138"
-      }
-    },
-    "userProfile": {
-      "lastName": "Doe",
-      "firstName": "John",
-      "login": "john.doe@example.com",
-      "email": "john.doe@example.com"
-    },
-    "action": null
-  }
+        "userProfile": {
+            "firstName": "Rosario",
+            "lastName": "Jones",
+            "login": "rosario.jones@example.com",
+            "email": "rosario.jones@example.com"
+        },
+        "action": "ALLOW"
+    }
 }
 ```
 
-## Sample JSON payload of response
+## Sample Progressive Enrollment request
+
+The following JSON example provides the end user's profile data to the external service for evaluation.
+
+See [request properties](#objects-in-the-request-from-okta) for full details.
 
 ```json
 {
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY"
-         }
-      }
-   ]
-}
-
-{
-   "error":{
-      "errorSummary":"Errors were found in the user profile",
-      "errorCauses":[
-         {
-            "errorSummary":"You specified an invalid email domain",
-            "reason":"INVALID_EMAIL_DOMAIN",
-            "locationType":"body",
-            "location":"data.userProfile.login",
-            "domain":"end-user"
-         }
-      ]
-   }
+    "eventId": "vzYp_zMwQu2htIWRbNJdfw",
+    "eventTime": "2022-04-25T04:04:41.000Z",
+    "eventType": "com.okta.user.pre-registration",
+    "eventTypeVersion": "1.0",
+    "contentType": "application/json",
+    "cloudEventVersion": "0.1",
+    "source": "regt4qeBKU29vS",
+    "requestType": "progressive.profile",
+    "data": {
+        "context": {
+            "request": {
+                "method": "POST",
+                "ipAddress": "127.0.0.1",
+                "id": "123dummyId456",
+                "url": {
+                    "value": "/idp/idx/enroll/update"
+                }
+            },
+            "user": {
+                "passwordChanged": "2022-01-01T00:00:00.000Z",
+                "_links": {
+                    "groups": {
+                        "href": "/api/v1/users/00u48gwcu01WxvNol0g7/groups"
+                    },
+                    "factors": {
+                        "href": "/api/v1/users/00u48gwcu01WxvNol0g7/factors"
+                    }
+                },
+                "profile": {
+                    "firstName": "Rosario",
+                    "lastName": "Jones",
+                    "timeZone": "America/Los_Angeles",
+                    "login": "rosario.jones@example.com",
+                    "locale": "en_US"
+                },
+                "id": "00u48gwcu01WxvNo"
+            }
+        },
+        "action": "ALLOW",
+        "userProfileUpdate": {
+            "employeeNumber": "1234"
+        }
+    }
 }
 ```
 
-## Enable a Registration Inline Hook for Profile Enrollment in Okta Identity Engine
+## Sample response
 
-<ApiLifecycle access="ie" /><br>
+The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+See [response properties](#response-objects-that-you-send) for full details.
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
+```javascript
+// Registration Inline Hook code to parse the incoming Okta request
 
-You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).)
+app.post('/registrationHook', async (request, response) => {
+  console.log();
 
-1. Go to **Security > Profile Enrollment**.
+  var returnValue = {};
 
-1. Click the Pencil icon to edit the policy and associate it with your Registration Inline Hook.
+  if (request.body.requestType === 'progressive.profile') {
+    // For example, 'employeeNumber' is an additional attribute collected after end user registration.
+    console.log('Employee number added to profile ' + request.body.data.context.user.profile['login'] + ': ' + request.body.data.userProfileUpdate['employeeNumber']);
+    var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
+    if (employeeNumber && employeeNumber.length === 4) {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.user.progressive.profile.update',
+            value: {
+              'employeeNumber': employeeNumber,
+            }
+          }
+        ]
+      };
+    } else {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              registration: 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect employee number. Enter an employee number with 4 digits.',
+          'errorCauses':[{
+            'errorSummary':'Only employee numbers with 4 digits can register.',
+            'reason':'INVALID_EMPLOYEE_NUMBER',
+            'locationType':'body',
+            'location':'data.userProfile.employeeNumber',
+            'domain':'end-user'
+          }]
+        }
+      };
+    }
+  } else {
+    console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
+    var emailRegistration = request.body.data.userProfile['email'];
+    if (emailRegistration.includes('example.com')) {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.user.profile.update',
+            value: {
+              'login': emailRegistration,
+            }
+          }
+        ]
+      };
+    } else {
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " denied registration!");
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              registration: 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect email address. Please contact your admin.',
+          'errorCauses':[{
+            'errorSummary':'Only example.com emails can register.',
+            'reason':'INVALID_EMAIL_DOMAIN',
+            'locationType':'body',
+            'location':'data.userProfile.email',
+            'domain':'end-user'
+          }]
+        }
+      };
+    }
+  }
 
-1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. Select **Allowed** for **Sign-up** in the **For new users** section.
-
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users**. If you have created multiple Registration Inline Hooks, you can see all of them displayed here.
-
-1. Click **Save**.
-
-Your Registration Inline Hook is now configured for Profile Enrollment.
-
-> **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
-
-## Enable a Registration Inline Hook for Self-Service Registration in the Classic Engine
-
-<ApiLifecycle access="ea" />
-
-> **Note:** Self-Service Registration only exists in the Classic Engine. For the Identity Engine, please see instructions for Profile Enrollment above.
-
-To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
-
-You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/okta_help.htm?id=ext_self_service_registration_policy).)
-
-1. Go to **Directory > Self-Service Registration**.
-
-1. Click **Edit**.
-
-1. Select your hook from the **Extension** dropdown. If you have created multiple Registration Inline Hooks, you should see all of them displayed here.
-
-1. Click **Save**.
-
-Your Registration Inline Hook is now configured for Self-Service Registration.
-
-> **Note:** Only one Inline Hook can be associated with your Self-Service Registration policy at a time.
+  response.send(JSON.stringify(returnValue));
+})
+```

@@ -52,7 +52,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/AD_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/AD_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -60,7 +60,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/AD_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/AD_AGENT"
             }
         }
     },
@@ -72,7 +72,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -80,7 +80,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT"
             }
         }
     },
@@ -92,7 +92,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/CONNECTOR_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/CONNECTOR_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -100,7 +100,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/CONNECTOR_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/CONNECTOR_AGENT"
             }
         }
     },
@@ -112,7 +112,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_LOCKED_OUT/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_LOCKED_OUT/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -120,7 +120,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_LOCKED_OUT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_LOCKED_OUT"
             }
         }
     },
@@ -132,7 +132,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/APP_IMPORT/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/APP_IMPORT/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -140,7 +140,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/APP_IMPORT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/APP_IMPORT"
             }
         }
     },
@@ -152,7 +152,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/LDAP_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/LDAP_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -160,7 +160,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/LDAP_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/LDAP_AGENT"
             }
         }
     },
@@ -172,7 +172,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ANNOUNCEMENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ANNOUNCEMENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -180,7 +180,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ANNOUNCEMENT"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ANNOUNCEMENT"
             }
         }
     },
@@ -192,7 +192,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ISSUE/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ISSUE/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -200,7 +200,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ISSUE"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_ISSUE"
             }
         }
     },
@@ -212,7 +212,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_UPDATE/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_UPDATE/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -220,7 +220,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_UPDATE"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/OKTA_UPDATE"
             }
         }
     },
@@ -232,7 +232,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_DEPROVISION/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_DEPROVISION/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -240,7 +240,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_DEPROVISION"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/USER_DEPROVISION"
             }
         }
     },
@@ -252,7 +252,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/REPORT_SUSPICIOUS_ACTIVITY/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/REPORT_SUSPICIOUS_ACTIVITY/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -260,7 +260,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/REPORT_SUSPICIOUS_ACTIVITY"
+                "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/REPORT_SUSPICIOUS_ACTIVITY"
             }
         }
     }
@@ -268,8 +268,6 @@ curl -v -X GET \
 ```
 
 ## List subscriptions of a Custom Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions" />
 
@@ -329,7 +327,7 @@ curl -v -X GET \
     "status": "subscribed",
     "_links": {
         "unsubscribe": {
-            "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT/unsubscribe",
+            "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT/unsubscribe",
             "hints": {
                 "allow": [
                     "POST"
@@ -337,15 +335,13 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT"
+            "href": "https://{yourOktaDomain}/api/v1/roles/SUPER_ADMIN/subscriptions/IWA_AGENT"
         }
     }
 }
 ```
 
 ## Get subscription of a Custom Role with a specific notification type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}" />
 
@@ -404,8 +400,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Subscribe a Custom Role to a specific notification type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/subscribe" />
 
@@ -467,8 +461,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Unsubscribe a Custom Role from a specific notification type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/unsubscribe" />
 
@@ -532,7 +524,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -540,7 +532,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT"
             }
         }
     },
@@ -552,7 +544,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_LOCKED_OUT/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_LOCKED_OUT/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -560,7 +552,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_LOCKED_OUT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_LOCKED_OUT"
             }
         }
     },
@@ -572,7 +564,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/APP_IMPORT/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/APP_IMPORT/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -580,7 +572,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/APP_IMPORT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/APP_IMPORT"
             }
         }
     },
@@ -592,7 +584,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/LDAP_AGENT/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/LDAP_AGENT/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -600,7 +592,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/LDAP_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/LDAP_AGENT"
             }
         }
     },
@@ -612,7 +604,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/AD_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/AD_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -620,7 +612,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/AD_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/AD_AGENT"
             }
         }
     },
@@ -632,7 +624,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ANNOUNCEMENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ANNOUNCEMENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -640,7 +632,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ANNOUNCEMENT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ANNOUNCEMENT"
             }
         }
     },
@@ -652,7 +644,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ISSUE/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ISSUE/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -660,7 +652,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ISSUE"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_ISSUE"
             }
         }
     },
@@ -672,7 +664,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_UPDATE/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_UPDATE/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -680,7 +672,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_UPDATE"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/OKTA_UPDATE"
             }
         }
     },
@@ -692,7 +684,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -700,7 +692,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
             }
         }
     },
@@ -712,7 +704,7 @@ curl -v -X GET \
         "status": "unsubscribed",
         "_links": {
             "subscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_DEPROVISION/subscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_DEPROVISION/subscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -720,7 +712,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_DEPROVISION"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/USER_DEPROVISION"
             }
         }
     },
@@ -732,7 +724,7 @@ curl -v -X GET \
         "status": "subscribed",
         "_links": {
             "unsubscribe": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/REPORT_SUSPICIOUS_ACTIVITY/unsubscribe",
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/REPORT_SUSPICIOUS_ACTIVITY/unsubscribe",
                 "hints": {
                     "allow": [
                         "POST"
@@ -740,7 +732,7 @@ curl -v -X GET \
                 }
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/REPORT_SUSPICIOUS_ACTIVITY"
+                "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/REPORT_SUSPICIOUS_ACTIVITY"
             }
         }
     }
@@ -789,7 +781,7 @@ curl -v -X GET \
     "status": "subscribed",
     "_links": {
         "unsubscribe": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
             "hints": {
                 "allow": [
                     "POST"
@@ -797,7 +789,7 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
         }
     }
 }
@@ -897,7 +889,7 @@ HTTP/1.1 200 OK
     "status": "subscribed",
     "_links": {
         "unsubscribe": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT/unsubscribe",
             "hints": {
                 "allow": [
                     "POST"
@@ -905,7 +897,7 @@ HTTP/1.1 200 OK
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/IWA_AGENT"
         }
     }
 }

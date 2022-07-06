@@ -1,5 +1,5 @@
 ---
-title: Updates to the Sign-In Widget styling
+title: Updates to widget styling
 layout: Guides
 sections:
  - main

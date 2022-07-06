@@ -82,3 +82,4 @@ See also the following guides for sample Okta Hook implementations:
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Registration Inline Hook](/docs/guides/registration-inline-hook/)
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Telephony Inline Hook](/docs/guides/telephony-inline-hook)

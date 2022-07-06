@@ -9,6 +9,7 @@
     <router-link
           v-else-if="link.path"
           :to="link.path"
+          custom
           v-slot="{ route, href, navigate }"
           class="tree-nav-link"
         >

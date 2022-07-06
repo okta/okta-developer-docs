@@ -31,7 +31,7 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the Widget depends on whether Okta is hosting it or you are embedding it in your app (self-hosting the Widget).
 
-* Okta-hosted Sign-In Widget: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that is provided. To customize the sign-in page, in the Admin Console go to **Settings** > **Customization**. On the **Customization** page, click the **Custom Sign In** tab. See [Style the Okta-hosted Sign-In Widget](#style-the-okta-hosted-sign-in-widget).
+* Okta-hosted Sign-In Widget: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that is provided. See [Style the Okta-hosted Sign-In Widget](#style-the-okta-hosted-sign-in-widget).
 
 * Self-hosted Sign-in Widget: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the widget. You can apply customizations to match your branding using CSS and JavaScript. See [Style the self-hosted Sign-In Widget](#style-the-self-hosted-sign-in-widget).
 
@@ -43,7 +43,14 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers both basic and advanced customization options to create a completely transformed sign-in experience. To access this page, in the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
+The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
+
+> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+
+To access this page:
+
+* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Sign-in page code editor**.
+* Okta Classic Engine: In the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
 
 ### Change the Okta Sign-In Widget version
 
@@ -148,7 +155,7 @@ Here's what is returned from `getRequestContext()`:
     "issuer": {
       "name": "default",
       "id": "ausblkmh242Vtu5430h2",
-      "uri": "https://${yourOktaDomain}/oauth2/default"
+      "uri": "https://{yourOktaDomain}/oauth2/default"
     }
   }
 }
@@ -191,8 +198,6 @@ Example:
 ## Style the self-hosted Sign-In Widget
 
 This section discusses the customization options that you have when you are self-hosting the Sign-In Widget.
-
-> **Note:** You can try all of these customizations yourself using our [Live Widget](https://developer.okta.com/live-widget/).
 
 ### Initial sign-in page
 
@@ -356,10 +361,6 @@ Position:
 For a more in-depth look at styling the widget, you can watch this video:
 
 <iframe width="100%" class="video-tutorial" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Live Widget
-
-You can also play with the Sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ### Modify strings
 

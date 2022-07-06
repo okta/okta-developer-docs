@@ -31,7 +31,7 @@ This Inline Hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the request from Okta
 
-The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
+The outbound call from Okta to your external service provides the contents of the SAML assertion that was generated, which you can augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
 
 Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are mapped to a JSON representation for sending.
 
@@ -338,7 +338,7 @@ Specify the location within the assertion where you want to apply your operation
 
 When you perform an `add` op to add a new attribute statement, begin with `/claims/` and follow that with the name of the new attribute that you are adding.
 
-When you modify an existing assertions statement, begin the path with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
+When you modify an existing assertions statement, begin the path with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array, using zero-based indexing.)
 
 ### URI claims
 

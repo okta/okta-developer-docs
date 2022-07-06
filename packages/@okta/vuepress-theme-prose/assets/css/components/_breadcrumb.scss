@@ -10,17 +10,6 @@
       align-items: center;
       padding: 0 0 9px;
       flex-wrap: wrap;
-      margin: 0 !important;
-
-      &:not([class]) {
-        margin: 0 !important;
-        li:before {
-          display: none;
-          &::marker {
-            content: inherit;
-          }
-        }
-      }
 
       li {
         display: flex;
@@ -52,12 +41,6 @@
         &:last-child {
           svg {
             display: none;
-          }
-        }
-        &:before {
-          display: none;
-            &::marker {
-              content: inherit;
           }
         }
       }

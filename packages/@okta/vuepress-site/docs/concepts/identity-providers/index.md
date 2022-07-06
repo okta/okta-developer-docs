@@ -16,7 +16,7 @@ What is an Identity Provider? It is a service that creates and maintains identit
 
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users.
 
--   When you use Okta as the [user store](/docs/concepts/user-profiles/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
+-   When you use Okta as the [user store](/docs/concepts/user-profiles/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app-redirect/), [mobile](/docs/guides/sign-into-mobile-app-redirect/), and [single-page](/docs/guides/sign-into-spa-redirect/) apps.
 
 -   You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
 
@@ -113,7 +113,7 @@ If a user signs in to your application for the first time using another Identity
 
 Additionally, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
-You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
+You can also set up group sync to specify the groups that users should be added to and enable profile sourcing so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
 
 ## IdP Discovery
 

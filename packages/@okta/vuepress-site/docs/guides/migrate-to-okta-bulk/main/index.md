@@ -83,20 +83,20 @@ The description property can be blank.
         "logo": [
             {
                 "name": "medium",
-                "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+                "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
                 "type": "image/png"
             },
             {
                 "name": "large",
-                "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+                "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
                 "type": "image/png"
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/users"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/users"
         },
         "apps": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/apps"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00g40q3dfwN2l6Bju357/apps"
         }
     }
 }
@@ -190,17 +190,17 @@ curl -v -X POST \
     },
     "_links": {
         "schema": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/osc1lidmn8y5qtJc6357"
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/osc1lidmn8y5qtJc6357"
         },
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357/lifecycle/activate",
             "method": "POST"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357"
+            "href": "https://{yourOktaDomain}/api/v1/users/00u40qykk8zaeeRfe357"
         },
         "type": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/types/user/oty1lidmn8y5qtJc6357"
+            "href": "https://{yourOktaDomain}/api/v1/meta/types/user/oty1lidmn8y5qtJc6357"
         }
     }
 }

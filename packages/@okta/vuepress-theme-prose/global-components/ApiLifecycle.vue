@@ -7,7 +7,7 @@
       <i class="fa fa-flag"></i> Early Access
     </span>
     <span class="api-label api-label-deprecated" v-if="access === labelType.DEPRECATED">
-      <i class="fa fa-fire-extinguisher"></i> Deprecated
+      <i class="fa fa-warning"></i> Deprecated
     </span>
     <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
       Identity Engine
@@ -23,7 +23,8 @@
 
 <script>
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
-const IE_LINK = "https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie";
+const IE_LINK = "/docs/guides/oie-intro/";
+const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
 
 export default {
   name: "ApiLifecycle",
@@ -38,9 +39,13 @@ export default {
   },
   computed: {
     link() {
-      return this.access === this.labelType.IDENTITY_ENGINE ||
-             this.access === this.labelType.CLASSIC_ENGINE
-             ? IE_LINK : DEFAULT_LINK;
+      if(this.access === this.labelType.IDENTITY_ENGINE) {
+        return IE_LINK;
+      } else if(this.access === this.labelType.DEPRECATED) {
+        return DEPRECATED_LINK;
+      } else {
+        return DEFAULT_LINK;
+      }
     }
   },
   created() {

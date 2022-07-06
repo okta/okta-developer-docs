@@ -1,5 +1,5 @@
 ---
-title: Add User Authentication and Okta Resource Management to Your PHP App
+title: Add user authentication and Okta Resource Management to your PHP app
 language: PHP
 integration: back-end
 icon: code-php
@@ -8,67 +8,52 @@ meta:
     content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
 ---
 
-New to Okta? Our how to guide will walk you through adding user authentication to your PHP app in minutes.
+## Get started with PHP + Okta
+
+New to Okta? Our resources walk you through adding user authentication to your PHP app in minutes.
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='/docs/guides/sign-into-web-app-redirect/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sign users in quickstart</span>
 		</a>
 	</li>
+	<!-- <li>
+    <a href='/docs/guides/protect-your-api/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <span>Protect your API quickstart</span>
+    </a>
+  </li> -->
 	<li>
 		<a href='https://github.com/okta/samples-php' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample App</span>
+			<span>Sample app</span>
 		</a>
 	</li>
 </ul>
 
-## Okta Management SDK for PHP
+## Integrate with Okta using the Okta-hosted Sign-In Widget
 
-The Okta PHP SDK can be used in your server-side code to create and update users.
+These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-<a href='http://packagist.org/packages/okta/sdk' class="language-reference">
-	<span class='icon download-16'></span> <span>okta/sdk on Packagist</span>
-</a>
+[PHP redirect authentication sample app](https://github.com/okta/samples-php): See [Okta-hosted login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a redirect configuration.
 
-<!-- TODO figure out what this should be -->
-<!--
-<p class="language-reference">
-	<a href='https://developer.okta.com/okta-sdk-php/' class="language-reference">
-		<span class='icon expression-16'></span>
-		<span>PHP SDK Reference</span>
-	</a>
-</p>
--->
+## Okta Classic PHP SDKs
 
-<a href='https://github.com/okta/okta-sdk-php'>
-	<span class='fa fa-github'></span> <span>PHP SDK Source</span>
-</a>
+* The [Okta PHP Management SDK](https://github.com/okta/okta-sdk-php) can be used in your server-side code to create and update users.
+* [okta/sdk on Packagist](http://packagist.org/packages/okta/sdk)
+* [Okta JWT Verifier for PHP](https://github.com/okta/okta-jwt-verifier-php)
 
-## PHP Libraries
+## Recommended guides
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-jwt-verifier-php">
-			<span>Okta JWT Verifier for PHP</span>
-		</a>
-	</li>
-</ul>
+Okta-hosted Sign-In Widget guide:
 
-## Recommended Guides
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/php/main/)
 
+Other guides:
 
-- [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social login](/docs/concepts/identity-providers/)
-- [Validate access tokens](/docs/guides/validate-access-tokens)
-- [Validate ID tokens](/docs/guides/validate-id-tokens)
+* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+* [Validate access tokens](/docs/guides/validate-access-tokens)
+* [Validate ID tokens](/docs/guides/validate-id-tokens)
+* [OAuth 2.0 from the Command Line](/blog/2018/07/16/oauth-2-command-line)
 
-## Related Blog Posts
-
-
-- [Add Authentication to your PHP App in 5 Minutes](/blog/2018/07/09/five-minute-php-app-auth)
-- [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](/blog/2018/06/14/php-crud-app-symfony-vue)
-- [Tutorial: Build Your First CRUD App with Symfony and Angular](/blog/2018/08/14/php-crud-app-symfony-angular)
-- [OAuth 2.0 from the Command Line](/blog/2018/07/16/oauth-2-command-line)
-
+> **Note**: Browse our recent [PHP Developer Blog posts](https://developer.okta.com/blog/tags/php/) for further useful topics.

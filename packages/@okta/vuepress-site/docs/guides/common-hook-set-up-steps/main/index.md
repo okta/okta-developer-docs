@@ -1,5 +1,5 @@
 ---
-title: Common Hook Set-up Steps
+title: Common Hook set-up steps
 excerpt: A list of set-up steps that are common to all hook implementations.
 layout: Guides
 ---
@@ -10,19 +10,17 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 **Learning outcomes**
 
-* Understand common set up steps for implementing an Okta Event or Inline Hook
-* Understand how to use these steps when running the example hook code in the accompanying guides
+* Understand common set up steps for implementing an Okta Event or Inline Hook.
+* Understand how to use these steps when running the example hook code in the accompanying guides.
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/)
-
-**Sample code**
-
-* n/a
+* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Glitch.com](https://glitch.com) project or account
 
 ---
+
+## About the common Hook set-up steps
 
 Okta Event and Inline Hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
 
@@ -76,13 +74,15 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following two Inline Hooks:
 
 * Registration Inline Hook
-* SAML Inline  Hook
+* SAML Inline Hook
+* Telephony Inline Hook
 
 Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
 An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Admin Console System Log
+
 Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 ### Glitch logs
@@ -102,6 +102,7 @@ Review the following guides to implement a simple hook example and preview the h
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
 * [Registration Inline Hook](/docs/guides/registration-inline-hook/)
 * [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Telephony Inline Hook](/docs/guides/telephony-inline-hook/)
 
 ## See also
 

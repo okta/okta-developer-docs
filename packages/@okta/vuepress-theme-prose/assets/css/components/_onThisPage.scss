@@ -135,11 +135,13 @@
     overflow-x: hidden;
     border-top-style: initial;
     z-index: 50;
+    padding: 0;
 
     .vs__dropdown-option {
       padding: 0.7rem 1rem;
       border-bottom: 1px solid cv('gray', '100');
       width: 100%;
+      color: cv('gray', '900');
       .dropdown-item{
         width: 100%;
         overflow: hidden;

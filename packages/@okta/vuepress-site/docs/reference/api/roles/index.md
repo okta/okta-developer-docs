@@ -18,13 +18,9 @@ Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/bu
 
 ## Custom Role operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the creation and manipulation of Custom Roles as custom collections of [permissions](#permission-types).
 
 ### Create Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/roles" />
 
@@ -72,18 +68,16 @@ curl -v -X POST \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
 ```
 
 ### Get Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
@@ -120,18 +114,16 @@ curl -v -X GET \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
 ```
 
 ### Update Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
@@ -174,18 +166,16 @@ curl -v -X PUT \
   "lastUpdated": "2021-02-08T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
 ```
 
 ### List roles
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles" />
 
@@ -218,10 +208,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "permissions": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         }
       }
     },
@@ -233,25 +223,23 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "permissions": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1/permissions"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1/permissions"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1"
         }
       }
     }
   ],
   "_links": {
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles?after=cr0Fw7HKcWIroo88m3r1"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles?after=cr0Fw7HKcWIroo88m3r1"
     }
   }
 }
 ```
 
 ### List permissions
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
@@ -288,10 +276,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "role": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.create"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.create"
         }
       }
     },
@@ -301,10 +289,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "role": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
         }
       }
     },
@@ -314,10 +302,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "role": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.groups.read"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.groups.read"
         }
       }
     },
@@ -327,10 +315,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "role": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         },
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.userprofile.manage"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.userprofile.manage"
         }
       }
     }
@@ -339,8 +327,6 @@ curl -v -X GET \
 ```
 
 ### Add permission
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
@@ -377,8 +363,6 @@ HTTP/1.1 204 No Content
 
 ### Get permission
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
 Gets a permission from an existing Role
@@ -413,10 +397,10 @@ curl -v -X GET \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "role": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.manage"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.manage"
     }
   }
 }
@@ -424,8 +408,6 @@ curl -v -X GET \
 
 
 ### Delete permission
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
@@ -462,8 +444,6 @@ HTTP/1.1 204 No Content
 
 ### Delete Role
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
 Deletes a Custom Role
@@ -498,13 +478,9 @@ HTTP/1.1 204 No Content
 
 ## Resource Set operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the creation and manipulation of Resource Sets as custom collections of resources. You can use Resource Sets to assign [Custom Roles](#custom-role-operations) to administrators who are scoped to the designated resources.
 
 ### Create Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets" />
 
@@ -551,21 +527,19 @@ curl -v -X POST \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "resources": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     }
   }
 }
 ```
 
 ### Get Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
@@ -602,21 +576,19 @@ curl -v -X GET \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "resources": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     }
   }
 }
 ```
 
 ### List Resource Sets
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets" />
 
@@ -649,13 +621,13 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
         },
         "resources": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
         },
         "bindings": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
         }
       }
     },
@@ -667,28 +639,26 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q"
         },
         "resources": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q/resources"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q/resources"
         },
         "bindings": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q/bindings"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd0q/bindings"
         }
       }
     }
   ],
   "_links": {
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets?after=iamoJDFKaJxGIr0oamd0q"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets?after=iamoJDFKaJxGIr0oamd0q"
     }
   }
 }
 ```
 
 ### Update Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
@@ -730,21 +700,19 @@ curl -v -X PUT \
   "lastUpdated": "2021-02-07T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "resources": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     }
   }
 }
 ```
 
 ### Delete Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
@@ -783,8 +751,6 @@ HTTP/1.1 204 No Content
 These operations add, remove, and list the resources within a Resource Set.
 
 #### Add more resources
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
@@ -829,21 +795,19 @@ curl -v -X PATCH \
   "lastUpdated": "2021-02-07T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "resources": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     }
   }
 }
 ```
 
 #### List resources
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
@@ -880,7 +844,7 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
         }
       }
     },
@@ -890,7 +854,7 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
         }
       }
     },
@@ -900,28 +864,26 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "users": {
-          "href": "https://${yourOktaDomain}/api/v1/users"
+          "href": "https://{yourOktaDomain}/api/v1/users"
         },
         "groups": {
-          "href": "https://${yourOktaDomain}/api/v1/groups"
+          "href": "https://{yourOktaDomain}/api/v1/groups"
         }
       }
     }
   ],
   "_links": {
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources?after=irezvn1ZZxLSIBM2J0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources?after=irezvn1ZZxLSIBM2J0g3"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     }
   }
 }
 ```
 
 #### Delete a resource
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/resources/${resourceId}" />
 
@@ -943,7 +905,7 @@ Removes a resource from a Resource Set
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
         }
       }
     }
@@ -975,14 +937,10 @@ HTTP/1.1 204 No Content
 
 ## Custom Role assignment operations
 
-<ApiLifecycle access="ea" />
-
 These operations allow the assignment and unassignment of Custom Roles. This is done by creating a Binding.
 A Binding represents an association of a principal, Role, and Resource Set that is uniquely identified by the `bindingId`.
 
 ### Create a new Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
@@ -1025,21 +983,19 @@ curl -v -X POST \
 {
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     }
   }
 }
 ```
 
 ### Add more Members to a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
@@ -1082,21 +1038,19 @@ curl -v -X PATCH \
 {
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
     },
     "bindings": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     }
   }
 }
 ```
 
 ### List Members in a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
 
@@ -1134,7 +1088,7 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+          "href": "https://{yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
         }
       }
     }, {
@@ -1143,24 +1097,23 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
         }
       }
     }
   ],
   "_links": {
     "binding": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}"
     },
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}/members?after=${last-member-id}"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}/members?after=${last-member-id}"
     }
   }
 }
 ```
-### Get a Member from a Binding
 
-<ApiLifecycle access="ea" />
+### Get a Member from a Binding
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
@@ -1184,7 +1137,7 @@ Gets a Member of a Role in a Resource Set
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
     }
   }
 }
@@ -1215,15 +1168,13 @@ curl -v -X GET \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
     }
   }
 }
 ```
 
 ### Delete a Member from a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
@@ -1245,7 +1196,7 @@ Deletes a Member of a Role in a Resource Set
   "id": "irb1qe6PGuMc7Oh8N0g4",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
     }
   }
 }
@@ -1277,11 +1228,7 @@ HTTP/1.1 204 No Content
 
 ### Retrieve Bindings
 
-<ApiLifecycle access="ea" />
-
 #### Get a Binding by Role ID or label
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
@@ -1319,21 +1266,19 @@ curl -v -X GET \
   "id": "cr0WxyzJxGIr0ouum0g4",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4"
     },
     "members": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     }
   }
 }
 ```
 
 #### Get all Bindings in a Resource Set
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
@@ -1368,31 +1313,29 @@ curl -v -X GET \
       "id": "cr0WxyzJxGIr0ouum0g4",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0WxyzJxGIr0ouum0g4"
+          "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0WxyzJxGIr0ouum0g4"
         },
         "members": {
-          "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
+          "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
         }
       }
     }
   ],
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings?after=cr0WxyzJxGIr0ouum0g4"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings?after=cr0WxyzJxGIr0ouum0g4"
     }
   }
 }
 ```
 
 ### Delete a Binding
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
 
@@ -1489,7 +1432,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1503,7 +1446,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1517,7 +1460,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1531,15 +1474,14 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+                "href": "https://{yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
             }
         }
     }
 ]
 ```
-##### Response example with Custom Roles
 
-<ApiLifecycle access="ea" />
+##### Response example with Custom Roles
 
 ```json
 [
@@ -1553,7 +1495,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1567,7 +1509,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1581,7 +1523,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1595,7 +1537,7 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+                "href": "https://{yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
             }
         }
     },
@@ -1611,19 +1553,19 @@ curl -v -X GET \
         "resource-set": "iamoJDFKaJxGIr0oamd9g",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
             },
             "resource-set": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+                "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
             "member": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+                "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
             },
             "role": {
-              "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+              "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
             "permissions": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+                "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
             }
         }
     },
@@ -1639,24 +1581,25 @@ curl -v -X GET \
         "resource-set": "iamoakjsdQaJxGIr03int1o",
         "_links": {
           "assignee": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
           },
           "resource-set": {
-            "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+            "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
           },
           "member": {
-            "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+            "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
           },
           "role": {
-            "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+            "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
           },
           "permissions": {
-            "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+            "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
           }
         }
     }
 ]
 ```
+
 #### List Roles assigned to a Group
 
 
@@ -1702,7 +1645,7 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+                "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
             }
         }
     }
@@ -1797,15 +1740,13 @@ curl -v -X POST \
     "assignmentType": "GROUP",
     "_links": {
         "assignee": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
         }
     }
 }
 ```
 
 #### Assign a Custom Role to a User or Group
-
-<ApiLifecycle access="ea" />
 
 The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also assign a Custom Role using the following method:
 
@@ -1859,16 +1800,16 @@ curl -v -X POST \
   "resource-set": "iamoJDFKaJxGIr0oamd9g",
   "_links": {
     "assignee": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "role": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     }
   }
 }
@@ -1948,8 +1889,6 @@ HTTP/1.1 204 No Content
 
 #### Unassign a Custom Role from a User or Group
 
-<ApiLifecycle access="ea" />
-
 The recommended way to unassign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${bindingId}" />
@@ -1984,7 +1923,7 @@ Role targets are a way of defining permissions for admin roles into a smaller su
 * **App targets:** Grant an admin permission to manage all instances of the specified Apps. Target Apps are Okta catalog Apps. For example, you can have multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of those Apps and create new instances of them.
 * **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, you can assign an admin to manage only two instances of the configured Salesforce Apps and then also to manage an instance of another configured App such as Workday.
 
-> **Note:**<ApiLifecycle access="ea" /> Don't use these operations with a Custom Role ID. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
+> **Note:** Don't use these operations with a Custom Role ID. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
 
 ### Group administrator role group targets
 
@@ -2044,21 +1983,21 @@ curl -v -X GET \
     "_links": {
       "logo": [
         {
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "name": "medium",
           "type": "image/png"
         },
         {
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "name": "large",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   }
@@ -2121,20 +2060,20 @@ curl -v -X GET \
             "logo": [
                 {
                     "name": "medium",
-                    "href": "https://${yourOktaDomain}/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
                     "type": "image/png"
                 },
                 {
                     "name": "large",
-                    "href": "https://${yourOktaDomain}/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
                     "type": "image/png"
                 }
             ],
             "users": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/users"
+                "href": "https://{yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/users"
             },
             "apps": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/apps"
+                "href": "https://{yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/apps"
             }
         }
     }
@@ -2375,12 +2314,12 @@ The example shows two applications and two instances. Note that the response for
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/salesforce_logo.png",
+          "href": "https://{yourOktaDomain}/img/logos/salesforce_logo.png",
           "type": "image/png"
         }
       ],
       "self": {
-          "href": "https://${yourOktaDomain}/api/v1/catalog/apps/salesforce"
+          "href": "https://{yourOktaDomain}/api/v1/catalog/apps/salesforce"
       }
     }
   },
@@ -2409,12 +2348,12 @@ The example shows two applications and two instances. Note that the response for
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/box.png",
+          "href": "https://{yourOktaDomain}/img/logos/box.png",
           "type": "image/png"
         }
       ],
       "self": {
-          "href": "https://${yourOktaDomain}/api/v1/catalog/apps/boxnet"
+          "href": "https://{yourOktaDomain}/api/v1/catalog/apps/boxnet"
       }
     }
   },
@@ -2424,7 +2363,7 @@ The example shows two applications and two instances. Note that the response for
     "id": "0oapsqQ5dv19pqyEo0g3",
     "_links": {
       "self": {
-          "href": "https://${yourOktaDomain}/api/v1/apps/0oapsqQ5dv19pqyEo0g3"
+          "href": "https://{yourOktaDomain}/api/v1/apps/0oapsqQ5dv19pqyEo0g3"
       }
     }
   },
@@ -2434,7 +2373,7 @@ The example shows two applications and two instances. Note that the response for
     "id": "0obdfgrQ5dv29pqyQo0f5",
     "_links": {
        "self": {
-           "href": "https://${yourOktaDomain}/api/v1/apps/0obdfgrQ5dv29pqyQo0f5"
+           "href": "https://{yourOktaDomain}/api/v1/apps/0obdfgrQ5dv29pqyQo0f5"
        }
     }
   }
@@ -2497,12 +2436,12 @@ The example shows one application and one instance. Note that the response for i
             "logo": [
                 {
                     "name": "medium",
-                    "href": "https://${yourOktaDomain}/assets/img/logos/facebook.e8215796628b5eaf687ba414ae245659.png",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/facebook.e8215796628b5eaf687ba414ae245659.png",
                     "type": "image/png"
                 }
             ],
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/catalog/apps/facebook"
+                "href": "https://{yourOktaDomain}/api/v1/catalog/apps/facebook"
             }
         }
     },
@@ -2512,7 +2451,7 @@ The example shows one application and one instance. Note that the response for i
         "id": "0oasrudLtMlzAsTxk0g3",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oasrudLtMlzAsTxk0g3"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oasrudLtMlzAsTxk0g3"
             }
         }
     }
@@ -2871,7 +2810,7 @@ HTTP/1.1 204 No Content
     "assignmentType": "USER",
     "_links": {
         "assignee": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+            "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
         }
     }
 }
@@ -2890,7 +2829,7 @@ HTTP/1.1 204 No Content
     "assignmentType": "GROUP",
     "_links": {
         "assignee": {
-            "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+            "href": "https://{yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
         }
     }
 }
@@ -2921,19 +2860,19 @@ Note that the following fields are different compared to those for [an individua
         "resource-set": "iamoJDFKaJxGIr0oamd9g",
         "_links": {
             "assignee": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
             },
             "resource-set": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+                "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
             "member": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+                "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
             },
             "role": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+                "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
             "permissions": {
-                "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+                "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
             }
         }
     }
@@ -2964,19 +2903,19 @@ Note that the following fields are different compared to those for [a Group assi
   "resource-set": "iamoakjsdQaJxGIr03int1o",
   "_links": {
     "assignee": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
     },
     "resource-set": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
     },
     "member": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
     },
     "role": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
     }
   }
 }
@@ -2997,11 +2936,9 @@ The Role object defines several **read-only** properties:
 | `lastUpdated`      | Timestamp when the Role was last updated                    | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
 | `status`           | Status of the Role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
 | `type`             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
-| `resource-set` <ApiLifecycle access="ea" />    | The Resource Set ID in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
+| `resource-set`     | The Resource Set ID in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
 
 #### Role links
-
-<ApiLifecycle access="ea" />
 
 The following `_links` are returned:
 
@@ -3029,7 +2966,7 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
-| `CUSTOM` <ApiLifecycle access="ea" /> | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
+| `CUSTOM`  | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
@@ -3044,11 +2981,10 @@ A Role could either be assigned to the User directly or be assigned to a Group o
 
 ## Custom Role object
 
-<ApiLifecycle access="ea" />
-
 A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role is uniquely identified within your org by its ID or label.
 
 ### Custom Role Properties
+
 | Property         | Description                         | DataType                                       | Nullable   | Unique   | Read Only |
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
 | `id`               | Unique key for the Role             | String                                         | FALSE      | TRUE     | TRUE      |
@@ -3069,23 +3005,23 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
     "lastUpdated": "2021-02-06T16:20:57.000Z",
     "_links": {
     "permissions": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
 ```
-### Permission types
 
-<ApiLifecycle access="ea" />
+### Permission types
 
 Permissions can be added to, or removed from, Custom Roles.  Permissions to manage a resource also grant the viewing privileges for the same resource so that you won't need to assign them separately.
 
 User permissions are only effective with respect to the Group(s) to which the admin is granted a Role through Resource Set assignments.
 
 #### Permission properties
+
 | Property         | Description                         | DataType                                       | Nullable   | Unique   | Read Only |
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
 | `label`            | Type of permissions                | String                                         | FALSE      | FALSE     | TRUE     |
@@ -3122,7 +3058,13 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.read`                        | Allows the admin to only read information about Apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
-| `okta.profilesource.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| `okta.profilesources.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
+| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
+| `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
+
 #### Example
 
 ```json
@@ -3132,18 +3074,16 @@ User permissions are only effective with respect to the Group(s) to which the ad
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "role": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
     }
   }
 }
 ```
 
 ## Resource Set object
-
-<ApiLifecycle access="ea" />
 
 A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
 
@@ -3164,13 +3104,24 @@ The following `_links` are returned:
 
 A resource has an ID and a link that points to the resource. Supported resources are:
 
-* Apps
-* Groups
-* All Users within a Group
-* All Users within the org
-* All Groups within the org
-* All Apps within the org
-* All Apps of the same type
+#### Supported resources
+
+The following are the supported resources.
+
+| Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
+| :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
+| Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
+|                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
@@ -3185,7 +3136,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
         }
       }
     }
@@ -3200,7 +3151,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3/users"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3/users"
         }
       }
     }
@@ -3215,7 +3166,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "users": {
-          "href": "https://${yourOktaDomain}/api/v1/users"
+          "href": "https://{yourOktaDomain}/api/v1/users"
         }
       }
     }
@@ -3230,7 +3181,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "groups": {
-          "href": "https://${yourOktaDomain}/api/v1/groups"
+          "href": "https://{yourOktaDomain}/api/v1/groups"
         }
       }
     }
@@ -3245,7 +3196,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "apps": {
-          "href": "https://${yourOktaDomain}/api/v1/apps"
+          "href": "https://{yourOktaDomain}/api/v1/apps"
         }
       }
     }
@@ -3260,7 +3211,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "apps": {
-          "href": "https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+          "href": "https://{yourOktaDomain}/api/v1/apps?filter=name+eq+%22workday%22"
         }
       }
     }
@@ -3275,7 +3226,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "apps": {
-          "href": "https://${yourOktaDomain}/api/v1/apps/0oa1gjh63g214q0Hq0g4"
+          "href": "https://{yourOktaDomain}/api/v1/apps/0oa1gjh63g214q0Hq0g4"
         }
       }
     }
@@ -3320,7 +3271,7 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+          "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
         }
       }
     }
@@ -3335,7 +3286,7 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+          "href": "https://{yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
         }
       }
     }

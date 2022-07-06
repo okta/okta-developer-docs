@@ -11,12 +11,12 @@ The Okta Authentication API provides operations to authenticate users, perform m
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your **Okta Sign-On Policy**.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your Global Session Policy.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the **Okta Sign-On Policy**, **MFA Enrollment Policy**, or **Password Policy**.
+The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, the MFA Enrollment Policy, or the Password Policy.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
@@ -146,7 +146,6 @@ Authenticates a user with username/password credentials via a [public applicatio
 
 ##### Request example for primary authentication with public application
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -236,7 +235,7 @@ If the user's password policy is configure to **show lockout failures**, the aut
   "_links": {
     "next": {
       "name": "unlock",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/unlock",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/unlock",
       "hints": {
         "allow": [
           "POST"
@@ -283,7 +282,7 @@ User must [change their expired password](#change-password) to complete the auth
   "_links": {
     "next": {
       "name": "changePassword",
-      "href": "https://${yourOktaDomain}/api/v1/authn/credentials/change_password",
+      "href": "https://{yourOktaDomain}/api/v1/authn/credentials/change_password",
       "hints": {
         "allow": [
           "POST"
@@ -291,7 +290,7 @@ User must [change their expired password](#change-password) to complete the auth
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -334,7 +333,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
         },
         "_links": {
           "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors/rsalhpMQVYKHZKXZJQEW/verify",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors/rsalhpMQVYKHZKXZJQEW/verify",
             "hints": {
               "allow": [
                 "POST"
@@ -352,7 +351,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
         },
         "_links": {
           "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors/ostfm3hPNYSOIOIVTQWY/verify",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors/ostfm3hPNYSOIOIVTQWY/verify",
             "hints": {
               "allow": [
                 "POST"
@@ -370,7 +369,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
         },
         "_links": {
           "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
             "hints": {
               "allow": [
                 "POST"
@@ -388,7 +387,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
          },
          "_links": {
            "verify": {
-             "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
+             "href": "https://{yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
              "hints": {
                "allow": [
                  "POST"
@@ -410,7 +409,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
         },
         "_links": {
           "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors/opf3hkfocI4JTLAju0g4/verify",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors/opf3hkfocI4JTLAju0g4/verify",
             "hints": {
               "allow": [
                 "POST"
@@ -423,7 +422,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
   },
   "_links": {
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -463,7 +462,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
         "vendorName": "RSA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -479,7 +478,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
         "provider": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -495,7 +494,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
         "provider": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -511,7 +510,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
         "provider": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -527,7 +526,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
         "provider": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -542,7 +541,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
   },
   "_links": {
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -560,7 +559,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
 
@@ -616,7 +615,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
@@ -683,7 +682,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "questions": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u1nehnZ6qp4Qy8G0g4/factors/questions",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u1nehnZ6qp4Qy8G0g4/factors/questions",
             "hints": {
               "allow": [
                 "GET"
@@ -691,7 +690,7 @@ curl -v -X POST \
             }
           },
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -708,7 +707,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -725,7 +724,7 @@ curl -v -X POST \
         "vendorName": "GOOGLE",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -742,7 +741,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -759,7 +758,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -776,7 +775,7 @@ curl -v -X POST \
         "vendorName": "YUBICO",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -791,7 +790,7 @@ curl -v -X POST \
   },
   "_links": {
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -841,7 +840,7 @@ In the case where the user was created without credentials the response will tri
   "_links": {
     "next": {
       "name": "resetPassword",
-      "href": "https://${yourOktaDomain}/api/v1/authn/credentials/reset_password",
+      "href": "https://{yourOktaDomain}/api/v1/authn/credentials/reset_password",
       "hints": {
         "allow": [
           "POST"
@@ -849,7 +848,7 @@ In the case where the user was created without credentials the response will tri
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -1002,7 +1001,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "changePassword",
-      "href": "https://${yourOktaDomain}/api/v1/authn/credentials/change_password",
+      "href": "https://{yourOktaDomain}/api/v1/authn/credentials/change_password",
       "hints": {
         "allow": [
           "POST"
@@ -1011,7 +1010,7 @@ curl -v -X POST \
     },
     "skip": {
       "name": "skip",
-      "href": "https://${yourOktaDomain}/api/v1/authn/skip",
+      "href": "https://{yourOktaDomain}/api/v1/authn/skip",
       "hints": {
         "allow": [
           "POST"
@@ -1019,7 +1018,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -1042,7 +1041,7 @@ curl -v -X POST \
 * This endpoint is currently supported only for SAML-based apps.
 * You must first enable the custom sign-in page for the application before using this API.
 
-> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Limitations](/docs/guides/ie-limitations/).
+> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Identity Engine limitations](/docs/guides/ie-limitations/).
 
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
@@ -1082,7 +1081,7 @@ curl -v -X POST \
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1099,7 +1098,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"authenticate",
-         "href":"https://${yourOktaDomain}/api/v1/authn",
+         "href":"https://{yourOktaDomain}/api/v1/authn",
          "hints":{
             "allow":[
                "POST"
@@ -1114,7 +1113,7 @@ curl -v -X POST \
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
-> **Note:** Okta Sign-On Policy and the related App Sign-On Policy are evaluated after successful primary authentication.
+> **Note:** Global Session Policy and the related authentication policy are evaluated after successful primary authentication.
 
 ```bash
 curl -v -X POST \
@@ -1156,7 +1155,7 @@ curl -v -X POST \
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1173,7 +1172,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"original",
-         "href":"https://${yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
+         "href":"https://{yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
          "hints":{
             "allow":[
                "GET"
@@ -1228,7 +1227,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
             "vendorName":"OKTA",
             "_links":{
                "enroll":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1247,7 +1246,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1263,7 +1262,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
    },
    "_links":{
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -1277,7 +1276,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 
 ##### Response example for Factor challenge for step-up authentication with Okta session
 
-User is assigned to a Sign-On Policy or App Sign-On Policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
+User is assigned to a Global Session Policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
 
 ```json
 {
@@ -1322,7 +1321,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
             },
             "_links":{
                "verify":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors/opf1cla0yyvOBWxuC1d8/verify",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors/opf1cla0yyvOBWxuC1d8/verify",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1341,7 +1340,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
             },
             "_links":{
                "verify":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors/smsph8F1esz8LlSjo0g3/verify",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors/smsph8F1esz8LlSjo0g3/verify",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1368,7 +1367,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1384,7 +1383,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
    },
    "_links":{
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -1424,7 +1423,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1441,7 +1440,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
    "_links":{
       "next":{
          "name":"original",
-         "href":"https://${yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
+         "href":"https://{yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
          "hints":{
             "allow":[
                "GET"
@@ -1518,7 +1517,7 @@ curl -v -X POST \
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1535,7 +1534,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"original",
-         "href":"https://${yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
+         "href":"https://{yourOktaDomain}/login/step-up/redirect?stateToken=00quAZYqYjXg9DZhS5UzE1wrJuQ6KKb_kzOeH7OGB5",
          "hints":{
             "allow":[
                "GET"
@@ -1577,7 +1576,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
             "vendorName":"OKTA",
             "_links":{
                "enroll":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1596,7 +1595,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1612,7 +1611,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
    },
    "_links":{
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -1671,7 +1670,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
             },
             "_links":{
                "verify":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors/opf1cla0yyvOBWxuC1d8/verify",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors/opf1cla0yyvOBWxuC1d8/verify",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1690,7 +1689,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
             },
             "_links":{
                "verify":{
-                  "href":"https://${yourOktaDomain}/api/v1/authn/factors/smsph8F1esz8LlSjo0g3/verify",
+                  "href":"https://{yourOktaDomain}/api/v1/authn/factors/smsph8F1esz8LlSjo0g3/verify",
                   "hints":{
                      "allow":[
                         "POST"
@@ -1717,7 +1716,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
          "_links":{
             "logo":{
                "name":"medium",
-               "href":"https://${yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
+               "href":"https://{yourOktaDomain}/assets/img/logos/salesforce_logo.dbd7e0b4de118a1dae1c39d60a3c30e5.png",
                "type":"image/png"
             }
          }
@@ -1733,7 +1732,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
    },
    "_links":{
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -1744,9 +1743,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
 }
 ```
 
-
 ##### Response example for invalid or unknown application
-
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -1786,7 +1783,6 @@ Content-Type: application/json
 ```
 
 ### Change password
-
 
 <ApiOperation method="post" url="/api/v1/authn/credentials/change_password" />
 
@@ -1848,7 +1844,6 @@ Content-Type: application/json
 ```
 
 ##### Request example for change password
-
 
 ```bash
 curl -v -X POST \
@@ -2035,7 +2030,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/mbl198rKSEWOSKRIVIFT/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/mbl198rKSEWOSKRIVIFT/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2043,7 +2038,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2051,7 +2046,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2061,7 +2056,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "sms",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/mbl198rKSEWOSKRIVIFT/lifecycle/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/mbl198rKSEWOSKRIVIFT/lifecycle/resend",
         "hints": {
           "allow": [
             "POST"
@@ -2149,7 +2144,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2157,7 +2152,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2165,7 +2160,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2175,7 +2170,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "call",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend",
         "hints": {
           "allow": [
             "POST"
@@ -2262,7 +2257,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2270,7 +2265,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2278,7 +2273,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2288,7 +2283,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "email",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/resend",
         "hints": {
           "allow": [
             "POST"
@@ -2375,7 +2370,7 @@ curl -v -X POST \
           "keyLength": 6,
           "_links": {
             "qrcode": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/ostf2xjtDKWFPZIKYDZV/qr/00Mb0zqhJQohwCDkB2wOifajAsAosEAXvDwuCmsAZs",
+              "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/ostf2xjtDKWFPZIKYDZV/qr/00Mb0zqhJQohwCDkB2wOifajAsAosEAXvDwuCmsAZs",
               "type": "image/png"
             }
           }
@@ -2386,7 +2381,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/ostf2xjtDKWFPZIKYDZV/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/ostf2xjtDKWFPZIKYDZV/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2394,7 +2389,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2402,7 +2397,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2465,13 +2460,13 @@ curl -v -X POST \
           "expiresAt": "2015-11-03T10:15:57.000Z",
           "_links": {
             "qrcode": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
+              "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
               "type": "image/png"
             },
             "send": [
               {
                 "name": "email",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
                 "hints": {
                   "allow": [
                     "POST"
@@ -2480,7 +2475,7 @@ curl -v -X POST \
               },
               {
                 "name": "sms",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
                 "hints": {
                   "allow": [
                     "POST"
@@ -2496,7 +2491,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "poll",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
       "hints": {
         "allow": [
           "POST"
@@ -2504,7 +2499,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2512,7 +2507,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2576,7 +2571,7 @@ curl -v -X POST \
           "keyLength": 6,
           "_links": {
             "qrcode": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/uftm3iHSGFQXHCUSDAND/qr/00Mb0zqhJQohwCDkB2wOifajAsAosEAXvDwuCmsAZs",
+              "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/uftm3iHSGFQXHCUSDAND/qr/00Mb0zqhJQohwCDkB2wOifajAsAosEAXvDwuCmsAZs",
               "type": "image/png"
             }
           }
@@ -2587,7 +2582,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/uftm3iHSGFQXHCUSDAND/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/uftm3iHSGFQXHCUSDAND/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2595,7 +2590,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2603,7 +2598,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -2807,7 +2802,7 @@ curl -v -X POST \
                   "factorResult":"WAITING",
                   "_links":{
                       "complete":{
-                          "href":"https://${yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/duoCallback",
+                          "href":"https://{yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/duoCallback",
                           "hints":{
                               "allow":[
                                   "POST"
@@ -2815,7 +2810,7 @@ curl -v -X POST \
                           }
                       },
                       "script":{
-                          "href":"https://${yourOktaDomain}/js/sections/duo/Duo-Web-v2.js",
+                          "href":"https://{yourOktaDomain}/js/sections/duo/Duo-Web-v2.js",
                           "type":"text/javascript; charset=utf-8"
                       }
                   }
@@ -2826,7 +2821,7 @@ curl -v -X POST \
   "_links":{
       "next":{
           "name":"poll",
-          "href":"https://${yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/activate/poll",
+          "href":"https://{yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/activate/poll",
           "hints":{
               "allow":[
                    "POST"
@@ -2834,7 +2829,7 @@ curl -v -X POST \
           }
       },
       "cancel":{
-          "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+          "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
           "hints":{
               "allow":[
                   "POST"
@@ -2842,7 +2837,7 @@ curl -v -X POST \
           }
       },
       "prev":{
-          "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+          "href":"https://{yourOktaDomain}/api/v1/authn/previous",
           "hints":{
               "allow":[
                   "POST"
@@ -2973,7 +2968,7 @@ curl -v -X POST \
       "_embedded": {
         "activation": {
           "version": "U2F_V2",
-          "appId": "https://${yourOktaDomain}",
+          "appId": "https://{yourOktaDomain}",
           "nonce": "s-NaltFnye-xNsJeAhnN",
           "timeoutSeconds": 20
         }
@@ -2983,7 +2978,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/fuf8y1y14jaygfX5K0h7/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/fuf8y1y14jaygfX5K0h7/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2991,7 +2986,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2999,7 +2994,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -3094,7 +3089,7 @@ curl -v -X POST \
             "name":"Rain-Cloud59"
           },
           "u2fParams": {
-            "appid": "https://${yourOktaDomain}"
+            "appid": "https://{yourOktaDomain}"
           },
           "user": {
             "displayName": "First Last",
@@ -3108,7 +3103,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -3116,7 +3111,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3124,7 +3119,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -3514,13 +3509,13 @@ curl -v -X POST \
           "expiresAt": "2015-11-03T10:15:57.000Z",
           "_links": {
             "qrcode": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
+              "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
               "type": "image/png"
             },
             "send": [
               {
                 "name": "email",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3529,7 +3524,7 @@ curl -v -X POST \
               },
               {
                 "name": "sms",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3545,7 +3540,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "poll",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
       "hints": {
         "allow": [
           "POST"
@@ -3553,7 +3548,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3561,7 +3556,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -3627,7 +3622,7 @@ curl -v -X POST \
           "factorResult": "TIMEOUT",
           "_links": {
             "activate": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00u4vi0VX6U816Kl90g4/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate",
+              "href": "https://{yourOktaDomain}/api/v1/users/00u4vi0VX6U816Kl90g4/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate",
               "hints": {
                 "allow": [
                   "POST"
@@ -3637,7 +3632,7 @@ curl -v -X POST \
             "send": [
               {
                 "name": "email",
-                "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
+                "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3646,7 +3641,7 @@ curl -v -X POST \
               },
               {
                 "name": "sms",
-                "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
+                "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3662,7 +3657,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -3670,7 +3665,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3678,7 +3673,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -3739,21 +3734,21 @@ curl -v -X POST \
             "send":[
               {
                 "name":"email",
-                "href":"https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
+                "href":"https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
                 "hints":{
                   "allow":["POST"]
                 }
               },
               {
                 "name":"sms",
-                "href":"https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
+                "href":"https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
                 "hints":{
                   "allow":["POST"]
                 }
               }
             ],
             "qrcode":{
-              "href":"https://${yourOktaDomain}/api/v1/users/opfh52xcuft3J4uZc0g3/factors/opfn169oIx3k63Klh0g3/qr/20111huUFWDFTAeq_lFQKfKFS_rLABkE_pKgGl5PBUeLvJVmaIrWq5u",
+              "href":"https://{yourOktaDomain}/api/v1/users/opfh52xcuft3J4uZc0g3/factors/opfn169oIx3k63Klh0g3/qr/20111huUFWDFTAeq_lFQKfKFS_rLABkE_pKgGl5PBUeLvJVmaIrWq5u",
               "type":"image/png"
             }
           }
@@ -3764,19 +3759,19 @@ curl -v -X POST \
   "_links":{
     "next":{
       "name":"poll",
-      "href":"https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
+      "href":"https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
       "hints":{
         "allow":["POST"]
       }
     },
     "cancel":{
-      "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints":{
         "allow":["POST"]
       }
     },
     "prev":{
-      "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+      "href":"https://{yourOktaDomain}/api/v1/authn/previous",
       "hints":{
         "allow":["POST"]
       }
@@ -3849,13 +3844,13 @@ curl -v -X POST \
           "expiresAt": "2015-11-03T10:15:57.000Z",
           "_links": {
             "qrcode": {
-              "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
+              "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/qr/00fukNElRS_Tz6k-CFhg3pH4KO2dj2guhmaapXWbc4",
               "type": "image/png"
             },
             "send": [
               {
                 "name": "email",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3864,7 +3859,7 @@ curl -v -X POST \
               },
               {
                 "name": "sms",
-                "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
+                "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms",
                 "hints": {
                   "allow": [
                     "POST"
@@ -3880,7 +3875,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "poll",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll",
       "hints": {
         "allow": [
           "POST"
@@ -3888,7 +3883,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3896,7 +3891,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4290,7 +4285,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4298,7 +4293,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4306,7 +4301,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4316,7 +4311,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "sms",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify/resend",
         "hints": {
           "allow": [
             "POST"
@@ -4472,7 +4467,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4480,7 +4475,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4488,7 +4483,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4711,7 +4706,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "poll",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4719,7 +4714,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4727,7 +4722,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4737,7 +4732,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "push",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
         "hints": {
           "allow": [
             "POST"
@@ -4791,7 +4786,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "poll",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4799,7 +4794,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4807,7 +4802,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4817,7 +4812,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "push",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
         "hints": {
           "allow": [
             "POST"
@@ -4889,7 +4884,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4897,7 +4892,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4905,7 +4900,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4915,7 +4910,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "push",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
         "hints": {
           "allow": [
             "POST"
@@ -4963,7 +4958,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
       "hints": {
         "allow": [
           "POST"
@@ -4971,7 +4966,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -4979,7 +4974,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -4989,7 +4984,7 @@ curl -v -X POST \
     "resend": [
       {
         "name": "push",
-        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "href": "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
         "hints": {
           "allow": [
             "POST"
@@ -5069,7 +5064,7 @@ curl -v -X POST \
                     "factorResult":"WAITING",
                     "_links":{
                         "complete":{
-                            "href":"https://${yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/duoCallback",
+                            "href":"https://{yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/lifecycle/duoCallback",
                             "hints":{
                                 "allow":[
                                     "POST"
@@ -5077,7 +5072,7 @@ curl -v -X POST \
                             }
                         },
                         "script":{
-                            "href":"https://${yourOktaDomain}/js/sections/duo/Duo-Web-v2.js",
+                            "href":"https://{yourOktaDomain}/js/sections/duo/Duo-Web-v2.js",
                             "type":"text/javascript; charset=utf-8"
                         }
                     }
@@ -5093,7 +5088,7 @@ curl -v -X POST \
     "_links":{
         "next":{
             "name":"poll",
-            "href":"https://${yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/verify",
+            "href":"https://{yourOktaDomain}/api/v1/authn/factors/dsflnpo99zpfMyaij0g3/verify",
             "hints":{
                 "allow":[
                     "POST"
@@ -5101,7 +5096,7 @@ curl -v -X POST \
             }
         },
         "cancel":{
-            "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+            "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
             "hints":{
                 "allow":[
                     "POST"
@@ -5109,7 +5104,7 @@ curl -v -X POST \
             }
         },
         "prev":{
-            "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+            "href":"https://{yourOktaDomain}/api/v1/authn/previous",
             "hints":{
                 "allow":[
                     "POST"
@@ -5242,7 +5237,7 @@ curl -v -X POST \
          "vendorName":"FIDO",
          "profile":{
             "credentialId":"shvjvW2Fi2GtCJb33nm0105EISG9lf2Jg0jWl42URM6vtDH8-AhnoSKfpoHfAf0kJMaCx13glfdxiLFuPW_1bw",
-            "appId":"https://${yourOktaDomain}",
+            "appId":"https://{yourOktaDomain}",
             "version":"U2F_V2"
          },
          "_embedded":{
@@ -5261,7 +5256,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"verify",
-         "href":"https://${yourOktaDomain}/api/v1/authn/factors/fuf8y2l4n5mfH0UWe0h7/verify",
+         "href":"https://{yourOktaDomain}/api/v1/authn/factors/fuf8y2l4n5mfH0UWe0h7/verify",
          "hints":{
             "allow":[
                "POST"
@@ -5269,7 +5264,7 @@ curl -v -X POST \
          }
       },
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -5277,7 +5272,7 @@ curl -v -X POST \
          }
       },
       "prev":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+         "href":"https://{yourOktaDomain}/api/v1/authn/previous",
          "hints":{
             "allow":[
                "POST"
@@ -5454,7 +5449,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"verify",
-         "href":"https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/verify",
+         "href":"https://{yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/verify",
          "hints":{
             "allow":[
                "POST"
@@ -5462,7 +5457,7 @@ curl -v -X POST \
          }
       },
       "prev":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+         "href":"https://{yourOktaDomain}/api/v1/authn/previous",
          "hints":{
             "allow":[
                "POST"
@@ -5470,7 +5465,7 @@ curl -v -X POST \
          }
       },
       "cancel":{
-         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
          "hints":{
             "allow":[
                "POST"
@@ -5544,7 +5539,7 @@ curl -v -X POST \
   "_links":{
     "next":{
       "name":"verify",
-      "href":"https://${yourOktaDomain}/api/v1/authn/factors/webauthn/verify",
+      "href":"https://{yourOktaDomain}/api/v1/authn/factors/webauthn/verify",
       "hints":{
         "allow":[
           "POST"
@@ -5552,7 +5547,7 @@ curl -v -X POST \
       }
     },
     "prev":{
-      "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+      "href":"https://{yourOktaDomain}/api/v1/authn/previous",
       "hints":{
         "allow":[
           "POST"
@@ -5560,7 +5555,7 @@ curl -v -X POST \
       }
     },
     "cancel":{
-      "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href":"https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints":{
         "allow":[
           "POST"
@@ -5781,7 +5776,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
       "hints": {
         "allow": [
           "POST"
@@ -5789,7 +5784,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -5798,7 +5793,7 @@ curl -v -X POST \
     },
     "resend": {
       "name": "sms",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
       "hints": {
         "allow": [
           "POST"
@@ -5844,7 +5839,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/CALL/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/CALL/verify",
       "hints": {
         "allow": [
           "POST"
@@ -5852,7 +5847,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -5861,7 +5856,7 @@ curl -v -X POST \
     },
     "resend": {
       "name": "call",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/CALL/resend",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/CALL/resend",
       "hints": {
         "allow": [
           "POST"
@@ -5878,7 +5873,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for forgot password with trusted application
 
@@ -5920,7 +5915,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "recovery",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/token",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/token",
       "hints": {
         "allow": [
           "POST"
@@ -5928,7 +5923,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6060,7 +6055,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
       "hints": {
         "allow": [
           "POST"
@@ -6068,7 +6063,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6077,7 +6072,7 @@ curl -v -X POST \
     },
     "resend": {
       "name": "sms",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
       "hints": {
         "allow": [
           "POST"
@@ -6096,7 +6091,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for unlock account with SMS Factor (trusted application)
 
@@ -6138,7 +6133,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "recovery",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/token",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/token",
       "hints": {
         "allow": [
           "POST"
@@ -6146,7 +6141,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6235,7 +6230,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "answer",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/answer",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/answer",
       "hints": {
         "allow": [
           "POST"
@@ -6243,7 +6238,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6297,7 +6292,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/verify",
       "hints": {
         "allow": [
           "POST"
@@ -6305,7 +6300,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6314,7 +6309,7 @@ curl -v -X POST \
     },
     "resend": {
       "name": "sms",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/SMS/resend",
       "hints": {
         "allow": [
           "POST"
@@ -6402,7 +6397,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "answer",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/answer",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/answer",
       "hints": {
         "allow": [
           "POST"
@@ -6410,7 +6405,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6464,7 +6459,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/CALL/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/CALL/verify",
       "hints": {
         "allow": [
           "POST"
@@ -6472,7 +6467,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6481,7 +6476,7 @@ curl -v -X POST \
     },
     "resend": {
       "name": "call",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/factors/CALL/resend",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/factors/CALL/resend",
       "hints": {
         "allow": [
           "POST"
@@ -6506,6 +6501,16 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 | Parameter     | Description                                                                                                    | Param Type | DataType | Required |
 | ------------- | ----------------------------------------------------------------------------------------------------------     | ---------- | -------- | -------- |
 | recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |    
+
+##### Options object
+
+You can modify the authentication transaction [state machine](#transaction-state) through the following opt-in features:
+
+| Property                   | Description                                                                                                                                                | DataType | Nullable | Unique | Readonly |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
+| multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful Factor enrollment when additional optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
+
 
 ##### Response parameters for verify recovery token
 
@@ -6565,7 +6570,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "answer",
-      "href": "https://${yourOktaDomain}/api/v1/authn/recovery/answer",
+      "href": "https://{yourOktaDomain}/api/v1/authn/recovery/answer",
       "hints": {
         "allow": [
           "POST"
@@ -6573,7 +6578,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6673,7 +6678,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "password",
-      "href": "https://${yourOktaDomain}/api/v1/authn/credentials/reset_password",
+      "href": "https://{yourOktaDomain}/api/v1/authn/credentials/reset_password",
       "hints": {
         "allow": [
           "POST"
@@ -6681,7 +6686,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6846,7 +6851,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify",
       "hints": {
         "allow": [
           "POST"
@@ -6854,7 +6859,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6862,7 +6867,7 @@ curl -v -X POST \
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -6930,7 +6935,7 @@ curl -v -X POST \
         "vendorName": "RSA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -6947,7 +6952,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -6964,7 +6969,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -6981,7 +6986,7 @@ curl -v -X POST \
         "vendorName": "OKTA",
         "_links": {
           "enroll": {
-            "href": "https://${yourOktaDomain}/api/v1/authn/factors",
+            "href": "https://{yourOktaDomain}/api/v1/authn/factors",
             "hints": {
               "allow": [
                 "POST"
@@ -6996,7 +7001,7 @@ curl -v -X POST \
   },
   "_links": {
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -7161,7 +7166,7 @@ You advance the authentication or recovery transaction to the next state by post
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/ostf2xjtDKWFPZIKYDZV/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/ostf2xjtDKWFPZIKYDZV/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -7169,7 +7174,7 @@ You advance the authentication or recovery transaction to the next state by post
       }
     },
     "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "href": "https://{yourOktaDomain}/api/v1/authn/previous",
       "hints": {
         "allow": [
           "POST"
@@ -7177,7 +7182,7 @@ You advance the authentication or recovery transaction to the next state by post
       }
     },
     "skip": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/skip",
+      "href": "https://{yourOktaDomain}/api/v1/authn/skip",
       "hints": {
         "allow": [
           "POST"
@@ -7185,7 +7190,7 @@ You advance the authentication or recovery transaction to the next state by post
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -7340,7 +7345,7 @@ Subset of [profile properties](/docs/reference/api/users/#profile-object) for a 
 
 #### Remember device policy object
 
-A subset of policy settings of the Sign-On Policy or App Sign-On Policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
+A subset of policy settings of the Global Session Policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
 
 | Property                        | Description                                                                      | DataType  | Nullable | Unique | Readonly |
 | ------------------------------- | -------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- |
@@ -7518,7 +7523,7 @@ A subset of [Factor properties](/docs/reference/api/factors/#factor-object) publ
   },
   "_links": {
     "verify": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/ostfm3hPNYSOIOIVTQWY/verify",
+      "href": "https://{yourOktaDomain}/api/v1/authn/factors/ostfm3hPNYSOIOIVTQWY/verify",
       "hints": {
         "allow": [
           "POST"
@@ -7607,7 +7612,7 @@ Push factors must complete activation on the device by scanning the QR code or v
       "send": [
         {
           "name": "email",
-          "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/lifecycle/activate/email",
+          "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/lifecycle/activate/email",
           "hints": {
             "allow": [
               "POST"
@@ -7616,7 +7621,7 @@ Push factors must complete activation on the device by scanning the QR code or v
         },
         {
           "name": "sms",
-          "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/lifecycle/activate/sms",
+          "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/lifecycle/activate/sms",
           "hints": {
             "allow": [
               "POST"
@@ -7625,7 +7630,7 @@ Push factors must complete activation on the device by scanning the QR code or v
         }
       ],
       "qrcode": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/qr/00Ji8qVBNJD4LmjYy1WZO2VbNqvvPdaCVua-1qjypa",
+        "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfbtzzrjgwauUsxO0g4/qr/00Ji8qVBNJD4LmjYy1WZO2VbNqvvPdaCVua-1qjypa",
         "type": "image/png"
       }
     }

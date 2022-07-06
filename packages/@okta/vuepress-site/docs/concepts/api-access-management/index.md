@@ -28,7 +28,7 @@ In general, use OpenID Connect to sign users in to apps, and use API Access Mana
 For example:
 
 * Use Case 1 (API Access Management): You need to control API access for a variety of consumers: vendors, employees, and customers, for example.
-* Use Case 2 (OpenID Connect): You want users to [sign in to your custom web application](/docs/guides/sign-into-web-app/) to access their account.
+* Use Case 2 (OpenID Connect): You want users to [sign in to your custom web application](/docs/guides/sign-into-web-app-redirect/) to access their account.
 
 ### Complex use cases
 
@@ -123,7 +123,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * A client secret is a password. Protect it as you would any other password.
 * Configure clients to support only the grant types that are required by the specific use cases under development. Disable all other grant types.
 * Within Okta, only assigned users and groups can authenticate with a client (application). Use the **Everyone** group only when necessary.
-* Okta sends tokens and authorization codes to a redirect URI (bound to the application's client ID) only if it is on the allow list. Therefore, limit this list to URIs in active use.
+* Okta sends tokens and authorization codes to a redirect URI (bound to the application's client ID) only if it is on the allowlist. Therefore, limit this list to URIs in active use.
 
 ##### Authorization server
 

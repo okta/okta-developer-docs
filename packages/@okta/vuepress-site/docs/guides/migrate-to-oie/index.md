@@ -6,8 +6,7 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="ie" />
 
 ## Enable Okta Identity Engine for your organization
 
@@ -114,6 +113,11 @@ var signIn = new OktaSignIn(
     // other options...
   }
 );
+
+// Search for URL Parameters to see if a user is being routed to the application to recover password
+var searchParams = new URL(window.location.href).searchParams;
+signIn.otp = searchParams.get('otp');
+signIn.state = searchParams.get('state');
 
 signIn.showSignInToGetTokens({
   // Assumes there is an empty element on the page with an id of 'osw-container'

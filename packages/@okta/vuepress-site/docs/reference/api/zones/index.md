@@ -6,9 +6,9 @@ category: management
 
 > This API is an <ApiLifecycle access="ea" /> feature.
 
-The Okta Zones API provides operations to manage Zones in your organization. There are two usage Zone types: Policy Network Zones and Block List Network Zones. Policy Network Zones are used to guide policy decisions. Block List Network Zones are used to deny access from certain IP addresses, locations, proxy types, or Autonomous System Numbers (ASNs) before policy evaluation.
+The Okta Zones API provides operations to manage Zones in your organization. There are two usage Zone types: Policy Network Zones and Blocklist Network Zones. Policy Network Zones are used to guide policy decisions. Blocklist Network Zones are used to deny access from certain IP addresses, locations, proxy types, or Autonomous System Numbers (ASNs) before policy evaluation.
 
-A default system Policy Network Zone is provided in your Okta org. You can use the Zones API to modify the default Policy Network Zone or to create a custom Policy or Block List Network Zone. When you create your custom Zone, you can specify if the Zone is an IP Zone or a Dynamic Zone. An IP Zone allows you to define network perimeters around a set of IPs, whereas a Dynamic Zone allows you to define network perimeters around location, IP type, and ASNs.
+A default system Policy Network Zone is provided in your Okta org. You can use the Zones API to modify the default Policy Network Zone or to create a custom Policy or Blocklist Network Zone. When you create your custom Zone, you can specify if the Zone is an IP Zone or a Dynamic Zone. An IP Zone allows you to define network perimeters around a set of IPs, whereas a Dynamic Zone allows you to define network perimeters around location, IP type, and ASNs.
 
 ## Zone object
 
@@ -32,7 +32,7 @@ One of the following attributes must be defined. These attributes are defined by
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>1000 (entries for IP Block List Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
+| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>1000 (entries for IP Blocklist Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
 | proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | <ul><li>150 (entries for admin-created IP Zones)</li><li>5000 (entries for the default system IP Zone)</li></ul> |
 
 #### Address object
@@ -238,7 +238,7 @@ curl -X POST \
   ],
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3",
       "hints": {
         "allow": [
           "GET",
@@ -248,7 +248,7 @@ curl -X POST \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -427,13 +427,13 @@ curl -X GET \
     "asns": ["23457"],
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
             "hints": {
                 "allow": ["GET", "PUT", "DELETE"]
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
             "hints": {
                 "allow": ["POST"]
             }
@@ -503,7 +503,7 @@ curl -X GET \
         "proxies": null,
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -513,7 +513,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -539,13 +539,13 @@ curl -X GET \
         "asns": ["23457"],
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
                 "hints": {
                     "allow": ["GET", "PUT", "DELETE"]
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
                 "hints": {
                     "allow": ["POST"]
                 }
@@ -570,7 +570,7 @@ curl -X GET \
         "proxies": null,
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -580,7 +580,7 @@ curl -X GET \
                 }
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowduJMXKsPkRqL40g3/lifecycle/deactivate",
                 "hints": {
                     "allow": [
                         "POST"
@@ -662,7 +662,7 @@ curl -X GET \
     ],
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3",
         "hints": {
           "allow": [
             "GET",
@@ -672,7 +672,7 @@ curl -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul0wf9jyb8xwZm0g3/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -728,7 +728,7 @@ curl -X GET \
     ],
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3",
         "hints": {
           "allow": [
             "GET",
@@ -738,7 +738,7 @@ curl -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/zones/nzoul1MxmGN18NDQT0g3/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -868,7 +868,7 @@ curl -X PUT \
   ],
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3",
       "hints": {
         "allow": [
           "GET",
@@ -878,7 +878,7 @@ curl -X PUT \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"

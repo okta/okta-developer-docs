@@ -1,11 +1,13 @@
-If you created your application with the Spring Initializr (see Sample code above), this dependency has already been added.
+The Spring Initializer automatically sets up the required dependencies.
 
-For existing applications, you can add the Okta Spring Boot Starter by including the following Apache Maven dependency: 
+If you are working on a non-Spring Initializer app, you need to manually add the Okta Spring Boot Starter dependency to your project:
 
 ```xml
 <dependency>
     <groupId>com.okta.spring</groupId>
     <artifactId>okta-spring-boot-starter</artifactId>
-    <version>1.3.0</version>
+    <version>2.1.4</version>
 </dependency>
 ```
+
+The Okta Spring Boot Starter configures Spring Security to validate an access token attached to incoming requests.

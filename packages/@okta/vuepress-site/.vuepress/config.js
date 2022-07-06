@@ -43,6 +43,7 @@ module.exports = ctx => ({
   head: [
     ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.8959/14/css/CoveoFullSearch.min.css', integrity: 'sha512-DzuDVtX/Dud12HycdAsm2k9D1UQ8DU7WOj7cBRnSsOKQbKfkI94g0VM9hplM0BkQ0VXdDiQYU9GvUzMmw2Khaw==', crossorigin: 'anonymous' }],
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
+    ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
@@ -245,7 +246,7 @@ module.exports = ctx => ({
     ],
 
     forum_url: 'https://devforum.okta.com/',
-    copyright_text: 'Copyright © 2021 Okta.'
+    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta.`
   },
 
   chainWebpack(config) {
@@ -264,19 +265,6 @@ module.exports = ctx => ({
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
-
-    /*
-     * Copy *.scss from Sign-In Widget for use in /live-widget.
-     * See /components/LiveWidget.vue for usage
-     */
-    config.plugin('copy-sass')
-      .use(CopyWebpackPlugin, [
-        [{
-           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
-           to: Path.join(outputDir, 'assets/widget-sass/'),
-         },
-        ]
-      ]);
   },
 
   evergreen: false,
@@ -284,7 +272,6 @@ module.exports = ctx => ({
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-attrs'))
-      .use(require('markdown-it-deflist'));
     },
     anchor: {
       permalinkBefore: false,
@@ -296,6 +283,7 @@ module.exports = ctx => ({
 
   plugins: {
     'code-copy': {},
+    'vuepress-plugin-chunkload-redirect': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
@@ -315,18 +303,21 @@ module.exports = ctx => ({
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
-              '/docs/guides/oie-upgrade-overview/',
-              '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
-              '/docs/guides/oie-upgrade-sessions-api/',
-              '/docs/guides/oie-upgrade-sign-in-widget/',
-              '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
-              '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
-              '/docs/guides/oie-upgrade-sign-in-widget-styling/',
-              '/docs/guides/oie-upgrade-mfa-enroll-policy/'
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
+              //'/docs/guides/oie-upgrade-overview/',
+              //'/docs/guides/oie-upgrade-planning-embedded-upgrades/',
+              //'/docs/guides/oie-upgrade-sessions-api/',
+              //'/docs/guides/oie-upgrade-sign-in-widget/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-i18n/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-styling/',
+              //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              '/docs/reference/api/archive-myaccount/',
+              '/docs/reference/api/myaccount-migration/',
+              '/docs/reference/csi-delauth-hook/'
           ]
         }
       ]

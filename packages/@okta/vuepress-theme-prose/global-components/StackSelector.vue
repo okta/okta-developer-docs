@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-if="options.length">
+  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-show="isVisible()" v-if="options.length">
     <div class="selector-control" v-if="!noSelector">
       <span class="instructions-label">
         Instructions for
@@ -70,6 +70,12 @@
           this.stackSelectorData.from = this.selectedOption.link;
           this.stackSelectorData.to = value.link;
         }
+      },
+      isVisible: function() {
+        if(this.$page.frontmatter.showStackSelector == false && !this.noSelector) {
+          return false;
+        }
+        return true;
       }
     },
     created () {
@@ -152,7 +158,7 @@
     padding: 10px;
   }
   .no-selector {
-    & /deep/ ol[start] {
+    &::v-deep ol[start] {
       margin-top: -0.75rem;
     }
   }
@@ -167,7 +173,7 @@
     .stack-content {
       display: inline;
 
-      & > div, & /deep/ p {
+      & > div, &::v-deep p {
         display: inline;
       }
     }

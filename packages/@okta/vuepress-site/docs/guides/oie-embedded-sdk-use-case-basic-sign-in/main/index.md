@@ -2,10 +2,9 @@
 title: Basic sign-in flow using the password factor
 ---
 
-<div class="oie-embedded-sdk">
+<ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
 
 This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
@@ -44,5 +43,3 @@ Before you build a basic sign-in flow, ensure that your org is configured for th
 <StackSnippet snippet="integrationsteps" />
 
 <StackSnippet snippet="getuserprofile" />
-
-</div>

@@ -72,7 +72,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 4. Click the **x** to remove all of the scopes except for **openid** and **email**. This limits the scopes that the applications associated with this policy can request to just the `openid` and `email` scopes.
 
-     > **Note:** Access policies rules are allow lists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
+     > **Note:** Access policies rules are allowlists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
 
 5. Leave the other defaults and click **Create Rule**.
 
@@ -122,8 +122,8 @@ Let's test your access policy and get back an access token.
 {
   "ver": 1,
   "jti": "AT.ReRI96X_2Ny3nSf0DepnWLhbAJW5kB0nbl0WqSn22W8",
-  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
-  "aud": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+  "aud": "https://{yourOktaDomain}",
   "iat": 1594769008,
   "exp": 1594772608,
   "cid": "0oas6ywyq7cwyKUfF0h7",

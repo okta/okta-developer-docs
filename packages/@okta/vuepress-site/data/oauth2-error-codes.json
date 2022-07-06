@@ -1,6 +1,6 @@
 {
-  "release" : "2022.02.1",
-  "build" : "2022.02.1-begin-105-g431e6daa625c",
+  "release" : "2022.06.1",
+  "build" : "2022.06.1-begin-129-g082fc8817049",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -38,8 +38,8 @@
     "errorDescription" : "Policy evaluation succeeded but all the requested scopes were rejected."
   }, {
     "title" : "No matching policy",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "no_matching_policy",
     "errorCode" : "access_denied",
     "errorDescription" : "Policy evaluation failed for this request, please check the policy configurations."
@@ -415,6 +415,13 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "Client Credentials requests to the Org Authorization Server must use the private_key_jwt token_endpoint_auth_method."
   }, {
+    "title" : "Unsupported auth method client creds oauth integration",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "unsupported_auth_method_client_creds_oauth_integration",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "OAuth Integration Client Credentials requests to the Org Authorization Server must use either private_key_jwt or client_secret_basic as the token_endpoint_auth_method."
+  }, {
     "title" : "Invalid application type client credentials",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -576,6 +583,13 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "Error retrieving the client JWKSet from jwks_uri."
   }, {
+    "title" : "Jwks URI jku mismatch error",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwks_uri_jku_mismatch_error",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The 'jku' in JWT and 'jwks_uri' doesn't match."
+  }, {
     "title" : "Authorize request URI mismatched client",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -723,6 +737,48 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion Bearer Grant is not supported by OIE."
   }, {
+    "title" : "Web sso token exchange request requires scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_token_exchange_request_requires_scope",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'actor_token' must have the 'okta.apps.sso' scope to request a 'web_sso_token'."
+  }, {
+    "title" : "Web sso subject token client mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_subject_token_client_mismatch",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'subject_token' must be issued to the client making the request."
+  }, {
+    "title" : "Web sso actor token client mismatch",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_actor_token_wrong_audience",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'actor_token' must be issued to the client making the request."
+  }, {
+    "title" : "Web sso app assurance not met",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_app_assurance_not_met",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The application's assurance requirements are not met by the 'subject_token'."
+  }, {
+    "title" : "Web sso subject token expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_subject_token_expired",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'subject_token' either expired or the session associated with it was terminated."
+  }, {
+    "title" : "Web sso client not permitted",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "web_sso_client_not_permitted",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The target audience app must be configured to allow the client to request a 'web_sso_token'."
+  }, {
     "title" : "Client requires MFA native sso",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -828,6 +884,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Identity provider is not valid."
   }, {
+    "title" : "Invalid max age",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_max_age",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid value for 'max_age' parameter. It should be within range 0 - 2^31-1."
+  }, {
     "title" : "Illegal redirect URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -926,6 +989,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Token request missing 'device_id'."
   }, {
+    "title" : "Mismatched resource",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mismatched_resource",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'resource' parameter does not match the resource used in the authorization request."
+  }, {
     "title" : "Request missing token",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -975,6 +1045,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
   }, {
+    "title" : "MFA attestation interact requires client credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mfa_attestation_interact_requires_client_credentials",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The client authentication is required for MFA attestation request."
+  }, {
     "title" : "Missing token request parameter",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1016,6 +1093,13 @@
     "internalErrorCode" : "invalid_subject_actor_token_match",
     "errorCode" : "invalid_request",
     "errorDescription" : "When 'actor_token_type' is '{0}', 'subject_token_type' must be '{1}'."
+  }, {
+    "title" : "Invalid requested token type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_requested_token_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'requested_token_type' is invalid or not supported."
   }, {
     "title" : "Invalid client type native sso",
     "statusCode" : 400,
@@ -1695,6 +1779,20 @@
     "internalErrorCode" : "confidential_client_required",
     "errorCode" : "unauthorized_client",
     "errorDescription" : "Confidential client is required to make this request."
+  }, {
+    "title" : "Unsupported api resource",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_api_resource",
+    "errorCode" : "unsupported_api_resource",
+    "errorDescription" : "The api resource is not supported by the authorization server."
+  }, {
+    "title" : "Unsupported api resource for authorization",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_api_resource_for_authorization",
+    "errorCode" : "unsupported_api_resource",
+    "errorDescription" : "Only support default api resource for authorization when passing resource parameter."
   }, {
     "title" : "Unsupported grant type",
     "statusCode" : 400,

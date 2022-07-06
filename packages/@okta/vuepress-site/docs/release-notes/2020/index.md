@@ -51,11 +51,11 @@ The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions
 
 Okta is focused on the adoption of inclusive language and communication. Some long-standing industry terminology and expressions have been updated in this release. More updates will be made in future releases.
 
-In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allow list":
+In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allowlist":
 
-- [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
+- [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list)
 
-- [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
+- [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
 
 Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 
@@ -128,7 +128,7 @@ The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now u
 
 #### Zones API includes `usage` property
 
-To help you manage zones in your organization, the Early Access [Zones API](/docs/reference/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Block List Network Zones. <!--OKTA-333653-->
+To help you manage zones in your organization, the Early Access [Zones API](/docs/reference/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Blocklist Network Zones. <!--OKTA-333653-->
 
 #### Client-based rate limiting is now GA in Production
 
@@ -257,14 +257,14 @@ If a user was converted to use an [external Federated IdP instead of Okta](/docs
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
-| [Bugs fixed in 2020.09.1](#bugs-fixed-in-2020-09-1)       | September 10, 2020           |
+| [Bugs fixed in 2020.09.1](#bugs-fixed-in-2020-09-1)       | September 10, 2020       |
 
 #### Bugs fixed in 2020.09.1
 
 * When attempting to reset a user's password using the `lifecycle/reset_password` endpoint, admins received an HTTP 500 error code rather than a valid error message if the user's email address was invalid. (OKTA-307089)
 * If a `Groups` claim returned more than 100 groups, then tokens couldn't be minted, which generated an HTTP 500 error code instead of an HTTP 400 error code. (OKTA-321988)
 * If an Identity Provider returned an error response during authentication, the `/introspect` endpoint returned an HTTP 500 error code. (OKTA-324419)
-* When a geographical network zone that included Okta routers was added to an IP blacklist zone, all requests to the org were blocked. (OKTA-326955)
+* When a geographical network zone that included Okta routers was added to an IP blocklist zone, all requests to the org were blocked. (OKTA-326955)
 
 
 ## August
@@ -291,7 +291,7 @@ If a user was converted to use an [external Federated IdP instead of Okta](/docs
 
 #### Apple as an Identity Provider is now GA in Production
 
-Apple as an Identity Provider is now Generally Available in Production. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/). <!-- OKTA-302300 -->
+Apple as an Identity Provider is now Generally Available in Production. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/main/). <!-- OKTA-302300 -->
 
 #### OAuth 2.0 authorization code length has been increased
 
@@ -329,7 +329,7 @@ To better align with [security best practices](https://tools.ietf.org/html/rfc68
 
 #### Apple as an Identity Provider is now GA in Preview
 
-Apple as an Identity Provider is now Generally Available in Preview. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/). <!-- OKTA-302300 -->
+Apple as an Identity Provider is now Generally Available in Preview. Apple as an IdP allows users to sign in to your app using their Apple ID. See [Apple as an Identity Provider](/docs/guides/add-an-external-idp/apple/main/). <!-- OKTA-302300 -->
 
 #### YubiKey OTP Token operations added
 

@@ -12,6 +12,9 @@
 @import "okta/global/fontello";
 @import "okta/icons/all";
 
+// Specific image styles
+@import "okta/global/image-sizing";
+
 // Base
 @import "base/typography";
 @import "base/mixins.scss";
@@ -19,8 +22,10 @@
 // Layouts
 @import "layouts/layout.scss";
 @import "layouts/authorizationLayout.scss";
+@import "layouts/darktheme.scss";
 
 // Components
+@import "components/announcementBanner";
 @import "components/apiLifecycle";
 @import "components/apiOperation";
 @import "components/breadcrumb";
@@ -59,13 +64,12 @@
 @import "components/oktaIntegrationNetwork";
 @import "components/terms";
 @import "components/thankYou";
-@import "components/liveWidget";
+@import "components/themeModeToggle";
 @import "components/errors";
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
-@import "components/developerDayBanner";
 
 //Pages
 @import "okta/pages/multi-tenancy";
-@import 'okta/pages/oie-embedded-sdk';
+@import "okta/pages/oie-embedded-sdk";

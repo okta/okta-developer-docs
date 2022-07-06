@@ -26,12 +26,12 @@ public async Task<ActionResult> Index()
 
 > **Note:** In the preceding MVC setup, the response's `SignInWidgetConfiguration` property is passed to the view as a model.
 
-The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that needs to be passed to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format.
+The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that needs to be passed to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format. Replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
 
 ```json
 {
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
-   "version":"5.5.2",
+   "version":"${widgetVersion}",
    "baseUrl":"https://dev-12345678.okta.com",
    "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
@@ -45,6 +45,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
    },
    "useInteractionCodeFlow":true,
    "state":"${state}",
+   "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
@@ -65,15 +66,17 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-To use the Widget, you need to make a reference to the Okta CDN. In the following sample, the `Version` property returns `StartWidgetSignInAsync`, which is used in the path to the CDN.
+Add the Sign-In Widget source to your page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-```csharp
+```razor
 @section head
 {
-   <script src="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+   <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 ```
+
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### 2c: Add JavaScript to initialize and load the Widget
 
@@ -95,6 +98,12 @@ The `div id` that you passed into the Widget needs to match a `div` on the page 
        el: '#okta-signin-widget-container',
        ...widgetConfig
    });
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
    signIn.showSignInAndRedirect()
        .catch(err => {
            console.log('Error happen in showSignInAndRedirect: ', err);
