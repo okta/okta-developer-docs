@@ -107,8 +107,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
-Verifies the Domain and validity of DNS records
-Furthermore, if the 'certificateSourceType' in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  After a certificate is obtained and installed by Okta, Okta manages the certificate including certificate renewal.
+Verifies the Domain and validity of DNS records. Furthermore, if the 'certificateSourceType' in the [Domain](#domain-object) is `OKTA_MANAGED`, then an attempt is made to obtain and install a certificate.  After a certificate is obtained and installed by Okta, Okta manages the certificate including certificate renewal.
 
 #### Request path parameters
 
@@ -190,8 +189,7 @@ curl -v -X POST \
 
 <ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
-Creates the certificate for the Domain
-If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided.
+Creates the certificate for the Domain. If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided.
 
 #### Request path parameters
 
