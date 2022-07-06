@@ -32,7 +32,7 @@ Build a form that allows the user to enter the One-Time Passcode (OTP) sent to t
 
 Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Screenshot of OTP in enrollment page](/img/authenticators/authenticators-email-enroll-otp.png)
 

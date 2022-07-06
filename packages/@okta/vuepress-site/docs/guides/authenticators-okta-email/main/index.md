@@ -2,8 +2,6 @@
 title: Okta email (magic link/OTP) integration guide
 ---
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" /><br>
 
 Learn how to integrate the Okta Email authenticator into your app with the Embedded SDK.
@@ -36,7 +34,7 @@ With the Embedded SDK, your app can verify a user's identity using the email aut
 
 When using OTP, a user must switch from your app to their email, find the OTP, switch back to your app again, type in the OTP and click submit to verify their identity. Compare this to using magic links, where verification only requires the user to click a link in the email - a far quicker, more user-convenient, and yet still secure experience.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Simple diagram illustrating magic links](/img/authenticators/authenticators-email-magic-link-summary-simple-overview.png)
 
@@ -73,7 +71,7 @@ Before integrating email magic links in your app, it's important to understand h
 
 The following diagram illustrates these steps.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing magic link flow for same and different browsers](/img/authenticators/authenticators-email-magic-link-summary-user-flow-overview.png)
 
@@ -172,7 +170,7 @@ The following instructions detail integrating the email challenge into your app.
 
 The Email Magic Links feature is designed with security in mind and only works when there is complete assurance that the person who started the request is the same one who clicked the magic link. For example, a user who started signing in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled, and they need to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing magic link flow for same and diff browsers](/img/authenticators/authenticators-email-magic-link-flowchart.png)
 
@@ -194,7 +192,7 @@ The following step-by-step instructions detail integrating the different browser
 
  With a One-Time Passcode (OTP), the user copies an automatically generated numeric string from their email to your application to verify their identity. The following flowchart, which uses the sign-in with email example, illustrates the OTP user journey.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Flowchart showing the OTP flow](/img/authenticators/authenticators-email-overview-otp-flowchart.png)
 
@@ -218,15 +216,13 @@ To disable magic link functionality, open the Admin Console and select **Customi
 
 In each template, find the anchor tag and remove it from the template HTML. The following screenshot identifies the magic link anchor tag (identified by `email-authentication-button` id) for the **Email Challenge** template.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing email template with magic link](/img/authenticators/authenticators-email-magic-link-modify-template.png)
 
 </div>
 
 To learn more about customizing email templates and using the velocity template language, see [Customize an email template](https://help.okta.com/okta_help.htm?id=ext_Settings_Email) in the Okta Help Center.
-
-</div>
 
 ## Design considerations when customizing magic link for password recovery
 
