@@ -816,7 +816,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-> **Note:** This is typically a CORS request from the browser when the end-user has an active Okta session. Therefore, it is possible to retrieve the current user without the `Authorization` header.
+> **Note:** This is typically a CORS request from the browser when the end user has an active Okta session. Therefore, it's possible to retrieve the current user without the `Authorization` header.
 
 ##### Request example
 
