@@ -2,7 +2,7 @@
 
 The first step is to create a forgot password link on the sign-in page that redirects the user to a reset password page.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays a sample forgot password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png)
 
@@ -12,7 +12,7 @@ The first step is to create a forgot password link on the sign-in page that redi
 
 Create a page that accepts the user's email address and contains a button to start the reset password flow.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays a sample reset password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png)
 
@@ -46,7 +46,7 @@ After the `AwaitingAuthenticatorSelection` response status is returned, redirect
 
 Create a page to show the authenticators that are returned from the `RecoverPasswordAsync()` method. Provide the user with an option to select the authenticator for the verification process. For this use case, only the email authenticator is returned.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example Select password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png)
 
@@ -75,7 +75,7 @@ if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.Awai
 
 Redirect the user to a code verification page when your app receives the `AwaitingAuthenticatorVerification` status after it calls the `SelectRecoveryAuthenticatorAsync()` method.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an email code verification page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png)
 
@@ -106,7 +106,7 @@ If the `VerifyAuthenticatorAsync()` call is successful, then the `AwaitingPasswo
 
 Create a change password page that allows the user to enter their new password and initiate the password change.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example change password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-change-pwd.png)
 

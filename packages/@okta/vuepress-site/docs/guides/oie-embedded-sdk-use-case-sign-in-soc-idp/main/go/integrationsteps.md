@@ -19,7 +19,7 @@ if err != nil {
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
@@ -75,7 +75,7 @@ Identity Provider.
 
 The following sample application form shows the Facebook and Google IdP sign-in options.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays a sign-in page with the available Identity Providers](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-sign-in.png)
 
@@ -90,7 +90,7 @@ When the user clicks the Facebook IdP link, initially they are sent to the Okta 
 
 After the user clicks the sign-in link, the browser redirects the user to a sign-in page hosted by Facebook. To test this step, you can use the Facebook test user credentials that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
 

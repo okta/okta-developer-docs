@@ -8,11 +8,19 @@
 1. Open a browser window and navigate to the app's home page: `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home page.
 1. On the sign-in page, enter the username (email) and password you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-your-okta-account).
 
+   <div class="half">
+
    ![Displays the sample app sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png)
+
+   </div>
 
 1. Click **Sign In**. If you've successfully signed in, the app redirects you to the user profile page that displays basic user profile and security token information.
 
+   <div class="three-quarter border">
+
    ![Example user profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png)
+
+   </div>
 
 ### Troubleshoot
 
