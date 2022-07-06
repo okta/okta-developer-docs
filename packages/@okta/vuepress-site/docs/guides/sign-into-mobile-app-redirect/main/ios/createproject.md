@@ -10,7 +10,7 @@ The app contains three areas: the top area contains buttons for signing in and o
 
 The following image shows the completed app in both the sign-in and signed-on states:
 
-<div class="full border">
+<div class="three-quarter border">
 
 ![Two iPhone screenshots that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
 

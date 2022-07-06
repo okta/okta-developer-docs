@@ -22,4 +22,4 @@ func showUserInfo() {
 }
 ```
 
-The function reads the user information from the local ID token. The available information depend on the scopes that are specified in the `Okta.plist` file. You can also request information from the server using the `userInfo()` function of the an instance of `Credential`.
+The function reads the user information from the local ID token. The available information depend on the scopes that are specified in the `Okta.plist` file. You can also request information from the server with the `userInfo()` of the `Credential` class.
