@@ -44,13 +44,13 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 
 #### Developer documentation updates in 2022.07.0
 
-* A new ["Custom Password Recovery" guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/) is now available for those wanting to link Email Magic Links directly to their applications with the Java IDX SDK.
+* A new [Custom Password Recovery guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/) is now available for those wanting to link Email Magic Links directly to their applications with the Java IDX SDK.
 
-* A new ["User query options" guide](/docs/reference/user-query/) is now available, with best practices for retrieving users from your org by using the `search` instead of `filter` or `q` query parameters in the Users API.
+* A new [User query options guide](/docs/reference/user-query/) is now available, with best practices for retrieving users from your org by using the `search` instead of `filter` or `q` query parameters in the Users API.
 
-* New guides are now available for integrating [Google Authenticator](/docs/guides/authenticators-google-authenticator/java/main/), [Okta Email](/docs/guides/authenticators-okta-email/java/main/), and [WebAuthn authenticators](/docs/guides/authenticators-web-authn/java/main/#summary-of-steps) into an application with the Java IDX SDK.
+* New guides are now available for integrating [Google Authenticator](/docs/guides/authenticators-google-authenticator/java/main/), [Okta Email](/docs/guides/authenticators-okta-email/java/main/), and [WebAuthn authenticators](/docs/guides/authenticators-web-authn/java/main/) into an application with the Java IDX SDK.
 
-* The ["Customize email notifications" guide](/docs/guides/custom-email/main/) now includes a list of allowed HTML tags and elements.
+* The [Customize email notifications guide](/docs/guides/custom-email/main/) now includes a list of allowed HTML tags and elements.
 
 #### Bugs fixed in 2022.07.0
 

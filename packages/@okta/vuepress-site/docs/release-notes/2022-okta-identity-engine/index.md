@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Configurable API token rate limits is GA in Preview](#configurable-api-token-rate-limits-is-ga-in-preview) | July 7, 2022|
 | [Improvements to the self-service password reset experience](#improvements-to-the-self-service-password-reset-experience)| July 7, 2022 |
-| [Improvements to the Self-Service Registration experience](#improvements-to-the-self-service-registration-experience)| July 7, 2022|
+| [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)| July 7, 2022|
 | [Progressive enrollment is GA in Production](#progressive-enrollment-is-ga-in-production)| June 8, 2022 |
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-openid-connect-app-integrations) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
@@ -31,7 +31,7 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 Previously, the self-service password reset (SSPR) flow created unnecessary friction in the end user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application's assurance policy, the user is sent directly to the app. See [Configure the Email authenticator](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-email-authenticator.htm) <!-- OKTA-499509 -->
 
-#### Improvements to the Self-Service Registration experience
+#### Improvements to the self-service registration experience
 
 Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to end users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the end user’s email address, Okta uses the Registration - Activation template. This template includes a magic link for a smoother sign-in experience.  If email verification isn't immediately required to sign in to the application, use the Registration - Email Verification template. This template includes a link for end users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/-/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#understand-the-magic-link-flow). <!-- OKTA-497102 and OKTA-488966 -->
 
@@ -65,13 +65,13 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 #### Developer documentation updates in 2022.07.0
 
-* A new ["Custom Password Recovery" guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/) is now available for those wanting to link Email Magic Links directly to their applications with the Java IDX SDK.
+* A new [Custom Password Recovery guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/) is now available for those wanting to link Email Magic Links directly to their applications with the Java IDX SDK.
 
-* A new ["User query options" guide](/docs/reference/user-query/) is now available, with best practices for retrieving users from your org by using the `search` instead of `filter` or `q` query parameters in the Users API.
+* A new [User query options guide](/docs/reference/user-query/) is now available, with best practices for retrieving users from your org by using the `search` instead of `filter` or `q` query parameters in the Users API.
 
-* New guides are now available for integrating [Google Authenticator](/docs/guides/authenticators-google-authenticator/java/main/), [Okta Email](/docs/guides/authenticators-okta-email/java/main/), and [WebAuthn authenticators](/docs/guides/authenticators-web-authn/java/main/#summary-of-steps) into an application with the Java IDX SDK.
+* New guides are now available for integrating [Google Authenticator](/docs/guides/authenticators-google-authenticator/java/main/), [Okta Email](/docs/guides/authenticators-okta-email/java/main/), and [WebAuthn authenticators](/docs/guides/authenticators-web-authn/java/main/) into an application with the Java IDX SDK.
 
-* The ["Customize email notifications" guide](/docs/guides/custom-email/main/) now includes a list of allowed HTML tags and elements.
+* The [Customize email notifications guide](/docs/guides/custom-email/main/) now includes a list of allowed HTML tags and elements.
 
 #### Bugs fixed in 2022.07.0
 
