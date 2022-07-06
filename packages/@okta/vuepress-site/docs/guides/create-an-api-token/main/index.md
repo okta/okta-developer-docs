@@ -57,7 +57,7 @@ To create an API token, follow these steps:
 
 ## Token rate limits
 
-When API tokens are created, rate limits for each token interaction are set automatically to 100 percent of each API maximum limit. See [API rate limits](/docs/reference/rate-limits/). You can adjust this percentage by editing each token. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
+When API tokens are created, rate limits for each token interaction are set automatically to 50 percent of each API maximum limit. See [API rate limits](/docs/reference/rate-limits/). You can adjust this percentage by editing each token. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
 
 ## Token expiration and deactivation
 
