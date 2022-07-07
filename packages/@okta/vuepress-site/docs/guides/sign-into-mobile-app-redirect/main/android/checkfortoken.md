@@ -1,50 +1,40 @@
-Verify that the user is already signed in by checking the authentication status of the active session using the `isAuthenticated` method.
+1. Verify that a user is already signed in via the `token` property:
 
-1. Add the following code below the `client.registerCallback` block inside `BrowserSignInActivity.java` (anywhere below `sessionClient = client.getSessionClient();` would work):
-
-   ```java
-   if (sessionClient.isAuthenticated()) {
-       logger.info("User is already authenticated");
-       findViewById(R.id.browser_sign_in_btn).setVisibility(View.GONE);
-       findViewById(R.id.logout_btn).setVisibility(View.VISIBLE);
-       showUserInfo();
+   ```kotlin
+   if (CredentialBootstrap.defaultCredential().token == null) {
+       // There is no user signed in.
    } else {
-       sessionClient.clear();
+       // The user has signed in.
    }
    ```
 
 2. Verify that an authorized user still has access by checking that the access token is still valid. There are two ways to do this:
 
-   The simplest way is by checking the expiration date of the token. To do this, add the following code after confirming that a user is still authenticated:
+   The simplest way is by checking the `getAccessTokenIfValid` method.
 
-   ```java
-   if (sessionClient.isAuthenticated()) {
-     ...
-     try {
-       if (sessionClient.getTokens().isAccessTokenExpired()) {
-         // access_token expired
-       }
-     } catch (AuthorizationException error) {
-       logger.severe(String.format("Error: %s : %s", error.error, error.errorDescription));
-     }
+   ```kotlin
+   if (CredentialBootstrap.defaultCredential().getAccessTokenIfValid() == null) {
+     // The user no longer has valid credentials.
+   } else {
+     // The user is still authorized.
    }
    ```
 
    Another way is to use the [introspect](/docs/reference/api/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](/docs/reference/api/oidc/#response-properties-3), and you can use that information to check for token expiration:
 
-   ```java
-   sessionClient.introspectToken(sessionClient.getTokens().getRefreshToken(),
-     TokenTypeHint.ACCESS_TOKEN, new RequestCallback<>() {
-       @Override
-       public void onSuccess(@NonNull IntrospectInfo result) {
-         var expirationTime = result.getExp();
-         // check if expiration time has passed
-       }
-
-       @Override
-       public void onError(String error, AuthorizationException exception) {
-         // handle request error
-       }
-     }
-   );
-   ```
+    ```kotlin
+    when (val result = CredentialBootstrap.defaultCredential().introspectToken(TokenType.ACCESS_TOKEN)) {
+        is OidcClientResult.Error -> {
+            // There was an error fetching the result.
+            // See the exception in `result.exception`.
+        }
+        is OidcClientResult.Success -> {
+            val oidcIntrospectInfo = result.result
+            if (oidcIntrospectInfo.active) {
+                // The user is still authorized.
+            } else {
+                // The user no longer has valid credentials.
+            }
+        }
+    }
+    ```

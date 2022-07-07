@@ -1,31 +1,48 @@
-1. Create a new file called `okta_oidc_config.json` in the `app/src/main/res/raw` directory:
+1. Create a new file called `okta.properties` in the root directory of your project:
 
-2. Add the following content to it, replacing the placeholders with the Okta app integration values that you got earlier.
+1. Add the following content to it, replacing the placeholders with the Okta app integration values that you got earlier.
 
-   ```json
-   {
-     "client_id": "${clientId}",
-     "redirect_uri": "${redirectUri}",
-     "end_session_redirect_uri": "${logoutRedirectUri}",
-     "scopes": [
-       "openid",
-       "profile",
-       "offline_access"
-     ],
-     "discovery_uri": "https://${yourOktaDomain}"
-   }
-   ```
+    ```properties
+    discoveryUrl=${CLI_OKTA_ORG_URL}oauth2/default/.well-known/openid-configuration
+    clientId=${CLI_OKTA_CLIENT_ID}
+    signInRedirectUri=${CLI_OKTA_REVERSE_DOMAIN}:/callback
+    signOutRedirectUri=${CLI_OKTA_REVERSE_DOMAIN}:/logout
+    ```
 
-3. Create a singleton service class called `AuthClient.java` (we created ours in `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java`).
+1. Add the following content to the `app/build.gradle`
 
-4. Add the following inside the class to create the configuration object that the Okta SDK uses to communicate with your Okta application integration:
+    ```groovy
+    def oktaProperties = new Properties()
+    rootProject.file("okta.properties").withInputStream { oktaProperties.load(it) }
+    android.defaultConfig {
+        buildConfigField "String", 'DISCOVERY_URL', "\"${oktaProperties.getProperty('discoveryUrl')}\""
+        buildConfigField "String", 'CLIENT_ID', "\"${oktaProperties.getProperty('clientId')}\""
+        buildConfigField "String", 'SIGN_IN_REDIRECT_URI', "\"${oktaProperties.getProperty('signInRedirectUri')}\""
+        buildConfigField "String", 'SIGN_OUT_REDIRECT_URI', "\"${oktaProperties.getProperty('signOutRedirectUri')}\""
+    }
+    ```
 
-   ```java
-   private AuthClient(Context context) {
-     var config = new OIDCConfig.Builder()
-                       .withJsonFile(context, R.raw.okta_oidc_config)
-                       .create();
-   }
-   ```
+1. You will need to perform a gradle sync for the build changes to be reflected in Android Studio, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files) for instructions on how to perform a gradle sync.
 
-> **Note:** The sample uses only the main application activity to keep things simple. We recommend that production apps follow the latest [Android architecture guidelines](https://developer.android.com/topic/architecture).
+1. Create a class called `BrowserSignInApplication.kt` (we created ours in `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInApplication.kt`).
+
+1. Replace the contents with the following to initialize the SDK:
+
+    ```kotlin
+    class BrowserSignInApplication : Application() {
+        override fun onCreate() {
+            super.onCreate()
+            // Initializes Auth Foundation and Credential Bootstrap classes for use in the Activity.
+            AuthFoundationDefaults.cache = SharedPreferencesCache.create(this)
+            val oidcConfiguration = OidcConfiguration(
+                clientId = BuildConfig.CLIENT_ID,
+                defaultScope = "openid email profile offline_access",
+            )
+            val client = OidcClient.createFromDiscoveryUrl(
+                oidcConfiguration,
+                BuildConfig.DISCOVERY_URL.toHttpUrl(),
+            )
+            CredentialBootstrap.initialize(client.createCredentialDataSource(this))
+        }
+    }
+    ```

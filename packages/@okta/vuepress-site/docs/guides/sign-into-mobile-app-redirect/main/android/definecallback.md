@@ -1,13 +1,15 @@
-Define the following placeholder inside your app's `build.gradle`:
+Parse and define the following placeholder inside your app's `build.gradle`:
 
 ```gradle
+static def parseScheme(String uri) {
+    def index = uri.indexOf(':/')
+    if (index == -1) {
+        throw new IllegalStateException("Scheme is not in a valid format.")
+    }
+    return uri.substring(0, index)
+}
+
 android.defaultConfig.manifestPlaceholders = [
-  "appAuthRedirectScheme": "com.okta.example"
+  "webAuthenticationRedirectScheme": parseScheme(oktaProperties.getProperty('signInRedirectUri'))
 ]
 ```
-
-This defines your redirect scheme.
-
-You can add `:/callback` to the scheme to get the full redirect URI — `com.okta.example:/callback`. Keep this value somewhere safe as you need in the following steps.
-
-> **Note**: `com.okta.example` is just an example scheme. You can replace it with any string that follows the pattern of `domain.company.appname`.

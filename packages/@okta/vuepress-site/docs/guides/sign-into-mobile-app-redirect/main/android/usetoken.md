@@ -1,26 +1,24 @@
-To make authenticated requests to your resource server, get the access token from the `SessionClient`. The function below sends a request using `HttpURLConnection`:
+To make authenticated requests to your resource server, add the access token interceptor to your `OkHttpClient` instance.
 
-```java
-private void callServerApi() throws IOException, AuthorizationException {
-  var token = sessionClient.getTokens();
-  var accessToken = token.getAccessToken();
+```kotlin
+private suspend fun callResourceServer() {
+    val accessTokenInterceptor = CredentialBootstrap.defaultCredential().accessTokenInterceptor()
+    val okHttpClient = OkHttpClient.Builder().addInterceptor(accessTokenInterceptor).build()
+    val request = Request.Builder().url("https://${resourceUrl}").build()
+    okHttpClient.newCall(request).enqueue(object : Callback {
+        override fun onFailure(call: Call, e: IOException) {
+            // An error occurred.
+        }
 
-  var url = new URL("https://${resourceUrl}");
-  var connection = (HttpURLConnection) url.openConnection();
-
-  var bearerToken = String.format("Bearer %s", accessToken);
-  connection.setRequestProperty("Authorization", bearerToken);
-  connection.setRequestProperty("Accept", "application/json");
-
-  try {
-    var responseCode = connection.getResponseCode();
-    if (responseCode == 200) {
-      logger.info("Authenticated successfully");
-    } else {
-      // handle error codes
-    }
-  } finally {
-    connection.disconnect();
-  }
+        override fun onResponse(call: Call, response: Response) {
+            if (response.code == 200) {
+                // Authenticated successfully.
+            } else {
+                // Invalid status code.
+            }
+        }
+    })
 }
 ```
+
+The `accessTokenInterceptor` method attaches an `Authorization: Bearer ${token}` header with the access token to all requests. Credentials are internally refreshed when needed. If no valid access token is available, no authorization header will be added.
