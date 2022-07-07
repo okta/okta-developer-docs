@@ -53,13 +53,13 @@ export default {
     $route(to, from) {
       if (from.path !== to.path) {
         this.updateSidebarItems();
-        document.querySelector('.sidebar-area').addEventListener("scroll", this.checkHeight);
+        const sidebarArea = document.querySelector('.sidebar-area')
+        if (sidebarArea) {
+          sidebarArea.addEventListener("scroll", this.checkHeight);
+        }
       }
     },
   },
-  // beforeDestroy() {
-  //   document.querySelector('.sidebar-area').removeEventListener("scroll", this.checkHeight);
-  // },
   methods: {
     getLastChildrenActiveEl() {
       let activeItems = Array.from(document.querySelectorAll(".subnav-active"));

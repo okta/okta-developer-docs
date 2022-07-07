@@ -48,7 +48,13 @@ export default {
       link.iHaveChildrenActive = false;
 
       if (!link.path) {
-        link.path = parent.path + this.sanitizeTitle(link) + '/';
+        link.path = parent.path + this.sanitizeTitle(link) + "/";
+        if (!link.guideName) {
+          link.path = parent.path.replace(
+            this.sanitizeTitle(parent),
+            this.sanitizeTitle(link)
+          );
+        }
       }
 
       if (link.path) {
@@ -68,6 +74,7 @@ export default {
 
       return link.iHaveChildrenActive;
     },
+    
     getGuides() {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
