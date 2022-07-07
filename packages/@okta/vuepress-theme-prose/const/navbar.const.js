@@ -856,7 +856,7 @@ export const reference = [
             ],
           },
           { title: "Error Codes", path: "/docs/references/error-codes/" },
-          { title: "User query options", path: "/docs/references/user-query/" },
+          // { title: "User query options", path: "/docs/references/user-query/" },
           { title: "Sign in Your Users", path: "empty" },
           { title: "Authentication", path: "/docs/references/api/authn/" },
           { title: "Identity Providers", path: "/docs/references/api/idps/" },
