@@ -1,6 +1,6 @@
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
 
-> **Note:** The sample code uses SwiftUI features that are available in iOS 14, and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
+> **Note:** The sample code uses SwiftUI features that are available in iOS 14 and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
 
 #### Add the UI
 
