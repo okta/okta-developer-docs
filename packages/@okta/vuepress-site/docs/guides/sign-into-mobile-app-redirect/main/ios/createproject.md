@@ -144,6 +144,6 @@ struct ContentView: View {
 }
 ```
 
-The last three functions are utilities. The two overloads of `showError` set the state variables for the title and text of an alert, then set `showingError` which triggers the `.alert` view modifier to present the alert.
+The last three functions are utilities. The two overloads of `showError` set the state variables for the title and text of an alert, then set `showingError` that triggers the `.alert` view modifier to present the alert.
 
 The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
