@@ -168,25 +168,52 @@ Okta can assist you in collecting profile data from end users before they can ac
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
 2. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
 3. In the **Profile Enrollment** section, click **Edit** to modify the options:
-   - **Self-service registration:** You can choose one of two options:
-      - **Allowed:** Select this option if you want your end users to be able to self-register their Okta account in your org by clicking the **Sign up** link on the Sign-In Widget.
-      - **Denied:** Select this option if you want your end users to create their Okta account through another method or if you want to create a progressive enrollment policy.
-         - In progressive enrollment scenarios, self-service registration is denied but users are prompted for missing profile attributes the next time they sign in. See [New sign-in experience](https://help.okta.com/okta_help.htm?id=ext-sign-in-flows).
-         - With the **Denied** option selected, the **Sign up** link is hidden on the Sign-In Widget.
-      - If you want to allow users to self-register for an app integration but not to your entire org, select **Denied** in your Default Policy. Then create a new profile enrollment policy specifically for that app with **Self-service registration** set to **Allowed**.
-    - **Email verification:** If this checkbox is selected, the end user must verify their account through an automated email sent to the address they provided. Until they complete this step, they can't access the app integrations that use this policy. If this checkbox isn't selected, email verification isn't required to sign in. Email verification is required if your org is using password-optional authentication.
-    - **Add the user to group:** End users are automatically added to all groups listed here. If needed, click **Go to Groups** to open the Groups page in the Admin Console and manage the groups in your org.
-    - **Inline hook:** To use an inline hook as part of your user registration process, first you must add the hook to your Okta workflow. See [Inline Hooks](https://help.okta.com/okta_help.htm?id=ext_inlinehooks). After the hook has been created, select it from the **Use the following inline hook** dropdown menu.
+   * **Self-service registration:** You can choose one of two options:
+      * **Allowed:** Select this option if you want your end users to be able to self-register their Okta account in your org by clicking the **Sign up** link on the Sign-In Widget.
+      * **Denied:** Select this option if you want your end users to create their Okta account through another method or if you want to create a progressive enrollment policy.
+         * In progressive enrollment scenarios, self-service registration is denied but users are prompted for missing profile attributes the next time they sign in. See [New sign-in experience](https://help.okta.com/okta_help.htm?id=ext-sign-in-flows).
+         * With the **Denied** option selected, the **Sign up** link is hidden on the Sign-In Widget.
+      * If you want to allow users to self-register for an app integration but not to your entire org, select **Denied** in your Default Policy. Then create a new profile enrollment policy specifically for that app with **Self-service registration** set to **Allowed**.
+   * **Email verification:** If this checkbox is selected, the end user must verify their account through an automated email sent to the address they provided. Until they complete this step, they can't access the app integrations that use this policy. If this checkbox isn't selected, email verification isn't required to sign in. Email verification is required if your org is using password-optional authentication.
+   * **Add the user to group:** End users are automatically added to all groups listed here. If needed, click **Go to Groups** to open the Groups page in the Admin Console and manage the groups in your org.
+   * **Inline hook:** To use an inline hook as part of your user registration process, first you must add the hook to your Okta workflow. See [Inline Hooks](https://help.okta.com/okta_help.htm?id=ext_inlinehooks). After the hook has been created, select it from the **Use the following inline hook** dropdown menu.
     After selecting an inline hook, you can **Run this hook**:
-      - **When a new user is created:** This trigger occurs during a self-service registration request.
-      - **When attributes are collected for an existing user:** This trigger occurs during a progressive enrollment sign-in request.
-      - **Both:** This trigger occurs during a self-service registration request and also during a progressive enrollment sign-in request.
-    - **Customize label:** The profile enrollment form shown to end users can be customized with a header at the top and a confirmation button at the bottom. Enter the text you want displayed to your end users:
-       - **Form header:** The text at the top of the enrollment form. For example, `Sign in` or `Log in to your personal account`.
-       - **Submit button:** The text displayed on the confirmation button. For example `Submit` or `Log in`.
+      * **When a new user is created:** This trigger occurs during a self-service registration request.
+      * **When attributes are collected for an existing user:** This trigger occurs during a progressive enrollment sign-in request.
+      * **Both:** This trigger occurs during a self-service registration request and also during a progressive enrollment sign-in request.
+   * **Customize label:** The profile enrollment form shown to end users can be customized with a header at the top and a confirmation button at the bottom. Enter the text you want displayed to your end users:
+      * **Form header:** The text at the top of the enrollment form. For example, `Sign in` or `Log in to your personal account`.
+      * **Submit button:** The text displayed on the confirmation button. For example `Submit` or `Log in`.
 4. Click **Save**.
 
 ### Create a custom profile enrollment form
+
+You can create or edit a custom profile enrollment form for progressive enrollment scenarios. End users are prompted for input during their next sign-in attempt if a required attribute is missing from their profile.
+
+Before you being, keep the following in mind:
+
+* The attributes added to the profile enrollment form must exist in the default user profile for Okta Universal Directory. Both base and custom attributes are permitted. See [About profile types](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-profiles).
+* The User permission for each attribute must be set to Read-Write before the end user can update the attribute using the profile enrollment form.
+* See [Understand attribute rules for the profile enrollment form](#understand-attribute-rules-for-the-profile-enrollment-form) for a complete summary on adding, editing, and deleting profile attributes.
+* Super admin access is required to modify the profile enrollment form.
+
+#### Task 1 - Customize the form sign-in options
+
+The profile enrollment form shown to end users can be customized with a header at the top and a confirmation button at the bottom.
+
+Use the following procedure to change these labels:
+
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+2. Under the Actions column for the policy you want to update, select the **Edit** icon.
+3. In the **Profile enrollment** section, click **Edit** to modify the options.
+4. Under **Customize label**, enter the text you want to show your end users:
+   * **Form header:** The text at the top of the enrollment form. For example, `Sign in` or `Log in to your personal account`.
+   * **Submit button:** The text displayed on the confirmation button. For example, `Submit` or `Log in`.
+
+#### Task 2 - Create the custom profile enrollment form
+
+
+#### Task 3 - Remove attributes from the enrollment form
 
 
 
