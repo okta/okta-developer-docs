@@ -13,11 +13,11 @@ title: Okta Identity Engine API Products release notes 2022
 | [Configurable API token rate limits is GA in Preview](#configurable-api-token-rate-limits-is-ga-in-preview) | July 7, 2022|
 | [Improvements to the self-service password reset experience](#improvements-to-the-self-service-password-reset-experience)| July 7, 2022 |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)| July 7, 2022|
+| [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [Progressive enrollment is GA in Production](#progressive-enrollment-is-ga-in-production)| June 8, 2022 |
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
-| [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [User-scoped MyAccount API is GA in Production](#user-scoped-myaccount-api-is-ga-in-production)| June 8, 2022 |
 | [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
@@ -35,6 +35,10 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to end users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the end user’s email address, Okta uses the Registration - Activation template. This template includes a magic link for a smoother sign-in experience.  If email verification isn't immediately required to sign in to the application, use the Registration - Email Verification template. This template includes a link for end users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/-/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#understand-the-magic-link-flow). <!-- OKTA-497102 and OKTA-488966 -->
 
+#### Loading Page Animation feature for the Brands API is EA in Preview
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#variants-for-the-okta-loading-page) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+
 #### Progressive enrollment is GA in Production
 
 Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/). <!-- OKTA-508479 -->
@@ -50,10 +54,6 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 #### Support for Okta Resource Name is GA in Preview
 
 The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
-
-#### Loading Page Animation feature for the Brands API is EA in Preview
-
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#variants-for-the-okta-loading-page) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### Trusted Origins for iFrame embedding is GA in Production
 

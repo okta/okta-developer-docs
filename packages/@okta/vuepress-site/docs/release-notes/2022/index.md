@@ -10,6 +10,7 @@ title: Okta API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Configurable API token rate limits is GA in Preview](#configurable-api-token-rate-limits-is-ga-in-preview) | July 7, 2022|
 | [Deprecated MyAccount API endpoints now have limited availability](#deprecated-myaccount-api-endpoints-now-have-limited-availability) | July 7, 2022|
+| [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
@@ -26,6 +27,10 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 The existing MyAccount API (`api/v1/myaccount`) endpoints are now only accessible to orgs that had that feature enabled for their orgs prior to June 2022. From June 2022 forward, use the new IdP MyAccount API (`/idp/myaccount`) endpoints instead. <!-- OKTA-509664 -->
 
+#### Loading Page Animation feature for the Brands API is EA in Preview
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#variants-for-the-okta-loading-page) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
 You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
@@ -37,10 +42,6 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 #### Support for Okta Resource Name is GA in Preview
 
 The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
-
-#### The Loading Page API is EA in Preview
-
-When redirecting applications, you can use the [Loading Page API](/docs/reference/api/brands/#variants-for-the-okta-loading-page) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
