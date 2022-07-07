@@ -19,7 +19,7 @@ if err != nil {
 
 Build a sign-in page that captures the username and password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
@@ -97,7 +97,7 @@ return
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-verify-page.png)
 
@@ -142,7 +142,7 @@ if !ok || !invCode.(bool) {
 The next step is to build the code verification page. After the user chooses the email factor
 to validate their identity, the user needs to enter the verification code from their email.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-code-confirm-page.png)
 
