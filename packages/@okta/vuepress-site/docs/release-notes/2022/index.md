@@ -12,18 +12,17 @@ title: Okta API Products release notes 2022
 
 #### Bug fixed in 2022.06.3
 
-* There was no limit on the number of factor sequences that could be added in a chain through a Policy API update. (OKTA-499259)
+There was no limit on the number of factor sequences that could be added in a chain through a Policy API update. (OKTA-499259)
 
 ### Weekly release 2022.06.2
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Reset Factors endpoint includes a new optional request parameter](#reset-factors-endpoint-includes-a-new-optional-request-parameter)                      | June 23, 2022            |
 | [Bugs fixed in 2022.06.2](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
 
-#### Reset Factors endpoint includes a new optional request parameter
+<!-- #### Reset Factors endpoint includes a new optional request parameter
 
-The `/reset_factors` endpoint has a new optional request parameter for the [Reset Factor lifecycle operation](/docs/reference/api/users/#reset-factors). You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168-->
+The `/reset_factors` endpoint has a new optional request parameter for the [Reset Factor lifecycle operation](/docs/reference/api/users/#reset-factors). You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168  REMOVED as per Katherine Chan - feature disabled with kill switch June 30, 2022-->
 
 #### Bugs fixed in 2022.06.2
 
