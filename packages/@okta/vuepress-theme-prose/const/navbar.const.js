@@ -5,87 +5,87 @@ export const concepts = [
     subLinks: [
       {
         title: "API Access Management",
-        path: "/docs/concepts/api-access-management/"
+        path: "/docs/concepts/api-access-management/",
       },
       {
         title: "Authorization Servers",
-        path: "/docs/concepts/auth-servers/"
+        path: "/docs/concepts/auth-servers/",
       },
       {
         title: "Event Hooks",
-        path: "/docs/concepts/event-hooks/"
+        path: "/docs/concepts/event-hooks/",
       },
       {
         title: "Events API Migration",
-        path: "/docs/concepts/events-api-migration/"
+        path: "/docs/concepts/events-api-migration/",
       },
       {
         title: "External Identity Providers",
-        path: "/docs/concepts/identity-providers/"
+        path: "/docs/concepts/identity-providers/",
       },
       {
         title: "Feature Lifecycle Management",
-        path: "/docs/concepts/feature-lifecycle-management/"
+        path: "/docs/concepts/feature-lifecycle-management/",
       },
       {
         title: "Role Assignment",
-        path: "/docs/concepts/role-assignment/"
+        path: "/docs/concepts/role-assignment/",
       },
       {
         title: "How Okta works",
-        path: "/docs/concepts/how-okta-works/"
+        path: "/docs/concepts/how-okta-works/",
       },
       {
         title: "Inline Hooks",
-        path: "/docs/concepts/inline-hooks/"
+        path: "/docs/concepts/inline-hooks/",
       },
       {
         title: "Interaction Code grant type",
-        path: "/docs/concepts/interaction-code/"
+        path: "/docs/concepts/interaction-code/",
       },
       {
         title: "Key Rotation",
-        path: "/docs/concepts/key-rotation/"
+        path: "/docs/concepts/key-rotation/",
       },
       {
         title: "Monitor Okta",
-        path: "/docs/concepts/monitor/"
+        path: "/docs/concepts/monitor/",
       },
       {
         title: "Multi-tenant solutions",
-        path: "/docs/concepts/multi-tenancy/"
+        path: "/docs/concepts/multi-tenancy/",
       },
       {
         title: "OAuth 2.0 and OpenID Connect Overview",
-        path: "/docs/concepts/oauth-openid/"
+        path: "/docs/concepts/oauth-openid/",
       },
       {
         title: "Okta deployment models — redirect vs. embedded",
-        path: "/docs/concepts/redirect-vs-embedded/"
+        path: "/docs/concepts/redirect-vs-embedded/",
       },
       {
         title: "Okta Data Model",
-        path: "/docs/concepts/okta-data-model/"
+        path: "/docs/concepts/okta-data-model/",
       },
       {
         title: "Okta Identity Engine Overview",
-        path: "/docs/guides/oie-intro/"
+        path: "/docs/guides/oie-intro/",
       },
       {
         title: "Okta Organizations",
-        path: "/docs/concepts/okta-organizations/"
+        path: "/docs/concepts/okta-organizations/",
       },
       {
         title: "Policies",
-        path: "/docs/concepts/policies/"
+        path: "/docs/concepts/policies/",
       },
       {
         title: "Session management",
-        path: "/docs/concepts/session/"
+        path: "/docs/concepts/session/",
       },
       {
         title: "User Profiles",
-        path: "/docs/concepts/user-profiles/"
+        path: "/docs/concepts/user-profiles/",
       },
       {
         title: "Understanding SAML",
@@ -93,9 +93,9 @@ export const concepts = [
         subLinks: [
           {
             title: "SAML FAQ",
-            path: "/docs/concepts/saml/faqs/"
-          }
-        ]
+            path: "/docs/concepts/saml/faqs/",
+          },
+        ],
       },
       {
         title: "Understanding SCIM",
@@ -103,12 +103,12 @@ export const concepts = [
         subLinks: [
           {
             title: "SCIM FAQ",
-            path: "/docs/concepts/scim/faqs/"
-          }
-        ]
-      }
-    ]
-  }
+            path: "/docs/concepts/scim/faqs/",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const guides = [
@@ -144,8 +144,8 @@ export const guides = [
               {
                 title: "Refresh access and ID tokens",
                 guideName: "oie-embedded-common-refresh-tokens",
-              }
-            ]
+              },
+            ],
           },
           {
             title: "Embedded authentication",
@@ -160,14 +160,15 @@ export const guides = [
                     guideName: "oie-embedded-common-org-setup",
                   },
                   {
-                    title: "Download and set up the SDK, Sign-In Widget, and sample apps",
+                    title:
+                      "Download and set up the SDK, Sign-In Widget, and sample apps",
                     guideName: "oie-embedded-common-download-setup-app",
                   },
                   {
                     title: "Run the sample apps",
                     guideName: "oie-embedded-common-run-samples",
                   },
-                ]
+                ],
               },
               {
                 title: "Auth JS fundamentals",
@@ -224,8 +225,8 @@ export const guides = [
                   {
                     title: "SDK limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
-                  }
-                ]
+                  },
+                ],
               },
               {
                 title: "Embedded Sign-In Widget use cases",
@@ -242,14 +243,13 @@ export const guides = [
                   {
                     title: "Sign in with Facebook using the Widget",
                     guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
-                  }
-                ]
+                  },
+                ],
               },
-            ]
+            ],
           },
           {
             title: "Authenticators",
-            guideName: "authenticators-overview",
             subLinks: [
               {
                 title: "Okta email",
@@ -267,51 +267,49 @@ export const guides = [
                 title: "Web Authentication",
                 guideName: "authenticators-web-authn",
               },
-            ]
+            ],
           },
           {
             title: "Configure User-Scoped account management",
-            guideName: "configure-user-scoped-account-management"
+            guideName: "configure-user-scoped-account-management",
           },
           {
             title: "Advanced use cases",
-            guideName: "advanced-use-case-overview",
             subLinks: [
               {
                 title: "Custom password recovery",
-                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
-              }
-            ]
+                guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa",
+              },
+            ],
           },
           {
             title: "Mobile authentication",
             subLinks: [
               {
                 title: "Identity Engine SDK overview",
-                guideName: "mobile-idx-sdk-overview"
+                guideName: "mobile-idx-sdk-overview",
               },
               {
                 title: "Unlock a mobile app with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics",
-                path: "/docs/guides/unlock-mobile-app-with-biometrics/"
               },
               {
                 title: "Build a custom sign-in UI in your mobile app",
                 guideName: "build-custom-ui-mobile",
-                path: "/docs/guides/build-custom-ui-mobile/"
               },
               {
                 title: "Share a sign-in session with native mobile apps",
                 guideName: "shared-sso-android-ios",
-                path: "/docs/guides/shared-sso-android-ios/"
-              }
-            ]
+              },
+            ],
           },
           {
             title: "Configure an access policy",
             guideName: "configure-access-policy",
           },
-          { title: "Configure a Global Session Policy and authentication policies",
+          {
+            title:
+              "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy",
           },
           {
@@ -324,65 +322,65 @@ export const guides = [
                 subLinks: [
                   {
                     title: "Amazon",
-                    path: "/docs/guides/social-login/amazon/main/"
+                    path: "/docs/guides/social-login/amazon/main/",
                   },
                   {
                     title: "Apple",
-                    path: "/docs/guides/add-an-external-idp/apple/main/"
+                    path: "/docs/guides/add-an-external-idp/apple/main/",
                   },
                   {
                     title: "Discord",
-                    path: "/docs/guides/social-login/discord/main/"
+                    path: "/docs/guides/social-login/discord/main/",
                   },
                   {
                     title: "Facebook",
-                    path: "/docs/guides/add-an-external-idp/facebook/main/"
+                    path: "/docs/guides/add-an-external-idp/facebook/main/",
                   },
                   {
                     title: "GitHub",
-                    path: "/docs/guides/social-login/github/main/"
+                    path: "/docs/guides/social-login/github/main/",
                   },
                   {
                     title: "GitLab",
-                    path: "/docs/guides/social-login/gitlab/main/"
+                    path: "/docs/guides/social-login/gitlab/main/",
                   },
                   {
                     title: "Google",
-                    path: "/docs/guides/add-an-external-idp/google/main/"
+                    path: "/docs/guides/add-an-external-idp/google/main/",
                   },
                   {
                     title: "LinkedIn",
-                    path: "/docs/guides/add-an-external-idp/linkedin/main/"
+                    path: "/docs/guides/add-an-external-idp/linkedin/main/",
                   },
                   {
                     title: "Microsoft",
-                    path: "/docs/guides/add-an-external-idp/microsoft/main/"
+                    path: "/docs/guides/add-an-external-idp/microsoft/main/",
                   },
                   {
                     title: "Paypal",
-                    path: "/docs/guides/social-login/paypal/main/"
+                    path: "/docs/guides/social-login/paypal/main/",
                   },
                   {
                     title: "Salesforce",
-                    path: "/docs/guides/social-login/salesforce/main/"
+                    path: "/docs/guides/social-login/salesforce/main/",
                   },
                   {
                     title: "Spotify",
-                    path: "/docs/guides/social-login/spotify/main/"
+                    path: "/docs/guides/social-login/spotify/main/",
                   },
                   {
                     title: "Xero",
-                    path: "/docs/guides/social-login/xero/main/"
+                    path: "/docs/guides/social-login/xero/main/",
                   },
                   {
                     title: "Yahoo",
-                    path: "/docs/guides/social-login/yahoo/main/"
+                    path: "/docs/guides/social-login/yahoo/main/",
                   },
                   {
                     title: "Yahoo Japan",
-                    path: "/docs/guides/social-login/yahoojp/main/"
-                  }
-                ]
+                    path: "/docs/guides/social-login/yahoojp/main/",
+                  },
+                ],
               },
               {
                 title: "Enterprise Identity Providers",
@@ -390,36 +388,39 @@ export const guides = [
                 subLinks: [
                   {
                     title: "SAML 2.0",
-                    path: "/docs/guides/add-an-external-idp/saml2/main/"
+                    path: "/docs/guides/add-an-external-idp/saml2/main/",
                   },
                   {
                     title: "OpenID Connect",
-                    path: "/docs/guides/add-an-external-idp/openidconnect/main/"
+                    path: "/docs/guides/add-an-external-idp/openidconnect/main/",
                   },
                   {
                     title: "Okta to Okta",
-                    path: "/docs/guides/add-an-external-idp/oktatookta/main/"
+                    path: "/docs/guides/add-an-external-idp/oktatookta/main/",
                   },
                   {
                     title: "Azure AD",
-                    path: "/docs/guides/add-an-external-idp/azure/main/"
+                    path: "/docs/guides/add-an-external-idp/azure/main/",
                   },
                   {
                     title: "Smart Card",
-                    path: "/docs/guides/add-an-external-idp/smartcard/"
-                  }
-                ]
+                    path: "/docs/guides/add-an-external-idp/smartcard/",
+                  },
+                ],
               },
-            ]
+            ],
           },
-        
+          { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Basics",
             path: "#",
             subLinks: [
-            
-            
-            
+              {
+                title: "Create an API token",
+                guideName: "create-an-api-token",
+              },
+              { title: "Enable CORS", guideName: "enable-cors" },
+              { title: "Find your Okta domain", guideName: "find-your-domain" },
               {
                 title: "Find your application credentials",
                 guideName: "find-your-app-credentials",
@@ -428,10 +429,7 @@ export const guides = [
                 title: "Share Application Key Credentials for IdPs across Apps",
                 guideName: "sharing-cert",
               },
-              { 
-                title: "Set up SAML Tracer", 
-                guideName: "saml-tracer",
-              },
+              { title: "Set up SAML Tracer", guideName: "saml-tracer" },
               {
                 title: "Upgrade SAML Apps to SHA256",
                 guideName: "updating-saml-cert",
@@ -443,69 +441,70 @@ export const guides = [
               {
                 title: "Set up self-service registration",
                 guideName: "set-up-self-service-registration",
-              }
-            ]
-          }
-        ]
+              },
+            ],
+          },
+        ],
       },
       {
         title: "Okta Identity Engine upgrade",
         subLinks: [
           {
             title: "Identity Engine upgrade overview",
-            guideName: "oie-upgrade-overview"
+            guideName: "oie-upgrade-overview",
           },
           {
             title: "Plan embedded auth app upgrades",
-            guideName: "oie-upgrade-plan-embedded-upgrades"
+            guideName: "oie-upgrade-plan-embedded-upgrades",
           },
           {
             title: "Identity Engine limitations",
-            guideName: "ie-limitations"
+            guideName: "ie-limitations",
           },
           {
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {
                 title: "Upgrade your widget",
-                guideName: "oie-upgrade-sign-in-widget"
+                guideName: "oie-upgrade-sign-in-widget",
               },
               {
                 title: "Deprecated JavaScript methods in the widget",
-                guideName: "oie-upgrade-sign-in-widget-deprecated-methods"
+                guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
               },
               {
                 title: "Updates to widget styling",
-                guideName: "oie-upgrade-sign-in-widget-styling"
+                guideName: "oie-upgrade-sign-in-widget-styling",
               },
               {
                 title: "Updates to widget i18n properties",
-                guideName: "oie-upgrade-sign-in-widget-i18n"
-              }
-            ]
+                guideName: "oie-upgrade-sign-in-widget-i18n",
+              },
+            ],
           },
           {
             title: "Identity Engine SDK upgrade",
             subLinks: [
               {
                 title: "Add the Identity Engine SDK to your app",
-                guideName: "oie-upgrade-add-sdk-to-your-app"
+                guideName: "oie-upgrade-add-sdk-to-your-app",
               },
               {
                 title: "Upgrade your application to the Identity Engine SDK",
-                guideName: "oie-upgrade-api-sdk-to-oie-sdk"
+                guideName: "oie-upgrade-api-sdk-to-oie-sdk",
               },
               {
                 title: "Understand how sessions work after the upgrade",
-                guideName: "oie-upgrade-sessions-api"
-              }
-            ]
+                guideName: "oie-upgrade-sessions-api",
+              },
+            ],
           },
           {
-            title: "Understand MFA enrollment policy API changes after the upgrade",
-            guideName: "oie-upgrade-mfa-enroll-policy"
-          }
-        ]
+            title:
+              "Understand MFA enrollment policy API changes after the upgrade",
+            guideName: "oie-upgrade-mfa-enroll-policy",
+          },
+        ],
       },
       {
         title: "Authorization",
@@ -523,10 +522,7 @@ export const guides = [
             title: "Configure SSO for Native apps",
             guideName: "configure-native-sso",
           },
-          { 
-            title: "Request user consent",
-            guideName: "request-user-consent",
-          },
+          { title: "Request user consent", guideName: "request-user-consent" },
           {
             title: "Configure Device Authorization Grant Flow",
             guideName: "device-authorization-grant",
@@ -558,17 +554,12 @@ export const guides = [
                 guideName: "customize-tokens-dynamic",
               },
               {
-                title: "Customize tokens returned from Okta with a static allow list",
+                title:
+                  "Customize tokens returned from Okta with a static allow list",
                 guideName: "customize-tokens-static",
               },
-              { 
-                title: "Refresh access tokens",
-                guideName: "refresh-tokens",
-              },
-              { 
-                title: "Revoke Tokens",
-                guideName: "revoke-tokens",
-              },
+              { title: "Refresh access tokens", guideName: "refresh-tokens" },
+              { title: "Revoke Tokens", guideName: "revoke-tokens" },
               {
                 title: "Work with Okta session cookies",
                 guideName: "session-cookie",
@@ -577,13 +568,10 @@ export const guides = [
                 title: "Validate Access Tokens",
                 guideName: "validate-access-tokens",
               },
-              { 
-                title: "Validate ID Tokens",
-                guideName: "validate-id-tokens",
-              }
-            ]
-          }
-        ]
+              { title: "Validate ID Tokens", guideName: "validate-id-tokens" },
+            ],
+          },
+        ],
       },
       {
         title: "Brand and Customize",
@@ -611,9 +599,9 @@ export const guides = [
           },
           {
             title: "Customize themes",
-            path: "/docs/guides/customize-themes/"
-          }
-        ]
+            path: "/docs/guides/customize-themes/",
+          },
+        ],
       },
       {
         title: "OIN Partner Integrations",
@@ -621,45 +609,44 @@ export const guides = [
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
-            path: "/docs/guides/scim-provisioning-integration-overview/main/",
             subLinks: [
               {
                 title: "Prepare your SCIM API service",
-                path: "/docs/guides/scim-provisioning-integration-prepare/main/"
+                path: "/docs/guides/scim-provisioning-integration-prepare/main/",
               },
               {
                 title: "Connect your SCIM API service to Okta",
-                path: "/docs/guides/scim-provisioning-integration-connect/main/"
+                path: "/docs/guides/scim-provisioning-integration-connect/main/",
               },
-              { title: "Test your SCIM Okta integration",
-                path: "/docs/guides/scim-provisioning-integration-test/main/"
-              }
-            ]
+              {
+                title: "Test your SCIM Okta integration",
+                path: "/docs/guides/scim-provisioning-integration-test/main/",
+              },
+            ],
           },
           {
             title: "OIDC and the OIN: A Developer Primer",
-            path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [
               {
                 title: "Protocol-level requirements",
-                path: "/docs/guides/oin-oidc-protocols/main/"
+                path: "/docs/guides/oin-oidc-protocols/main/",
               },
               {
                 title: "Multi-tenancy",
-                path: "/docs/guides/oin-oidc-multi-tenancy/main/"
+                path: "/docs/guides/oin-oidc-multi-tenancy/main/",
               },
               {
                 title: "OIN integration best practices",
-                path: "/docs/guides/oin-oidc-best-practices/main/"
-              }
-            ]
+                path: "/docs/guides/oin-oidc-best-practices/main/",
+              },
+            ],
           },
           {
             title: "Build a Single Sign-On (SSO) integration",
             guideName: "build-sso-integration",
           },
-          { title: "Submit an app integration", guideName: "submit-app" }
-        ]
+          { title: "Submit an app integration", guideName: "submit-app" },
+        ],
       },
       {
         title: "API Security",
@@ -684,34 +671,37 @@ export const guides = [
           {
             title: "Secure OAuth API connection between orgs",
             guideName: "secure-oauth-between-orgs",
-          }
-        ]
+          },
+        ],
       },
       {
         title: "Deploy to Production",
         path: "#",
         subLinks: [
-          { title: "Deployment checklists", path: "/docs/guides/deployment-checklist/main/" },
-          { title: "Deploy your app", guideName: "deploy-your-app", path: "/docs/guides/deploy-your-app/" },
+          {
+            title: "Deployment checklists",
+            path: "/docs/guides/deployment-checklist/main/",
+          },
+          { title: "Deploy your app", guideName: "deploy-your-app" },
           {
             title: "Migrate to Okta",
             path: "#",
             subLinks: [
               {
                 title: "Prerequisites",
-                path: "/docs/guides/migrate-to-okta-prerequisites/main/"
+                path: "/docs/guides/migrate-to-okta-prerequisites/main/",
               },
               {
                 title: "Bulk migration with credentials",
-                path: "/docs/guides/migrate-to-okta-bulk/main/"
+                path: "/docs/guides/migrate-to-okta-bulk/main/",
               },
               {
                 title: "Import Users with Inline Password Hooks",
-                path: "/docs/guides/migrate-to-okta-password-hooks/main/"
-              }
-            ]
-          }
-        ]
+                path: "/docs/guides/migrate-to-okta-password-hooks/main/",
+              },
+            ],
+          },
+        ],
       },
       {
         title: "Hooks",
@@ -749,17 +739,16 @@ export const guides = [
             title: "Token Inline Hook",
             guideName: "token-inline-hook",
           },
-        ]
+        ],
       },
       {
         title: "Classic archive",
-        guideName: "archive-overview",
         subLinks: [
           {
             title: "Auth JS fundamentals",
             guideName: "archive-auth-js",
           },
-          { 
+          {
             title: "Configure Okta Sign-On and App Sign-On Policies",
             guideName: "archive-configure-signon-policy",
           },
@@ -781,12 +770,12 @@ export const guides = [
           },
           {
             title: "Registration Inline Hook",
-            guideName: "archive-registration-inline-hook"
-          }
-        ]
-      }
-    ]
-  }
+            guideName: "archive-registration-inline-hook",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const languagesSdk = [
@@ -803,8 +792,8 @@ export const languagesSdk = [
           { title: "Java", path: "/code/java/" },
           { title: "Node.js", path: "/code/nodejs/" },
           { title: "PHP", path: "/code/php/" },
-          { title: "Python", path: "/code/python/" }
-        ]
+          { title: "Python", path: "/code/python/" },
+        ],
       },
       {
         title: "Front-end",
@@ -814,7 +803,7 @@ export const languagesSdk = [
           { title: "React", path: "/code/react/" },
           { title: "Vue", path: "/code/vue/" },
           { title: "JavaScript", path: "/code/javascript/" },
-        ]
+        ],
       },
       {
         title: "Mobile/native",
@@ -822,17 +811,17 @@ export const languagesSdk = [
         subLinks: [
           { title: "Android", path: "/code/android/" },
           { title: "iOS", path: "/code/ios/" },
-          { title: "React Native", path: "/code/react-native/" }
-        ]
+          { title: "React Native", path: "/code/react-native/" },
+        ],
       },
-      { title: "Test APIs using Postman", path: "/code/rest/" }
-    ]
-  }
+      { title: "Test APIs using Postman", path: "/code/rest/" },
+    ],
+  },
 ];
 
 export const reference = [
-    {
-    title: "References",
+  {
+    title: "Reference",
     path: "/docs/references/",
     subLinks: [
       {
@@ -845,43 +834,45 @@ export const reference = [
             subLinks: [
               {
                 title: "Rate limit dashboard",
-                path: "/docs/references/rl-dashboard/"
+                path: "/docs/references/rl-dashboard/",
               },
               {
                 title: "Authentication/End-user rate limits",
-                path: "/docs/references/rl-global-enduser/"
+                path: "/docs/references/rl-global-enduser/",
               },
               {
                 title: "Management rate limits",
-                path: "/docs/references/rl-global-mgmt/"
+                path: "/docs/references/rl-global-mgmt/",
               },
               {
                 title: "Other endpoint rate limits",
-                path: "/docs/references/rl-global-other-endpoints/"
+                path: "/docs/references/rl-global-other-endpoints/",
               },
               {
                 title: "Additional limits",
-                path: "/docs/references/rl-additional-limits/"
+                path: "/docs/references/rl-additional-limits/",
               },
               {
                 title: "Rate limit best practices",
-                path: "/docs/references/rl-best-practices/"
+                path: "/docs/references/rl-best-practices/",
               },
               {
                 title: "Client-based rate limits",
-                path: "/docs/references/rl-clientbased/"
+                path: "/docs/references/rl-clientbased/",
               },
-              { title: "DynamicScale",
-                path: "/docs/references/rl-dynamic-scale/"
+              {
+                title: "DynamicScale",
+                path: "/docs/references/rl-dynamic-scale/",
               },
-              { title: "Previous rate limits",
-              path: "/docs/references/rl-previous/"
+              {
+                title: "Previous rate limits",
+                path: "/docs/references/rl-previous/",
               },
               {
                 title: "System Log events for rate limits",
-                path: "/docs/references/rl-system-log-events/"
+                path: "/docs/references/rl-system-log-events/",
               },
-            ]
+            ],
           },
           { title: "Error Codes", path: "/docs/reference/error-codes/" },
           { title: "Sign in Your Users", path: "empty"},
@@ -928,33 +919,33 @@ export const reference = [
         subLinks: [
           {
             title: "Introduction to the Advanced Server Access API",
-            path: "/docs/references/api/asa/introduction/"
+            path: "/docs/references/api/asa/introduction/",
           },
           {
             title: "ASA Attributes API",
-            path: "/docs/references/api/asa/attributes/"
+            path: "/docs/references/api/asa/attributes/",
           },
           { title: "ASA Audits API", path: "/docs/references/api/asa/audits/" },
           {
             title: "ASA Clients API",
-            path: "/docs/references/api/asa/clients/"
+            path: "/docs/references/api/asa/clients/",
           },
           {
             title: "ASA Entitlements API",
-            path: "/docs/references/api/asa/entitlements/"
+            path: "/docs/references/api/asa/entitlements/",
           },
           { title: "ASA Groups API", path: "/docs/references/api/asa/groups/" },
           {
             title: "ASA Projects API",
-            path: "/docs/references/api/asa/projects/"
+            path: "/docs/references/api/asa/projects/",
           },
           {
             title: "ASA Service Users API",
-            path: "/docs/references/api/asa/service-users/"
+            path: "/docs/references/api/asa/service-users/",
           },
           { title: "ASA Teams API", path: "/docs/references/api/asa/teams/" },
-          { title: "ASA Users API", path: "/docs/references/api/asa/users/" }
-        ]
+          { title: "ASA Users API", path: "/docs/references/api/asa/users/" },
+        ],
       },
       {
         title: "SCIM Protocol",
@@ -962,45 +953,78 @@ export const reference = [
         subLinks: [
           {
             title: "SCIM V2.0",
-            path: "/docs/references/scim/scim-20/"
+            path: "/docs/references/scim/scim-20/",
           },
           {
             title: "SCIM V1.1",
-            path: "/docs/references/scim/scim-11/"
-          }
-        ]
+            path: "/docs/references/scim/scim-11/",
+          },
+        ],
       },
       {
         title: "Postman Collections",
-        path: "/docs/references/postman-collections/"
+        path: "/docs/references/postman-collections/",
       },
       {
         title: "Hooks",
         subLinks: [
+<<<<<<< HEAD
           { title: "Event Hooks Management API", path: "/docs/reference/api/event-hooks/" },
           { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
           { title: "Inline Hook Types", path: "#",
+=======
+          {
+            title: "Event Hooks Management API",
+            path: "/docs/references/api/event-hooks/",
+          },
+          {
+            title: "Inline Hooks Management API",
+            path: "/docs/references/api/inline-hooks/",
+          },
+          {
+            title: "Inline Hook Types",
+>>>>>>> 133f0bb60... fix: update link generator -ab
             subLinks: [
-              { title: "Password Import Hook", path: "/docs/references/password-hook/" },
-              { title: "Registration Hook", path: "/docs/references/registration-hook/" },
+              {
+                title: "Password Import Hook",
+                path: "/docs/references/password-hook/",
+              },
+              {
+                title: "Registration Hook",
+                path: "/docs/references/registration-hook/",
+              },
               { title: "SAML Hook", path: "/docs/references/saml-hook/" },
-              { title: "Telephony Hook", path: "/docs/references/telephony-hook/" },
+              {
+                title: "Telephony Hook",
+                path: "/docs/references/telephony-hook/",
+              },
               { title: "Token Hook", path: "/docs/references/token-hook/" },
-              { title: "User Import Hook", path: "/docs/references/import-hook/"}
-          ]},
-          { title: "Hooks best practices", path: "/docs/references/hooks-best-practices/"},
-        ]
+              {
+                title: "User Import Hook",
+                path: "/docs/references/import-hook/",
+              },
+            ],
+          },
+          {
+            title: "Hooks best practices",
+            path: "/docs/references/hooks-best-practices/",
+          },
+        ],
       },
       {
         title: "Okta Expression Language",
-        path: "/docs/references/okta-expression-language/"
+        path: "/docs/references/okta-expression-language/",
       },
       {
         title: "Okta Expression Language in Identity Engine",
-        path: "/docs/references/okta-expression-language-in-identity-engine/"
+        path: "/docs/references/okta-expression-language-in-identity-engine/",
       },
-    ]
-  }
+      {
+        title: "Release Life Cycle",
+        path: "/docs/references/releases-at-okta/",
+      },
+    ],
+  },
 ];
 
 export const releaseNotes = [
@@ -1008,19 +1032,21 @@ export const releaseNotes = [
     title: "Release Notes",
     path: "/docs/release-notes/",
     subLinks: [
-      {
-        title: "Release Life Cycle",
-        path: "/docs/release-notes/releases-at-okta/"
-      },
       { title: "2022", path: "/docs/release-notes/2022/" },
-      { title: "2022 - Okta Identity Engine", path: "/docs/release-notes/2022-okta-identity-engine/" },
+      {
+        title: "2022 - Okta Identity Engine",
+        path: "/docs/release-notes/2022-okta-identity-engine/",
+      },
       { title: "2021", path: "/docs/release-notes/2021/" },
-      { title: "2021 - Okta Identity Engine", path: "/docs/release-notes/2021-okta-identity-engine/" },
+      {
+        title: "2021 - Okta Identity Engine",
+        path: "/docs/release-notes/2021-okta-identity-engine/",
+      },
       { title: "2020", path: "/docs/release-notes/2020/" },
       { title: "2019", path: "/docs/release-notes/2019/" },
       { title: "2018", path: "/docs/release-notes/2018/" },
       { title: "2017", path: "/docs/release-notes/2017/" },
-      { title: "2016", path: "/docs/release-notes/2016/" }
-    ]
-  }
+      { title: "2016", path: "/docs/release-notes/2016/" },
+    ],
+  },
 ];

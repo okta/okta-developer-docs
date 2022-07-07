@@ -15,7 +15,9 @@ function getNavbarConstPages() {
       .replace('export const releaseNotes = ', '');
       if (cleared !== '') {
         let evaled = eval(cleared);
-        navbarItems.push(evaled[0]);
+        if (evaled) {
+          navbarItems.push(evaled[0]);
+        }
       }
   }
   return navbarItems;
@@ -31,24 +33,29 @@ function sanitizeTitle(el) {
 let generatedPages = [];
 
 function generatedLinks(arr, parent = null) {
-  for(let el of arr) {
-    if (!el.path) {
-      let path = parent.path + sanitizeTitle(el) + '/';
-//       if (!el.guideName) {
-//         // router.addRoutes([
-//         //   { path: path, generated: true },
-//         // ]);
-//       }
-      generatedPages.push({ 
-        path: path, 
-        frontmatter: {
-          generated: true 
-        }
-      });
-      el.path = path;
-    }
-    if (el.subLinks && el.subLinks.length > 0) {
-      generatedLinks(el.subLinks, el);
+  if (arr) {
+    for (let el of arr) {
+      if (!el) return;
+      if (!el.path && !el.guideName) {
+        let path = parent.path.replace(
+          sanitizeTitle(parent),
+          sanitizeTitle(el)
+        );
+        generatedPages.push({
+          path: path,
+          title: el.title,
+          frontmatter: {
+            generated: true,
+          },
+        });
+        el.path = path;
+      }
+      if (!el.path) {
+        el.path = parent.path + sanitizeTitle(el) + "/";
+      }
+      if (el.subLinks && el.subLinks.length > 0) {
+        generatedLinks(el.subLinks, el);
+      }
     }
   }
 }
