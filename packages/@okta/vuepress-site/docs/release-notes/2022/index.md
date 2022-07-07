@@ -29,7 +29,7 @@ The existing MyAccount API (`api/v1/myaccount`) endpoints are now only accessibl
 
 #### Loading Page Animation feature for the Brands API is EA in Preview
 
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#variants-for-the-okta-loading-page) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
