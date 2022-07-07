@@ -35,26 +35,29 @@ let generatedPages = [];
 function generatedLinks(arr, parent = null) {
   if (arr) {
     for (let el of arr) {
-      if (!el) return;
-      if (!el.path && !el.guideName) {
-        let path = parent.path.replace(
-          sanitizeTitle(parent),
-          sanitizeTitle(el)
-        );
-        generatedPages.push({
-          path: path,
-          title: el.title,
-          frontmatter: {
-            generated: true,
-          },
-        });
-        el.path = path;
-      }
-      if (!el.path) {
-        el.path = parent.path + sanitizeTitle(el) + "/";
-      }
-      if (el.subLinks && el.subLinks.length > 0) {
-        generatedLinks(el.subLinks, el);
+      if (el) {
+        if (!el.path && !el.guideName) {
+          let path = ''
+          if (parent.path.indexOf(sanitizeTitle(parent)) >= 0) {
+            path = parent.path.replace(sanitizeTitle(parent), sanitizeTitle(el))
+          } else {
+            path = parent.path + sanitizeTitle(el) + "/"
+          }
+          generatedPages.push({
+            path: path,
+            title: el.title,
+            frontmatter: {
+              generated: true,
+            },
+          });
+          el.path = path;
+        }
+        if (!el.path) {
+          el.path = parent.path + sanitizeTitle(el) + "/";
+        }
+        if (el.subLinks && el.subLinks.length > 0) {
+          generatedLinks(el.subLinks, el);
+        }
       }
     }
   }

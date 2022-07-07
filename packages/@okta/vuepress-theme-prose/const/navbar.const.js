@@ -857,7 +857,7 @@ export const reference = [
           },
           { title: "Error Codes", path: "/docs/references/error-codes/" },
           { title: "User query options", path: "/docs/references/user-query/" },
-          { title: "Sign in Your Users", path: null },
+          { title: "Sign in Your Users", path: "empty" },
           { title: "Authentication", path: "/docs/references/api/authn/" },
           { title: "Identity Providers", path: "/docs/references/api/idps/" },
           {
@@ -865,7 +865,7 @@ export const reference = [
             path: "/docs/references/api/oidc/",
           },
           { title: "WebFinger", path: "/docs/references/api/webfinger/" },
-          { title: "Manage Okta Objects", path: null },
+          { title: "Manage Okta Objects", path: "empty" },
           { title: "Administrator Roles", path: "/docs/references/api/roles/" },
           { title: "Apps", path: "/docs/references/api/apps/" },
           {
