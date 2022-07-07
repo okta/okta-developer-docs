@@ -968,22 +968,9 @@ export const reference = [
       {
         title: "Hooks",
         subLinks: [
-<<<<<<< HEAD
           { title: "Event Hooks Management API", path: "/docs/reference/api/event-hooks/" },
           { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
           { title: "Inline Hook Types", path: "#",
-=======
-          {
-            title: "Event Hooks Management API",
-            path: "/docs/references/api/event-hooks/",
-          },
-          {
-            title: "Inline Hooks Management API",
-            path: "/docs/references/api/inline-hooks/",
-          },
-          {
-            title: "Inline Hook Types",
->>>>>>> 133f0bb60... fix: update link generator -ab
             subLinks: [
               {
                 title: "Password Import Hook",
