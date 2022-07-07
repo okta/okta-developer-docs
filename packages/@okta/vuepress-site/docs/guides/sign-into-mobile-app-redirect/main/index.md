@@ -128,7 +128,7 @@ The SDK signs in the user by opening an Okta-hosted web page. The app may send t
 
 The ID token returned by Okta contains user information, or *claims*, that are based on the scopes requested by the app (see [Configure your app](#configure-your-app)).
 
-This app includes the `profile` scope which includes the user's email address, name, and preferred username. You can use this information to update your UI, such as showing the customer's name.
+This app includes the `profile` scope that includes the user's email address, name, and preferred username. You can use this information to update your UI, such as showing the customer's name.
 
 Use the the Okta user information endpoints for items that aren't available in the ID token. For general information on requesting user info, see the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6)).
 
