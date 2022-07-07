@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
     <div v-for="link in links" :key="link.title">
       <router-link
         :to="link.path"
