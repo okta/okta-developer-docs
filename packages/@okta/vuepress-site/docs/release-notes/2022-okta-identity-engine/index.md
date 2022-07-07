@@ -17,7 +17,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
-| [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
+| [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [User-scoped MyAccount API is GA in Production](#user-scoped-myaccount-api-is-ga-in-production)| June 8, 2022 |
 | [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
@@ -51,9 +51,9 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
 
-#### The Loading Page API is EA in Preview
+#### Loading Page Animation feature for the Brands API is EA in Preview
 
-When redirecting applications, you can use the [Loading Page API](/docs/reference/api/brands/#variants-for-the-okta-loading-page) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#variants-for-the-okta-loading-page) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
