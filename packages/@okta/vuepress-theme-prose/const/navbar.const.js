@@ -119,7 +119,7 @@ export const guides = [
       { title: "Quickstart", guideName: "quickstart" },
       {
         title: "Sign users in",
-        guideName: "sign-in-overview",
+        guideName: "sign-in-overview/main",
         subLinks: [
           {
             title: "Redirect authentication",

@@ -50,9 +50,10 @@ export default {
       if (!link.path) {
         link.path = parent.path + this.sanitizeTitle(link) + "/";
         if (!link.guideName) {
+          const parentTitle = this.sanitizeTitle(parent)
           let path = ''
-          if (parent.path.indexOf(this.sanitizeTitle(parent)) >= 0) {
-            path = parent.path.replace(this.sanitizeTitle(parent), this.sanitizeTitle(link))
+          if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
+            path = parent.path.replace(parentTitle, this.sanitizeTitle(link))
           } else {
             path = parent.path + this.sanitizeTitle(link) + "/"
           }

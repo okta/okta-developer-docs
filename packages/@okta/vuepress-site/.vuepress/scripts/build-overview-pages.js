@@ -37,9 +37,10 @@ function generatedLinks(arr, parent = null) {
     for (let el of arr) {
       if (el) {
         if (!el.path && !el.guideName) {
+          const parentTitle = sanitizeTitle(parent)
           let path = ''
-          if (parent.path.indexOf(sanitizeTitle(parent)) >= 0) {
-            path = parent.path.replace(sanitizeTitle(parent), sanitizeTitle(el))
+          if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
+            path = parent.path.replace(parentTitle, sanitizeTitle(el))
           } else {
             path = parent.path + sanitizeTitle(el) + "/"
           }
