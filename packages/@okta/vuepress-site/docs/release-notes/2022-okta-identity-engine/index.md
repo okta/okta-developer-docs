@@ -14,11 +14,11 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improvements to the self-service password reset experience](#improvements-to-the-self-service-password-reset-experience)| July 7, 2022 |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)| July 7, 2022|
 | [Progressive enrollment is GA in Production](#progressive-enrollment-is-ga-in-production)| June 8, 2022 |
-| [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-openid-connect-app-integrations) | July 7, 2022|
+| [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
 | [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
-| [Trusted Origins for iFrame Embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [User-scoped MyAccount API is GA in Production](#user-scoped-myaccount-api-is-ga-in-production)| June 8, 2022 |
 | [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
 | [Bugs fixed in 2022.07.0](#bugs-fixed-in-2022-07-0) | July 7, 2022 |
@@ -55,13 +55,13 @@ The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn)
 
 When redirecting applications, you can use the [Loading Page API](/docs/reference/api/brands/#variants-for-the-okta-loading-page) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
-#### Trusted Origins for iFrame Embedding is GA in Production
+#### Trusted Origins for iFrame embedding is GA in Production
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (Security > API) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
 
 #### User-scoped MyAccount API is GA in Production
 
-The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is /idp/myaccount. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-508478 -->
+The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-508478 -->
 
 #### Developer documentation updates in 2022.07.0
 

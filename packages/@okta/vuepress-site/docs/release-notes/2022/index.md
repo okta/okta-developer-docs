@@ -10,17 +10,21 @@ title: Okta API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Configurable API token rate limits is GA in Preview](#configurable-api-token-rate-limits-is-ga-in-preview) | July 7, 2022|
 | [Deprecated MyAccount API endpoints now have limited availability](#deprecated-myaccount-api-endpoints-now-have-limited-availability) | July 7, 2022|
-| [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-openid-connect-app-integrations) | July 7, 2022|
+| [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
 | [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
-| [Trusted Origins for iFrame Embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
 | [Bugs fixed in 2022.07.0](#bugs-fixed-in-2022-07-0) | July 7, 2022 |
 
 #### Configurable API token rate limits is GA in Preview
 
 Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-506379 -->
+
+#### Deprecated MyAccount API endpoints now have limited availability
+
+The existing MyAccount API (`api/v1/myaccount`) endpoints are now only accessible to orgs that had that feature enabled for their orgs prior to June 2022. From June 2022 forward, use the new IdP MyAccount API (`/idp/myaccount`) endpoints instead. <!-- OKTA-509664 -->
 
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
@@ -38,9 +42,9 @@ The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn)
 
 When redirecting applications, you can use the [Loading Page API](/docs/reference/api/brands/#variants-for-the-okta-loading-page) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
-#### Trusted Origins for iFrame Embedding is GA in Production
+#### Trusted Origins for iFrame embedding is GA in Production
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (Security > API) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
 
 #### Developer documentation updates in 2022.07.0
 
@@ -58,7 +62,7 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
 
-* When the Enroll Okta Call Factor lifecycle operation (/users/{{userId}}/factors) was executed, an internal server error sometimes occurred. (OKTA-482674)
+* When the Enroll Okta Call Factor lifecycle operation (`/users/{userId}/factors`) was executed, an internal server error sometimes occurred. (OKTA-482674)
 
 * When the Groups API was called using an older prefix as the `groupID`, an invalid cursor error was returned.  (OKTA-501397)
 
