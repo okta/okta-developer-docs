@@ -5,7 +5,7 @@ meta:
     content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
-Okta integrates with many Identity Providers. Select an Identity Provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) for your app.
+Okta integrates with many Identity Providers. Select an Identity Provider card to add [enterprise](#enterprise-identity-providers) or [social login](#social-logins) to your app.
 
 Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
