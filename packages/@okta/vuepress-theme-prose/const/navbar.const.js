@@ -321,15 +321,11 @@ export const guides = [
           { title: "Configure a Global Session Policy and authentication policies",
             guideName: "configure-signon-policy" },
           {
-            title: "External Identity Providers",
+            title: "Add an external Identity Provider",
             subLinks: [
               {
                 title: "Overview",
                 path: "/docs/guides/identity-providers/",
-              },
-              {
-                title: "Social Login",
-                guideName: "social-login"
               },
               {
                 title: "Enterprise Identity Provider",
@@ -338,6 +334,10 @@ export const guides = [
               {
                 title: "Smart Card",
                 path: "/docs/guides/add-an-external-idp/smartcard/"
+              },
+              {
+                title: "Social Login",
+                guideName: "social-login"
               },
             ]
           },
