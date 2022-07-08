@@ -77,6 +77,8 @@ The following table provides a list of all available email templates in an Okta 
 - the required validation fields for templates created using the API
 - a description of the template
 
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+
 | UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
 | User Activation | Welcome to Okta! | `UserActivation` | Either `${activationLink}` or `${activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
@@ -84,7 +86,7 @@ The following table provides a list of all available email templates in an Okta 
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | |  Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
 | Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `${pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
 | Registration - Activation | Activate Account | `RegistrationActivation` | Either `${registrationActivationLink}` or `${registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
-| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine)</br></br>Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who must follow the provided link to verify their email address |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine)</br></br>Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
 | Email Factor verification (Identity Engine)</br></br>Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | |  Sent to users who forgot their password but only their admin can reset it |
 | Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | |  Sent to users who had their password reset by an Okta system administrator and must follow the provided link to complete the password reset process |
@@ -101,7 +103,7 @@ The following table provides a list of all available email templates in an Okta 
 | Change Email Confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email address change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
-| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${"emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
 | Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users who are locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}` and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user doesn't recognize the sign-in details of the unknown device |
 | Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when new MFA factors are enrolled (Classic Engine) |
@@ -239,8 +241,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
 | `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
-| `${recoveryToken}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Reset Factor</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
-| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
 | `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
 | `${request.date}` | Available in Authenticator Enrolled |
 | `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
@@ -251,6 +252,8 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${request.ipAddress}` | Available in Sign In From New Device |
 | `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
 | `${request.browser}` | Available in Sign In From New Device |
+| `${request.relayState}` | Available in Registration Activation, Forgot Password, Email Challenge, and Email Factor Verification |
+| `${request.verificationLink}` | Available in Email Factor Verification |
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
 | `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
