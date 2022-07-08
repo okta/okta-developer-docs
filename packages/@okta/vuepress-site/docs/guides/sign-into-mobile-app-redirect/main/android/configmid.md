@@ -1,15 +1,20 @@
 1. Create a new file called `okta.properties` in the root directory of your project:
 
-1. Add the following content to it, replacing the placeholders with the Okta app integration values that you got earlier.
-
+1. Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the code below with the values from the Okta app integration that you created in [Create an Okta integration for your app](#create-an-okta-integration-for-your-app).
     ```properties
-    discoveryUrl=${CLI_OKTA_ORG_URL}oauth2/default/.well-known/openid-configuration
-    clientId=${CLI_OKTA_CLIENT_ID}
-    signInRedirectUri=${CLI_OKTA_REVERSE_DOMAIN}:/callback
-    signOutRedirectUri=${CLI_OKTA_REVERSE_DOMAIN}:/logout
+    discoveryUrl=<DISCOVERY_URL>
+    clientId=<CLIENT_ID>
+    signInRedirectUri=<SIGN_IN_URI>
+    signOutRedirectUri=<SIGN_OUT_REDIRECT_URI>
     ```
+   | Placeholder               | Value                                                                                                                                                        |
+   |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------| ----- |
+   | `<DISCOVERY_URL>`         | The domain of your registered Okta org followed by `/oauth2/default/.well-known/openid-configuration`, such as `https://dev-1234567.okta.com/oauth2/default/.well-known/openid-configuration` |
+   | `<CLIENT_ID>`             | The client ID from the app integration that you created, such as `0ux3rutxocxFX9xyz3t9`                                                                      |
+   | `<SIGN_IN_URI>`           | The sign-in redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback`                                                 |
+   | `<SIGN_OUT_REDIRECT_URI>` | The sign-out redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/logout`                                                        |{:.table .table-word-break}
 
-1. Add the following content to the `app/build.gradle`
+1. Add the following code to the bottom of the app's build file, `app/build.gradle`:
 
     ```groovy
     def oktaProperties = new Properties()
@@ -22,27 +27,4 @@
     }
     ```
 
-1. You will need to perform a gradle sync for the build changes to be reflected in Android Studio, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files) for instructions on how to perform a gradle sync.
-
-1. Create a class called `BrowserSignInApplication.kt` (we created ours in `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInApplication.kt`).
-
-1. Replace the contents with the following to initialize the SDK:
-
-    ```kotlin
-    class BrowserSignInApplication : Application() {
-        override fun onCreate() {
-            super.onCreate()
-            // Initializes Auth Foundation and Credential Bootstrap classes for use in the Activity.
-            AuthFoundationDefaults.cache = SharedPreferencesCache.create(this)
-            val oidcConfiguration = OidcConfiguration(
-                clientId = BuildConfig.CLIENT_ID,
-                defaultScope = "openid email profile offline_access",
-            )
-            val client = OidcClient.createFromDiscoveryUrl(
-                oidcConfiguration,
-                BuildConfig.DISCOVERY_URL.toHttpUrl(),
-            )
-            CredentialBootstrap.initialize(client.createCredentialDataSource(this))
-        }
-    }
-    ```
+1. Update Android Studio with the changes by performing a gradle sync. For more information on performing a gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).

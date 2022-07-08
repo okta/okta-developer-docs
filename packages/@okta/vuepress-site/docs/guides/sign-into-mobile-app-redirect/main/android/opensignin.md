@@ -1,4 +1,43 @@
-1. Update the default layout file for the app (found in `app/src/main/res/layout/`) to add a sign-in button, sign-out button, and a text view:
+1. Create a class called `BrowserSignInApplication.kt` in `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInApplication.kt`.
+
+1. Replace the contents of the new file with the following code that initializes the SDK:
+
+    ```kotlin
+    class BrowserSignInApplication : Application() {
+        override fun onCreate() {
+            super.onCreate()
+            // Initializes Auth Foundation and Credential Bootstrap classes.
+            AuthFoundationDefaults.cache = SharedPreferencesCache.create(this)
+            val oidcConfiguration = OidcConfiguration(
+                clientId = BuildConfig.CLIENT_ID,
+                defaultScope = "openid email profile offline_access",
+            )
+            val client = OidcClient.createFromDiscoveryUrl(
+                oidcConfiguration,
+                BuildConfig.DISCOVERY_URL.toHttpUrl(),
+            )
+            CredentialBootstrap.initialize(client.createCredentialDataSource(this))
+        }
+    }
+    ```
+
+1. Update `app/src/main/AndroidManifest.xml` to use the newly defined `Application` subclass:
+    ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.okta.android.samples.browser_sign_in">
+
+        <application
+            ...
+            android:name=".BrowserSignInApplication"
+            ...
+            >
+            ...
+        </application>
+    </manifest>
+    ```
+
+1. Add sign-in and sign-out buttons and a text view to the app's default layout file by adding the following code to `app/src/main/res/layout/activity_browser_sign_in.xml`:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -44,7 +83,7 @@
     </LinearLayout>
     ```
 
-1. Fill in strings for the `text` values referenced above, in `app/src/main/res/values/strings.xml`:
+1. Add the following code to `app/src/main/res/values/strings.xml` to add the strings for the `text` values of the buttons:
 
     ```xml
     <resources>
@@ -154,7 +193,7 @@
     }
     ```
 
-1. Add the following content to your activity (for example `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.kt`) to handle button clicks and browser state events:
+1. Add the following code that handles button clicks and browser state events to `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.kt`:
 
     ```kotlin
     class BrowserSignInActivity : AppCompatActivity() {
@@ -217,7 +256,3 @@
         }
     }
     ```
-
-#### Running the sample
-
-To run the sample, see [the Android Studio documentation](https://developer.android.com/studio/run/device).

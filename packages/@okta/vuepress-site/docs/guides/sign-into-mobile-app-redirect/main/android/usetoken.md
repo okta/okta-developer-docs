@@ -21,4 +21,4 @@ private suspend fun callResourceServer() {
 }
 ```
 
-The `accessTokenInterceptor` method attaches an `Authorization: Bearer ${token}` header with the access token to all requests. Credentials are internally refreshed when needed. If no valid access token is available, no authorization header will be added.
+Credentials are internally refreshed when needed. An authorization header is added only if there's a valid access token.

@@ -1,4 +1,4 @@
-Parse and define the following placeholder inside your app's `build.gradle`:
+Add the following code to the `app/build.gradle` to parse the scheme defined in `okta.properties` created earlier in [Configure your app](#configure-your-app) and define the `manifestPlaceholders`:
 
 ```gradle
 static def parseScheme(String uri) {
