@@ -1,6 +1,7 @@
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
 
-> **Note:** The sample code uses SwiftUI features that are available in iOS 14 and the async/await feature of iOS 15. Use the completion handler version of the async/await functions to add compatibility with iOS 14 and later.
+> **Note:** The sample code uses SwiftUI features that are available in iOS 14 and the async/await feature of iOS 15. Use the completion handler versions of the async/await functions to enable the sample to run on iOS 14 and later. For information on the minimum iOS version supported by the current SDK, see [the support section of the README](https://github.com/okta/okta-mobile-swift#support-policy).
+
 
 #### Add the UI
 

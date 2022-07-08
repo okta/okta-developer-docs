@@ -2,8 +2,7 @@ Display the user info by updating the `showUserInfo()` function of `ContentView.
 
 ```swift
 func showUserInfo() {
-   guard let credential = Credential.default,
-         let idToken = credential.token.idToken else {
+   guard let idToken = Credential.default?.token.idToken else {
       showError(title: "Unable to Show User Info",
                 message: "Could not read the token for the current user.")
       return
@@ -22,4 +21,4 @@ func showUserInfo() {
 }
 ```
 
-The function reads the user information from the local ID token. The available information depends on the scopes that are specified in the `Okta.plist` file. You can also request information from the server with the `userInfo()` of the `Credential` class.
+The function reads the user information from the local ID token. The available information depends on the scopes that are specified in the `Okta.plist` file. You can also request user information from the server with the `userInfo()` of the `Credential` class.
