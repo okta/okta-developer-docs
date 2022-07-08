@@ -35,12 +35,11 @@ See the following list of **per-minute** limits. If an endpoint is not in this l
 | `/login/sso_iwa_auth`<br>Eligible for workforce multiplier                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/${apiVersion}/radius`<br>Eligible for workforce multiplier                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/login/token/redirect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
-| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br>The below rate limits are configured so that orgs are allowed to complete 1000 Identity Engine authentication flows per minute.                                                                             |               |               |      |         |                    |
+| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br>The Identity Engine rate limits are configured to support 1000 Identity Engine authentication flows per minute. That is, depending on authentication flows, some endpoint limits may differ.                                                                                                        |
 | `/idp/idx`                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/identify`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/introspect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
 | Identity Engine App Intent<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
-
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
 >
