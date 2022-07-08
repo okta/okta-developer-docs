@@ -123,6 +123,7 @@ guides:
  - advanced-use-case-overview
  - pwd-optional-new-sign-up-email
  - pwd-optional-sign-in-email
+ - pwd-optional-widget-sign-in-email
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

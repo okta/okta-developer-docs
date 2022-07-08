@@ -249,6 +249,15 @@ export const guides = [
                 title: "Embedded Sign-In Widget use cases",
                 subLinks: [
                   {
+                    title: "Password optional",
+                    subLinks: [
+                      {
+                        title: "Sign in with email only",
+                        guideName: "pwd-optional-widget-sign-in-email"
+                      }
+                    ]
+                  },
+                  {
                     title: "Load the Widget",
                     guideName: "oie-embedded-widget-use-case-load",
                   },
