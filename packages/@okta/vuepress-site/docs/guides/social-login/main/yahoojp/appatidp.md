@@ -1,4 +1,4 @@
-1. Create and register an [OAuth](https://developer.yahoo.co.jp/yconnect/v2/registration.html) app at Yahoo Japan.
+1. Create and register an [OAuth 2.0](https://developer.yahoo.co.jp/yconnect/v2/registration.html) app at Yahoo Japan.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 

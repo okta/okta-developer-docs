@@ -1,4 +1,4 @@
-1. Create and register an [OAuth](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5) app at Salesforce.
+1. Create and register an [OAuth 2.0](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5) app at Salesforce.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 

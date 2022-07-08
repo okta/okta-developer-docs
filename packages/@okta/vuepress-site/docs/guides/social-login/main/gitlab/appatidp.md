@@ -1,4 +1,4 @@
-1. Create and register an [OAuth](https://docs.gitlab.com/ee/integration/oauth_provider.html) app at GitLab.
+1. Create and register an [OAuth 2.0](https://docs.gitlab.com/ee/integration/oauth_provider.html) app at GitLab.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 

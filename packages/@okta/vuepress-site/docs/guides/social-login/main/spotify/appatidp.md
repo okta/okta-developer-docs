@@ -1,4 +1,4 @@
-1. Create an [OAuth](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/) app at Spotify.
+1. Create an [OAuth 2.0](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/) app at Spotify.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 

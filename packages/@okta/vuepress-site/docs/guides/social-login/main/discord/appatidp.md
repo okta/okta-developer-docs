@@ -1,4 +1,4 @@
-1. Create an [OAuth](https://discord.com/developers/docs/topics/oauth2) app at Discord.
+1. Create an [OAuth 2.0](https://discord.com/developers/docs/topics/oauth2) app at Discord.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 

@@ -1,4 +1,4 @@
-1. Create and register an [OAuth](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html) app at Yahoo.
+1. Create and register an [OAuth 2.0](https://developer.yahoo.com/oauth2/guide/openid_connect/getting_started.html) app at Yahoo.
 
 1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 
