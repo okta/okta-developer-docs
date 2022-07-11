@@ -108,7 +108,7 @@ Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider 
 ### Add the Identity Provider to the custom Okta-hosted sign-in page
 
 > **Note:** This section only applies to Okta Classic Engine. <br>
-> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you've [created an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configured the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 If you configured a [custom Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with <StackSnippet snippet="idp" inline />** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line in the **Sign-in page code editor** of the Admin Console.
 
