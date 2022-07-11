@@ -272,7 +272,7 @@ See [response properties](#response-objects-that-you-send) for full details.
 
 ### Sample SSR response using data.userProfile
 
-The following sample response shows a successful self-registration using a valid email domain:
+The following sample response shows a successful self-registration:
 
 ```json
 {
