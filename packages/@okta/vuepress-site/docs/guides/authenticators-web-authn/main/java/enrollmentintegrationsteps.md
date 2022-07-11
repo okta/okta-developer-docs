@@ -47,7 +47,7 @@ Use the `type` and `label` properties to show the available list of authenticato
 
 A simple authenticator selection page should look like this:
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot illustrating the enroll authenticator page showing the available sign-in authenticators, including the WebAuthn.](/img/authenticators/authenticators-webauthn-java-enroll-dropdown-selection.png)
 
@@ -172,7 +172,7 @@ This call initiates the following steps:
 
 1. The browser prompts the user to choose the type of WebAuthn authenticator that they are using. For example: a portable hardware authenticator such as a USB security key or a software-based authenticator such as a fingerprint scanner
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot of the browser prompt that allows the user to pick the type of WebAuthn authenticator to register.](/img/authenticators/authenticators-webauthn-authenticator-options.png)
 
@@ -180,7 +180,7 @@ This call initiates the following steps:
 
 2. After the user chooses the authenticator, the device asks for consent to create the credentials. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm the consent.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Screenshot showing the user consent screen that prompts the user to verify through a fingerprint or password.](/img/authenticators/authenticators-webauthn-user-consent.png)
 

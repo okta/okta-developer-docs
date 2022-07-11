@@ -4,9 +4,9 @@
 
 After the user starts the password recovery flow and selects the email authenticator for the process, Okta sends them an email that matches the **Forgot Password** template that you altered earlier.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
-![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
 
 </div>
 
@@ -109,7 +109,7 @@ Pass the values using the widget's `config` object.
 
 After the widget loads, it checks the validity of the `otp` and `state` values with the Okta server. If they are valid, the user is prompted to reset their password, as shown below. The user continues the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/java-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
 

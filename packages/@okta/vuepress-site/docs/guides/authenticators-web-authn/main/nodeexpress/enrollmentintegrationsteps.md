@@ -45,7 +45,7 @@ Use the `value` and `label` properties to show the available list of authenticat
 
 UI showing the Google Authenticator option:
 
-<div class="common-image-format">
+<div class="three-quarter border">
 
 ![WebAuthNoption shown in UI](/img/authenticators/authenticators-webauthn-dropdown-selection.png)
 
@@ -159,7 +159,7 @@ This call initiates the following steps:
 
 1. Browser prompts the user to choose an authenticator.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![UI showing the authenticator options](/img/authenticators/authenticators-webauthn-authenticator-options.png)
 
@@ -167,7 +167,7 @@ This call initiates the following steps:
 
 2. After the user chooses the authenticator, the device's local authenticator asks the user for consent to create the credentials. In the following example, the **Touch ID** authenticator is prompting the user for a fingerprint to confirm the consent.
 
-<div class="common-image-format">
+<div class="half">
 
 ![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
 

@@ -8,9 +8,9 @@ The user starts the password recovery flow by completing these steps:
 
 Okta then tells the user to either click the link in the email or enter the code to continue and sends an email to their email address matching the Forgot Password template that was altered earlier.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
-![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
 
 </div>
 
@@ -81,7 +81,7 @@ Consume the session `state` and `otp` values in a Razor page that contains the S
 
 After the widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
 

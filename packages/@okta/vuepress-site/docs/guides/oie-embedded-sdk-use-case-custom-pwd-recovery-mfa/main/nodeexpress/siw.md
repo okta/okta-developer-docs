@@ -8,7 +8,7 @@ Before sending the email, Okta builds the message based on the **Forgot Password
 
 The next step is to open the Okta email and click its reset password link.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
 
@@ -88,7 +88,7 @@ After set up, render the client site page and pass the configurations to the wid
 
 After the widget is loaded, the following reset page is appears:
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 
