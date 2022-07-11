@@ -1,173 +1,258 @@
-1. Update the default layout file for the app (found in `app/src/main/res/layout/`) to add a sign-in button, sign-out button, and a text view:
+1. Create a class called `BrowserSignInApplication.kt` in `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInApplication.kt`.
 
-   ```xml
-   <androidx.constraintlayout.widget.ConstraintLayout
-     android:id="@+id/auth_container"
-     android:layout_width="0dp"
-     android:layout_height="wrap_content"
-     android:layout_marginStart="8dp"
-     android:layout_marginTop="8dp"
-     android:layout_marginEnd="8dp"
-     android:visibility="visible"
-     app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toTopOf="parent">
+1. Replace the contents of the new file with the following code that initializes the SDK:
 
-     <Button
-       android:id="@+id/browser_sign_in_btn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginStart="8dp"
-       android:layout_marginTop="16dp"
-       android:layout_marginEnd="8dp"
-       android:text="@string/sign_in_btn"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.0"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/have_account" />
+    ```kotlin
+    class BrowserSignInApplication : Application() {
+        override fun onCreate() {
+            super.onCreate()
+            // Initializes Auth Foundation and Credential Bootstrap classes.
+            AuthFoundationDefaults.cache = SharedPreferencesCache.create(this)
+            val oidcConfiguration = OidcConfiguration(
+                clientId = BuildConfig.CLIENT_ID,
+                defaultScope = "openid email profile offline_access",
+            )
+            val client = OidcClient.createFromDiscoveryUrl(
+                oidcConfiguration,
+                BuildConfig.DISCOVERY_URL.toHttpUrl(),
+            )
+            CredentialBootstrap.initialize(client.createCredentialDataSource(this))
+        }
+    }
+    ```
 
-     <Button
-       android:id="@+id/logout_btn"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginStart="8dp"
-       android:layout_marginTop="16dp"
-       android:layout_marginEnd="8dp"
-       android:text="@string/sign_out_btn"
-       android:backgroundTint="@android:color/holo_red_light"
-       android:visibility="gone"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.0"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/have_account" />
+1. Update `app/src/main/AndroidManifest.xml` to use the newly defined `Application` subclass:
+    ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.okta.android.samples.browser_sign_in">
 
-     <TextView
-       android:id="@+id/have_account"
-       android:layout_width="0dp"
-       android:layout_height="wrap_content"
-       android:layout_marginStart="8dp"
-       android:layout_marginTop="32dp"
-       android:layout_marginEnd="8dp"
-       android:text="@string/have_account"
-       android:textAlignment="center"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.53"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       tools:text="@string/have_account" />
+        <application
+            ...
+            android:name=".BrowserSignInApplication"
+            ...
+            >
+            ...
+        </application>
+    </manifest>
+    ```
 
-   </androidx.constraintlayout.widget.ConstraintLayout>
-   ```
+1. Add sign-in and sign-out buttons and a text view to the app's default layout file by adding the following code to `app/src/main/res/layout/activity_browser_sign_in.xml`:
 
-2. Fill in strings for the `text` values referenced above, in `app/src/main/res/values/strings.xml`:
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        tools:context=".BrowserSignInActivity"
+        >
 
-   ```xml
-   <resources>
-       <string name="app_name">Browser sign in</string>
-       <string name="sign_in_btn">Sign in</string>
-       <string name="sign_out_btn">Sign out</string>
-       <string name="have_account">Have an account?</string>
-       <string name="welcome_user">Welcome </string>
-   </resources>
-   ```
+            <TextView
+                android:id="@+id/status_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                />
 
-3. Update the contents of `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java` to initialize the client:
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/login_button"
+                />
 
-   ```java
-   public class AuthClient {
-     private final static String FIRE_FOX = "org.mozilla.firefox";
-     private final static String CHROME_BROWSER = "com.android.chrome";
+            <Button
+                android:id="@+id/logout_of_browser_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:text="@string/logout_of_browser_button"
+                />
 
-     private static AuthClient INSTANCE = null;
-     private static volatile WebAuthClient webAuthClient;
+            <ProgressBar
+                android:layout_gravity="center"
+                android:id="@+id/progress_bar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                />
+    </LinearLayout>
+    ```
 
-     private AuthClient(Context context) {
-       var config = new OIDCConfig.Builder()
-         .withJsonFile(context, R.raw.okta_oidc_config)
-         .create();
+1. Add the following code to `app/src/main/res/values/strings.xml` to add the strings for the `text` values of the buttons:
 
-       webAuthClient = new Okta.WebAuthBuilder()
-         .withConfig(config)
-         .withContext(context)
-         .withStorage(new SharedPreferenceStorage(context))
-         .withCallbackExecutor(Executors.newSingleThreadExecutor())
-         .withTabColor(Color.BLUE)
-         .supportedBrowsers(CHROME_BROWSER, FIRE_FOX)
-         //.setRequireHardwareBackedKeyStore(false) // required for emulators
-         .create();
-       }
+    ```xml
+    <resources>
+        <string name="app_name">Browser sign in</string>
+        <string name="login_button">Login</string>
+        <string name="logout_of_browser_button">Logout of Browser</string>
+        <string name="have_account">Have an account?</string>
+        <string name="welcome_user">Welcome %1$s</string>
+    </resources>
+    ```
 
-     public static WebAuthClient getWebAuthClient(Context context) {
-       if (INSTANCE == null) {
-         INSTANCE = new AuthClient(context);
-       }
-       return webAuthClient;
-     }
-   }
-   ```
+1. Create `BrowserSignInViewModel.kt` in `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInViewModel.kt`:
 
-4. Add the following content to your activity (for example `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.java`) to handle client callbacks and button clicks:
+    ```kotlin
+    class BrowserSignInViewModel : ViewModel() {
+        private val _state = MutableLiveData<BrowserState>(BrowserState.Loading)
+        val state: LiveData<BrowserState> = _state
 
-   ```java
-   public class BrowserSignInActivity extends AppCompatActivity {
-     private static final Logger logger = Logger.getLogger("BrowserSignInActivity");
-     private WebAuthClient client;
-     private SessionClient sessionClient;
+        init {
+            viewModelScope.launch {
+                _state.value = BrowserState.currentCredentialState()
+            }
+        }
 
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_browser_sign_in);
+        fun login(context: Context) {
+            viewModelScope.launch {
+                _state.value = BrowserState.Loading
 
-       findViewById(R.id.browser_sign_in_btn).setOnClickListener(v -> client.signIn(this, null));
-       findViewById(R.id.logout_btn).setOnClickListener(v -> client.signOutOfOkta(this));
+                val result = CredentialBootstrap.oidcClient.createWebAuthenticationClient().login(
+                    context = context,
+                    redirectUrl = BuildConfig.SIGN_IN_REDIRECT_URI,
+                )
+                when (result) {
+                    is OidcClientResult.Error -> {
+                        Timber.e(result.exception, "Failed to login.")
+                        _state.value = BrowserState.currentCredentialState("Failed to login.")
+                    }
+                    is OidcClientResult.Success -> {
+                        val credential = CredentialBootstrap.defaultCredential()
+                        credential.storeToken(token = result.result)
+                        _state.value = BrowserState.LoggedIn.create()
+                    }
+                }
+            }
+        }
 
-       client = AuthClient.getWebAuthClient(this);
-       sessionClient = client.getSessionClient();
+        fun logoutOfBrowser(context: Context) {
+            viewModelScope.launch {
+                _state.value = BrowserState.Loading
 
-       client.registerCallback(new ResultCallback<>() {
-         @Override
-         public void onSuccess(@NonNull AuthorizationStatus status) {
-           if (status == AuthorizationStatus.AUTHORIZED) {
-             // client is authorized.
-             logger.info("Auth success");
-             runOnUiThread(() -> {
-               findViewById(R.id.browser_sign_in_btn).setVisibility(View.GONE);
-               findViewById(R.id.logout_btn).setVisibility(View.VISIBLE);
-             });
-           } else if (status == AuthorizationStatus.SIGNED_OUT) {
-             // this only clears the browser session.
-             logger.info("Sign out success");
-             runOnUiThread(() -> {
-               findViewById(R.id.browser_sign_in_btn).setVisibility(View.VISIBLE);
-               findViewById(R.id.logout_btn).setVisibility(View.GONE);
-             });
-           }
-         }
+                val result = CredentialBootstrap.oidcClient.createWebAuthenticationClient().logoutOfBrowser(
+                    context = context,
+                    redirectUrl = BuildConfig.SIGN_OUT_REDIRECT_URI,
+                    CredentialBootstrap.defaultCredential().token?.idToken ?: "",
+                )
+                when (result) {
+                    is OidcClientResult.Error -> {
+                        Timber.e(result.exception, "Failed to logout.")
+                        _state.value = BrowserState.currentCredentialState("Failed to logout.")
+                    }
+                    is OidcClientResult.Success -> {
+                        CredentialBootstrap.defaultCredential().delete()
+                        _state.value = BrowserState.LoggedOut()
+                    }
+                }
+            }
+        }
+    }
 
-         @Override
-         public void onCancel() {
-           // authorization canceled
-           logger.info("Auth cancelled");
-         }
+    /**
+     * Represents the current state of the [BrowserSignInViewModel].
+     */
+    sealed class BrowserState {
+        object Loading : BrowserState()
+        class LoggedOut(val errorMessage: String? = null) : BrowserState()
+        class LoggedIn private constructor(
+            val name: String,
+            val errorMessage: String?
+        ) : BrowserState() {
+            companion object {
+                /**
+                 * Creates the [LoggedIn] state using the [CredentialBootstrap.defaultCredential]s ID Token name claim.
+                 */
+                suspend fun create(errorMessage: String? = null): BrowserState {
+                    val credential = CredentialBootstrap.defaultCredential()
+                    val name = credential.idToken()?.name ?: ""
+                    return LoggedIn(name, errorMessage)
+                }
+            }
+        }
 
-         @Override
-         public void onError(String msg, AuthorizationException error) {
-           logger.severe(String.format("Error: %s : %s", error.error, error.errorDescription));
-         }
-       }, this);
-     }
-   }
-   ```
+        companion object {
+            /**
+             * Creates the [BrowserState] given the [CredentialBootstrap.defaultCredential]s presence of a token.
+             *
+             * @return Either [LoggedIn] or [LoggedOut].
+             */
+            suspend fun currentCredentialState(errorMessage: String? = null): BrowserState {
+                val credential = CredentialBootstrap.defaultCredential()
+                return if (credential.token == null) {
+                    LoggedOut(errorMessage)
+                } else {
+                    LoggedIn.create(errorMessage)
+                }
+            }
+        }
+    }
+    ```
 
-In the code above, the authentication flow is triggered from the sign-in button by assigning an on-click listener to `browser_sign_in_btn` that calls the `signIn()` method of the Okta SDK `client`. The result of the authentication is handled by the callback registered above in the call to `client.registerCallback`. You could also call `client.signIn(this, null)` from anywhere else in the code to trigger the authentication flow. For example, when visiting a protected route.
+1. Add the following code that handles button clicks and browser state events to `app/src/main/java/com/okta/android/samples/browser_sign_in/BrowserSignInActivity.kt`:
 
-#### Using an emulator
+    ```kotlin
+    class BrowserSignInActivity : AppCompatActivity() {
+        private val viewModel by viewModels<BrowserSignInViewModel>()
 
-To run your app on an Android virtual device (emulator) during development:
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_browser_sign_in)
 
-1. Set the requirement for a hardware-backed key store to false by calling `setRequireHardwareBackedKeyStore(false)` while creating the `Okta.WebAuthBuilder()` instance inside `AuthClient.java` (not required for real devices). The code you added earlier contains a commented-out copy of the line you need, so you can uncomment it if required.
+            val progressBar = findViewById<View>(R.id.progress_bar)
+            val statusTextView = findViewById<TextView>(R.id.status_text_view)
+            val loginButton = findViewById<View>(R.id.login_button)
+            val logoutOfBrowserButton = findViewById<View>(R.id.logout_of_browser_button)
 
-2. Install a supported browser APK, such as the [Firefox APK](https://github.com/mozilla-mobile/fenix/releases) using the [Android Debug Bridge (ADB)](https://developer.android.com/studio/command-line/adb).
+            loginButton.setOnClickListener {
+                viewModel.login(this)
+            }
+            logoutOfBrowserButton.setOnClickListener {
+                viewModel.logoutOfBrowser(this)
+            }
 
-To run your app on a physical Android device during development, see [the Android Studio documentation](https://developer.android.com/studio/run/device).
+            /**
+             * Update the user interface for changes in the sign-in flow.
+             *
+             * Use an observer to react to updates in [BrowserState]. Updates are asynchronous and are triggered both by user actions,
+             * such as button clicks, and completing the flow.
+             */
+            viewModel.state.observe(this) { state ->
+                when (state) {
+                    is BrowserState.LoggedIn -> {
+                        progressBar.visibility = View.GONE
+                        loginButton.visibility = View.GONE
+                        logoutOfBrowserButton.visibility= View.VISIBLE
+                        statusTextView.visibility = View.VISIBLE
+                        if (state.errorMessage == null) {
+                            statusTextView.text = getString(R.string.welcome_user, state.name)
+                        } else {
+                            statusTextView.text = state.errorMessage
+                        }
+                    }
+                    is BrowserState.LoggedOut -> {
+                        progressBar.visibility = View.GONE
+                        loginButton.visibility = View.VISIBLE
+                        logoutOfBrowserButton.visibility= View.GONE
+                        statusTextView.visibility = View.VISIBLE
+                        if (state.errorMessage == null) {
+                            statusTextView.text = getString(R.string.have_account)
+                        } else {
+                            statusTextView.text = state.errorMessage
+                        }
+                    }
+                    BrowserState.Loading -> {
+                        progressBar.visibility = View.VISIBLE
+                        loginButton.visibility = View.GONE
+                        logoutOfBrowserButton.visibility= View.GONE
+                        statusTextView.visibility = View.GONE
+                    }
+                }
+            }
+        }
+    }
+    ```
