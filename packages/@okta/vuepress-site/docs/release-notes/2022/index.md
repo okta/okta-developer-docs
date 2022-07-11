@@ -63,6 +63,8 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
 
+* When an app user property was set to `NON-SENSITIVE`, sometimes it was still mapped from a sensitive property.(OKTA-508820)
+
 * When the Enroll Okta Call Factor lifecycle operation (`/users/{userId}/factors`) was executed, an internal server error sometimes occurred. (OKTA-482674)
 
 * When the Groups API was called using an older prefix as the `groupID`, an invalid cursor error was returned.  (OKTA-501397)
