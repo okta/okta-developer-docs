@@ -74,7 +74,11 @@ sample-app > ~/applications/ngrok http 8082
 
 If you see the following content in your terminal, ngrok is running successfully:
 
-![A screen shot of a terminal that displays an ngrok session status, with online in green. The session status contains urls that tunnel into the local port.](/img/ngrok-and-event-hooks-session-status.png)
+<div class="three-quarter">
+
+![A screen shot of a terminal that displays an ngrok session status, with online in green. The session status contains urls that tunnel into the local port.](/img/hooks/ngrok-and-event-hooks-session-status.png)
+
+</div>
 
 > **Note:** Copy the forwarding URL that is available from the ngrok terminal session. For example: `https://2d20-142-126-163-77.ngrok.io`. You'll use this URL when setting up your Okta Event Hook.
 
@@ -86,7 +90,11 @@ The ngrok inspection interface provides an opportunity to review all calls to yo
 
 Each call to your local application appears in the interface and includes the response body, header, replay functionality, and other details. Proceed to the following sections to see an example request.
 
-![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)
+<div class="three-quarter border">
+
+![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/hooks/ngrok-and-event-hooks-web-interface.png)
+
+</div>
 
 ## Create an Okta Event Hook
 
@@ -153,7 +161,11 @@ To run a test of your Event Hook:
 
 1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the complete call response body, header, and other details. Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development. See [Replay the Event Hook](#replay-the-event-hook).
 
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+    <div class="half border">
+
+    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/hooks/ngrok-and-event-hooks-web-interface-small.png)
+
+    </div>
 
 ### Preview the Event Hook
 
@@ -180,7 +192,11 @@ To run a preview call of your Event Hook:
 
 1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the response body, header, and other details.
 
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/ngrok-and-event-hooks-web-interface-small.png)
+    <div class="half border">
+
+    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/hooks/ngrok-and-event-hooks-web-interface-small.png)
+
+    </div>
 
 ### Replay the Event Hook
 

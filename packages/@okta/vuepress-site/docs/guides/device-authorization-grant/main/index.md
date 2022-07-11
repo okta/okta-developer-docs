@@ -110,7 +110,11 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on a smart device
 
-![Verification on the smart device](/img/QRActivate.png)
+<div class="three-quarter">
+
+![Verification on the smart device](/img/authorization/QRActivate.png)
+
+</div>
 
 ### Request access, ID, and refresh tokens
 

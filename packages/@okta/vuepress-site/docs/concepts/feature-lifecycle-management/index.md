@@ -26,7 +26,11 @@ Features may have dependencies and dependents. Dependencies are other features t
 
 Consider the following example:
 
-![Feature relation](/img/feature-relation.png "Feature dependency diagram")
+<div class="half">
+
+![Feature dependency diagram](/img/concepts/feature-relation.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

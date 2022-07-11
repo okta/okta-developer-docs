@@ -2,8 +2,6 @@
 title: Multi-tenant solutions
 ---
 
-<div class="multi-tenancy">
-
 # Multi-tenant solutions
 
 Organizations that need to manage a diverse set of user types should consider
@@ -40,9 +38,9 @@ tenant has its own security policies, user registration settings, user groups,
 roles, and rules that determine application access. An illustration of these
 different types of data is shown below:
 
-<div class="image-at-70">
+<div class="full">
 
-![What is a tenant?](/img/multi-tenancy/what-is-a-tenant.png "Examples of Acme Bank's tenants")
+![Examples of Acme Bank's tenants](/img/multi-tenancy/what-is-a-tenant.png)
 
 </div>
 
@@ -72,9 +70,9 @@ Tenants can comprise one or more of the following entities:
 
 Examples of organizations and their tenants are shown below:
 
-<div class="image-at-100">
+<div class="full">
 
-![Types of tenants](/img/multi-tenancy/tenant-types.png "Examples of three Okta customers and their tenants.")
+![Types of tenants](/img/multi-tenancy/tenant-types.png)
 
 </div>
 
@@ -82,10 +80,9 @@ Examples of organizations and their tenants are shown below:
 
 Acme Bank defined their tenants as:
 
-<div class="image-at-70">
+<div class="full">
 
-![Acme Bank tenant examples](/img/multi-tenancy/acme-bank-tenant-examples.png
- "Acme Bank tenant examples")
+![Acme Bank tenant examples](/img/multi-tenancy/acme-bank-tenant-examples.png)
 
 </div>
 
@@ -159,10 +156,9 @@ Acme Bank offers products, website portals, and other wealth management apps
 to their customers and partners. Below is a diagram that lays out
 how these products, users, and groups would be organized within the Okta org.
 
-<div class="image-at-100">
+<div class="three-quarter">
 
-![Single org example](/img/multi-tenancy/single-org-overview-example.png
- "Conceptual model of how an org is organized with a single org configuration")
+![Single org configuration example](/img/multi-tenancy/single-org-overview-example.png)
 
 </div>
 
@@ -261,10 +257,9 @@ naming conventions and unique organizational constraints.
 
 The diagram below illustrates how these components work together:
 
-<div class="image-at-50">
+<div class="three-quarter">
 
-![Okta project Framework](/img/multi-tenancy/dac-framework.png
- "Architectural framework showing how the okta-project is organized.")
+![Okta project architectural framework](/img/multi-tenancy/dac-framework.png)
 
 </div>
 
@@ -283,10 +278,9 @@ applications, groups, and users (people) under the physical structure of
 the org. Following the previous examples, this conversion looks
 like the following:
 
-<div class="image-at-60">
+<div class="full">
 
-![Conceptual to physical](/img/multi-tenancy/tenant-to-org-translate.png
- "Illustrates how the conceptual model is translated to the actual org model")
+![Conceptual model translation to physical org model](/img/multi-tenancy/tenant-to-org-translate.png)
 
 </div>
 
@@ -363,10 +357,9 @@ applications and services through the hub.
 
 A diagram illustrating the hub-and-spoke configuration is shown below:
 
-<div class="image-at-90">
+<div class="full">
 
-![Multi-org layout](/img/multi-tenancy/multi-org-configuration-layout.png
- "Diagram showing how the layout of the hub-and-spoke model")
+![Multi-org hub-and-spoke layout](/img/multi-tenancy/multi-org-configuration-layout.png)
 
 </div>
 
@@ -391,10 +384,9 @@ in a hub-and-spoke pattern like configuration 2. A spoke on this configuration
 can be composed of single or multiple tenants. See the diagram below for an
 illustrated example of this setup:
 
-<div class="image-at-90">
+<div class="full">
 
-![Hybrid configuration](/img/multi-tenancy/hybrid-configuration.png
- "Diagram illustrating the configuration of a hybrid configuration")
+![Hybrid configuration](/img/multi-tenancy/hybrid-configuration.png)
 
 </div>
 
@@ -418,10 +410,9 @@ Directory (UD) isn't used to store the tenants’ users and groups. See below
 for an illustrated example of this
 configuration.
 
-<div class="image-at-80">
+<div class="three-quarter">
 
-![Hybrid configuration](/img/multi-tenancy/custom-centric-configuration.png
- "Diagram showing a full custom implementation")
+![Custom centric configuration](/img/multi-tenancy/custom-centric-configuration.png)
 
 </div>
 
@@ -451,10 +442,8 @@ features.
 
 The diagram below illustrates a simplified view of the Okta org.
 
-<div class="image-at-70">
+<div class="three-quarter">
 
-![Okta org](/img/multi-tenancy/okta-org.png "Diagram of the okta org")
-
-</div>
+![Okta org](/img/multi-tenancy/okta-org.png)
 
 </div>

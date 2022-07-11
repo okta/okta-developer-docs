@@ -163,11 +163,19 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
   1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
-      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png "Provisioning to App tab")
+     <div class="three-quarter">
+
+     ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png)
+
+     </div>
 
   1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to delete and then click the corresponding **X**.
 
-      ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
+     <div class="three-quarter">
+
+     ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png)
+
+     </div>
 
   1. Click **OK** to confirm that you want to remove the mapping for the attribute that you selected.
 
@@ -177,7 +185,11 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
   1. In the Profile Editor, look for the attribute that you want to delete, and click the corresponding **X**.
 
-        ![Displays the Profile Editor > Remove Attribute screen.](/img/oin/scim_check-attributes-7.png "Profile Editor: Remove Attribute")
+     <div class="three-quarter">
+
+     ![Displays the Profile Editor > Remove Attribute screen.](/img/oin/scim_check-attributes-7.png)
+
+     </div>
 
   1. Click **Delete Attribute** to confirm that you want to remove the attribute.
 
@@ -195,7 +207,11 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Enter the information for the new attribute that you’re adding and then click **Save**. For example:
 
-    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
+   <div class="three-quarter">
+
+   ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png)
+
+   </div>
 
     > **Note:** The **Scope** property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
@@ -209,11 +225,19 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
-    ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png "Attribute Mappings: Edit Attribute")
+   <div class="three-quarter">
+
+   ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png)
+
+   </div>
 
 1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute from. Click **Save**.
 
-    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png "Attributes: Map Attribute")
+   <div class="three-quarter">
+
+   ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png)
+
+   </div>
 
 1. Repeat steps 3 and 4 for all other SCIM attributes that you want to map (from Okta to your application).
 
@@ -240,7 +264,11 @@ You only want to include the attributes that you support in your current user sc
     1. Find the user that you imported and click the user's name.
     1. After the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
 
-        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19.png "User Profile Attributes")
+        <div class="three-quarter">
+
+        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19.png)
+
+        </div>
 
         Your Profile Mapping template can always be updated in the future.
 
