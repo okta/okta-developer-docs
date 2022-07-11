@@ -378,7 +378,7 @@ See [response properties](#response-objects-that-you-send) for full details.
 
 ### Sample progressive enrollment response using data.UserProfileUpdate
 
-The following sample response shows an end user successfully adding their employee number to their profile:
+The following sample response shows the addition of an employee number to an end user's profile:
 
 ```json
 {
