@@ -103,8 +103,8 @@ Our app uses information from the Okta integration that we created earlier to co
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
-* **Redirect URI**: Found on the **General** tab in the **Login** section.
-* **Post Logout Redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
@@ -126,9 +126,11 @@ The SDK signs in the user by opening an Okta-hosted web page. The app may send t
 
 ## Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example, to show the customer's name.
+The ID token returned by Okta contains user information, or *claims*, that are based on the scopes requested by the app (see [Configure your app](#configure-your-app)).
 
-The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested (see [Configure your app](#configure-your-app)).
+This app includes the `profile` scope that includes the user's email address, name, and preferred username. You can use this information to update your UI, such as showing the customer's name.
+
+Use the Okta user information endpoints for items that aren't available in the ID token. For general information on requesting user info, see the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6)).
 
 <StackSnippet snippet="getuserinfo" />
 

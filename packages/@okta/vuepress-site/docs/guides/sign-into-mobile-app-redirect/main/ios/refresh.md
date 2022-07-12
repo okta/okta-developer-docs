@@ -1,39 +1,61 @@
-Update `refreshToken` in `ContentView` with the following code:
+You refreshed a token when checking for an existing session in [Check for a session at startup](#check-for-a-session-at-startup). In this case you may want to catch any errors that occur.
+
+Update `refreshToken` in `ContentView.swift` with the following code:
 
 ```swift
 func refreshToken() {
-  guard let authStateManager = authStateManager else {
-    showError(title: "Unable to Renew Token",
-              message: "Could not communincate with the Okta server.")
-    return
-  }
-
-  var tokenInfo = OKTIDToken.init(idTokenString: authStateManager.accessToken!)
-  let currentExpiry = tokenInfo!.expiresAt
-
-  authStateManager.renew() { authStateManager, error in
-    if let error = error {
-      showError(title: "Unable to Renew Token",
-      error: error)
-      return
-    }
-
-    if authStateManager != nil {
-      self.authStateManager = authStateManager
-    }
-
-    tokenInfo = OKTIDToken.init(idTokenString: (authStateManager?.accessToken!)!)
-
-    if tokenInfo!.expiresAt == currentExpiry {
-      showError(title: "Token Not Renewed",
-                message: "An uknown issue prevented renewing the token.")
-    } else {
-      authStateManager?.writeToSecureStorage()
-      statusText = "Token renewed."
-      showTokenInfo()
-    }
-  }
+   if let credential = Credential.default {
+      Task {
+         busy = true
+         do {
+            try await credential.refreshIfNeeded()
+         }
+         catch {
+            showError(title: "Unable to Refresh Token", error: error)
+         }
+         busy = false
+      }
+   } else {
+      showError(title: "Unable to Refresh Token", message: "An unknown issue prevented refreshing the token. Please try again.")
+   }
 }
 ```
 
-Most of the code is checking for errors. The completion updates the state manager if needed, then checks that a new token was issued. If there is a new token, save it to secure storage, update the status text, and show the new token.
+Most of the code is for handling errors or controlling the state of the busy view.
+
+Tokens are usually refreshed on a regular basis. Each refresh requires network activity, which is one of the operations that requires higher battery use. In your production app, the best practice is to refresh a token only when it's required to authenticate a server call. Some other considerations for refreshing a token include:
+
+- Checking if network connectivity is disabled, such as Airplane mode.
+- Checking if the device is using Data rather than WiFi.
+- Handling failed refresh attempts, especially when the server can't be reached.
+
+The `Token` class contains information such as expiry date. The following function displays the access token, its issue and expiry dates, and any associated refresh token in the info area:
+
+```swift
+func showTokenInfo() {
+   infoText = ""
+   var tokenString = "Unable to show token"
+   if let token = Credential.default?.token {
+      let dateFormatter = DateFormatter()
+      dateFormatter.timeStyle = .medium
+      dateFormatter.dateStyle = .medium
+
+      tokenString = ""
+      if let issued = token.issuedAt {
+         tokenString += "Issue Date: \(dateFormatter.string(from: issued))\n"
+      }
+      if let expiry = token.expiresAt {
+         tokenString += "Expiry Date: \(dateFormatter.string(from: expiry))\n"
+      }
+      if token.isExpired {
+         tokenString += "---EXPIRED---\n"
+      }
+      tokenString += "\nAccess Token\n\n\(token.accessToken)\n\n"
+      if let refreshToken = token.refreshToken {
+         tokenString += "\nRefresh Token\n\n\(refreshToken)"
+      }
+   }
+   infoText = tokenString
+}
+```
+

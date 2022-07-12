@@ -6429,7 +6429,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
-Lists all tokens for the application
+Lists all refresh tokens for the application
 
 #### Request parameters
 
@@ -6507,7 +6507,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
-Gets a token for the specified application
+Gets a refresh token for the specified application
 
 #### Request parameters
 

@@ -145,6 +145,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
 
 3. Authorize
 
