@@ -92,47 +92,47 @@ If end users are required to sign in with a password, the password-first prompt 
 ### Password / IdP
 
 If any Global Session Policy rule has the primary factor set to **Password / IdP**, end users see the password-first Sign-In Widget.
+</br>
+<div class="quarter">
 
-<div class="half">
-
-![Password-first Sign-In Widget](/img/siw-oie.png)
+![Password-first Sign-In Widget](/img/admin/siw-oie.png)
 
 </div>
-
+</br>
 1. End users enter their full app **Username**, including the domain, and then their password in the **Password** field.
 The Keep me signed in checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the Remember me option in Classic Engine orgs.
 2. End users click Sign in to initiate the authentication process.
 3. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+</br>
+<div class="quarter">
 
-<div class="half">
-
-![Primary authenticator options](/img/siw-authenticator-oie.png)
+![Primary authenticator options](/img/admin/siw-authenticator-oie.png)
 
 </div>
-
+</br>
 4. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
 
 ### Password / IdP / any factor allowed by app sign-on rules
 
 If any Global Session Policy rule has the primary factor set to Password / IDP / any factor allowed by app sign on rules, end users see the identifier-first Sign-In Widget as the first screen during their access flow.
+</br>
+<div class="quarter">
 
-<div class="half">
-
-![Primary authenticator options](/img/sign-in-widget-username-fp.png)
+![Primary authenticator options](/img/admin/sign-in-widget-username-fp.png)
 
 </div>
-
+</br>
 1. End users enter their full app Username, including the domain, and click Next.
    - The Keep me signed in checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the Remember me option in Classic Engine orgs.
    - If the username is unknown to the org, the Sign-In Widget displays a warning that there is no account with that username and returns an error that the user can't sign in.
 2. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+</br>
+<div class="quarter">
 
-<div class="half">
-
-![Primary authenticator options](/img/siw-authenticator-oie.png)
+![Primary authenticator options](/img/admin/siw-authenticator-oie.png)
 
 </div>
-
+</br>
 3. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
 
 ## Configure profile enrollment policies
@@ -177,7 +177,7 @@ Okta can assist you in collecting profile data from end users before they can ac
    * **Self-service registration:** You can choose one of two options:
       * **Allowed:** Select this option if you want your end users to be able to self-register their Okta account in your org by clicking the **Sign up** link on the Sign-In Widget.
       * **Denied:** Select this option if you want your end users to create their Okta account through another method or if you want to create a progressive enrollment policy.
-         * In progressive enrollment scenarios, self-service registration is denied but users are prompted for missing profile attributes the next time they sign in. See [New sign-in experience](https://help.okta.com/okta_help.htm?id=ext-sign-in-flows).
+         * In progressive enrollment scenarios, self-service registration is denied but users are prompted for missing profile attributes the next time they sign in.
          * With the **Denied** option selected, the **Sign up** link is hidden on the Sign-In Widget.
       * If you want to allow users to self-register for an app integration but not to your entire org, select **Denied** in your Default Policy. Then create a new profile enrollment policy specifically for that app with **Self-service registration** set to **Allowed**.
    * **Email verification:** If this checkbox is selected, the end user must verify their account through an automated email sent to the address they provided. Until they complete this step, they can't access the app integrations that use this policy. If this checkbox isn't selected, email verification isn't required to sign in. Email verification is required if your org is using password-optional authentication.
