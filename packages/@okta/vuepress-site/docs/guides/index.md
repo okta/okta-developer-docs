@@ -136,7 +136,6 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
 
 2. Sign users in
 
@@ -145,6 +144,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
     * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Configure profile enrollment policies](/docs/guides/configure-profile-enrollment-policies/main/)
 
 3. Authorize
 

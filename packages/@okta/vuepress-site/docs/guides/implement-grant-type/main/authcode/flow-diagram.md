@@ -32,7 +32,7 @@ At a high-level, this flow has the following steps:
 3. The user authenticates.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
-    See [Add a user using Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
+    See [Add a user using Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can set up self-service registration to allow users to register their membership with the app. See [Configure profile enrollment policies](/docs/guides/configure-profile-enrollment-policies/main/).
 
 4. After the user is authenticated, the browser receives an authorization code from the Auth Server (Okta). The authorization code is passed to your app.
 5. Your app sends this code and the client secret to Okta. See [Exchange the code for tokens](#exchange-the-code-for-tokens).

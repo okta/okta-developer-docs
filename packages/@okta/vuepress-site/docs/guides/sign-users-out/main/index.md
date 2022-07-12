@@ -73,7 +73,7 @@ The steps required to end the app session vary depending on the type of app that
 
 You might want to configure self-service registration for your org:
 
-* [Configure self-service registration](/docs/guides/set-up-self-service-registration/)
+* [Configure profile enrollment policies](/docs/guides/configure-profile-enrollment-policies/main/)
 
 Read more on customizing your org:
 

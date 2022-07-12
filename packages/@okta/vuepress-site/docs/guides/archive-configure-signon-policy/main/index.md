@@ -150,8 +150,8 @@ You should now understand how to add an Okta Sign-On Policy and an App Sign-On P
 Next, take a look at the following:
 
 * [Sign Users Out](/docs/guides/sign-users-out/)
-* [Set up self-registration](/docs/guides/set-up-self-service-registration/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
+* [Configure a profile enrollment policy](/docs/guides/configure-profile-enrollment-policies/main/)
 
 ## See also 
 
