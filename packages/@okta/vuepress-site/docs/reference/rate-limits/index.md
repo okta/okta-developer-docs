@@ -40,7 +40,11 @@ Okta API Tokens are, by default, configured to have 50% of an API endpoint's rat
 
 The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget available on the Admin Dashboard. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
 
-![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rl-monitoring-widget.png)
+<div class="half">
+
+![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
+
+</div>
 
 ## Burst rate limits
 
@@ -52,11 +56,19 @@ Additionally, burst rate limits typically apply on top of any rate limit increas
 
 On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5x the default with the buffer zone) as shown in the following example.
 
-![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/rl_BRLdashboard1.png)
+<div class="three-quarter">
+
+![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/rate-limits/rl_BRLdashboard1.png)
+
+</div>
 
 When a burst rate limit event occurs, the `system.org.rate_limit.burst` system log event is triggered and an email notification is generated.
 
-![Displays the email to notify the admin of a burst rate limit event.](/img/BRLemail.png)
+<div class="half">
+
+![Displays the email to notify the admin of a burst rate limit event.](/img/rate-limits/BRLemail.png)
+
+</div>
 
 The email is sent to the same admin who received the `system.org.warning` and `system.org.violation` event emails.
 

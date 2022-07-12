@@ -6367,11 +6367,19 @@ All linked IdP Users have the following properties:
 
 Identity Provider User profiles are IdP-specific but may be customized by the Profile Editor in the Admin Console.
 
-![IdP Profile Editor UI](/img/okta-admin-ui-profile-editor-idp.png "IdP Profile Editor UI")
+<div class="three-quarter border">
+
+![IdP Profile Editor UI](/img/admin/okta-admin-ui-profile-editor-idp.png)
+
+</div>
 
 > **Note:** Okta variable names have reserved characters that may conflict with the name of an IdP assertion attribute. You can use the **External name** to define the attribute name as defined in an IdP assertion such as a SAML attribute name.
 
-![IdP Profile Editor Attribute Modal UI](/img/okta-admin-ui-profile-editor-attribute-idp.png "IdP Profile Editor Attribute Modal UI")
+<div class="three-quarter border">
+
+![IdP Profile Editor Attribute Modal UI](/img/admin/okta-admin-ui-profile-editor-attribute-idp.png)
+
+</div>
 
 #### Example Profile object
 
