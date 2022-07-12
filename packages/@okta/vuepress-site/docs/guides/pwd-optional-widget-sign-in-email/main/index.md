@@ -65,7 +65,7 @@ The user selects the **Send me an email** button to continue the email verificat
 
 ### 3. The user verifies the email authenticator
 
-After the user selects **Send me an email**, the Identity Engine sends a verification email to their primary email. The email allows the user to verify with a One-Time Password (OTP) or a magic link. Your app requires no changes to use OTP since it's built into the widget; however, magic  links require updates to your app. These updates include:
+After the user selects **Send me an email**, the Identity Engine sends a verification email to their primary email address. The email allows the user to verify with a One-Time Password (OTP) or a magic link. Your app requires no changes to use OTP since it's built into the widget; however, using magic links require updates to your app. These updates include:
 
 * a browser check to ensure that the user uses the same browser to initiate the sign-in and click on the magic link
 * a routing method to handle the callback request originating from the magic link. This method pulls the `otp` and `state` query parameters from the request and passes them to the Sign-In Widget
