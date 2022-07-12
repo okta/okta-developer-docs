@@ -340,7 +340,17 @@ You can delete any profile enrollment policy that isn't currently in use or the 
 3. Click the **Delete** icon in the **Actions** column. If the **Delete** icon isn't enabled, you must remove any app integrations currently using the policy. See [Reassign a profile enrollment policy](#reassign-a-profile-enrollment-policy).
 4. Click **Delete Policy** to complete the process.
 
+## Next steps
+
+Now that you understand how to configure profile enrollment policies (and set up SSR and progressive enrollment) you can learn how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access, and use tokens to provide API authorization.
+
+* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
+* [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
+* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/)
+* [Refresh tokens](/docs/guides/refresh-tokens/)
+* [Configure access policies](/docs/guides/configure-access-policy/)
+
 ## See also
 
-
-
+* [Embedded SDK use cases - self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/nodejs/main)
