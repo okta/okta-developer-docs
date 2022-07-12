@@ -94,7 +94,9 @@ If end users are required to sign in with a password, the password-first prompt 
 If any Global Session Policy rule has the primary factor set to **Password / IdP**, end users see the password-first Sign-In Widget.
 
 <div class="half">
+
 ![Password-first Sign-In Widget](/img/siw-oie.png)
+
 </div>
 
 1. End users enter their full app **Username**, including the domain, and then their password in the **Password** field.
@@ -103,7 +105,9 @@ The Keep me signed in checkbox retains their identifier as well as authenticator
 3. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
 
 <div class="half">
+
 ![Primary authenticator options](/img/siw-authenticator-oie.png)
+
 </div>
 
 4. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
@@ -113,7 +117,9 @@ The Keep me signed in checkbox retains their identifier as well as authenticator
 If any Global Session Policy rule has the primary factor set to Password / IDP / any factor allowed by app sign on rules, end users see the identifier-first Sign-In Widget as the first screen during their access flow.
 
 <div class="half">
+
 ![Primary authenticator options](/img/sign-in-widget-username-fp.png)
+
 </div>
 
 1. End users enter their full app Username, including the domain, and click Next.
@@ -122,7 +128,9 @@ If any Global Session Policy rule has the primary factor set to Password / IDP /
 2. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
 
 <div class="half">
+
 ![Primary authenticator options](/img/siw-authenticator-oie.png)
+
 </div>
 
 3. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
