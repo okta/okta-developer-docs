@@ -176,7 +176,12 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. The **Okta SCIM X.X SPEC Test** window appears. Under the **Environment** section of your test, there is a collapsed section labelled **Test Settings**. Click the small arrow to expand this section.
 1. Select the **Initial Variables** tab.
 
-    ![Initial Variables tab](/img/oin/scim_test-init_variables.png "Showing the location of the Initial Variables tab")
+   <div class="half">
+
+   ![Initial Variables tab](/img/oin/scim_test-init_variables.png "Showing the location of the Initial Variables tab")
+
+   </div>
+
 1. Click **Add Initial Variable** and add the following case-sensitive variables:
 
     | Variable Name | Example Values | Notes |
@@ -187,7 +192,12 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 
 1. In a new browser window, open the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file and copy all the text to your clipboard.
 1. Back in the Runscope **Environment** panel, select the **Initial Script** tab, and then paste the text into the script console on this tab.
-  ![Initial Script tab](/img/oin/scim-test_init-script.png "Showing the location of the Initial Script tab")
+
+   <div class="three-quarter">
+
+   ![Initial Script tab](/img/oin/scim-test_init-script.png "Showing the location of the Initial Script tab")
+
+   </div>
 
     This script sets up a number of randomly generated "dummy" variables that are used during the testing process:
 
