@@ -38,7 +38,7 @@ tenant has its own security policies, user registration settings, user groups,
 roles, and rules that determine application access. An illustration of these
 different types of data is shown below:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Examples of Acme Bank's tenants](/img/multi-tenancy/what-is-a-tenant.png)
 
@@ -80,7 +80,7 @@ Examples of organizations and their tenants are shown below:
 
 Acme Bank defined their tenants as:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Acme Bank tenant examples](/img/multi-tenancy/acme-bank-tenant-examples.png)
 
@@ -278,7 +278,7 @@ applications, groups, and users (people) under the physical structure of
 the org. Following the previous examples, this conversion looks
 like the following:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Conceptual model translation to physical org model](/img/multi-tenancy/tenant-to-org-translate.png)
 
@@ -357,7 +357,7 @@ applications and services through the hub.
 
 A diagram illustrating the hub-and-spoke configuration is shown below:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Multi-org hub-and-spoke layout](/img/multi-tenancy/multi-org-configuration-layout.png)
 
@@ -384,7 +384,7 @@ in a hub-and-spoke pattern like configuration 2. A spoke on this configuration
 can be composed of single or multiple tenants. See the diagram below for an
 illustrated example of this setup:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Hybrid configuration](/img/multi-tenancy/hybrid-configuration.png)
 
@@ -442,7 +442,7 @@ features.
 
 The diagram below illustrates a simplified view of the Okta org.
 
-<div class="three-quarter">
+<div class="half">
 
 ![Okta org](/img/multi-tenancy/okta-org.png)
 

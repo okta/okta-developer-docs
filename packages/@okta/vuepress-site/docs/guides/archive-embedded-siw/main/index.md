@@ -14,7 +14,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 <div class="half">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-signin.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 

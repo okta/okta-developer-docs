@@ -237,7 +237,7 @@ The Client Credentials flow is intended for server-side (AKA "confidential") cli
 
 > **Note:** The Client Credentials flow doesn't support refresh tokens.
 
-<div class="full">
+<div class="three-quarter">
 
 ![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
 
