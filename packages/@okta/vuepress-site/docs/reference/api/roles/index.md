@@ -1649,7 +1649,7 @@ curl -v -X GET \
   }, {
     "id": "irb5e92YgBazyyQ3x1q5",
     "role": "IGA_CERTIFICATIONS_ADMIN",
-    "label": "IGA_CERTIFICATIONS_ADMIN",
+    "label": "Access Certifications Admin",
     "type": "IGA_CERTIFICATIONS_ADMIN",
     "status": "ACTIVE",
     "created": "2019-02-06T16:20:57.000Z",
@@ -1913,7 +1913,7 @@ curl -v -X POST \
 {
   "id": "irb1q92TFAHzySt3x0g4",
   "role": "IGA_REQUESTS_ADMIN",
-  "label": "IGA_REQUESTS_ADMIN",
+  "label": "Access Requests Admin",
   "type": "IGA_REQUESTS_ADMIN",
   "status": "ACTIVE",
   "created": "2019-02-06T16:20:57.000Z",
@@ -3193,11 +3193,11 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
-| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications, a specific Certification |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests, a specific Access Request |
-| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests, a specific Access Request |
+| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). These cannot be used to create or update other roles.
-> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). These cannot be used to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). It cannot be used to create or update other roles.
 
 #### Example
 
@@ -3261,7 +3261,7 @@ The following are the supported resources.
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
-> **Note:** Governance resource are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). These cannot be used to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). These cannot be used to create or update other resource sets.
 #### Resource examples
 
 ##### Group as resource

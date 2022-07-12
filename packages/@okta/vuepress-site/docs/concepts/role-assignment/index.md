@@ -160,7 +160,7 @@ The following are the supported resources.
 |                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
-> **Note:** Governance resource are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). These cannot be used to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). These cannot be used to create or update other resource sets.
 
 #### Binding member identifiers
 
@@ -185,7 +185,7 @@ their associated roles. Standard resource sets and roles are always identified u
 | Resource Set id/type                                              | Applicable Role id/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
 | `OKTA_IGA_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
-| `OKTA_IGA_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_ADMIN`       | All Users, All Groups, All Request, Access Request App |
+| `OKTA_IGA_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_ADMIN`       | All Users, All Groups, All Access Requests, Access Request App |
 Standard resource sets are managed by Okta only and cannot be updated or deleted.
 
 ## Custom vs. standard
@@ -234,8 +234,8 @@ Standard resource sets are managed by Okta only and cannot be updated or deleted
 | `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
-| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Certifications, a specific Certification |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests, a specific Access Request |
-| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests, a specific Access Request |
+| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Certifications |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). These cannot be used to create or update other roles.
-> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). These cannot be used to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). It cannot be used to create or update other roles.
