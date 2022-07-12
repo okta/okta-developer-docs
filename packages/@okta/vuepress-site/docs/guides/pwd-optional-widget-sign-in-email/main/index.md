@@ -28,7 +28,7 @@ Enable users to sign in with email only in an application using the embedded Okt
 
 Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Also, to test the sign-in integration, you must use a user with an enrolled email authenticator.
 
-## Integrate
+## Integrate into your app
 
 ### Summary of steps
 
@@ -36,7 +36,7 @@ The following summarizes the steps involved in the password-optional sign-in.
 
 <StackSnippet snippet="integrationsummary" />
 
-### 1. User signs in using their username
+### 1. The user signs in using their username
 
 The user enters their username and selects the **Next** button to start the sign-in flow.
 
@@ -48,14 +48,14 @@ The user enters their username and selects the **Next** button to start the sign
 
 </div>
 
-### 2. User submits to verify their identity by email
+### 2. The user selects email verification
 
 After the user selects **Next**, the widget displays a page allowing the user to verify their email. Email is the only available authenticator because
 
-* the only authenticator the user is enrolled in is email
+* email is the only authenticator the user is enrolled in
 * the org's application integration policy allows for only one authentication factor type
 
-To continue the email verification, the user selects the **Send me an email** button.
+The user selects the **Send me an email** button to continue the email verification.
 
 <div class="half">
 
@@ -63,14 +63,13 @@ To continue the email verification, the user selects the **Send me an email** bu
 
 </div>
 
-### 3. User verifies their email
+### 3. The user verifies the email authenticator
 
-After the user selects **Send me an email**, the Identity Engine sends a verification email to the their primary email. The email allows the user to verify with a One-Time Password (OTP) or a magic link. No changes are required to your app for OTP since it's built into the widget, however, magic links require app updates. Specifically, update your application for
+After the user selects **Send me an email**, the Identity Engine sends a verification email to their primary email. The email allows the user to verify with a One-Time Password (OTP) or a magic link. Your app requires no changes to use OTP since it's built into the widget; however, magic  links require updates to your app. These updates include:
 
 * a browser check to ensure that the user uses the same browser to initiate the sign-in and click on the magic link
 * a routing method to handle the callback request originating from the magic link. This method pulls the `otp` and `state` query parameters from the request and passes them to the Sign-In Widget
 
->**Note:** For more information on magic links and OTP including customizations and complete user journeys, see the [Email Magic Links Overview](docs/guides/email-magic-links-overview/main/) guide.
-
+>**Note:** For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links Overview](docs/guides/email-magic-links-overview/main/) guide.
 
 <StackSnippet snippet="integrationsteps" />
