@@ -4676,7 +4676,7 @@ All Identity Providers have the following properties:
 | _links       | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | created      | Timestamp when the IdP was created                             | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
 | id           | Unique key for the IdP                                       | String                                                                    | FALSE    | TRUE   | TRUE     |           |           |
-| issuerMode   | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL`, `CUSTOM_URL` or `DYNAMIC`                                       | FALSE | FALSE | FALSE |   |
+| issuerMode   | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`                                     | FALSE | FALSE | FALSE |   |
 | lastUpdated  | Timestamp when the IdP was last updated                        | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
 | name         | Unique name for the IdP                                    | String                                                                    | FALSE | TRUE  | FALSE | 1 | 100 |
 | policy       | Policy settings for IdP `type`                             | [Policy object](#policy-object)                                           | FALSE | FALSE | FALSE |   |     |
@@ -4688,15 +4688,15 @@ All Identity Providers have the following properties:
 
 * The `id`, `created`, `lastUpdated`, and `_links` properties are available after an IdP is created.
 
-* `issuerMode` indicates which url Okta uses in the request to the social IdP. The `CUSTOM_URL` option is visible only if you have a custom URL domain configured.
+* `issuerMode` indicates which URL Okta uses in the request to the social IdP. The `CUSTOM_URL` option is visible only if you have a custom URL domain configured.
 
     * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`.
 
     * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`.
 
-    * If set to `DYNAMIC`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri` if the request was made from the custom domain URL, else Okta uses the Okta org's original domain URL if the request was made from the Okta org domain.
+    * If set to `DYNAMIC`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri` if the request was made from the custom domain URL. Otherwise, Okta uses the Okta org's original domain URL if the request was made from the Okta org domain.
 
-  All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use either `ORG_URL` or `CUSTOM_URL`, whichever issuerMode they were configured with, so that existing integrations with the social IdP continue to work as before. You can change this value in any social IdP through the API or Admin Console.
+  All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use the `issuerMode` they were configured with (`ORG_URL` or `CUSTOM_URL`). You can change this value in any social IdP through the API or Admin Console.
 
 * The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
