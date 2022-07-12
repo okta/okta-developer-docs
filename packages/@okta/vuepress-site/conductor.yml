@@ -1552,7 +1552,7 @@ redirects:
   - from: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/index.html
     to: /docs/guides/social-login/google/main/#test-the-integration
   - from: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in
-    to: /docs/guides/social-lgin/google/main/#test-the-integration
+    to: /docs/guides/social-login/google/main/#test-the-integration
   - from: /docs/guides/sign-in-with-linkedin/index.html
     to: /docs/guides/social-login/linkedin/main/
   - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin/index.html
@@ -2421,8 +2421,6 @@ redirects:
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
   - from: /docs/guides/add-an-external-idp/-/next-steps/index.html
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
-  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
-    to: /docs/guides/social-login/
   - from: /docs/guides/sharing-cert/overview
     to: /docs/guides/sharing-cert/
   - from: /docs/guides/sharing-cert/generate-new-credential
