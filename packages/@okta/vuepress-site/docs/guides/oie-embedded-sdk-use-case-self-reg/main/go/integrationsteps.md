@@ -19,7 +19,7 @@ if err != nil {
 
 Build a sign-in page that captures the user's first name, last name, and email.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the sign-up page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-page.png)
 
@@ -59,7 +59,7 @@ user should enter their password.
 
 Create a page for the user to enter their password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays a password page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-pwd-page.png)
 
@@ -158,7 +158,7 @@ factor display and skip option.
 
 An example of the page from the sample application is shown below:
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the factor list page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-factor-list-page.png)
 
@@ -188,7 +188,7 @@ if err != nil {
 After `VerifyEmail` is called, redirect the user to a page that accepts the
 email confirmation code.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the email verification page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-email-code-page.png)
 
@@ -238,7 +238,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 }
 ```
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the phone factor with a Skip button in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
 
