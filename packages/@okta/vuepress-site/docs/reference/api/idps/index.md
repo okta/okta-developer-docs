@@ -660,8 +660,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -808,8 +807,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -955,8 +953,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1098,8 +1095,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1216,7 +1212,6 @@ curl -v -X POST \
 -d '{
   "type": "X509",
   "status": "ACTIVE",
-  "features": [],
   "name": "Smart Card IDP Name",
   "protocol": {
     "type": "MTLS",
@@ -1287,7 +1282,7 @@ curl -v -X POST \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
-    "maxClockSkew":0
+    "maxClockSkew":120000
   },
   "_links": {
     "deactivate": {
@@ -3477,6 +3472,58 @@ curl -v -X GET \
 ]
 ```
 
+### Update key
+
+<ApiOperation method="put" url="/api/v1/idps/credentials/keys/${kid}" />
+
+##### Request parameters
+
+| Parameter     | Description                                                                 | Param Type | DataType | Required |
+| ------------- | --------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| kid           | Unique key of the [IdP Key Credential](#identity-provider-key-credential-object) | URL        | String   | TRUE     |
+
+##### Response parameters
+
+[Identity Provider Key Credential](#identity-provider-key-credential-object)
+
+##### Request example
+
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d ' {
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+    ],
+    "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+    "e": "AQAB",
+    "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+    }' "https://${yourOktaDomain}/api/v1/idps/credentials/keys/your-key-id"
+```
+
+##### Response example
+
+```json
+{
+  "kty": "RSA",
+  "created": "2022-07-12T16:11:13.000Z",
+  "lastUpdated": "2022-07-12T16:17:33.000Z",
+  "expiresAt": "2023-12-21T18:56:55.000Z",
+  "alg": "RSA",
+  "kid": "a125a828-d077-422c-8438-7c78204c1a0a",
+  "use": "sig",
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+  ],
+  "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+  "e": "AQAB",
+  "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+}
+```
+
 ### Delete key
 
 <ApiOperation method="delete" url="/api/v1/idps/credentials/keys/${kid}" />
@@ -4128,7 +4175,10 @@ Finds all the Users linked to an Identity Provider
 | Parameter | Description             | Param Type | DataType | Required |
 | --------- | ----------------------- | ---------- | -------- | -------- |
 | idpId     | `id` of IdP to search   | URL        | String   | TRUE     |
-
+| q     | `query` or search term for user   | URL or body        | String   | FALSE     |
+| after     | Cursor of the query   | URL or body        | String   | FALSE     |
+| limit     | Max number of users to show   | URL or body        | String   | FALSE     |
+| expand     | Expand user data   | URL or body        | String   | FALSE     |
 ##### Response parameters
 
 List of Users that are linked to the specified Identity Provider
