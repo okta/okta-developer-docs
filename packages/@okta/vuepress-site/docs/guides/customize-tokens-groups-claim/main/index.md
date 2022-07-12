@@ -23,7 +23,7 @@ This guide explains how to add a Groups claim to ID tokens for any combination o
 
 ## About customized tokens with a Groups claim
 
-You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For groups not mastered in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
+You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For groups not sourced in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
 
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set group allowlists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
 
@@ -105,7 +105,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 ## Add a Groups claim for the Org Authorization Server
 
-Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.

@@ -1,6 +1,122 @@
 ---
 title: Okta API Products release notes 2022
 ---
+
+## June
+
+### Weekly release 2022.06.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.06.3](#bug-fixed-in-2022-06-3)                      | June 29, 2022            |
+
+#### Bug fixed in 2022.06.3
+
+* There was no limit on the number of factor sequences that could be added in a chain through a Policy API update. (OKTA-499259)
+
+### Weekly release 2022.06.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Reset Factors endpoint includes a new optional request parameter](#reset-factors-endpoint-includes-a-new-optional-request-parameter)                      | June 23, 2022            |
+| [Bugs fixed in 2022.06.2](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
+
+#### Reset Factors endpoint includes a new optional request parameter
+
+The `/reset_factors` endpoint has a new optional request parameter for the [Reset Factor lifecycle operation](/docs/reference/api/users/#reset-factors). You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168-->
+
+#### Bugs fixed in 2022.06.2
+
+* When an OAuth 2.0 client was created with a missing JWKS RSA modulus value (`n` parameter), the JWKS validation failed. (OKTA-424664)
+
+* When the JSON Web Key API or the Client Credentials API was used to manage client credentials, the event wasn't triggered in the System Log. (OKTA-494619)
+
+* The List custom roles API response returned wrong field values for the `description` and `lastUpdated` properties and didn't include the `_links` property. (OKTA-506993)
+
+### Weekly release 2022.06.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.06.1](#bugs-fixed-in-2022-06-1) | June 15, 2022 |
+
+#### Bugs fixed in 2022.06.1
+
+* Resource Set operations performed with Okta Resource Names (ORNs) that used capital letters returned an HTTP 500 Internal Server Error. (OKTA-501910)
+
+* Characters in the OAuth 2.0 consent logo URI (`logo_uri`) weren't encoded to prevent interference with HTTP Content Security Policy (CSP) directives. (OKTA-505553)
+
+### Monthly release 2022.06.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Admin Roles with Delegated Flows Resource Set support is EA in Preview](#admin-roles-with-delegated-flows-resource-set-support-is-ea-in-preview) | May 25, 2022|
+| [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
+| [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
+| [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
+| [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
+| [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
+| [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
+| [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
+| [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
+| [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
+| [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
+
+#### Admin Roles with Delegated Flows Resource Set support is EA in Preview
+
+With delegated flows, admins can be assigned the ability to run Okta Workflows through the Administrator Roles API. Flows that are delegated to an admin appear in the **Delegated Flows** page where admins can invoke them without signing in to the Workflows Console. This gives super admins more granular control over their admin assignments. See [Resource Sets](/docs/concepts/role-assignment/#resource-sets) in the Custom Role assignment concept and [Supported resources](/docs/reference/api/roles/#supported-resources) in the Administrator Roles API. <!-- OKTA-450117 -->
+
+#### Dynamic IdP routing is EA in Preview
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!-- OKTA-501508 -->
+
+#### Email Address Bounces API is GA in Production
+
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
+
+#### Generic OIDC IdP nonce validation enforced
+
+For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+
+#### JWT claim enhancement
+
+Okta accepts claim names in URI format (with colon and slash characters) for custom claims in the JSON Web Token (JWT) payload. For example, `http://example.com/is_root` is a supported claim name. <!-- OKTA-496380 -->
+
+#### OIDC Identity Providers private/public key pair support is EA in Preview
+
+Previously, Okta only supported the use of client secret as the client authentication method with an OpenID Connect-based Identity Provider. Okta now supports the use of private/public key pairs (`private_key_jwt`) with OpenID Connect-based Identity Providers. Additionally, the Signed Request Object now also supports the use of private/public key pairs. See [Create an Identity Provider in Okta](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta). <!-- OKTA-502636 -->
+
+#### Okta Verify rate limit updates
+
+Users who attempt to enroll in Okta Verify using SMS can now be rate limited. These rate limit events are now logged in the [System Log](/docs/reference/rl-system-log-events/). <!-- OKTA-502577 -->
+
+#### Regular expression support for matching users with a generic inbound OIDC IdP
+
+Admins can configure the Okta OIDC Identity Provider to only authenticate users from an inbound OIDC IdP if their usernames match a predefined regular expression pattern. See the `filter` property from the [Subject Policy object](/docs/reference/api/idps/#subject-policy-object) in the IdPs API and the Authentication Settings section in the [OIDC IdP](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) configuration. <!-- OKTA-500903 -->
+
+#### Signed request support for generic SAML IdP is EA in Preview
+
+Using signed SAML requests ensures that incoming requests are from genuine applications. When a signed SAML request is configured, Okta only accepts SAML requests signed using the certificate associated with the app integration. Having signed SAML requests also resolves scenarios where the Assertion Consumer Service (ACS) URL requested after authentication can be one of several domains or URLs. When a Service Provider sends a signed authentication request, Okta can accept dynamic ACS values as part of the SAML request and posts the SAML assertion response to the ACS value specified in the request. See the Advanced Settings section of [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). <!-- OKTA-493043 -->
+
+#### System Log events for telephony rate limit violations
+
+Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release.
+
+Additionally, the way that the `MobilePhoneID` hash is created for all `system.sms.send.*` and `system.voice.send.*` events is changed.
+
+See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+
+#### Bugs fixed in 2022.06.0
+
+* The User Consent URIs (`logo_uri`, `policy_uri`, and `tos_uri`) configured in an app's [settings](/docs/reference/api/apps/#settings-10) weren't validated for HTTP or HTTPS URI schemes. (OKTA-395220)
+
+* When a create user API request failed due to non-compliant user credentials, the "Add user to group membership" and "Add user to application membership" events were listed incorrectly in the System Log. (OKTA-469408)
+
+* No System Log error event was triggered when a request to the [Forgot password API endpoint](/docs/reference/api/users/#forgot-password) (`/users/{userId}/credentials/forgot_password`) was made for a user with a `LOCKED_OUT` status. (OKTA-485242)
+
+* No error messages were returned when an API request was made to [create](/docs/reference/api/roles/#create-resource-set) or [update](/docs/reference/api/roles/#add-more-resources) a resource set with invalid ORNs. This occurred if the request was made to an org with the **Okta Resource Name (ORN) in API for Administrator Roles** feature enabled. (OKTA-499775)
+
+* When a user was created with `activate=true` and `nextLogin=changePassword` parameters, their user status was set to `ACTIVE` instead of `PASSWORD_EXPIRED`. (OKTA-501729)
+
 ## May
 
 ### Weekly release 2022.05.3

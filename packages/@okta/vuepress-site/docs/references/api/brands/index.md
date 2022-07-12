@@ -2203,7 +2203,7 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "recipients": "NO_USERS",
+  "recipients": "NO_USERS"
 }' \
 'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
 ```
@@ -2581,7 +2581,7 @@ The Email Template Settings Object resource defines the following properties:
 
 > **Note:** The following is a list of the email templates with certain Enum values:
 > * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
-> * `ALL_USERS, ADMIN ONLY`: `ChangeEmailConfirmation`
+> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 

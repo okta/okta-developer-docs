@@ -1,22 +1,20 @@
 ### 1: Initiate password recovery
 
-To begin the password recovery flow, the user must
+The user starts the password recovery flow by completing these steps:
 
 1. Click the **Forgot Password?** link on the sign-in page.
-2. Enter their **Email or Username** in the box and click **Next**.
-3. Choose **Email** as the authenticator they want to use for password recovery and click **Submit**.
+2. Enter their **Email or Username** in the dialog, and then click **Next**.
+3. Choose **Email** as the authenticator that they want to use for password recovery and click **Submit**.
 
 Okta then tells the user to either click the link in the email or enter the code to continue and sends an email to their email address matching the Forgot Password template that was altered earlier.
 
 <div class="common-image-format">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password Recovery Email")
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
 
 </div>
 
-The **Reset Password** link in the email includes the `OTP` and `request.relayState` variables as query parameters back to the application. For example,
-
-`https://localhost:44314/magiclink/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
 
 ### 2: Handle the OTP and state parameters
 
@@ -49,15 +47,15 @@ If the OTP and state values aren't valid or the user is in a different browser a
 
 ### 3: Set up and render Widget with OTP and state
 
-Consume the session `state` and `otp` values  in a Razor page that contains the Sign-In Widget.
+Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```razor
 @model SignInWidgetConfiguration
 
 @section head
 {
-    <script src="https://global.oktacdn.com/okta-signin-widget/6.0.0/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/6.0.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+    <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 
 <div id="okta-signin-widget-container"></div>

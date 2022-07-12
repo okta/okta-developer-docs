@@ -437,7 +437,7 @@ Additional multi-tenancy resources are below:
 
 #### Org
 
-The Okta idenity solution is centered around an org. An org is a private container
+The Okta identity solution is centered around an org. An org is a private container
 of data that holds all the resources necessary to manage user authentication.
 It is comprised of three main objects:
 

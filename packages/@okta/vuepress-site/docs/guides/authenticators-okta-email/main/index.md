@@ -87,7 +87,7 @@ Your app should always display an OTP input page to allow the user to use the OT
 
 ## Know which use cases support magic link and OTP
 
-Out of the box, the Embedded SDK solution supports the Email Magic Link feature for various use cases. For those use cases where the feature isn't fully supported, OTP is available. See the following support matrix for more details:
+Out of the box, the Embedded SDK solution supports the Email Magic Link features for various use cases. For those use cases where the feature isn't fully supported, OTP is available. See the following support matrix for more details:
 
 | Email template name  | Use cases  | Email authenticator flow  | Supported methods | Template customizations needed |
 | ----------------------------| ------------------|------------------------|-------------|-------------------------|

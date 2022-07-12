@@ -98,6 +98,11 @@ export default {
         this.$auth.setOriginalUri('/');
       }
 
+      // Search for URL Parameters to see if a user is being routed to the application to recover password
+      var searchParams = new URL(window.location).searchParams;
+      this.widget.otp = searchParams.get('otp');
+      this.widget.state = searchParams.get('state');
+
       this.widget.showSignInToGetTokens({
         el: '#okta-signin-container',
         scopes

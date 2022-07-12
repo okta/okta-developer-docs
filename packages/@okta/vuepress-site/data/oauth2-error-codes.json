@@ -1,6 +1,6 @@
 {
-  "release" : "2022.05.1",
-  "build" : "2022.05.1-begin-118-g19837ccce441",
+  "release" : "2022.06.1",
+  "build" : "2022.06.1-begin-129-g082fc8817049",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -38,8 +38,8 @@
     "errorDescription" : "Policy evaluation succeeded but all the requested scopes were rejected."
   }, {
     "title" : "No matching policy",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "no_matching_policy",
     "errorCode" : "access_denied",
     "errorDescription" : "Policy evaluation failed for this request, please check the policy configurations."

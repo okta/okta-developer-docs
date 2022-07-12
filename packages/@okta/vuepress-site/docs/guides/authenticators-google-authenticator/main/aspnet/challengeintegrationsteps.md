@@ -1,4 +1,4 @@
-### 1 - 4: Sign-in and Select Authenticator
+### 1 - 4: Start flow and display authenticator list
 
 The challenge flow follows the same first four steps as the [enrollment flow](#integrate-sdk-for-authenticator-enrollment):
 

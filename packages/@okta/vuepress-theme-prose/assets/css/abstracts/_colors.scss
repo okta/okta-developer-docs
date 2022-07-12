@@ -32,6 +32,7 @@
   --c-warning-lightest: #feefe2;
   --c-warning-base: #f47c25;
   --c-warning-dark: #cb5500;
+  --c-warning-deprecation: #e97107;
   --c-danger-lightest: #fee6ea;
   --c-danger-base: #dd0744;
   --c-danger-dark: #b80047;
@@ -119,6 +120,7 @@
   --c-code-lightgray: #8c8c96;
   --c-code-green: #00b478;
   --c-warning-base: #b35909;
+  --c-warning-deprecation: #e97107;
   --c-success-base: #0d7855;
   --c-light-gray: #aaaab4;
   --c-leaden: #39393d;
@@ -259,7 +261,8 @@ $colors: (
   "warning": (
     "lightest": var(--c-warning-lightest),
     "base": var(--c-warning-base),
-    "dark": var(--c-warning-dark)
+    "dark": var(--c-warning-dark),
+    "deprecation": var(--c-warning-deprecation)
   ),
   "danger": (
     "lightest": var(--c-danger-lightest),

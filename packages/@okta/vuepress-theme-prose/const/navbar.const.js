@@ -802,7 +802,7 @@ export const languagesSdk = [
 
 export const reference = [
   {
-    title: "Reference",
+    title: "References",
     path: "/docs/references/",
     subLinks: [
       {
@@ -851,83 +851,53 @@ export const reference = [
               },
               {
                 title: "System Log events for rate limits",
-                path: "/docs/references/rl-system-log-events/",
+                path: "/docs/references/rl-system-log-events/"
               },
-            ],
+            ]
           },
           { title: "Error Codes", path: "/docs/references/error-codes/" },
           // { title: "User query options", path: "/docs/references/user-query/" },
-          { title: "Sign in Your Users", path: "empty" },
+          { title: 'Sign in Your Users', path: null},
           { title: "Authentication", path: "/docs/references/api/authn/" },
           { title: "Identity Providers", path: "/docs/references/api/idps/" },
-          {
-            title: "OpenID Connect & OAuth 2.0 API",
-            path: "/docs/references/api/oidc/",
-          },
+          { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/references/api/oidc/"},
           { title: "WebFinger", path: "/docs/references/api/webfinger/" },
-          { title: "Manage Okta Objects", path: "empty" },
+          { title: "Manage Okta Objects", path: null},
           { title: "Administrator Roles", path: "/docs/references/api/roles/" },
           { title: "Apps", path: "/docs/references/api/apps/" },
-          {
-            title: "Authenticators Admin",
-            path: "/docs/references/api/authenticators-admin/",
-          },
-          {
-            title: "Authorization Servers",
-            path: "/docs/references/api/authorization-servers/",
-          },
-          { title: "Brands", path: "/docs/references/api/brands/" },
-          { title: "CAPTCHAs", path: "/docs/references/api/captchas/" },
-          { title: "Devices", path: "/docs/references/api/devices/" },
-          { title: "Domains", path: "/docs/references/api/domains/" },
-          {
-            title: "Dynamic Client Registration",
-            path: "/docs/references/api/oauth-clients/",
-          },
+          { title: "Authenticators Admin", path: "/docs/references/api/authenticators-admin/" },
+          { title: "Authorization Servers", path: "/docs/references/api/authorization-servers/"},
+          { title: "Brands", path: "/docs/references/api/brands/"},
+          { title: "CAPTCHAs", path: "/docs/references/api/captchas/"},
+          { title: "Devices", path: "/docs/references/api/devices/"},
+          { title: "Domains", path: "/docs/references/api/domains/"},
+          { title: "Dynamic Client Registration", path: "/docs/references/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/references/api/event-types/" },
           { title: "Factors", path: "/docs/references/api/factors/" },
           { title: "Features", path: "/docs/references/api/features/" },
           { title: "Groups", path: "/docs/references/api/groups/" },
-          {
-            title: "Linked Objects",
-            path: "/docs/references/api/linked-objects/",
-          },
-          {
-            title: "Log Streaming",
-            path: "/docs/references/api/log-streaming/",
-          },
+          { title: "Linked Objects", path: "/docs/references/api/linked-objects/"},
+          { title: "Log Streaming", path: "/docs/references/api/log-streaming/"},
           { title: "Mappings", path: "/docs/references/api/mappings/" },
           { title: "MyAccount", path: "/docs/references/api/myaccount/" },
           { title: "Org", path: "/docs/references/api/org/" },
           { title: "Policy", path: "/docs/references/api/policy/" },
           { title: "Risk Events", path: "/docs/references/api/risk-events/" },
-          {
-            title: "Risk Providers",
-            path: "/docs/references/api/risk-providers/",
-          },
+          { title: "Risk Providers", path: "/docs/references/api/risk-providers/" },
           { title: "Schemas", path: "/docs/references/api/schemas/" },
           { title: "Sessions", path: "/docs/references/api/sessions/" },
-          {
-            title: "Subscriptions",
-            path: "/docs/references/api/admin-notifications/",
-          },
+          { title: "Subscriptions", path: "/docs/references/api/admin-notifications/" },
           { title: "System Log", path: "/docs/references/api/system-log/" },
           { title: "Templates", path: "/docs/references/api/templates/" },
-          {
-            title: "ThreatInsight",
-            path: "/docs/references/api/threat-insight/",
-          },
-          {
-            title: "Trusted Origins",
-            path: "/docs/references/api/trusted-origins/",
-          },
+          { title: "ThreatInsight", path: "/docs/references/api/threat-insight/" },
+          { title: "Trusted Origins", path: "/docs/references/api/trusted-origins/" },
           { title: "User Types", path: "/docs/references/api/user-types/" },
           { title: "Users", path: "/docs/references/api/users/" },
-          { title: "Zones", path: "/docs/references/api/zones/" },
-        ],
+          { title: "Zones", path: "/docs/references/api/zones/" }
+        ]
       },
       {
-        title: "Advanced Server Access API",
+        title: 'Advanced Server Access API',
         subLinks: [
           {
             title: "Introduction to the Advanced Server Access API",

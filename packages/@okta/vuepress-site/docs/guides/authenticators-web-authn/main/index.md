@@ -102,7 +102,7 @@ New apps are automatically assigned the shared default [authentication policy](h
 11. Click **Close**.
 12. Verify that the app is now listed in the **Applications** tab of the new policy.
 
-## Verify browser version
+## Software versions
 
 <StackSnippet snippet="softwareversions" />
 

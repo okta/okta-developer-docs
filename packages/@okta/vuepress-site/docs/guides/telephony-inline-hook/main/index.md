@@ -32,9 +32,7 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Read the information and perform any required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project for this guide and understanding how Glitch projects are configured and used with hooks.
 
-* Enable the Use Your Own Telephony Provider feature in your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **Use Your Own Telephony Provider with the Telephony Inline Hook** slider, and slide to enable.
-
-    > **Note:** If the feature doesn’t appear, contact [Okta Support](https://support.okta.com/help/s/) and make sure that SMS and Voice capabilities are enabled.
+> **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
