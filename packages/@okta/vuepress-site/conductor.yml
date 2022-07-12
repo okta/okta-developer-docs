@@ -2618,25 +2618,25 @@ redirects:
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
     to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
   - from: /docs/guides/set-up-self-service-registration/before-you-begin
-    to: /docs/guides/set-up-self-service-registration/
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
-    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/disable-security-image
-    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget
-    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps
-    to: /docs/guides/set-up-self-service-registration/main/#next-steps
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
-    to: /docs/guides/set-up-self-service-registration/
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#next-steps
+    to: /docs/guides/configure-profile-enrollment-policies/main/
   - from: /docs/guides/build-custom-ui-mobile/-/before-you-begin
     to: /docs/guides/build-custom-ui-mobile/
   - from: /docs/guides/build-custom-ui-mobile/-/create-an-okta-application
