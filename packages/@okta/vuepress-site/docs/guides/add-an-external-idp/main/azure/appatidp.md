@@ -4,6 +4,8 @@
 
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
+    > **Note:** If you set `issuerMode` to `DYNAMIC` [mode](/docs/reference/api/idps/#property-details), then you must add both the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
+
 3. Copy the Application ID value so that you can add it to the Okta configuration in the next section.
 
 4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Application ID.
