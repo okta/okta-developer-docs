@@ -239,7 +239,7 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 Instead of signing in to Okta, it is possible to route users to an external Identity Provider (IdP) using Okta's IdP Routing Rules.
 
-> **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/).
+> **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/main/).
 
 ### Create a Facebook App
 
@@ -278,7 +278,7 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
-    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings).
+    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta).
 
 4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.

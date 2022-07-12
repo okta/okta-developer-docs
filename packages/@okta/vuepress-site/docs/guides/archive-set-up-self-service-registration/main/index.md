@@ -4,7 +4,7 @@ excerpt: (Archived content) Okta's self-service registration lets you configure 
 layout: Guides
 ---
 
-> **Note**: Self-service registration for Okta Classic Engine is deprecated. If you are using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note**: Self-service registration for Okta Classic Engine is deprecated. If you are using Okta Identity Engine, see [Configure profile enrollment policies](/docs/guides/configure-profile-enrollment-policies/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide explains how to set up Okta's self-service registration (SSR) functionality with Okta Classic Engine so that you can configure a custom app or the Okta homepage that allows users to self-register.
 
@@ -18,9 +18,9 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 **What you need**
 
-* SSR enabled in your Okta org. <ApiLifecycle access="ea" /> Contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable this [Early Access](/docs/reference/releases-at-okta/#early-access-ea) feature.
+* SSR enabled in your Okta org
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
-* Sign-In Widget version 2.9 or later if you are hosting a customized [widget](/docs/guides/archive-embedded-siw/)
+* Sign-In Widget version 2.9 or later if you are hosting a customized [widget](/docs/guides/archive-embedded-siw/main/)
 
 ---
 
@@ -28,7 +28,7 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
-Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
+Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/main/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
 
 Self-service registration supports these registration workflows:
 
@@ -168,5 +168,5 @@ Now that you understand how to set up self-service registration, you can learn h
 
 ## See also
 
-* [Embedded Okta Sign-In Widget fundamentals](docs/guides/archive-embedded-siw/)
+* [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/)
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

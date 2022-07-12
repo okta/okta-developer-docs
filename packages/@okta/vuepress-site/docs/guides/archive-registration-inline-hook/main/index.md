@@ -72,7 +72,7 @@ The Registration Inline Hook is now set up with an active status.
 
 ### Enable the Registration Inline Hook in the Classic Engine
 
-If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/) to implement a Registration Inline Hook.
+If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/archive-set-up-self-service-registration/main/) to implement a Registration Inline Hook.
 
 > **Note:** Self-service registration and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/) version 2.9 or later.
 
