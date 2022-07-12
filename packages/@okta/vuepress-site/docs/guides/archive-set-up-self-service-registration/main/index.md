@@ -1,5 +1,7 @@
 ---
 title: Set up self-service registration
+excerpt: (Archived content) Okta's self-service registration lets you configure a custom app or the Okta homepage for use when users self-register.
+layout: Guides
 ---
 
 > **Note**: Self-service registration for Okta Classic Engine is deprecated. If you are using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
