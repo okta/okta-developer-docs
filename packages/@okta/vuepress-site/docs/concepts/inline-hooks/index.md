@@ -42,7 +42,11 @@ The points in Okta process flows where Inline Hooks can be triggered are called 
 
 The graphic below illustrates the sequence of steps:
 
-![Hook Call Steps Diagram](/img/hook-call-steps.png "Hook Call Steps Diagram")
+<div class="three-quarter">
+
+![Hook Call Steps Diagram](/img/hooks/hook-call-steps.png)
+
+</div>
 
 1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
 
@@ -56,7 +60,11 @@ The graphic below illustrates the sequence of steps:
 
 Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the process flow that triggered the Inline Hook. The set of objects varies depending on the type of Inline Hook you're using.
 
-![Hook Request and Response](/img/hook-request-response.png "Hook Request and Response")
+<div class="three-quarter">
+
+![Hook Request and Response](/img/hooks/hook-request-response.png)
+
+</div>
 
 Your service needs to handle the Inline Hook by responding to Okta's request. The JSON payload of the response your service sends can contain a `commands` object, in which you send commands to Okta that affect the course of the Okta process flow. The commands available vary depending on the type of Inline Hook you're using.
 
