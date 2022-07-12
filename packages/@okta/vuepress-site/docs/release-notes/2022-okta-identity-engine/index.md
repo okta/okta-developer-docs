@@ -19,8 +19,9 @@ You can configure the dynamic issuer mode for an identity provider using the Ide
 
 #### Bugs fixed in 2022.07.1
 
-- When the `/api/v1/users/{userId}/roles` or`/api/v1/groups/{groupId}/roles` were called to assign a custom role and resource-set to a user or group, the calls didn’t receive an HTTP 409 Conflict error if the same custom role and resource set are already assigned to the same user or group. (OKTA-507683)
-- In some cases, Okta Identity Engine users couldn't sign in using the Okta Classic `/authn` API. (OKTA-500649)
+- When the `/api/v1/users/{userId}/roles` or
+`/api/v1/groups/{groupId}/roles` were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+- Sometimes Identity Engine users couldn't sign in using the Classic Engine `/authn` API. (OKTA-500649)
 
 ### Monthly release 2022.07.0
 
