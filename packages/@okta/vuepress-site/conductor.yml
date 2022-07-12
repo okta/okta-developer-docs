@@ -5545,3 +5545,23 @@ redirects:
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /code/vue/okta_vue
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /docs/guides/set-up-self-service-registration
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/#next-steps
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/index.html
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/index.html/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/index.html/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/index.html/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/configure-profile-enrollment-policies/main/
+  - from: /docs/guides/set-up-self-service-registration/main/index.html/#next-steps
+    to: /docs/guides/configure-profile-enrollment-policies/main/
