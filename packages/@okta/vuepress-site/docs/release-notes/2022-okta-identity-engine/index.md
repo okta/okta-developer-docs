@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Dynamic issuer mode for identity providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13 2022            |
+| [Dynamic issuer mode for identity providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13, 2022            |
 | [Bugs fixed in 2022.07.1](#bugs-fixed-in-2022-07-1)                        | July 13, 2022            |
 
 #### Dynamic issuer mode for identity providers
