@@ -14,16 +14,16 @@ At Facebook, create the client application that you want to use for authenticati
 
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-6. Specify the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
+    Specify the Okta URI and the custom URI in the external IdP's allowed redirect URI list.
 
-7. Click **Save**, then click **Next** until you exit the Quickstart wizard.
+6. Click **Save**, then click **Next** until you exit the Quickstart wizard.
 
-8. Under your app's **Client OAuth Settings**, find the **Valid OAuth Redirect URIs** section and paste the redirect URI.
+7. Under your app's **Client OAuth Settings**, find the **Valid OAuth Redirect URIs** section and paste the redirect URI.
 
-9. Click **Save Changes**.
+8. Click **Save Changes**.
 
-10. On the App Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
+9. On the App Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
 
-11. Save the **App ID** and the **App Secret** values so you can add them to the Okta configuration in the next section.
+10. Save the **App ID** and the **App Secret** values so you can add them to the Okta configuration in the next section.
 
 > **Note:** There may be additional settings on the [Facebook App Dashboard](https://developers.facebook.com/apps) that you can configure for the app. The steps in this guide address the quickest route to setting up Facebook as an Identity Provider with Okta. See the Facebook documentation for more information on additional configuration settings.

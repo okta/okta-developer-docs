@@ -6,10 +6,10 @@ At Microsoft, create the client application that you want to use for authenticat
 
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-3. Specify the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
+    Specify the Okta URI and the custom URI in the external IdP's allowed redirect URI list.
 
-4. Save the Application ID value so you can add it to the Okta configuration in the next section.
+3. Save the Application ID value so you can add it to the Okta configuration in the next section.
 
-5. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Save the value so you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Application ID.
+4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Save the value so you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Application ID.
 
 > **Note:** There may be additional settings on the [Microsoft instruction page](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) that you can configure for the app. The steps in this guide address the quickest route to setting up Microsoft as an Identity Provider with Okta. See the Microsoft documentation for more information on additional configuration settings.
