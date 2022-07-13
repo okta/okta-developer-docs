@@ -15,12 +15,12 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Dynamic issuer mode for identity providers
 
-You can configure the dynamic issuer mode for an identity provider using the Identity Provider API. When you set `issuerMode` to `DYNAMIC`, Okta uses the domain from the `authorizeURI` as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
+You can configure the dynamic issuer mode for an identity provider using the Identity Provider API. When you set the`issuerMode` parameter to `DYNAMIC`, Okta uses the domain from the Authorize URL as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
 
 #### Bugs fixed in 2022.07.1
 
-- When the `/api/v1/users/{userId}/roles` or
-`/api/v1/groups/{groupId}/roles` were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+- When the `/api/v1/users/${userId}/roles` or
+`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
 - Sometimes Identity Engine users couldn't sign in using the Classic Engine `/authn` API. (OKTA-500649)
 
 ### Monthly release 2022.07.0
