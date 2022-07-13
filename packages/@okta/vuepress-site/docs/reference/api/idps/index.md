@@ -4688,7 +4688,7 @@ All Identity Providers have the following properties:
 
 * The `id`, `created`, `lastUpdated`, and `_links` properties are available after an IdP is created.
 
-* `issuerMode` indicates which URL Okta uses in the request to the social IdP. The `CUSTOM_URL` option is visible only if you have a custom URL domain configured.
+* `issuerMode` indicates which URL Okta uses in the request to the social IdP. You can set `issuerMode` to `CUSTOM_URL` only if you have a custom URL domain configured.
 
     * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`.
 
