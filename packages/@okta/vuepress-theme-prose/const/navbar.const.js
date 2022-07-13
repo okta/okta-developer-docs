@@ -123,7 +123,6 @@ export const guides = [
         subLinks: [
           {
             title: "Redirect authentication",
-            path: "#",
             subLinks: [
               {
                 title: "Sign users in to your single-page application",
@@ -149,11 +148,9 @@ export const guides = [
           },
           {
             title: "Embedded authentication",
-            path: "#",
             subLinks: [
               {
                 title: "Get set up",
-                path: "#",
                 subLinks: [
                   {
                     title: "Set up your Okta org",
@@ -188,7 +185,6 @@ export const guides = [
               },
               {
                 title: "Embedded SDK use cases",
-                path: "#",
                 subLinks: [
                   {
                     title: "Basic sign-in flow using the password factor",
@@ -230,7 +226,6 @@ export const guides = [
               },
               {
                 title: "Embedded Sign-In Widget use cases",
-                path: "#",
                 subLinks: [
                   {
                     title: "Load the Widget",
@@ -333,7 +328,6 @@ export const guides = [
           { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Basics",
-            path: "#",
             subLinks: [
               {
                 title: "Create an API token",
@@ -428,7 +422,6 @@ export const guides = [
       },
       {
         title: "Authorization",
-        path: "#",
         subLinks: [
           {
             title: "Implement authorization by grant type",
@@ -453,7 +446,6 @@ export const guides = [
           },
           {
             title: "Tokens",
-            path: "#",
             subLinks: [
               {
                 title: "Build a JWT for Client Authentication",
@@ -495,7 +487,6 @@ export const guides = [
       },
       {
         title: "Brand and Customize",
-        path: "#",
         subLinks: [
           {
             title: "Customize the Okta URL domain",
@@ -525,7 +516,6 @@ export const guides = [
       },
       {
         title: "OIN Partner Integrations",
-        path: "#",
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
@@ -570,7 +560,6 @@ export const guides = [
       },
       {
         title: "API Security",
-        path: "#",
         subLinks: [
           {
             title: "Implement OAuth for Okta",
@@ -596,7 +585,6 @@ export const guides = [
       },
       {
         title: "Deploy to Production",
-        path: "#",
         subLinks: [
           {
             title: "Deployment checklists",
@@ -605,7 +593,6 @@ export const guides = [
           { title: "Deploy your app", guideName: "deploy-your-app" },
           {
             title: "Migrate to Okta",
-            path: "#",
             subLinks: [
               {
                 title: "Prerequisites",
@@ -625,7 +612,6 @@ export const guides = [
       },
       {
         title: "Hooks",
-        path: "#",
         subLinks: [
           {
             title: "Common Hook Set-up Steps",
@@ -705,7 +691,6 @@ export const languagesSdk = [
     subLinks: [
       {
         title: "Server-side",
-        path: "#",
         subLinks: [
           { title: ".NET", path: "/code/dotnet/aspnetcore/" },
           { title: "Go", path: "/code/go/" },
@@ -717,7 +702,6 @@ export const languagesSdk = [
       },
       {
         title: "Front-end",
-        path: "#",
         subLinks: [
           { title: "Angular", path: "/code/angular/" },
           { title: "React", path: "/code/react/" },
@@ -727,7 +711,6 @@ export const languagesSdk = [
       },
       {
         title: "Mobile/native",
-        path: "#",
         subLinks: [
           { title: "Android", path: "/code/android/" },
           { title: "iOS", path: "/code/ios/" },
