@@ -1,154 +1,150 @@
 Launch Xcode and create a new iOS app project using SwiftUI for the interface and Swift for the language.
 
-> **Note:** The sample code is compatible with iOS 14 and later.
+> **Note:** The sample code uses SwiftUI features that are available in iOS 14 and the async/await feature of iOS 15. Use the completion handler versions of the async/await functions to enable the sample to run on iOS 14 and later. For information on the minimum iOS version supported by the current SDK, see [the support section of the README](https://github.com/okta/okta-mobile-swift#support-policy).
+
 
 #### Add the UI
 
-The main view implements all of the app functionality, including initializing the Okta SDK. Note that best practice for a full app uses a singleton to manage the interaction with the SDK.
+The functionality of the app is implemented in `ContentView.swift`, the main SwiftUI view. This includes view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then sharing state using Combine, bindings, or `@Environment`.
 
-Text views display the current state and any requested information, such as the access token. The available buttons depend on the sign-in state of the user. Update the imported modules and replace the `ContentView` `struct` with the following code:
+The app contains three areas: the top area contains buttons for signing in and out and for viewing information. The middle area shows the current app state, and the lower area displays information text, such as the token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user from interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
+
+The following image shows the completed app in both the sign-in and signed-on states:
+
+<div class="three-quarter border">
+
+![Two iPhone screenshots that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
+
+</div>
+
+<!--
+Source image(s): https://www.figma.com/file/i3huE0gEoISu2evquOq5yJ/app-ui-redirect-ios?node-id=0%3A1
+There's only one board. The group for the image is: "Side-by-side screenshots"
+-->
+
+Open `ContentView.swift` and replace the `import` statements and the `ContentView` struct with the following code:
 
 ```swift
 import SwiftUI
-import UIKit
+import AuthFoundation
+import WebAuthenticationUI
 
 struct ContentView: View {
-  @State var showingError: Bool = false
-  @State var errorMessage: String? = nil
-  @State var errorTitle: String? = nil
-  @State var statusText:String?  = "Not signed in."
-  @State var infoText: String? = ""
-  @State var signedIn: Bool = false
+   // Used to display error messages.
+   @State var showingError: Bool = false
+   @State var errorMessage: String? = nil
+   @State var errorTitle: String? = nil
 
-  var body: some View {
-    VStack() {
-      HStack {
-        if !signedIn {
-          Button("Sign In") {
-            signIn()
-          }
-          .padding()
-        } else {
-          VStack {
-            Button("Sign Out") {
-              signOut()
-            }
-            .padding(.bottom)
+   // The text shown in the status area.
+   @State var statusText: String? = nil
+
+   // Text shown in the main information area.
+   @State var infoText: String? = ""
+
+   // Controls what parts of the UI are shown.
+   @State var isSignedIn: Bool = false
+
+   // Controls showing a busy spinner that covers the main UI.
+   @State var busy: Bool = false
+
+   var body: some View {
+      ZStack {
+         VStack() {
             HStack {
-              Button("Show User Info") {
-                showUserInfo()
-              }
-              Button("Show Token") {
-                showTokenInfo()
-              }
-              .padding(.horizontal)
-              Button("Refresh Token") {
-                refreshToken()
-              }
+               // Show the Sign In button or the Sign Out button with other options.
+               if !isSignedIn {
+                  Button("Sign In") {
+                     signIn()
+                  }
+                  .padding()
+               } else {
+                  VStack {
+                     HStack {
+                        Button("Sign Out") {
+                           signOut()
+                        }
+                        .padding()
+                     }
+                     HStack {
+                        Button("Show User Info") {
+                           showUserInfo()
+                        }
+                        Button("Show Token") {
+                           showTokenInfo()
+                        }
+                        Button("Refresh Token") {
+                           refreshToken()
+                        }
+                     }
+                  }
+               }
             }
-          }
+            Divider()
+            Text("Status")
+               .fontWeight(.medium)
+               .foregroundColor(Color.gray)
+            Text(statusText ?? "Unknown status.")
+            Divider()
+            Text("Info")
+               .fontWeight(.medium)
+               .foregroundColor(Color.gray)
+            ScrollView(showsIndicators: true) {
+               Text(infoText ?? "")
+            }
+         }
+         if busy {
+            Color.gray
+               .opacity(0.5)
+            ProgressView("Waiting")
         }
       }
-      Divider()
-      Text("Status")
-      .fontWeight(.medium)
-      .foregroundColor(Color.gray)
-      .padding(.bottom)
-      Text(statusText ?? "Unknown status.")
-      Divider()
-      Text("Info")
-      .fontWeight(.medium)
-      .foregroundColor(Color.gray)
-      .padding(.bottom)
-      ScrollView(showsIndicators: true) {
-        Text(infoText ?? "")
+      .alert(isPresented: $showingError) {
+         Alert(title: Text(errorTitle ?? "Unknown Error"),
+         message: Text(errorMessage ?? "An unknow error occured."))
       }
-    }
-    .alert(isPresented: $showingError) {
-      Alert(title: Text(errorTitle ?? "Unknown Error"),
-      message: Text(errorMessage ?? "An unknow error occured."))
-    }
-    .onAppear() {
-      configureSDK()
-    }
-  }
+   }
 
-  func signIn() {
-    statusText = "Sign in button touched."
-    signedIn = true
-  }
+   func signIn() {
+      infoText = "Sign in tapped"
+   }
 
-  func signOut() {
-    statusText = "Sign out button touched."
-    signedIn = false
-  }
+   func signOut() {
+      infoText = "Sign out tapped"
+   }
 
-  func showUserInfo() {
-    statusText = "Show user info button touched"
-  }
+   func showUserInfo() {
+      infoText =  "Show user info tapped"
+   }
 
-  func showTokenInfo() {
-    statusText = "Show token info button touched"
-  }
+   func showTokenInfo() {
+      infoText = "Show token info tapped"
+   }
 
-  func refreshToken() {
-    statusText = "Refresh token button touched"
-  }
+   func refreshToken() {
+      infoText = "Refresh token tapped"
+   }
 
-  func configureSDK() {
-    print("configureSDK called")
-  }
+   // Display and error message using an Error object.
+   func showError(title: String, error: Error) {
+      showError(title: title, message: error.localizedDescription)
+   }
 
-  func tokenExpired() {
-    print("tokenExpired called")
-  }
+   // Display an error message using a provided string.
+   func showError(title: String , message: String) {
+      errorTitle = title
+      errorMessage = message
+      showingError = true
+   }
 
-  func showError(title: String , message: String) {
-    errorTitle = title
-    errorMessage = message
-    showingError = true
-  }
-
-  func showError(title: String, error: Error) {
-    showError(title: title, 
-    message: error.localizedDescription)
-  }
-
-  func updateStatus(_ statusText: String, infoText: String, signedInStatus: Bool) {
-    self.statusText = statusText
-    self.infoText = infoText
-    signedIn = signedInStatus
-  }
-
+   // A utility function that updates the state of all visual elements.
+   func updateStatus(_ statusText: String, infoText: String, signedInStatus: Bool) {
+      self.statusText = statusText
+      self.infoText = infoText
+      isSignedIn = signedInStatus
+   }
 }
 ```
 
-The last four functions are utilities. You fill out `tokenExpired` later. The two variants of `showError` configure the contents, and then show an alert (the `showingError` state variable controls the presentation of the alert.)
+The last three functions are utilities. The two overloads of `showError` set the state variables for the title and text of an alert, then set `showingError` that triggers the `.alert` view modifier to present the alert.
 
 The last utility updates the status text, the info text, and the `signedIn` state variable that controls the buttons presented at the top of the UI.
-
-#### Add an extension to find the root view
-
-Redirect sign-in is designed for apps using view controllers and storyboards. Some of the calls include a parameter for the current view controller, something that doesn't exist in SwiftUI. This sample uses the root view controller for the first key window of the active app for the parameter.
-
-To find the root view controller, add a new Swift file to your project called `UIApplication+rootViewController` and add the following code:
-
-```swift
-import UIKit
-
-extension UIApplication {
-  var currentKeyWindow: UIWindow? {
-    UIApplication.shared.connectedScenes
-      .filter { $0.activationState == .foregroundActive }
-      .map { $0 as? UIWindowScene }
-      .compactMap { $0 }
-      .first?.windows
-      .filter { $0.isKeyWindow }
-      .first
-  }
-
-  var rootViewController: UIViewController? {
-    currentKeyWindow?.rootViewController
-  }
-}
-```

@@ -4,4 +4,8 @@ This guide explains how to build a sample application with the embedded Sign-In 
 
 >**Note:** This sample application uses `Angular CLI` v11.2.17, `Node` v14.15.5, and `okta-auth-js` v5.9.1.
 
-<img src="/img/okta-sign-in-angular.png" alt="Screenshot of basic Okta Sign-In Widget using Angular" width="800">
+<div class="three-quarter border">
+
+![Screenshot of basic Okta Sign-In Widget using Angular](/img/siw/okta-sign-in-angular.png)
+
+</div>

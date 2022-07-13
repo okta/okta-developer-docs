@@ -1,6 +1,6 @@
 {
-  "release" : "2022.06.1",
-  "build" : "2022.06.1-begin-129-g082fc8817049",
+  "release" : "2022.07.1",
+  "build" : "2022.07.1-begin-106-ge4dd634b6592",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -940,6 +940,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'user_type' parameter must be user type name or id."
   }, {
+    "title" : "Invalid acr values",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_acr_values",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'acr_values' parameter is not valid."
+  }, {
+    "title" : "Unsupported multiple acr values",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_multiple_acr_values",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'acr_values' parameter only supports a single value."
+  }, {
     "title" : "PKCE invalid challenge",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -952,7 +966,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "pkce_missing_challenge",
     "errorCode" : "invalid_request",
-    "errorDescription" : "PKCE code challenge is required when the token endpoint authentication method is 'NONE'."
+    "errorDescription" : "PKCE code challenge is required by the application."
   }, {
     "title" : "PKCE missing challenge verifier present",
     "statusCode" : 400,
@@ -966,7 +980,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "pkce_missing_verifier",
     "errorCode" : "invalid_request",
-    "errorDescription" : "PKCE code verifier is required when the token endpoint authentication method is 'NONE'."
+    "errorDescription" : "PKCE code verifier is required by the application."
   }, {
     "title" : "PKCE unsupported code challenge method",
     "statusCode" : 400,

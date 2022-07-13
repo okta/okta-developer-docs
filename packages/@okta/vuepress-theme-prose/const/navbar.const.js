@@ -123,6 +123,7 @@ export const guides = [
         subLinks: [
           {
             title: "Redirect authentication",
+            path: "#",
             subLinks: [
               {
                 title: "Sign users in to your single-page application",
@@ -148,9 +149,11 @@ export const guides = [
           },
           {
             title: "Embedded authentication",
+            path: "#",
             subLinks: [
               {
                 title: "Get set up",
+                path: "#",
                 subLinks: [
                   {
                     title: "Set up your Okta org",
@@ -185,6 +188,7 @@ export const guides = [
               },
               {
                 title: "Embedded SDK use cases",
+                path: "#",
                 subLinks: [
                   {
                     title: "Basic sign-in flow using the password factor",
@@ -226,6 +230,7 @@ export const guides = [
               },
               {
                 title: "Embedded Sign-In Widget use cases",
+                path: "#",
                 subLinks: [
                   {
                     title: "Load the Widget",
@@ -308,104 +313,27 @@ export const guides = [
             guideName: "configure-signon-policy",
           },
           {
-            title: "Add an Identity Provider",
+            title: "Add an external Identity Provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
               {
-                title: "Social Logins",
-                subLinks: [
-                  {
-                    title: "Amazon",
-                    path: "/docs/guides/social-login/amazon/main/",
-                  },
-                  {
-                    title: "Apple",
-                    path: "/docs/guides/add-an-external-idp/apple/main/",
-                  },
-                  {
-                    title: "Discord",
-                    path: "/docs/guides/social-login/discord/main/",
-                  },
-                  {
-                    title: "Facebook",
-                    path: "/docs/guides/add-an-external-idp/facebook/main/",
-                  },
-                  {
-                    title: "GitHub",
-                    path: "/docs/guides/social-login/github/main/",
-                  },
-                  {
-                    title: "GitLab",
-                    path: "/docs/guides/social-login/gitlab/main/",
-                  },
-                  {
-                    title: "Google",
-                    path: "/docs/guides/add-an-external-idp/google/main/",
-                  },
-                  {
-                    title: "LinkedIn",
-                    path: "/docs/guides/add-an-external-idp/linkedin/main/",
-                  },
-                  {
-                    title: "Microsoft",
-                    path: "/docs/guides/add-an-external-idp/microsoft/main/",
-                  },
-                  {
-                    title: "Paypal",
-                    path: "/docs/guides/social-login/paypal/main/",
-                  },
-                  {
-                    title: "Salesforce",
-                    path: "/docs/guides/social-login/salesforce/main/",
-                  },
-                  {
-                    title: "Spotify",
-                    path: "/docs/guides/social-login/spotify/main/",
-                  },
-                  {
-                    title: "Xero",
-                    path: "/docs/guides/social-login/xero/main/",
-                  },
-                  {
-                    title: "Yahoo",
-                    path: "/docs/guides/social-login/yahoo/main/",
-                  },
-                  {
-                    title: "Yahoo Japan",
-                    path: "/docs/guides/social-login/yahoojp/main/",
-                  },
-                ],
+                title: "Enterprise Identity Provider",
+                guideName: "add-an-external-idp"
               },
               {
-                title: "Enterprise Identity Providers",
-                subLinks: [
-                  {
-                    title: "SAML 2.0",
-                    path: "/docs/guides/add-an-external-idp/saml2/main/",
-                  },
-                  {
-                    title: "OpenID Connect",
-                    path: "/docs/guides/add-an-external-idp/openidconnect/main/",
-                  },
-                  {
-                    title: "Okta to Okta",
-                    path: "/docs/guides/add-an-external-idp/oktatookta/main/",
-                  },
-                  {
-                    title: "Azure AD",
-                    path: "/docs/guides/add-an-external-idp/azure/main/",
-                  },
-                  {
-                    title: "Smart Card",
-                    path: "/docs/guides/add-an-external-idp/smartcard/",
-                  },
-                ],
+                title: "Smart Card",
+                path: "/docs/guides/add-an-external-idp/smartcard/"
+              },
+              {
+                title: "Social Login",
+                guideName: "social-login"
               },
             ],
           },
           { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Basics",
+            path: "#",
             subLinks: [
               {
                 title: "Create an API token",
@@ -500,6 +428,7 @@ export const guides = [
       },
       {
         title: "Authorization",
+        path: "#",
         subLinks: [
           {
             title: "Implement authorization by grant type",
@@ -524,6 +453,7 @@ export const guides = [
           },
           {
             title: "Tokens",
+            path: "#",
             subLinks: [
               {
                 title: "Build a JWT for Client Authentication",
@@ -565,6 +495,7 @@ export const guides = [
       },
       {
         title: "Brand and Customize",
+        path: "#",
         subLinks: [
           {
             title: "Customize the Okta URL domain",
@@ -594,6 +525,7 @@ export const guides = [
       },
       {
         title: "OIN Partner Integrations",
+        path: "#",
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
@@ -638,6 +570,7 @@ export const guides = [
       },
       {
         title: "API Security",
+        path: "#",
         subLinks: [
           {
             title: "Implement OAuth for Okta",
@@ -663,6 +596,7 @@ export const guides = [
       },
       {
         title: "Deploy to Production",
+        path: "#",
         subLinks: [
           {
             title: "Deployment checklists",
@@ -671,6 +605,7 @@ export const guides = [
           { title: "Deploy your app", guideName: "deploy-your-app" },
           {
             title: "Migrate to Okta",
+            path: "#",
             subLinks: [
               {
                 title: "Prerequisites",
@@ -690,6 +625,7 @@ export const guides = [
       },
       {
         title: "Hooks",
+        path: "#",
         subLinks: [
           {
             title: "Common Hook Set-up Steps",
@@ -769,6 +705,7 @@ export const languagesSdk = [
     subLinks: [
       {
         title: "Server-side",
+        path: "#",
         subLinks: [
           { title: ".NET", path: "/code/dotnet/aspnetcore/" },
           { title: "Go", path: "/code/go/" },
@@ -780,6 +717,7 @@ export const languagesSdk = [
       },
       {
         title: "Front-end",
+        path: "#",
         subLinks: [
           { title: "Angular", path: "/code/angular/" },
           { title: "React", path: "/code/react/" },
@@ -789,6 +727,7 @@ export const languagesSdk = [
       },
       {
         title: "Mobile/native",
+        path: "#",
         subLinks: [
           { title: "Android", path: "/code/android/" },
           { title: "iOS", path: "/code/ios/" },
@@ -857,12 +796,12 @@ export const reference = [
           },
           { title: "Error Codes", path: "/docs/references/error-codes/" },
           // { title: "User query options", path: "/docs/references/user-query/" },
-          { title: 'Sign in Your Users', path: null},
+          { title: 'Sign in Your Users', path: 'empty'},
           { title: "Authentication", path: "/docs/references/api/authn/" },
           { title: "Identity Providers", path: "/docs/references/api/idps/" },
           { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/references/api/oidc/"},
           { title: "WebFinger", path: "/docs/references/api/webfinger/" },
-          { title: "Manage Okta Objects", path: null},
+          { title: "Manage Okta Objects", path: "empty"},
           { title: "Administrator Roles", path: "/docs/references/api/roles/" },
           { title: "Apps", path: "/docs/references/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/references/api/authenticators-admin/" },
@@ -897,7 +836,7 @@ export const reference = [
         ]
       },
       {
-        title: 'Advanced Server Access API',
+        title: "Advanced Server Access API",
         subLinks: [
           {
             title: "Introduction to the Advanced Server Access API",

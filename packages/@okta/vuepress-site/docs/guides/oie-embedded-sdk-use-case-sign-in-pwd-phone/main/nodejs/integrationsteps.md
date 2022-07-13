@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the username and password, as shown in the following example.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays the sign-in page where the user enters their username and password for authentication.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
@@ -26,7 +26,7 @@ After this response, you need to redirect the user to an authenticator list page
 
 In this use case, only the **Phone** factor appears in the list of authenticators, as shown in the following example page:
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Select Authenticator page that includes a phone option and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-nodejs.png)
 
@@ -49,7 +49,7 @@ The next step is to redirect the user to a page to enter in the phone verificati
 
 Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Verify using phone authenticator page that includes an SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
 
@@ -73,7 +73,7 @@ status, // IdxStatus.PENDING
 
 Build a page that accepts the code sent to the user's phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Challenge Authenticator page that includes a field for the code and a Verifiy button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-phone-code-nodejs.png)
 
