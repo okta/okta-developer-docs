@@ -153,7 +153,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 ## Use Velocity Templating Language
 
-[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/1.7/user-guide.html) allows you to customize your org's email templates so that you can use:
+[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use:
 
 - enhanced conditional logic
 - all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
