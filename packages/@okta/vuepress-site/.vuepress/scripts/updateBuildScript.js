@@ -160,7 +160,6 @@ module.exports = class Build extends EventEmitter {
     });
 
     worker.on('error', error => {
-      console.log('workerNumber1', workerNumber)
       console.error(
         logger.error(
           chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
