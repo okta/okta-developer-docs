@@ -4,6 +4,6 @@ You also need to add the redirect URI to the appropriate section. The redirect U
 
 For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-> **Note:** If you set `issuerMode` to `DYNAMIC` [mode](/docs/reference/api/idps/#property-details), then you must add both the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
+Be sure to specify the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
 
 > **Note:** If you've built your own custom Identity Provider, you need the client ID and the client secret generated for the Identity Provider so you can add it to the Okta configuration in the next section.

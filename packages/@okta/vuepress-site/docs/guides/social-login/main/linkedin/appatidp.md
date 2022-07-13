@@ -12,15 +12,15 @@ At LinkedIn, create the client application that you want to use for authenticati
     * Has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint.
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to build your redirect URL, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-    > **Note:** If you set `issuerMode` to `DYNAMIC` [mode](/docs/reference/api/idps/#property-details), then you must add both the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
+4. Specify the Okta URI and the custom URI in the external IdP's allowed `redirectUri` list.
 
-4. Paste the redirect URL into the box.
+5. Paste the redirect URL into the box.
 
-5. Click **Update**.
+6. Click **Update**.
 
-6. From the **Products** tab, in the **Sign In with LinkedIn** box, click **Select**.
+7. From the **Products** tab, in the **Sign In with LinkedIn** box, click **Select**.
 
-7. In the resulting dialog box, select **I have read and agree to these terms**, and then click **Add Product**.
+8. In the resulting dialog box, select **I have read and agree to these terms**, and then click **Add Product**.
 
 > **Note:** You must explicitly request the `r_liteprofile` and `r_emailaddress` scopes when requesting an authorization code. See [Permissions](https://docs.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow?context=linkedin%2Fconsumer%2Fcontext&tabs=HTTPS) for more information.
 
