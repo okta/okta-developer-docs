@@ -111,18 +111,18 @@ For password-only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a password-optional use case
 
-Set up your Okta your org to enable authentication without a password using the followings steps:
+Set up your Okta org to enable authentication without a password using the followings steps:
 
-1. [Set up the email authenticator](#set-up-the-email-authenticator)
-1. [Create a password-optional authenticator policy](#create-a-password-optional-authenticator-policy)
-1. [Add a new global session policy](#add-a-new-global-session-policy)
-1. [Add a new authentication policy](#add-a-new-authentication-policy)
+1. [Set up the email authenticator](#set-up-the-email-authenticator).
+1. [Create a password-optional authenticator policy](#create-a-password-optional-authenticator-policy).
+1. [Add a new Global session policy](#add-a-new-global-session-policy).
+1. [Add a new authentication policy](#add-a-new-authentication-policy).
 
 #### Set up the email authenticator
 
 1. Open the **Admin Console** for your org.
 1. Choose **Security** > **Authenticators** to show the available authenticators.
-1. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions > Edit**.
+1. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions** > **Edit**.
 1. Set **This authenticator can be used for** to **Authentication and recovery**.
 1. Click **Save**.
 
@@ -134,14 +134,14 @@ Set up your Okta your org to enable authentication without a password using the 
 1. Give the new policy a name. For example, "Email sign-up required policy".
 1. Set **Assign to groups** to one or more groups. For example, "Everyone".
 1. In the **Eligible Authenticators** section
-   1. Set **Email** to **Required**.
-   1. Set **Password** to **Optional**.
-   1. Verify the remaining authenticators are set to **Optional**.
+   * Set **Email** to **Required**.
+   * Set **Password** to **Optional**.
+   * Verify that the remaining authenticators are set to **Optional**.
 1. Click **Create Policy**.
 1. Give the rule a name. For example, "Email sign-up required for all".
 1. Leave the other settings at their defaults, and then click **Create Rule**.
 
-#### Add a new global session policy
+#### Add a new Global session policy
 
 1. Open the **Admin Console** for your org.
 1. Choose **Security** > **Global Session Policy**.
@@ -161,11 +161,11 @@ Set up your Okta your org to enable authentication without a password using the 
 1. Choose **Security** > **Authentication Policies**.
 1. Click **Add a Policy**.
 1. Give the policy a name, for example "Authenticate with only 1 factor", and then click **Save**.
-1. Locate the **Catch-all Rule** of the new policy and select **Actions > Edit**.
+1. Locate the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.
 1. Set **User must authenticate with** to **Any 1 factor type**.
 1. For **Possession factor constraints are**
-   1. Verify that no options are selected.
-   1. Verify that **Email** is listed in the box under **1 factor type**.
+   * Verify that no options are selected.
+   * Verify that **Email** is listed in the box under **1 factor type**.
 1. Click **Save**.
 1. Select the **Applications** tab for your newly created policy, and click **Add app**.
 1. Find your app in the list and click **Add** next to it.
