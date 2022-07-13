@@ -1,5 +1,5 @@
 ---
-title: Email Magic Links Overview
+title: Email Magic Links overview
 layout: Guides
 sections:
  - main

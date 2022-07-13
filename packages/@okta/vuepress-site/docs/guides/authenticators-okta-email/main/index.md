@@ -28,7 +28,7 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 
 ## Overview
 
-With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using [magic links](/docs/guides/email-magic-links-overview/main/), a one-time password (OTP), or a combination of both.
+With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using <StackSnippet snippet="emloverview" inline />, a one-time password (OTP), or a combination of both.
 
 ## Get started
 
@@ -38,7 +38,7 @@ This guide walks you through the email authenticator user journeys for both magi
 
 1. [Update configurations](#update-configurations): Set up your org to enable the email authenticator and magic links.
 
-> **Note:** This guide uses the [Email Verification Experience](/docs/guides/email-magic-links-overview/main/#using-the-email-verification-experience) setting to configure magic links. For an alternative solution, see [using custom email templates](/docs/guides/email-magic-links-overview/main/#using-custom-email-templates).
+<StackSnippet snippet="evenote" />
 
 **Magic links**
 
