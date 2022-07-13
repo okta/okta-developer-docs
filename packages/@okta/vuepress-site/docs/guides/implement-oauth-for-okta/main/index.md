@@ -51,8 +51,7 @@ Create the client application that you want to use with the Okta APIs.
 1. For the **Grant type**, Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default URI for this exercise.
 
-> **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
-
+    > **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
 1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**.
     > **Note:** It is good practice to create and use groups for testing purposes.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
@@ -86,7 +85,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/${appInsta
 
 ## Get an access token and make a request
 
-After you have the following, you can get an access token and make a request to an endpoint.
+You can get an access token and make a request to an endpoint after you have the following:
 
 * An Okta OpenID Connect or OAuth 2.0 Service app
 * One or more grants associated with that app
