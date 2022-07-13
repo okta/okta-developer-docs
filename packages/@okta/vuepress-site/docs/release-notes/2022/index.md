@@ -11,7 +11,7 @@ title: Okta API Products release notes 2022
 | [Dynamic issuer mode for Identity Providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13, 2022            |
 | [Bug fixed in 2022.07.1](#bug-fixed-in-2022-07-1)                        | July 13, 2022            |
 
-#### Dynamic issuer mode for identity providers
+#### Dynamic issuer mode for Identity Providers
 
 You can configure the dynamic issuer mode for an identity provider using the Identity Provider API. When you set the`issuerMode` parameter to `DYNAMIC`, Okta uses the domain from the Authorize URL as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
 
