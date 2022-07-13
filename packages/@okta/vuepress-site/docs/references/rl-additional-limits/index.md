@@ -16,19 +16,19 @@ This page provides Okta's additional limits on:
 * [SMS and Call rate limits](#sms-and-call-rate-limits)
 * [Workforce license rate limit multiplier](#workforce-license-rate-limit-multiplier)
 
-These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) policy.
+These limits are part of the Okta [Rate limit](/docs/references/rate-limits) policy.
 
 > **Note:**
 >
-> * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
-> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
-> * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
-> * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
+> * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/references/rate-limits).
+> * [DynamicScale rate limits](/docs/references/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
+> * To learn more about how to manage rate limits, see our [best practices](/docs/references/rl-best-practices).
+> * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/references/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/references/rl-dynamic-scale/).
 >
 
 ## Concurrent rate limits
 
-To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even large bulk loads rarely require more than 10 simultaneous transactions.
+To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/references/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even large bulk loads rarely require more than 10 simultaneous transactions.
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -71,9 +71,9 @@ The following endpoints are used by the Okta home page for authentication and us
 | `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 | `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
+These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/references/rl-previous/) still apply.
 
-The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
+The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/references/rl-previous/#high-capacity-rate-limits).
 
 ### Okta-generated email message rate limits
 
@@ -81,7 +81,7 @@ Limits are applied on a per-recipient basis and vary by email type. The limit fo
 
 ### Per-user limits
 
-API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password:
+API endpoints that take username and password credentials, including the [Authentication API](/docs/references/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API endpoint                                      | Per User limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
@@ -94,7 +94,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
-* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
+* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/references/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/references/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
 ### Workforce license rate limit multiplier
 
@@ -108,7 +108,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 #### List of endpoints
 
-[Authentication](/docs/reference/rl-global-enduser/)
+[Authentication](/docs/references/rl-global-enduser/)
 
 * `/api/${apiVersion}/radius`
 * `/api/v1/authn`
@@ -124,7 +124,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/login/token/redirect`
 * `/.well-known/webfinger`
 
-[Authorization](/docs/reference/rl-global-enduser/)
+[Authorization](/docs/references/rl-global-enduser/)
 
 * `/app/${app}/${key}/sso/saml`
 * `/app/office365${appType}/${key}/sso/wsfed/active`
@@ -138,7 +138,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/${authorizationServerId}/v1/authorize`
 
-[Single User/Group/App reads (GET only)](/docs/reference/rl-dynamic-scale/)
+[Single User/Group/App reads (GET only)](/docs/references/rl-dynamic-scale/)
 
 * `/api/v1/apps/${id}`
 * `/api/v1/groups/${id}`

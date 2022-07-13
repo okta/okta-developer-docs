@@ -11,7 +11,7 @@ meta:
 
 ## Overview
 
-This document details the features and syntax of Okta Expression Language used for the [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine. Expressions used outside of the application policies on Identity Engine orgs should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of Okta Expression Language used for the [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine. Expressions used outside of the application policies on Identity Engine orgs should continue using the features and syntax of [the legacy Okta Expression Language](/docs/references/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported features
 
@@ -36,7 +36,7 @@ The following operators and functionality offered by SpEL aren't supported in Ok
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
 
-> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
+> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/references/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -56,7 +56,7 @@ See [Integrate with Endpoint Detection and Response solutions
 
 ### Security Context
 
-You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
+You can specify certain [rule conditions](/docs/references/api/policy/#conditions) in [authentication policies](/docs/references/api/policy/#authentication-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
@@ -65,7 +65,7 @@ You can specify certain [rule conditions](/docs/reference/api/policy/#conditions
 
 ### Login Context
 <ApiLifecycle access="ea"/>
-You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing) using expressions based on Login Context that holds the user's `username` as the `identifier`.
+You can specify the [dynamic IdP](/docs/references/api/policy/#policy-action-with-dynamic-IdP-routing) using expressions based on Login Context that holds the user's `username` as the `identifier`.
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
@@ -230,7 +230,7 @@ Use this function to retrieve the User that is identified with the specified `pr
 | `$zoned_date_time_object.withinMinutes`  | (int minutes)                        | Boolean         | `user.created.withinMinutes(2)`                                       | False                                                                       |
 | `$zoned_date_time_object.withinSeconds`  | (int seconds)                        | Boolean         | `user.created.withinSeconds(100)`                                     | False                                                                       |
 
-> **Note:** Okta supports the use of the time zone IDs and aliases listed in the [Time Zone Codes table](/docs/reference/okta-expression-language/#appendix-time-zone-codes).
+> **Note:** Okta supports the use of the time zone IDs and aliases listed in the [Time Zone Codes table](/docs/references/okta-expression-language/#appendix-time-zone-codes).
 
 ## Constants and operators
 

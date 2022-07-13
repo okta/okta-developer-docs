@@ -167,7 +167,7 @@ List Log Streams in your org. You can request a paginated list or a subset of Lo
 | filter    | [Filters](#filters) Log Streams by `status` or `type`                                                                                 | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of Log Streams to return per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 
-The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/references/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
@@ -180,7 +180,7 @@ The following filters are supported with the `filter` query parameter:
 | `status eq "ACTIVE"`                | Filter Log Streams with an `ACTIVE` status                                             |
 | `status eq "INACTIVE"`              | Filter Log Streams with an `INACTIVE` status                                           |
 
-> **Note:** The Log Stream list filter only support the `eq` operator and allows one filter expression per request. Use URL encoding for special characters, such as replacing a space with a plus (+) sign. See [Filter](/docs/reference/core-okta-api/#filter) design principles for details.
+> **Note:** The Log Stream list filter only support the `eq` operator and allows one filter expression per request. Use URL encoding for special characters, such as replacing a space with a plus (+) sign. See [Filter](/docs/references/core-okta-api/#filter) design principles for details.
 
 
 ##### Response parameters
@@ -361,7 +361,7 @@ Updates the configuration for a Log Stream
 | logStream       | Updated configuration for the Log Stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
 Depending on the type of Log Stream, certain properties can't be updated once the Log Stream is created.
-Use the [Log Stream Schema API](/docs/reference/api/schemas/#log-stream-schema-operations) to determine which
+Use the [Log Stream Schema API](/docs/references/api/schemas/#log-stream-schema-operations) to determine which
 Log Stream type can't be updated. Log Stream types with the `"writeOnce" : true` property can't be updated after
 creation.
 
@@ -660,7 +660,7 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 #### Property details
 
 *  The `accountId`, `eventSourceName`,  and `region` properties are assigned during creation and can't be modified afterwards.
-* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint.
+* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](/docs/references/api/schemas/#log-stream-schema-operations) endpoint.
 
 | Region      | Description                                                  |
 | ------------- | ------------------------------------------------------------ |

@@ -8,7 +8,7 @@ deprecated: true
 
 The Okta Events API provides read access to your organization's system log. [Export event data](https://support.okta.com/help/Documentation/Knowledge_Article/Exporting-Okta-Log-Data) as a batch job from your organization to another system for reporting or analysis.
 
-> **Important:** The [System Log API](/docs/reference/api/system-log/) will eventually replace the Events API and contains much more [structured data](/docs/reference/api/system-log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. As of April 20, 2020, no new event types will be added for the Events API. Information about migrating from the Events API to the System Log API can be found on the [Events API Migration page](/docs/concepts/events-api-migration/). Other information can be found in the [Events API End of Life FAQ](https://support.okta.com/help/s/article/FAQ-Events-API-End-of-Life)
+> **Important:** The [System Log API](/docs/references/api/system-log/) will eventually replace the Events API and contains much more [structured data](/docs/references/api/system-log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. As of April 20, 2020, no new event types will be added for the Events API. Information about migrating from the Events API to the System Log API can be found on the [Events API Migration page](/docs/concepts/events-api-migration/). Other information can be found in the [Events API End of Life FAQ](https://support.okta.com/help/s/article/FAQ-Events-API-End-of-Life)
 
 ### Data Retention
 
@@ -30,12 +30,12 @@ Fetches a list of events from your Okta organization system log
 | :---------- | :-------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
 | limit       | Specifies the number of results to page                                                       | Query        | Number     | FALSE      | 1000    |
 | startDate   | Specifies the timestamp to list events after                                                  | Query        | Date       | FALSE      |         |
-| filter      | [Filter expression](/docs/reference/core-okta-api/#filter) for events         | Query        | String     | FALSE      |         |
+| filter      | [Filter expression](/docs/references/core-okta-api/#filter) for events         | Query        | String     | FALSE      |         |
 | after       | Specifies the pagination cursor for the next page of events                                   | Query        | String     | FALSE      |         |
 
 Parameter Details
 
-* Treat the `after` cursor as an opaque value as its contents are subject to change without notice. Obtain it through the `next` link relation. See [Pagination](/docs/reference/core-okta-api/#pagination) for more information on link relations.
+* Treat the `after` cursor as an opaque value as its contents are subject to change without notice. Obtain it through the `next` link relation. See [Pagination](/docs/references/core-okta-api/#pagination) for more information on link relations.
 * `startDate` and `filter` query parameters are mutually exclusive and cannot be used together in the same request.
 * `startDate` and `after` query parameters are mutually exclusive and cannot be used together in the same request.
 * `startDate` defaults to 1 hour ago when `filter`, `after` and `startDate` query parameters are omitted.
@@ -43,18 +43,18 @@ Parameter Details
 
 ###### Reliable Ingestion
 
-The most reliable method to ingest all events from Okta is to use a [pagination](/docs/reference/core-okta-api/#pagination) cursor through the `after` parameter. This method ensures that events are not skipped or duplicated due to the lack of timestamp precision.
+The most reliable method to ingest all events from Okta is to use a [pagination](/docs/references/core-okta-api/#pagination) cursor through the `after` parameter. This method ensures that events are not skipped or duplicated due to the lack of timestamp precision.
 
 The general sequence of steps to leverage the `after` parameter:
 
 1. Issue an initial request using `startDate` with a value set to some date in the last 90 days
-1. Retrieve the next page of events through the [`Link` response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation
+1. Retrieve the next page of events through the [`Link` response header](/docs/references/core-okta-api/#link-header) value with the `next` link relation
 1. Optionally include a `filter` parameter to narrow the returned results
 1. Issue the paginated request
 1. Retrieve the next page of events through the `Link` response header value with the `next` link relation
 1. Pause and repeat the previous step
 
-Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/reference/rate-limits/), ensure your polling frequency is sufficiently long.
+Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/references/rate-limits/), ensure your polling frequency is sufficiently long.
 
 ###### Filters
 
@@ -69,7 +69,7 @@ The following expressions are supported for events with the `filter` query param
 | `published eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated at a specific datetime                                      |
 | `published gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated after a specific datetime                                   |
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
+See [Filtering](/docs/references/core-okta-api/#filter) for more information on expressions.
 
 >Note: All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=published gt "2017-10-01T00:00:00.000Z"` is encoded as `filter=published%20gt%20%222017-10-01T00:00:00.000Z%22`.
 
@@ -569,13 +569,13 @@ The schema of a target is dependent on the actor's `objectType`
 
 #### User ObjectType
 
-A denormalized reference to a [User](/docs/reference/api/users/#user-object):
+A denormalized reference to a [User](/docs/references/api/users/#user-object):
 
 | Property      | Description                                               | DataType   | Nullable |
 | :------------ | :-------------------------------------------------------- | :--------- | :------- |
-| id            | Unique key for [user](/docs/reference/api/users/#user-object)                   | String     | FALSE    |
-| displayName   | [User's](/docs/reference/api/users/#profile-object) first and last name        | String     | TRUE     |
-| login         | Unique login for [user](/docs/reference/api/users/#user-object)                 | String     | TRUE     |
+| id            | Unique key for [user](/docs/references/api/users/#user-object)                   | String     | FALSE    |
+| displayName   | [User's](/docs/references/api/users/#profile-object) first and last name        | String     | TRUE     |
+| login         | Unique login for [user](/docs/references/api/users/#user-object)                 | String     | TRUE     |
 | objectType    | Type of object                                            | `User`     | FALSE    |
 
 ``` json
@@ -587,7 +587,7 @@ A denormalized reference to a [User](/docs/reference/api/users/#user-object):
 }
 ```
 
-The user can be retrieved by `id` with the [User API](/docs/reference/api/users/#get-user-with-id).
+The user can be retrieved by `id` with the [User API](/docs/references/api/users/#get-user-with-id).
 
 #### AppInstance ObjectType
 
@@ -595,8 +595,8 @@ Describes an application:
 
 | Property      | Description                                          | DataType        | Nullable |
 | :------------ | :--------------------------------------------------- | :-------------- | :------- |
-| id            | Unique key for [app](/docs/reference/api/apps/#application-object)         | String          | FALSE    |
-| displayName   | [App's](/docs/reference/api/apps/#application-object) label                | String          | TRUE     |
+| id            | Unique key for [app](/docs/references/api/apps/#application-object)         | String          | FALSE    |
+| displayName   | [App's](/docs/references/api/apps/#application-object) label                | String          | TRUE     |
 | objectType    | Type of object                                       | `AppInstance`   | FALSE    |
 
 ``` json
@@ -607,7 +607,7 @@ Describes an application:
 }
 ```
 
-The app can be retrieved by `id` with the [Apps API](/docs/reference/api/apps/#get-application).
+The app can be retrieved by `id` with the [Apps API](/docs/references/api/apps/#get-application).
 
 #### Client ObjectType
 

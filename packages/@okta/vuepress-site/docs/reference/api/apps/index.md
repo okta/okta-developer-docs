@@ -986,7 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
 | honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
-| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/references/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1384,8 +1384,8 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 * A consent dialog box appears depending on the values of three elements:
 
-  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-  * `consent_method` - An [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/references/api/oidc/#authorize)
+  * `consent_method` - An [application](/docs/references/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
   * `consent` - a Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
 
   | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
@@ -1398,7 +1398,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
+<!-- If you change this section, change it in authorization-servers.md (/docs/references/api/authorization-servers/#scope-properties) and oidc.md (/docs/references/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 
@@ -1407,7 +1407,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
-  * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
+  * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/references/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
 
 
@@ -1589,7 +1589,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
-The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/references/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
@@ -3965,7 +3965,7 @@ Fetches a specific user assignment for an application by `id`
 | Parameter     | Description                                              | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------          | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)                     | URL        | String   | TRUE     |         |
-| uid           | unique key of assigned [User](/docs/reference/api/users/) | URL        | String   | TRUE     |         |
+| uid           | unique key of assigned [User](/docs/references/api/users/) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4038,7 +4038,7 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 
 > **Note:** For OIDC apps, the user's profile doesn't contain the `firstName` and `lastName` attributes. The `q` query parameter matches the provided string with only the beginning of the `userName` or `email` attributes.
 
-The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/references/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -4142,7 +4142,7 @@ Updates a user's [credentials](#application-user-credentials-object) for an assi
 | ---------     | ------------------------------------------------------------------ | ---------- | ------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)                               | URL        | String                                      | TRUE     |         |
 | appuser       | user's [credentials](#application-user-credentials-object) for app | Body       | [Application User](#application-user-object) | TRUE     |         |
-| uid           | unique key of a valid [User](/docs/reference/api/users/)            | URL        | String                                      | TRUE     |         |
+| uid           | unique key of a valid [User](/docs/references/api/users/)            | URL        | String                                      | TRUE     |         |
 
 ##### Response Parameters
 
@@ -4222,7 +4222,7 @@ Updates a user's profile for an application
 | Parameter     | Description                                             | Param Type | DataType                                    | Required | Default |
 | ---------     | -----------------------------------------------         | ---------- | ------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)                    | URL        | String                                      | TRUE     |         |
-| uid           | unique key of a valid [User](/docs/reference/api/users/) | URL        | String                                      | TRUE     |         |
+| uid           | unique key of a valid [User](/docs/references/api/users/) | URL        | String                                      | TRUE     |         |
 | appuser       | credentials for app                                     | Body       | [Application User](#application-user-object) | FALSE    |         |
 
 ##### Response parameters
@@ -4307,7 +4307,7 @@ curl -v -X POST \
 
 Removes an assignment for a user from an application
 
-For directories like Active Directory and LDAP, they act as the owner of the user's credential with Okta delegating authentication (DelAuth) to that directory. If this request is made for a user when DelAuth is enabled, then the user will be in a state with no password. You can then [reset the user's password](/docs/reference/api/users/#reset-password).
+For directories like Active Directory and LDAP, they act as the owner of the user's credential with Okta delegating authentication (DelAuth) to that directory. If this request is made for a user when DelAuth is enabled, then the user will be in a state with no password. You can then [reset the user's password](/docs/references/api/users/#reset-password).
 
 > **Important:** This is a destructive operation. You can't recover the user's app profile. If the app is enabled for provisioning and configured to deactivate users, the user is also deactivated in the target application.
 
@@ -4317,7 +4317,7 @@ For directories like Active Directory and LDAP, they act as the owner of the use
 | ------------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)                                                  | URL        | String   | TRUE     |         |
 | sendEmail     | Sends a deactivation email to the administrator if `true`.  Default value is `false` | Query      | Boolean  | FALSE    | FALSE   |
-| uid           | unique key of assigned [User](/docs/reference/api/users/)                              | URL        | String   | TRUE     |         |
+| uid           | unique key of assigned [User](/docs/references/api/users/)                              | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4353,7 +4353,7 @@ Assigns a group to an application
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-object) | FALSE    |         |
 | applicationId | `id` of an [app](#application-object)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](/docs/reference/api/groups/)           | URL        | String                | TRUE     |         |
+| groupId       | unique key of a valid [Group](/docs/references/api/groups/)           | URL        | String                | TRUE     |         |
 
 ##### Response parameters
 
@@ -4391,7 +4391,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/references/api/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4432,7 +4432,7 @@ Enumerates group assignments for an application
 | applicationId | `id` of an [app](#application-object)                             | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 200)           | Query      | Number   | FALSE    | 20      |
 
-The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/references/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -4477,7 +4477,7 @@ Removes a group assignment from an application
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/references/api/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -5662,7 +5662,7 @@ If the delete request is received for an active secret, you receive an error res
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
-> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/references/api/apps/#update-application) operation or the [Update a client application](/docs/references/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/references/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
 
 ##### Request parameters
 
@@ -6440,7 +6440,7 @@ Lists all refresh tokens for the application
 | expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 | limit           | Specifies the number of results per page (maximum 200)                                         | Query        | Number     | FALSE      | 20      |
 
-The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
+The results are [paginated](/docs/references/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 #### Request example
@@ -8118,7 +8118,7 @@ Specifies (optional) attribute statements for a SAML application
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
 | type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
-| values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
+| values     | The values of the attribute; Supports [Okta EL](/docs/references/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
 
@@ -8216,7 +8216,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
-Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/references/okta-expression-language/#group-functions).
 
 Profile Requirements
 
@@ -8281,7 +8281,7 @@ All application user assignments have the following properties:
 | created          | timestamp when app user was created                          | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | credentials      | credentials for assigned app                                 | [Application User Credentials object](#application-user-credentials-object) | TRUE     | FALSE  | FALSE    |           |           |            |
 | externalId       | id of user in target app *(must be imported or provisioned)* | String                                                                      | TRUE     | TRUE   | TRUE     |           | 512       |            |
-| id               | unique key of a [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
+| id               | unique key of a [User](/docs/references/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | lastSync         | timestamp when last sync operation was executed              | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
 | lastUpdated      | timestamp when app user was last updated                     | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | passwordChanged  | timestamp when app password last changed                     | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |

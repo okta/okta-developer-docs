@@ -21,7 +21,7 @@ Before you create a new OIDC integration in Okta:
     * A Single Page Application (SPA) that uses an Authorization Code flow with a Proof Key for Code Exchange (PKCE). Okta recommends this method to control the access between your SPA application and a resource server.
 
 1. Determine the sign-in redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
-1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/reference/api/oidc/#key-rotation).
+1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/references/api/oidc/#key-rotation).
 
 <!-- [ian 2020.02.25] the following steps are unnecessary if we only support web applications in the OIN
 1. If your integration is a web or native application, decide whether or not to use refresh tokens.

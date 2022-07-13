@@ -9,7 +9,7 @@ meta:
 
 This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls.
 
-This document specifically covers **Version 1.1** of the SCIM specification. For Version 2.0 of the SCIM specification, see our [SCIM 2.0 reference](/docs/reference/scim/scim-20/).
+This document specifically covers **Version 1.1** of the SCIM specification. For Version 2.0 of the SCIM specification, see our [SCIM 2.0 reference](/docs/references/scim/scim-20/).
 
 The SCIM protocol is an application-level REST protocol for provisioning and managing identity data on the web. The protocol supports creation, discovery, retrieval, and modification of core identity resources.
 

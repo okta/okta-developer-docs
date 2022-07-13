@@ -64,7 +64,7 @@ In this example, after parsing the Event Hook request, the code simply displays 
 
 ## Examine the Event Hook object
 
-The JSON body includes the properties accessed in this example, namely `target` and `displayName`. To see this or other Event Objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
+The JSON body includes the properties accessed in this example, namely `target` and `displayName`. To see this or other Event Objects, call your Okta org with the [System Log API](/docs/references/api/system-log), using the specific event type as a [filter parameter](/docs/references/api/system-log/#filtering-results). For example:
 
 ```JavaScript
 https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
@@ -100,7 +100,7 @@ The Event Hook must be set up and verified within your Okta Admin Console.
 
 9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If you are using the Glitch example, proceed to verification.
 
-> **Note:** You can also set up an Event Hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook) for further information.
+> **Note:** You can also set up an Event Hook using an API. See [Event Hooks Management](/docs/references/api/event-hooks/#create-event-hook) for further information.
 
 ### Verify the Event Hook
 

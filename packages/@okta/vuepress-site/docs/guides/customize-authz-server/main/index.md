@@ -38,7 +38,7 @@ See [Which Authorization Server should you use](/docs/concepts/auth-servers/#whi
 
   > **Note:** An access token that is minted by a Custom Authorization Server requires that you define the **Audience** property and that it matches the `aud` claim that is returned during access token validation. The **Audience** property should be set to the URI for the OAuth 2.0 resource server that consumes the access token. Use an absolute path such as `https://api.example.com/pets`. This value is used as the default [audience](https://tools.ietf.org/html/rfc7519#section-4.1.3) for access tokens.
 
-When you finish, the Authorization Server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](/docs/reference/api/authorization-servers/#authorization-server-properties), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
+When you finish, the Authorization Server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](/docs/references/api/authorization-servers/#authorization-server-properties), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
 
 ## Create access policies
 
@@ -98,7 +98,7 @@ At this point you can keep reading to find out how to create custom scopes and c
 
 ## Create Scopes
 
-Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](/docs/reference/api/oidc/#scopes) section.
+Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](/docs/references/api/oidc/#scopes) section.
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
@@ -114,7 +114,7 @@ If you need scopes in addition to the reserved scopes provided, you can create t
     > **Note:** You can configure individual clients to ignore this setting and skip consent.
 
 1. Select **Set as a default scope** if you want Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all of the default scopes that are permitted in the access token by the access policy rule.
-1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
+1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/references/api/oidc/#well-known-oauth-authorization-server).
 1. Click **Create**.
 
 Scopes that you add are referenced by the [**Claims** dialog box](#create-claims).
@@ -135,8 +135,8 @@ Create ID Token claims for OpenID Connect or access tokens for OAuth 2.0:
     * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written using Okta Expression Language.
     * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles, for example: `appuser.username`.
     
-      * See [Okta Expression Language](/docs/reference/okta-expression-language).
-      * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
+      * See [Okta Expression Language](/docs/references/okta-expression-language).
+      * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/references/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
       > **Note:** Check that your expression returns the results expected. You can validate an expression using the **Token Preview** tab.
     * **Filter** &mdash; this option appears if you choose **Groups**. Use it to add a group filter.
       > **Note:** Up to 100 groups are included in the claim. If the filter results in more than that, the request fails.
@@ -149,7 +149,7 @@ After you have followed the instructions to set up and customize your authorizat
 
 > **Note:** The `${authorizationServerId}` for the default server is `default`.
 
-You can find a full description of Okta's relevant APIs on the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) page.
+You can find a full description of Okta's relevant APIs on the [OpenID Connect & OAuth 2.0 API](/docs/references/api/oidc/) page.
 
 The following are a few things that you can try to ensure that your authorization server is functioning as expected.
 
@@ -159,7 +159,7 @@ The following are a few things that you can try to ensure that your authorizatio
 
 To verify that your server was created and has the expected configuration values, you can send an API request to the server's OpenID Connect Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This returns information about the OpenID configuration of your authorization server.
 
-For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
+For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](/docs/references/api/oidc/#well-known-openid-configuration).
 
 ### Custom scopes and claims
 
@@ -167,13 +167,13 @@ You can retrieve a list of all scopes for your authorization server, including c
 
 `/api/v1/authorizationServers/${authorizationServerId}/scopes`
 
-For more information on this endpoint, see [Get all scopes](/docs/reference/api/authorization-servers/#get-all-scopes).
+For more information on this endpoint, see [Get all scopes](/docs/references/api/authorization-servers/#get-all-scopes).
 
 If you created any custom claims, the easiest way to confirm that they have been successfully added is to use this endpoint:
 
 `/api/v1/authorizationServers/${authorizationServerId}/claims`
 
-For more information on this endpoint, see [Get all claims](/docs/reference/api/authorization-servers/#get-all-claims).
+For more information on this endpoint, see [Get all claims](/docs/references/api/authorization-servers/#get-all-claims).
 
 ### Testing an OpenID Connect flow
 
@@ -205,7 +205,7 @@ Add the following URL query parameters to the URL:
 
 > **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
-All of the values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
+All of the values are fully documented here: [Obtain an Authorization Grant from a user](/docs/references/api/oidc/#authorize).
 
 The resulting URL looks like this:
 
@@ -252,5 +252,5 @@ In this example, we see the `nonce` with value `YsG76jo` and the custom claim `p
 ## See also
 
 * [OAuth 2.0 Overview](/docs/concepts/oauth-openid/) for a high-level explanation of OAuth 2.0 and OpenID Connect.
-* [Scopes](/docs/reference/api/oidc/#scopes) for further information on using scopes.
-* [Claims](/docs/reference/api/oidc/#tokens-and-claims) for more information on what claims are and how to use them.
+* [Scopes](/docs/references/api/oidc/#scopes) for further information on using scopes.
+* [Claims](/docs/references/api/oidc/#tokens-and-claims) for more information on what claims are and how to use them.

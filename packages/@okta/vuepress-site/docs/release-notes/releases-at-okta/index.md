@@ -11,7 +11,7 @@ Okta features travel through a regular life cycle:
 - [General Availability (GA)](#general-availability-ga)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break.
+These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/references/core-okta-api/) to ensure that your application doesn't break.
 when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 

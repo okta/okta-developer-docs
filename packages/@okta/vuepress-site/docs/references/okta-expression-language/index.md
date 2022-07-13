@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of Okta Expression Language, which you can use throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you are using the Okta Expression Language for [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you are using the Okta Expression Language for [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/references/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
 
@@ -37,10 +37,10 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
-> **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
+> **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/references/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 >
 
-> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
+> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/references/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
 
 ### IdP User Profile
 

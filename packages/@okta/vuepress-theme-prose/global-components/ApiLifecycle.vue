@@ -22,9 +22,9 @@
 </template>
 
 <script>
-const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
+const DEFAULT_LINK = "/docs/references/releases-at-okta/";
 const IE_LINK = "/docs/guides/oie-intro/";
-const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
+const DEPRECATED_LINK = "/docs/references/releases-at-okta/#deprecation";
 
 export default {
   name: "ApiLifecycle",

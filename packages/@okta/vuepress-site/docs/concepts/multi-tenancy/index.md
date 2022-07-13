@@ -230,7 +230,7 @@ A container object that stores applications and a tenant’s users and groups
 
 An API that is used by the Delegated Admin Console (DAC) and the Okta End-User
 dashboard. The Tenants API wraps the
-[Okta API](/docs/reference/core-okta-api/) that is
+[Okta API](/docs/references/core-okta-api/) that is
 used to manage the Okta org’s data.
 
 #### Delegated Admin Console

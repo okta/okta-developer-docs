@@ -127,7 +127,7 @@ export default {
 </script>
 ```
 
-> **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
+> **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/references/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/references/api/oidc/#scope-values).
 
 ### Connect the routes
 

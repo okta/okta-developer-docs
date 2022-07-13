@@ -271,7 +271,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions" />
 
-List all subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object)
+List all subscriptions of a [Custom Role](/docs/references/api/roles/#custom-role-object)
 
 ### Request parameters
 
@@ -345,7 +345,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}" />
 
-Get subscriptions of a [Custom Role](/docs/reference/api/roles/#custom-role-object) with a specific notification type
+Get subscriptions of a [Custom Role](/docs/references/api/roles/#custom-role-object) with a specific notification type
 
 ### Request parameters
 
@@ -403,7 +403,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/subscribe" />
 
-Subscribes a [Custom Role](/docs/reference/api/roles/#custom-role-object) to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
+Subscribes a [Custom Role](/docs/references/api/roles/#custom-role-object) to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
 
 ### Request parameters
 
@@ -464,7 +464,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/roles/${roleId}/subscriptions/${notificationType}/unsubscribe" />
 
-Unsubscribes a [Custom Role](/docs/reference/api/roles/#custom-role-object) from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
+Unsubscribes a [Custom Role](/docs/references/api/roles/#custom-role-object) from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
 
 ### Request parameters
 

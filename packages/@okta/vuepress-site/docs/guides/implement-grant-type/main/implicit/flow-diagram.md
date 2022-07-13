@@ -30,7 +30,7 @@ The Implicit flow contains the following interaction steps:
 3. User authenticates with the Auth Server (Okta) and provides consent.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
-    See [Add a user using the Admin Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
+    See [Add a user using the Admin Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/references/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
 
 4. Okta redirects the browser back to the specified redirect URI, along with access and ID tokens as a hash fragment in the URI.
 

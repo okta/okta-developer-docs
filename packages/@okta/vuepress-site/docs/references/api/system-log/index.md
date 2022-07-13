@@ -11,9 +11,9 @@ The Okta System Log API provides near real-time, read-only access to your organi
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
-The System Log API, which contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-object), supports:
+The System Log API, which contains much more [structured data](#logevent-object) than the [Events API](/docs/references/api/events/#event-object), supports:
 
-* Additional [SCIM filters](#request-parameters) and the `q` query parameter because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters)
+* Additional [SCIM filters](#request-parameters) and the `q` query parameter because of the presence of more structured data than the [Events API](/docs/references/api/events/#request-parameters)
 * These primary use cases:
   * Event data export into a security information and event management system (SIEM)
   * System monitoring
@@ -209,7 +209,7 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that is published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](/docs/reference/api/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API [Action `objectType`](/docs/references/api/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performs an action                                          | [Actor object](#actor-object)                                   | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requests an action                                                    | [Client object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
@@ -268,7 +268,7 @@ When an event is triggered by an HTTP request, the client object describes the [
 | id                  | For OAuth requests, this is the ID of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the ID of the agent making the request. | String                                                    | TRUE     |
 | userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) that is used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client is making its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
-| zone                | The `name` of the [Zone](/docs/reference/api/zones/#ZoneModel) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
+| zone                | The `name` of the [Zone](/docs/references/api/zones/#ZoneModel) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operates from (for example, Computer)                                                                                                                                          | String                                                    | TRUE     |
 
@@ -462,7 +462,7 @@ Describes an IP address used in a request
 
 Event types categorize event instances by action and are recorded in a LogEvent's [`eventType`](#attributes) attribute. They are key to navigating the system log through [Expression Filters](#expression-filter).
 
-The following sections outline the key event types that are captured by the system log. See [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
+The following sections outline the key event types that are captured by the system log. See [Event Types catalog](/docs/references/api/event-types/#catalog) for a complete list.
 
 
 ### Application event
@@ -507,7 +507,7 @@ The following sections outline the key event types that are captured by the syst
 
 ### Rate limit events
 
-See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit event types.
+See [System Log events for rate limits](/docs/references/rl-system-log-events/) for information on rate limit event types.
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 
@@ -547,7 +547,7 @@ The `LogResponse` object offers two identifiers in this respect:
 
 ### Correlating events based on API Token
 
-It may be useful to identify multiple events that are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/reference/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning. The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` returns all events that were the result of an action made using the token `00T94e3cn9kSEO3c51s5`, subject to other parameters of the query.
+It may be useful to identify multiple events that are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/references/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning. The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` returns all events that were the result of an action made using the token `00T94e3cn9kSEO3c51s5`, subject to other parameters of the query.
 
 ### Event correlation example
 
@@ -596,7 +596,7 @@ The following table summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Retrieves the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter | Opaque token                                                                                                                                                                              |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/core-okta-api/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/references/core-okta-api/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
 | `sortOrder` | The order of the returned events that are sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                                                                               | `ASCENDING`             |
 | `limit`     | Sets the number of results that are returned in the response                                                                                     | Integer between 0 and 1000                                                                                                                                                                | 100                     |
@@ -659,7 +659,7 @@ The following example expressions are supported for events with the `filter` que
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
+See [Filtering](/docs/references/core-okta-api/#filter) for more information on expressions.
 
 The following are examples of common filter expressions:
 
@@ -847,7 +847,7 @@ Exceeding the rate limit returns the following error message:
 
 ### Rate limits
 
-See the tables entries for `/api/v1/logs` in [Rate Limits](/docs/reference/rate-limits/).
+See the tables entries for `/api/v1/logs` in [Rate Limits](/docs/references/rate-limits/).
 
 ## Data retention
 
@@ -890,6 +890,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+Then retrieve the next page of events through the [link response header](/docs/references/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 >**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.

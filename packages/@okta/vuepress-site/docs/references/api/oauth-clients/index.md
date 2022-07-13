@@ -222,7 +222,7 @@ Lists all the client Applications in your organization (with optional pagination
 
 **Notes:**
 
-* The `after` cursor should be treated as an opaque value and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
+* The `after` cursor should be treated as an opaque value and obtained through [the next link relation](/docs/references/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but this is an implementation detail and may change without notice.
 
 ##### Response parameters
@@ -360,7 +360,7 @@ Lists all clients that match a search filter on `client_name`
 
 **Notes:**
 
-* The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
+* The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/references/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but this is an implementation detail and may change without notice.
 
 ##### Request example
@@ -773,7 +773,7 @@ Client Applications have the following properties:
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks_uri                                | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | String  <ApiLifecycle access="ea" />                                                        | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
-| logo_uri                                | URL string that references a logo for the client consent dialog box (not the sign-in dialog box). See [Add an OAuth 2.0 client application](/docs/reference/api/apps/#details) for more information on how the `logo_uri` is used.   | String                                                                                         | TRUE       | FALSE    | FALSE     |
+| logo_uri                                | URL string that references a logo for the client consent dialog box (not the sign-in dialog box). See [Add an OAuth 2.0 client application](/docs/references/api/apps/#details) for more information on how the `logo_uri` is used.   | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | policy_uri                              | URL string of a web page providing the client's policy document                                                              | URL                                                                                           | TRUE       | FALSE    | FALSE     |
 | post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                  | Array      | TRUE   | FALSE  | FALSE    |
 | redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                              | Array      | TRUE   | FALSE  | FALSE    |
@@ -788,7 +788,7 @@ Property details
 
 * The `client_secret` is shown only on the response of the creation or update of a client Application (and only if the `token_endpoint_auth_method` is one that requires a client secret). You can't specify the `client_secret`. If the `token_endpoint_auth_method` requires one, Okta generates a random `client_secret` for the client Application.
 
-* If you want to specify the `client_id` or `client_secret`, you can use [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-application) to create or update a client Application.
+* If you want to specify the `client_id` or `client_secret`, you can use [Apps API](/docs/references/api/apps/#add-oauth-2-0-client-application) to create or update a client Application.
 
 * At least one redirect URI and response type is required for all client types, with the following exceptions: If the client uses the
   [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`)
@@ -822,7 +822,7 @@ The `jwks` object has precisely one attribute: `keys`, which is an array of JSON
 | ---------- | :----------------------------- | :-------- | :------ | :--------- |
 | keys       | An array of JSON Web Keys      | TRUE      | FALSE   | FALSE      |
 
-> **Note:** For an example request using a JWKS, see the Create a Service App with a JWKS example in the [Register new client](/docs/reference/api/oauth-clients/#register-new-client) section.
+> **Note:** For an example request using a JWKS, see the Create a Service App with a JWKS example in the [Register new client](/docs/references/api/oauth-clients/#register-new-client) section.
 
 ## JSON Web Key
 

@@ -810,7 +810,7 @@ Content-Type: application/json
 }
 ```
 
-> **Note:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
+> **Note:** The [/api/v1/org/logo endpoint](/docs/references/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
 >
 > See [Logo scenarios](#logo-scenarios) for more information.
 
@@ -1172,7 +1172,7 @@ Lists all supported email templates
 
 #### Response body
 
-A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources
+A [paginated](/docs/references/core-okta-api/#pagination) list of [Email Template](#email-template) resources
 
 Passing an invalid `brandId` returns a `404 Not Found` with error code `E0000007`.
 
@@ -1553,7 +1553,7 @@ Lists all customizations for an email template
 
 #### Response body
 
-A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources
+A [paginated](/docs/references/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 

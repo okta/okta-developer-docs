@@ -19,7 +19,7 @@ This information is specific to the Custom Source Delegated Authentication Inlin
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 ## About
 

@@ -39,7 +39,7 @@ Signing users out of an app that is secured using Okta requires that you close t
 
 ## Define the sign-out callback
 
-Signing out of Okta requires the app to open a browser and navigate to the [end session endpoint](/docs/reference/api/oidc/#logout). Okta ends the user's session and immediately redirects the user back to your application. To do this, you must define a callback route for the sign-out process, which means that you need to allow the post sign-out URL in your Okta app integration settings. If you don't specify a `post_logout_redirect_uri`, then the browser is redirected to the Okta sign-in page.
+Signing out of Okta requires the app to open a browser and navigate to the [end session endpoint](/docs/references/api/oidc/#logout). Okta ends the user's session and immediately redirects the user back to your application. To do this, you must define a callback route for the sign-out process, which means that you need to allow the post sign-out URL in your Okta app integration settings. If you don't specify a `post_logout_redirect_uri`, then the browser is redirected to the Okta sign-in page.
 
 1. Sign in to your Okta organization with your administrator account.
 

@@ -51,15 +51,15 @@ The Device Authorization grant feature is an OAuth 2.0 grant type that allows us
 
 #### Dynamic Issuer Mode is GA in Preview
 
-An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/references/api/authorization-servers/#authorization-server-properties).
 
 When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
-With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-447358-->
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/references/api/apps/#settings-10). <!--OKTA-447358-->
 
 #### Error response updated for malicious IP address sign-in requests
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+If you block suspicious traffic and [ThreatInsight](/docs/references/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
 
 #### IdP Discovery supported for Device Authorization Grant flow
 
@@ -67,25 +67,25 @@ The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorizatio
 
 #### List Schemas operation for the Log Streaming API now available
 
-API users can now [discover available log stream schemas](/docs/reference/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects. <!--OKTA-439999-->
+API users can now [discover available log stream schemas](/docs/references/api/schemas/#list-log-stream-schemas) for all log stream types by making a GET request to `/api/v1/meta/schemas/logStream`. The response is an array that contains the Log Stream Schema objects. <!--OKTA-439999-->
 
 #### The word "source" is now allowed with custom application username formats
 
-Custom application username formats that are set by the [Apps API](/docs/reference/api/apps/) can now include the word "source". <!--OKTA-443206-->
+Custom application username formats that are set by the [Apps API](/docs/references/api/apps/) can now include the word "source". <!--OKTA-443206-->
 
 #### Upload Logo for Org deprecated
 
-The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/references/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](/docs/references/api/user-types/) and [Mappings API](/docs/references/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
-* Sometimes, changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the `id` of the same role changed when additional calls were made to [add role assignments to the group](/docs/reference/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
+* Sometimes, changing a group's role assignment through the Administrator Roles API was timing out. Additionally, the `id` of the same role changed when additional calls were made to [add role assignments to the group](/docs/references/api/roles/#assign-a-role-to-a-group). (OKTA-443242)
 
-* The [org admin role](/docs/reference/api/roles/#role-types) didn't have permission to manage Identity Providers. (OKTA-372730)
+* The [org admin role](/docs/references/api/roles/#role-types) didn't have permission to manage Identity Providers. (OKTA-372730)
 
 * When the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) was used, token inline hooks weren't called. (OKTA-445422)
 
@@ -99,7 +99,7 @@ The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/r
 
 #### Bug fixed in 2021.11.3
 
-When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
+When the [ThreatInsight configuration](/docs/references/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
 
 ### Weekly release 2021.11.2
 
@@ -109,9 +109,9 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 
 #### Bugs fixed in 2021.11.2
 
-* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/references/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
-* Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
+* Requests to [fetch the scopes for an authorization server](/docs/references/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
 
 ### Monthly release 2021.11.0
 
@@ -132,11 +132,11 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 
 #### Identity Providers API response includes ID token for generic OIDC provider
 
-The new response for the Identity Providers API [social authentication token operation](/docs/reference/api/idps/#social-authentication-token-operation) includes the addition of an ID token, if available, in addition to the access tokens.<!--OKTA-425470-->
+The new response for the Identity Providers API [social authentication token operation](/docs/references/api/idps/#social-authentication-token-operation) includes the addition of an ID token, if available, in addition to the access tokens.<!--OKTA-425470-->
 
 #### Brands API support for auto-detecting contrast colors
 
-The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+The Brands API [Theme object properties](/docs/references/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/references/api/brands/#update-theme).<!--OKTA-426715-->
 
 #### New error page macros for themed templates
 
@@ -144,7 +144,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/)
 
 #### Event Hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/references/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Device Authorization grant type is now GA in Preview
 
@@ -158,7 +158,7 @@ The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/g
 
 #### Authentication API returns UD User Profile locale is now GA in Production
 
-The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
+The response for the primary Authentication API includes the [User Profile's locale](/docs/references/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
 
 #### Native SSO support is GA in Production
 
@@ -178,17 +178,17 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### The Okta Org API is now GA in Production
 
-The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+The [Okta Org API](/docs/references/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
 
 #### Bugs fixed in 2021.11.0
 
-- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
+- When the [Get user’s groups](/docs/references/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
 
-- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
+- When the [Remove group](/docs/references/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
 
-- When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
+- When an [Update application](/docs/references/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
 
-- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for." (OKTA-439102)
+- When an [Update logo for app](/docs/references/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for." (OKTA-439102)
 
 ## October
 
@@ -200,13 +200,13 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 #### Bugs fixed in 2021.10.2
 
-* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/references/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
-* When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/reference/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
+* When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/references/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
 
-* When a [List Group Rules](/docs/reference/api/groups/#list-group-rules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
+* When a [List Group Rules](/docs/references/api/groups/#list-group-rules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
 
-* When a [List Groups](/docs/reference/api/groups/#list-groups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
+* When a [List Groups](/docs/references/api/groups/#list-groups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
 
 ### Weekly release 2021.10.1
 
@@ -216,7 +216,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 #### Bug fixed in 2021.10.1
 
-When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
+When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/references/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
 
 ### Monthly release 2021.10.0
 
@@ -234,7 +234,7 @@ To secure SAML assertions from attacks and to adopt a stronger security mechanis
 
 #### Authentication API returns UD User Profile locale is GA in Preview
 
-The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). <!--OKTA-430697-->
+The response for the primary Authentication API includes the [User Profile's locale](/docs/references/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). <!--OKTA-430697-->
 
 #### Native SSO support is GA in Preview
 
@@ -242,11 +242,11 @@ You can now configure your org to use the Native SSO flow. The [Native SSO](/doc
 
 #### New Brands API option to remove sign-in page footer message
 
-You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/references/api/brands/#brand-api-objects). <!--OKTA-424736-->
 
 #### Bug fixed in 2021.10.0
 
-Read-only admins were unable to [list key credentials for an application](/docs/reference/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
+Read-only admins were unable to [list key credentials for an application](/docs/references/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
 
 ## September
 
@@ -258,7 +258,7 @@ Read-only admins were unable to [list key credentials for an application](/docs/
 
 #### Audience parameter deprecated for the Authentication API
 
-The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#primary-authentication) has been deprecated. <!--OKTA-385098-->
+The `audience` parameter of the `/authn` [endpoint](/docs/references/api/authn/#primary-authentication) has been deprecated. <!--OKTA-385098-->
 
 ### Monthly release 2021.09.0
 
@@ -275,11 +275,11 @@ After a developer creates a SAML App integration in the Okta Admin Console, the 
 
 #### Dynamic Issuer Mode is EA in Preview
 
-An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/references/api/authorization-servers/#authorization-server-properties).
 
 When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
-With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. For example, if the authorize request is `https://sso.company.com/api/v1/authorize`, the issuer value is `https://sso.company.com`. See [Client application settings](/docs/reference/api/apps/#settings-10).
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. For example, if the authorize request is `https://sso.company.com/api/v1/authorize`, the issuer value is `https://sso.company.com`. See [Client application settings](/docs/references/api/apps/#settings-10).
 
 Dynamic Issuer Mode helps with:
 * Split deployment use cases
@@ -288,14 +288,14 @@ Dynamic Issuer Mode helps with:
 
 #### The Subscriptions API is GA in Production
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](/docs/references/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->
 
 #### Rate limit updates
 
-The default rate limit has increased for the [`/login/login.htm`](/docs/reference/rl-global-enduser/) endpoint. Also, the `/login/step-up/redirect` endpoint is added to [Dynamic Scale](/docs/reference/rl-dynamic-scale/) and the [Workforce Multiplier](/docs/reference/rl-additional-limits/#workforce-license-rate-limit-multiplier) list. <!--OKTA-417680-->
+The default rate limit has increased for the [`/login/login.htm`](/docs/references/rl-global-enduser/) endpoint. Also, the `/login/step-up/redirect` endpoint is added to [Dynamic Scale](/docs/references/rl-dynamic-scale/) and the [Workforce Multiplier](/docs/references/rl-additional-limits/#workforce-license-rate-limit-multiplier) list. <!--OKTA-417680-->
 
 ## August
 
@@ -320,7 +320,7 @@ The default rate limit has increased for the [`/login/login.htm`](/docs/referenc
 
 #### Custom Administrator Roles is Self-Service EA
 
-The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+The Okta [Custom Administrator Roles](/docs/references/api/roles/index.md) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-419528-->
 
 #### Bugs fixed in 2021.08.2
 
@@ -336,9 +336,9 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Bugs fixed in 2021.08.1
 
-- When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
+- When a native SSO [token exchange](/docs/references/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/references/registration-hook/#error). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 
@@ -358,29 +358,29 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Brands API is Self-Service EA
 
-The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
+The Okta [Brands API](/docs/references/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](/docs/references/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/references/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML Inline Hooks](/docs/references/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
 
 #### Support for Push Status using the Apps API is GA in Production
 
-Developers can use the `pushStatus` [parameter](/docs/reference/api/apps/#username-template-object) to handle a username update to an app integration. Previously, this option wasn't available through the Apps API, which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API. <!--OKTA-413817-->
+Developers can use the `pushStatus` [parameter](/docs/references/api/apps/#username-template-object) to handle a username update to an app integration. Previously, this option wasn't available through the Apps API, which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API. <!--OKTA-413817-->
 
 #### The Device Authorization grant type is Self-Service EA
 
 Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
 
-The [Device Authorization grant](/docs/reference/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
+The [Device Authorization grant](/docs/references/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
 
 #### Token-based SSO between native apps is Self-Service EA
 
-Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](/docs/reference/api/oidc/#scopes).
+Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](/docs/references/api/oidc/#scopes).
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/). <!-- OKTA-411335 -->
 
@@ -421,26 +421,26 @@ When factor sequencing was enabled for passwordless authentication flows, reques
 
 #### Support for Push Status using the Apps API is GA in Preview
 
-Developers can use the `pushStatus` parameter to handle a username update to an app integration. Previously, this option wasn't available through the [Apps API](/docs/reference/api/apps), which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API.
+Developers can use the `pushStatus` parameter to handle a username update to an app integration. Previously, this option wasn't available through the [Apps API](/docs/references/api/apps), which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API.
 <!--OKTA-405533-->
 
 #### Provisioning for Org2Org app integrations is GA in Production
 
-Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/references/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
 
 Additionally, you can set or update the Logo or notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
 
 #### New Domains API response properties available
 
-The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
+The [Domains API](/docs/references/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
 
 #### Rate limit events for user and session user activity
 
-Previously, rate limit violation events for user and session user were logged as org-wide system events (`system.org.rate_limit.violation`). These rate limit violation events are now logged more specifically as [operation events](/docs/reference/rl-system-log-events/#operation-rate-limits) (`system.operation.rate_limit.violation`). <!--OKTA-394607-->
+Previously, rate limit violation events for user and session user were logged as org-wide system events (`system.org.rate_limit.violation`). These rate limit violation events are now logged more specifically as [operation events](/docs/references/rl-system-log-events/#operation-rate-limits) (`system.operation.rate_limit.violation`). <!--OKTA-394607-->
 
 #### Schemas API feature unique attributes is now GA in Preview
 
-The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
+The Schemas API now includes [unique attributes](/docs/references/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
 
 #### The SAML 2.0 Assertion grant flow is now GA in Preview
 
@@ -448,7 +448,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event Hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/references/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -456,7 +456,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 - When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
 
-- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call couldn't modify the `visibility.hide` property. (OKTA-399408)
+- When an OIDC client app was created, the [Apps API](/docs/references/api/apps) call couldn't modify the `visibility.hide` property. (OKTA-399408)
 
 ## June
 
@@ -492,7 +492,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 #### Bug fixed in 2021.06.2
 
-When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn't toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
+When the [Features endpoint of the Apps API](/docs/references/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn't toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
 
 ### Weekly release 2021.06.1
 
@@ -502,11 +502,11 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Bugs fixed in 2021.06.1
 
-* User credential updates failed and returned an error message if the [User Type](/docs/reference/api/user-types/) was set to a non-email username. (OKTA-334754)
+* User credential updates failed and returned an error message if the [User Type](/docs/references/api/user-types/) was set to a non-email username. (OKTA-334754)
 
-* When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
+* When an `/authorize` request with an [IdP parameter](/docs/references/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
 
-* Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
+* Service clients were unable to update [SAML apps](/docs/references/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
 
 ### Monthly release 2021.06.0
 
@@ -527,7 +527,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Domains API is GA in Production
 
-The [Domains API](/docs/reference/api/domains/) is now Generally Available in Production. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-395907-->
+The [Domains API](/docs/references/api/domains/) is now Generally Available in Production. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-395907-->
 
 #### Flexible Consent is GA in Preview
 
@@ -537,7 +537,7 @@ The new Flexible Consent setting allows customers to use a single set of scopes 
 
 #### Provisioning for Org2Org app integrations can be configured using the API
 
-Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps/#application-provisioning-connection-operations), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/references/api/apps/#application-provisioning-connection-operations), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
 
 Additionally, you can set or update the **Logo** or **Notes** fields for any of your Okta app integrations using the API. <!--OKTA-397181-->
 
@@ -547,7 +547,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 #### Retrieving applications by catalog name is now available
 
-You can now look up apps by their catalog name using the [Apps API](/docs/reference/api/apps/). Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
+You can now look up apps by their catalog name using the [Apps API](/docs/references/api/apps/). Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
 
 #### The application.lifecycle.create event is now generated for OIDC Apps
 
@@ -555,7 +555,7 @@ When OpenID Connect (OIDC) apps are created using the App Integration Wizard or 
 
 #### The Subscriptions API is GA in Preview
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](/docs/references/api/admin-notifications/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing.
@@ -576,9 +576,9 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Bugs fixed in 2021.05.3
 
-* Array indexing [expressions](/docs/reference/okta-expression-language/#constants-and-operators) (for example: `myArray[0]`) were blocked at validation even when the array and the index were valid. (OKTA-395810)
+* Array indexing [expressions](/docs/references/okta-expression-language/#constants-and-operators) (for example: `myArray[0]`) were blocked at validation even when the array and the index were valid. (OKTA-395810)
 
-* SAML requests and responses weren't logged in the [System Log](/docs/reference/api/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
+* SAML requests and responses weren't logged in the [System Log](/docs/references/api/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
 
 ### Weekly release 2021.05.2
 
@@ -588,9 +588,9 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Bugs fixed in 2021.05.2
 
-* When a user was enrolled with SMS or Call factors and an additional or retry [API call](/docs/reference/api/factors) was made within 30 seconds of enrollment, the response included multiple rate limit headers. (OKTA-379654)
+* When a user was enrolled with SMS or Call factors and an additional or retry [API call](/docs/references/api/factors) was made within 30 seconds of enrollment, the response included multiple rate limit headers. (OKTA-379654)
 
-* When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
+* When [OIDC apps](/docs/references/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
 
 * The [Client Credentials Flow](/docs/guides/implement-grant-type/clientcreds/main/) could not implement a custom claim named `scope`. (OKTA-389874)
 
@@ -607,16 +607,16 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Bugs fixed in 2021.05.1
 
-* Duplicate parameter names were passed in requests to the following [OAuth endpoints](/docs/reference/api/oidc/#possible-errors), and no error message was sent. (OKTA-132318)
+* Duplicate parameter names were passed in requests to the following [OAuth endpoints](/docs/references/api/oidc/#possible-errors), and no error message was sent. (OKTA-132318)
 
   * `/token`
   * `/authorize`
   * `/revoke`
   * `/introspect`
 
-* When an OpenID Connect [application was created](/docs/reference/api/apps/#add-application) using a deactivated application's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
+* When an OpenID Connect [application was created](/docs/references/api/apps/#add-application) using a deactivated application's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
 
-* When using the [Factor lifecycle operations endpoints](/docs/reference/api/factors/#factor-lifecycle-operations) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
+* When using the [Factor lifecycle operations endpoints](/docs/references/api/factors/#factor-lifecycle-operations) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
 
 ### Monthly release 2021.05.0
 
@@ -648,19 +648,19 @@ The `Access-Control-Expose-Headers` header is now included in the response to an
 
 #### Administrator Roles API third-party admin status update
 
-The [Administrator Roles API](/docs/reference/api/roles/) has been updated to support third-party admin status for a user or a group without requiring a role assignment. See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations). <!--OKTA-381780-->
+The [Administrator Roles API](/docs/references/api/roles/) has been updated to support third-party admin status for a user or a group without requiring a role assignment. See [Role assignment operations](/docs/references/api/roles/#role-assignment-operations). <!--OKTA-381780-->
 
 #### Custom Group Profile Properties is Self-Service EA in Preview
 
-[Custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) has been released in Preview as Self-Service Early Access. The [Groups API](/docs/reference/api/groups/) can now manage [custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/reference/api/schemas) includes a new [Groups Schema object](/docs/reference/api/schemas/#group-schema-object) and [operations](/docs/reference/api/schemas/#group-schema-operations) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
+[Custom Group Profile properties](/docs/references/api/groups/#custom-profile-properties) has been released in Preview as Self-Service Early Access. The [Groups API](/docs/references/api/groups/) can now manage [custom Group Profile properties](/docs/references/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/references/api/schemas) includes a new [Groups Schema object](/docs/references/api/schemas/#group-schema-object) and [operations](/docs/references/api/schemas/#group-schema-operations) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
 
 #### Domains API is GA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
+The [Domains API](/docs/references/api/domains/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
 
 #### Domains API supports OAuth 2.0
 
-The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
+The [Domains API](/docs/references/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
 
 #### Okta Sign-In Widget, version 5.6.0
 
@@ -673,15 +673,15 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/references/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
-The [System Log API](/docs/reference/api/system-log/) has been updated to return an HTTP 400 response code when a request is made with a SCIM filter expression using the `co` (contains) operator with the `debugContext.debugData.url` or `debugContext.debugData.requestUri` field values. Use an alternative filter expression field such as `actor.id` or `target.id` to filter events in the System Log API. <!--OKTA-388434-->
+The [System Log API](/docs/references/api/system-log/) has been updated to return an HTTP 400 response code when a request is made with a SCIM filter expression using the `co` (contains) operator with the `debugContext.debugData.url` or `debugContext.debugData.requestUri` field values. Use an alternative filter expression field such as `actor.id` or `target.id` to filter events in the System Log API. <!--OKTA-388434-->
 
 #### Bug fixed in 2021.05.0
 
-* When a [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) call was created without a JSON Web Key Set (JWKS) configured, the error message returned was misleading, stating an invalid JWKS. (OKTA-383344)
+* When a [Dynamic Client Registration API](/docs/references/api/oauth-clients/) call was created without a JSON Web Key Set (JWKS) configured, the error message returned was misleading, stating an invalid JWKS. (OKTA-383344)
 
 ## April
 
@@ -698,9 +698,9 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Bugs fixed in 2021.04.2
 
-* System performance was degraded when the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API was used to fetch credentials with complex delegated authentication. You can avoid this performance issue by omitting the credential fetching operation. See omit credential response options in [List Users - Content-Type header fields](/docs/reference/api/users/#content-type-header-fields-2) or [Get User - Content-Type header fields](/docs/reference/api/users/#content-type-header-fields). (OKTA-371358)
+* System performance was degraded when the [List Users](/docs/references/api/users/#list-users) or [Get User](/docs/references/api/users/#get-user) API was used to fetch credentials with complex delegated authentication. You can avoid this performance issue by omitting the credential fetching operation. See omit credential response options in [List Users - Content-Type header fields](/docs/references/api/users/#content-type-header-fields-2) or [Get User - Content-Type header fields](/docs/references/api/users/#content-type-header-fields). (OKTA-371358)
 
-* When the [Users API](/docs/reference/api/users) was used to create a user with an address containing a 4-byte UTF-8 encoded character, an incorrect 500 system error was returned. (OKTA-382882)
+* When the [Users API](/docs/references/api/users) was used to create a user with an address containing a 4-byte UTF-8 encoded character, an incorrect 500 system error was returned. (OKTA-382882)
 
 ### Weekly release 2021.04.1
 
@@ -722,7 +722,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 * A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
 
-* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
+* When a call was made to the [User API](/docs/references/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
 ### Monthly release 2021.04.0
 
@@ -739,11 +739,11 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Domains API is now in EA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now in Early Access in Preview.
+The [Domains API](/docs/references/api/domains/) is now in Early Access in Preview.
 
 #### Groups API extended search is now GA in Production
 
-The Groups API support for [extended search](/docs/reference/api/groups/#list-groups-with-search) is now Generally Available (GA) in Production.
+The Groups API support for [extended search](/docs/references/api/groups/#list-groups-with-search) is now Generally Available (GA) in Production.
 
 #### Bug fixed in 2021.04.0
 
@@ -769,7 +769,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### Bugs fixed in 2021.03.2
 
-* After updating a Group `name` using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+* After updating a Group `name` using the [Groups API](/docs/references/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
 
 * When creating a User with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
 
@@ -783,7 +783,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 * When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
 
-* When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the sign-in request for an Okta Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
+* When using the [`/api/v1/users` endpoint](/docs/references/api/users/) to generate the sign-in request for an Okta Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
 
 ### Monthly release 2021.03.0
 
@@ -801,15 +801,15 @@ The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2
 
 #### The Okta Org API is now GA
 
-The Okta [Org API](/docs/reference/api/org/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
+The Okta [Org API](/docs/references/api/org/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
 
 #### The /login/token/redirect endpoint now has a dedicated rate limit
 
-The `/login/token/redirect` endpoint now has its own dedicated [rate limit](/docs/reference/rl-global-enduser/). Previously this endpoint shared a rate limit with other traffic that didn't have dedicated rate limits for each endpoint. <!--OKTA-363694-->
+The `/login/token/redirect` endpoint now has its own dedicated [rate limit](/docs/references/rl-global-enduser/). Previously this endpoint shared a rate limit with other traffic that didn't have dedicated rate limits for each endpoint. <!--OKTA-363694-->
 
 #### The new LDAP Interface authentication type is now GA
 
-The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](/docs/reference/api/policy/#authcontext-condition-object), you can now create rules that apply only to LDAP Interface user authentications. With this change, you can apply a Sign On Policy to LDAP Interface authentications and exclude other authentication methods.
+The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](/docs/references/api/policy/#authcontext-condition-object), you can now create rules that apply only to LDAP Interface user authentications. With this change, you can apply a Sign On Policy to LDAP Interface authentications and exclude other authentication methods.
 
 #### Bugs fixed in 2021.03.0
 
@@ -832,15 +832,15 @@ The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](
 
 #### Okta Org API now available in Self-Service Early Access (EA)
 
-The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](/docs/reference/api/org/).<!--OKTA-325713-->
+The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](/docs/references/api/org/).<!--OKTA-325713-->
 
 #### Automatically mark a flow hook as "VERIFIED"
 
-When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event Hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the Event Hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
+When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event Hook](/docs/references/api/event-hooks/) that has an Okta Workflows endpoint configured, the Event Hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/references/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
 Previewing the JSON body of the Event Hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
@@ -848,7 +848,7 @@ See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-
 
 #### Wildcards for OAuth redirect subdomains
 
-Developers can now use the [Apps API](/docs/reference/api/apps/#settings-10) to set multiple redirect URI subdomains with a single parameter using the asterisk (*) wildcard. This feature provides convenience and flexibility in cases where subdomains vary by only a few characters. For example: `https://subdomain*.example.com/oidc/redirect` may be used to represent subdomain1, subdomain2, and subdomain3.
+Developers can now use the [Apps API](/docs/references/api/apps/#settings-10) to set multiple redirect URI subdomains with a single parameter using the asterisk (*) wildcard. This feature provides convenience and flexibility in cases where subdomains vary by only a few characters. For example: `https://subdomain*.example.com/oidc/redirect` may be used to represent subdomain1, subdomain2, and subdomain3.
 
 >**Note:** Potential risks of using this feature include scenarios whereby attackers could illegitimately gain access to authorization codes by crafting the requested `redirect_uri` so that the code is returned to a subdomain that they control. See the [Authorization Code Redirection URI Manipulation](https://tools.ietf.org/html/rfc6749#section-10.6) section and the [Open Redirectors](https://tools.ietf.org/html/rfc6749#section-10.15) section of The OAuth 2.0 Authorization Framework.<!--OKTA-364361-->
 
@@ -858,7 +858,7 @@ To be compliant with the [RFC for JSON data interchange format](https://tools.ie
 
 #### Bug fixed in 2021.02.0
 
-When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
+When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/references/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
 
 ## January
 
@@ -889,18 +889,18 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 
 #### Group object source property is now GA in Production
 
-For [Groups API](/docs/reference/api/groups/) requests that return a Group or a list of Groups, the Group object type APP_GROUP includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in Production. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-326611-->
+For [Groups API](/docs/references/api/groups/) requests that return a Group or a list of Groups, the Group object type APP_GROUP includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in Production. See [Group attributes](/docs/references/api/groups/#group-attributes).<!--OKTA-326611-->
 
 #### New Apps API endpoints in Early Access (EA)
 
-The [Apps API](/docs/reference/api/apps/) now includes additional Early Access endpoints and objects for provisioning connections and features:
+The [Apps API](/docs/references/api/apps/) now includes additional Early Access endpoints and objects for provisioning connections and features:
 
-- [Application Logo operations](/docs/reference/api/apps/#application-logo-operations) (`/apps/${applicationId}/logo`)
-- [Application Provisioning Connection operations](/docs/reference/api/apps/#application-provisioning-connection-operations) (`/apps/${applicationId}/connections`)
-- [Application Features operations](/docs/reference/api/apps/#application-feature-operations) (`/apps/${applicationId}/features`)
-- [Provisioning Connection object](/docs/reference/api/apps/#provisioning-connection-object)
-- [Provisioning Connection Profile object](/docs/reference/api/apps/#provisioning-connection-profile-object)
-- [Application Feature object](/docs/reference/api/apps/#application-feature-object)
+- [Application Logo operations](/docs/references/api/apps/#application-logo-operations) (`/apps/${applicationId}/logo`)
+- [Application Provisioning Connection operations](/docs/references/api/apps/#application-provisioning-connection-operations) (`/apps/${applicationId}/connections`)
+- [Application Features operations](/docs/references/api/apps/#application-feature-operations) (`/apps/${applicationId}/features`)
+- [Provisioning Connection object](/docs/references/api/apps/#provisioning-connection-object)
+- [Provisioning Connection Profile object](/docs/references/api/apps/#provisioning-connection-profile-object)
+- [Application Feature object](/docs/references/api/apps/#application-feature-object)
 
 These updates improve the ability of administrators to configure application logos and provisioning details, previously available only through the Admin Console.
 
@@ -912,17 +912,17 @@ ISVs and developers who want to create and submit a SCIM-only app integration to
 
 #### The Subscriptions API is now available in Self-Service Early Access (EA)
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
+The [Subscriptions API](/docs/references/api/admin-notifications/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
 
 #### New phone rate limits
 
 Users who attempt Voice and SMS enrollment can now be rate limited. Voice and SMS enrollment rate-limit events are now logged in the System Log.
 
-See [System Log events for rate limits](/docs/reference/rl-system-log-events).<!--OKTA-355134-->
+See [System Log events for rate limits](/docs/references/rl-system-log-events).<!--OKTA-355134-->
 
 #### WebAuthn feature validation updates with Trusted Origins API
 
-The WebAuthn feature now supports trusted cross-origin and cross-Relying Party Identifier (RP ID) validation when using the [Trusted Origins API](/docs/reference/api/trusted-origins/). Trusted Origins are configured in the Okta Trusted Origins framework either through the Admin Console or using the API. These Trusted Origins, configured with the CORS scope, now support orgs using WebAuthn for sign-in pages hosted at Trusted Origins distinct from the org's Okta URL (that is, different from the org's Okta or custom domain URL).
+The WebAuthn feature now supports trusted cross-origin and cross-Relying Party Identifier (RP ID) validation when using the [Trusted Origins API](/docs/references/api/trusted-origins/). Trusted Origins are configured in the Okta Trusted Origins framework either through the Admin Console or using the API. These Trusted Origins, configured with the CORS scope, now support orgs using WebAuthn for sign-in pages hosted at Trusted Origins distinct from the org's Okta URL (that is, different from the org's Okta or custom domain URL).
 <!--OKTA-352629-->
 
 #### Bug fixed in 2021.01.0

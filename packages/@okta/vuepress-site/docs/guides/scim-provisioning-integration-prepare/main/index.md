@@ -17,7 +17,7 @@ Okta supports lifecycle provisioning using either Version 2.0 and Version 1.1 of
 
 If your service already supports the SCIM protocol, it is important that you review the Okta SCIM reference documentation to understand the specifics of how Okta implements the SCIM protocol:
 
-- [SCIM Reference](/docs/reference/scim/)
+- [SCIM Reference](/docs/references/scim/)
 
 If you haven't yet implemented SCIM, Okta recommends that you use Version 2.0 of the SCIM protocol.
 
@@ -235,7 +235,7 @@ After you have customized your SCIM test in Runscope with the details of your SC
 1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server, and the HTTP status received in response determines the success or failure of each test.
 1. After the test is complete, the main panel displays the results of your test.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/references/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 ## Sharing test results from Runscope
 

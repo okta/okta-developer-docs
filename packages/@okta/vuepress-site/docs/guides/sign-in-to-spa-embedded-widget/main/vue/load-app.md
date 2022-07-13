@@ -24,7 +24,7 @@ export default {
 }
 ```
 
-> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details on additional supported scopes.
+> **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/references/api/oidc/#scopes) for details on additional supported scopes.
 
 ### Instantiate Okta authentication
 

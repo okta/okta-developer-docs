@@ -16,35 +16,35 @@ The following Role types are provided and supported:
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management Administrator |                                       |
 | `APP_ADMIN`                             | Application Administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](/docs/reference/api/groups/) |
-| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
+| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](/docs/references/api/groups/) |
+| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/references/api/groups/) |
 | `MOBILE_ADMIN`                          | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                             | Organizational Administrator        |                                       |
 | `READ_ONLY_ADMIN`                       | Read-Only Administrator             |                                       |
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
-| `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
+| `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/references/api/groups/) |
 
 Perform standard role assignment in two steps:
 
 1. Assign a Role to a User or Group. At this point, the admin has the supported privileges of the Role over all resources across organization.
-2. (Optional) If the Role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
+2. (Optional) If the Role supports targets, use one of the [target operations](/docs/references/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
 
 Note that the entities involved in standard Role assignment are:
 
-* A Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
+* A Role: Identified either by type or ID returned from the [listing API](/docs/references/api/roles/#list-roles)
 * A principal: Either a Group or a User
-* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a Group
+* (Optional) A resource: When using [target operations](/docs/references/api/roles/#role-target-operations) this can be either an App or a Group
 
 ## Custom Role assignment
 
-Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
+Custom Roles can be built by piecing [Permissions](/docs/references/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
 
 1. Build a Custom Role.
 2. Build a set of resources.
 3. Bind the admin with the Role from step one that targets the Resource Set from step two.
 
-An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings that allow for different combinations of principals and Roles as necessary to grant permission to the encompassing resource.
+An assignment of a Role to an admin is called a [Binding](/docs/references/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings that allow for different combinations of principals and Roles as necessary to grant permission to the encompassing resource.
 
 Therefore, when dealing with Custom Roles, these three entities always exist:
 
@@ -88,7 +88,7 @@ The partition is specific to your Okta environment. The following are the suppor
 
 ###### tenantId
 
-The identifier for the tenant that is using the service. This is typically your [org ID](/docs/reference/api/org/#org-setting-properties).
+The identifier for the tenant that is using the service. This is typically your [org ID](/docs/references/api/org/#org-setting-properties).
 
 ###### objectType
 
@@ -118,15 +118,15 @@ The following are the supported resources.
 
 | Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
-|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
-|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
-|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
-| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
-|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"`](/docs/reference/api/apps/#list-apps-by-name)                             |
-|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
-|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
-|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/references/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/references/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/references/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/references/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/references/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+\"${targetAppType}\"`](/docs/references/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/references/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/references/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/references/api/authorization-servers/#get-authorization-server) |
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
@@ -137,13 +137,13 @@ The following are the supported resources.
 
 To specify Binding Members, use the REST URL of the corresponding Okta API:
 
-* [A specific User](/docs/reference/api/users/#get-user)
+* [A specific User](/docs/references/api/users/#get-user)
 
   ``` http
   https://${yourOktaDomain}/api/v1/users/${memberUserId}
   ```
 
-* [A specific Group](/docs/reference/api/groups/#get-group)
+* [A specific Group](/docs/references/api/groups/#get-group)
 
   ``` http
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
@@ -158,7 +158,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
     * Custom Roles granted through group membership
 
     As a result, if an admin was granted a standard Role that is limited to a single Group, and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
-2. You can't assign a Custom Role without a Resource Set. The Custom Role is applicable only to a subset of resources. Standard Roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+2. You can't assign a Custom Role without a Resource Set. The Custom Role is applicable only to a subset of resources. Standard Roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/references/api/roles/#role-target-operations).
 
 ### Permission types
 

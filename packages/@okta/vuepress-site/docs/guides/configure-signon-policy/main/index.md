@@ -22,7 +22,7 @@ This guide explains what Global Session Policies and authentication policies are
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Groups created](/docs/reference/api/groups/) in your org
+* [Groups created](/docs/references/api/groups/) in your org
 * An application that you want to assign to an authentication policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
@@ -39,7 +39,7 @@ Policies help you manage access to your applications and APIs. You can restrict 
 
 Global Session Policies help control who can have access and how a user gains access to Okta, including whether they are challenged for additional factors and how long they are allowed to remain signed in before re-authenticating. A Global Session Policy supplies the context necessary for the user to advance to the next authentication step after they are identified by Okta.
 
-You can configure a Global Session Policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
+You can configure a Global Session Policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/references/api/policy/#network-condition-object) to have access.
 
 > **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as the primary factor for a rule, you remove the global password requirement from the Global Session Policy and transfer responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
@@ -104,7 +104,7 @@ The following are step-by-step instructions to configure a Global Session Policy
 
 7. For this use case example, select **8 hours** for **Session Expires After**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
 
-    > **Note:** You can also set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
+    > **Note:** You can also set the [maximum session lifetime value](/docs/references/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
 
 8. Click **Create Rule**.
 
@@ -130,7 +130,7 @@ The following are step-by-step instructions to configure another rule for the de
 
 4. Configure IF conditions to define the authentication context for the rule. Select **Not in any of the following zones** from the **AND User’s IP is** dropdown list.
 
-    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](/docs/reference/api/zones/).
+    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](/docs/references/api/zones/).
 
 5. In the text box, start typing the dynamic zone name and then select it when it appears in the list.
 
@@ -140,10 +140,10 @@ The following are step-by-step instructions to configure another rule for the de
 
 8. Click **Save**.
 
-> **Note:** You can [use the API](/docs/reference/api/policy/#authentication-policy) to assign an app to an authentication policy. You need the application ID and the policy ID for this API request. Make a `PUT /api/v1/apps/${appId}/policies/${policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/${appId}` request and the response should contain information on the policy associated with the app.
+> **Note:** You can [use the API](/docs/references/api/policy/#authentication-policy) to assign an app to an authentication policy. You need the application ID and the policy ID for this API request. Make a `PUT /api/v1/apps/${appId}/policies/${policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/${appId}` request and the response should contain information on the policy associated with the app.
 
 ## See also
 
 * [Policies concept](/docs/concepts/policies/)
-* [Policy API reference](/docs/reference/api/policy/)
+* [Policy API reference](/docs/references/api/policy/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)

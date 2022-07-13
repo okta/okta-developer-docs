@@ -16,7 +16,7 @@ Searching for and returning Okta users is a standard Users API lifecycle operati
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
 
-For details on user operations, see the [Users API](/docs/reference/api/users/) reference.
+For details on user operations, see the [Users API](/docs/references/api/users/) reference.
 
 ## Search users
 
@@ -29,7 +29,7 @@ The search query parameter (`search`) returns one or more users matched against 
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. See [Filtering](/docs/references/core-okta-api/#filter).
 
 ### URL encoding
 
@@ -103,7 +103,7 @@ For brevity, the response is truncated.
 
 ### Limits and pagination
 
-You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
+You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](/docs/references/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](/docs/references/core-okta-api/#link-header).
 
 > **Note:** If you don't specify a value for `limit`, the maximum (200) is used as a default.
 
@@ -161,7 +161,7 @@ curl -v -X GET \
 
 The `search` parameter can also search array data types for custom user profile properties. Okta follows the [SCIM Protocol Specification](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2) for searching arrays. If any element of the array matches the search term, the entire array (object) is returned.
 
-You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](/docs/reference/core-okta-api#filter).
+You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](/docs/references/core-okta-api#filter).
 
 #### Request example
 
@@ -371,7 +371,7 @@ For brevity, only the user information and custom profile attribute are shown.
 
 ```
 
-For further search expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further search expression examples and reference material, see [Find Users](/docs/references/api/users/#find-users) in the Users API reference.
 
 ## Filter users
 
@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/references/api/users/#list-users-with-a-filter) for example expressions.
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
@@ -537,7 +537,7 @@ curl -v -X GET \
 
 ```
 
-For further filter expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further filter expression examples and reference material, see [Find Users](/docs/references/api/users/#find-users) in the Users API reference.
 
 ## Find users
 
@@ -686,7 +686,7 @@ curl -v -X GET \
     }
 ```
 
-See [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+See [Find Users](/docs/references/api/users/#find-users) in the Users API reference.
 
 ## List all users
 
@@ -708,9 +708,9 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?limit=25
 ```
 
-See [Find Users](/docs/reference/api/users/#list-users) in the Users API reference.
+See [Find Users](/docs/references/api/users/#list-users) in the Users API reference.
 
 ## See also
 
-- [Users API](/docs/reference/api/users)
+- [Users API](/docs/references/api/users)
 - [User profiles](/docs/concepts/user-profiles/)

@@ -27,9 +27,9 @@ See [Get Started with the Okta REST APIs](/code/rest/) for information on how to
 
 ## List your apps
 
-* For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
+* For Outbound SAML, use the [Apps API](/docs/references/api/apps/#list-applications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
 
-* For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all the Identity Providers (IdP) and to collect the full response for each IdP that you want to update.
+* For Inbound SAML, use the [IdPs API](/docs/references/api/idps/#list-identity-providers-with-defaults) to return a list of all the Identity Providers (IdP) and to collect the full response for each IdP that you want to update.
 
 The following example shows a call for Outbound SAML apps.
 
@@ -92,8 +92,8 @@ Truncated Response:
 
 ## Generate a CSR
 
-* Use the [Apps API](/docs/reference/api/apps/#list-csrs-for-application) to return a list of all apps to use with Outbound SAML apps.
-* Use the [IdPs API](/docs/reference/api/idps/#list-signing-csrs-for-idp) to return a list of all IdPs to use with Inbound SAML apps.
+* Use the [Apps API](/docs/references/api/apps/#list-csrs-for-application) to return a list of all apps to use with Outbound SAML apps.
+* Use the [IdPs API](/docs/references/api/idps/#list-signing-csrs-for-idp) to return a list of all IdPs to use with Inbound SAML apps.
 
 You can generate a CSR and receive the response in either JSON or [PKCS#10](https://tools.ietf.org/html/rfc2986) format.
 
@@ -175,9 +175,9 @@ Okta generates the CSR in Base64 DER format. If your process requires a differen
 
 ## Publish a CSR with a certificate
 
-* Use the [Apps API](/docs/reference/api/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
+* Use the [Apps API](/docs/references/api/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
 
-* Use the [IdPs API](/docs/reference/api/idps/#publish-signing-csr-for-idp) to publish the certificate for Inbound SAML apps.
+* Use the [IdPs API](/docs/references/api/idps/#publish-signing-csr-for-idp) to publish the certificate for Inbound SAML apps.
 
 Base64 encoding and PEM, DER, and CER certificate formats are supported.
 
@@ -230,9 +230,9 @@ Content-Type: application/json;charset=UTF-8
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-* For Outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
+* For Outbound SAML, call the [Update Application API](/docs/references/api/apps/#update-application). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
 
-* For Inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. Partial updates aren't supported by the `Updated IdP API`.
+* For Inbound SAML, call the [Update IdP API](/docs/references/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/references/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. Partial updates aren't supported by the `Updated IdP API`.
 
 > **Caution:** After you update the key credential, your users can't access the SAML app or the Identity Provider until you upload the new certificate to the Service Provider (SP).
 
@@ -337,9 +337,9 @@ Content-Type: application/json
 ## Clone the certificate (optional)
 
 To share the certificate that you created across multiple apps, clone it with the
-[Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
+[Apps API](/docs/references/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
 
-To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](/docs/reference/api/idps/) by using the key `id` that you generated.
+To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](/docs/references/api/idps/) by using the key `id` that you generated.
 
 Ensure that you clone the certificate to every app or IdP that you want to share it with. After the certificate is cloned, you need to [update the key credential](#update-the-key-credential) for the target app.
 

@@ -2,7 +2,7 @@
 
 Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
 
-Using the [`TokenResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/TokenResponse.java) object obtained from the `IDXAuthenticationWrapper.authenticate()` method, make a request to the [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint:
+Using the [`TokenResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/TokenResponse.java) object obtained from the `IDXAuthenticationWrapper.authenticate()` method, make a request to the [`/v1/userinfo`](/docs/references/api/oidc/#userinfo) endpoint:
 
 ```java
 try {

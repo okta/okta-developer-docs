@@ -7,15 +7,15 @@ excerpt: >-
 
 # Authentication/End-user rate limits
 
-This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/reference/rate-limits).
+This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/references/rate-limits).
 
 > **Note:**
 >
-> * To learn more about rate limits, visit our [overview](/docs/reference/rate-limits) and [best practices](/docs/reference/rl-best-practices) pages.
+> * To learn more about rate limits, visit our [overview](/docs/references/rate-limits) and [best practices](/docs/references/rl-best-practices) pages.
 
-> * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
-> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
-> * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
+> * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/references/rl-additional-limits/) page.
+> * [DynamicScale rate limits](/docs/references/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
+> * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/references/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/references/rl-dynamic-scale/).
 >
 
 > We enforce the following **per-minute** limits.

@@ -11,7 +11,7 @@ This guide explains how to upgrade older Okta SAML apps from SHA1 certificates t
 **Learning outcomes**
 
 * Find out which certificate your SAML app uses and learn to download your certificate.
-* Use the [Apps API](/docs/reference/api/apps/#list-applications) to return data on the apps that need updating and generate new credentials for each app.
+* Use the [Apps API](/docs/references/api/apps/#list-applications) to return data on the apps that need updating and generate new credentials for each app.
 * Update the apps to use the new certificate.
 * Learn how to revert to SHA1 if necessary.
 
@@ -101,7 +101,7 @@ Where:
 
 ## Get the app info
 
-Use the [List Apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps.
+Use the [List Apps API](/docs/references/api/apps/#list-applications) to return a list of all apps.
 
 For each app to update, collect the `id`, `name`, and `label` elements.
 
@@ -166,7 +166,7 @@ Truncated Response:
 
 ## Generate a new application key credential
 
-Use the [Apps API](/docs/reference/api/apps/#generate-new-application-key-credential)
+Use the [Apps API](/docs/references/api/apps/#generate-new-application-key-credential)
 to generate new credentials. Pass each app ID (`id`) that was collected in the above step as the app ID (`aid`) to this API. If you have no company policy for credential expiration, 10 years is suggested.
 
 Request: `POST /api/v1/apps/0000000000aaaaaBBBBBo/credentials/keys/generate?validityYears=10`
@@ -216,7 +216,7 @@ Response:
 
 ## Update the key credential for the app to specify the new signing key id
 
-Call the [Apps API](/docs/reference/api/apps/#update-key-credential-for-application) with the app ID you obtained above. In the body, include
+Call the [Apps API](/docs/references/api/apps/#update-key-credential-for-application) with the app ID you obtained above. In the body, include
 the app name and the app label obtained earlier, the key ID that you generated, and the value *SAML_2_0* for the sign on mode.
 
 Request:
@@ -258,7 +258,7 @@ This step is the same as [shown earlier](#get-the-app-info).
 
 ### Step 2: Retrieve all certificates associated with the app and locate the SHA1 certificate
 
-Use the [List Key Credentials for an Application API](/docs/reference/api/apps/#list-key-credentials-for-application) to list all the credentials.
+Use the [List Key Credentials for an Application API](/docs/references/api/apps/#list-key-credentials-for-application) to list all the credentials.
 Pass the app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. Then, determine which certificate is the SHA1 certificate by copying the certificate text for each of the returned certificates, and [determine the signature algorithm](#determine-the-signature-algorithm-of-a-certificate)
 using the method described below. After determining which certificate is the SHA1 certificate, note the signing key id, `kid`.
 
@@ -307,7 +307,7 @@ Response:
 
 ### Step 3: Update the key credential for the application with the SHA1 certificate
 
-Use the [Apps API](/docs/reference/api/apps/#update-key-credential-for-application)
+Use the [Apps API](/docs/references/api/apps/#update-key-credential-for-application)
 to update the key credential for the application to specify the kid of the SHA1 certificate that you retrieved in Step 2.
 
 This step is the same as

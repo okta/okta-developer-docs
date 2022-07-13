@@ -113,7 +113,7 @@ You must activate the Telephony Inline Hook in your Okta org. Activating the Tel
     **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
 1. Click **Save**. The Telephony Inline Hook is now set up with an active status.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/references/api/inline-hooks/#create-inline-hook).
 
 ## Add Twilio credentials to the external service
 
@@ -187,4 +187,4 @@ Review the following guides to implement other Inline or Event Hook examples:
 
 ## See also
 
-For a complete description of this Inline Hook type, see [Telephony Inline Hook](/docs/reference/telephony-hook/).
+For a complete description of this Inline Hook type, see [Telephony Inline Hook](/docs/references/telephony-hook/).

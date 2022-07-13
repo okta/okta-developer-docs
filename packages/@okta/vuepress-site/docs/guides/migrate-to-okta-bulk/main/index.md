@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide explains how you can use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
+As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide explains how you can use that data to create users and groups in Okta with the [Okta Users API](/docs/references/api/users/) and the [Okta Groups API](/docs/references/api/groups/).
 
 ---
 
@@ -31,7 +31,7 @@ Perform a bulk migration of users into Okta by using Okta APIs.
 
 ## Sample data
 
-The [Okta Users API](/docs/reference/api/users/) provides several operations to create users. To keep it simple, we'll use [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) in this guide.
+The [Okta Users API](/docs/references/api/users/) provides several operations to create users. To keep it simple, we'll use [Create User without Credentials](/docs/references/api/users/#create-user-without-credentials) in this guide.
 
 This is the sample data we'll use for one user:
 
@@ -44,7 +44,7 @@ It's a good idea to use sample data that's as close as possible to your real use
 
 ## Create groups
 
-If your user data includes groups and you want to include those groups when you create your users in Okta, you'll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we're using (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
+If your user data includes groups and you want to include those groups when you create your users in Okta, you'll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we're using (in this case, "All Employees") using an [Add Group](/docs/references/api/groups/#add-group) request:
 
 ### Request example
 
@@ -102,13 +102,13 @@ The description property can be blank.
 }
 ```
 
-You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/reference/api/groups/#list-groups) request.
+You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/references/api/groups/#list-groups) request.
 
 You can also create Groups in your Okta Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
 ## Create users
 
-Once you have created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, we're using [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
+Once you have created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, we're using [Create User without Credentials](/docs/references/api/users/#create-user-without-credentials) to create our sample user.
 In our sample, the user's email address is our unique login and the Group IDs are from the List Groups request in the previous step.
 
 ### Request example with groups
@@ -210,14 +210,14 @@ curl -v -X POST \
 
 The user status in the response when you create a User is set to `STAGED`, which essentially means that the user has been created but not activated yet. You can activate users using the API or in your Okta Admin Console. For more information on account states and activation, see:
 
-* [User status values](/docs/reference/api/users/#user-status) (API reference)
-* [Activate User request](/docs/reference/api/users/#activate-user) (API reference)
+* [User status values](/docs/references/api/users/#user-status) (API reference)
+* [Activate User request](/docs/references/api/users/#activate-user) (API reference)
 * [About user account status](https://help.okta.com/okta_help.htm?id=ext_end_user_states) (product documentation)
 * [Activate user accounts](https://help.okta.com/okta_help.htm?id=ext_activate_user) (product documentation)
 
 ## Rate limits
 
-Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta's Rate Limit Headers.
+Remember that [rate limits](/docs/references/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](/docs/references/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta's Rate Limit Headers.
 
 ## Next steps
 
@@ -229,11 +229,11 @@ Your next step should be configuring the necessary integration and access to app
 
 ### API reference pages
 
-* [Okta Users API](/docs/reference/api/users/)
-* [Okta Groups API](/docs/reference/api/groups/)
-* [API error codes](/docs/reference/error-codes/)
-* [Default user profile properties](/docs/reference/api/users/#default-profile-properties)
-* [Rate limits](/docs/reference/rate-limits/)
+* [Okta Users API](/docs/references/api/users/)
+* [Okta Groups API](/docs/references/api/groups/)
+* [API error codes](/docs/references/error-codes/)
+* [Default user profile properties](/docs/references/api/users/#default-profile-properties)
+* [Rate limits](/docs/references/rate-limits/)
 
 ### Product help pages
 

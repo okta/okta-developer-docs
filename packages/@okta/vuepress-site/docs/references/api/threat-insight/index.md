@@ -14,7 +14,7 @@ In order to prevent abuse, Okta ThreatInsight works in a limited capacity for fr
 | Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
 | :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
 | action         | Specifies how Okta responds to authentication requests from suspicious IPs. Values are none, audit, or block. A value of none indicates that ThreatInsight is disabled. A value of audit indicates that Okta logs suspicious requests in the System Log. A value of block indicates that Okta logs suspicious requests in the System Log and blocks the requests. | String                                        | Yes		| N/A           |
-| excludeZones   | Accepts a list of [Network Zone](/docs/reference/api/zones/) IDs. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List	                                        | No		| N/A           |
+| excludeZones   | Accepts a list of [Network Zone](/docs/references/api/zones/) IDs. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List	                                        | No		| N/A           |
 
 
 ## ThreatInsight configuration API operations

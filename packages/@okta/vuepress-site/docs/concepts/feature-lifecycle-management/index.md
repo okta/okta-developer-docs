@@ -4,11 +4,11 @@ title: Feature Lifecycle Management
 
 # Feature Lifecycle Management
 
-This page will cover a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, as well as their feature dependents and dependencies. Special restrictions apply to the behavior of the API with respect to Beta features.
+This page will cover a few key concepts that underpin the [Okta Features API](/docs/references/api/features/). The Features API allows you to manage self-service features, as well as their feature dependents and dependencies. Special restrictions apply to the behavior of the API with respect to Beta features.
 
 ## Self-service Features
 
-Self-service features are features that can be enabled or disabled by an Okta admin directly. Features that are not self-service can only be enabled or disabled by getting in touch with Okta Support. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
+Self-service features are features that can be enabled or disabled by an Okta admin directly. Features that are not self-service can only be enabled or disabled by getting in touch with Okta Support. The [Okta Features API](/docs/references/api/features/) is used to list, enable, and disable self-service features.
 
 > **Note:** A Beta feature that is marked as self-service will stay as self-service even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature will remain self-service. This means that it will appear in the list of available self-service Features, but you will not be able to enable it without contacting Support.
 

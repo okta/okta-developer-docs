@@ -8,9 +8,9 @@ category: management
 <ApiLifecycle access="ea" /></br>
 <ApiLifecycle access="ie" />
 
-> **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
+> **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/references/api/archive-myaccount/) for the docs for the older version of the API.
 
-The Okta MyAccount API allows end users to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences:
+The Okta MyAccount API allows end users to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](/docs/references/api/users/) but with significant differences:
 
 * The API doesn't expose information an end user shouldn't have access to.
 * The API doesn't support lifecycle operations.
@@ -18,7 +18,7 @@ The Okta MyAccount API allows end users to fetch and update their own Okta user 
 
 ## Get started
 
-* This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+* This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [MyAccount API (deprecated)](/docs/references/api/archive-myaccount/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 * Explore the MyAccount API:
    > **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
 
@@ -1003,7 +1003,7 @@ If an invalid phone ID is passed to the request, the response returns a 404 NOT 
 | <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | <ApiLifecycle access="ea" /> |
 | <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" /> | <ApiLifecycle access="deprecated" /> |
 
-Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/)
+Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/references/api/user-types/)
 
 > **Note:** If a property's value isn't visible to an end user (because it's hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes)), then the property's definition is also hidden in the output of this API.
 
@@ -1160,7 +1160,7 @@ curl -v -X GET \
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also doesn't support partial update (PATCH request). All values returned from fetching User Profile must be passed to this API, or the update doesn't pass validation. This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/references/api/users/) in that only PUT is supported.  This API also doesn't support partial update (PATCH request). All values returned from fetching User Profile must be passed to this API, or the update doesn't pass validation. This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Required scope and role
 
@@ -1451,7 +1451,7 @@ The User Profile Schema object has several properties:
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's User Profile Schema |
-| `properties`         | Object | The properties defined in the [User Profile Schema](/docs/reference/api/schemas/#user-profile-schema-property-object)                               |
+| `properties`         | Object | The properties defined in the [User Profile Schema](/docs/references/api/schemas/#user-profile-schema-property-object)                               |
 
 #### User Profile Schema example
 

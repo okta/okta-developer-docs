@@ -17,7 +17,7 @@ This information is specific to the Token Inline Hook, one type of Inline Hook s
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
@@ -58,7 +58,7 @@ Provides information on the properties of the access token that Okta has generat
 
 #### claims
 
-Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/references/api/oidc/#tokens-and-claims).
 
 #### lifetime
 
@@ -68,7 +68,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/references/api/oidc/#tokens-and-claims).
 
 ## Objects in the response that you send
 
@@ -118,7 +118,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 #### Reserved claims for Token Hooks
 
-Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
+Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/references/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
 | Claim Name     | Token Type        |
 |----------------|-------------------|
@@ -342,7 +342,7 @@ This section provides example JSON payloads for the supported operations.
 
 ### Sample response to add a claim
 
-Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/docs/reference/token-hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/docs/references/token-hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {
@@ -487,11 +487,11 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
+See [Access Tokens Scopes and Claims](/docs/references/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
 
 >**Note:** Although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+See [ID Token Claims](/docs/references/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 ```json
 {
@@ -605,9 +605,9 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 
 You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH will fail and errors will be logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
+See [Access Tokens Scopes and Claims](/docs/references/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
+See [ID Token Claims](/docs/references/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
 > **Note:** The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
@@ -736,7 +736,7 @@ After receiving the Okta request, if there is a response timeout, the Okta proce
 
 ## Enabling a Token Inline Hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
 
@@ -758,7 +758,7 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
+> **Note:** Administrators can use the [Okta System Log](/docs/references/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
 
 - When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
@@ -772,7 +772,7 @@ This section covers what happens when a token inline hook flow fails either due 
 
   **Who can see this error?** Administrators, developers, and end users. When the OAuth 2.0 client receives the error, the client developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.
 
-  > **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.
+  > **Note:** See the [error](/docs/references/token-hook/#error) section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.
 
 - When a hook command (for example, updating, adding, and deleting claims) can't be performed, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 

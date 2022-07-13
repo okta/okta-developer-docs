@@ -265,7 +265,7 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-Array of [Application objects](/docs/reference/api/apps/#application-object)
+Array of [Application objects](/docs/references/api/apps/#application-object)
 
 ## Rules operations
 
@@ -499,7 +499,7 @@ Different Policy types control settings for different operations. All Policy typ
 
 [IdP Discovery Policy](#idp-discovery-policy)
 
-[OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
+[OAuth Authorization Policy](/docs/references/api/authorization-servers/#policy-object)
 
 [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 
@@ -783,7 +783,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 <ApiLifecycle access="ie" />
 
-Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+Specifies which [User Types](/docs/references/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/references/api/user-types/) to manage User Types.
 
 | Parameter | Description                  | Data Type | Required |
 | ---       | ---                          | ---       | ---      |
@@ -815,7 +815,7 @@ Specifies an authentication entry point
 
 #### Network Condition object
 
-Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](/docs/reference/api/zones/) to manage network zones.
+Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](/docs/references/api/zones/) to manage network zones.
 
 | Parameter  | Description            | Data Type          | Required                               |
 | ---------  | ---------------------- | ------------------ | -------------------------------------- |
@@ -1062,7 +1062,7 @@ Specifies a particular level of risk to match on
 #### Okta Expression Language Condition object
 
 Use Okta Expression Language as a condition.
-See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
+See [Okta Expression Language in Identity Engine](/docs/references/okta-expression-language-in-identity-engine/)
 
 
 | Parameter | Description              | Data Type | Required |
@@ -1761,9 +1761,9 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 #### Policy Action with Dynamic IdP routing
 <ApiLifecycle access="ea"/>
 
-> **Note:** Dynamic IdP Routing is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+> **Note:** Dynamic IdP Routing is an [Early Access](/docs/references/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
-You can choose to define an IdP instance in the Policy action or provide an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) with the [Login Context](/docs/reference/okta-expression-language-in-identity-engine/#login-context) that is evaluated with the IdP. For example, the value `login.identifier`
+You can choose to define an IdP instance in the Policy action or provide an [Okta Expression Language](/docs/references/okta-expression-language-in-identity-engine/) with the [Login Context](/docs/references/okta-expression-language-in-identity-engine/#login-context) that is evaluated with the IdP. For example, the value `login.identifier`
 refers to the user's `username`. If the user is signing in with the username `john.doe@mycompany.com`, the expression, `login.identifier.substringAfter('@))` is evaluated to the domain name of the user, for example, `mycompany.com`. The IdP property that the evaluated string should match to is specified as the `propertyName`.
 
 #### Dynamic IdP example

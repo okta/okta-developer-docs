@@ -159,7 +159,7 @@ The Okta org contains a default risk provider profile that must be configured fo
 
 You can also configure each third-party risk provider to send three action types to the Okta Risk Engine: `none`, `log_only` (default), and `enforce_and_log`. In this example, the action is set to `enforce_and_log`, which uses the third-party risk event when calculating the risk for a sign-in.
 
-See the following reference documentation: [Risk Provider API](/docs/reference/api/risk-providers).
+See the following reference documentation: [Risk Provider API](/docs/references/api/risk-providers).
 
 In this example, use the following two procedures to set up your third-party risk provider:
 - [Retrieve the default risk provider](#retrieve-the-default-risk-provider)
@@ -322,7 +322,7 @@ This procedure sends a sample risk event payload to the Okta org.
 
 > **Note:** Rate limits of three calls per minute, per risk provider, apply to the `/api/v1/risk/events/ip` endpoint. Each call can contain multiple risk events.
 
-See [Risk Events](/docs/reference/api/risk-events).
+See [Risk Events](/docs/references/api/risk-events).
 
 ### Confirm the response
 
@@ -341,8 +341,8 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 ## See also
 
 - [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/)
-- [Risk Providers API](/docs/reference/api/risk-providers/)
-- [Risk Events API](/docs/reference/api/risk-events/)
+- [Risk Providers API](/docs/references/api/risk-providers/)
+- [Risk Events API](/docs/references/api/risk-events/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
 
 <!-- ## Support

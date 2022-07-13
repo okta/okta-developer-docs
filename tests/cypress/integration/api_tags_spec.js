@@ -6,7 +6,7 @@ describe('API tags check spec', () => {
   it('shows the Beta lifecycle tags', () => {
     const betaTagSelector = '.api-label-beta';
 
-    basePage.visit('/docs/reference/api/policy');
+    basePage.visit('/docs/references/api/policy');
 
     cy.get(betaTagSelector).should('exist');
   });
@@ -14,7 +14,7 @@ describe('API tags check spec', () => {
   it('shows the Early Access lifecycle tags', () => {
     const eaTagsSelector = '.api-label-ea';
 
-    basePage.visit('/docs/reference/api/users');
+    basePage.visit('/docs/references/api/users');
 
     cy.get(eaTagsSelector).should('exist')
   });
@@ -22,7 +22,7 @@ describe('API tags check spec', () => {
   it('shows the Deprecated lifecycle tags', () => {
     const deprecatedTagsSelector = '.api-label-deprecated';
 
-    basePage.visit('/docs/reference/api/sessions');
+    basePage.visit('/docs/references/api/sessions');
 
     cy.get(deprecatedTagsSelector).should('exist');
   });
@@ -30,7 +30,7 @@ describe('API tags check spec', () => {
   it('shows the CORS tags', () => {
     const corsTagsSelector = '.api-label-cors';
 
-    basePage.visit('/docs/reference/api/sessions');
+    basePage.visit('/docs/references/api/sessions');
 
     cy.get(corsTagsSelector).should('exist');
   });
@@ -38,7 +38,7 @@ describe('API tags check spec', () => {
   it('shows the API URI GET tags', () => {
     const apiUrlGetTagsSelector = '.api-uri-get';
 
-    basePage.visit('/docs/reference/api/sessions');
+    basePage.visit('/docs/references/api/sessions');
 
     cy.get(apiUrlGetTagsSelector).should('exist');
   });
@@ -46,7 +46,7 @@ describe('API tags check spec', () => {
   it('shows the API URI POST tags', () => {
     const apiUrlPostTagsSelector = '.api-uri-post';
 
-    basePage.visit('/docs/reference/api/sessions');
+    basePage.visit('/docs/references/api/sessions');
 
     cy.get(apiUrlPostTagsSelector).should('exist');
   });
@@ -54,7 +54,7 @@ describe('API tags check spec', () => {
   it('shows the API URI DELETE tags', () => {
     const apiUrlDeleteTagsSelector = '.api-uri-delete';
 
-    basePage.visit('/docs/reference/api/sessions');
+    basePage.visit('/docs/references/api/sessions');
 
     cy.get(apiUrlDeleteTagsSelector).should('exist');
   });

@@ -11,49 +11,49 @@ category: rate limits
 
 The following org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems.
 
-* [`system.org.rate_limit.warning`](/docs/reference/api/event-types/?q=system.org.rate_limit.warning)<br>
+* [`system.org.rate_limit.warning`](/docs/references/api/event-types/?q=system.org.rate_limit.warning)<br>
 This event is sent when an endpoint is nearing its rate limit.
 
-* [`system.org.rate_limit.burst`](/docs/reference/api/event-types/?q=system.org.rate_limit.burst)<br>
-This event is sent when an API has exceeded its default rate limit, and Okta applies an increase in the rate limit to minimize customer impact. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+* [`system.org.rate_limit.burst`](/docs/references/api/event-types/?q=system.org.rate_limit.burst)<br>
+This event is sent when an API has exceeded its default rate limit, and Okta applies an increase in the rate limit to minimize customer impact. See [Burst rate limits](/docs/references/rate-limits/#burst-rate-limits).
 
-* [`system.org.rate_limit.violation`](/docs/reference/api/event-types/?q=system.org.rate_limit.violation)<br>
+* [`system.org.rate_limit.violation`](/docs/references/api/event-types/?q=system.org.rate_limit.violation)<br>
 This event is sent when an endpoint is exceeding its rate limit.
 
-* [`core.concurrency.org.limit.violation`](/docs/reference/api/event-types/?q=core.concurrency.org.limit.violation)<br>
+* [`core.concurrency.org.limit.violation`](/docs/references/api/event-types/?q=core.concurrency.org.limit.violation)<br>
 This event is sent when a request is exceeding the org's allotted concurrent limit.
 
 ### Web request rate limits (client level)
 
 The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
 
-* [`system.client.rate_limit.violation`](/docs/reference/api/event-types/?q=system.client.rate_limit.violation)<br>
+* [`system.client.rate_limit.violation`](/docs/references/api/event-types/?q=system.client.rate_limit.violation)<br>
 This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* [`system.client.concurrency_rate_limit.violation`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.violation)<br>
+* [`system.client.concurrency_rate_limit.violation`](/docs/references/api/event-types/?q=system.client.concurrency_rate_limit.violation)<br>
 This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification)<br>
+* [`system.client.rate_limit.notification`](/docs/references/api/event-types/?q=system.client.rate_limit.notification)<br>
 This event is fired when the framework is in **Log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
+* [`system.client.concurrency_rate_limit.notification`](/docs/references/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
 ### OAuth 2.0 client rate limit
 
 The following System Log event is fired when OAuth 2.0 requests from a single client ID have consumed the majority of the applicable rate limit for the org:
 
-* [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
+* [`app.oauth2.client_id_rate_limit_warning`](/docs/references/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
 This event contains information about the responsible client ID, which can be used by admins to discover and deactivate or reconfigure the client if necessary.
 
 ### Operation rate limits
 
 Some rate limits are enforced on specific actions within Okta, regardless of which API is called to invoke the action. For example, though there are multiple ways to initiate an SMS to a user, there may be a limit on how many are sent out, regardless of which API requests has been made to initiate the messages. The following event types may appear in these varying cases:
 
-* [`system.operation.rate_limit.violation`](/docs/reference/api/event-types/?q=system.operation.rate_limit.violation)<br>
+* [`system.operation.rate_limit.violation`](/docs/references/api/event-types/?q=system.operation.rate_limit.violation)<br>
 This event type is sent once per rate limit period when a request or action is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
 
-* [`system.operation.rate_limit.warning`](/docs/reference/api/event-types/?q=system.operation.rate_limit.warning)<br>
+* [`system.operation.rate_limit.warning`](/docs/references/api/event-types/?q=system.operation.rate_limit.warning)<br>
 This event type may be sent once per rate limit period as a warning that some significant portion of your rate limit has already been used within a period. For example, you might receive a warning that you have reached 60% of your rate limit for an endpoint within a rate limit period.
 
 * `system.operation.rate_limit.notification`<br>
@@ -61,7 +61,7 @@ This event type can provide additional information about rate limit decisions. F
 
 #### DebugContext object for operation rate limits
 
-For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
+For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/references/api/system-log/#debugcontext-object) object provides a way to store additional information.
 
 #### DebugContext object properties for operation rate limits
 

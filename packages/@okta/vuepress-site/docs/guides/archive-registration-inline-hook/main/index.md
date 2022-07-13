@@ -68,7 +68,7 @@ To set up and activate the Registration Inline Hook:
 
 The Registration Inline Hook is now set up with an active status.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/references/api/inline-hooks/#create-inline-hook).
 
 ### Enable the Registration Inline Hook in the Classic Engine
 
@@ -126,5 +126,5 @@ Review the following guides to implement other Inline or Event Hook examples:
 
 ## See also
 
-* For a complete description of this Inline Hook type, see the [Registration Inline Hook Reference](/docs/reference/registration-hook/).
+* For a complete description of this Inline Hook type, see the [Registration Inline Hook Reference](/docs/references/registration-hook/).
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

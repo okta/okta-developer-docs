@@ -175,13 +175,13 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | Parameter | Description                                                                                | ParamType | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of Groups                                | Query     | String   | FALSE    |         |
-| filter    | [Filter expression](/docs/reference/core-okta-api/#filter) for Groups      | Query     | String   | FALSE    |         |
+| filter    | [Filter expression](/docs/references/core-okta-api/#filter) for Groups      | Query     | String   | FALSE    |         |
 | limit     | Specifies the number of Group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
 | expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
-| search | Searches for groups with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
+| search | Searches for groups with a supported [filtering](/docs/references/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
-> **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).<br><br>
+> **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).<br><br>
 Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
 
 ###### Filters
@@ -201,7 +201,7 @@ The following expressions are supported for Groups with the `filter` query param
 | `type eq "BUILT_IN"`                                    | Groups that have a `type` of `BUILT_IN`                             |
 | `type eq "OKTA_GROUP"`                                  | Groups that have a `type` of `OKTA_GROUP`                           |
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
+See [Filtering](/docs/references/core-okta-api/#filter) for more information on expressions.
 
 > **Note:** All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 
@@ -239,7 +239,7 @@ Reminders about the `limit` query parameter and query timeouts:
 * If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
 * The maximum value for `limit` is 200 for most orgs.
 * Don't write code that depends on the default or maximum value, as it may change.
-* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/references/core-okta-api/#pagination).
 
 ##### Request example
 
@@ -730,7 +730,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
+* Supports [pagination](/docs/references/core-okta-api/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
 * Searches many properties:
   - Any group profile property, including imported app group profile properties.
@@ -959,7 +959,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
-Enumerates all [users](/docs/reference/api/users/#user-object) that are a member of a Group
+Enumerates all [users](/docs/references/api/users/#user-object) that are a member of a Group
 
 ##### Request parameters
 
@@ -969,15 +969,15 @@ Enumerates all [users](/docs/reference/api/users/#user-object) that are a member
 | id        | ID of the Group                                          | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 
-> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 The default user limit is set to a very high number due to historical reasons that are no longer valid for most organizations. This will change in a future version of this API. The recommended page limit is now `limit=200`.
 
-> **Note:** If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/reference/core-okta-api/#pagination).
+> **Note:** If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ##### Response parameters
 
-Array of [Users](/docs/reference/api/users/#user-object)
+Array of [Users](/docs/references/api/users/#user-object)
 
 ##### Request example
 
@@ -1058,7 +1058,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
+Adds a [user](/docs/references/api/users/#user-object) to a group of `OKTA_GROUP` type
 
 > **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
 Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
@@ -1095,7 +1095,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](/docs/reference/api/users/#user-object) from a group of `OKTA_GROUP` type
+Removes a [user](/docs/references/api/users/#user-object) from a group of `OKTA_GROUP` type
 
 > **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
 Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
@@ -1619,7 +1619,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [Applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
+Enumerates all [Applications](/docs/references/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/references/api/apps/#application-group-operations).
 
 ##### Request parameters
 
@@ -1630,11 +1630,11 @@ Enumerates all [Applications](/docs/reference/api/apps/#application-object) that
 | id        | ID of the Group                                           | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
 
-> **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+> **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ##### Response parameters
 
-Array of [Applications](/docs/reference/api/apps/#application-object)
+Array of [Applications](/docs/references/api/apps/#application-object)
 
 ##### Request example
 
@@ -1826,7 +1826,7 @@ In addition, groups of type `APP_GROUP` also have the following properties:
 
 | Property | Description                                                                                     | DataType                   | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | -------- | ----------------------------------------------------------------------------------------------- | -------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| source   | The ID of the source [application](/docs/reference/api/apps/#application-object) of the group   | Array of String            | FALSE    | FALSE  | TRUE     |           |           |            |
+| source   | The ID of the source [application](/docs/references/api/apps/#application-object) of the group   | Array of String            | FALSE    | FALSE  | TRUE     |           |           |            |
 
 ### Group type
 
@@ -1863,7 +1863,7 @@ Profile for any Group that is not imported from Active Directory. Specifies the 
 ```
 ##### Custom Profile Properties
 
-You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before they can be referenced. You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
+You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before they can be referenced. You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/references/api/schemas/) to manage schema extensions.
 
 Custom properties may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
@@ -1937,10 +1937,10 @@ Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288) 
 
 | Link Relation Type | Description                                                                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| apps               | Lists all [applications](/docs/reference/api/apps/#application-object) that are assigned to the Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).          |
+| apps               | Lists all [applications](/docs/references/api/apps/#application-object) that are assigned to the Group. See [Application Group Operations](/docs/references/api/apps/#application-group-operations).          |
 | logo               | Provides links to logo images for the Group if available                     |
 | self               | The primary URL for the Group                                                                                             |
-| source             | The URL for the source [application](/docs/reference/api/apps/#application-object) of the group. This link attribute is only present in groups of `APP_GROUP` type. |
+| source             | The URL for the source [application](/docs/references/api/apps/#application-object) of the group. This link attribute is only present in groups of `APP_GROUP` type. |
 | users              | Provides [Group member operations](#group-member-operations) for the Group                                                      |
 
 > **Note:** The Links object is read-only.

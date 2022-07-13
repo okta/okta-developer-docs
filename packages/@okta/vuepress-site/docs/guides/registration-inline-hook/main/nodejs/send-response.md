@@ -4,7 +4,7 @@
 
 For this example, only users with emails that contain `example.com` are allowed and can self-register. You can also include an `error` object in the response for those users who were denied registration.
 
-See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
+See the [response properties](/docs/references/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 
 ```javascript
@@ -56,7 +56,7 @@ app.post('/registrationHook', async (request, response) => {
 
 This response example uses the `com.okta.user.progressive.profile.update` command to supply values for attributes in the response.
 
-See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
+See the [response properties](/docs/references/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 ```json
 {

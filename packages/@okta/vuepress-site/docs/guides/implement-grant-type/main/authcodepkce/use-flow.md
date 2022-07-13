@@ -1,4 +1,4 @@
-The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you're using one of Okta's SDKs.
+The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/references/api/oidc/). Typically, you don't need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/references/api/oidc/) if you're using one of Okta's SDKs.
 
 ### Create the Proof Key for Code Exchange
 
@@ -40,7 +40,7 @@ Note the parameters that are being passed:
 - `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
 - `code_challenge` is the code challenge used for PKCE.
 
-See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See [the OAuth 2.0 API reference](/docs/references/api/oidc/#authorize) for more information on these parameters.
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 
@@ -73,7 +73,7 @@ Note the parameters that are being passed:
 - `code_verifier` is the PKCE code verifier that your app generated at the beginning of this flow.
 - `client_id` identifies your client and must match the value preregistered in Okta.
 
-See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
+See the [OIDC & OAuth 2.0 API reference](/docs/references/api/oidc/#token) for more information on these parameters.
 
 If the code is still valid, and the code verifier matches, your application receives back access and ID tokens:
 

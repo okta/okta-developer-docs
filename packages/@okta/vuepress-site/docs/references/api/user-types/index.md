@@ -5,7 +5,7 @@ category: management
 
 # User Types API
 
-The User Types API provides operations to manage User Types. See the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) for information on managing the schemas associated with the User Types.
+The User Types API provides operations to manage User Types. See the [User Schema API reference](/docs/references/api/schemas/#user-schema-operations) for information on managing the schemas associated with the User Types.
 
 ## Get started
 
@@ -198,7 +198,7 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type can't be changed.
 
-The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/references/api/schemas/#add-property-to-user-profile-schema).
 
 ##### Request parameters
 
@@ -288,7 +288,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a new user
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](/docs/reference/api/users/#user-object), but after user creation, only an administrator can update the type by doing a [full replace of an existing user](/docs/reference/api/users/#update-user), not a partial update.
+The [Create User](/docs/references/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](/docs/references/api/users/#user-object), but after user creation, only an administrator can update the type by doing a [full replace of an existing user](/docs/references/api/users/#update-user), not a partial update.
 
 ##### Example
 

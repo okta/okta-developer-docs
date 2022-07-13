@@ -28,7 +28,7 @@ This guide explains how to add and configure Okta Sign-On Policies and App Sign-
 
 An Okta Sign-On Policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure App Sign-On Policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
 
-Add a rule to the Okta Sign-On Policy, for example, when you need to make sure that only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an App Sign-On Policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one App Sign-On Policy, but you can add as many rules to it as you need.
+Add a rule to the Okta Sign-On Policy, for example, when you need to make sure that only users who are inside your [corporate network](/docs/references/api/policy/#network-condition-object) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an App Sign-On Policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one App Sign-On Policy, but you can add as many rules to it as you need.
 
 You can specify any number of Okta Sign-On Policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named **Default**. By definition, the Default policy applies to all users.
 
@@ -67,7 +67,7 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 3. For this use case example, leave the default of **Anywhere** in the **If User's IP is** drop-down box. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication, for example, prompting a user for a factor when they aren't on the corporate network.
 
-    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](/docs/reference/api/zones/).
+    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](/docs/references/api/zones/).
 
 4. Leave the default of **Any** in the **And Authenticates via** drop-down box.
 
@@ -91,7 +91,7 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 9. For this use case example, leave the default **Session Expires After** setting of **2 hours**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connect time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
 
-    > **Note:** You can set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the UI. Setting a value over the API maximum results in an error.
+    > **Note:** You can set the [maximum session lifetime value](/docs/references/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the UI. Setting a value over the API maximum results in an error.
 
 10. Click **Create Rule**.
 

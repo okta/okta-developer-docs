@@ -12,7 +12,7 @@ title: Okta API Products Release Notes 2019
 
 #### Bug Fixed in 2019.12.1
 
-* Okta Verify Push could be enabled using the [Factors Administration API](/docs/reference/api/factor-admin/) even when Okta Verify TOTP was inactive. (OKTA-262950)
+* Okta Verify Push could be enabled using the [Factors Administration API](/docs/references/api/factor-admin/) even when Okta Verify TOTP was inactive. (OKTA-262950)
 
 
 ### Monthly Release 2019.12.0
@@ -29,19 +29,19 @@ title: Okta API Products Release Notes 2019
 
 #### Features API is Generally Available in Production
 
-The [Features API](/docs/reference/api/features/) allows operations to manage self-service Early Access features in Production and Preview orgs, as well as manage self-service Beta features in Preview orgs and view Beta features in Production orgs. <!-- OKTA-259575 -->
+The [Features API](/docs/references/api/features/) allows operations to manage self-service Early Access features in Production and Preview orgs, as well as manage self-service Beta features in Preview orgs and view Beta features in Production orgs. <!-- OKTA-259575 -->
 
 #### Token Inline Hook is Generally Available in Production
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
+The [Token Inline Hook](/docs/references/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
 
 #### SAML Inline Hook is Generally Available in Production
 
-The [SAML Inline Hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
+The [SAML Inline Hook](/docs/references/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
 
 #### Scope Object Properties Default Values
 
-In Scope objects created using the [Authorization Server API](/docs/reference/api/authorization-servers/), the default values of the `displayName` and `description` properties were updated to be more informative. <!-- OKTA-242646 -->
+In Scope objects created using the [Authorization Server API](/docs/references/api/authorization-servers/), the default values of the `displayName` and `description` properties were updated to be more informative. <!-- OKTA-242646 -->
 
 #### Okta-Hosted User Consent Dialog Change
 
@@ -49,11 +49,11 @@ In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-
 
 #### OAuth for Okta Enabled for Clear User Sessions Endpoint
 
-The [Clear User Sessions endpoint](/docs/reference/api/users/#clear-user-sessions) now has OAuth for Okta enabled.
+The [Clear User Sessions endpoint](/docs/references/api/users/#clear-user-sessions) now has OAuth for Okta enabled.
 
 #### Bug Fixed in 2019.12.0
 
-* In the [Authorization Server API](/docs/reference/api/authorization-servers/), supplying a `consent` property was previously required when creating a Scope object in orgs that had the EA feature enabled. It is now required only when updating existing Scope objects. (OKTA-250368)
+* In the [Authorization Server API](/docs/references/api/authorization-servers/), supplying a `consent` property was previously required when creating a Scope object in orgs that had the EA feature enabled. It is now required only when updating existing Scope objects. (OKTA-250368)
 
 
 ## November
@@ -78,7 +78,7 @@ The [Clear User Sessions endpoint](/docs/reference/api/users/#clear-user-session
 
 #### Bug Fixed in 2019.11.2
 
-Multifactor (MFA) Enrollment Policy [objects](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) returned by Okta included an unused property, `enroll.profiles`. (OKTA-260160)
+Multifactor (MFA) Enrollment Policy [objects](/docs/references/api/policy/#multifactor-mfa-enrollment-policy) returned by Okta included an unused property, `enroll.profiles`. (OKTA-260160)
 
 
 ### Weekly Release 2019.11.1
@@ -89,7 +89,7 @@ Multifactor (MFA) Enrollment Policy [objects](/docs/reference/api/policy/#multif
 
 #### Bug Fixed in 2019.11.1
 
-An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](/docs/reference/api/sessions/). (OKTA-245793)
+An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](/docs/references/api/sessions/). (OKTA-245793)
 
 
 ### Monthly Release 2019.11.0
@@ -107,19 +107,19 @@ An incorrect status was returned in some cases when an admin checked another use
 
 #### Web Authentication as a factor is Generally Available in Production
 
-Admins can enable [Web Authentication as a factor](/docs/reference/api/authn/#enroll-webauthn-factor) (WebAuthn) as defined by WebAuthn standards. WebAuthn supports both security key authentication such as YubiKey devices and platform authenticators such as Windows Hello. <!-- OKTA-254507 -->
+Admins can enable [Web Authentication as a factor](/docs/references/api/authn/#enroll-webauthn-factor) (WebAuthn) as defined by WebAuthn standards. WebAuthn supports both security key authentication such as YubiKey devices and platform authenticators such as Windows Hello. <!-- OKTA-254507 -->
 
 #### Features API is Generally Available in Preview
 
-The [Features API](/docs/reference/api/features/) provides operations to manage self-service Early Access features in your Production and Preview orgs and self-service Beta features in your Preview org. <!-- OKTA-258109 -->
+The [Features API](/docs/references/api/features/) provides operations to manage self-service Early Access features in your Production and Preview orgs and self-service Beta features in your Preview org. <!-- OKTA-258109 -->
 
 #### SAML Inline Hook is Generally Available in Preview
 
-The [SAML Inline Hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
+The [SAML Inline Hook](/docs/references/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
 
 #### Token Inline Hook is Generally Available in Preview
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
+The [Token Inline Hook](/docs/references/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
 
 #### OAuth for Okta is Early Access in Preview
 
@@ -131,7 +131,7 @@ Concurrent PUT requests sent to the same app instance now return an `ApiExceptio
 
 #### Rate Limits for /oauth2 endpoints
 
-[Rate limiting](https://developer.okta.com/docs/reference/rate-limits/) has been modified for `/oauth2` endpoints so that requests that use an invalid client ID don't consume rate limit. Additionally, a System Log warning has been introduced to provide notification of high rate limit consumption by requests that use a valid client ID. <!-- OKTA-241945 -->
+[Rate limiting](https://developer.okta.com/docs/references/rate-limits/) has been modified for `/oauth2` endpoints so that requests that use an invalid client ID don't consume rate limit. Additionally, a System Log warning has been introduced to provide notification of high rate limit consumption by requests that use a valid client ID. <!-- OKTA-241945 -->
 
 #### Bug Fixed in 2019.11.0
 
@@ -149,13 +149,13 @@ When the Token Inline Hook feature was enabled and the claim couldn't be evaluat
 
 #### User Types Error Message Change
 
-Error messages returned by the [User Types API](/docs/reference/api/user-types/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
+Error messages returned by the [User Types API](/docs/references/api/user-types/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
 
 #### Bugs Fixed in 2019.10.2
 
 * A `SameSite=None` attribute sent by Okta caused a bug in cross-site handling of cookies in Chrome on iOS 12.* or earlier. (OKTA-254174)
-* In the [Features API](/docs/reference/api/features/), when using `mode=force` to enable a feature and its dependencies, email notifications were not sent to admins for Beta dependencies that were enabled. (OKTA-249644)
-* The length of EL expressions that you could specify for [OAuth 2.0 claim values](/docs/reference/api/authorization-servers/#claim-operations) was previously limited to a shorter length but has now been increased to 1024 characters. (OKTA-237675)
+* In the [Features API](/docs/references/api/features/), when using `mode=force` to enable a feature and its dependencies, email notifications were not sent to admins for Beta dependencies that were enabled. (OKTA-249644)
+* The length of EL expressions that you could specify for [OAuth 2.0 claim values](/docs/references/api/authorization-servers/#claim-operations) was previously limited to a shorter length but has now been increased to 1024 characters. (OKTA-237675)
 
 
 ### Weekly Release 2019.10.1
@@ -166,7 +166,7 @@ Error messages returned by the [User Types API](/docs/reference/api/user-types/)
 
 #### Maximum characters increased for the UserAgent string
 
-The maximum length of the `client.userAgent.rawUserAgent` property value was increased from 200 to 500 characters. See [UserAgent Object](https://developer.okta.com/docs/reference/api/system-log/#useragent-object) in the `/logs` API reference content for more information on this property.
+The maximum length of the `client.userAgent.rawUserAgent` property value was increased from 200 to 500 characters. See [UserAgent Object](https://developer.okta.com/docs/references/api/system-log/#useragent-object) in the `/logs` API reference content for more information on this property.
 
 
 ### Monthly Release 2019.10.0
@@ -182,15 +182,15 @@ The maximum length of the `client.userAgent.rawUserAgent` property value was inc
 
 #### Event Hooks API is Generally Available
 
-The [Event Hooks API](/docs/reference/api/event-hooks/) is Generally Available (GA) in Production.
+The [Event Hooks API](/docs/references/api/event-hooks/) is Generally Available (GA) in Production.
 
 #### User Types API in Early Access
 
-The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
+The [User Types API](/docs/references/api/user-types/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
 
 #### Tokens transform events no longer available
 
-Tokens transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and Token Inline Hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
+Tokens transform System Log [events](/docs/references/api/event-types/) will no longer fire for SAML and Token Inline Hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
 
 #### Cookies updated to preserve cross-functionality
 
@@ -198,11 +198,11 @@ To preserve cross-site functionality, Okta now adds the `SameSite=None` attribut
 
 #### App Condition available for Enroll Policy
 
-App Condition is now available for the [Enroll Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy).
+App Condition is now available for the [Enroll Policy](/docs/references/api/policy/#multifactor-mfa-enrollment-policy).
 
 #### Bugs Fixed in 2019.10.0
 
-* WebAuthn Factors could not be verified using the [Factors API](/docs/reference/api/factors/). (OKTA-228239)
+* WebAuthn Factors could not be verified using the [Factors API](/docs/references/api/factors/). (OKTA-228239)
 * During OAuth 2 and OIDC sign-in flows, the Okta Sign-In Widget incorrectly rendered pre-populated usernames, substituting `+` with a space. (OKTA-235187)
 
 
@@ -217,7 +217,7 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 
 #### Scope Naming Restriction
 
-OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](/docs/reference/api/authorization-servers/#scope-properties) for more information. <!-- OKTA-212397 -->
+OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](/docs/references/api/authorization-servers/#scope-properties) for more information. <!-- OKTA-212397 -->
 
 
 
@@ -229,7 +229,7 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note unde
 
 #### Bug Fixed in 2019.09.3
 
-* After a user successfully scanned the QR code and completed the MFA enrollment process, the `factorResult` [parameter](/docs/reference/api/factors/) was missing from the response. (OKTA-244102)
+* After a user successfully scanned the QR code and completed the MFA enrollment process, the `factorResult` [parameter](/docs/references/api/factors/) was missing from the response. (OKTA-244102)
 
 
 ### Weekly Release 2019.09.2
@@ -240,8 +240,8 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note unde
 
 #### Bugs Fixed in 2019.09.2
 
-* When users signed in using IdP Discovery or a Default IdP, any [outgoing Hooks](/docs/reference/token-hook/#sample-json-payload-of-a-request) related to that sign-in event contained an incorrect request URL `value`. (OKTA-243190)
-* `GET` requests to the `/users/me` [endpoint](/docs/reference/api/users/#get-current-user) would return hidden standard attributes. (OKTA-243864)
+* When users signed in using IdP Discovery or a Default IdP, any [outgoing Hooks](/docs/references/token-hook/#sample-json-payload-of-a-request) related to that sign-in event contained an incorrect request URL `value`. (OKTA-243190)
+* `GET` requests to the `/users/me` [endpoint](/docs/references/api/users/#get-current-user) would return hidden standard attributes. (OKTA-243864)
 
 
 ### Monthly Release 2019.09.0
@@ -256,16 +256,16 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note unde
 
 #### Features API is Early Access (EA) in Preview and Production
 
-The [Features API](/docs/reference/api/features/) provides operations to manage self-service features in your Production and Preview orgs and Beta features in your Preview org. <!-- OKTA-241445 -->
+The [Features API](/docs/references/api/features/) provides operations to manage self-service features in your Production and Preview orgs and Beta features in your Preview org. <!-- OKTA-241445 -->
 
 #### Mappings API is now Generally Available (GA) in Production
 
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
-[Profile Properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language). This feature is now GA in Production. <!-- OKTA-241945 -->
+[Profile Properties](/docs/references/api/users/#profile-object) using [Expression Language](/docs/references/okta-expression-language). This feature is now GA in Production. <!-- OKTA-241945 -->
 
 #### Error Object in SAML Assertion Inline Hook
 
-For the [SAML Assertion Inline Hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the [SAML Assertion Inline Hook](/docs/references/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 #### Rate Limits for Authorization Server Public Metadata
 
@@ -273,9 +273,9 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.09.0
 
-* Responses from the [`GET /groups/rules`](/docs/reference/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
+* Responses from the [`GET /groups/rules`](/docs/references/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
 
-* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments. (OKTA-228031)
+* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/references/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments. (OKTA-228031)
 
 
 ## August
@@ -288,9 +288,9 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.08.3
 
-* The [Update Inline Hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
+* The [Update Inline Hook call](/docs/references/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
 
-* IP addresses identified as malicious by Okta ThreatInsight were missing from Events API ("security.threat.detected") event messages. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for more information on this event message. (OKTA-242795)
+* IP addresses identified as malicious by Okta ThreatInsight were missing from Events API ("security.threat.detected") event messages. See the [Event Types catalog](/docs/references/api/event-types/#catalog) for more information on this event message. (OKTA-242795)
 
 
 ### Weekly Release 2019.08.2
@@ -301,7 +301,7 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bug Fixed in 2019.08.2
 
-Paginated responses from the [List Users with Search](/docs/reference/api/users/#list-users-with-search) API were limited to a total of 50,000 results, and following the `next` link after that limit yielded an error. (OKTA-220619)
+Paginated responses from the [List Users with Search](/docs/references/api/users/#list-users-with-search) API were limited to a total of 50,000 results, and following the `next` link after that limit yielded an error. (OKTA-220619)
 
 
 ### Weekly Release 2019.08.1
@@ -330,7 +330,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 
 #### Added Support for TOTP Factor
 
-Okta now supports a custom MFA factor based on the Time-based One-time Password (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
+Okta now supports a custom MFA factor based on the Time-based One-time Password (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/references/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
 
 #### Cookies updated to preserve cross-site functionality
 
@@ -347,11 +347,11 @@ Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/do
 #### Mappings API is now GA in Preview
 
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
-[Profile Properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language). This feature is now GA in Preview. <!-- OKTA-241748 -->
+[Profile Properties](/docs/references/api/users/#profile-object) using [Expression Language](/docs/references/okta-expression-language). This feature is now GA in Preview. <!-- OKTA-241748 -->
 
 #### Missing type property now returns a 400 error code
 
-If you create an [IP network zone](/docs/reference/api/zones/#ip-zone-properties) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
+If you create an [IP network zone](/docs/references/api/zones/#ip-zone-properties) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
 
 #### Bug Fixed in 2019.08.0
 
@@ -371,7 +371,7 @@ In the Update User API, when the `secondEmail` attribute in a user's profile was
 
 #### Deleting App Groups
 
-The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-group) now supports deleting app groups, in addition to Okta groups. Note, however, that groups configured for group push cannot be deleted. <!-- OKTA-214275 -->
+The `DELETE /groups/${groupId}` [endpoint](/docs/references/api/groups/#remove-group) now supports deleting app groups, in addition to Okta groups. Note, however, that groups configured for group push cannot be deleted. <!-- OKTA-214275 -->
 
 #### Bug Fixed in 2019.07.2
 
@@ -388,7 +388,7 @@ The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-gr
 
 #### Email Factor is now GA in Production
 
-The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
+The [Email Factor](/docs/references/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
 
 #### LinkedIn IdP creation re-enabled in Preview
 
@@ -410,11 +410,11 @@ To curtail phishing, free editions of Okta are no longer able to create and send
 
 #### Token expiration window increased to five years
 
-The [refresh token expiration window](/docs/reference/api/authorization-servers/#rule-properties) has increased to a maximum of five years in custom authorization servers. <!-- OKTA-207202 -->
+The [refresh token expiration window](/docs/references/api/authorization-servers/#rule-properties) has increased to a maximum of five years in custom authorization servers. <!-- OKTA-207202 -->
 
 #### Bug Fixed in 2019.06.4
 
-* The SystemLog V1 [event type](/docs/reference/api/event-types/) `security.password_spray.detected` has been deprecated. For threat related information, see `security.threat.detected` events. (OKTA-233958)
+* The SystemLog V1 [event type](/docs/references/api/event-types/) `security.password_spray.detected` has been deprecated. For threat related information, see `security.threat.detected` events. (OKTA-233958)
 
 
 ### Weekly Release 2019.06.3
@@ -426,11 +426,11 @@ The [refresh token expiration window](/docs/reference/api/authorization-servers/
 
 #### Token Inline Hook Can Modify Sub-Objects and Array Elements
 
-The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particular sub-objects or array elements within objects contained in claims, without needing to update the rest of the object. <!-- OKTA-227364 -->
+The [Token Inline Hook](/docs/references/token-hook/) now lets you modify particular sub-objects or array elements within objects contained in claims, without needing to update the rest of the object. <!-- OKTA-227364 -->
 
 #### Bugs Fixed in 2019.06.3
 
-* When a customer used a [Token Inline Hook](/docs/reference/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
+* When a customer used a [Token Inline Hook](/docs/references/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
 
 * The issuer claim inside JWT tokens was erroneously changing to all lowercase causing JWT verification failure when the application was case-sensitive. (OKTA-235710)
 
@@ -446,11 +446,11 @@ The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particu
 
 #### Email Factor is now GA in Preview
 
-The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
+The [Email Factor](/docs/references/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
 
 #### Users can be removed from Profile Masters
 
-Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-application) from Apps that serve as their Profile Masters. <!-- OKTA-227994 -->
+Users can now be [unassigned](/docs/references/api/apps/#remove-user-from-application) from Apps that serve as their Profile Masters. <!-- OKTA-227994 -->
 
 
 ## May
@@ -464,11 +464,11 @@ Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-applica
 
 #### Token Inline Hook Can Modify or Remove Existing Claims (Early Access)
 
-The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
+The [Token Inline Hook](/docs/references/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
 
 #### Bugs Fixed in 2019.05.3
 
-* Responses from the `GET /groups/rules` [API](/docs/reference/api/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
+* Responses from the `GET /groups/rules` [API](/docs/references/api/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
 
 * Calls to the `/authorize` endpoint during the Authorization Code with PKCE flow would fail if an `idp` parameter was supplied with the call (in Preview orgs only). (OKTA-229808)
 
@@ -505,12 +505,12 @@ The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or re
 
 #### The Registration Inline Hook is in Early Access (EA)
 
-The [Registration Inline Hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [Registration Inline Hook](/docs/references/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
 
 #### Bugs Fixed in 2019.05.0
 
 * Assigning an admin role directly to a user failed if that user was part of a group with the same admin role assignment. (OKTA-223035)
-* The [List Users with Search](/docs/reference/api/users/#list-users-with-search) API returned outdated user data. (OKTA-215187)
+* The [List Users with Search](/docs/references/api/users/#list-users-with-search) API returned outdated user data. (OKTA-215187)
 
 
 ## April
@@ -524,7 +524,7 @@ The [Registration Inline Hook](/docs/reference/registration-hook/) allows you to
 
 #### Hashed Password Imports with SHA-512 Algorithm
 
-You can use the SHA-512 hash type when [importing passwords](/docs/reference/api/users/#create-user-with-imported-hashed-password). <!-- (OKTA-220300) -->
+You can use the SHA-512 hash type when [importing passwords](/docs/references/api/users/#create-user-with-imported-hashed-password). <!-- (OKTA-220300) -->
 
 #### Bugs Fixed in 2019.04.2
 
@@ -545,7 +545,7 @@ You can use the SHA-512 hash type when [importing passwords](/docs/reference/api
 
 #### Bug Fixed in 2019.04.1
 
-The applicable rate limit wasn't updated when the URL for the factor verification endpoint was changed. For more details, see our [Rate Limits](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) page. (OKTA-219067)
+The applicable rate limit wasn't updated when the URL for the factor verification endpoint was changed. For more details, see our [Rate Limits](/docs/references/rate-limits/#okta-api-endpoints-and-per-minute-limits) page. (OKTA-219067)
 
 
 
@@ -562,18 +562,18 @@ The applicable rate limit wasn't updated when the URL for the factor verificatio
 
 #### IdP Extensible Matching Rules are now GA in Preview
 
-IdP extensible matching rules allow you to define a regular expression pattern to filter untrusted IdP usernames. For details, see our [IdPs](/docs/reference/api/idps/#subject-policy-object/) page. <!-- OKTA-177544 -->
+IdP extensible matching rules allow you to define a regular expression pattern to filter untrusted IdP usernames. For details, see our [IdPs](/docs/references/api/idps/#subject-policy-object/) page. <!-- OKTA-177544 -->
 
 #### The SAML Inline Hook is in EA
 
-The SAML Inline Hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML Inline Hook](/docs/reference/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
+The SAML Inline Hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML Inline Hook](/docs/references/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
 
 #### Rate Limits Updated
 
 Okta's API rate limits have been updated:
 
 * OAuth 2 rate limits were updated and clarified for all orgs.
-* The limit for the `api/v1/apps endpoint` was updated for Enterprise orgs. For details, see our [Rate Limits](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits/) page. <!-- OKTA-217272 & OKTA-217213 -->
+* The limit for the `api/v1/apps endpoint` was updated for Enterprise orgs. For details, see our [Rate Limits](/docs/references/rate-limits/#okta-api-endpoints-and-per-minute-limits/) page. <!-- OKTA-217272 & OKTA-217213 -->
 
 #### The Sign-In Widget Version for the Custom Login Page has been Updated
 
@@ -581,7 +581,7 @@ Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select th
 
 #### Bug Fixed in 2019.04.0
 
-IdPs did not match the user with the `USERNAME_OR_EMAIL` property when `IDP_EXTENSIBLE_MATCHING_RULES` was enabled. For details, see our [IdPs](/docs/reference/api/idps/#subject-policy-object/) page. (OKTA-218007)
+IdPs did not match the user with the `USERNAME_OR_EMAIL` property when `IDP_EXTENSIBLE_MATCHING_RULES` was enabled. For details, see our [IdPs](/docs/references/api/idps/#subject-policy-object/) page. (OKTA-218007)
 
 
 ## March
@@ -594,7 +594,7 @@ IdPs did not match the user with the `USERNAME_OR_EMAIL` property when `IDP_EXTE
 
 #### Bugs Fixed in 2019.03.3
 
-* When [Creating a User with Imported Hashed Password](/docs/reference/api/users/#create-user-with-imported-hashed-password), if the hash algorithm was SHA-256, the operation previously required a salt to be provided. (OKTA-214183)
+* When [Creating a User with Imported Hashed Password](/docs/references/api/users/#create-user-with-imported-hashed-password), if the hash algorithm was SHA-256, the operation previously required a salt to be provided. (OKTA-214183)
 
 
 
@@ -658,15 +658,15 @@ The following features have already been released as Early Access. To enable the
 
 #### Password Import Supports SHA-1 and MD5
 
-The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/reference/api/users/#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
+The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/references/api/users/#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
 
 #### Enable Role Assignment to Every Member of a Group
 
-Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/reference/api/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
+Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/references/api/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
 
 #### New Rate Limits for /users/me
 
-The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/reference/rate-limits/#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
+The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/references/rate-limits/#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
 
 #### Generic OIDC IdP is now GA in Preview
 
@@ -674,11 +674,11 @@ Generic OpenID Connect allows users to sign in to an Okta org using their creden
 
 #### User Search is now GA in Production
 
-Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/reference/api/users/#list-users-with-search). <!--OKTA-210189-->
+Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/references/api/users/#list-users-with-search). <!--OKTA-210189-->
 
 #### The Import Inline Hook is in EA
 
-The [Import Inline Hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
+The [Import Inline Hook](/docs/references/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
 #### Previously Released Early Access Features 2019.03.0 Update
 
@@ -712,7 +712,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Imported Hashed User Passwords Generally Available
 
-Use of imported hashed passwords when creating or updating users in the [Users API](/docs/reference/api/users) is now Generally Available (GA). <!--OKTA-205592-->
+Use of imported hashed passwords when creating or updating users in the [Users API](/docs/references/api/users) is now Generally Available (GA). <!--OKTA-205592-->
 
 #### Inline Hooks
 
@@ -720,7 +720,7 @@ Use of imported hashed passwords when creating or updating users in the [Users A
 
 #### Token Inline Hook
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [Token Inline Hook](/docs/references/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 #### Signature and Digest Algorithms for Template WS-Fed Apps
 
@@ -732,7 +732,7 @@ Okta's [Google social login integration](/docs/guides/social-login/google/main/)
 
 #### High Capacity Rate Limits
 
-A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/reference/rate-limits/). <!--OKTA-203819-->
+A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/references/rate-limits/). <!--OKTA-203819-->
 
 #### Creation of LinkedIn IdPs Temporarily Disabled
 
@@ -803,11 +803,11 @@ The following features have already been released as Early Access. To enable the
 
 #### IdP Discovery Generally Available
 
-[IdP Discovery](/docs/reference/api/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
+[IdP Discovery](/docs/references/api/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
 
 #### Relay State Format Now Configurable for SAML IdPs
 
-The Protocol Object now contains a [Relay State object](/docs/reference/api/idps/#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
+The Protocol Object now contains a [Relay State object](/docs/references/api/idps/#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
 
 #### No Events API Access for New Orgs
 
@@ -815,7 +815,7 @@ As part of the deprecation process, new orgs created from this release onwards w
 
 #### Updated Office 365 Legacy Rate Limit
 
-The default [legacy rate limit](/docs/reference/rate-limits/#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
+The default [legacy rate limit](/docs/references/rate-limits/#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
 
 #### Bug Fixed in 2019.01.0
 

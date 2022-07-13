@@ -1947,11 +1947,11 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 | `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ###### Response parameters
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](/docs/references/api/groups/)
 
 If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
 
@@ -2020,11 +2020,11 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 | `limit`           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | `roleId`          | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ###### Response parameters
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](/docs/references/api/groups/)
 
 If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
 
@@ -2264,7 +2264,7 @@ Lists all the App targets for an `APP_ADMIN` Role assigned to a User
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 | `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ###### Response parameters
 
@@ -2396,7 +2396,7 @@ Lists all the App targets for an `APP_ADMIN` Role assigned to a Group
 | `limit`       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ###### Response parameters
 
@@ -2958,15 +2958,15 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management Administrator |                                       |
 | `APP_ADMIN`                             | Application Administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](/docs/reference/api/groups/) |
-| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
+| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](/docs/references/api/groups/) |
+| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/references/api/groups/) |
 | `MOBILE_ADMIN`                          | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                             | Organizational Administrator        |                                       |
 | `READ_ONLY_ADMIN`                       | Read-Only Administrator             |                                       |
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
-| `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
-| `CUSTOM`  | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
+| `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/references/api/groups/) |
+| `CUSTOM`  | Custom Label specified by the client    | [Groups](/docs/references/api/groups/) |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
@@ -3110,15 +3110,15 @@ The following are the supported resources.
 
 | Service                 | Resource                                                            |  ORN Identifier  <ApiLifecycle access="ea" />                                 | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
-|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
-|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
-|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
-| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
-|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
-|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
-|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
-|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/references/api/users/#list-users)                                                                       |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/references/api/groups/#list-groups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/references/api/groups/#get-group)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/references/api/groups/#list-group-members)                                            |
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/references/api/apps/#list-applications)                                                                  |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/references/api/apps/#list-apps-by-name)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/references/api/apps/#get-application)                                                           |
+|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/references/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/references/api/authorization-servers/#get-authorization-server) |
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |

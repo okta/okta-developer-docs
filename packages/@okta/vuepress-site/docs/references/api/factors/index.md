@@ -460,7 +460,7 @@ Enumerates all YubiKey OTP Tokens
 | Parameter | Description                                                                                                      | Param Type | DataType | Required | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of tokens                                                      | Query      | String   | FALSE    |         |
-| expand    | Embeds the [User](/docs/reference/api/users/#user-object) resource if the YubiKey Token is assigned to a user and expand is set to `user` | Query      | String   | FALSE    |         |
+| expand    | Embeds the [User](/docs/references/api/users/#user-object) resource if the YubiKey Token is assigned to a user and expand is set to `user` | Query      | String   | FALSE    |         |
 | filter    | Filters tokens by `profile.email`, `profile.serial`, `activated`, `user.id`, `created`, `status`, or `lastVerified` expression | Query      | String   | FALSE    |         |
 | forDownload | Returns tokens in a CSV for download instead of in the response.  Defaults `limit` to 1000.                    | Query      | Boolean  | FALSE    | false   |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
@@ -792,7 +792,7 @@ curl -v -X POST \
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
-> **Notes:** The current [rate limit](/docs/reference/rate-limits/) is one SMS challenge per phone number every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+> **Notes:** The current [rate limit](/docs/references/rate-limits/) is one SMS challenge per phone number every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 ```json
 {
@@ -876,7 +876,7 @@ Customize (and optionally localize) the SMS message sent to the user on enrollme
 * If the language provided in the `Accept-Language` header doesn't exist, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match the existing template, the SMS message is sent using the default template.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/references/api/templates/#add-sms-template).
 
 ###### Request example
 
@@ -918,7 +918,7 @@ curl -v -X POST \
 
 Customize (and optionally localize) the SMS message sent to the user in case Okta needs to resend the message as part of enrollment.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/references/api/templates/#add-sms-template).
 
 ###### Request example
 
@@ -1037,7 +1037,7 @@ curl -v -X POST \
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend a voice call challenge (OTP) within the same time window.
 
-> **Note:** The current [rate limit](/docs/reference/rate-limits/) is one voice call challenge per phone number every 30 seconds.
+> **Note:** The current [rate limit](/docs/references/rate-limits/) is one voice call challenge per phone number every 30 seconds.
 
 ```json
 {
@@ -2784,7 +2784,7 @@ Customize (and optionally localize) the SMS message sent to the user on verifica
 * If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
 
-To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
+To create custom templates, see [Templates](/docs/references/api/templates/#add-sms-template).
 
 ###### Request example
 
@@ -3009,7 +3009,7 @@ Creates a new transaction and sends an asynchronous push notification to the dev
 | factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/references/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allowed as a gateway IP address](/docs/references/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Response parameters
 

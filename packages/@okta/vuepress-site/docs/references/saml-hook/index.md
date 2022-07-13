@@ -17,7 +17,7 @@ This information is specific to the SAML Assertion Inline Hook, one type of Inli
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
 
@@ -346,7 +346,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 ### SessionNotOnOrAfter support
 
-In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
+In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/references/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
 
 ## Timeout behavior
 
@@ -459,7 +459,7 @@ This example displays `replace` and `add` operations with the URI formatted clai
 
 ## Enabling a SAML Assertion Inline Hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 You then need to associate the registered Inline Hook with a SAML app by completing the following steps in Admin Console:
 

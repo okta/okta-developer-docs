@@ -21,9 +21,9 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema operations
 
-Each of the operations described here affects the Schema associated with a single [User Type](/docs/reference/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+Each of the operations described here affects the Schema associated with a single [User Type](/docs/references/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
 
-Each User Type has an associated Schema. In the future, the link between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
+Each User Type has an associated Schema. In the future, the link between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [User Type](/docs/references/api/user-types/#user-type-object) object from its `schema` link. The `schema` link is also included in individual [User](/docs/references/api/users/#user-object) objects.
 
 The request examples below all use the `default` form, as all orgs include a default User Type.
 
@@ -507,7 +507,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
-Removes one or more [custom User Profile properties](#user-profile-schema-property-object) from the user schema. You can't remove a property from the default Schema if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs. Currently, all validation of SAML assertions is only performed against the default user type.
+Removes one or more [custom User Profile properties](#user-profile-schema-property-object) from the user schema. You can't remove a property from the default Schema if it is being referenced as a [matchAttribute](/docs/references/api/idps/#subject-policy-object) in SAML2 IdPs. Currently, all validation of SAML assertions is only performed against the default user type.
 
 ##### Request parameters
 
@@ -644,7 +644,7 @@ The following response is only a subset of properties for brevity.
 
 ## App User Schema operations
 
-The [User Types](/docs/reference/api/user-types) feature doesn't extend to applications. All users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and don't accept a Schema ID.
+The [User Types](/docs/references/api/user-types) feature doesn't extend to applications. All users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get App User Schema
 
@@ -1023,7 +1023,7 @@ curl -v -X POST \
 
 ## Group Schema operations
 
-The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
+The [User Types](/docs/references/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get Group Schema
 
@@ -1518,7 +1518,7 @@ The following response is only a subset of properties for brevity.
 
 Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which is either `aws_eventbridge` or `splunk_cloud_logstreaming`. Use the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema, and use the `splunk_cloud_logstreaming` literal retrieve the Splunk Cloud type schema.
 
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+See [Log Streaming API](/docs/references/api/log-streaming) for examples of Log Stream objects.
 
 ##### Request parameters
 
@@ -1660,7 +1660,7 @@ For brevity, the following response doesn't include all available properties.
 
 Lists schemas for all Log Stream types visible for this org.
 
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+See [Log Streaming API](/docs/references/api/log-streaming) for examples of Log Stream objects.
 
 ##### Request parameters
 
@@ -1851,9 +1851,9 @@ For brevity, the following response doesn't include all available properties.
 
 ## User Schema object
 
-The [User object](/docs/reference/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [User object](/docs/references/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> **Note:** The Schema currently only defines the [Profile object](/docs/reference/api/users/#profile-object).
+> **Note:** The Schema currently only defines the [Profile object](/docs/references/api/users/#profile-object).
 
 ### Example User Schema
 
@@ -1981,16 +1981,16 @@ The User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dra
 | lastUpdated | Timestamp when Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
 | definitions | User Profile subschemas                                                                  | [User Profile Subschemas](#user-profile-subschemas)    | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
-| properties  | User object properties                                                                    | [User object](/docs/reference/api/users/#user-object) property set     | FALSE    | FALSE  | TRUE     |             |
+| properties  | User object properties                                                                    | [User object](/docs/references/api/users/#user-object) property set     | FALSE    | FALSE  | TRUE     |             |
 
 ### User Profile subschemas
 
-The [Profile object](/docs/reference/api/users/#profile-object) for a User is defined by a composite Schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta, while `#custom` properties are extensible.
+The [Profile object](/docs/references/api/users/#profile-object) for a User is defined by a composite Schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta, while `#custom` properties are extensible.
 
 - [User Profile base subschema](#user-profile-base-subschema)
 - [User Profile custom subschema](#user-profile-custom-subschema)
 
-Custom property names for the [Profile object](/docs/reference/api/users/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
+Custom property names for the [Profile object](/docs/references/api/users/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
@@ -2066,7 +2066,7 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 
 > **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 two letter country code. For example: 'en_US' specifies the language English and country US.
 
-> **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [User Types](/docs/reference/api/user-types) feature.
+> **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [User Types](/docs/references/api/user-types) feature.
 
 ##### Login pattern validation
 
@@ -2234,9 +2234,9 @@ A given Schema property can be assigned a permission for a principal that restri
 
 ## App User Schema object
 
-The [App User object](/docs/reference/api/apps/#application-user-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [App User object](/docs/references/api/apps/#application-user-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> **Note:** The schema currently only defines the [Profile object](/docs/reference/api/apps/#application-user-profile-object).
+> **Note:** The schema currently only defines the [Profile object](/docs/references/api/apps/#application-user-profile-object).
 
 ### Example App User Schema
 
@@ -2311,16 +2311,16 @@ The App User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 | lastUpdated | Timestamp when the Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | App User Profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | App User object properties                                                                | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | App User object properties                                                                | [App User object](/docs/references/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile subschemas
 
-The [Profile object](/docs/reference/api/apps/#application-user-profile-object) for a User is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [Profile object](/docs/references/api/apps/#application-user-profile-object) for a User is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [App User Profile base subschema](#app-user-profile-base-subschema)
 - [App User Profile custom subschema](#app-user-profile-custom-subschema)
 
-Custom property names for the [Profile object](/docs/reference/api/apps/#application-user-profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
+Custom property names for the [Profile object](/docs/references/api/apps/#application-user-profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
@@ -2501,9 +2501,9 @@ Specific property types support a subset of [JSON Schema validations](https://to
 
 ## Group Schema object
 
-The [Group object](/docs/reference/api/groups/#group-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [Group object](/docs/references/api/groups/#group-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> **Note:** The schema currently only defines the [Profile object](/docs/reference/api/groups/#profile-object).
+> **Note:** The schema currently only defines the [Profile object](/docs/references/api/groups/#profile-object).
 
 ### Example Group Schema
 
@@ -2629,16 +2629,16 @@ The Group Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dr
 | lastUpdated | Timestamp when the Schema was last updated                                               | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
 | definitions | Group Profile subschemas                                                                 | [Group Profile Subschemas](#group-profile-subschemas)           | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4)  | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | Group object properties                                                                  | [Group object](/docs/reference/api/groups/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | Group object properties                                                                  | [Group object](/docs/references/api/groups/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### Group Profile subschemas
 
-The [Profile object](/docs/reference/api/groups/#profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [Profile object](/docs/references/api/groups/#profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [Group Profile base subschema](#group-profile-base-subschema)
 - [Group Profile custom subschema](#group-profile-custom-subschema)
 
-Custom property names for the [Profile object](/docs/reference/api/groups/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
+Custom property names for the [Profile object](/docs/references/api/groups/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
@@ -2834,7 +2834,7 @@ Specific property types support a subset of [JSON Schema validations](https://to
 
 You can enforce uniqueness for custom properties in Okta user profiles or the Okta group profile, such as an employee identification number. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta group profile. Different user types can have the same or different unique properties (up to the limit of five per type).
 
-Unique properties in Okta user profiles share a single namespace across all [user types](/docs/reference/api/user-types) in an org. If user types A and B both contain the property `ice cream` and you identify it as unique in both profiles, then if a user of type A has the value `chocolate`, no other users of type A or B (or any other user type that declares `ice cream` as unique) can have that value.
+Unique properties in Okta user profiles share a single namespace across all [user types](/docs/references/api/user-types) in an org. If user types A and B both contain the property `ice cream` and you identify it as unique in both profiles, then if a user of type A has the value `chocolate`, no other users of type A or B (or any other user type that declares `ice cream` as unique) can have that value.
 
 Properties that aren't unique also aren't tracked for uniqueness. Suppose the property `candy` is unique in type E and not unique in type F. If a user of type E has the value `caramel` for the `candy` property, no other users of type E can also have the value `caramel`, but any number of users of type F can already have or later be assigned the value `caramel`. Furthermore, because `candy` is not unique in type F, any values users of type F may have are not considered when enforcing uniqueness for users of type E. No matter how many users of type F already have the value `cotton`, it may be assigned to a user of type E as long as no other such user already has that value.
 

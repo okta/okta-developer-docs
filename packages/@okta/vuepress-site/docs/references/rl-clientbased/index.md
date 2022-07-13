@@ -20,7 +20,7 @@ The Identity Engine includes client-based rate limiting for multiple API entry p
 
 The Classic Engine also includes client-based rate limiting for the `/login/login.htm` endpoint, and provides granular, targeted rate limits to a user, app, script, or server.
 
-The client-based rate limits for the OAuth 2.0 `/authorize` endpoint apply to both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share the same [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
+The client-based rate limits for the OAuth 2.0 `/authorize` endpoint apply to both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share the same [rate limit](/docs/references/rate-limits/). The Org Authorization Server has a separate rate limit.
 
 Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, `/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
 
@@ -94,9 +94,9 @@ The client-based rate limit framework can operate in one of three modes:
 
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Enforce and log per client (recommended)** | The default setting for all orgs, including those orgs created before 2018. The rate limit is based on the client-based rate limit values. The client-specific rate limit violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
-| **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events.  |
-| **Do nothing (not recommended)**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
+| **Enforce and log per client (recommended)** | The default setting for all orgs, including those orgs created before 2018. The rate limit is based on the client-based rate limit values. The client-specific rate limit violation information is logged as [System Log](/docs/references/rl-system-log-events/#client-based-system-log-event-types) events. |
+| **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/references/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events.  |
+| **Do nothing (not recommended)**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/references/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
 
 #### Default client-based rate limit mode change
 
@@ -106,11 +106,11 @@ If your org is upgrading to the Identity Engine, the existing Classic Engine cli
 
 #### What to monitor and the action to take
 
-If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, admins need to monitor System Log events for [`system.client.rate_limit.violation`](/docs/reference/rl-system-log-events/#web-request-rate-limits-client-level) and [`system.client.concurrency_rate_limit.violation`](/docs/reference/rl-system-log-events/#web-request-rate-limits-client-level). If admins don't see any of those events in the System Log, then no action is needed. If admins see these events sporadically from just a small number of different users, then those users may be doing something scripted or automated. In such cases, admins can choose to either investigate the issue or take no action. However, if admins see widespread events from a large number of users, then it is likely that the application may have an issue, in which case admins need to troubleshoot and make changes to the application where needed.
+If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, admins need to monitor System Log events for [`system.client.rate_limit.violation`](/docs/references/rl-system-log-events/#web-request-rate-limits-client-level) and [`system.client.concurrency_rate_limit.violation`](/docs/references/rl-system-log-events/#web-request-rate-limits-client-level). If admins don't see any of those events in the System Log, then no action is needed. If admins see these events sporadically from just a small number of different users, then those users may be doing something scripted or automated. In such cases, admins can choose to either investigate the issue or take no action. However, if admins see widespread events from a large number of users, then it is likely that the application may have an issue, in which case admins need to troubleshoot and make changes to the application where needed.
 
 ### Check your rate limits with Okta Rate Limit headers
 
-The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header values are specific to a given client rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
+The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/references/rl-best-practices/). The difference is that the header values are specific to a given client rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
 
 > **Note:** If a client-based rate limit is in **Log per client** or **Do nothing** mode, headers that are returned still reflect the org-wide rate limits.
 

@@ -458,7 +458,7 @@ A subset of Zones can be returned that match a supported filter expression or qu
 
 | Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/core-okta-api/#filter) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
+| filter       | [Filter](/docs/references/core-okta-api/#filter) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
 ##### Response parameters
@@ -597,9 +597,9 @@ curl -X GET \
 
 Lists all Zones that match the filter criteria
 
-This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
+This operation requires [URL encoding](/docs/references/core-okta-api/#filter). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
 
-We support filtering on the `id` and `usage` properties. See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
+We support filtering on the `id` and `usage` properties. See [Filtering](/docs/references/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
 ##### Request example
 

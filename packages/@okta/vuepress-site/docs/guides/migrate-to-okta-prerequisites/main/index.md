@@ -26,7 +26,7 @@ Additionally, being aware of any risks in your plan will guide you toward succes
 
 A **one-time migration** moves your users with their credentials over to Okta all at once. It is expected that the legacy system could (and should) be taken offline after this migration process completes.
 
-A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature.
+A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/references/password-hook/) feature.
 
 It's important to note that this information is about a migration strategy and not integration.
 
@@ -169,7 +169,7 @@ Note that data migration rollback is for users only. Other items (for example, a
 
 ### Next steps
 
-With a plan in place, you're ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we've chosen to use the [Okta API](/docs/reference/) and we'll cover those steps in the next section.
+With a plan in place, you're ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we've chosen to use the [Okta API](/docs/references/) and we'll cover those steps in the next section.
 
 Have a look at our migration guides:
 

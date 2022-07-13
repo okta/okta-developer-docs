@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ie" />
 
-This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API. See [MyAccount API](/docs/reference/api/myaccount/) for the reference documentation of the latest version.
+This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API. See [MyAccount API](/docs/references/api/myaccount/) for the reference documentation of the latest version.
 
 ## OIE migration
 
@@ -62,7 +62,7 @@ Users can still modify their profile, but with a lower granularity. That is, the
 
 * `/idp/myaccount/profile`
 
-The [Me object](/docs/reference/api/archive-myaccount/#me-object) no longer exists. Also, the following endpoints are deprecated:
+The [Me object](/docs/references/api/archive-myaccount/#me-object) no longer exists. Also, the following endpoints are deprecated:
 
 * `/api/v1/myaccount`
 * `/api/v1/myaccount/profile/schema`
@@ -96,4 +96,4 @@ The new version of the API comes with new error messages. Examples include:
 * invalid email ID
 * email operation not enabled in your org
 
-See [Update My User Profile - Error responses](/docs/reference/api/myaccount/#error-responses-8).
+See [Update My User Profile - Error responses](/docs/references/api/myaccount/#error-responses-8).

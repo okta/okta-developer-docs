@@ -1,4 +1,4 @@
-Without using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/authorize` endpoint.
+Without using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/references/api/oidc/) through the `/authorize` endpoint.
 
 ### Request for tokens
 
@@ -18,7 +18,7 @@ Note the parameters that are being passed:
 - `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Sign-in redirect URIs** that you specified when you created your Okta app integration in the [Set up your app](#set-up-your-app) section.
 - `state` is an arbitrary alphanumeric string that the Authorization Server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
-See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See the [OAuth 2.0 API reference](/docs/references/api/oidc/#authorize) for more information on these parameters.
 
 ### Extract tokens from redirect URI
 

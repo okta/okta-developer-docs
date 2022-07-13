@@ -212,7 +212,7 @@ after     | Specifies the pagination cursor for the next page of Authorization S
 
 **Parameter details**
 
-* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).
+* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/references/core-okta-api/#pagination).
 * `limit` can be no larger than 200.
 
 ##### Request example
@@ -905,8 +905,8 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 * A consent dialog box appears depending on the values of three elements:
 
-  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-  * `consent_method` - An [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example: a first-party application) or requires consent (for example: a third-party application).
+  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/references/api/oidc/#authorize)
+  * `consent_method` - An [application](/docs/references/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example: a first-party application) or requires consent (for example: a third-party application).
   * `consent` - A Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
 
   | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
@@ -919,7 +919,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
   | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
+<!-- If you change this section, change it in apps.md (/docs/references/api/apps/#credentials-settings-details) and oidc.md (/docs/references/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
 
@@ -1145,7 +1145,7 @@ If you have complex filters for Groups, you can [create a Groups allowlist](/doc
 ##### Details for `alwaysIncludeInToken`
 
 * Always `TRUE` for access token Claims.
-* If `FALSE` for an ID token claim, the Claim won't be included in the ID token if ID token is requested with the access token or `authorization_code`, instead the client has to use the access token to get the Claims from the [userinfo endpoint](/docs/reference/api/oidc/#userinfo).
+* If `FALSE` for an ID token claim, the Claim won't be included in the ID token if ID token is requested with the access token or `authorization_code`, instead the client has to use the access token to get the Claims from the [userinfo endpoint](/docs/references/api/oidc/#userinfo).
 
 #### Get all Claims
 
@@ -1701,7 +1701,7 @@ Content-Type: application/json;charset=UTF-8
 | lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | False                | Assigned               |
 | conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | True                 | False                  |
 | actions       | Actions for rule, dictates lifetime of granted tokens              | [Actions Objects](#actions-object)             | False                | False                  |
-| _links        | Hyperlinks                                                         | [Links object](/docs/reference/api/policy/#links-object-2)                | Assigned             | False                  |
+| _links        | Hyperlinks                                                         | [Links object](/docs/references/api/policy/#links-object-2)                | Assigned             | False                  |
 
 ##### Actions object
 
@@ -1722,7 +1722,7 @@ Example from a Rule object
   }
 }
 ```
-See also the [Policy-Rule Actions object](/docs/reference/api/policy/#actions-objects) section
+See also the [Policy-Rule Actions object](/docs/references/api/policy/#actions-objects) section
 
 ### Conditions object
 
@@ -1774,7 +1774,7 @@ Example from a Policy object
 | people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                                                                         | `include` and `exclude` lists   | True                          |
 | scopes       | Array of Scopes that this condition includes                                                                                                                                                                                             | `include` list                  | True                          |
 
-See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditions-object-2) section
+See also the [Policy-Rule Conditions object](/docs/references/api/policy/#conditions-object-2) section
 
 ## Client Resource operations
 
@@ -1826,7 +1826,7 @@ curl -v -X GET \
 * [Revoke all refresh tokens](#revoke-all-refresh-tokens)
 * [Revoke refresh token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular client. For example, you could revoke every active refresh token for a specific client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the User level](/docs/reference/api/users/#user-oauth-2-0-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular client. For example, you could revoke every active refresh token for a specific client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the User level](/docs/references/api/users/#user-oauth-2-0-token-management-operations).
 
 Read [Validate access tokens](/docs/guides/validate-access-tokens/) and [Validate ID tokens](/docs/guides/validate-id-tokens/) to understand more about how OAuth 2.0 tokens work.
 

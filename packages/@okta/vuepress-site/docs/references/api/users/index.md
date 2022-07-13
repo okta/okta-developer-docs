@@ -371,7 +371,7 @@ curl -v -X POST \
 
 Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification.
 
-The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/references/password-hook/) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
@@ -660,9 +660,9 @@ curl -v -X POST \
 
 #### Create User with non-default User Type
 
-Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+Creates a user with a specified User Type (see [User Types](/docs/references/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type).
+The User Type determines which [Schema](/docs/references/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replacement [PUT operation](/docs/references/api/user-types/#update-user-type).
 
 ##### Request example
 
@@ -1127,7 +1127,7 @@ The performance optimization will only be applied when all three parameters are 
 
 ##### Request parameters
 
-The first three parameters in the table below correspond to different ways to list users. For further details and examples on these parameters, see [User query options](/docs/reference/user-query) or the following sections.
+The first three parameters in the table below correspond to different ways to list users. For further details and examples on these parameters, see [User query options](/docs/references/user-query) or the following sections.
 
 - [List Users with Search](#list-users-with-search) (`search`)
 - [List Users with a Filter](#list-users-with-a-filter) (`filter`)
@@ -1136,8 +1136,8 @@ The first three parameters in the table below correspond to different ways to li
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/references/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/references/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users.                                                                                     | Query        | String     | FALSE    |
@@ -1145,9 +1145,9 @@ The first three parameters in the table below correspond to different ways to li
 | sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-- An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
+- An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/references/core-okta-api/#pagination) the results.
 - Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
-- Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+- Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 ##### Response parameters
 
@@ -1168,7 +1168,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-- Supports [pagination](/docs/reference/core-okta-api/#pagination).
+- Supports [pagination](/docs/references/core-okta-api/#pagination).
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
   For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
   Use an ID lookup for records that you update to ensure your results contain the latest data.
@@ -1176,7 +1176,7 @@ This operation:
 - Searches many properties:
   - Any user profile property, including custom-defined properties
   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
-  - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
+  - The [User Type](/docs/references/api/user-types) accessed as `type.id`
 - Accepts `sortBy` and `sortOrder` parameters.
   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
   - `sortOrder` is optional and defaults to ascending
@@ -1257,7 +1257,7 @@ curl -v -X GET \
 You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned. For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
 - Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
-- You can search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators. See [Filter](/docs/reference/core-okta-api/#filter).
+- You can search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators. See [Filter](/docs/references/core-okta-api/#filter).
 
 ##### Request example for array
 
@@ -1359,7 +1359,7 @@ This operation:
 
 > **Hint:** If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
+See [Filtering](/docs/references/core-okta-api/#filter) for more information on the expressions that are used in filtering.
 
 ##### Filter examples
 
@@ -1694,7 +1694,7 @@ Updates current user's profile with partial update semantics
 End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
-use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)
+use [Update User Profile Schema Property](/docs/references/api/schemas/#update-user-profile-schema-property)
 
 ##### Response parameters
 
@@ -2137,7 +2137,7 @@ Fetches the groups of which the user is a member
 ##### Response parameters
 
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](/docs/references/api/groups/)
 
 ##### Request example
 
@@ -2217,7 +2217,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 }
 ```
 
-If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token).
+If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/references/api/authn/#primary-authentication-with-activation-token).
 
 ##### Request example
 
@@ -3155,7 +3155,7 @@ Lists all grants for the specified user
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/references/core-okta-api/#pagination).
 
 
 #### Request example
@@ -3484,7 +3484,7 @@ HTTP/1.1 204 No Content
 * [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
 * [Revoke Refresh Token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular User and Client. For example, you could revoke every active refresh token for a User in the context of a specific Client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the Authorization Server level](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular User and Client. For example, you could revoke every active refresh token for a User in the context of a specific Client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the Authorization Server level](/docs/references/api/authorization-servers/#oauth-20-token-management-operations).
 
 Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understand more about how OAuth 2.0 tokens work.
 
@@ -3510,7 +3510,7 @@ Lists all refresh tokens issued for the specified User and Client.
 | limit       | The number of tokens to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/references/core-okta-api/#pagination).
 
 
 #### Request example
@@ -3596,7 +3596,7 @@ Gets a refresh token issued for the specified User and Client.
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/references/core-okta-api/#pagination).
 
 
 #### Request example
@@ -3920,7 +3920,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](/docs/reference/api/user-types/#update-user-type) (but not a partial update).
+The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/references/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](/docs/references/api/user-types/#update-user-type) (but not a partial update).
 
 ### User status
 
@@ -3975,7 +3975,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
-| login               | unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
+| login               | unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/references/api/schemas/#login-pattern-validation)                                                  |
 | email               | primary email address of user                                                                                                        | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
 | secondEmail         | secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
 | firstName           | given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
@@ -4015,17 +4015,17 @@ Every user within your Okta organization must have a unique identifier for a log
 
 Logins are not considered unique if they differ only in case and/or diacritical marks.  If one of your users has a login of `Isaac.Brock@example.com`, there cannot be another user whose login is `isaac.brock@example.com`, nor `isáàc.bröck@example.com`.
 
-Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/reference/api/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login `isaac.brock@example.com`) as long as the short name is still unique within the organization.
+Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/references/api/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login `isaac.brock@example.com`) as long as the short name is still unique within the organization.
 
 > **Hint:** Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
 ##### Modifying default Profile properties
-The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](/docs/reference/api/schemas/#login-pattern-validation) for `login`.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to make schema modifications.
+The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](/docs/references/api/schemas/#login-pattern-validation) for `login`.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/references/api/schemas/) to make schema modifications.
 
 #### Custom Profile properties
 
-User profiles may be extended with custom properties but the property must first be added to the user profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
+User profiles may be extended with custom properties but the property must first be added to the user profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/references/api/schemas/) to manage schema extensions.
 
 Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
@@ -4167,7 +4167,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook object
 
-Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+Specifies that a [Password Import Inline Hook](/docs/references/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
 
 When updating a user with a password hook the user must be in the `STAGED` status.
 
@@ -4217,7 +4217,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) 
 
 #### Individual Users vs. collection of Users
 
-For an individual User result, the Links object contains a full set of link relations available for that User as determined by your policies. For a collection of Users, the Links object contains only the `self` link. Operations that return a collection of Users include [List Users](#list-users) and [List Group Members](/docs/reference/api/groups/#list-group-members).
+For an individual User result, the Links object contains a full set of link relations available for that User as determined by your policies. For a collection of Users, the Links object contains only the `self` link. Operations that return a collection of Users include [List Users](#list-users) and [List Group Members](/docs/references/api/groups/#list-group-members).
 
 Here are some links that may be available on a User, as determined by your policies:
 

@@ -21,7 +21,7 @@ For each relationship:
 
 For details, see the [Linked Object object](#linked-object-object).
 
-Okta Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+Okta Expression Language function for [Linked Objects](/docs/references/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 > **Note:** The Linked Objects feature isn't available for OpenID Connect claims.
 
@@ -56,7 +56,7 @@ To represent a relationship, create a Linked Object definition that specifies a 
 
 ## Links between User Types
 
-If you created multiple User Types (see [User Types](/docs/reference/api/user-types)), they all share the same Linked Object definitions. For example, if you have separate User Types for employees and contractors, a link could designate an employee as the manager for a contractor, with the contractor being a subordinate of that employee.
+If you created multiple User Types (see [User Types](/docs/references/api/user-types)), they all share the same Linked Object definitions. For example, if you have separate User Types for employees and contractors, a link could designate an employee as the manager for a contractor, with the contractor being a subordinate of that employee.
 
 ## Getting started
 

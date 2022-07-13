@@ -608,7 +608,7 @@ The Feature object defines several properties:
 
 ### Stage object
 
-Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature
+Specifies the [release cycle stage](/docs/references/releases-at-okta/) of a Feature
 
 #### Stage properties
 

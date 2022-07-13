@@ -23,11 +23,11 @@ Each organization also has an administrator URL to sign in to the administrator 
 ### Preview and production
 Okta orgs come in two varieties: preview orgs and production orgs.
 
-Preview orgs allow you to see the next release early and play with Beta features. Preview orgs include [Beta](/docs/reference/releases-at-okta/#beta) and [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (EA) features by invitation and include all features that are [Generally Available](/docs/reference/releases-at-okta/#general-availability-ga) (GA).
+Preview orgs allow you to see the next release early and play with Beta features. Preview orgs include [Beta](/docs/references/releases-at-okta/#beta) and [Early Access](/docs/references/releases-at-okta/#early-access-ea) (EA) features by invitation and include all features that are [Generally Available](/docs/references/releases-at-okta/#general-availability-ga) (GA).
 
 > **Note:** Preview orgs can't be converted into Production orgs, and Production orgs can't be converted into Preview orgs.
 
-Production orgs are always a known-stable release, covered by our Software License Agreement, and don't include [Beta](/docs/reference/releases-at-okta/#beta) features. Production orgs include EA features by request and include all features that are GA.
+Production orgs are always a known-stable release, covered by our Software License Agreement, and don't include [Beta](/docs/references/releases-at-okta/#beta) features. Production orgs include EA features by request and include all features that are GA.
 
 > **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production orgs don't have production indicators in their URLs or cells.
 
@@ -69,4 +69,4 @@ Rate limiting controls the number of API requests that can be sent to an organiz
 
 It is mainly used to protect resources from accidental overuse and intentional attacks. For example, accidental overuse might be where a client's script heavily calls our APIs. An intentional or malicious attack might be trying thousands of password combinations for a user or sending millions of requests to an Okta org to prevent the users of that org from using Okta.
 
-See [Rate Limits](/docs/reference/rate-limits/) for more information on the endpoints and operations that are subject to rate limits and what the limits are for your Okta org.
+See [Rate Limits](/docs/references/rate-limits/) for more information on the endpoints and operations that are subject to rate limits and what the limits are for your Okta org.

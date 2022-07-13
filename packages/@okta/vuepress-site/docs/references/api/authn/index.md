@@ -6,7 +6,7 @@ excerpt: Control user access to Okta.
 
 # Authentication API
 
-The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/reference/api/sessions/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
+The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/references/api/sessions/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
@@ -18,7 +18,7 @@ The API is targeted for developers who want to build their own end-to-end login 
 
 The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, the MFA Enrollment Policy, or the Password Policy.
 
-> **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
+> **Note:** Policy evaluation is conditional on the [client request context](/docs/references/core-okta-api/#client-request-context) such as IP address.
 
 ### Public application
 
@@ -28,7 +28,7 @@ A public application is an application that anonymously starts an authentication
 
 Trusted applications are backend applications that act as authentication broker or login portal for your Okta organization and may start an authentication or recovery transaction with an administrator API token.  Trusted apps may implement their own recovery flows and primary authentication process and may receive additional metadata about the user before primary authentication has successfully completed.
 
-> **Note:** Trusted web applications may need to override the [client request context](/docs/reference/core-okta-api/#client-request-context) to forward the originating client context for the user.
+> **Note:** Trusted web applications may need to override the [client request context](/docs/references/core-okta-api/#client-request-context) to forward the originating client context for the user.
 
 
 ## Get started with authentication
@@ -554,12 +554,12 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
 
 #### Primary authentication with trusted application
 
-Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/references/core-okta-api/#client-request-context)
 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/references/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
 
@@ -610,12 +610,12 @@ curl -v -X POST \
 
 #### Primary authentication with activation token
 
-Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/references/core-okta-api/#client-request-context)
 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/references/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
@@ -886,7 +886,7 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
-> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/core-okta-api/#client-request-context).
+> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](/docs/references/core-okta-api/#client-request-context).
 
 ##### Device fingerprint best practices
 
@@ -1884,14 +1884,14 @@ curl -v -X POST \
 
 You can enroll, activate, manage, and verify factors inside the authentication context with `/api/v1/authn/factors`.
 
-> **Note:** You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/reference/api/factors/#factor-verification-operations).
+> **Note:** You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/references/api/factors/#factor-verification-operations).
 
 ### Enroll Factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
-Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
+Enrolls a user with a [Factor](/docs/references/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -1915,9 +1915,9 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
-| factorType  | type of Factor                                                                | Body        | [Factor Type](/docs/reference/api/factors/#factor-type)                            | TRUE     |
-| profile     | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
-| provider    | Factor provider                                                               | Body        | [Provider Type](/docs/reference/api/factors/#provider-type)                        | TRUE     |
+| factorType  | type of Factor                                                                | Body        | [Factor Type](/docs/references/api/factors/#factor-type)                            | TRUE     |
+| profile     | profile of a [supported Factor](/docs/references/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile object](/docs/references/api/factors/#factor-profile-object)        | TRUE     |
+| provider    | Factor provider                                                               | Body        | [Provider Type](/docs/references/api/factors/#provider-type)                        | TRUE     |
 | stateToken  | [state token](#state-token) for the current transaction                           | Body        | String                                                        | TRUE     |
 
 #### Response parameters for enroll Factor
@@ -1925,11 +1925,11 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 
 [Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
-> **Note:** Some [Factor types](/docs/reference/api/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a Factor requires activation.
+> **Note:** Some [Factor types](/docs/references/api/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a Factor requires activation.
 
 #### Enroll Okta Security Question Factor
 
-Enrolls a user with the Okta `question` Factor and [question profile](/docs/reference/api/factors/#question-profile)
+Enrolls a user with the Okta `question` Factor and [question profile](/docs/references/api/factors/#question-profile)
 
 > **Note:** The Security Question Factor doesn't require activation and is `ACTIVE` after enrollment.
 
@@ -1979,7 +1979,7 @@ curl -v -X POST \
 
 #### Enroll Okta SMS Factor
 
-Enrolls a user with the Okta `sms` Factor and an [SMS profile](/docs/reference/api/factors/#sms-profile). A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `sms` Factor and an [SMS profile](/docs/references/api/factors/#sms-profile). A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request example for enroll Okta SMS Factor
 
@@ -2093,7 +2093,7 @@ curl -v -X POST \
 
 #### Enroll Okta Call Factor
 
-Enrolls a user with the Okta `call` Factor and a [Call profile](/docs/reference/api/factors/#call-profile). A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `call` Factor and a [Call profile](/docs/references/api/factors/#call-profile). A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request example for enroll Okta Call Factor
 
@@ -2611,7 +2611,7 @@ curl -v -X POST \
 
 #### Enroll RSA SecurID factor
 
-Enrolls a user with an RSA SecurID factor and a [token profile](/docs/reference/api/factors/#token-profile). RSA tokens must be verified with the [current pin+passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with an RSA SecurID factor and a [token profile](/docs/references/api/factors/#token-profile). RSA tokens must be verified with the [current pin+passcode](/docs/references/api/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request example for enroll RSA SecurID Factor
 
@@ -2658,7 +2658,7 @@ curl -v -X POST \
 
 #### Enroll Symantec VIP Factor
 
-Enrolls a user with a Symantec VIP Factor and a [token profile](/docs/reference/api/factors/#token-profile). Symantec tokens must be verified with the [current and next passcodes](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Symantec VIP Factor and a [token profile](/docs/references/api/factors/#token-profile). Symantec tokens must be verified with the [current and next passcodes](/docs/references/api/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request example for enroll Symantec VIP Factor
 
@@ -2706,7 +2706,7 @@ curl -v -X POST \
 
 #### Enroll YubiKey Factor
 
-Enrolls a user with a Yubico Factor (YubiKey). YubiKeys must be verified with the [current passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Yubico Factor (YubiKey). YubiKeys must be verified with the [current passcode](/docs/references/api/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request example for enroll YubiKey Factor
 
@@ -3132,13 +3132,13 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrollment via the Authentication API is currently not supported for Custom HOTP Factor. Please refer to the [Factors API documentation](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of Factor.
+Enrollment via the Authentication API is currently not supported for Custom HOTP Factor. Please refer to the [Factors API documentation](/docs/references/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of Factor.
 
 ### Activate Factor
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" /> <SupportsCors />
 
-The `sms`,`call`, and `token:software:totp` [Factor types](/docs/reference/api/factors/#factor-type) require activation to complete the enrollment process.
+The `sms`,`call`, and `token:software:totp` [Factor types](/docs/references/api/factors/#factor-type) require activation to complete the enrollment process.
 
 * [Activate TOTP Factor](#activate-totp-factor)
 * [Activate SMS Factor](#activate-sms-factor)
@@ -5873,7 +5873,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/references/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for forgot password with trusted application
 
@@ -6091,7 +6091,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/references/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for unlock account with SMS Factor (trusted application)
 
@@ -7269,7 +7269,7 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
-* The token can be exchanged for a session with the [Session API](/docs/reference/api/sessions/#create-session-with-session-token) or converted to a [session cookie](/docs/guides/session-cookie/).
+* The token can be exchanged for a session with the [Session API](/docs/references/api/sessions/#create-session-with-session-token) or converted to a [session cookie](/docs/guides/session-cookie/).
 * The lifetime of the `sessionToken` is 5 minutes.
 
 ### Factor result
@@ -7305,7 +7305,7 @@ The Links object is read-only.
 
 ### User object
 
-A subset of [user properties](/docs/reference/api/users/#user-object) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](/docs/references/api/users/#user-object) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
@@ -7333,7 +7333,7 @@ A subset of [user properties](/docs/reference/api/users/#user-object) published 
 
 #### User profile object
 
-Subset of [profile properties](/docs/reference/api/users/#profile-object) for a user
+Subset of [profile properties](/docs/references/api/users/#profile-object) for a user
 
 | Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |
@@ -7501,17 +7501,17 @@ Specifies the password requirements related to password age and history
 
 ### Factor object
 
-A subset of [Factor properties](/docs/reference/api/factors/#factor-object) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
+A subset of [Factor properties](/docs/references/api/factors/#factor-object) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
 | Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
 | _embedded      | [embedded resources](#factor-embedded-resources) related to the Factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | _links         | [discoverable resources](#factor-links-object) for the Factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
-| factorType     | type of Factor                                                                                 | [Factor Type](/docs/reference/api/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
+| factorType     | type of Factor                                                                                 | [Factor Type](/docs/references/api/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
 | id             | unique key for Factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
-| profile        | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)                       | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
-| provider       | Factor provider                                                                                | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| vendorName     | Factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| profile        | profile of a [supported Factor](/docs/references/api/factors/#supported-factors-for-providers)                       | [Factor Profile object](/docs/references/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
+| provider       | Factor provider                                                                                | [Provider Type](/docs/references/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | Factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/references/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
 
 ```json
 {

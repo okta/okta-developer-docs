@@ -13,19 +13,19 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 
 API endpoints to authenticate your users, challenge for factors, recover passwords, and more. For example:
 
-- The [Authentication API](/docs/reference/api/authn) controls user access to Okta.
+- The [Authentication API](/docs/references/api/authn) controls user access to Okta.
 - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
 
 ## Manage Okta objects
 
 REST endpoints to configure objects whenever you need. For example:
 
-- The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
-- The [Users API](/docs/reference/api/users) is used for CRUD operations on Users.
-- The [Sessions API](/docs/reference/api/sessions/) creates and manages user's authentication sessions.
-- The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
-- The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
-- The [Devices API](/docs/reference/api/devices) is used to manage Device identity and lifecycle.
+- The [Apps API](/docs/references/api/apps/) is used to manage Apps and their association with Users and Groups.
+- The [Users API](/docs/references/api/users) is used for CRUD operations on Users.
+- The [Sessions API](/docs/references/api/sessions/) creates and manages user's authentication sessions.
+- The [Policy API](/docs/references/api/policy/) creates and manages settings such as a user's session lifetime.
+- The [Factors API](/docs/references/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
+- The [Devices API](/docs/references/api/devices) is used to manage Device identity and lifecycle.
 
 ## Design principles
 
@@ -96,7 +96,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as Global Session Policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as Global Session Policy and provide client information for [troubleshooting and auditing](/docs/references/api/events/#client-objecttype) purposes.
 
 ### User Agent
 
@@ -114,7 +114,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 `User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
 
-Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
+Okta recommends making test [authentication requests](/docs/references/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/references/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
 
 If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and Browser are detected:
 
@@ -171,7 +171,7 @@ All requests that result in an error return the appropriate 4xx or 5xx error cod
 }
 ```
 
-See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
+See [Error Codes](/docs/references/error-codes/) for a list of API error codes.
 
 > **Note:** Only the `errorCode` property is supported for runtime error flow control. The `errorSummary` property is only intended for troubleshooting and may change over time.
 
@@ -183,7 +183,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
 > **Note:** See [Obtaining a token](/docs/guides/create-an-api-token/) for instructions on how to get an API key for your organization.
 
-The API key (API token) isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
+The API key (API token) isn't interchangeable with an Okta [session token](/docs/references/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/references/api/oidc/).
 
 You can now interact with Okta APIs that use scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by the scopes that the access token contains. See [OAuth 2.0 for Okta APIs](/docs/guides/implement-oauth-for-okta/).
 
@@ -191,7 +191,7 @@ You can now interact with Okta APIs that use scoped OAuth 2.0 access tokens for 
 
 Requests that return a list of objects may support pagination. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some objects, you can also set a custom page size with the `limit` parameter.
 
-> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters. See the [Events API](/docs/reference/api/events/) for an example.
+> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters. See the [Events API](/docs/references/api/events/) for an example.
 
 | Param    | Description                                                                             |
 | -------- | ------------                                                                            |
@@ -216,7 +216,7 @@ The possible `rel` values are:
 | `self`             | Specifies the URL of the current page of results         |
 | `next`             | Specifies the URL of the immediate next page of results |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/) where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/references/api/system-log/) where the `next` link always exists in [System Log](/docs/references/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
 
 ### Filter
 
@@ -273,7 +273,7 @@ Filters must be evaluated using the standard order of operations. Attribute oper
 
 ### Hypermedia
 
-Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/references/api/users/#links-object) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
 
 The Okta API incorporates [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
 
@@ -319,7 +319,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request debugging
 
-The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/references/api/system-log/) events as well as the [Events API](/docs/references/api/events/).
 
 The following header is set in each response:
 

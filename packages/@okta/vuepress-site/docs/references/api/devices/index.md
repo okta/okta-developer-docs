@@ -16,7 +16,7 @@ The Devices API supports the following **Device Operations**:
 * Perform lifecycle transitions on the Device objects.
 
 The Devices API supports the following **Authorization Schemes**:
-* SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
+* SSWS - [API tokens](/docs/references/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
 > **Note:** For devices to enroll in Okta and show up in the Devices API, the following actions are required:
@@ -215,13 +215,13 @@ None
 
 | Parameter      | Type   | Description                                                                                                               |
 | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `search`       | String | Searches for devices with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties |
+| `search`       | String | Searches for devices with a supported [filtering](/docs/references/core-okta-api/#filter) expression for most properties |
 | `limit`        | Number | Specifies the number of results returned (maximum `200`)                                                                    |
 | `after`        | String | Specifies the pagination cursor for the next page of devices                                                              |
 | `expand=user`  | String | Lists associated users for the device in `_embedded` element                                                              |
 
 * If you don't specify a value for `limit`, the maximum (200) is used as a default.
-* Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+* Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/references/core-okta-api/#pagination).
 
 #### Request body
 

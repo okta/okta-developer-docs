@@ -6,7 +6,7 @@ excerpt: >-
 
 # Rate limit dashboard
 
-The rate limit dashboard is a tool that helps you understand the use of each API and investigate potential [rate limit](/docs/reference/rate-limits/) issues. The dashboard provides:
+The rate limit dashboard is a tool that helps you understand the use of each API and investigate potential [rate limit](/docs/references/rate-limits/) issues. The dashboard provides:
 
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
@@ -76,7 +76,7 @@ You can perform a search or filter your table list by making an entry in the Sea
 
 #### Client-based rate limiting
 
-You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to Okta's authentication and access APIs. See [Client-based rate limits](/docs/reference/rl-clientbased/). For these APIs, select from the following options:
+You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to Okta's authentication and access APIs. See [Client-based rate limits](/docs/references/rl-clientbased/). For these APIs, select from the following options:
 
 * **Enforce and log per client (recommended)** &mdash; Enables client-based rate limiting for all clients (default setting)
 * **Log per client** &mdash; Enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
@@ -90,7 +90,7 @@ For example, you may want to customize the rate limit threshold when an API norm
 
 #### Burst rate notification
 
-Bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+Bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [Burst rate limits](/docs/references/rate-limits/#burst-rate-limits).
 
 ## API rate limits and violations
 

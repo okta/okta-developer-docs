@@ -57,7 +57,7 @@ To create an API token, follow these steps:
 
 ## Token rate limits
 
-When API tokens are created, the rate limit for each token interaction is set automatically to 50 percent of each API maximum limit. See [API rate limits](/docs/reference/rate-limits/). You can adjust this percentage by editing the **Token rate limits** section. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
+When API tokens are created, the rate limit for each token interaction is set automatically to 50 percent of each API maximum limit. See [API rate limits](/docs/references/rate-limits/). You can adjust this percentage by editing the **Token rate limits** section. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
 
 ## Token expiration and deactivation
 
@@ -78,5 +78,5 @@ With the token created, you can begin using it, supplying it in the `Authorizati
 ## See also
 
 * See [Use Postman with the Okta REST APIs](/code/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
-* See [System Log Transaction Object](/docs/reference/api/system-log/#transaction-object) for information on viewing the API token ID in the Okta System Log.
-* For information on the general principles the Okta API follows, see [Design Principles](/docs/reference/core-okta-api/#design-principles).
+* See [System Log Transaction Object](/docs/references/api/system-log/#transaction-object) for information on viewing the API token ID in the Okta System Log.
+* For information on the general principles the Okta API follows, see [Design Principles](/docs/references/core-okta-api/#design-principles).

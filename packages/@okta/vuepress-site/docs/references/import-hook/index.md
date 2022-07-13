@@ -19,7 +19,7 @@ This information is specific to the User Import Inline Hook, one type of Inline 
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see [Enabling a User Import Inline Hook](#enabling-a-user-import-inline-hook).
 
@@ -284,7 +284,7 @@ If the external service times out after receiving an Okta request, the Okta proc
 
 ## Enabling a User Import Inline Hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 You then need to associate the registered Inline Hook with an app by completing the following steps in Admin Console:
 

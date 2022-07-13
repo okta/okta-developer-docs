@@ -66,7 +66,7 @@ When a request is sent to the Okta Org Authorization Server's `/authorize` endpo
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the application's grant collection.
 
-Alternatively, you can add grants using the [Apps API](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations). The following is an example request to create a grant for the `okta.users.read` scope.
+Alternatively, you can add grants using the [Apps API](/docs/references/api/apps/#application-oauth-2-0-scope-consent-grant-operations). The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/${appInstanceId}/grants' \
@@ -92,7 +92,7 @@ After you have the following, you can get an access token and make a request to 
 
 Request an access token by making a request to your Okta [Org Authorization Server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](/docs/references/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 
@@ -136,50 +136,50 @@ The following table shows the scopes that are currently available:
 
 | Scope                    | Description                                                            | API                                    |
 | :----------------------- | :--------------------------------------------------------------------- | :------------------------------------- |
-| `okta.apps.manage`       | Allows the app to create and manage Apps in your Okta organization     | [Apps API](/docs/reference/api/apps/)  |
-| `okta.apps.read`         | Allows the app to read information about Apps in your Okta organization| [Apps API](/docs/reference/api/apps/)  |
-| `okta.authorizationServers.manage`| Allows the app to manage authorization servers                 | [Authorization Servers API](/docs/reference/api/authorization-servers/)|
-| `okta.authorizationServers.read`| Allows the app to read authorization server information          | [Authorization Servers API](/docs/reference/api/authorization-servers/)|
-| `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
-| `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
-| `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#register-new-client) |
-| `okta.devices.manage`		| Allows the app to manage any Device's profile     | [Devices API](/docs/reference/api/devices/) |
-| `okta.devices.read`		| Allows the app to read any Device's profile      | [Devices API](/docs/reference/api/devices/) |
-| `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
-| `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
-| `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
-| `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
-| `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactivate, read)| [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
-| `okta.factors.read`      | Allows the app to read org factors information                          | [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
-| `okta.groups.manage`     | Allows the app to manage groups in your Okta organization               | [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
-| `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
-| `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
-| `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
-| `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
-| `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
-| `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
-| `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
-| `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization | [System Log API](/docs/reference/api/system-log/)|
-| `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
-| `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
-| `okta.profileMappings.manage`| Allows the app to manage user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
-| `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
-| `okta.roles.manage`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
-| `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
-| `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization | [Schemas API](/docs/reference/api/schemas/#getting-started)|
-| `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization | [Schemas API](/docs/reference/api/schemas/#getting-started)|
-| `okta.sessions.manage`      | Allows the app to manage all sessions in your Okta organization | [Sessions API](/docs/reference/api/sessions/#session-operations) |
-| `okta.sessions.read`        | Allows the app to read all sessions in your Okta organization | [Sessions API](/docs/reference/api/sessions/#session-operations) |
-| `okta.templates.manage` | Allows the app to manage all custom templates in your Okta organization | [Custom Templates API](/docs/reference/api/templates/#template-operations) |
-| `okta.templates.read` | Allows the app to read all custom templates in your Okta organization | [Custom Templates API](/docs/reference/api/templates/#template-operations) |
-| `okta.trustedOrigins.manage` | Allows the app to manage all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/reference/api/trusted-origins/#trusted-origins-api-operations) |
-| `okta.trustedOrigins.read` | Allows the app to read all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/reference/api/trusted-origins/#trusted-origins-api-operations) |
-| `okta.users.manage`      | Allows the app to create and manage users and read all profile and credential information for users | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations)|
-| `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations)|
+| `okta.apps.manage`       | Allows the app to create and manage Apps in your Okta organization     | [Apps API](/docs/references/api/apps/)  |
+| `okta.apps.read`         | Allows the app to read information about Apps in your Okta organization| [Apps API](/docs/references/api/apps/)  |
+| `okta.authorizationServers.manage`| Allows the app to manage authorization servers                 | [Authorization Servers API](/docs/references/api/authorization-servers/)|
+| `okta.authorizationServers.read`| Allows the app to read authorization server information          | [Authorization Servers API](/docs/references/api/authorization-servers/)|
+| `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/references/api/oauth-clients/)|
+| `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/references/api/oauth-clients/)|
+| `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/references/api/oauth-clients/#register-new-client) |
+| `okta.devices.manage`		| Allows the app to manage any Device's profile     | [Devices API](/docs/references/api/devices/) |
+| `okta.devices.read`		| Allows the app to read any Device's profile      | [Devices API](/docs/references/api/devices/) |
+| `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/references/api/domains/) |
+| `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/references/api/domains/) |
+| `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/references/api/event-hooks/)|
+| `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/references/api/event-hooks/)|
+| `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactivate, read)| [Factors Administration Operations](/docs/references/api/factor-admin/#factors-administration-operations)|
+| `okta.factors.read`      | Allows the app to read org factors information                          | [Factors Administration Operations](/docs/references/api/factor-admin/#factors-administration-operations)|
+| `okta.groups.manage`     | Allows the app to manage groups in your Okta organization               | [Groups API](/docs/references/api/groups/#getting-started-with-the-groups-api)|
+| `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/references/api/groups/#getting-started-with-the-groups-api)|
+| `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/references/api/idps/#getting-started)|
+| `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/references/api/idps/#getting-started)|
+| `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization | [Inline Hooks API](/docs/references/api/inline-hooks/)|
+| `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization | [Inline Hooks API](/docs/references/api/inline-hooks/)|
+| `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization | [Linked Objects API](/docs/references/api/linked-objects/)|
+| `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization | [Linked Objects API](/docs/references/api/linked-objects/)|
+| `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization | [System Log API](/docs/references/api/system-log/)|
+| `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization | [Policy API](/docs/references/api/policy/#policy-api-operations)|
+| `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/references/api/policy/#policy-api-operations)|
+| `okta.profileMappings.manage`| Allows the app to manage user profile mappings in your Okta organization | [Mappings API](/docs/references/api/mappings/)|
+| `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](/docs/references/api/mappings/)|
+| `okta.roles.manage`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/references/api/roles/#get-started)|
+| `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/references/api/roles/#get-started)|
+| `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization | [Schemas API](/docs/references/api/schemas/#getting-started)|
+| `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization | [Schemas API](/docs/references/api/schemas/#getting-started)|
+| `okta.sessions.manage`      | Allows the app to manage all sessions in your Okta organization | [Sessions API](/docs/references/api/sessions/#session-operations) |
+| `okta.sessions.read`        | Allows the app to read all sessions in your Okta organization | [Sessions API](/docs/references/api/sessions/#session-operations) |
+| `okta.templates.manage` | Allows the app to manage all custom templates in your Okta organization | [Custom Templates API](/docs/references/api/templates/#template-operations) |
+| `okta.templates.read` | Allows the app to read all custom templates in your Okta organization | [Custom Templates API](/docs/references/api/templates/#template-operations) |
+| `okta.trustedOrigins.manage` | Allows the app to manage all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/references/api/trusted-origins/#trusted-origins-api-operations) |
+| `okta.trustedOrigins.read` | Allows the app to read all Trusted Origins in your Okta organization | [Trusted Origins API](/docs/references/api/trusted-origins/#trusted-origins-api-operations) |
+| `okta.users.manage`      | Allows the app to create and manage users and read all profile and credential information for users | [Users API](/docs/references/api/users/#user-operations), [User Lifecycle Operations](/docs/references/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/references/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/references/api/idps/#identity-provider-user-operations)|
+| `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](/docs/references/api/users/#user-operations), [User Lifecycle Operations](/docs/references/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/references/api/users/#user-consent-grant-operations), [Identity Provider User Operations](/docs/references/api/idps/#identity-provider-user-operations)|
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile. Currently only supports user profile attribute updates. |   |
-| `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information | [Users API](/docs/reference/api/users/#get-current-user) |
-| `okta.userTypes.manage`    | Allows the app to manage user types in your Okta organization | [User Types API](/docs/reference/api/user-types/)|
-| `okta.userTypes.read`    | Allows the app to read user types in your Okta organization | [User Types API](/docs/reference/api/user-types/)|
+| `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information | [Users API](/docs/references/api/users/#get-current-user) |
+| `okta.userTypes.manage`    | Allows the app to manage user types in your Okta organization | [User Types API](/docs/references/api/user-types/)|
+| `okta.userTypes.read`    | Allows the app to read user types in your Okta organization | [User Types API](/docs/references/api/user-types/)|
 
 ### Scope naming
 

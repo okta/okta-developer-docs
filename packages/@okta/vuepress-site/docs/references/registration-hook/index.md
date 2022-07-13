@@ -17,7 +17,7 @@ This information is specific to the Registration Inline Hook, one type of Inline
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 

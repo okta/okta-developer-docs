@@ -71,7 +71,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/references/api/oidc/#authorize) page.
 
     The resulting URL looks something like this:
 
@@ -111,7 +111,7 @@ Use these steps to create a Groups claim for an OpenID Connect client applicatio
 1. Select the OpenID Connect client application that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Groups claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
-1. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
+1. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/references/okta-expression-language/#group-functions) for more information on expressions.
 1. Click **Save**.
 
 ### Request an ID token that contains the Groups claim
@@ -120,7 +120,7 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example we request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
+>If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/references/api/oidc/#userinfo).
 >
 
 The resulting URL looks something like this:

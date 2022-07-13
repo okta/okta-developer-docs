@@ -25,12 +25,12 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 
 | Name                                                           | Description                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| [Token Inline Hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
-| [User Import Inline Hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
-| [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
-| [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony Inline Hook](/docs/reference/telephony-hook/) | Customizes Okta's flows that send SMS or Voice messages |
+| [Token Inline Hook](/docs/references/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
+| [User Import Inline Hook](/docs/references/import-hook/)        | Adds custom logic to the user import process                                   |
+| [SAML Assertion Inline Hook](/docs/references/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
+| [Registration Inline Hook](/docs/references/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
+| [Password Import Inline Hook](/docs/references/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Telephony Inline Hook](/docs/references/telephony-hook/) | Customizes Okta's flows that send SMS or Voice messages |
 
 ## Inline Hook process flow
 
@@ -159,7 +159,7 @@ When Okta calls an external service, it enforces a default timeout of 3 seconds.
 
 ### Inline Hooks and concurrent rate limits
 
-The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/references/rl-additional-limits/#concurrent-rate-limits).
 
 > **Note:** Concurrent Inline Hook rate limits are based on your Okta org type.
 
@@ -184,7 +184,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Create an external service.
 
-1. Register your service's endpoint with Okta. You can do this in Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for information.
+1. Register your service's endpoint with Okta. You can do this in Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/references/api/inline-hooks/) for information.
 
 1. Associate the endpoint with a particular Okta process flow. How to do this varies by Inline Hook type.
 
@@ -194,8 +194,8 @@ For more information on implementing Inline Hooks, see the documentation for spe
 
 ## Troubleshooting
 
-The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+The [Okta System Log](/docs/references/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
 
-<https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
+<https://developer.okta.com/docs/references/api/event-types/?q=inline_hook>
 
 > **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an Inline Hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.
