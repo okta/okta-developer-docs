@@ -43,14 +43,16 @@ Create the client application that you want to use with the Okta APIs.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose any **Application type**. Creating a web, single-page, or native app is an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token. Click **Next**.
+1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token. Click **Next**.
 
     > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, and would break the sign-in or sign-out flow.
 
-1. Enter a name for your app integration. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default URI for this exercise.
-1. Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
+1. Enter a name for your app integration.
+1. For the **Grant type**, Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
+1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default URI for this exercise.
 
-    > **Note:** You can leave the rest of the defaults, as they work with this guide for testing purposes.
+> **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
+
 1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**.
     > **Note:** It is good practice to create and use groups for testing purposes.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
