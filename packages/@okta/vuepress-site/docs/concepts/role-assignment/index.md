@@ -31,8 +31,8 @@ The following Role types are provided and supported:
 We also support the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
-| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
 IAM-based standard roles could be assigned using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations.
 Similar to other standard roles, these roles are also immutable and cannot be updated or deleted.
 
@@ -72,8 +72,8 @@ When using IAM-based Standard Roles the same concepts as Custom Roles apply with
 
 | Role id (type)                                          | Applicable Resource Set id (type)    |
 | :------------------------------------------------------ | :----------------------------------- |
-| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_IAM_POLICY` |
-| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_IAM_POLICY`       |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_IAM_POLICY` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_IAM_POLICY`       |
 
 ### Resource Sets
 
@@ -184,8 +184,8 @@ The following resource sets are currently supported out of the box and can be us
 their associated roles. Standard resource sets and roles are always identified using their type as id.
 | Resource Set id/type                                              | Applicable Role id/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
-| `IGA_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `IGA_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
-| `IGA_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `IGA_REQUESTS_ADMIN`       | All Users, All Groups, All Access Requests, Access Request App |
+| `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
+| `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | All Users, All Groups, All Access Requests, Access Request App |
 Standard resource sets are managed by Okta only and cannot be updated or deleted.
 
 ## Custom vs. standard

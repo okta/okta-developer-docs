@@ -1648,26 +1648,26 @@ curl -v -X GET \
     }
   }, {
     "id": "irb5e92YgBazyyQ3x1q5",
-    "role": "IGA_CERTIFICATIONS_ADMIN",
+    "role": "ACCESS_CERTIFICATIONS_ADMIN",
     "label": "Access Certifications Admin",
-    "type": "IGA_CERTIFICATIONS_ADMIN",
+    "type": "ACCESS_CERTIFICATIONS_ADMIN",
     "status": "ACTIVE",
     "created": "2019-02-06T16:20:57.000Z",
     "lastUpdated": "2019-02-06T16:20:57.000Z",
     "assignmentType": "USER",
-    "resource-set": "IGA_CERTIFICATIONS_IAM_POLICY",
+    "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
     "_links": {
       "assignee": {
         "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
       },
       "resource-set": {
-        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY"
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
       },
       "member": {
-        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY/bindings/IGA_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY/bindings/ACCESS_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
       },
       "role": {
-        "href": "https://{yourOktaDomain}/api/v1/iam/roles/IGA_CERTIFICATIONS_ADMIN"
+        "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_CERTIFICATIONS_ADMIN"
       },
       "permissions": {
         "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/OKTA_IAM_TEST_DELIVERED_ROLE/permissions"
@@ -1903,7 +1903,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-      "type": "IGA_REQUESTS_ADMIN"
+      "type": "ACCESS_REQUESTS_ADMIN"
 }' "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles"
 ```
 
@@ -1912,26 +1912,26 @@ curl -v -X POST \
 ```json
 {
   "id": "irb1q92TFAHzySt3x0g4",
-  "role": "IGA_REQUESTS_ADMIN",
+  "role": "ACCESS_REQUESTS_ADMIN",
   "label": "Access Requests Admin",
-  "type": "IGA_REQUESTS_ADMIN",
+  "type": "ACCESS_REQUESTS_ADMIN",
   "status": "ACTIVE",
   "created": "2019-02-06T16:20:57.000Z",
   "lastUpdated": "2019-02-06T16:20:57.000Z",
   "assignmentType": "GROUP",
-  "resource-set": "IGA_CERTIFICATIONS_IAM_POLICY",
+  "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
   "_links": {
     "assignee": {
       "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
     },
     "resource-set": {
-      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
     },
     "role": {
-      "href": "https://{yourOktaDomain}/api/v1/iam/roles/IGA_REQUESTS_ADMIN"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN"
     },
     "permissions": {
-      "href": "https://{yourOktaDomain}/api/v1/iam/roles/IGA_REQUESTS_ADMIN/permissions"
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN/permissions"
     }
   }
 }
@@ -3096,8 +3096,8 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 We also support the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `IGA_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
-| `IGA_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
 
 #### Assignment types
 
