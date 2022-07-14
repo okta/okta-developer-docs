@@ -51,5 +51,6 @@
   },
   "resolutions": {
     "cypress/**/async": "3.2.3"
-  }
+  },
+  "version": "0.0.0"
 }
