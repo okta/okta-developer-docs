@@ -153,7 +153,7 @@ Set up your Okta org to enable authentication without a password using the follo
 1. Verify **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
 1. Leave the other settings at their defaults, and then click **Create Rule**.
 1. Click **Create Rule**.
-1. If needed, reorder the new policy to the number "1" position to allow the Identity Engine to evaluate the policy first. You can reorder the policy by clicking and dragging the policy's dotted "handle" that appears to the left of the policy's number.
+1. Verify the new policy is in the number "1" position. If it isn't, click and drag the policy to that position.
 
 #### Add a new authentication policy
 

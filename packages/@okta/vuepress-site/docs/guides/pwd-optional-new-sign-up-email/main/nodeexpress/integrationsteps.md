@@ -40,7 +40,7 @@ Send this new object to `OktaAuth.idx.register()`.
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-### 4. Verify identity with the email authenticator
+### 4. Verify the user's identity with the email authenticator
 
 `OktaAuth.idx.register()` returns an `IdxTransaction` object indicating that the user needs to verify their identity with the email authenticator challenge.
 
@@ -59,7 +59,7 @@ Send this new object to `OktaAuth.idx.register()`.
 }
 ```
 
-The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
 ### 5. Display remaining optional authenticators
 
