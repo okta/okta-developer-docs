@@ -12,7 +12,7 @@ At Google, create the client application that you want to use for authenticating
 
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-    Specify the Okta URI and the custom URI in the external IdP's allowed redirect URI list.
+    Specify both the Okta URI and the custom URI in the allowed redirect URI list if you intend to make requests from both URIs.
 
 1. Save the generated Client ID and Client Secret values so that you can add them to your Okta configuration.
 
