@@ -8,7 +8,7 @@ Enable users to sign in with email only in an application using the embedded Okt
 
 **Learning outcomes**
 
-* Set up password-optional sign-in in your Okta org
+* Configure your Okta org to enable user sign-in without a password.
 * Integrate password-optional sign-ins in your app using the Sign-In Widget
 
 **What you need**
@@ -22,25 +22,25 @@ Enable users to sign in with email only in an application using the embedded Okt
 
 ---
 
-## Overview
-
 ## Update configurations
 
-Before you can start integrating password-optional sign-ins in your app, <StackSnippet snippet="setupoktaorg" inline/>. Also, to test the sign-in integration, you must use a user with an enrolled email authenticator.
+<StackSnippet snippet="setupoktaorg" inline/>
+
+> **Note:** To test the sign-in integration, you must use a user with an enrolled email authenticator.
 
 ## Integrate into your app
 
 ### Summary of steps
 
-The following summarizes the steps involved in the password-optional sign-in.
+The following diagram details the steps involved in an email-only sign-in flow.
 
 <StackSnippet snippet="integrationsummary" />
 
-### 1. The user signs in using their username
+### 1. The user submits their username
 
 The user enters their username and selects the **Next** button to start the sign-in flow.
 
-> **Note:** This guide assumes you have already set up and configured the Sign-in Widget. To learn more about how to add the Sign-In Widget to your app, see the [Embedded Okta Sign-In Widget fundamentals](docs/guides/embedded-siw/main/) guide.
+> **Note:** This guide assumes you have already set up and configured the Sign-In Widget. To learn how to add the Sign-In Widget to your app, see [Embedded Okta Sign-In Widget fundamentals](docs/guides/embedded-siw/main/).
 
 <div class="half">
 
@@ -48,14 +48,14 @@ The user enters their username and selects the **Next** button to start the sign
 
 </div>
 
-### 2. The user selects email verification
+### 2. The user starts the email challenge flow
 
-After the user selects **Next**, the widget displays a page allowing the user to verify their email. Email is the only available authenticator because
+The Sign-In Widget displays a page for the user to start verifying their identity by email. Email is the only choice because:
 
-* email is the only authenticator the user is enrolled in
-* the org's application integration policy allows for only one authentication factor type
+* The user has only enrolled the email authenticator.
+* Email is the only allowed authentication factor in your app integration's authentication policy.
 
-The user selects the **Send me an email** button to continue the email verification.
+The user selects **Send me an email** to begin the email challenge flow.
 
 <div class="half">
 
@@ -63,13 +63,18 @@ The user selects the **Send me an email** button to continue the email verificat
 
 </div>
 
-### 3. The user verifies the email authenticator
+### 3. The user verifies their identity with the email authenticator
 
-After the user selects **Send me an email**, the Identity Engine sends a verification email to their primary email address. The email allows the user to verify with a One-Time Password (OTP) or a magic link. Your app requires no changes to use OTP since it's built into the widget; however, using magic links require updates to your app. These updates include:
+Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 
-* a browser check to ensure that the user uses the same browser to initiate the sign-in and click on the magic link
-* a routing method to handle the callback request originating from the magic link. This method pulls the `otp` and `state` query parameters from the request and passes them to the Sign-In Widget
+* Copy a One-Time Password (OTP) from the email into the Sign-In Widget and submit it for verification.
+* Click a "magic link" in the email that submits the OTP to Identity Engine on your behalf.
 
->**Note:** For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links Overview](docs/guides/email-magic-links-overview/main/) guide.
+Your app requires no changes to use OTP since it's built into the Sign-In Widget. However, using magic links require additions to your app which include:
+
+* A check to ensure the user starts the sign-in flow and opens the magic link in the same browser.
+* And endpoint to handle the callback request originating from the magic link. This method takes the values from the `otp` and `state` query parameters in the request and passes them to the Sign-In Widget.
+
+>**Note**: For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links Overview](docs/guides/email-magic-links-overview/main/).
 
 <StackSnippet snippet="integrationsteps" />
