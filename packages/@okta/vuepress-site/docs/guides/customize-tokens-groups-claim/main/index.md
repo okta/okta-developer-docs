@@ -113,6 +113,8 @@ Use these steps to create a Groups claim for an OpenID Connect client applicatio
 1. In the **Groups claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
 1. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
 1. Click **Save**.
+1. Click the **Back to applications** link.
+1. From the **More** button dropdown menu, click **Refresh Application Data**.
 
 ### Request an ID token that contains the Groups claim
 
@@ -172,7 +174,7 @@ Use these steps to add a Groups claim to ID tokens and access tokens to perform 
 3. Enter a name for the claim. For this example, name it **Groups**.
 4. In the **Include in token type** section, leave **Access Token** selected. We are adding the Groups claim to an access token in this example.
 
-    > **Note** You can configure the Groups claim to always be included in the ID token. To do that, follow these steps and select **ID Token** for the **Include in token type** value and select **Always**.
+    > **Note:** You can configure the Groups claim to always be included in the ID token. To do that, follow these steps and select **ID Token** for the **Include in token type** value and select **Always**.
 
 5. Select **Groups** as the **Value type**.
 6. In the **Filter** drop-down box, select **Matches regex** and then enter the following expression as the **Value**: `.*`
