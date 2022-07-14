@@ -3,11 +3,11 @@ title: Build a Single Sign-On (SSO) integration
 excerpt: Create an app integration using SAML or OIDC.
 meta:
   - name: description
-    content: Use this guide to learn how to build federated Single Sign-On into your Okta integration. 
+    content: Use this guide to learn how to build federated Single Sign-On into your Okta integration.
 layout: Guides
 ---
 
-This guide teaches you how to build federated Single Sign-On into your Okta-integrated application.
+This guide teaches you how to build federated Single Sign-On with Okta for your application.
 
 ---
 
@@ -19,11 +19,7 @@ This guide teaches you how to build federated Single Sign-On into your Okta-inte
 **What you need**
 
 * An Okta developer account. Sign up for one at <https://developer.okta.com/signup/>.
-* A suitable app to be integrated with Okta, such as [an SPA](/docs/guides/sign-into-spa-redirect/) or [server-side web app](/docs/guides/sign-into-web-app-redirect/).
-
-**Sample code**
-
-See the above SPA and web app links for code samples.
+* An app to integrated with Okta
 
 ---
 
@@ -31,29 +27,7 @@ See the above SPA and web app links for code samples.
 
 As an application developer, you want to give your users the ability to sign in directly to your application using Okta for identity management. To do so, your application needs to support federated Single Sign-On (SSO). In this scenario, your application relies on Okta to serve as an external Identity Provider (IdP).
 
-## Choosing a protocol
-
-Okta supports two protocols for handling federated SSO:
-
-* [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/#openid-connect)
-* [Security Assertion Markup Language (SAML)](/docs/concepts/saml/)
-
-Your choice of protocol depends mainly on your use case, but OIDC is generally recommended for new integrations.
-
-### OIDC features
-
-* An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol.
-* Verifies end-user identity and obtains profile information.
-* Lightweight and REST-based.
-* Ideal for mobile and cloud applications.
-* Newer protocol with widespread usage. Some newer applications only support OIDC.
-
-### SAML features
-
-* Widely used federation protocol for SSO in Web applications.
-* Many SaaS providers support SAML integration to grant SSO access to end users.
-* Specification doesn’t have user consent, although it can be built into the flow.
-* Larger in size because XML messages are transmitted back and forth.
+Okta supports OIDC and SAML 2.0 protocols to implement SSO for your app integration.
 
 ## Organizations
 
@@ -71,7 +45,7 @@ This guide assumes that you intend to develop an app integration and make it pub
 
 After you have decided which protocol is right for your needs, you need to gather some information for your integration.
 
-<StackSelector snippet="prep" noSelector />
+<StackSnippet snippet="prep" />
 
 ## Create your integration
 
@@ -83,7 +57,7 @@ After you have your background information, you can use the Okta Admin Console a
 1. In the Admin Console, go to  **Applications** > **Applications**.
 1. Click **Create App Integration**.
 
-<StackSelector snippet="create" noSelector />
+<StackSnippet snippet="create" />
 
 ## Specify your integration settings
 
@@ -91,7 +65,7 @@ This portion of the guide takes you through the steps for configuring your speci
 
 After you create your integration in the [Create your integration](#create-your-integration) step, the Admin Console opens the main settings page for your new integration. In here, you can specify **General Settings** and **Sign On** options, as well as assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you have made your changes.
 
-<StackSelector snippet="settings" noSelector />
+<StackSnippet snippet="settings" />
 
 ## Test your integration
 
@@ -113,7 +87,7 @@ First you must assign your integration to one or more test users in your org:
 1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
 1. In your dashboard, click the Okta tile for the integration and confirm that the user is signed in to your application.
 
-<StackSelector snippet="test" noSelector />
+<StackSnippet snippet="test" />
 
 ## Next steps
 

@@ -7,9 +7,6 @@ meta:
 
 With an Okta Single Sign-On (SSO) integration, your users can use their company-issued Okta credentials to securely access your application. In addition to the typical email and password cred)Okta is also releasing [FastPass](https://www.okta.com/fastpass/) which allows employees to sign-on without a password on company-managed devices.
 
-
-As an application developer, you want to give your users the ability to sign in directly to your application using Okta for identity management. To do so, your application needs to support federated Single Sign-On (SSO). In this scenario, your application relies on Okta to serve as an external Identity Provider (IdP).
-
 ## Why build an SSO integration with Okta?
 
 | Enhance security | Deliver a strong end-user access experience | Enterprise ready | Ease of adoption |
@@ -19,15 +16,15 @@ As an application developer, you want to give your users the ability to sign in 
 
 ## Choose your SSO protocol
 
-Okta supports two protocols for handling federated SSO. Your choice of protocol depends mainly on your use case, but OIDC is generally recommended for new integrations.
+Okta supports two protocols for handling federated SSO: OIDC and SAML. Choose the SSO protocol based on your app and use case. For new integrations, OIDC is recommended.
 
-| &nbsp; | OpenID Connect (OIDC) | Security Assertion Markup Language (SAML) |
-| ------ | -------------------------- | ----------------------- |
-| **High-level description** | OpenID Connect extends the OAuth 2.0 protocol to provide an ID token which can be used to verify a user’s identity and sign them into a cloud-based application. It is quickly becoming the new standard for SSO. | Security Assertion Markup Language (SAML) is an older protocol for authentication / SSO |
+| **Protocol** | <span style="width: 24px;display:inline-block">![OpenID Connect](/img/idp-logos/oidc.png)</span> OpenID Connect (OIDC) | <span style="width: 24px;display:inline-block">![SAML 2.0](/img/idp-logos/saml.png)</span> Security Assertion Markup Language (SAML) |
+| ------ | ----------------------- | ----------------------- |
+| **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends the OAuth 2.0 protocol to provide an ID token which can be used to verify a user’s identity and sign them into a cloud-based application. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
+| **Technology** | <ul><li>An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol</li> <li>Verifies end-user identity and obtains profile information</li> <li>Lightweight and REST-based</li></ul> |   <ul><li>XML-based messages</li> <li>Specification doesn’t have user consent, although it can be built into the flow</li> </ul> |
+| **Benefits** | <ul><li>Newer protocol with widespread and growing usage</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud applications</li> </ul> | <ul><li>Many people are familiar with SAML because it is an older protocol</li> <li>Widely used federation protocol for SSO in Web applications</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
 | **Ease of Implementation** | <span style="width: 150px;display:block">![Low](/img/ratings/low.png)</span> | <span style="width: 150px;display:block">![Medium](/img/ratings/medium.png)</span> |
-| **Technology** |<span style="width: 24px;display:inline-block">![OpenID Connect](/img/idp-logos/oidc.png)</span> JSON-based with OAuth 2.0 |  <span style="width: 24px;display:inline-block">![OpenID Connect](/img/idp-logos/saml.png)</span> XML-based |
-| **Benefits** | Newer protocol with widespread and growing usage. | Best Okta customer configuration experience. Ideal for mobile and cloud applications. Lightweight and REST-based. | Many people are familiar with SAML because it is an older protocol; Some apps may already have code implementing SAML|
-| **Get started** | Build an Okta SSO integration with OIDC | Build an Okta SSO integration with SAML |
+| **Get started** | [Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/) | [Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) |
 
 ## Use case examples
 
