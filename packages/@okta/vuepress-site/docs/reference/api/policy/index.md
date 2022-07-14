@@ -249,6 +249,10 @@ HTTP 204:
 ### Get applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
 
+Retrieves a list of applications mapped to a policy
+
+> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+
 ##### Request parameters
 
 The Policy ID described in the [Policy object](#policy-object) is required.
