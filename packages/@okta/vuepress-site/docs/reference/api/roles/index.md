@@ -1655,16 +1655,16 @@ curl -v -X GET \
     "created": "2019-02-06T16:20:57.000Z",
     "lastUpdated": "2019-02-06T16:20:57.000Z",
     "assignmentType": "USER",
-    "resource-set": "OKTA_IGA_CERTIFICATIONS_IAM_POLICY",
+    "resource-set": "IGA_CERTIFICATIONS_IAM_POLICY",
     "_links": {
       "assignee": {
         "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
       },
       "resource-set": {
-        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/OKTA_IGA_CERTIFICATIONS_IAM_POLICY"
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY"
       },
       "member": {
-        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/OKTA_IGA_CERTIFICATIONS_IAM_POLICY/bindings/IGA_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY/bindings/IGA_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
       },
       "role": {
         "href": "https://{yourOktaDomain}/api/v1/iam/roles/IGA_CERTIFICATIONS_ADMIN"
@@ -1919,13 +1919,13 @@ curl -v -X POST \
   "created": "2019-02-06T16:20:57.000Z",
   "lastUpdated": "2019-02-06T16:20:57.000Z",
   "assignmentType": "GROUP",
-  "resource-set": "OKTA_IGA_CERTIFICATIONS_IAM_POLICY",
+  "resource-set": "IGA_CERTIFICATIONS_IAM_POLICY",
   "_links": {
     "assignee": {
       "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
     },
     "resource-set": {
-      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/OKTA_IGA_CERTIFICATIONS_IAM_POLICY"
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/IGA_CERTIFICATIONS_IAM_POLICY"
     },
     "role": {
       "href": "https://{yourOktaDomain}/api/v1/iam/roles/IGA_REQUESTS_ADMIN"
