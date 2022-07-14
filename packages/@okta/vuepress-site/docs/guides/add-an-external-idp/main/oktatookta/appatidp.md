@@ -11,7 +11,9 @@ When you are configuring federation between two Okta orgs using OpenID Connect:
     * Is where the IdP returns the authentication response (the access token and the ID token)
     * Needs to be a secure domain that you own
     * Should match the redirect URI sent in the authorize request from the client
-    * Specify both the Okta URI and the custom URI in the allowed redirect URI list if you intend to make requests from both URIs
+
+    Specify both the Okta URI and the custom URI in the allowed redirect URI list if you intend to make requests from both URIs.
+
 1. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Click **Save**.
 1. Copy the **Client ID** and **Client secret** from the **Client Credentials** section and paste into a text editor. You need these when you configure this Identity Provider in your other Okta org in the next section.
