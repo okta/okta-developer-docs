@@ -140,7 +140,7 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 
 * When the `factorType` parameter was set to `token:software:totp`, the `amr` claim was missing MFA factors (Okta Verify/Challenge or Google Authenticator). (OKTA-499718)
 
-* The Max Okta session lifetime setting for Global Session Policy was ignored. (OKTA-480442)
+* The Max Okta session lifetime setting for global session policy was ignored. (OKTA-480442)
 
 * When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
 
@@ -489,7 +489,7 @@ Admins can now manage authentication policies using a centralized view. While au
 
 On the new Authentication Policies page, admins can create new policies, apply those policies to multiple applications, and assess what application access decisions are impacted by each policy.
 
-Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed Global Session Policy. See [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed global session policy. See [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 
