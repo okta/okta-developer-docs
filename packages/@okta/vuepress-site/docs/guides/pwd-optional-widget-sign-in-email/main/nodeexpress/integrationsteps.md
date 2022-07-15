@@ -23,9 +23,9 @@ router.get('/login/callback', async (req, res, next) => {
 
 > **Note**: To learn more about initializing the Sign-In Widget with `otp` and `state`, see the [Embedded Okta Sign-In Widget fundamentals](docs/guides/embedded-siw/main/) guide.
 
-### 4. Your app obtains the sign-in tokens and completes sign-in flow
+### 4. Your app completes sign-in flow and obtains the ID and access tokens
 
-After the user successfully verifies their identity, Identity Engine sends an interaction code to your app using a URI defined in **Sign-in redirect URIs** in the org's application integration. The interaction code is sent as a query parameter, for example, `http://localhost:8080/login/callback?interaction_code=2JFmObNY8snovJP6_UK5gI_l7RQ-...`. Use `OktaAuth.idx.handleInteractionCodeRedirect()` to exchange the interaction for the ID and access tokens.
+After the user successfully verifies their identity, Identity Engine sends an interaction code in a query parameter to your sign in redirect URI. For example, `http://localhost:8080/login/callback?interaction_code=2JFmObNY8snovJP6_UK5gI_l7RQ-...`. Use `OktaAuth.idx.handleInteractionCodeRedirect()` to exchange the interaction for the ID and access tokens.
 
 ```javascript
 router.get('/login/callback', async (req, res, next) => {

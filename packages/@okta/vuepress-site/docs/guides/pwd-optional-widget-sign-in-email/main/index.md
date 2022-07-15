@@ -38,7 +38,7 @@ The following diagram details the steps involved in an email-only sign-in flow.
 
 ### 1. The user submits their username
 
-The user enters their username and selects the **Next** button to start the sign-in flow.
+The user enters their username and clicks the **Next** button to start the sign-in flow.
 
 > **Note:** This guide assumes you have already set up and configured the Sign-In Widget. To learn how to add the Sign-In Widget to your app, see [Embedded Okta Sign-In Widget fundamentals](docs/guides/embedded-siw/main/).
 
@@ -55,7 +55,7 @@ The Sign-In Widget displays a page for the user to start verifying their identit
 * The user has only enrolled the email authenticator.
 * Email is the only allowed authentication factor in your app integration's authentication policy.
 
-The user selects **Send me an email** to begin the email challenge flow.
+The user clicks **Send me an email** to begin the email challenge flow.
 
 <div class="half">
 
