@@ -192,6 +192,15 @@ export const guides = [
                 guideName: "sign-in-to-spa-embedded-widget"
               },
               {
+                title: "Password optional",
+                subLinks: [
+                  {
+                    title: "Sign up for new account with email only",
+                    guideName: "pwd-optional-new-sign-up-email"
+                  }
+                ]
+              },
+              {
                 title: "Embedded SDK use cases",
                 subLinks: [
                   {
