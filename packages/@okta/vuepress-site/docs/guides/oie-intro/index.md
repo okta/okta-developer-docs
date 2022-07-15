@@ -19,7 +19,7 @@ Identity Engine unlocks many new capabilities.
 
 Authentication policies are [security policy frameworks](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Additionally, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
 
-* [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
+* [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
 * [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
 * [Policies (high-level concept)](/docs/concepts/policies/)
 

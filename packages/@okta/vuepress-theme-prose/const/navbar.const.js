@@ -318,7 +318,7 @@ export const guides = [
             title: "Configure an access policy",
             guideName: "configure-access-policy"
           },
-          { title: "Configure a Global Session Policy and authentication policies",
+          { title: "Configure a global session policy and authentication policies",
             guideName: "configure-signon-policy" },
           {
             title: "Add an external Identity Provider",
