@@ -56,7 +56,7 @@ Magic links only work when there is complete assurance that the person who start
 
 This same browser enforcement also ensures that a user doesn't sign in to applications from non-managed devices. For example, should they start the sign-in process on a company laptop, and then click the magic link from their personal device, they must return to the company laptop to complete the process.
 
-### Pros and Cons
+### Pros and cons of EML
 
 When you evaluate whether to support magic links in addition to OTPs in the email authenticator, consider the following:
 
@@ -76,7 +76,7 @@ Integrating Email Magic Links into your application is a two-step process.
 
 Any magic link URL pointing to your application contains two query parameters:
 
-* The one-time password that validates the user (`otp`)
+* The OTP that validates the user (`otp`)
 * A state token that uniquely identifies the current authentication process and its state (`state`)
 
 For example, `http://${yourOktaDomain}?otp=726009&state=1b31fa98b34c45d9a`.
@@ -87,7 +87,7 @@ You must create an endpoint for your application that:
 2. Matches the state token with the current `state` in your user's browser session
 3. Makes any other checks you deem necessary to ensure that the user is working in the same browser on the same device
 4. Requests that the user enter the `otp` value manually if steps 2 or 3 fail
-5. Sends `otp` and `state` to Identity Engine for validation if steps 2 and 3 pass
+5. Sends the `otp` value to Identity Engine for validation if steps 2 and 3 pass
 6. Redirects the user to a page that continues their authentication process
 
 If your application uses the Embedded Sign-In Widget to authenticate the user, pass `otp` and `state` to it as you instantiate it on the page.
