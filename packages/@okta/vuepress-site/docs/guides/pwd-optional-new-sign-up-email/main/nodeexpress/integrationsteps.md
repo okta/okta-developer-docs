@@ -1,14 +1,14 @@
-### 1: Add sign up link on sign-in page
+### 1: Your app displays sign-up link on sign-in page
 
 Add a **Sign up** link on your app's sign-in page. When the user clicks this link, redirect them to a sign-up page where they can sign up for a new account.
 
 <div class="half border">
 
-![Screenshot showing a sign in page with a sign up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
+![Screenshot showing a sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
 
 </div>
 
-### 2: Create and display sign-up page
+### 2: Your app displays sign-up page
 
 Create a sign-up page that captures the user's first name, last name, and email.
 
@@ -18,11 +18,11 @@ Create a sign-up page that captures the user's first name, last name, and email.
 
 </div>
 
-### 3: Submit new user account details
+### 3: The user submits their new account details
 
 When the user submits their account details, create an object with `firstName`, `lastName`, and `email` properties and assign them the values entered by the user.
 
-> **Note**: that the `email` property represents the account's username and primary email address.
+> **Note**: The `email` property represents the account's username and primary email address.
 
 ```json
 {
@@ -40,7 +40,7 @@ Send this new object to `OktaAuth.idx.register()`.
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-### 4. Verify identity with the email authenticator
+### 4. The user verifies their identity using the email authenticator
 
 `OktaAuth.idx.register()` returns an `IdxTransaction` object indicating that the user needs to verify their identity with the email authenticator challenge.
 
@@ -59,9 +59,9 @@ Send this new object to `OktaAuth.idx.register()`.
 }
 ```
 
-The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
-### 5. Display remaining optional authenticators
+### 5. Your app displays the remaining optional authenticators
 
 After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user has the option to enroll in additional authenticators. The `IdxTransaction.nextStep.canSkip` property is `true` if the remaining authenticators are optional.
 
@@ -89,15 +89,15 @@ Create and display a page that lists the remaining optional authenticators and a
 
 <div class="half border">
 
-![A form showing a list of authenticators to enroll, and submit, cancel, and skip buttons.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
+![A form showing a list of authenticators to enroll, and Submit, Cancel, and Skip buttons.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
 
 </div>
 
->**Note:** In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the skip button should be omiited.
+>**Note:** In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the **Skip** button should be omitted.
 
-### 6. Skip remaining optional authenticators and complete sign-up
+### 6. The user skips the remaining optional authenticators
 
-When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` passing in an object with a `skip` property equal to `true`.
+When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` and pass in an object with a `skip` property equal to `true`.
 
 ```javascript
   const authClient = getAuthClient(req);
@@ -105,7 +105,7 @@ When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` passing 
   handleTransaction({ req, res, next, authClient, transaction });
 ```
 
-`OktaAuth.idx.proceed()` should return an `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up.
+`OktaAuth.idx.proceed()` should return an `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up flow.
 
 ```json
 {
@@ -123,3 +123,5 @@ When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` passing 
   },
 }
 ```
+
+Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt.
