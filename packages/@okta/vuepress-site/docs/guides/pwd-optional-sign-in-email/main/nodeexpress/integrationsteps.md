@@ -10,7 +10,7 @@ Create a sign-in page that captures the user's username.
 
 ### 2: The user submits their username
 
-When the user submits their username, call `OktaAuth.idx.authenticate()` and pass in the username.
+Call `OktaAuth.idx.authenticate()` and pass in the username.
 
 ```javascript
   const { username } = req.body;
@@ -41,7 +41,7 @@ The email authenticator supports user verification by One-Time Password (OTP) an
 
 ### 4. Your app handles an authentication success response
 
-When the user completes the email authenticator verification, one of `OktaAuth.idx` methods returns `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates that the user successfully signed in.
+When the user completes the email authenticator verification, one of `OktaAuth.idx` methods returns `IdxTransaction.status` of `SUCCESS` along with ID and access tokens, which indicates that the user successfully signed in.
 
 ```json
 {
