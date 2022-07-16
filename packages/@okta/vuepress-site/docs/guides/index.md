@@ -124,6 +124,7 @@ guides:
  - pwd-optional-new-sign-up-email
  - pwd-optional-sign-in-email
  - pwd-optional-widget-sign-in-email
+ - pwd-optional-change-email
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
