@@ -7,7 +7,7 @@ meta:
 
 The Okta Integration Network (OIN) is a collection of over 7000 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. Customers can easily integrate Okta Single Sign-On (SSO) to applications in the OIN with a guided experience that still supports the most secure configuration options.
 
-To get your app integration in the OIN, build an app integration using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) for verification and approval by Okta. Once your app integration is Okta Verified, it's published in the OIN for the Okta community to use.
+To get your app integration into the OIN, build an app integration using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) for verification and approval by the Okta OIN team. Once your app integration is Okta Verified, it's available in the OIN for the Okta community to use.
 
 With an Okta SSO integration, your customer's workforce can use their company-issued Okta credentials to securely access your application. In addition to the typical email and password credentials, your customers have the ability to control their authentication experience with Okta sign-on policies and features, such as [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable).
 
