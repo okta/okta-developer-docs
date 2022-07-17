@@ -1,16 +1,16 @@
-### 1. The user signs in your app
+### 1. The user signs in to your app
 
-The user signs in to your app before they can change their primary email address. To learn more about integrating user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
-
-<!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
-
-When the user signs in, instantiate an`OktaAuth` object which is used later to change the user's email.
+The user signs in to your app before they can change their primary email address. During the sign in instantiate an`OktaAuth` object which is used later to change the user's email.
 
 ```javascript
 const oktaAuth = (() => {
   return new OktaAuth(oidcConfig);
 })();
 ```
+
+ To learn more about integrating user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
+
+<!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
 
 ### 2. The user starts the change primary email flow
 
