@@ -17,7 +17,7 @@ Enable users to change their primary email address in an application based on th
 
 ## Overview
 
-Allowing a user to change their primary email is a critical task when they only sign in to your app with a username and email address. Much like passwords, email addresses can be compromised and must be able to be changed. With the [Embedded SDK](https://github.com/okta/okta-auth-js) you can enable users to change their primary emails in your app.
+Allowing a user to change their primary email is a critical task when they only sign in to your app with a username and email address. Much like a password, a user must be able to change their email addresses especially if it becomes compromised. With the [Embedded SDK](https://github.com/okta/okta-auth-js) you can enable users to change their primary emails in your app.
 
 The Embedded SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that use the [MyAccount API](/docs/reference/api/myaccount/) to change the user's email and other profile information.
 
@@ -27,7 +27,7 @@ The Embedded SDK contains a series of [methods](https://github.com/okta/okta-aut
 
 </div>
 
-This API is secure, doesn't expose information an end user shouldn't have access to, and can be safely used in browser-based SPA applications. In this guide, you learn how to integrate this change email functionality in your app using the Embedded SDK and this API.
+This API is secure, doesn't expose information an end user shouldn't have access to, and can be safely used in browser-based SPA applications. In this guide, you learn how to integrate this change email functionality in your app using the Embedded SDK.
 
 ## Update configurations
 

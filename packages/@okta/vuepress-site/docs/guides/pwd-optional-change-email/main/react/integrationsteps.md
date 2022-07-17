@@ -4,7 +4,7 @@ The user signs in to your app before they can change their primary email address
 
 <!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
 
-`OktaAuth` is instantiated during the sign in flow and is used later to change the user's email.
+When the user signs in, instantiate an`OktaAuth` object which is used later to change the user's email.
 
 ```javascript
 const oktaAuth = (() => {
@@ -24,7 +24,7 @@ Next, the user starts the change primary email flow. Provide a way in your app f
 
 ### 3. The user submits a new primary email
 
-The user enters and submits their new primary email address.
+The user enters and submits their new primary email address. Create a page or dialog that allows the user to change and submit their new email address.
 
 <div class="half border">
 
@@ -35,8 +35,8 @@ The user enters and submits their new primary email address.
 1. When the user submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
 
 * `profile.email` to the new primary email.
-* `role` to `PRIMARY` to identify the email as the primary email address.
-* `sendEmail` to `true` to send the email challenge to the newly added email. The default is `true`.
+* `role` to `PRIMARY` which identifies the email as the primary email address.
+* `sendEmail` to `true` which sends the email challenge to the newly added email. The default is `true`.
 
 ```json
 {
@@ -87,7 +87,7 @@ const handleAddEmail = async (role, email) => {
 
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the One-Time Passcode (OTP) to your app.
+The user opens the email sent by Identity Engine and copies the One-Time Passcode (OTP) to your app. Create a page or dialog to allow the user to enter the OTP.
 
 <div class="half border">
 
@@ -117,7 +117,7 @@ if (transaction.status === 'UNVERIFIED') {
 
 ### 6. Your app handles a successful identity verification
 
-`EmailTransaction.verify()` returns no data and if it completes without exception, then the OTP is valid and the email change completes successfully. Wrap the method call in a `try...catch` statement block to catch invalid OTPs and other API errors.
+`EmailTransaction.verify()` returns no data and completes without exception when the OTP is valid and the email change completes successfully. Wrap the method call in a `try...catch` statement to catch invalid OTPs and other API exceptions raised from `EmailTransaction.verify()`.
 
 ```javascript
 try {
