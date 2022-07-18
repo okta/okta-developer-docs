@@ -23,20 +23,122 @@ Okta Identity Engine currently supports Authenticators for the following factors
 * Phone (SMS, Voice Call)
 * Email
 * WebAuthn
+* Duo
+* Custom App
 
 ## Get started
 
-Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e)
+Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/836eb57018cba45da121)
 
 ## Authenticators Administration operations
 
 The Authenticators Administration API has the following CRUD operations:
 
+* [Create Authenticator](#create-authenticator)
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by ID](#get-an-authenticator-by-id)
 * [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
+
+### Create Authenticator
+
+<ApiOperation method="post" url="/api/v1/authenticators" />
+
+Create an Authenticator
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+| Parameter | Description                                                                                           | Param Type | DataType      | Required | Default |
+| --------- | ----------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------- | ------- |
+| activate  | Executes [activation lifecycle](#activate-an-authenticator) operation when creating the authenticator | Query      | Boolean       | FALSE    | TRUE    |
+
+#### Request body
+
+An [Authenticator Object](#authenticator-object) that needs to be created
+
+#### Response body
+
+The created [Authenticator](#authenticator-object)
+
+#### Use example
+
+Returns the created Authenticator with an `id` value of `aut9gnvcjUHIWb37J0g4`:
+
+#### Request
+
+```json
+{
+    "key": "duo",
+    "name": "Duo Security",
+    "provider": {
+        "type": "DUO",
+        "configuration": {
+            "userNameTemplate": {
+                "template": "oktaId"
+            },
+            "integrationKey": "testIntegrationKey",
+            "secretKey": "testSecretKey",
+            "host": "{Duo Org Hostname}"
+        }
+    }
+}
+```
+
+#### Response
+
+```json
+{
+    "type": "app",
+    "id": "aut9gnvcjUHIWb37J0g4",
+    "key": "duo",
+    "status": "ACTIVE",
+    "name": "Duo Security",
+    "created": "2022-07-15T21:14:02.000Z",
+    "lastUpdated": "2022-07-15T21:14:02.000Z",
+    "settings": {},
+    "provider": {
+        "type": "DUO",
+        "configuration": {
+            "host": "{Duo Org Hostname}",
+            "userNameTemplate": {
+                "template": "oktaId"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "methods": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4/methods",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### List Authenticators
 
@@ -281,7 +383,7 @@ N/A
 
 #### Response body
 
-The requested [Authenticator](#Authenticator-object)
+The requested [Authenticator](#authenticator-object)
 
 #### Use example
 
@@ -362,7 +464,7 @@ The `name` attribute is required, `settings` object is optional and has values b
 
 #### Response body
 
-The updated [Authenticator](#Authenticator-object)
+The updated [Authenticator](#authenticator-object)
 
 #### Use example
 
@@ -525,7 +627,7 @@ N/A
 
 #### Response body
 
-Returns an [Authenticator](#Authenticator-object).
+Returns an [Authenticator](#authenticator-object).
 
 #### Use example
 
@@ -628,13 +730,23 @@ The Authenticator object defines the following properties:
 | `settings.compliance.fips` | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
 | `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
 | `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
-| `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
-| `settings.appInstanceId` | String | The application instance ID | `okta_verify` |
-| `provider.type` | String | Provider type. For Duo: `DUO`. | `duo` and other authenticators making use of the provider object |
+| `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify`, `custom_app` |
+| `settings.appInstanceId` | String | The application instance ID. For `custom_app`, an OIDC native app would need to be created using the [Apps API](/docs/reference/api/apps/) with `Authoriation Code`, and `Refresh Token` grant types. `Sign-in redirect URIs` and `Sign-out redirect URIs` can be left as the default values. | `okta_verify`, `custom_app` |
+| `provider.type` | String | Provider type. For Duo: `DUO`. For Custom App: `PUSH` | `duo` and other authenticators making use of the provider object |
 | `provider.configuration.host` | String | The Duo Security org hostname | `duo` |
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
+| `provider.configuration.apns.id`| String | Id of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `methods.type` | String  | Method type. For `custom_app`, it is `push`. For `okta_verify`, allowed values: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
+| `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
+| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Allowed values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
+| `methods.settings.keyProtection` | String (Enum) | Key Protection. Allowed values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
+| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. It is required for the terms to be accepted when creating a new `custom_app` authenticator. Other authenticators do not require this field. | `custom_app`|
+
 
 #### Example Email Authenticator
 
@@ -836,5 +948,115 @@ The Authenticator object defines the following properties:
       }
     }
   }
+}
+```
+
+#### Example Duo Authenticator
+
+```
+{
+    "type": "app",
+    "id": "aut5gnvcjUHIWb25J0g4",
+    "key": "duo",
+    "status": "ACTIVE",
+    "name": "Duo Security",
+    "created": "2022-07-15T21:14:02.000Z",
+    "lastUpdated": "2022-07-15T21:14:02.000Z",
+    "settings": {},
+    "provider": {
+        "type": "DUO",
+        "configuration": {
+            "host": "{Duo Org Hostname}",
+            "userNameTemplate": {
+                "template": "oktaId"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "methods": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut5gnvcjUHIWb25J0g4/methods",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Example Custom App Authenticator
+
+```
+{
+    "type": "app",
+    "id": "aut67ryPSDvEpomfS0g5",
+    "key": "custom_app",
+    "status": "ACTIVE",
+    "name": "Custom App Authenticator",
+    "created": "2022-06-24T21:02:50.000Z",
+    "lastUpdated": "2022-06-24T21:02:50.000Z",
+    "settings": {
+        "appInstanceId": "0oa33z6AFuYWYjdBf0g4",
+        "userVerification": "PREFERRED",
+        "oauthClientId": "myCustomAppClientId"
+    },
+    "provider": {
+        "type": "PUSH",
+        "configuration": {
+            "apns": {
+                "id": "ppc1buciB5V7ZdcB70g4",
+                "appBundleId":"com.my.app.release",
+                "debugAppBundleId":"com.my.app.debug"
+            }, 
+            "fcm": {
+                "id": "ppc38rxEr5dEKqDD10g4"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "methods": {
+            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/methods",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
 }
 ```
