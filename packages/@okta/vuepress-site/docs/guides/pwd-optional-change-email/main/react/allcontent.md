@@ -2,7 +2,7 @@ Enable users to change their primary email address in an application based on th
 
 **Learning outcomes**
 
-* Add the ability for a user to change their primary email in your SPA app using the Embedded SDK and MyAccount API
+* Add the ability for a user to change their primary email in your SPA app using the Embedded SDK and MyAccount API.
 
 **What you need**
 
@@ -17,9 +17,9 @@ Enable users to change their primary email address in an application based on th
 
 ## Overview
 
-Allowing a user to change their primary email is a critical task when they only sign in to your app with a username and email address. Much like a password, a user must be able to change their email addresses especially if it becomes compromised. With the [Embedded SDK](https://github.com/okta/okta-auth-js) you can enable users to change their primary emails in your app.
+Allowing a user to change their primary email is a critical task when they only sign in to your app with a username and email address. Much like a password, a user must be able to change their email addresses, especially if it becomes compromised. With the [Embedded SDK](https://github.com/okta/okta-auth-js) you can enable users to change their primary emails in your app.
 
-The Embedded SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that use the [MyAccount API](/docs/reference/api/myaccount/) to change the user's email and other profile information.
+The Embedded SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that use the [MyAccount API](/docs/reference/api/myaccount/) to change the user's email and other profile information. Your app calls these methods and indirectly accesses the MyAccount API through the Embedded SDK.
 
 <div class="half">
 
@@ -27,7 +27,7 @@ The Embedded SDK contains a series of [methods](https://github.com/okta/okta-aut
 
 </div>
 
-This API is secure, doesn't expose information an end user shouldn't have access to, and can be safely used in browser-based SPA applications. In this guide, you learn how to integrate this change email functionality in your app using the Embedded SDK.
+The MyAccount API and the SDK methods that call it are secure, don't expose information an end user shouldn't have access to, and can be safely used in browser-based SPA applications. In this guide, you learn how to integrate this change email functionality in your SPA app using the Embedded SDK.
 
 ## Update configurations
 

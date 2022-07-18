@@ -1,6 +1,6 @@
 ### 1. The user signs in to your app
 
-The user signs in to your app before they can change their primary email address. During the sign in instantiate an`OktaAuth` object which is used later to change the user's email.
+The user signs in to your app before they can change their primary email address. During the sign-in flow create an `OktaAuth` object, which authenticates the user and later changes their email.
 
 ```javascript
 const oktaAuth = (() => {
@@ -14,7 +14,7 @@ const oktaAuth = (() => {
 
 ### 2. The user starts the change primary email flow
 
-Next, the user starts the change primary email flow. Provide a way in your app for the user to start editing their email. In the following example, an **Edit** link is added next to their current primary email address.
+The user starts the change primary email flow by clicking an **Edit** link next to the primary email address field. Add an **Edit** link that gives the user an entry point to change their email.
 
 <div class="half border">
 
@@ -24,7 +24,7 @@ Next, the user starts the change primary email flow. Provide a way in your app f
 
 ### 3. The user submits a new primary email
 
-The user enters and submits their new primary email address. Create a page or dialog that allows the user to change and submit their new email address.
+When the user clicks on the **Edit** link, display a dialog that allows the user to change and submit their new email address.
 
 <div class="half border">
 
@@ -32,7 +32,7 @@ The user enters and submits their new primary email address. Create a page or di
 
 </div>
 
-1. When the user submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
+1. When the user clicks **Continue** and submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
 
 * `profile.email` to the new primary email.
 * `role` to `PRIMARY` which identifies the email as the primary email address.
@@ -70,7 +70,7 @@ const handleAddEmail = async (role, email) => {
 
 ### 4. Your app handles email verification response
 
-`addEmail` returns a promise that contains an [`EmailTransaction`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md) object. The object has a `status` of `UNVERIFIED` which indicates that the user needs to verify their identity with the new email.
+`addEmail` returns a promise that contains an [`EmailTransaction`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md) object. The object has a `status` of `UNVERIFIED` that indicates that the user needs to verify their identity with the new email.
 
 ```json
 {
@@ -117,7 +117,7 @@ if (transaction.status === 'UNVERIFIED') {
 
 ### 6. Your app handles a successful identity verification
 
-`EmailTransaction.verify()` returns no data and completes without exception when the OTP is valid and the email change completes successfully. Wrap the method call in a `try...catch` statement to catch invalid OTPs and other API exceptions raised from `EmailTransaction.verify()`.
+When the OTP is valid and the email change completes successfully, `EmailTransaction.verify()` returns no data and completes without exception. Wrap the method call in a `try...catch` statement to catch invalid OTPs and other API exceptions raised from `EmailTransaction.verify()`.
 
 ```javascript
 try {
@@ -133,5 +133,7 @@ try {
   }
 }
 ```
+
+After `EmailTransaction.verify()` completes successfully, your app closes the change email dialog and refreshes the main page and displays the new primary email.
 
 > **Note:** In other use cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
