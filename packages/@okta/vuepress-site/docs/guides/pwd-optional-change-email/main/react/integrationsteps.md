@@ -8,7 +8,7 @@ const oktaAuth = (() => {
 })();
 ```
 
- To learn more about initializing this object and how to integrate user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
+ To learn more about initializing this object and how to integrate the user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
 
 <!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
 
@@ -85,9 +85,11 @@ const handleAddEmail = async (role, email) => {
 }
 ```
 
+Build the logic that handles this response and sends the user to a dialog where they enter the OTP.
+
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the One-Time Passcode (OTP) to your app. Create a page or dialog to allow the user to enter the OTP.
+The user opens the email sent by Identity Engine and copies the One-Time Passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
 
 <div class="half border">
 
