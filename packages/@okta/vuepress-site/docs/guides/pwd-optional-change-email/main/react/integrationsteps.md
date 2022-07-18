@@ -1,6 +1,6 @@
 ### 1. The user signs in to your app
 
-The user signs in to your app before they can change their primary email address. During the sign-in flow create an `OktaAuth` object, which authenticates the user and later changes their email.
+The user signs in to your app before they can change their primary email address. During the sign-in flow create an `OktaAuth` object, which is required to authenticate the user and later change their email.
 
 ```javascript
 const oktaAuth = (() => {
@@ -8,7 +8,7 @@ const oktaAuth = (() => {
 })();
 ```
 
- To learn more about integrating user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
+ To learn more about initializing this object and how to integrate user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
 
 <!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
 
@@ -134,6 +134,4 @@ try {
 }
 ```
 
-After `EmailTransaction.verify()` completes successfully, your app closes the change email dialog and refreshes the main page and displays the new primary email.
-
-> **Note:** In other use cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
+After `EmailTransaction.verify()` completes successfully, your app closes the change email dialog, refreshes the main page, and displays the new primary email. To learn more about retrieving the user's profile information including the primary email, see the provided [sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk).
