@@ -19,7 +19,7 @@ if err != nil {
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
@@ -96,7 +96,7 @@ return
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-verify-page.png)
 
@@ -152,7 +152,7 @@ This flag is then used in a template to decide whether or not to display the fie
 
 The following page from the sample application shows the phone number field and phone method type options.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an option to choose the phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
 
@@ -181,7 +181,7 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 The next step is to build the code verification page. After the user submits the method type
 and optional phone number, they need to enter the verification code from their phone.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-code-verify-page.png)
 
