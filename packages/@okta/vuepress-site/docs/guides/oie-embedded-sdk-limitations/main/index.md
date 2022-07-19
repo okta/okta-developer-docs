@@ -26,7 +26,7 @@ In a passwordless sign-in with magic links flow, a user submits only their email
 
 The following image shows an example of the sign-in email's content.
 
-<div class="half">
+<div class="half border">
 
 ![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png)
 

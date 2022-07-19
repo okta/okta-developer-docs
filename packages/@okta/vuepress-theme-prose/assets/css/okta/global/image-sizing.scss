@@ -19,6 +19,7 @@
 .content__default div.half {
   img {
     width: 75%;
+    max-width: 350px;
   }
 }
 
@@ -40,7 +41,6 @@
   .content__default div.half {
     img {
       width: 50%;
-      max-width: 350px;
     }
   }
   
