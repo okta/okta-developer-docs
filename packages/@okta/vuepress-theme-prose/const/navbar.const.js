@@ -362,11 +362,8 @@ export const guides = [
       },
       {
         title: "Okta Identity Engine upgrade",
+        guideName: "oie-upgrade-overview",
         subLinks: [
-          {
-            title: "Identity Engine upgrade overview",
-            guideName: "oie-upgrade-overview",
-          },
           {
             title: "Plan embedded auth app upgrades",
             guideName: "oie-upgrade-plan-embedded-upgrades",
