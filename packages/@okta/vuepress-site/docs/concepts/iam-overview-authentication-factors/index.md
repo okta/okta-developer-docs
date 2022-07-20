@@ -11,7 +11,7 @@ Consider support for the following in the design of your authentication faciliti
 
 - Services that verify a user's identity and send the user's information to your applications. Consider basing them on the *OpenID Connect (OIDC)* protocol standard and on *Security Assertion Markup Language (SAML)* for compatibility with other Identity Providers. Both provide very high security.
 
-- *Single Sign-On (SSO)* to allow users to log in and access multiple related applications without logging in again. This enhances user satisfaction and reduces admin workload.
+- *Single Sign-On (SSO)* to allow users to sign in and access multiple related applications without signing in again. This enhances user satisfaction and reduces admin workload.
 
 - *Federated Identity Management (FIM)* to extend SSO benefits to social media and other external Identity Providers. It has the same benefits as SSO, plus allows users to use their existing social media or external sign-in credentials.
 
