@@ -769,12 +769,6 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/reference/api/idps) for more information.<!-- OKTA-128384 -->
 
-<div class="quarter">
-
-![JIT settings for SAML IdP](/img/release_notes/JIT_settings.png)
-
-</div>
-
 #### Email Factor
 
  You can send a one-time password (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
@@ -2132,13 +2126,6 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
  * System log now records the result of applying the Okta sign-on policy to determine whether
  to use multi-factor authentication for a user trying to log in. This log entry includes
  the user's zone.
-
-<div class="quarter">
-
-![Log screen](/img/graphics/SysLogMFA.png)
-
-</div>
-
 
 <!-- (OKTA-114417) -->
 
