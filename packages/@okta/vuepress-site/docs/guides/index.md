@@ -121,6 +121,7 @@ guides:
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
+ - device-context
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

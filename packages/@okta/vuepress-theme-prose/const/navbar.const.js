@@ -288,6 +288,10 @@ export const guides = [
                 guideName: "advanced-use-case-overview"
               },
               {
+                 title: "Device context",
+                 guideName: "device-context"
+              },
+              {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
               }
