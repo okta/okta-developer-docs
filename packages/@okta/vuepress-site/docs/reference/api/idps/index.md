@@ -660,8 +660,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -808,8 +807,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -955,8 +953,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1098,8 +1095,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1216,7 +1212,6 @@ curl -v -X POST \
 -d '{
   "type": "X509",
   "status": "ACTIVE",
-  "features": [],
   "name": "Smart Card IDP Name",
   "protocol": {
     "type": "MTLS",
@@ -1287,7 +1282,7 @@ curl -v -X POST \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
-    "maxClockSkew":0
+    "maxClockSkew":120000
   },
   "_links": {
     "deactivate": {
@@ -3477,6 +3472,58 @@ curl -v -X GET \
 ]
 ```
 
+### Update key
+
+<ApiOperation method="put" url="/api/v1/idps/credentials/keys/${kid}" />
+
+##### Request parameters
+
+| Parameter     | Description                                                                 | Param Type | DataType | Required |
+| ------------- | --------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| kid           | Unique key of the [IdP Key Credential](#identity-provider-key-credential-object) | URL        | String   | TRUE     |
+
+##### Response parameters
+
+[Identity Provider Key Credential](#identity-provider-key-credential-object)
+
+##### Request example
+
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d ' {
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+    ],
+    "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+    "e": "AQAB",
+    "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+    }' "https://${yourOktaDomain}/api/v1/idps/credentials/keys/your-key-id"
+```
+
+##### Response example
+
+```json
+{
+  "kty": "RSA",
+  "created": "2022-07-12T16:11:13.000Z",
+  "lastUpdated": "2022-07-12T16:17:33.000Z",
+  "expiresAt": "2023-12-21T18:56:55.000Z",
+  "alg": "RSA",
+  "kid": "a125a828-d077-422c-8438-7c78204c1a0a",
+  "use": "sig",
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+  ],
+  "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+  "e": "AQAB",
+  "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+}
+```
+
 ### Delete key
 
 <ApiOperation method="delete" url="/api/v1/idps/credentials/keys/${kid}" />
@@ -4128,7 +4175,10 @@ Finds all the Users linked to an Identity Provider
 | Parameter | Description             | Param Type | DataType | Required |
 | --------- | ----------------------- | ---------- | -------- | -------- |
 | idpId     | `id` of IdP to search   | URL        | String   | TRUE     |
-
+| q     | `query` or search term for user   | URL or body        | String   | FALSE     |
+| after     | Cursor of the query   | URL or body        | String   | FALSE     |
+| limit     | Max number of users to show   | URL or body        | String   | FALSE     |
+| expand     | Expand user data   | URL or body        | String   | FALSE     |
 ##### Response parameters
 
 List of Users that are linked to the specified Identity Provider
@@ -4670,31 +4720,33 @@ curl -v -X GET \
 
 All Identity Providers have the following properties:
 
-| Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
-| ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| _embedded   | Embedded resources related to the IdP                      | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
-| _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
-| created     | Timestamp when the IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| id            | Unique key for the IdP                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL` | FALSE | FALSE | FALSE |   |
-| lastUpdated | Timestamp when the IdP was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| name        | Unique name for the IdP                                    | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
-| policy      | Policy settings for IdP `type`                             | [Policy object](#policy-object)                       | FALSE | FALSE | FALSE |   |     |
-| protocol    | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                     | FALSE | FALSE | FALSE |   |     |
-| status      | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
-| type          | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)              | FALSE    | FALSE  | FALSE    |           |           |
+| Property     | Description                                                  | DataType                                                                  | Nullable | Unique | Readonly | MinLength | MaxLength |
+|--------------| ------------------------------------------------------------ |---------------------------------------------------------------------------| -------- | ------ | -------- | --------- | --------- |
+| _embedded    | Embedded resources related to the IdP                      | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _links       | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| created      | Timestamp when the IdP was created                             | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
+| id           | Unique key for the IdP                                       | String                                                                    | FALSE    | TRUE   | TRUE     |           |           |
+| issuerMode   | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`                                     | FALSE | FALSE | FALSE |   |
+| lastUpdated  | Timestamp when the IdP was last updated                        | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
+| name         | Unique name for the IdP                                    | String                                                                    | FALSE | TRUE  | FALSE | 1 | 100 |
+| policy       | Policy settings for IdP `type`                             | [Policy object](#policy-object)                                           | FALSE | FALSE | FALSE |   |     |
+| protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
+| status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
+| type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
 * The `id`, `created`, `lastUpdated`, and `_links` properties are available after an IdP is created.
 
-* `issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
+* `issuerMode` indicates which URL Okta uses in the request to the social IdP. You can set `issuerMode` to `CUSTOM_URL` only if you have a custom URL domain configured.
 
-    * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`. This is the default value for social IdPs created before the Custom URL Domain feature is enabled.
+    * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`.
 
-    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
+    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`.
 
-  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
+    * If set to `DYNAMIC`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri` if the request was made from the custom domain URL. Otherwise, Okta uses the Okta org's original domain URL if the request was made from the Okta org domain.
+
+  All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use the `issuerMode` they were configured with (`ORG_URL` or `CUSTOM_URL`). You can change this value in any social IdP through the API or Admin Console.
 
 * The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 

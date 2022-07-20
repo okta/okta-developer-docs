@@ -349,7 +349,11 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
     To finish configuring your custom email domain, you must add another include-statement that specifies the mail domain that you specified in the **Mail domain to send from** field from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
 
-    ![CNAME Example](/img/CNAMEExample.png "CNAME table with an arrow pointing at the first CNAME row in the table")
+    <div class="three-quarter border">
+
+    ![CNAME table with an arrow pointing at the first CNAME row in the table](/img/admin/CNAMEExample.png)
+
+    </div>
 
     Add the host to the existing record to configure a combined SPF record similar to this:
 

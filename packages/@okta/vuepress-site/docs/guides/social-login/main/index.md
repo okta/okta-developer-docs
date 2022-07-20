@@ -1,14 +1,13 @@
 ---
-title: Add a social Identity Provider
+title: Social Login
 meta:
   - name: description
-    content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the setup instructions.
-showStackSelector: False
+    content: (Add a social Identity Provider) Okta supports authentication with social Identity Providers. Get an overview of the social login process and prerequisites, as well as the setup instructions.
 ---
 
 ## <StackSnippet snippet="idp" inline />
 
-This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external social Identity Provider (IdP)](/docs/concepts/identity-providers/) for your application by creating an application on <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSnippet snippet="idp" inline /> as an [external social Identity Provider (IdP)](/docs/concepts/identity-providers/) for your application by creating an application at <StackSnippet snippet="idp" inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSnippet snippet="idp" inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
@@ -23,22 +22,14 @@ Configure a social Identity Provider so that your users can quickly sign up or s
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An OpenID Connect (OIDC) app integration in Okta. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
+* An OpenID Connect (OIDC) app integration in Okta for the app that you want to add authentication to. You can [create a new OIDC app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
 * An account with <StackSnippet snippet="idpaccount" inline />
 
 ---
 
 ## Create an app at the Identity Provider
 
-1. <StackSnippet snippet="create-app" inline />
-
-1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
-
-    The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
-
-    For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
-
-1. Save the generated <StackSnippet snippet="idp" inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
+<StackSnippet snippet="appatidp" />
 
 ## Create the Identity Provider in Okta
 
@@ -49,12 +40,15 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 1. Click **Next**.
 1. In the **General Settings** section, define the following:
 
-    * **Name**: Enter a name for the Identity Provider in Okta.
-    * **Client ID**: Paste the generated client ID from your <StackSnippet snippet="idp" inline /> application.
-    * **Client Secret**: Paste the generated client secret from your <StackSnippet snippet="idp" inline /> application.
-    * **Scopes**: Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSnippet snippet="scopes" inline />.
+   <StackSnippet snippet="appidpinokta" />
 
-1. Click **Finish**.
+5. Click **Finish**. A page appears that displays the IdP's configuration.
+
+> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) section.
+
+<StackSnippet snippet="afterappidpinokta" />
+
+> **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples when creating an Identity Provider in Okta using the API.
 
 ## Test the integration
 
@@ -84,23 +78,45 @@ An example of a complete URL looks like this:
 
 ```bash
 https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
+
 ```
+
+To test your authorization URL, enter the complete authorization URL in a browser. Do this in your browser's privacy or incognito mode to avoid false positive or negative results.
+
+If everything is configured properly:
+
+* The user is redirected to the Identity Provider's sign-in page.
+* After successful authentication, the user is redirected to the redirect URI that you specified, along with an `#id_token=` fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
+
+If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
 
 <StackSnippet snippet="noemail" />
 
-## Add the Identity Provider to the Okta Sign-In Widget
+### Add the Identity Provider to the embedded Okta Sign-In Widget
 
-> **Note:** This section is only for Okta Classic Engine. If you are using Okta Identity Engine, the Sign in with IdP option is available on the widget after you've [created the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configured the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and see [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
+> **Note:** This section only applies to Okta Classic Engine. <br>
+> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
 
-The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
+The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the widget by adding the following code to your Okta Sign-In Widget configuration.
 
-To find your Identity Provider ID:
+<StackSnippet snippet="siwconfig" />
+
+Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section. To find your Identity Provider ID:
 
 1. In the Admin console, go to **Security** > **Identity Providers**.
 1. On the **Identity Providers** page, select the **Identity Provider** tab.
 1. Select your Identity Provider from the list. **IdP ID** contains your Identity Provider ID.
 
+### Add the Identity Provider to the custom Okta-hosted sign-in page
+
+> **Note:** This section only applies to Okta Classic Engine. <br>
+> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+
+If you configured a [custom Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with <StackSnippet snippet="idp" inline />** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line in the **Sign-in page code editor** of the Admin Console.
+
 <StackSnippet snippet="siwconfig" />
+
+Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
 
 ## Next steps
 

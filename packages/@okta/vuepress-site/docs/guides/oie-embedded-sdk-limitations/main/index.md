@@ -36,11 +36,11 @@ The following image shows an example of the sign-in email's content.
 
 Use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Global Session Policy rule
+## Primary factor for the global session policy rule
 
 ### Description
 
-The primary factor for the org's Global Session Policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
+The primary factor for the org's global session policy must be set to **Password / IDP**, because the SDK currently only supports password and IDP as the factors to sign in to an app.
 
 To identify the current value for this field:
 

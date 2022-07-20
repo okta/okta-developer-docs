@@ -1,4 +1,4 @@
-## Handle users without email addresses
+### Handle users without email addresses
 
 GitHub doesn’t always provide email addresses for users that it authenticates, such as when the GitHub setting **Keep email addresses private** is enabled. However, Okta requires an email address for its users to be able to sign in. You can support users who don't have email addresses by using information from GitHub to generate email addresses for them.
 
@@ -28,7 +28,7 @@ To generate user login values and email addresses for GitHub users, do the follo
    appuser.email == null ? appuser.externalId + '@github.example.com' : appuser.email
    ```
 
-1. Click **Save Mappings**
+1. Click **Save Mappings**.
 
 Similarly, you can map the IdP username by doing the following:
 
@@ -43,4 +43,4 @@ Similarly, you can map the IdP username by doing the following:
    idpuser.email == null ? idpuser.externalId + '@github.example.com' : idpuser.email
    ```
 
-1. Click **Update Identity Provider**
+1. Click **Update Identity Provider**.

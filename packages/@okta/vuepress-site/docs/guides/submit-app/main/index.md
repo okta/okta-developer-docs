@@ -259,7 +259,11 @@ The OIN Manager always shows the current status of your integration.
 
 The following flowchart outlines the entire process:
 
-![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png "Process flow diagram for Okta and ISV submission")
+<div class="three-quarter">
+
+![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
+
+</div>
 
 ## Update your published integration
 
@@ -296,7 +300,7 @@ You can only delete unpublished submissions that are in **DRAFT** state.
 
 To delete your submission:
 
-1. Click the delete icon ![Delete submission](/img/icons/delete_can.png "Deletion icon") beside the **Edit** button. If the delete icon is unavailable, that submission can't be deleted.
+1. Click the delete icon ![trash can; delete icon](/img/icons/delete_can.png) beside the **Edit** button. If the delete icon is unavailable, that submission can't be deleted.
 1. Confirm the deletion in the dialog box.
 
 No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.
