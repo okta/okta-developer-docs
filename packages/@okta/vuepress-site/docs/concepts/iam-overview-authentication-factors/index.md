@@ -3,7 +3,7 @@ title: Authentication factors
 ---
 # Authentication factors
 
-Your IAM solution must ensure that only legitimate users can access your applications and resources, and all other access attempts are blocked. It must authenticate every sign-in attempt and other access attempts and reliably distinguish between approved and unapproved users. This includes actors who are using someone else's valid credentials. Your design challenge is to meet these objectives while achieving the best possible balance between security protection, cost, and user friendliness.
+Your IAM solution must ensure that only legitimate users can access your applications and resources, and all other access attempts are blocked. It must authenticate every access attempt and reliably distinguish between approved and unapproved users. This includes actors who are using someone else's valid credentials. Your design challenge is to meet these objectives while achieving the best possible balance between security protection, cost, and user friendliness.
 
 See [**IAM Terminology**](/docs/concepts/iam-overview-iam-terminology/) for definitions of some terms and concepts used in this article.
 
@@ -13,21 +13,21 @@ Consider support for the following in the design of your authentication faciliti
 
 - *Single Sign-On (SSO)* to allow users to sign in and access multiple related applications without signing in again. This enhances user satisfaction and reduces admin workload.
 
-- *Federated Identity Management (FIM)* to extend SSO benefits to social media and other external Identity Providers. It has the same benefits as SSO, plus allows users to use their existing social media or external sign-in credentials.
+- *Federated Identity Management (FIM)* to extend SSO benefits to social media and other external Identity Providers. It has the same benefits as SSO, plus it allows users to use their existing social media or external sign-in credentials.
 
 - A range of methods for authenticating users including multifactor authentication (MFA).
 
 - Policies that allow admins to centrally manage how different sets of users are authenticated. This streamlines administration, and decouples policy decisions from your apps to simplify your app designs, development, and maintenance.
 
-- Provisions for your customers and partners to manage and support their own users, and manage authentication options they can control, to reduce your admin workload. You and your customers can use common admin interfaces by limiting what functions and data different customer admins can see and use. Examples might include facilities for resetting passwords and reporting IAM authentication data for their account.
+- Provisions for your customers and partners to manage and support their own users and manage authentication options they can control, reducing your admin workload. You and your customers can use common admin interfaces by limiting what functions and data different customer admins can see and use. Examples might include facilities for resetting passwords and reporting IAM authentication data for their accounts.
 
-- Provisions for your admins to manage and support your users and manage authentication policies for your users and customers. Examples might include the facilities listed for customer admins above for your domain, plus support customers and customer admins, and create, configure, and administer customer policies.
+- Provisions for your admins to manage and support your users and manage authentication policies for your users and customers. Examples might include the facilities listed for customer admins above for your domain, plus supporting customers and customer admins, and creating, configuring, and administering customer policies.
 
 - APIs and SDKs that allow all elements of your IAM solution, your applications, and other consumers to access authentication functions and data as authorized.
 
 ## How Okta can help
 
-Use these Okta features to address the authentication challenges above.
+Use these Okta features to address the authentication challenges listed above.
 
 ### Single Sign-On and federated identity management
 
@@ -63,7 +63,7 @@ When you use Okta's external IdP support facilities:
 
 - User profile updates, which are made at the IdPs, are automatically picked up the next time the users sign in to your app with their IdP credentials.
 
-- You can have multiple external IdPs. You can allow users to select among any IdPs that they have accounts with when they sign in or create logic to select which IdP to use.
+- You can have multiple external IdPs. You can allow users to choose between any IdPs that they have accounts with when they sign in or create logic to select which IdP to use.
 
 Learn more:
 
@@ -77,15 +77,15 @@ For users to sign in with their external IdP credentials, you must forward their
 
 - **Secure Authentication Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-saml.htm) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
 
-- **Secure Web Authentication (SWA)** provides a single sign-on capability to external applications that don't support federated sign-on methods such as SAML, OIDC, and WS-Fed. It works with any web-based app. See [SWA app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-swa.htm) for how to use SWA to set up SSO access to an application.
-
 - **WS-Federation (WS-Fed)** is typically used to sign in to legacy Windows-based web apps and Office 365. See [WS-Fed app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-wsfed.htm).
+
+- **Secure Web Authentication (SWA)** provides a single sign-on capability to external applications that don't support federated sign-on methods such as SAML, OIDC, and WS-Fed. It works with any web-based app. See [SWA app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-swa.htm) for how to use SWA to set up SSO access to an application.
 
 ### Authentication methods
 
-There are a variety of strategies and technologies for authenticating users that have different trade-offs between security, cost, and user friendliness. With Okta, you can choose as many as you need, including::
+There are a variety of strategies and technologies for authenticating users that have different trade-offs between security, cost, and user friendliness. With Okta, you can choose as many as you need, including:
 
-- **Single factor authentication:** Use a single method of identification, such as a password, PIN, or PIV card. (Note: A password is the most common and the least secure of these methods.)
+- **Single factor authentication:** Use a single method of identification such as a password, PIN, or PIV card. (Note: A password is the most common and the least secure of these methods.)
 
 - **2nd factor authentication (2FA):** Require a password and possession of a physical object, such as a one-time password sent to or generated on the user's mobile device.
 
@@ -93,7 +93,7 @@ There are a variety of strategies and technologies for authenticating users that
 
 - **Passwordless authentication:** This is similar to 2FA, except the user uses a highly secure factor, such as a fingerprint or facial recognition, in lieu of a password.
 
-- **Multifactor authentication (MFA):** Require the user to supply at least two of three types of evidence that they are who they claim to be: they know something only the user knows, have something only the user has, or are the user (such as by passing a fingerprint or facial recognition test). You can employ *Adaptive MFA* techniques to adjust the factors based on perceived risks. (See *risk-based authentication* below.)
+- **Multifactor authentication (MFA):** Require the user to supply at least two or three types of evidence that they are who they claim to be: they know something only the user knows, have something only the user has, or are the user (such as by passing a fingerprint or facial recognition test). You can employ *Adaptive MFA* techniques to adjust the factors based on perceived risks. (See *risk-based authentication* below.)
 
 - **Risk-based authentication (RBA):** Evaluate the risk of an authentication request and adjust your MFA factors accordingly. Your risk assessment can use any factors, including dynamic factors such as whether the user is signing in from a familiar device, at an unusual time of day, or using a possibly compromised subnet or host. You can use this strategy to reduce the number of challenge factors when the risk appears low or increase the number when the risk appears higher. This achieves the best possible balance between high security and user experience. RBA is also called *adaptive authentication* or *context-based authentication*.
 
@@ -131,32 +131,11 @@ Policies are centralized and decoupled from your applications. This simplifies y
 
 To illustrate the use of policies, your admins, customer admins, and end users typically have different sign-in criteria because of differences in their roles. You can use policies to control their sign-in flows. More complicated examples might include policies that shape IAM behavior based on the type of user (such as full-time employee, contractor, or outside partner), organization, department, device type, network, and so on.
 
-Okta supports the following policy types:
-
-- **Global session policy:** Control who is allowed to sign in and how, including whether they are challenged for MFA and how long they can remain signed in before re-authenticating.
-
-- **Authentication policy:** Specify extra levels of authentication to be performed before a user can access an application. Each app in an organization has an authentication policy.
-
-- **Password policy:** Specify the requirements for a user's password length and complexity, as well as the frequency with which they must change their password. This policy also governs the recovery operations the user can perform, including change password, reset (forgot) password, and self-service password unlock.
-
-- **Multifactor authentication policy:** Controls how users enroll an authenticator. Control which MFA methods are available for a user, as well as when a user may enroll in a particular factor.
-
-- **Profile enrollment policy:** Collects the attributes required to validate end users when they attempt to access your app. You can use this for self-service registration or for progressive enrollment.
-
-- **OAuth authorization policy:** Manage authorization between clients and Okta. Define token lifetimes for a given combination of grant type, user, and scope. This type of policy is specific to a particular client app.
-
-- **IdP Discovery policy:** Control where to route users when they attempt to sign in to your org. (Note: This policy only affects IdP selection and doesn't control access.)
+Okta supports a number of different policy types. Read [What are policies](/docs/concepts/policies/) to learn what they are, how they work, and their main use cases.
 
 Learn more:
 
-- [What are policies](/docs/concepts/policies/) describes Okta policies, how they work, and gives a few use cases.
-
-#### Okta sign-on policies
-
-Use *Okta sign-on policies to control* how particular sets of users authenticate and sign in to their accounts, such as allow access, prompt for a challenge, and set the time before prompting for another challenge.
-
-Learn more:
-
+- [What are policies](/docs/concepts/policies/)
 - [About Okta sign-on policies](https://help.okta.com/en/prod/Content/Topics/Security/policies/about-signon-policies.htm) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated.
 
 **Next step: [Authorization Factors](/docs/concepts/iam-overview-authorization-factors/).**
