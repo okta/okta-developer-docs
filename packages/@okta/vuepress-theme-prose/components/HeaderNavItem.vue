@@ -10,7 +10,7 @@
         :href="href"
         @click="navigate"
         :class="{
-          'router-link-active': route.path === $route.path,
+          'router-link-active': isCurrentPage(route.path),
           'link': true,
         }"
         :aria-current="route.path === $route.path && 'page'"
@@ -42,11 +42,18 @@ export default {
 
   computed:{
     entityType: function(){
-      if(this.link.hasOwnProperty('path') && this.link.path !== null ){
-        return this.types.link
+      if (this.link.hasOwnProperty('path')) {
+        if (this.link.path !== null) {
+          return this.types.link
+        }
       }
     },
   },
+  methods: {
+    isCurrentPage(route) {
+      return window.location.pathname.startsWith(route);
+    },
+  }
 
   
 };
