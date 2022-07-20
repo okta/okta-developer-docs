@@ -288,6 +288,10 @@ export const guides = [
                 guideName: "advanced-use-case-overview"
               },
               {
+                title: "Email Magic Links",
+                guideName: "email-magic-links-overview"
+              },
+              {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
               }
