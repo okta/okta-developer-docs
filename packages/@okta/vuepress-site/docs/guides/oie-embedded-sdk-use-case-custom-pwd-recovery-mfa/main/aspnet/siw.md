@@ -83,6 +83,6 @@ After the widget is loaded, it checks whether the state and OTP are valid with O
 
 <div class="half border">
 
-![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
+![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 
 </div>

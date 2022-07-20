@@ -141,7 +141,7 @@ The `viewModel` parameter is then consumed in a Razor page.
 
 The WebAuthn factor option is listed as **Security Key or Biometric**, as shown in the following image.
 
-<div class="three-quarter border">
+<div class="three-quarter">
 
 ![An authenticator list showing WebAuthn Authenticator available for use](/img/authenticators/dotnet-authenticators-webauthn-authenticator-list.png)
 

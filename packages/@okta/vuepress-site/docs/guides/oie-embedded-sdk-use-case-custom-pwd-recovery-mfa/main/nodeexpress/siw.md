@@ -86,7 +86,7 @@ After set up, render the client site page and pass the configurations to the wid
 
 ### 6: Display password reset page and continue the password recovery flow
 
-After the widget is loaded, the following reset page is appears:
+After the widget is loaded, the following reset page appears:
 
 <div class="half border">
 

@@ -46,7 +46,7 @@ Use the `value` and `label` properties to show the available list of authenticat
 
 UI showing the Google Authenticator option:
 
-<div class="three-quarter border">
+<div class="three-quarter">
 
 ![Google Authenticator option shown in UI](/img/authenticators/authenticators-google-dropdown-selection.png)
 
@@ -112,7 +112,7 @@ The following [Mustache](https://mustache.github.io/) template snippet shows how
 
 Example UI showing the Google Authenticator in the dropdown list:
 
-<div class="three-quarter border">
+<div class="three-quarter">
 
 ![Shared secret shown in UI](/img/authenticators/authenticators-google-shared-secret.png)
 

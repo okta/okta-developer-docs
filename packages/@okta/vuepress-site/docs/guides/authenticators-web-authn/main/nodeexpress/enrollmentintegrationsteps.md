@@ -43,9 +43,9 @@ Use the `value` and `label` properties to show the available list of authenticat
   </select>
 ```
 
-UI showing the Google Authenticator option:
+UI showing the WebAuthn Authenticator option:
 
-<div class="three-quarter border">
+<div class="three-quarter">
 
 ![WebAuthNoption shown in UI](/img/authenticators/authenticators-webauthn-dropdown-selection.png)
 

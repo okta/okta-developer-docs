@@ -111,6 +111,6 @@ After the widget loads, it checks the validity of the `otp` and `state` values w
 
 <div class="half border">
 
-![Screenshot of password reset page](/img/advanced-use-cases/java-custom-pwd-recovery-custom-siw-reset-pwd-page.png "Password Reset Page")
+![Screenshot of password reset page](/img/advanced-use-cases/java-custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 
 </div>

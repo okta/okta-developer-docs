@@ -104,7 +104,7 @@ public ModelAndView handleKnownTransitions(
 
 Display the password reset page and continue the password recovery flow described in the [User password recovery summary of steps](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/#summary-of-steps).
 
-<div class="half">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/java-custom-pwd-recovery-custom-sdk-reset-pwd-page.png)
 
