@@ -27,6 +27,8 @@ This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/em
 
 Okta's embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
 
+> **Note**: The [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/) explains the difference in user experience between using one-time passwords and magic links.
+
 ## Before you begin
 
 Before you begin you need to:
