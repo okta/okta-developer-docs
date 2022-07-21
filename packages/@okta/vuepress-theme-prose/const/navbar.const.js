@@ -94,27 +94,27 @@ export const concepts = [
         title: "Understanding IAM",
         subLinks: [
           {
-            title: "IAM Overview",
+            title: "IAM overview",
             path: "/docs/concepts/iam-overview/"
           },
           {
-            title: "Identity Management Factors",
+            title: "Identity management factors",
             path: "/docs/concepts/iam-overview-identity-management-factors/"
           },
           {
-            title: "Authentication Factors",
+            title: "Authentication factors",
             path: "/docs/concepts/iam-overview-authentication-factors/"
           },
           {
-            title: "Authorization Factors",
+            title: "Authorization factors",
             path: "/docs/concepts/iam-overview-authorization-factors/"
           },
           {
-            title: "Architectural Factors",
+            title: "Architectural factors",
             path: "/docs/concepts/iam-overview-architectural-factors/"
           },
           {
-            title: "IAM Terminology",
+            title: "IAM terminology",
             path: "/docs/concepts/iam-overview-iam-terminology/"
           }
         ]
