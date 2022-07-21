@@ -1,9 +1,9 @@
 ---
-title: Identity Management Factors
+title: Identity management factors
 ---
-# Identity Management Factors
+# Identity management factors
 
-Every authorized user has a unique combination of login credentials, parent organization, policies, access privileges, and other properties. Your solution's identity management elements store this data, and [provide services](#identity-processing-and-administration) that use, manage, and report it.
+Every authorized user has a unique combination of sign-in credentials, parent organization, policies, access privileges, and other properties. Your solution's identity management elements store this data, and [provide services](#identity-processing-and-administration) that use, manage, and report it.
 
 See [**IAM Terminology**](/docs/concepts/iam-overview-iam-terminology/) for definitions of some terms and concepts used in this article.
 
@@ -25,11 +25,11 @@ Consider the following in your identity storage design:
 
 - Maintain policies to control how users and customers are handled.
 
-- Disable (hide), but never delete, obsolete data to meet audit, regulatory, and IAM behavior analysis requirements, and make it available to authorized personnel and entities.
+- Disable (hide), but never delete, obsolete data to meet audit, regulatory, and IAM behavior analysis requirements. Make the data available to authorized personnel and entities.
 
-- Log all actions taken for key data to support troubleshooting, administration, and auditing, and make the data available to authorized personnel.
+- Log all actions taken for key data to support troubleshooting, administration, and auditing. Make the data available to authorized personnel.
 
-- Provide APIs and SDKs that allow all elements of your IAM solution, applications, and other consumers, to access identity data as authorized.
+- Provide APIs and SDKs that allow all elements of your IAM solution, applications, and other consumers to access identity data as authorized.
 
 ## Identity processing and administration
 
@@ -39,11 +39,11 @@ Consider facilities such as these to use and manage data in your directory:
 
 - User device registration and management, such as add a new device, update device info, and remove an obsolete device. Consider allowing users to perform these tasks for themselves too, for the same reasons.
 
-- *Progressive profiling*, to incrementally collect information and update user profiles after the users begin using your apps. You can use this to reduce how much data you collect when they register, and collect more and more reliable user demographic data later.
+- Progressive profiling to incrementally collect information and update user profiles after the users begin using your apps. You can use this to reduce how much data you collect when they register and collect reliable user demographic data later.
 
-- Facilities for admins to create and manage user, group, and other profiles, and manage profile attributes, within the scope of their authority.
+- Facilities for admins to create and manage user, group, and other profiles, and manage profile attributes within the scope of their authority.
 
-- Provisions for your customers and partners to manage and support their own users and options they can control to reduce your admin workload. You and your customers can use common admin interfaces by limiting what functions and data different customer admins can see and use. Examples might include user registration and management functions for their users, plus functions to disable obsolete users, create and maintain user policies, assign user roles and permissions, and generate audit and other reports for their accounts.
+- Common admin interfaces for you and your customers to manage and support their user registrations, profiles, roles, permissions and reporting. You can limit what functions different customer admins can see and use.
 
 - Provisions for your admins to manage and support your users and customers. Examples might include those listed for customer admins above for your domain, plus create, configure, and administer customer accounts.
 
@@ -61,11 +61,11 @@ Okta is a cloud-based IAM platform that is built around a centralized directory 
 
 ### Okta identity storage
 
-Okta has two main identity storage and management facilities: [Identity Engine](#okta-identity-engine) and [Universal Dictionary](#okta-universal-directory). See [Okta Data Model](https://developer.okta.com/docs/concepts/okta-data-model/) for how they model data.
+Okta has two main identity storage and management facilities: [Identity Engine](#okta-identity-engine) and [Universal Dictionary](#okta-universal-directory). See [Okta Data Model](/docs/concepts/okta-data-model/) for how they model data.
 
 #### Okta Identity Engine
 
-The *Okta Identity Engine (OIE)* is a set of customizable building blocks for enrolling, authenticating, and authorizing users; controlling access to your resources; issuing related events; and customizing access for your organization.
+The *Okta Identity Engine* is a set of customizable building blocks for enrolling, authenticating, and authorizing users. Identity Engine helps control access to your resources, issue related events, and customizes access for your organization.
 
 You can use Identity Engine features to:
 
@@ -73,11 +73,11 @@ You can use Identity Engine features to:
 
 - Authenticate users to allow only authorized users to access the right apps and data in approved ways.
 
-- Employ a variety of means to authenticate users, such as multi-factor authentication (MFA) and biometrics, to address a flexible set of needs.
+- Employ a variety of means to authenticate users, such as multifactor authentication (MFA) and biometrics, to address a flexible set of needs.
 
-- Authenticate your end users using email, rather than specify a password (*passwordless authentication*), for higher security, and better user experience.
+- Authenticate your end users using email, rather than specify a password (*passwordless authentication*), for higher security and better user experience.
 
-- Capture additional information about users after they register (*progressive profiling*) to request less data when they register, and collect more and more reliable user demographic data later.
+- Capture additional information about users after they register (*progressive profiling*) to request less data when they register and collect reliable user demographic data later.
 
 - Set up policies to control how users are authenticated.
 
@@ -89,39 +89,39 @@ You can use Identity Engine features to:
 
 Learn more:
 
-- [Okta Identity Engine Overview](https://developer.okta.com/docs/guides/oie-intro/) elaborates on OIE's benefits, deployment models, SDKs, and sample apps.
+- [Okta Identity Engine Overview](/docs/guides/oie-intro/) elaborates on Identity Engine's benefits, deployment models, SDKs, and sample apps.
 
-- [Okta Identity Engine](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/oie-index.htm) has links for learning more about OIE.
+- [Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=csh-oie) has links for learning more about OIE.
 
 #### Okta Universal Directory
 
-The *Universal Directory (UD)* is a full-featured directory that can mirror data in Active Directory (AD), LDAP, CSV directories, social media, and other external Identity Providers, to serve as a single source of truth for all user data. It allows you to combine user profiles from all of your identity sources and centralize user policy, profile, and password management.
+The *Universal Directory (UD)* is a full-featured directory that can mirror data in Active Directory (AD), LDAP, CSV directories, social media, and other external Identity Providers. This allows UD to serve as a single source of truth for all user data. Additionally, it allows you to combine user profiles from all of your identity sources and centralize user policy, profile, and password management.
 
-The Universal Directory has per-group administration. For example, you can manage external identities in UD, manage internal identities in AD and mirror them in UD, give an application owner admin control over accounts in their domain, and give IT admin control over internal accounts. Your apps and scripts can use its REST APIs to manage users, and you can use its real-time data and reports for analysis. Its LDAP interface eliminates the need for local LDAP authentication.
+The Universal Directory has per-group administration. You can manage external identities in UD, internal identities in AD, and mirror them in UD. You can give an application owner admin control over accounts in their domain, and give IT admin control over internal accounts. You can manage users with its REST APIs, and you can use its real-time data and reports for analysis. Its LDAP interface eliminates the need for local LDAP authentication.
 
 Using Universal Directory:
 
-- You can store an unlimited number of users and attributes from sources like Active Directory, LDAP, and external IdPs, and delegate authentication to them.
+- Store an unlimited number of users and attributes from sources like Active Directory, LDAP, and external IdPs, and delegate authentication to them.
 
-- You can add any number of directories or domains.
+- Add any number of directories or domains.
 
-- You can store, manage, and apply business and authentication policies that control how you handle different sets of users, including customer and partner users.
+- Store, manage, and apply business and authentication policies that control how you handle different sets of users, including customer and partner users.
 
-- You can set consistent user access policies with a central policy engine, create policies based on unique user contexts, and employ any combination of MFA factors.
+- Set consistent user access policies with a central policy engine, create policies based on unique user contexts, and employ any combination of MFA factors.
 
-- You can maintain user device information in device profiles that you associate with user profiles.
+- Maintain user device information in device profiles that you associate with user profiles.
 
-- You can define, store, and administer user roles, permissions, policies, and other data.
+- Define, store, and administer user roles, permissions, policies, and other data.
 
-- You can organize users in hierarchical groups, and assign roles, permissions, and policies to them that are inherited by their members.
+- Organize users in hierarchical groups, and assign roles, permissions, and policies to them that are inherited by their members.
 
-- You can use its out-of-the-box connections with HR systems like Workday, SaaS apps like G Suite, CSV files, and third-party identity providers.
+- Use its out-of-the-box connections with HR systems like Workday, SaaS apps like G Suite, CSV files, and third-party identity providers.
 
-- You can get a real-time syslog to troubleshoot and address security issues, use pre-built reports to see how end users use apps and services, and download or export your data to CSV files, sync it with Security Information and Event Management systems, or access it via its API.
+- Get a real-time syslog to troubleshoot and address security issues and use pre-built reports to see how end users use apps and services. You can download or export your data to CSV files, sync it with Security Information and Event Management systems, or access it through its API.
 
 - Admins can view and manage policies, reset passwords, and view and manage profiles of all users in their domains using its API and admin user interfaces.
 
-- Obsolete data is disabled without being deleted, and can be provided to authorized admins.
+- Obsolete data is disabled without being deleted and can be provided to authorized admins.
 
 - You can replace your on-premise LDAP and Active Directory.
 
@@ -147,7 +147,7 @@ Okta supports four types of user profiles:
 
 - **Okta custom user profiles** are based on Okta user profiles and are used for different types of users, such as administrators, contractors, help desk, and so on. (You can have up to ten user types, with a separate custom user profile for each.) Custom user profiles also have thirty-one default base attributes, and you can add custom attributes.
 
-Your admins can create and manage user types, Okta profiles, and custom attributes. Profile data is available for authentication, authorization, and access control, and your apps can access it via the API.
+Your admins can create and manage user types, Okta profiles, and custom attributes. Profile data is available for authentication, authorization, and access control, and your apps can access it through the API.
 
 Learn more:
 
@@ -175,33 +175,33 @@ Okta manages users in [organizations](#okta-organizations), and uses [groups](#o
 
 An Okta organization (org) is a root object and a container for all other Okta objects. It contains users, groups, applications and other resources, and policy and configurations for your Okta environment.
 
-Every org has users and apps. These are the only mandatory items that must be configured for your org to use Okta. Users can be created in Okta, imported through directory integrations, or imported through application integrations. Applications are connections to public apps (such as Office 365) or proprietary applications (such as your own apps).
+Every org has users and apps. These are the only mandatory items that you must configure for your org to use Okta. You can create users in Okta, import users through directory integrations or application integrations. Applications are connections to public apps (such as Office 365) or proprietary applications (such as your own apps).
 
-Okta orgs host pages on subdomains, and a unique URL is assigned to each org. The typical org URL is the tenant name (the subdomain), and then the domain name. Each org has an admin URL to sign in to the administrator console. The organization and admin URLs can be customized.
+Okta orgs host pages on subdomains, and a unique URL is assigned to each org. The typical org URL is the tenant name (the subdomain), and then the domain name. Each org has an admin URL to sign in to the Admin Console. You can [customize the organization and admin URLs](/docs/guides/custom-url-domain/main/).
 
 There are two types of organizations: production and preview:
 
-- Preview orgs allow you to see the next release early and play with Beta features. They include Beta and Early Access (EA) features by invitation and include all features that are Generally Available (GA).
+- Preview orgs allow you to see the next release early and play with Beta features. Some beta and Early Access (EA) features are made available by invitation. Some are self-service features which you can turn on yourselves. All preview orgs include all Generally Available (GA) features.
 
-- Production orgs are stable releases and don't contain Beta features. They include EA features by request and all features that are GA.
+- Production orgs are stable releases and don't contain Beta features. They include both self-service EA features and those EA features made available by request, and all GA features.
 
 Learn more:
 
-- [Okta organizations](https://developer.okta.com/docs/concepts/okta-organizations/) elaborates on org URLs, types, and GA and EA feature types, org federation, multiple-org configurations, and rate limits.
+- [Okta organizations](/docs/concepts/okta-organizations/) elaborates on org URLs, types, and GA and EA feature types, org federation, multiple-org configurations, and rate limits.
 
 #### Okta groups
 
-Groups help you simplify managing users who have common or shared traits. For example, you can create a group named Sales and grant group members access to the Sales Documentation folder on your org file server to make it easier for your sales team to access shared sales documentation. Group data typically resides in the directory. You can also limit the scope of app sign-in rolecs to a group, such as configure policies to implement MFA for remote, temporary, or contract employees.
+Groups help you simplify managing users who have common or shared traits. For example, you can create a group named Sales and grant group members access to the Sales Documentation folder on your org file server to make it easier for your sales team to access shared sales documentation. Group data typically resides in the directory. You can also limit the scope of app sign-in roles to a group, such as configure policies to implement MFA for remote, temporary, or contract employees.
 
 With Okta, you can define group membership in one directory and then use your groups in multiple connected systems. In on-premises systems, applications can connect to and query for groups from a central directory. Cloud applications often lack a common Active Directory, but Okta lets you use groups with these types of applications.
 
 Learn more:
 
-- [About groups](https://help.okta.com/en-us/Content/Topics/users-groups-profiles/usgp-about-groups.htm) elaborates on groups and their use for policies, SAML provisioning, and use cases.
+- [About groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups) elaborates on groups and their use for policies, SAML provisioning, and use cases.
 
 ### Okta workflow management
 
-Okta Lifecycle Management and Okta Workflows are workflow management features to automate routine IT and HR procedures in order to minimize the time, effort, and errors to perform them.
+Okta Lifecycle Management and Okta Workflows are workflow management features to automate routine IT and HR procedures to minimize the time, effort, and errors to perform them.
 
 #### Okta Lifecycle Management
 
@@ -217,7 +217,7 @@ You can use Okta Lifecycle Management's features to:
 
 - Push groups and their memberships to provisioned third-party apps.
 
-- Automatically respond to user lifecycle events, such as alert a user or change their status if they are inactive for too long or their login credentials are about to expire.
+- Automatically respond to user lifecycle events, such as alert a user or change their status if they are inactive for too long or their sign-in credentials are about to expire.
 
 - Create and run reports to confirm user access, check unassignments, and detect orphan accounts.
 
@@ -241,6 +241,6 @@ Using Okta Workflows, you can:
 
 Learn more:
 
-- [Okta Workflows](https://help.okta.com/wf/en-us/Content/Topics/Workflows/workflows-main.htm) has links for learning more about Workflows.
+- [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf) has links for learning more about Workflows.
 
 **Next step: [Authentication Factors](/docs/concepts/iam-overview-authentication-factors/).**
