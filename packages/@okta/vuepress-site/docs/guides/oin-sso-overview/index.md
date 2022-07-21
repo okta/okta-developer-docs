@@ -21,7 +21,8 @@ Choose how you want to implement your SSO integration:
 <Card href="/docs/guides/build-sso-integration/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="Security Assertion Markup Language (SAML)" :showFooter=false>Build an Okta SSO integration with SAML</Card>
 </Cards>
 <br>
-Read further for reasons why you want to build an SSO integration for the OIN, choosing the right protocol, and use case examples.
+
+Read further for reasons [why you want to build an SSO integration](#why-build-an-sso-integration-with-okta) for the OIN, [choosing the right protocol](#choose-your-sso-protocol), and [use case examples](#use-case-examples).
 
 ## Why build an SSO integration with Okta?
 
@@ -30,13 +31,13 @@ Read further for reasons why you want to build an SSO integration for the OIN, c
 | **Enhance security** | Integrating with Okta allows your customers to manage password strength and configure access policies for your application. For example, they may require employees to use multifactor authentication (such as push notification to their phone or SMS) in order to access your application from an unknown device. |
 | **Deliver a strong end-user access experience** | Take away all the friction of managing usernames and passwords. Once authenticated through Okta, your users can access your application with a single click. |
 | **Enterprise ready** | Your customers have a growing set of compliance needs that are continuously evolving. An Okta integration helps you meet compliance and audit requirements and shortens sales cycles. |
-| **Ease of adoption** | For your enterprise customers that are already using Okta, they can add SSO to your application with minimal effort. All they have to do is add and configure your app through the integration catalog in Okta.|
+| **Ease of adoption** | Your customers can add SSO integration to your OIN-published app with minimal effort. They use Okta to add and configure your app integration into their identity ecosystem without extensive support from your customer service resources. Their workforce can access your app within hours of integration and policy configurations. |
 
 ## Choose your SSO protocol
 
 Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). The SSO protocol you choose to implement your integration is based on your app and use case. For new integrations, OIDC is recommended.
 
-| &nbsp; |  OIDC | SAML  |
+| &nbsp; |  <span style="width: 24px;display:inline-block">![OIDC](/img/idp-logos/oidc.png)</span> OIDC | <span style="width: 22px;display:inline-block">![SAML](/img/idp-logos/saml.png)</span> SAML  |
 | ------ | :------------------- | :----------------------- |
 | **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends the OAuth 2.0 protocol to provide an ID token which can be used to verify a user’s identity and sign them into a cloud-based application. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
 | **Benefits** | <ul><li>Newer protocol with widespread and growing usage</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud applications</li> </ul> | <ul><li>Many people are familiar with SAML because it is an older protocol</li> <li>Widely used federation protocol for SSO in Web applications</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
@@ -46,38 +47,39 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 
 ## Use case examples
 
-### Example of a workforce user Single Sign-On journey with Okta
-
-1. Ramon is starting his work day. In his web browser, he clicks on the Okta browser extension and selects his email app which loads in a new tab.
-2. Ramon’s company has an Okta sign-on policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
-3. Ramon’s company has also enabled Okta multifactor authentication, so after successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email!
-4. Next, Ramon goes to his Okta browser extension and selects his customer relationship management app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign-in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
-
 ### Example of a partner integration journey with Okta
 
-Erika is an application developer at Acme, a technology partner with Okta. Acme is looking to leverage the OIN as a way for their customers to adopt and incorporate Acme’s application to the customer’s existing Okta tenant. This will allow Acme’s customers to add Acme’s app to their existing identity infrastructure with minimal configuration. 
-
-#### Actions
+Erika is an application developer at Acme, a technology partner with Okta. Acme is looking to leverage the OIN as a way for their customers to adopt and incorporate Acme’s application to the customer’s existing Okta tenant. This will allow Acme’s customers to add Acme’s app to their existing identity infrastructure with minimal integration resources.
 
 1. Erika builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to.
-2. Erika submits the integration for Okta to verify and review.
-3. After approval, Acme’s app is published on the OIN.
+2. Erika documents the required configuration steps for the customer admin.
+3. Erika submits the integration and corresponding documentation for the Okta OIN team to verify and review.
+4. After approval, Acme’s app is published on the OIN.
 
-In addition, with a pre-built Acme-Okta integration, Acme avoids additional support staff required for each individual customer integration.
+With a pre-built Acme-Okta integration, Acme avoids additional support staff required for each individual customer integration.
 
 ### Example of an identity admin journey with Okta
 
-Initech is a company that is looking to add Acme's application into their existing Okta identity infrastructure.
+Ali is an IT admin at Initech. Initech is looking to add Acme's application into their existing Okta identity infrastructure.
 
-1. Ray is an admin at Initech and finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ray knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
+1. Ali finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
 
-2. Ray adds the Acme app integration in the Okta Admin Console. Ray follows the instructions provided by Acme to configure the app integration.
+2. Ali adds the Acme app integration from the Okta Admin Console. Ali follows the instructions provided by Acme to configure the app integration.
 
-3. Ray configures the Okta authentication policy and the group of Initech employees with access to the Acme app.
+3. Ali configures the Okta authentication policy and the group of Initech employees with access to the Acme app.
 
-4. Ray tests signing in to the Acme app with existing Okta credentials to verify the authentication flow.
+4. Ali tests signing in to the Acme app with existing Okta credentials to verify the authentication flow.
 
 Initech's group of employees with privileged access can sign in to the Acme app with their existing Okta credentials and no additional Acme app registration is required.
+
+### Example of a workforce user Single Sign-On journey with Okta
+
+Ramon is an Initech employee with privileges to the Acme app.
+
+1. Ramon starts his work day. In his web browser, he clicks the Okta browser extension and selects his email app which loads in a new tab.
+2. Ramon’s company has an Okta sign-on policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
+3. Ramon’s company has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email!
+4. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign-in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
 
 ## Next steps
 
