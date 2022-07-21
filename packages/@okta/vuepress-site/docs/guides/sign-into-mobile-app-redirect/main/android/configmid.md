@@ -1,31 +1,30 @@
-1. Create a new file called `okta_oidc_config.json` in the `app/src/main/res/raw` directory:
+1. Create a new file called `okta.properties` in the root directory of your project:
 
-2. Add the following content to it, replacing the placeholders with the Okta app integration values that you got earlier.
+1. Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the code below with the values from the Okta app integration that you created in [Create an Okta integration for your app](#create-an-okta-integration-for-your-app).
+    ```properties
+    discoveryUrl=<DISCOVERY_URL>
+    clientId=<CLIENT_ID>
+    signInRedirectUri=<SIGN_IN_URI>
+    signOutRedirectUri=<SIGN_OUT_REDIRECT_URI>
+    ```
+   | Placeholder               | Value                                                                                                                                                        |
+   |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------| ----- |
+   | `<DISCOVERY_URL>`         | The domain of your registered Okta org followed by `/oauth2/default/.well-known/openid-configuration`, such as `https://dev-1234567.okta.com/oauth2/default/.well-known/openid-configuration` |
+   | `<CLIENT_ID>`             | The client ID from the app integration that you created, such as `0ux3rutxocxFX9xyz3t9`                                                                      |
+   | `<SIGN_IN_URI>`           | The sign-in redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/callback`                                                 |
+   | `<SIGN_OUT_REDIRECT_URI>` | The sign-out redirect URI from the app integration that you created, such as `com.okta.dev-1234567:/logout`                                                        |{:.table .table-word-break}
 
-   ```json
-   {
-     "client_id": "${clientId}",
-     "redirect_uri": "${redirectUri}",
-     "end_session_redirect_uri": "${logoutRedirectUri}",
-     "scopes": [
-       "openid",
-       "profile",
-       "offline_access"
-     ],
-     "discovery_uri": "https://${yourOktaDomain}"
-   }
-   ```
+1. Add the following code to the bottom of the app's build file, `app/build.gradle`:
 
-3. Create a singleton service class called `AuthClient.java` (we created ours in `app/src/main/java/com/okta/android/samples/browser_sign_in/service/AuthClient.java`).
+    ```groovy
+    def oktaProperties = new Properties()
+    rootProject.file("okta.properties").withInputStream { oktaProperties.load(it) }
+    android.defaultConfig {
+        buildConfigField "String", 'DISCOVERY_URL', "\"${oktaProperties.getProperty('discoveryUrl')}\""
+        buildConfigField "String", 'CLIENT_ID', "\"${oktaProperties.getProperty('clientId')}\""
+        buildConfigField "String", 'SIGN_IN_REDIRECT_URI', "\"${oktaProperties.getProperty('signInRedirectUri')}\""
+        buildConfigField "String", 'SIGN_OUT_REDIRECT_URI', "\"${oktaProperties.getProperty('signOutRedirectUri')}\""
+    }
+    ```
 
-4. Add the following inside the class to create the configuration object that the Okta SDK uses to communicate with your Okta application integration:
-
-   ```java
-   private AuthClient(Context context) {
-     var config = new OIDCConfig.Builder()
-                       .withJsonFile(context, R.raw.okta_oidc_config)
-                       .create();
-   }
-   ```
-
-> **Note:** The sample uses only the main application activity to keep things simple. We recommend that production apps follow the latest [Android architecture guidelines](https://developer.android.com/topic/architecture).
+1. Update Android Studio with the changes by performing a gradle sync. For more information on performing a gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).

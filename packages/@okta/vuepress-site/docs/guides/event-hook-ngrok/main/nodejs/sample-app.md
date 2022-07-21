@@ -119,4 +119,8 @@ The Event Hook use case is a simple local application response to the addition o
 
 If your web page deploys, the simple application is working, and ready for your Event Hook set up.
 
-![A screen shot of the simple application web page that includes a welcome message and links to the Okta Developer documentation.](/img/ngrok-and-event-hooks-simple-app.png)
+<div class="three-quarter">
+
+![A screen shot of the simple application web page that includes a welcome message and links to the Okta Developer documentation.](/img/hooks/ngrok-and-event-hooks-simple-app.png)
+
+</div>

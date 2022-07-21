@@ -11,12 +11,12 @@ The Okta Authentication API provides operations to authenticate users, perform m
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your Global Session Policy.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your global session policy.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, the MFA Enrollment Policy, or the Password Policy.
+The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the global session policy, the MFA Enrollment Policy, or the Password Policy.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
@@ -1113,7 +1113,7 @@ curl -v -X POST \
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
-> **Note:** Global Session Policy and the related authentication policy are evaluated after successful primary authentication.
+> **Note:** Global session policy and the related authentication policy are evaluated after successful primary authentication.
 
 ```bash
 curl -v -X POST \
@@ -1276,7 +1276,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 
 ##### Response example for Factor challenge for step-up authentication with Okta session
 
-User is assigned to a Global Session Policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
+User is assigned to a global session policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
 
 ```json
 {
@@ -7345,7 +7345,7 @@ Subset of [profile properties](/docs/reference/api/users/#profile-object) for a 
 
 #### Remember device policy object
 
-A subset of policy settings of the Global Session Policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
+A subset of policy settings of the global session policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
 
 | Property                        | Description                                                                      | DataType  | Nullable | Unique | Readonly |
 | ------------------------------- | -------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- |

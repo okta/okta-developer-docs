@@ -121,6 +121,7 @@ guides:
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
+ - email-magic-links-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -144,7 +145,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
-    * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
 
 3. Authorize
 

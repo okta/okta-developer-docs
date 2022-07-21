@@ -63,4 +63,8 @@ app -> client: Response
 
  -->
 
+<div class="full">
+
 ![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
+
+</div>
