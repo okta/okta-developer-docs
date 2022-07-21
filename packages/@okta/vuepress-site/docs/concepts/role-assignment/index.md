@@ -58,8 +58,6 @@ A Resource Set is simply a collection of resources. There are two types of resou
 
 #### Okta Resource Name (ORN)
 
-<ApiLifecycle access="ea" />
-
 The primary resource identifier is the Okta Resource Name (ORN). ORNs uniquely identify Okta resources.
 
 ##### ORN format

@@ -4,7 +4,7 @@ title: Custom password recovery
 
 <ApiLifecycle access="ie" />
 
-This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okta.com/passwordless-authentication/#email-magic-link) into the self-service password recovery flow of your applications using Okta's embedded solutions.
+This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
 ---
 **Learning outcomes**
@@ -26,30 +26,6 @@ This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okt
 ## Overview
 
 Okta's embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
-
-### Two different user experiences using email
-
-When you configure an email authenticator with password recovery, there is out-of-the-box support for two different types of user experiences: click a magic link or copy a one-time password (OTP). With the magic link experience, the user initiates the password recovery in your app, clicks on the magic link in their email, and completes the password reset using an Okta-hosted site. With OTP, the user initiates the password recovery in your app, copies the OTP from their email to your app, and completes the password reset in your app. The following diagram illustrates these two experiences:
-
-<div class="full">
-
-![Diagram showing two flows for password recovery](/img/advanced-use-cases/custom-pwd-recovery-no-customizations.png)
-
-</div>
-
-### The case for customizing the email magic link experience
-
-The OTP experience allows for greater customization because it keeps the user within your app when performing the password reset. However, it does introduce additional friction since the user needs to copy the OTP from their email to your app. Magic links, on the other hand, provide a smoother experience by only requiring the user to click a link. However, the drawback with this experience is that it sends them to an Okta-hosted site to reset their password, which limits the branding and other customizations you can implement.
-
-Fortunately, you can provide your users with a password recovery experience that's friction-free and customizable. In this customized experience, your users click the magic link and, instead of redirecting to an Okta-hosted site, they get sent directly to your app to reset their password. The flow looks like the following:
-
-<div class="full">
-
-![Diagram showing customized password recovery](/img/advanced-use-cases/custom-pwd-recovery-customizations.png)
-
-</div>
-
-With this customized experience, you gain better control of the user experience, keep user interactions contained as much as possible within your app, and send your users back to your app with a single click. This guide discusses the configuration changes and updates needed to make your app support this experience.
 
 ## Before you begin
 

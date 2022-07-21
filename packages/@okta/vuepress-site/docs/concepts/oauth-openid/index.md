@@ -93,7 +93,11 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 The type of OAuth 2.0 flow depends on what kind of client that you are building. This flowchart can quickly help you decide which flow to use.
 
-![OAuth flow Diagram width:](/img/oauth_grant_flowchart.png "flowchart/decision tree for choosing the correct OAuth 2.0 flow")
+<div class="full">
+
+![flowchart/decision tree for choosing the correct OAuth 2.0 flow](/img/authorization/oauth_grant_flowchart.png)
+
+</div>
 
 #### Is your client public?
 
@@ -146,7 +150,11 @@ app -> client: Response
 
  -->
 
-![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
+<div class="full">
+
+![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow-guide.png)
+
+</div>
 
 ### Authorization Code flow with PKCE
 
@@ -162,7 +170,11 @@ When the authorization code is sent in the access token request, the code verifi
 
 A rogue app could only intercept the authorization code, but it wouldn't have access to the code challenge or verifier, since they are both sent over HTTPS.
 
-![Auth Code flow with PKCE width:](/img/oauth_auth_code_flow_pkce.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE")
+<div class="full">
+
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -194,7 +206,11 @@ For information on how to set up your application to use this flow, see [Impleme
 
 The Resource Owner Password flow is intended for use cases where you control both the client application and the resource that it is interacting with. It requires that the client can store a client secret and can be trusted with the resource owner's credentials, and so is most commonly found in clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
 
-![Resource Owner Password flow width:](/img/oauth_password_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow")
+<div class="full">
+
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-password-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -221,7 +237,11 @@ The Client Credentials flow is intended for server-side (AKA "confidential") cli
 
 > **Note:** The Client Credentials flow doesn't support refresh tokens.
 
-![Client Credentials flow width:](/img/oauth_client_creds_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow")
+<div class="three-quarter">
+
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -246,7 +266,11 @@ The SAML 2.0 Assertion flow is intended for a client app that wants to use an ex
 
 To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64 encoded. You can send only one SAML assertion in that request.
 
-![SAML 2.0 Assertion flow width:](/img/saml_assert_flow.png "Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion flow")
+<div class="full">
+
+![Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion flow](/img/authorization/oauth-saml2-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -277,7 +301,11 @@ For information on how to set up your application to use this flow, see [Impleme
 
 > **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
-![Implicit flow width:](/img/oauth_implicit_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow")
+<div class="full">
+
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow](/img/authorization/oauth-implicit-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

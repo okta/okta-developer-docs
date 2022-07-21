@@ -126,7 +126,11 @@ If your API is consumed from another machine or service (instead of users), you 
 
 If you are using [Postman](/code/rest/) and the Client Credentials flow, you can use an API call of the form `https://${yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, and you will get a response containing an access token.
 
-![Postman showing a token request post response including an access token](/img/postman-post-response.png)
+<div class="three-quarter border">
+
+![Postman showing a token request post response including an access token](/img/authorization/postman-post-response.png)
+
+</div>
 
 Copy the value in the `access_token` object field and use it for testing your API in the next step.
 
@@ -151,7 +155,11 @@ The expected results are as follows, provided you followed the instructions in t
 
 If you are using Postman, your GET call and response should look something like this:
 
-![Postman showing a get request to the protected endpoint with a token, and a resulting 200 response](/img/postman-get-response.png)
+<div class="three-quarter border">
+
+![Postman showing a get request to the protected endpoint with a token, and a resulting 200 response](/img/authorization/postman-get-response.png)
+
+</div>
 
 ## Next steps
 

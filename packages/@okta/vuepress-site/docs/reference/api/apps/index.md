@@ -1328,6 +1328,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | client_id                    | Unique identifier for the client application. **Note:** When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
+| pkce_required <ApiLifecycle access="ea" />| Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | `true` for `browser` and `native` application types |
 
 ##### Settings
 
@@ -3686,6 +3687,8 @@ Content-Type: application/json
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
+
+> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
 ##### Request parameters
 
@@ -6426,7 +6429,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
-Lists all tokens for the application
+Lists all refresh tokens for the application
 
 #### Request parameters
 
@@ -6504,7 +6507,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
-Gets a token for the specified application
+Gets a refresh token for the specified application
 
 #### Request parameters
 
@@ -7996,6 +7999,7 @@ Determines how to authenticate the OAuth 2.0 client
 | client_id                  | Unique identifier for the OAuth 2.0 client application                           | String   | TRUE     |
 | client_secret              | OAuth 2.0 client secret string                                                   | String   | TRUE     |
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
+| pkce_required <ApiLifecycle access="ea" />| Require Proof Key for Code Exchange (PKCE) for additional verification           | Boolean  | TRUE     |
 
 * When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
@@ -8005,13 +8009,17 @@ Determines how to authenticate the OAuth 2.0 client
 
 * If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/docs/concepts/key-rotation/). You can update this property via the API or via the administrator UI.
 
+<ApiLifecycle access="ea" />
+* Use `pkce_required` to require PKCE for your confidential clients using the [Authorization Code flow](/docs/guides/implement-grant-type/authcodepkce/main/). If `token_endpoint_auth_method` is `none`, `pkce_required` needs to be `true`. If `pkce_required` isn't specified when adding a new application, Okta sets it to `true` by default for `browser` and `native` application types.
+
 ```json
 {
   "oauthClient": {
     "autoKeyRotation": false,
     "client_id": "0oa1hm4POxgJM6CPu0g4",
     "client_secret": "5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z",
-    "token_endpoint_auth_method": "client_secret_post"
+    "token_endpoint_auth_method": "client_secret_post",
+    "pkce_required": true
   }
 }
 ```
