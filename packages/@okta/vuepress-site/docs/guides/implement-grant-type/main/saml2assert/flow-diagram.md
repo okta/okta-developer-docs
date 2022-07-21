@@ -1,6 +1,10 @@
 ### SAML 2.0 Assertion flow
 
-![Displays the sequence diagram for the SAML 2.0 Assertion flow that shows the back and forth between the resource owner, authorization server, Identity Provider and client"](/img/authorization/oauth-saml2-grant-flow.png "SAML 2.0 Assertion flow")
+<div class="three-quarter">
+
+![Displays the sequence diagram for the SAML 2.0 Assertion flow that shows the back and forth between the resource owner, authorization server, Identity Provider and client"](/img/authorization/oauth-saml2-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

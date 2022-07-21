@@ -2,9 +2,7 @@
 title: Custom password recovery
 ---
 
-<div class="oie-embedded-sdk">
-
-<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="ie" />
 
 This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
@@ -121,5 +119,3 @@ The following diagram shows the steps for a customized password recovery in an a
 ## See also
 
 <StackSnippet snippet="relatedusecases" />
-
-</div>
