@@ -31,8 +31,6 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
 This guide assumes that you:

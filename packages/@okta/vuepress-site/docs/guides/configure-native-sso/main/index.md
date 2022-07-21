@@ -29,8 +29,6 @@ This guide provides a high-level overview of the Native SSO feature in Okta. It 
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
 This guide assumes that you have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
