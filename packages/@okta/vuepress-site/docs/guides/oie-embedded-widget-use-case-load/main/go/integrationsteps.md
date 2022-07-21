@@ -127,7 +127,7 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
 
 After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Sign-in Widget with the username and password fields](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
 

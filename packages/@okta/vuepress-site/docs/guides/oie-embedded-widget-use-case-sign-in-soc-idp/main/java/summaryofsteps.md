@@ -2,7 +2,7 @@
 
 The following diagram shows the sequence of steps to sign in to an app by using the embedded Sign-In Widget and the Facebook sign-in option:
 
-<div class="common-image-format">
+<div class="full">
 
 ![Displays the social sign-in sequence steps for the Java SDK embedded Sign-In Widget flow](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-java.png)
 
