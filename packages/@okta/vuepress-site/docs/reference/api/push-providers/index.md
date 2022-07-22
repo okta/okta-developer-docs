@@ -507,7 +507,7 @@ The Push Provider object has the following properties:
 | -------------------- | --------------- | -------------------------------------------------- | ---------------------------------------- |
 | `fileName`           | String          | (Optional) File name for Admin Console display     | All
 | `keyId`              | String          | 10-character Key ID obtained from the Apple developer account                   | `APNS`                                   |
-| `serviceAccountJson` | JSON            | JSON containing the private service account key and service account details           | `FCM`                                    |
+| `serviceAccountJson` | JSON            | JSON containing the private service account key and service account details. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for more information on creating service account keys in JSON.           | `FCM`                                    |
 | `teamId`             | String          | 10-character Team ID used to develop the iOS app   | `APNS`                                   |
 | `tokenSingingKey`    | String          | APNs private authentication token signing key      | `APNS`                                   |
 
