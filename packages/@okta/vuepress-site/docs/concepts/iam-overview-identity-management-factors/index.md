@@ -153,7 +153,7 @@ Learn more:
 
 - [User profiles](https://developer.okta.com/docs/concepts/user-profiles/) elaborates on Okta user profiles and profile types, user mappings, custom profile types, how the Universal Directory handles them, and more, and has links to more information.
 
-- [Work with profiles and attributes](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-user-profile-attributes-main.htm) has links to more detailed information about managing profiles and attributes.
+- [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) has links to more detailed information about managing profiles and attributes.
 
 #### Progressive profiling
 
@@ -165,7 +165,7 @@ Learn more:
 
 - [Configuring Progressive Profiling for Your Custom Apps](https://www.okta.com/blog/2019/01/configuring-progressive-profiling-for-your-custom-apps/) explains how you can collect additional data if profile requirements change.
 
-- [Work with profiles and attributes](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-user-profile-attributes-main.htm) has links to information about managing profiles and attributes.
+- [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) has links to information about managing profiles and attributes.
 
 ### Okta organizations and groups
 

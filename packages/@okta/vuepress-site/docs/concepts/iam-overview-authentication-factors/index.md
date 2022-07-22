@@ -75,11 +75,11 @@ For users to sign in with their external IdP credentials, you must forward their
 
 - **OpenID Connect (OIDC)**. See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/) for a high-level introduction to these protocols.
 
-- **Secure Authentication Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-saml.htm) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
+- **Secure Authentication Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-saml) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
 
 - **WS-Federation (WS-Fed)** is typically used to sign in to legacy Windows-based web apps and Office 365. See [WS-Fed app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-wsfed.htm).
 
-- **Secure Web Authentication (SWA)** provides a single sign-on capability to external applications that don't support federated sign-on methods such as SAML, OIDC, and WS-Fed. It works with any web-based app. See [SWA app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-swa.htm) for how to use SWA to set up SSO access to an application.
+- **Secure Web Authentication (SWA)** provides a single sign-on capability to external applications that don't support federated sign-on methods such as SAML, OIDC, and WS-Fed. It works with any web-based app. See [SWA app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-swa) for how to use SWA to set up SSO access to an application.
 
 ### Authentication methods
 
@@ -111,11 +111,11 @@ Okta can substantially reduce your development and maintenance costs and risks f
 
 Learn more:
 
-- [Multifactor authentication (MFA)](https://help.okta.com/en/prod/Content/Topics/Security/mfa/mfa-home.htm) briefly describes MFA and has links to information about configuring it, enrollment policies, app-level MFA, and more.
+- [Multifactor authentication (MFA)](https://help.okta.com/okta_help.htm?id=csh-mfa-home) briefly describes MFA and has links to information about configuring it, enrollment policies, app-level MFA, and more.
 
 - [Risk-Based Authentication: What You Need to Consider](https://www.okta.com/identity-101/risk-based-authentication/) provides an overview of risk-based authentication and describes Okta's approach.
 
-- [Risk Scoring](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) elaborates on Okta's risk processing.
+- [Risk Scoring](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)(https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) elaborates on Okta's risk processing.
 
 - [About Okta ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/about-threatinsight.htm) describes how this product helps prevent credential-based attacks. Okta's ThreatInsight product uses data from the analyses of authentication requests made to thousands of Okta organizations and Okta authentication endpoints to identify suspicious IP addresses. See [Okta ThreatInsight Whitepaper](https://www.okta.com/resources/whitepaper/okta-threatinsight/).
 
@@ -136,6 +136,6 @@ Okta supports a number of different policy types. Read [What are policies](/docs
 Learn more:
 
 - [What are policies](/docs/concepts/policies/)
-- [About Okta sign-on policies](https://help.okta.com/en/prod/Content/Topics/Security/policies/about-signon-policies.htm) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated.
+- [About Okta sign-on policies](https://help.okta.com/okta_help.htm?id=ext_secpol_poleval)(https://help.okta.com/en/prod/Content/Topics/Security/policies/about-signon-policies.htm) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated.
 
 **Next step: [Authorization Factors](/docs/concepts/iam-overview-authorization-factors/).**
