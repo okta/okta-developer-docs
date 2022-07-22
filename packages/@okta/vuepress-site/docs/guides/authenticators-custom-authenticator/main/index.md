@@ -20,8 +20,8 @@ This guide explains how to create a custom authenticator, using the Devices SDK 
 * <StackSnippet snippet="notifservicelink" />
 * <StackSnippet snippet="appreq" />
 * (Optional) The following Postman collections (see [Get started with Okta APIs](/code/rest/)):
-   * Push Providers API Postman
-   * Custom Authenticators API Postman
+   * [Push Providers API Postman](https://app.getpostman.com/run-collection/83575c0b5b075783862c)
+   * [Custom Authenticators API Postman](https://app.getpostman.com/run-collection/836eb57018cba45da121)
 
 **Sample code**
 
@@ -94,7 +94,7 @@ You can set up notification services in your org using the Push Providers API or
 
 ### Add a custom authenticator
 
-The Custom Authenticator allows you to add custom push verification functionality to your mobile applications. Rather than using Okta Verify for push, you can use your own branded app, and embed the Custom Authenticator into it, to perform user verification in your app.
+The Custom Authenticator allows you to add custom push verification functionality to your mobile apps. Rather than using Okta Verify for push, you can use your own branded app, and embed the Custom Authenticator into it, to perform user verification in your app.
 
 You can create and brand a custom authenticator in your org using the Authenticators Administration API or the Admin console.
 
@@ -112,4 +112,25 @@ You need to set up a Global Session Policy and an authentication policy to integ
 
 ## Install and configure the Okta Devices SDK
 
+<StackSnippet snippet="sdksteps" />
 
+## Limitations
+
+### Custom authenticator error in Admin Console
+
+#### Description
+
+Use cases that meet the following conditions receive an error message in the Admin Console UI:
+
+* Call the `api/va/apps` endpoint to create an OIDC app with a custom `client_id`.
+* Use the Admin Console to create a custom authenticator.
+
+#### Workaround
+
+Create both the OIDC client app (with a custom `client_id`) and the custom authenticator in the Admin Console.
+
+Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app and `custom client_id`, and call the `api/v1/authenticators` endpoint to create a custom authenticator.
+
+## See also
+
+[Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/)

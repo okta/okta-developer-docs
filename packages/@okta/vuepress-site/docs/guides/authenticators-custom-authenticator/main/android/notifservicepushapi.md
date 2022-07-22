@@ -32,8 +32,9 @@ curl -v -X GET \
     "fileName": "fileName.json"
   }
 }' "https://${yourOktaDomain}/api/v1/push-providers"
+```
 
-Sample response
+#### Sample response
 
 The response contains the Push Provider response object.
 
@@ -56,3 +57,4 @@ The response contains the Push Provider response object.
     }
   }
 }
+```
