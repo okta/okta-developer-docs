@@ -1,4 +1,4 @@
-Use this API to add custom push verification functionality to your mobile app. See [Custom Authenticator API]().
+Use this API to add custom push verification functionality to your mobile app. See [Custom Authenticator API](/docs/reference/api/authenticators-admin/#create-authenticator).
 
 <ApiOperation method="post" url="/api/v1/authenticators" />
 
@@ -7,7 +7,7 @@ Use this API to add custom push verification functionality to your mobile app. S
 This request needs the following:
 
 * The `okta.authenticators.manage.self` scope enabled.
-* An Authenticator object in the request body. See [Customm Authenticator API]().
+* An Authenticator object in the request body. See [Example Custom Authenticator](/docs/reference/api/authenticators-admin/#example-custom-app-authenticator).
 
 > **Note:** When creating a new `custom_app` authenticator, you need to set the `agreeToTerms` property to `true`. This property shows that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator.
 

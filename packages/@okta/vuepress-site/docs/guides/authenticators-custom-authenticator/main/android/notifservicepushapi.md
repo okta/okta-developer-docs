@@ -1,10 +1,10 @@
-Use this API to provide push provider credentials from FCM so that Okta can send push notifications to your custom app authenticator. See [Push Providers API]().
+Use this API to provide push provider credentials from FCM so that Okta can send push notifications to your custom app authenticator. See [Push Providers API](/docs/reference/api/push-providers/).
 
 <ApiOperation method="post" url="/api/v1/push-providers" />
 
 #### Sample bearer token request
 
-This request needs the `okta.pushProviders.manage` scope and a Push Provider object in the request body. Each push provider must have a unique name. See [Push Providers API objects]().
+This request needs the `okta.pushProviders.manage` scope and a Push Provider object in the request body. Each push provider must have a unique name. See [Push Providers API objects](/docs/reference/api/push-providers/#push-providers-api-objects).
 
 The following sample shows a bearer token request:
 
