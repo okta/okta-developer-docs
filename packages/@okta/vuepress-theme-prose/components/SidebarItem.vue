@@ -69,14 +69,15 @@
             </a>
           </router-link>
     </div>
-
-    <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded || isCurrentPage(link.path)">
-      <SidebarItem
-        v-for="sublink in link.subLinks"
-        :key="sublink.title"
-        :link="sublink"
-      />
-    </ul>
+    <transition name="fade">
+      <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded || isCurrentPage(link.path)">
+        <SidebarItem
+          v-for="sublink in link.subLinks"
+          :key="sublink.title"
+          :link="sublink"
+        />
+      </ul>
+    </transition>
   </li>
 
 </template>
@@ -189,3 +190,12 @@ export default {
   }
 };
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
