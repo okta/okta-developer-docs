@@ -7,17 +7,31 @@ meta:
 
 Lifecycle management refers to the process of provisioning and deprovisioning application access as a user moves through an organization. Onboarding and offboarding are also terms used to describe the actions associated with lifecycle management.
 
-Key terms for lifecycle management:
+### Ready to get started?
 
-* Joiner &mdash; starting employment at an organization
-* Mover &mdash; changing roles or teams within an organization
-* Leaver &mdash; ending employment at an organization
+Choose how you want to implement your lifecyle management integration:
+
+<Cards>
+<Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="System for Cross-domain Identity Management" :showFooter=false>Build a SCIM provisioning integration</Card>
+
+<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflow Connector" :showFooter=false>Build a Workflow integration</Card>
+</Cards>
+
+[Workflow Connector in HOC](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+<br>
+
+Read further for reasons [why you want to build an SSO integration](#why-build-an-sso-integration-with-okta) for the OIN, [choosing the right lifecycle management tools](#choose-your-sso-protocol), and [use case examples](#use-case-examples).
+
+
 
 ## Why build a Lifecycle Management integration with Okta?
 
-| Increase adoption of your product and sell more licenses | Automate onboarding / offboarding and win larger customers | Secure access to your application | Meet compliance requirements |
-| ---------------- | ---------------- | -------- | ----------------- |
-| Okta lifecycle management integration helps your customers utilize SaaS licenses and ultimately purchase more as the organization grows or usage expands. | Once an organization reaches a certain size, manually provisioning accounts and getting users set up for success can be time consuming and a huge bottleneck for your product’s adoption. Okta lifecycle management integration automates mundane tasks for your customers which reduces the total cost of ownership and removes barriers to end-user activation. | Secure access to your application - Integrating with Okta ensures end-users can access your application as soon as they join an organization. Access is automatically removed as they leave the organization to prevent embarrassing data loss and dangling access. | Help your customers generate logs of access changes in order to comply with security policies and pass audits. |
+| &nbsp; | &nbsp; |
+| ------ | ------ |
+| **Increase adoption of your product and sell more licenses** | Okta lifecycle management integration helps your customers utilize SaaS licenses and ultimately purchase more as the organization grows or usage expands. |
+| **Automate onboarding / offboarding and win larger customers** | Once an organization reaches a certain size, manually provisioning accounts and getting users set up for success can be time consuming and a huge bottleneck for your product’s adoption. Okta lifecycle management integration automates mundane tasks for your customers which reduces the total cost of ownership and removes barriers to end-user activation. |
+| **Secure access to your application** | Secure access to your application - Integrating with Okta ensures end-users can access your application as soon as they join an organization. Access is automatically removed as they leave the organization to prevent embarrassing data loss and dangling access. |
+| **Meet compliance requirements** | Help your customers generate logs of access changes in order to comply with security policies and pass audits. |
 
 ## Choose how you implement lifecycle management integration
 
@@ -32,6 +46,12 @@ Key terms for lifecycle management:
 ## Use case examples
 
 ### Example of a workforce lifecycle journey with Okta
+
+Key terms for lifecycle management:
+
+* Joiner &mdash; starting employment at an organization
+* Mover &mdash; changing roles or teams within an organization
+* Leaver &mdash; ending employment at an organization
 
 #### Joining
 
@@ -62,3 +82,11 @@ Acme is a company that is using Okta to manage identity for their workforce. Acm
 Tom builds the RewardMe-Okta lifecycle management integration by using the SCIM protocol so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding. Tom submits the integration for Okta to verify and review. After approval, the RewardMe app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
 
 Now that RewardMe is in the OIN as an SSO and lifecycle management integration app, Acme knows that they can deploy RewardMe with minimal effort. When new employees join Acme, their HR staff adds user profiles in one Okta source, as usual. The profiles are automatically provisioned to the apps with lifecycle management support, which now includes RewardMe. This will alleviate Acme's resource efficiency and security concerns with RewardMe. Acme is more compelled to adopt RewardMe into their HR suite.
+
+## Next steps
+
+After your app integration is built and tested, submit the integration to the Okta OIN team for verification:
+
+<Cards>
+<Card href="/docs/guides/submit-app/scim/" headerImage="/img/icons/provisioning--blue.svg" :showFooter=false>Publish an OIN integration</Card>
+</Cards>
