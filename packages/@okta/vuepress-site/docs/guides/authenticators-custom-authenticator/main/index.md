@@ -17,8 +17,8 @@ This guide explains how to create a custom authenticator, using the Devices SDK 
 **What you need**
 
 * An Okta developer app
-* <StackSnippet snippet="notifservicelink" />
-* <StackSnippet snippet="appreq" />
+* <StackSnippet snippet="notifservicelink" inline />
+* <StackSnippet snippet="appreq" inline />
 * (Optional) The following Postman collections (see [Get started with Okta APIs](/code/rest/)):
    * [Push Providers API Postman](https://app.getpostman.com/run-collection/83575c0b5b075783862c)
    * [Custom Authenticators API Postman](https://app.getpostman.com/run-collection/836eb57018cba45da121)
@@ -41,7 +41,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 1. [Create an OIDC app integration](): Set up OAuth for your app.
 2. [Grant the required scopes](): Grant the scopes you need to call the Custom Authenticator API.
-3. [Set up notification services](): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservicelong" /> with your Okta org.
+3. [Set up notification services](): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
 4. [Add a custom authenticator](): Use the Admin Console or Authenticators Administration API to create and brand a custom authenticator.
 5. [Set up a global session policy and authentication policy](): Control who can access Okta and how.
 
@@ -61,7 +61,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 ### Create an OIDC web authentication client
 
-The simplest way to integrate authentication in your app is with OIDC through a web browser, using the Authorization Code Flow grant. You need an access token to start the enrollment flow for the Devices SDK. For future logins, consider using refresh tokens. <StackSnippet snippet="samplecode" />
+The simplest way to integrate authentication in your app is with OIDC through a web browser, using the Authorization Code Flow grant. You need an access token to start the enrollment flow for the Devices SDK. For future logins, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
 
 ### Grant the required scopes
 

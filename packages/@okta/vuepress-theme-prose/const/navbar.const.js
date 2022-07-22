@@ -267,6 +267,10 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
+                title: "Okta custom authenticator",
+                guideName: "authenticators-custom-authenticator"
+              },
+              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator"
               },
