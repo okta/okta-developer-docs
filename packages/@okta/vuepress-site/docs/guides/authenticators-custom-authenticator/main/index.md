@@ -2,8 +2,6 @@
 title: Custom authenticator integration guide
 ---
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" /><br>
 
 This guide explains how to create a custom authenticator, using the Devices SDK to turn your mobile app into an authenticator.
@@ -37,21 +35,21 @@ The Devices SDK allows you to embed push notifications and biometrics directly i
 
 This guide walks you through the two main tasks needed to integrate with Okta Devices SDK:
 
-### Create a custom authenticator
+**Create a custom authenticator**
 
-1. [Create an OIDC app integration](#create-an-oidc-app-integration): Set up OAuth for your app.
+1. [Create an OIDC web authentication client](#create-an-oidc-web-authentication-client): Set up OAuth for your app.
 2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes you need to call the Custom Authenticator API.
 3. [Set up notification services](#set-up-notification-services): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
 4. [Add a custom authenticator](#add-a-custom-authenticator): Use the Admin Console or Authenticators Administration API to create and brand a custom authenticator.
 5. [Set up a global session policy and authentication policy](#set-up-a-global-session-policy-and-authentication-policy): Control who can access Okta and how.
 
-### Install and configure the Okta Devices SDK
+**Install and configure the Okta Devices SDK**
 
 1. [Install the dependency](#install-the-dependency).
 2. [Initialize the client](#initialize-the-client): Create the SDK object to work with your Okta authenticator configuration.
-3. [Enroll the user](#enroll-the-user)
-4. [Respond to a challenge](#respone-to-a-challenge)
-5. [Resolve challenges](#resolve-challenges)
+3. [Enroll the user](#enroll-the-user).
+4. [Respond to a challenge](#respone-to-a-challenge): 
+5. [Resolve challenges](#resolve-challenges): 
 
 <!-- Flow-type DIAGRAM -->
 
