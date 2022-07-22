@@ -94,6 +94,8 @@ You can set up notification services in your org using the Push Providers API or
 
 ### Add a custom authenticator
 
+The Custom Authenticator allows you to add custom push verification functionality to your mobile applications. Rather than using Okta Verify for push, you can use your own branded app, and embed the Custom Authenticator into it, to perform user verification in your app.
+
 You can create and brand a custom authenticator in your org using the Authenticators Administration API or the Admin console.
 
 #### Use the Admin Console
@@ -103,4 +105,11 @@ You can create and brand a custom authenticator in your org using the Authentica
 #### Use the Custom Authenticator API
 
 <StackSnippet snippet="customauthenticatorcustomapi" />
+
+### Set up a global session policy and authentication policy
+
+You need to set up a Global Session Policy and an authentication policy to integrate with the Devices SDK. See [Configure a Global Session Policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+
+## Install and configure the Okta Devices SDK
+
 

@@ -4,7 +4,7 @@ Use this API to provide push provider credentials from FCM so that Okta can send
 
 #### Sample bearer token request
 
-This request needs the okta.pushProviders.manage scope and a Push Provider object in the request body. Each push provider must have a unique name. See [Push Providers API objects]().
+This request needs the `okta.pushProviders.manage` scope and a Push Provider object in the request body. Each push provider must have a unique name. See [Push Providers API objects]().
 
 The following sample shows a bearer token request:
 
