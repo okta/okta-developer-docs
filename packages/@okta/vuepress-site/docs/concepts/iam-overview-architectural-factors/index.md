@@ -89,7 +89,7 @@ Consider strategies such as these to help ensure that your solution meets your c
 
 - Allow admins to specify the compliance types for applications your solution serves, and a way to view and update those settings by those accounts with permission to do so.
 
-- Keep all compliance-sensitive data, such as user identity information, in separate storage with appropriate access controls to limit access, and encrypt that storage for further security.
+- Keep all compliance-sensitive data, such as user identity information, in separate storage with appropriate access controls to limit access. Encrypt that storage for further security.
 
 - Define special permissions for accessing compliance-sensitive data other than your own. Provide facilities for authorized admins to assign those permissions. Develop procedures for limiting the assignment and use of those permissions.
 
@@ -97,7 +97,7 @@ Consider strategies such as these to help ensure that your solution meets your c
 
 - Develop procedures to keep your solution up to date with any applicable regulatory requirements.
 
-- Log all accesses to compliance-sensitive data, and make the logs available for analysis and audits.
+- Log all accesses to compliance-sensitive data and make the logs available for analysis and audits.
 
 - Be prepared to demonstrate how your solution meets applicable regulatory compliance requirements and to work with application developers to help them meet their requirements.
 
