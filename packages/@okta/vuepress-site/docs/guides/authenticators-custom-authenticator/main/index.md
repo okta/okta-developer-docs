@@ -41,7 +41,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 1. [Create an OIDC app integration](): Set up OAuth for your app.
 2. [Grant the required scopes](): Grant the scopes you need to call the Custom Authenticator API.
-3. [Set up notification services](): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservice" /> with your Okta org.
+3. [Set up notification services](): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservicelong" /> with your Okta org.
 4. [Add a custom authenticator](): Use the Admin Console or Authenticators Administration API to create and brand a custom authenticator.
 5. [Set up a global session policy and authentication policy](): Control who can access Okta and how.
 
@@ -53,6 +53,54 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 4. [Respond to a challenge](): 
 5. [Run your app](): 
 
-<!-- DIAGRAM -->
+<!-- Flow-type DIAGRAM -->
 
+## Create a custom authenticator
+
+<!-- Console flow DIAGRAM -->
+
+### Create an OIDC web authentication client
+
+The simplest way to integrate authentication in your app is with OIDC through a web browser, using the Authorization Code Flow grant. You need an access token to start the enrollment flow for the Devices SDK. For future logins, consider using refresh tokens. <StackSnippet snippet="samplecode" />
+
+### Grant the required scopes
+
+> **Note:** If you have a custom Authorization Server, the scopes associated with the Custom Authenticator API are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
+
+When you are ready to grant the required scopes, follow these steps:
+
+1. Sign in to your Okta organization with your administrator account and go to Applications > Applications.
+2. Open your OpenID Connect client app.
+3. On the Okta API Scopes tab, click Grant for the following scopes:
+   * For access to both GET and POST/DELETE endpoints:
+      * `okta.authenticators.manage.self`
+   * For access to GET endpoints only:
+      * `okta.authenticators.read`
+      * `okta.users.read.self`
+
+Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
+
+### Set up notification services
+
+You can set up notification services in your org using the Push Providers API or the Admin Console.
+
+#### Use the Admin Console
+
+<StackSnippet snippet="notifserviceadminconsole" />
+
+#### Use the Push Providers API
+
+<StackSnippet snippet="notifservicepushapi" />
+
+### Add a custom authenticator
+
+You can create and brand a custom authenticator in your org using the Authenticators Administration API or the Admin console.
+
+#### Use the Admin Console
+
+<StackSnippet snippet="customauthenticatoradminconsole" />
+
+#### Use the Custom Authenticator API
+
+<StackSnippet snippet="customauthenticatorcustomapi" />
 
