@@ -58,7 +58,7 @@ Consider providing APIs and SDKs that allow other elements of your IAM solution,
 
 Okta provides authorization facilities that allow you to meet or exceed your application's general architecture and authorization requirements. Here are a few ways that Okta can help:
 
-- You can assign different kinds of admin roles with different scopes, such as super admin, organization admin, application admin, and API access management admin, whose capabilities and scope are limited. Each has a unique set of permissions and restrictions. See [Standard administrator roles and permissions](https://help.okta.com/en/prod/Content/Topics/Security/administrators-admin-comparison.htm).
+- You can assign different kinds of admin roles with different scopes, such as super admin, organization admin, application admin, and API access management admin, whose capabilities and scope are limited. Each has a unique set of permissions and restrictions. See [Standard administrator roles and permissions](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison).
 
 - Okta bases authorization and access control on the OAuth 2.0 protocol standard for maximum security and compatibility with contemporary systems. See [API Access Management with Okta](/docs/concepts/api-access-management/) and [Protect your API endpoints](/docs/guides/protect-your-api/aspnetcore3/main/).
 

@@ -49,7 +49,7 @@ title: IAM terminology
 
 - **SCIM (System for Cross-domain Identity Management):** An open standard for communicating and managing user identity information. It defines a schema for representing users and groups, and a REST API for running CRUD *(Create, Read, Update, or Disable)* operations on them. Okta bases its identity management and communications on SCIM. See [Understanding SCIM](/docs/concepts/scim/).
 
-- **Self-service:** Allow end users to self-administer their accounts, including creation, password reset, and originating access requests. See [Enable Self Service request feature](https://help.okta.com/en-us/Content/Topics/Apps/apps-selfservice-configureorg.htm).
+- **Self-service:** Allow end users to self-administer their accounts, including creation, password reset, and originating access requests. See [Enable Self Service request feature](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-selfservice-configureorg).
 
 - **Social media and external Identity Provider (IdP) authentication:** Allow users to sign in using their external credentials and not need a special ID for your apps. They enhance user satisfaction and reduce your admin workload. See [External Identity Providers](/docs/concepts/identity-providers/).
 
@@ -57,6 +57,6 @@ title: IAM terminology
 
 - **WF (Workforce identity):** An IAM model for managing employee and contractor access to your organization's apps and resources. Its main goal is to manage risk.
 
-- **WS-Fed (WS-Federation):** An XML-based protocol used for SSO. It's typically used to sign in to legacy Windows-based web applications and Microsoft Office 365, where Okta acts as an authorization server or Identity Provider. See [WS-Fed app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-wsfed.htm).
+- **WS-Fed (WS-Federation):** An XML-based protocol used for SSO. It's typically used to sign in to legacy Windows-based web applications and Microsoft Office 365, where Okta acts as an authorization server or Identity Provider. See [WS-Fed app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-wsfed).
 
 - **Zero Trust:** An architectural security strategy that is based on the principles of least-privilege access controls and strict user authentication or "never trust, always verify." It requires all users to be authenticated, authorized, and continuously validated before being granted or keeping access to applications and data. Okta's features help you architect, design, and build zero trust applications. See [What is Zero Trust Security?](http://okta.com/blog/2019/01/what-is-zero-trust-security/).

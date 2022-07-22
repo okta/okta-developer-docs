@@ -77,7 +77,7 @@ For users to sign in with their external IdP credentials, you must forward their
 
 - **Secure Authentication Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
 
-- **WS-Federation (WS-Fed)** is typically used to sign in to legacy Windows-based web apps and Office 365. See [WS-Fed app integrations](https://help.okta.com/en-us/Content/Topics/Apps/apps-about-wsfed.htm).
+- **WS-Federation (WS-Fed)** is typically used to sign in to legacy Windows-based web apps and Office 365. See [WS-Fed app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-wsfed).
 
 - **Secure Web Authentication (SWA)** provides a single sign-on capability to external applications that don't support federated sign-on methods such as SAML, OIDC, and WS-Fed. It works with any web-based app. See [SWA app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-swa) for how to use SWA to set up SSO access to an application.
 
@@ -117,7 +117,7 @@ Learn more:
 
 - [Risk Scoring](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) elaborates on Okta's risk processing.
 
-- [About Okta ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/about-threatinsight.htm) describes how this product helps prevent credential-based attacks. Okta's ThreatInsight product uses data from the analyses of authentication requests made to thousands of Okta organizations and Okta authentication endpoints to identify suspicious IP addresses. See [Okta ThreatInsight Whitepaper](https://www.okta.com/resources/whitepaper/okta-threatinsight/).
+- [About Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight) describes how this product helps prevent credential-based attacks. Okta's ThreatInsight product uses data from the analyses of authentication requests made to thousands of Okta organizations and Okta authentication endpoints to identify suspicious IP addresses. See [Okta ThreatInsight Whitepaper](https://www.okta.com/resources/whitepaper/okta-threatinsight/).
 
 ### Authentication policies
 
