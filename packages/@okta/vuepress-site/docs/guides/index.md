@@ -118,6 +118,7 @@ guides:
  - authenticators-web-authn
  - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
  - authenticators-okta-verify
+ - authenticators-custom-authenticator
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview

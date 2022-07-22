@@ -1,0 +1,1 @@
+See the [Android Authenticator SDK sample app](https://github.com/okta-tardis/okta-devices-android/tree/master/push-sample-appevices-android/tree/master/devices-push).
