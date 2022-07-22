@@ -103,6 +103,7 @@ The `deleteFromDevice` function doesn’t call the server, so it doesn’t requi
 
 > **Note:** Use `deleteFromDevice` with caution as the user can’t meet factor requirements for sign-in attempts after deletion. The server is unaware the authenticator no longer exists.
 
+```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
@@ -111,6 +112,7 @@ enrollments.find { it.userInformation().username == "myUser" }?.let { pushEnroll
         .onSuccess { println("success") }
         .onFailure { println("failure") }
 }
+```
 
 ### Respond to a challenge
 
@@ -120,6 +122,7 @@ When a user attempts to sign in to the enrolled account through an app or a web 
 
 Sometimes FCM fails to deliver a notification to the user. To check the server for pending challenges:
 
+```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
@@ -128,16 +131,18 @@ enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
         .onSuccess { println("success") }
         .onFailure { println("failure") }
 }
+```
 
 ### Resolve challenges
 
 Once you receive a challenge, your app should resolve them in order to proceed with the login. The SDK may request remediation steps to resolve the challenge:
 
-UserConsent: Asks the user to approve or deny the challenge.
-UserVerification: Notifies the app that a biometric verification is required to proceed.
+* `UserConsent`: Asks the user to approve or deny the challenge.
+* `UserVerification`: Notifies the app that a biometric verification is required to proceed.
 
-See the Devices SDK sample app for complete details about resolving a push challenge.
+See the [Devices SDK sample app]() for complete details about resolving a push challenge.
 
+```kotlin
 val fcmRemoteMessage = "PushChallengeString" // fcm challenge
 
 authenticator.parseChallenge(fcmRemoteMessage)
@@ -154,3 +159,4 @@ private fun remediate(remediation: PushRemediation) = runCatching {
         is UserVerification -> println("Show a biometric prompt")
     }
 }.getOrElse { updateError(it) }
+```
