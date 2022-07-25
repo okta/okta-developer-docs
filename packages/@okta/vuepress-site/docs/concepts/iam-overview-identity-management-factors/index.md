@@ -115,7 +115,7 @@ Using Universal Directory:
 
 - Organize users in hierarchical groups, and assign roles, permissions, and policies to them that are inherited by their members.
 
-- Use its out-of-the-box connections with HR systems like Workday, SaaS apps like G Suite, CSV files, and third-party identity providers.
+- Use its out-of-the-box connections with HR systems like Workday, SaaS apps like G Suite, CSV files, and third-party Identity Providers.
 
 - Get a real-time syslog to troubleshoot and address security issues and use pre-built reports to see how end users use apps and services. You can download or export your data to CSV files, sync it with Security Information and Event Management systems, or access it through its API.
 
@@ -139,13 +139,13 @@ A typical user profile contains attributes such as a user's first name, last nam
 
 Okta supports four types of user profiles:
 
-- **Okta user profiles** contain information about individual end users. They have thirty-one default base attributes, and you can add custom attributes.
+- **Okta user profiles** contain information about individual end users. They have include default base attributes, and you can add custom attributes.
 
 - **Okta group profiles** contain information about specific user groups. They have base attributes for name and description, and you can add custom attributes.
 
 - **Okta app user profiles** define the attributes that can be pushed to or imported from particular apps in the Universal Directory. It has both base and custom attributes.
 
-- **Okta custom user profiles** are based on Okta user profiles and are used for different types of users, such as administrators, contractors, help desk, and so on. (You can have up to ten user types, with a separate custom user profile for each.) Custom user profiles also have thirty-one default base attributes, and you can add custom attributes.
+- **Okta custom user profiles** are based on Okta user profiles and are used for different types of users, such as administrators, contractors, help desk, and so on. (You can have up to ten user types, with a separate custom user profile for each.) Custom user profiles also have default base attributes, and you can add custom attributes.
 
 Your admins can create and manage user types, Okta profiles, and custom attributes. Profile data is available for authentication, authorization, and access control, and your apps can access it through the API.
 
@@ -157,7 +157,7 @@ Learn more:
 
 #### Progressive profiling
 
-*Progressive profiling* allows you to add information to user profiles, or have Okta request additional info, after users register. Use it to require less data when users register, and collect more and more reliable user demographic data later. You can also use it to have Okta request additional data if profile requirements change, such as if an application requires new app profile data.
+*Progressive profiling* allows you to add information to user profiles, or have Okta request additional info, after users register. Use it to require less data when users register, and collect reliable user demographic data later. You can also use it to have Okta request additional data if profile requirements change, such as if an application requires new app profile data.
 
 Learn more:
 
@@ -169,7 +169,7 @@ Learn more:
 
 ### Okta organizations and groups
 
-Okta manages users in [organizations](#okta-organizations), and uses [groups](#okta-groups) to facilitate user administration.
+Okta manages users in [organizations](#okta-organizations) and uses [groups](#okta-groups) to facilitate user administration.
 
 #### Okta organizations
 
@@ -179,9 +179,9 @@ Every org has users and apps. These are the only mandatory items that you must c
 
 Okta orgs host pages on subdomains, and a unique URL is assigned to each org. The typical org URL is the tenant name (the subdomain), and then the domain name. Each org has an admin URL to sign in to the Admin Console. You can [customize the organization and admin URLs](/docs/guides/custom-url-domain/main/).
 
-There are two types of organizations: production and preview:
+There are two types of organizations &mdash; production and preview:
 
-- Preview orgs allow you to see the next release early and play with Beta features. Some beta and Early Access (EA) features are made available by invitation. Some are self-service features which you can turn on yourselves. All preview orgs include all Generally Available (GA) features.
+- Preview orgs allow you to see the next release early and play with Beta features. Some Beta and Early Access (EA) features are made available by invitation. Some are self-service features that you can turn on yourselves. All preview orgs include all Generally Available (GA) features.
 
 - Production orgs are stable releases and don't contain Beta features. They include both self-service EA features and those EA features made available by request, and all GA features.
 

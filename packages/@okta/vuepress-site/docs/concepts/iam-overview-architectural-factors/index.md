@@ -27,7 +27,7 @@ Design your IAM solution to be highly available. Consider strategies such as the
 
 Design your IAM solution to be highly reliable with very high data integrity. Make sure every feature works correctly and can properly handle anomalies such as user and system errors. Consider strategies such as these to help achieve high reliability:
 
-- Design and develop aggressive error detection and error handling techniques. Ideally, you should validate every piece of incoming data that your solution uses and never assume any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
+- Design and develop aggressive error detection and error handling techniques. Ideally, Architectural Factorsyou should validate every piece of incoming data that your solution uses and never assume any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
 
 - To the extent practical, design your solution to minimize opportunities for human errors and provide a way to quickly and easily recover when they happen.
 
@@ -153,7 +153,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - With our Terraform Okta Provider, your team can introduce or add to our Infrastructure as Code codebase and automated pipeline. See [What is Terraform?](https://www.terraform.io/intro) and [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
-- You can use Okta's drop-in solutions, event-driven APIs and SDKs to integrate features with a wide range of applications in different ways and usage models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/reference/) section in the Okta Developer Portal.
+- You can use Okta's drop-in solutions and event-driven APIs and SDKs to integrate features with a wide range of applications in different ways and usage models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/reference/) section in the Okta Developer Portal.
 
 - Its online technical documentation helps your application developers use its APIs and SDKs.
 
