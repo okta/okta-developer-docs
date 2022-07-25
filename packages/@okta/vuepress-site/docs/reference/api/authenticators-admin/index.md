@@ -953,7 +953,7 @@ The Authenticator object defines the following properties:
 
 #### Example Duo Authenticator
 
-```
+```json
 {
     "type": "app",
     "id": "aut5gnvcjUHIWb25J0g4",
