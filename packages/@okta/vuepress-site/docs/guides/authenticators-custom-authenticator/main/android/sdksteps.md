@@ -10,7 +10,7 @@ See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-ove
 
 Add the Okta Authenticator SDK dependency to your `build.gradle` file:
 
-```gradle
+```kotlin
 implementation("com.okta.devices:devices-push:$okta.sdk.version")
 ```
 

@@ -120,7 +120,7 @@ You need to set up a Global Session Policy and an authentication policy to integ
 
 Use cases that meet the following conditions receive an error message in the Admin Console UI:
 
-* Call the `api/va/apps` endpoint to create an OIDC app with a custom `client_id`.
+* Call the `api/v1/apps` endpoint to create an OIDC app with a custom `client_id`.
 * Use the Admin Console to create a custom authenticator.
 
 #### Workaround

@@ -72,4 +72,37 @@ The following shows a sample request:
 
 #### Sample response
 
-<!-- Need from lalitha -->
+```json
+{
+    “key”:“custom_app”,
+    “name”:“Custom App Authenticator”,
+    “agreeToTerms” : true,
+    “provider”: {
+        “type”:“PUSH”,
+        “configuration”: {
+          “fcm”: {
+             “id”:“ppc38rxEr5dEKqDD10g4"
+            },
+        “apns”: {
+            “id”: “ppc1buciB5V7ZdcB70g4”,
+            “appBundleId”:“com.my.app.release”,
+            “debugAppBundleId”:“com.my.app.debug”
+            }
+        }
+    },
+    “settings”: {
+     “appInstanceId”:“0oa33z6AFuYWYjdBf0g4",
+     “userVerification”:“preferred”
+    },
+    “methods”: [
+        {
+            “type”:“push”,
+            “status”:“ACTIVE”,
+            “settings”: {
+                “algorithms”: [
+                “RS256",
+                “ES256”
+                        ],
+                “keyProtection”:“ANY”
+                    }
+        }
