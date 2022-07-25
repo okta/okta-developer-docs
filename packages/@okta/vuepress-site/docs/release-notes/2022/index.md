@@ -4,6 +4,18 @@ title: Okta API Products release notes 2022
 
 ## July
 
+### Weekly release 2022.07.2
+
+| Change | Expected in Preview Orgs |
+|----------------------------|--------------------------|
+| [Bugs fixed in 2022.07.2](#bugs-fixed-in-2022-07-2) | July 27, 2022 |
+
+#### Bugs fixed in 2022.07.2
+
+* Operations that assigned custom roles to a user or group and included a non-existing resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
+* When calling the “Verify a WebAuthn Factor challenge” (`/users/${userId}/factors/${factorId}/verify`) endpoint, the wrong WebAuthn factor enrollment profile information was returned when more than one factor were registered. (OKTA-482701)
+* When the change password (/users/{{userid}}/credentials/change_password) endpoint was called, the error message that appeared wasn't translated into the selected language. (OKTA-507667)
+
 ### Weekly release 2022.07.1
 
 | Change | Expected in Preview Orgs |
