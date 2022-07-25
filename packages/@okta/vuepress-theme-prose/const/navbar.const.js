@@ -91,6 +91,35 @@ export const concepts = [
         path: "/docs/concepts/user-profiles/"
       },
       {
+        title: "Understanding IAM",
+        subLinks: [
+          {
+            title: "IAM overview",
+            path: "/docs/concepts/iam-overview/"
+          },
+          {
+            title: "Identity management factors",
+            path: "/docs/concepts/iam-overview-identity-management-factors/"
+          },
+          {
+            title: "Authentication factors",
+            path: "/docs/concepts/iam-overview-authentication-factors/"
+          },
+          {
+            title: "Authorization factors",
+            path: "/docs/concepts/iam-overview-authorization-factors/"
+          },
+          {
+            title: "Architectural factors",
+            path: "/docs/concepts/iam-overview-architectural-factors/"
+          },
+          {
+            title: "IAM terminology",
+            path: "/docs/concepts/iam-overview-iam-terminology/"
+          }
+        ]
+      },
+      {
         title: "Understanding SAML",
         subLinks: [
           {
