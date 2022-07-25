@@ -24,7 +24,7 @@ Okta Identity Engine currently supports Authenticators for the following factors
 * Email
 * WebAuthn
 * Duo
-* Custom App
+* Custom App <ApiLifecycle access="ea" />
 
 ## Get started
 
@@ -83,7 +83,7 @@ Returns the created Authenticator with an `id` value of `aut9gnvcjUHIWb37J0g4`:
             },
             "integrationKey": "testIntegrationKey",
             "secretKey": "testSecretKey",
-            "host": "{Duo Org Hostname}"
+            "host": "https://api-xxxxxxxx.duosecurity.com"
         }
     }
 }
@@ -104,7 +104,7 @@ Returns the created Authenticator with an `id` value of `aut9gnvcjUHIWb37J0g4`:
     "provider": {
         "type": "DUO",
         "configuration": {
-            "host": "{Duo Org Hostname}",
+            "host": "https://api-xxxxxxxx.duosecurity.com",
             "userNameTemplate": {
                 "template": "oktaId"
             }
@@ -733,14 +733,14 @@ The Authenticator object defines the following properties:
 | `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify`, `custom_app` |
 | `settings.appInstanceId` | String | The application instance ID. For `custom_app`, an OIDC native app would need to be created using the [Apps API](/docs/reference/api/apps/) with `Authoriation Code`, and `Refresh Token` grant types. `Sign-in redirect URIs` and `Sign-out redirect URIs` can be left as the default values. | `okta_verify`, `custom_app` |
 | `provider.type` | String | Provider type. For Duo: `DUO`. For Custom App: `PUSH` | `duo` and other authenticators making use of the provider object |
-| `provider.configuration.host` | String | The Duo Security org hostname | `duo` |
+| `provider.configuration.host` | String | The Duo Security API hostname | `duo` |
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
-| `provider.configuration.apns.id`| String | Id of the APNs (Apple Push Notification Service) configuration | `custom_app` |
-| `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) configuration | `custom_app` |
-| `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) configuration | `custom_app` |
-| `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) configuration | `custom_app` |
+| `provider.configuration.apns.id`| String | Id of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `methods.type` | String  | Method type. For `custom_app`, it is `push`. For `okta_verify`, allowed values: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
 | `methods.settings.algorithms` | String (Enum) | Algorithms supported. Allowed values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
@@ -966,7 +966,7 @@ The Authenticator object defines the following properties:
     "provider": {
         "type": "DUO",
         "configuration": {
-            "host": "{Duo Org Hostname}",
+            "host": "https://api-xxxxxxxx.duosecurity.com",
             "userNameTemplate": {
                 "template": "oktaId"
             }
@@ -1002,7 +1002,7 @@ The Authenticator object defines the following properties:
 }
 ```
 
-#### Example Custom App Authenticator
+#### Example Custom App Authenticator <ApiLifecycle access="ea" />
 
 ```
 {

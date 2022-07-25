@@ -29,7 +29,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"key\": \"duo\",\n    \"name\": \"Duo Security\",\n    \"provider\": {\n        \"type\": \"DUO\",\n        \"configuration\": {\n            \"userNameTemplate\": {\n                \"template\": \"oktaId\"\n            },\n            \"integrationKey\": \"testIntegrationKey\",\n            \"secretKey\": \"testSecretKey\",\n            \"host\": \"{Duo Org Hostname}\"\n        }\n    }\n}"
+					"raw": "{\n    \"key\": \"duo\",\n    \"name\": \"Duo Security\",\n    \"provider\": {\n        \"type\": \"DUO\",\n        \"configuration\": {\n            \"userNameTemplate\": {\n                \"template\": \"oktaId\"\n            },\n            \"integrationKey\": \"testIntegrationKey\",\n            \"secretKey\": \"testSecretKey\",\n            \"host\": \"https://api-xxxxxxxx.duosecurity.com\"\n        }\n    }\n}"
 				},
 				"url": {
 					"raw": "{{url}}/api/v1/authenticators",
