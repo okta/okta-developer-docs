@@ -69,7 +69,7 @@
             </a>
           </router-link>
     </div>
-    <transition name="fade">
+    <transition name="slide-fade">
       <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded || isCurrentPage(link.path)">
         <SidebarItem
           v-for="sublink in link.subLinks"
@@ -192,10 +192,15 @@ export default {
 </script>
 
 <style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.slide-fade-enter-active {
+  transition: all .8s ease;
 }
-.fade-enter, .fade-leave-to {
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(10px);
   opacity: 0;
 }
 </style>
