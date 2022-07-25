@@ -71,8 +71,12 @@ Returns the created Authenticator with an `id` value of `aut9gnvcjUHIWb37J0g4`:
 
 #### Request
 
-```json
-{
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
     "key": "duo",
     "name": "Duo Security",
     "provider": {
@@ -83,10 +87,11 @@ Returns the created Authenticator with an `id` value of `aut9gnvcjUHIWb37J0g4`:
             },
             "integrationKey": "testIntegrationKey",
             "secretKey": "testSecretKey",
-            "host": "https://api-xxxxxxxx.duosecurity.com"
+            "host":"https://api-xxxxxxxx.duosecurity.com"
         }
     }
 }
+' "https://{yourOktaDomain}/api/v1/authenticators"
 ```
 
 #### Response
@@ -1004,7 +1009,7 @@ The Authenticator object defines the following properties:
 
 #### Example Custom App Authenticator <ApiLifecycle access="ea" />
 
-```
+```json
 {
     "type": "app",
     "id": "aut67ryPSDvEpomfS0g5",
