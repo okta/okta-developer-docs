@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bug fixed in 2022.07.2
 
-Operations that assigned custom roles to a user or group and included a non-existing resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
+Operations that assigned custom roles to a user or group and included a nonexistent resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
 
 ### Weekly release 2022.07.1
 
