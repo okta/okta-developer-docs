@@ -34,7 +34,7 @@ The following shows a sample request:
                 "id": "ppc1buciB5V7ZdcB70g4",
                 "appBundleId":"com.my.app.release",
                 "debugAppBundleId":"com.my.app.debug"
-            }, 
+            },
             "fcm": {
                 "id": "ppc38rxEr5dEKqDD10g4"
             }
