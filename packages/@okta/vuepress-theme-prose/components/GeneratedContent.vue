@@ -9,7 +9,7 @@
         </a>
       </router-link>
       <div class="generated-content">
-        <Content :pageKey="getPageKey(link.path)"  /> 
+        <Content :pageKey="getPageKey(link.path)" /> 
       </div>
     </div>
   </div>
