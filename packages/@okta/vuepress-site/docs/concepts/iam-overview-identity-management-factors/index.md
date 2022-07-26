@@ -139,7 +139,7 @@ A typical user profile contains attributes such as a user's first name, last nam
 
 Okta supports four types of user profiles:
 
-- **Okta user profiles** contain information about individual end users. They have include default base attributes, and you can add custom attributes.
+- **Okta user profiles** contain information about individual end users. They include default base attributes, and you can add custom attributes.
 
 - **Okta group profiles** contain information about specific user groups. They have base attributes for name and description, and you can add custom attributes.
 

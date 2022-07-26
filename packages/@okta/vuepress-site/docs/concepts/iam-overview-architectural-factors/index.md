@@ -27,7 +27,7 @@ Design your IAM solution to be highly available. Consider strategies such as the
 
 Design your IAM solution to be highly reliable with very high data integrity. Make sure every feature works correctly and can properly handle anomalies such as user and system errors. Consider strategies such as these to help achieve high reliability:
 
-- Design and develop aggressive error detection and error handling techniques. Ideally, Architectural Factorsyou should validate every piece of incoming data that your solution uses and never assume any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
+- Design and develop aggressive error detection and error handling techniques. Ideally, Architectural Factors you should validate every piece of incoming data that your solution uses and never assume any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
 
 - To the extent practical, design your solution to minimize opportunities for human errors and provide a way to quickly and easily recover when they happen.
 
