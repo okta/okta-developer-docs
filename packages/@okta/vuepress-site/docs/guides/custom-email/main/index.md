@@ -167,7 +167,7 @@ See [Use VTL variables](#use-vtl-variables) for available email template variabl
 
 ### Use conditional logic
 
-In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
+In your email templates, you can use any conditional logic that VTL supports, such as `if`, `elseif`, or `else` constructs and `foreach` loops. See the [Velocity documentation](https://velocity.apache.org/engine/2.3/user-guide.html).
 
 ### Customization example
 
