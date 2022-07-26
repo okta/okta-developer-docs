@@ -1649,7 +1649,7 @@ curl -v -X GET \
   }, {
     "id": "irb5e92YgBazyyQ3x1q5",
     "role": "ACCESS_CERTIFICATIONS_ADMIN",
-    "label": "Access Certifications Admin",
+    "label": "Access Certifications Administrator",
     "type": "ACCESS_CERTIFICATIONS_ADMIN",
     "status": "ACTIVE",
     "created": "2019-02-06T16:20:57.000Z",
@@ -1913,7 +1913,7 @@ curl -v -X POST \
 {
   "id": "irb1q92TFAHzySt3x0g4",
   "role": "ACCESS_REQUESTS_ADMIN",
-  "label": "Access Requests Admin",
+  "label": "Access Requests Administrator",
   "type": "ACCESS_REQUESTS_ADMIN",
   "status": "ACTIVE",
   "created": "2019-02-06T16:20:57.000Z",
@@ -3096,8 +3096,8 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 We also support the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Admin | `okta.governance.accessCertifications.manage` |
-| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Admin       | `okta.governance.accessRequests.manage`       |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
 
 #### Assignment types
 
