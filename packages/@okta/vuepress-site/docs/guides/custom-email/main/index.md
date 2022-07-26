@@ -114,6 +114,16 @@ The following table provides a list of all available email templates in an Okta 
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when they are assigned new reviews by an admin or a different reviewer. |
 | Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
 
+### Use Branding variables
+
+After you create a theme for your org, you can use branding variables in your custom email templates by selecting the `FULL_THEME` variant for your emails. If you delete any of these optional variables from the email code, it will disconnect the theme object properties from the email template.
+
+| Variable | Asset Type |
+|-------------------|--------------------|
+| ${brand.theme.logo}| URL |
+| ${brand.theme.primaryColor}} | hex code for CTA button |
+| ${brand.theme.secondaryColor} | hex code for background color |
+
 ### Use allowed HTML tags and elements
 
 The following table provides a list of all allowed HTML tags and elements in customized templates. If you deviate from the allowed tags and elements, you receive error messages.
