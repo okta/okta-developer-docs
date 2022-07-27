@@ -64,9 +64,9 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 When you are ready to grant the required scopes, follow these steps:
 
-1. Sign in to your Okta organization with your administrator account and go to Applications > Applications.
+1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 2. Open your OpenID Connect client app.
-3. On the Okta API Scopes tab, click Grant for the following scopes:
+3. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
    * For access to both GET and POST/DELETE endpoints:
       * `okta.authenticators.manage.self`
    * For access to GET endpoints only:
