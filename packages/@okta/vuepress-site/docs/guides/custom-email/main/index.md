@@ -155,13 +155,11 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use:
 
-- enhanced conditional logic
-- all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
-- some of the org attributes in these variables
+- Enhanced conditional logic.
+- All of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
+- Some of the org attributes in these variables.
 
-Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects.
-
-For example, reference the first name of a user with `${user.profile.firstName}`.
+Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects. For example, reference the first name of a user with `${user.profile.firstName}`.
 
 See [Use VTL variables](#use-vtl-variables) for available email template variables.
 
