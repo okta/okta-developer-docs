@@ -121,7 +121,7 @@ After you create a theme for your org, you can use branding variables in your cu
 | Variable | Asset Type |
 |-------------------|--------------------|
 | ${brand.theme.logo}| URL |
-| ${brand.theme.primaryColor}} | hex code for CTA button |
+| ${brand.theme.primaryColor} | hex code for CTA button |
 | ${brand.theme.secondaryColor} | hex code for background color |
 
 ### Use allowed HTML tags and elements
