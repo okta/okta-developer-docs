@@ -8,7 +8,7 @@ See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-ove
 
 ### Install the dependency
 
-Add the Okta Authenticator SDK dependency to your `build.gradle` file:
+Add the Okta Devices SDK dependency to your `build.gradle` file:
 
 ```kotlin
 implementation("com.okta.devices:devices-push:$okta.sdk.version")
@@ -25,6 +25,8 @@ val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
     ApplicationConfig(context, appName = "MyApp", appVersion = BuildConfig.VERSION_NAME)
 )
 ```
+
+> **Note:** If a passphrase isn't provided, the Devices SDK data isn't encrypted. You must secure the passphrase.
 
 ### Enroll the user
 
