@@ -116,9 +116,9 @@ The following table provides a list of all available email templates in an Okta 
 
 ### Use Branding variables
 
-After you create a theme for your org, select the `FULL_THEME` variant to use branding variables in your custom email templates. 
+After you create a theme for your org, select the `FULL_THEME` variant to use branding variables in your custom email templates.
 
-> **Note:** If you delete any of these optional variables from the email code, it disconnects the theme object properties from the email template.
+> **Note:** If you delete any of the following optional variables from the email code, you disconnect the theme object properties from the email template.
 
 | Variable | Asset Type |
 |-------------------|--------------------|
