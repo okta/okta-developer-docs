@@ -365,10 +365,6 @@ export const guides = [
                 guideName: "add-an-external-idp"
               },
               {
-                title: "Smart Card",
-                path: "/docs/guides/add-an-external-idp/smartcard/"
-              },
-              {
                 title: "Social Login",
                 guideName: "social-login"
               },
