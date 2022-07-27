@@ -42,11 +42,10 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 **Install and configure the Okta Devices SDK**
 
-1. [Install the dependency](#install-the-dependency).
+1. [Install the dependency](#install-the-dependency): Add the Okta Devices SDK dependency to your `build.gradle` file.
 2. [Initialize the client](#initialize-the-client): Create the SDK object to work with your Okta authenticator configuration.
-3. [Enroll the user](#enroll-the-user).
-4. [Respond to a challenge](#respone-to-a-challenge): 
-5. [Resolve challenges](#resolve-challenges): 
+3. [Enroll the user](#enroll-the-user): Register a device and optional biometrics with an account for use with the custom authenticator.
+4. [Respond to a challenge](#respond-to-a-challenge): Resolve a challenge from the custom authenticator for a sign-in attempt against an enrolled account, prompting the user to approve or reject it (with optional biometrics). Refresh the FCM device registration token, remediate changed biometrics, and deregister the account on the device.
 
 <!-- Flow-type DIAGRAM -->
 

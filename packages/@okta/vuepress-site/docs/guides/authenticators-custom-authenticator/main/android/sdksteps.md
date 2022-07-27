@@ -122,22 +122,9 @@ enrollments.find { it.userInformation().username == "myUser" }?.let { pushEnroll
 
 When a user attempts to sign in to the enrolled account through an app or a web browser, Okta creates a push challenge. The push challenge is sent to enrolled devices through your push provider.
 
-#### Retrieve pending challenges
+<!-- It may not always be delivered. Add content about it here. -->
 
-Sometimes FCM fails to deliver a notification to the user. To check the server for pending challenges:
-
-```kotlin
-val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
-
-// Find the enrollment associated with the current user
-enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
-    pushEnrollment.retrievePushChallenges(AuthToken.Bearer("accessToken"))
-        .onSuccess { println("success") }
-        .onFailure { println("failure") }
-}
-```
-
-### Resolve challenges
+#### Resolve delivered challenges
 
 Once you receive a challenge, your app should resolve them in order to proceed with the login. The SDK may request remediation steps to resolve the challenge:
 
@@ -163,4 +150,19 @@ private fun remediate(remediation: PushRemediation) = runCatching {
         is UserVerification -> println("Show a biometric prompt")
     }
 }.getOrElse { updateError(it) }
+```
+
+#### Retrieve undelivered challenges
+
+Sometimes FCM fails to deliver a notification to the user. <!-- See Maurice for extra explanatory text --> To check the server for pending challenges:
+
+```kotlin
+val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
+
+// Find the enrollment associated with the current user
+enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
+    pushEnrollment.retrievePushChallenges(AuthToken.Bearer("accessToken"))
+        .onSuccess { println("success") }
+        .onFailure { println("failure") }
+}
 ```
