@@ -30,9 +30,9 @@ val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
 }.getOrThrow()
 ```
 
-### Enroll the user
+### Enroll the device
 
-Before enrolling the user, ensure you have the following:
+Before enrolling the device, ensure you have the following:
 
 * An OIDC application. See [Create an OAuth 2.0 app integration]().
 * A custom authenticator. See [Add a custom authenticator]().
@@ -58,7 +58,7 @@ val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThro
 
 #### Update the registration token
 
-Whenever the FCM SDK sends your application a new token with FirebaseMessagingService.onNewToken, you can update existing enrollments with the new token by doing the following:
+Whenever the FCM SDK sends your application a new token with `FirebaseMessagingService.onNewToken`, you can update existing enrollments with the new token by doing the following:
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
