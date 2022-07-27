@@ -15,3 +15,5 @@
 6. Select the checkbox to agree to Okta's Terms and Conditions.
    > **Note:** By adding this feature, you agree on behalf of the entity you represent that it is your sole responsibility to provide any required notices and disclosures to end users, including any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
 7. Click **Add**.
+
+Alternatively, you can add a notification service using the [Create Push Provider](/docs/reference/api/push-providers/#create-push-provider) operation of the Push Providers API.

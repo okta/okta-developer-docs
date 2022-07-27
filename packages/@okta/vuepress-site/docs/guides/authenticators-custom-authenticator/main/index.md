@@ -17,9 +17,6 @@ This guide explains how to create a custom authenticator, using the Devices SDK 
 * An Okta developer app
 * <StackSnippet snippet="notifservicelink" inline />
 * <StackSnippet snippet="appreq" inline />
-* (Optional) The following Postman collections (see [Get started with Okta APIs](/code/rest/)):
-   * [Push Providers API Postman](https://app.getpostman.com/run-collection/83575c0b5b075783862c)
-   * [Custom Authenticators API Postman](https://app.getpostman.com/run-collection/836eb57018cba45da121)
 
 **Sample code**
 
@@ -38,9 +35,9 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 **Create a custom authenticator**
 
 1. [Create an OIDC web authentication client](#create-an-oidc-web-authentication-client): Set up OAuth for your app.
-2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes you need to call the Custom Authenticator API.
-3. [Set up notification services](#set-up-notification-services): Use the Admin Console or Push Provider API to set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
-4. [Add a custom authenticator](#add-a-custom-authenticator): Use the Admin Console or Authenticators Administration API to create and brand a custom authenticator.
+2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes you need to create a custom authenticator.
+3. [Set up notification services](#set-up-notification-services): Set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
+4. [Add a custom authenticator](#add-a-custom-authenticator): Create and brand a custom authenticator.
 5. [Set up a global session policy and authentication policy](#set-up-a-global-session-policy-and-authentication-policy): Control who can access Okta and how.
 
 **Install and configure the Okta Devices SDK**
@@ -63,7 +60,7 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 ### Grant the required scopes
 
-> **Note:** If you have a custom Authorization Server, the scopes associated with the Custom Authenticator API are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
+> **Note:** If you have a custom Authorization Server, the scopes associated with the a custom authenticator are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
 
 When you are ready to grant the required scopes, follow these steps:
 
@@ -80,29 +77,11 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up notification services
 
-You can set up notification services in your org using the Push Providers API or the Admin Console.
-
-#### Use the Admin Console
-
 <StackSnippet snippet="notifserviceadminconsole" />
-
-#### Use the Push Providers API
-
-<StackSnippet snippet="notifservicepushapi" />
 
 ### Add a custom authenticator
 
-The Custom Authenticator allows you to add custom push verification functionality to your mobile apps. Rather than using Okta Verify for push, you can use your own branded app, and embed the Custom Authenticator into it, to perform user verification in your app.
-
-You can create and brand a custom authenticator in your org using the Authenticators Administration API or the Admin console.
-
-#### Use the Admin Console
-
 <StackSnippet snippet="customauthenticatoradminconsole" />
-
-#### Use the Custom Authenticator API
-
-<StackSnippet snippet="customauthenticatorcustomapi" />
 
 ### Set up a global session policy and authentication policy
 

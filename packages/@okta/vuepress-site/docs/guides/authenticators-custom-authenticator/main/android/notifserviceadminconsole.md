@@ -8,3 +8,5 @@
 5. Click **Add**.
 
 After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events]().
+
+Alternatively, you can create an authenticator using the [Create Authenticator](/docs/reference/api/authenticators-admin/#create-authenticator) operation of the Authenticators Admin API.
