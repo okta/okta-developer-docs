@@ -9,7 +9,8 @@
         </a>
       </router-link>
       <div class="generated-content">
-        <Content :pageKey="getPageKey(link.path)" /> 
+        <Content :pageKey="getPageKey(link.path)" slot-key="description" />
+        <p>{{getDescription(link.title)}}</p>
       </div>
     </div>
   </div>
@@ -27,6 +28,7 @@
     },
     mounted() {
       this.getContent(this.appContext.treeNavDocs);
+      console.log('links', this.links)
     },
     watch: {
       $route(to, from) {
@@ -36,6 +38,16 @@
       },
     },
     methods: {
+      getDescription(title) {
+        const arr = [
+          "New to Okta? Our resources walk you through about ---",
+          "Want to know more? The article about --- will give you all the information about it.",
+          "Need details about ---? Follow the link above.",
+          "This is the landing page about --- with more details.",
+          "Here you can find out about --- and get detailed information."
+        ]
+        return arr[Math.floor(Math.random() * arr.length)].replace('---', title)
+      },
       getContent(navigation) {
         for (let el of navigation) {
           if (!!window && el.path && el.path == window.location.pathname) {
