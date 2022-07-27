@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## July
 
+### Weekly release 2022.07.2
+
+| Change | Expected in Preview Orgs |
+|---------------------------------|--------------------------|
+| [Bug fixed in 2022.07.2](#bug-fixed-in-2022-07-2) | July 27, 2022 |
+
+#### Bug fixed in 2022.07.2
+
+Operations that assigned custom roles to a user or group and included a nonexistent resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
+
 ### Weekly release 2022.07.1
 
 | Change | Expected in Preview Orgs |
@@ -46,7 +56,7 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 #### Improvements to the self-service password reset experience
 
-Previously, the self-service password reset (SSPR) flow created unnecessary friction in the end user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application's assurance policy, the user is sent directly to the app. See [Configure the Email authenticator](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/authenticators/configure-email-authenticator.htm) <!-- OKTA-499509 -->
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the end user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application's assurance policy, the user is sent directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email) <!-- OKTA-499509 -->
 
 #### Improvements to the self-service registration experience
 
